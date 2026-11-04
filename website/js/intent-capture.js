@@ -78,7 +78,7 @@
     '.etn-back{position:fixed;inset:0;z-index:2400;display:flex;align-items:center;justify-content:center;padding:22px;',
     '  background:rgba(13,11,9,.74);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}',
     '.etn-back[hidden]{display:none;}',
-    '.etn-card{position:relative;width:min(430px,100%);max-height:calc(100vh - 44px);overflow:auto;text-align:left;',
+    '.etn-card{position:relative;width:min(430px,100%);max-height:calc(100vh - 44px);overflow:auto;overscroll-behavior:contain;text-align:left;',
     '  background:var(--surface,#14110d);border:1px solid var(--line,rgba(243,237,226,.14));border-radius:16px;',
     '  padding:26px 24px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.75);animation:etn-rise .28s cubic-bezier(.2,.8,.2,1) both;}',
     '@keyframes etn-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}',
@@ -101,8 +101,21 @@
     '.etn-err{font-size:13px;line-height:1.6;color:var(--ember,#d28a52);margin:11px 0 0;}',
     '.etn-err a{color:var(--sea,#7fa8a5);}',
     '.etn-fine{font-size:11.5px;line-height:1.6;color:var(--faint,rgba(243,237,226,.45));margin:13px 0 0;}',
-    '.etn-fine a{color:var(--sea,#7fa8a5);}'
+    '.etn-fine a{color:var(--sea,#7fa8a5);}',
+    '.etn-sub span{color:var(--sea,#7fa8a5);}',
+    '.etn-card[data-done] .etn-email,.etn-card[data-done] .etn-ok,.etn-card[data-done] .etn-go.etn-send,.etn-card[data-done] .etn-fine{display:none;}'
   ].join('');
+
+  // What the dialog says over a note, and over a bare tap. The tick is the same.
+  var NOTE_COPY = {
+    h: 'Where do I write back?',
+    sub: 'Your note is written. Leave me an address and it goes.',
+    go: 'Send my note →',
+    fine: 'Your note comes straight to me and I read every one myself. What you write, '
+      + 'your name and your address are kept for that and nothing else — never sold, never passed '
+      + 'on. Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed '
+      + 'and it is done. &middot; <a href="/privacy">What I keep</a>'
+  };
 
   function injectCss() {
     if (document.getElementById('etl-css')) return;
@@ -190,13 +203,13 @@
     x.innerHTML = '&times;';
 
     var h = el('h3', 'etn-h', { id: 'etn-h' });
-    h.textContent = 'Where do I write back?';
+    h.textContent = NOTE_COPY.h;
 
     var sub = el('p', 'etn-sub');
-    sub.textContent = 'Your note is written. Leave me an address and it goes.';
+    sub.textContent = NOTE_COPY.sub;
 
     var email = el('input', 'etn-email', {
-      type: 'email', autocomplete: 'email', id: 'etn-email',
+      type: 'email', autocomplete: 'email', id: 'etn-email', spellcheck: 'false',
       'aria-label': 'Your email', placeholder: 'you@wherever.com'
     });
 
@@ -206,8 +219,8 @@
     oktxt.textContent = CONSENT;
     okwrap.appendChild(okbox); okwrap.appendChild(oktxt);
 
-    var go = el('button', 'etn-go', { type: 'button' });
-    go.textContent = 'Send my note →';
+    var go = el('button', 'etn-go etn-send', { type: 'button' });
+    go.textContent = NOTE_COPY.go;
 
     var err = el('p', 'etn-err', { role: 'alert' });
     err.hidden = true;
@@ -215,14 +228,15 @@
     var fine = el('p', 'etn-fine');
     // innerHTML, not textContent, only because of the links — every character of it
     // is written here and none of it comes from the reader.
-    fine.innerHTML = 'Your note comes straight to me and I read every one myself. What you write, '
-      + 'your name and your address are kept for that and nothing else — never sold, never passed '
-      + 'on. Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed '
-      + 'and it is done. &middot; <a href="/privacy">What I keep</a>';
+    fine.innerHTML = NOTE_COPY.fine;
+
+    // What a bare tap gets once it has landed: a line, and the note a tap away.
+    var done = el('div', 'etn-done', { 'aria-live': 'polite' });
+    done.hidden = true;
 
     card.appendChild(x); card.appendChild(h); card.appendChild(sub);
     card.appendChild(email); card.appendChild(okwrap); card.appendChild(go);
-    card.appendChild(err); card.appendChild(fine);
+    card.appendChild(err); card.appendChild(done); card.appendChild(fine);
     back.appendChild(card);
     document.body.appendChild(back);
 
@@ -234,6 +248,13 @@
       if (opener) { try { opener.focus(); } catch (e) {} }
     }
     function say(html) { err.innerHTML = html; err.hidden = false; }
+    function setCopy(c) {
+      c = c || NOTE_COPY;
+      h.textContent = c.h || NOTE_COPY.h;
+      sub.textContent = c.sub || NOTE_COPY.sub;
+      go.textContent = c.go || NOTE_COPY.go;
+      fine.innerHTML = c.fine || NOTE_COPY.fine;
+    }
 
     x.addEventListener('click', close);
     back.addEventListener('mousedown', function (ev) { if (ev.target === back) close(); });
@@ -261,17 +282,140 @@
     });
 
     DLG = {
-      open: function (from, handler) {
+      // `copy` is optional: a note opens it as it always did, a tap with its own lines.
+      open: function (from, handler, copy) {
         opener = from; onSend = handler;
-        err.hidden = true;
-        go.disabled = false; go.textContent = 'Send my note →';
+        setCopy(copy);
+        err.hidden = true; done.hidden = true; done.innerHTML = '';
+        card.removeAttribute('data-done');
+        go.disabled = false;
         back.hidden = false;
         document.documentElement.style.overflow = 'hidden';
         setTimeout(function () { try { email.focus(); } catch (e) {} }, 40);
       },
+      // The dialog stays open and says what happened; the address and the tick go.
+      done: function (heading, html) {
+        h.textContent = heading;
+        sub.textContent = '';
+        done.innerHTML = html;
+        done.hidden = false;
+        err.hidden = true;
+        card.setAttribute('data-done', '');
+        setTimeout(function () { try { x.focus(); } catch (e) {} }, 40);
+      },
       close: close
     };
     return DLG;
+  }
+
+  // ── one tap: "I'm interested", on a skill or on a school ───────────────────
+  // The same dialog with no note in front of it. The address and the tick are the
+  // whole ask, and a note stays one tap away afterwards (Arnaud, 4 Nov 2026: "make
+  // the 'I'm interested by this skill' or 'I'm interested by this school' easier, so
+  // it's easy for people to reach me"). The row it writes carries the same
+  // kind:'discipline' a note writes — the one shape refresh-unlocked.mjs counts as a
+  // hand — and, for a school, the school by name. Its source is atlas-interest:<slug>,
+  // a routing key circle-welcome answers with a reply written for a tap, never with
+  // "your note reached me" over a note nobody wrote.
+  //
+  // info: { craft (display name), slug (craft id), label, place (dest id),
+  //         placeName, school, dest (the slug the source names) }
+  function interest(info, opener) {
+    info = info || {};
+    var craft = String(info.craft || '').trim();
+    var school = String(info.school || '').trim();
+    var what = school || craft || 'this one';
+    var pageSlug = atlasSlug();
+
+    dialog().open(opener, function (addr, btn, warn, close) {
+      sendInterest(addr, btn, warn, close);
+    }, {
+      h: 'Where do I write?',
+      sub: 'Leave me an address. I’ll write when there’s something real about ' + what + ' — nothing else.',
+      go: 'Count me in →',
+      fine: 'Your address comes straight to me — never sold, never passed on. '
+        + 'Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed and it '
+        + 'is done. &middot; <a href="/privacy">What I keep</a>'
+    });
+
+    async function sendInterest(addr, btn, warn, close) {
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'One moment…';
+
+      var already = false;
+      try { already = await emailHasAccount(addr); } catch (e) { already = false; }
+
+      var interests = [];
+      if (craft) {
+        var disc = { kind: 'discipline', discipline: craft, label: info.label || craft };
+        if (info.slug || pageSlug) disc.slug = info.slug || pageSlug;
+        if (info.place) disc.place = info.place;
+        interests.push(disc);
+      }
+      if (school) {
+        interests.push({ kind: 'school-interest', school: school,
+                         place: String(info.placeName || info.place || '').trim(), craft: craft });
+      }
+      var payload = {
+        email: addr,
+        interests: interests,
+        source: 'atlas-interest:' + (info.dest || pageSlug || info.slug || 'atlas')
+      };
+      // A member's tap is kept as a trigger-silent carrier row, same as a member's
+      // note, so nobody is welcomed to the Circle twice.
+      if (already) payload.is_carrier = true;
+
+      try {
+        var sb = window.supabaseClient;
+        if (!sb) throw new Error('offline');
+        var res = await sb.from('launch_waitlist').insert(payload);
+        if (res && res.error) throw res.error;
+        unstash();
+        if (window.plausible) window.plausible('Interest', { props: { source: payload.source, school: school ? 'yes' : 'no', member: already ? 'yes' : 'no' } });
+      } catch (err) {
+        stash(payload);
+        btn.disabled = false; btn.textContent = label;
+        warn('Couldn’t save that just now — try once more, or write to '
+           + '<a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.');
+        return;
+      }
+
+      dialog().done('Got it.',
+        '<p class="etn-sub">' + esc(what) + ' is noted against <span>' + esc(addr) + '</span>'
+        + (already ? ' — you’re already in the Circle with this address' : '') + '. '
+        + 'If you want to say more — how you’d love to learn it, and where — there’s a note '
+        + 'further down this page, and I read every one myself.</p>'
+        + '<button class="etn-go" type="button" data-etn-note>Write a note →</button>');
+      var b = document.querySelector('.etn-card [data-etn-note]');
+      if (b) b.addEventListener('click', function () {
+        close();
+        if (window.ETNote) window.ETNote.open();
+      });
+    }
+  }
+
+  // The school links the page prints. The craft and the place come off the note's
+  // own form (its data-* is what the page knows), the school off the card's li.
+  function wireInterestLinks() {
+    var links = document.querySelectorAll('[data-interest]:not([data-save-skill])');
+    if (!links.length) return;
+    var f = FORMS[0];
+    var label = f ? String(f.dataset.label || '') : '';
+    var craft = label.indexOf(' · ') > 0 ? label.split(' · ')[0] : label;
+    var placeName = label.indexOf(' · ') > 0 ? label.split(' · ').slice(1).join(' · ') : '';
+    Array.prototype.forEach.call(links, function (a) {
+      a.addEventListener('click', function (ev) {
+        var li = a.closest ? a.closest('li[data-school]') : null;
+        var school = li ? li.getAttribute('data-school') : '';
+        if (!school && !craft) return;          // nothing to say: the link's own jump stands
+        ev.preventDefault();
+        interest({
+          craft: craft, slug: f ? f.dataset.discipline : '', label: label,
+          place: f ? f.dataset.place : '', placeName: placeName,
+          school: school, dest: li ? li.getAttribute('data-dest') : ''
+        }, a);
+      });
+    });
   }
 
   // ── the sheet ─────────────────────────────────────────────────────────────
@@ -473,10 +617,13 @@
     if (!forms.length) return;
     injectCss();
     Array.prototype.forEach.call(forms, function (f) { build(f); FORMS.push(f); });
+    wireInterestLinks();
     flush(); setTimeout(flush, 2500);
   });
 
   window.ETNote = {
-    open: function (craft) { if (FORMS[0] && FORMS[0].etnOpen) FORMS[0].etnOpen(craft); }
+    open: function (craft) { if (FORMS[0] && FORMS[0].etnOpen) FORMS[0].etnOpen(craft); },
+    // skill-save.js hands the skill tap here for anyone who is not a Circle member.
+    interest: function (info, opener) { injectCss(); interest(info, opener); }
   };
 })();

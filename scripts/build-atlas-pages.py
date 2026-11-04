@@ -1606,7 +1606,38 @@ details.smore[open] > summary::before {{ content:"− "; }}
 details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:10px; }}
 .sfoot {{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 20px; margin-top:16px; }}
 .svisit {{ font-size:14px; }}
+.sinterest {{ font-size:14px; color:var(--ember); }}
 .srate {{ font-size:13px; color:var(--muted); }}
+/* ── the top of a craft page: two taps, then the places ─────────────────────
+   "About this skill" opens a panel with no script at all (:target); "I'm interested"
+   is taken over by skill-save.js / intent-capture.js and falls back to the note. */
+.hero-acts {{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }}
+.hbtn {{ display:inline-flex; align-items:center; gap:.5em; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+  letter-spacing:.06em; color:var(--paper); text-decoration:none; background:rgba(243,237,226,.04);
+  border:1px solid rgba(127,168,165,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }}
+.hbtn:hover {{ border-color:var(--sea); background:rgba(127,168,165,.10); }}
+.hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible {{ outline:2px solid var(--sea); outline-offset:3px; }}
+.hbtn.go {{ color:#14110d; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.hbtn.go:hover {{ filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.about-pop {{ display:none; }}
+.about-pop:target {{ display:flex; position:fixed; inset:0; z-index:2300; align-items:center; justify-content:center;
+  padding:22px; background:rgba(13,11,9,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }}
+.about-back {{ position:absolute; inset:0; }}
+.about-card {{ position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--ink2);
+  border:1px solid var(--line); border-radius:16px; padding:28px 26px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.75); }}
+.about-card h2 {{ font-size:28px; }}
+.about-x {{ position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }}
+.about-x:hover {{ color:var(--paper); }}
+/* The place cards on a rail. Bleeds to the screen edge on a phone so the next card
+   peeks in; two abreast on a desktop. The cards themselves are untouched. */
+.prail {{ margin:0 -24px; padding:6px 24px 18px; scroll-padding-inline:24px; scroll-snap-type:x mandatory; align-items:stretch; }}
+.prail > .card {{ flex:0 0 auto; width:min(86vw,420px); margin-bottom:0; scroll-snap-align:start; }}
+.prail.one > .card {{ width:100%; }}
+@media (min-width:900px) {{ .prail {{ margin:0; padding:6px 2px 18px; scroll-padding-inline:0; scroll-snap-type:x proximity; }} }}
+/* On a phone the two taps share one row and the hero gives back what it can, so the
+   first place card is on the screen that opens. */
+@media (max-width:560px) {{ header.hero {{ padding-top:48px; padding-bottom:30px; }} .hero-acts {{ gap:8px; margin-top:18px; }}
+  .hbtn {{ padding:10px 16px; font-size:12px; }} #other-places {{ padding-top:32px; }} }}
 .sread {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }}
 @media (max-width:560px) {{ li.school {{ padding:18px 18px; }} dl.sfacts {{ grid-template-columns:1fr 1fr; }} }}
 .school-url {{ font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; }} .school-url:hover {{ text-decoration:underline; }}
@@ -1650,6 +1681,12 @@ footer a {{ color:var(--sea); }}
 <footer><div class="wrap">{pic_credit}{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/collaborations" style="color:var(--sea);text-decoration:none;">Collaborations</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 <script>{RAIL_JS}</script>
+<script>(function(){{var o=document.getElementById('about-open'),k=document.querySelector('.about-card');
+var c=function(){{location.replace('#about-closed');if(o)o.focus();}};
+var f=function(){{if(location.hash==='#about'&&k)setTimeout(function(){{k.focus();}},30);}};
+window.addEventListener('hashchange',f);f();
+document.addEventListener('keydown',function(e){{if(e.key==='Escape'&&location.hash==='#about')c();}});
+document.querySelectorAll('.about-back,.about-x').forEach(function(a){{a.addEventListener('click',function(e){{e.preventDefault();c();}});}});}})();</script>
 </body>
 </html>"""
     # The blank-line credo belongs only where there IS a blank — the not-open sheets.
@@ -1675,7 +1712,10 @@ def intent_form(source, discipline=None, place=None, label=None):
     data = f' data-discipline="{e(discipline)}"' if discipline else ""
     data += f' data-place="{e(place)}"' if place else ""
     data += f' data-label="{e(label)}"' if label else ""
-    return (f'<form class="intent"{data} data-source="{e(source)}">'
+    # id="letter" is the DOM id every "write me about this one" jump on the Atlas uses
+    # (check-vocabulary §3). The "I'm interested" links fall back to it when no script
+    # arrives: the tap then lands on the note, which is the same ask the long way.
+    return (f'<form class="intent" id="letter"{data} data-source="{e(source)}">'
             '<p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn '
             'it, and where.</p>'
             '<p class="intent-fine">If this box never loads, the same note reaches me at '
@@ -1978,18 +2018,7 @@ def craft_depth(d):
                   "</div></section>")
 
 
-def depth_link(d):
-    """The way down to it, under the lead. Only ever printed when the section exists."""
-    if not craft_depth(d):
-        return ""
-    return ('<p style="margin-top:16px"><a href="#in-depth" style="text-decoration:none;'
-            'font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);'
-            'padding-bottom:2px">The overall on this craft &darr;</a>'
-            '<span class="meta" style="display:block;margin-top:7px">What a trip can honestly '
-            'give you, and what the days are like. The places come first.</span></p>')
-
-
-def in_depth_page(d):
+def in_depth_preserved(d):
     """The essay, on a page of its own.
 
     Arnaud, 2026-09-11, on /atlas/modern-new-technique-cuisine: "this is an in-depth
@@ -2004,6 +2033,104 @@ def in_depth_page(d):
     return f'{d["id"]}-in-depth.html' in PRESERVE
 
 
+def in_depth_generated_body(d):
+    """What a craft page used to print BELOW its places, on a page of its own.
+
+    Arnaud, 4 Nov 2026: "when they click on the skills it should directly show them
+    the card with the different places… then if they want to read about the skill
+    they can click on something and it pops up, then an in depth if they want to
+    dive deeper." So the overall and the long read leave the craft page for
+    <craft>-in-depth.html — the same two functions, in the same order, nothing
+    composed. The sweep and the catalogued places are record, not reading: they stay
+    on the craft page, folded, under the places, for every craft alike. A craft with
+    nothing written gets no page and no door, exactly as craft_depth() prints no
+    heading over a blank. A craft whose essay is hand-written keeps that page and
+    gets nothing generated over it.
+    """
+    if in_depth_preserved(d):
+        return ""
+    return craft_depth(d) + in_depth_block(d)
+
+
+def in_depth_page(d):
+    """Is there a page behind the door — hand-written or generated."""
+    return in_depth_preserved(d) or bool(in_depth_generated_body(d))
+
+
+def overall_on_page(d):
+    """For a craft whose essay is hand-written, the overall stays on the craft page,
+    under the door, where it always was: the preserved page is never regenerated and
+    cannot take it, and a block printed nowhere is a block lost."""
+    if not in_depth_preserved(d):
+        return ""
+    return craft_depth(d) + in_depth_block(d)
+
+
+def about_panel(d):
+    """'About this skill': the intro, the credential, what to hold before going aboard
+    and the sibling line — everything that used to stand between the title and the
+    places — in a panel that opens on a tap.
+
+    No script: the link targets #about, :target draws it as an overlay, and the two
+    close links target an id nothing carries, so they close it without scrolling the
+    page. The text stays in the HTML for a search engine and for a reader whose
+    scripts never arrived. Returns (link, panel); both empty when nothing is written.
+    """
+    cred = (f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">'
+            f'{e(d.get("goldCredential", ""))}</strong>'
+            f'{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>'
+            if d.get("goldCredential") else "")
+    inner = craft_intro(d) + cred + before_aboard_block(d) + sibling_line(d)
+    if not inner.strip():
+        return "", ""
+    link = '<a class="hbtn" href="#about" id="about-open">About this skill</a>'
+    panel = ('<div class="about-pop" id="about" role="dialog" aria-modal="true" aria-labelledby="about-h">'
+             '<a class="about-back" href="#about-closed" aria-label="Close"></a>'
+             '<div class="about-card" tabindex="-1">'
+             '<a class="about-x" href="#about-closed" aria-label="Close">&times;</a>'
+             '<div class="mono">About this skill</div>'
+             f'<h2 id="about-h" style="margin:6px 0 4px">{e(d["discipline"])}</h2>'
+             f'{inner}</div></div>')
+    return link, panel
+
+
+def interest_link(d):
+    """One tap. skill-save.js takes it over for a Circle member (save to the profile)
+    and opens the address dialog for everyone else; with no script it is a jump to
+    the note at the foot of the places, which is the same ask the long way."""
+    return (f'<a class="hbtn go" href="#letter" data-save-skill data-interest '
+            f'data-skill-id="{e(d["id"])}" data-skill-name="{e(d["discipline"])}">'
+            "I&rsquo;m interested</a>")
+
+
+def places_rail(d, cards, n):
+    """The place cards as a swipe rail — the first thing on the page after the title.
+
+    Same cards, same order (community strength, best place first), on the rail the
+    related-crafts row already uses (atlas_hub.RAIL_CSS / RAIL_JS: arrows, drag, the
+    disabled arrow at each end). On a phone the next card peeks in from the edge, so
+    the swipe explains itself; on a desktop two cards stand side by side.
+    """
+    nav = ('<div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button>'
+           '<button data-cr="next" aria-label="Next">&#8250;</button></div>') if n > 2 else ""
+    return ('<div class="crail-wrap"><div class="crail-head"><div>'
+            '<div class="mono">Ordered by community strength — not by who pays</div>'
+            f'<h2>Where the community gathers</h2></div>{nav}</div>'
+            f'<div class="crail prail{" one" if n == 1 else ""}">{cards}</div></div>')
+
+
+def compare_fold(d):
+    """The places table, folded under the rail. It still compares (check 18 reads it
+    there); it just no longer stands in front of the cards."""
+    table = atlas_hub.places_table(d)
+    if not table:
+        return ""
+    return ('<details class="fold"><summary>'
+            '<span class="mono" style="color:var(--sea)">Side by side</span>'
+            '<h2 style="margin:6px 0 0;font-size:20px">Compare the places</h2>'
+            f'</summary><div class="foldbody">{table}</div></details>')
+
+
 def before_aboard_block(d):
     """Craft card: the few things to hold before going aboard, then the door to the in-depth page."""
     ba = d.get("beforeAboard")
@@ -2013,31 +2140,31 @@ def before_aboard_block(d):
                   f'<span style="opacity:.82">{e(t)}</span></li>' for a, t in ba["items"])
     door = (f'<a href="/atlas/{d["id"]}-in-depth#need" style="text-decoration:none;font-size:14px;'
             f'color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
-            f'{e(ba["door"])} &rarr;</a>') if in_depth_page(d) and ba.get("door") else ""
+            f'{e(ba["door"])} &rarr;</a>') if in_depth_preserved(d) and ba.get("door") else ""
     return (f'<div style="margin-top:20px;max-width:62ch"><div class="mono">{e(ba["heading"])}</div>'
             f'<ul style="margin:8px 0 10px;padding-left:18px;font-size:15px;line-height:1.5">{lis}</ul>{door}</div>')
 
 
-def in_depth_page_link(d):
-    """Under the lead: the way to the essay."""
-    if not in_depth_page(d):
-        return ""
-    return (f'<p style="margin-top:16px"><a href="/atlas/{d["id"]}-in-depth" style="text-decoration:none;'
-            'font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);'
-            'padding-bottom:2px">The craft in depth &rarr;</a>'
-            '<span class="meta" style="display:block;margin-top:7px">Where it came from, what is true '
-            'and what is sold, on its own page. The places come first.</span></p>')
-
-
 def in_depth_page_door(d):
-    """After the places: the same door, for whoever read down this far."""
+    """After the places: the one door down. Its line says what is actually behind it —
+    the hand-written essay's promise for a hand-written page, and for a generated one
+    only the blocks that page holds, so the door never promises a history nobody wrote."""
     if not in_depth_page(d):
         return ""
-    return ('<section><div class="wrap prose"><div class="mono">The long read</div>'
+    if in_depth_preserved(d):
+        sub = ('Its history, what nobody tells you, what is true and what is sold, what to read '
+               'next, and how we checked it. A page of its own.')
+    else:
+        parts = []
+        if craft_depth(d):
+            parts.append("what a trip can give you, and what the days are like")
+        if in_depth_block(d):
+            parts.append("the craft at length")
+        sub = parts[0][0].upper() + parts[0][1:] + "".join(" · " + p for p in parts[1:]) + ". A page of its own."
+    return ('<section><div class="wrap prose"><div class="mono">If this one pulls you</div>'
             f'<h2><a href="/atlas/{d["id"]}-in-depth" style="text-decoration:none">'
             f'{e(d["discipline"])} in depth &rarr;</a></h2>'
-            '<p class="meta" style="margin-top:8px">Its history, what nobody tells you, what is true '
-            'and what is sold, what to read next, and how we checked it. A page of its own.</p>'
+            f'<p class="meta" style="margin-top:8px">{e(sub)}</p>'
             '</div></section>')
 
 
@@ -3371,7 +3498,16 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     href = (ft.get("url") if is_pick and ft.get("url") else s_.get("url"))
     visit = (f'<a class="school-url svisit" rel="nofollow noopener" target="_blank" href="{e(href)}">'
              f'Visit {e(s_["name"])} ↗</a>') if href else ""
-    foot = (f'<div class="sfoot">{visit}{rating_html}</div>' if (visit or rating_html) else "")
+    # One tap, on the school itself (Arnaud, 4 Nov 2026: "I'm interested by this
+    # school… so it's easy for people to reach me"). intent-capture.js opens the
+    # address dialog and reads the school, the craft and the place off this card's own
+    # li; with no script it is a jump to the note. Not on a room nobody can book: a
+    # school with a standing says so in its own line and asks for nothing.
+    interest = ("" if stand else
+                '<a class="school-url sinterest" href="#letter" data-interest>'
+                "I&rsquo;m interested in this school &rarr;</a>")
+    foot = (f'<div class="sfoot">{visit}{rating_html}{interest}</div>'
+            if (visit or rating_html or interest) else "")
     read = (f'<p class="sread">Facts read on the school\'s own pages, {e(pretty_date(own["read"]))}.</p>'
             if own.get("read") else "")
 
@@ -3852,18 +3988,46 @@ for d in DISC:
     desc = (d["blurb"][:155] + "…") if len(d["blurb"]) > 156 else d["blurb"]
     measure_gate(d)            # the cap still refuses an over-claimed grade
     _bid = best_dest_id(d)
-    cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
-    cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d.get("goldCredential",""))}</strong>{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>' if d.get("goldCredential") else ""
+    _dests = sorted(d["destinations"], key=lambda x: -x["communityRank"])
+    cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in _dests)
+    # THE PLACES COME FIRST, and nothing stands in front of them any more (Arnaud,
+    # 4 Nov 2026). The title, the one-line blurb, two taps — "About this skill" opens
+    # the panel, "I'm interested" the address — and then the cards, on a rail.
+    # Everything the hero used to print between the title and the places is in the
+    # panel; everything the page used to print below them is behind the one door.
+    _about_link, _about_panel = about_panel(d)
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
-<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{before_aboard_block(d)}{sibling_line(d)}{in_depth_page_link(d)}{depth_link(d)}
+<p class="lead">{e(d['blurb'])}</p>
+<div class="hero-acts">{_about_link}{interest_link(d)}</div>{_about_panel}
 </div></header>
-<section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{sweep_block(d)}
-{craft_depth(d)}{in_depth_block(d)}{in_depth_page_door(d)}
+<section id="other-places"><div class="wrap">{places_rail(d, cards, len(_dests))}{compare_fold(d)}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{sweep_block(d)}{in_depth_page_door(d)}{overall_on_page(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))
+
+    # The page behind the door, for a craft whose essay is not hand-written.
+    _idb = in_depth_generated_body(d)
+    if _idb:
+        _ipath = f'/atlas/{d["id"]}-in-depth'
+        urls.append(_ipath)
+        _cred = (f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">'
+                 f'{e(d.get("goldCredential", ""))}</strong>'
+                 f'{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>'
+                 if d.get("goldCredential") else "")
+        _ibody = f"""<header class="hero"><div class="wrap">
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
+<h1>{e(d['discipline'])} in depth</h1>
+<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{_cred}
+<p style="margin-top:16px"><a href="/atlas/{d['id']}" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
+</div></header>
+{_idb}
+{related_block(d["id"])}"""
+        (OUT / f'{d["id"]}-in-depth.html').write_text(page(
+            f'{d["discipline"]} in depth — what a trip can give you', desc, _ipath, _ibody,
+            breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path), ("In depth", _ipath)],
+            saveable=False))
 
 # ---------- the card data the browse home reads ----------
 # Thin on purpose. A short craft contributes what its own page shows and nothing

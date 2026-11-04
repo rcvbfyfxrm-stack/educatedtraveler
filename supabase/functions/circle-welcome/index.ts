@@ -91,6 +91,11 @@ serve(async (req) => {
     // Both shapes: the hub letter writes "atlas-letter", a craft sheet "atlas-letter:<slug>".
     const isLetter = String(row.source ?? "").startsWith("atlas-letter");
 
+    // A bare tap — "I'm interested" on a skill or a school card, no note written.
+    // It gets its own short reply; a second tap from a person already welcomed is
+    // stamped and skipped like any second plain signup (the !isLetter branch below).
+    const isInterest = String(row.source ?? "").startsWith("atlas-interest");
+
     // Someone offering to open a room (/teach). They get the master's reply, never
     // the Mashiko welcome — that one is written to a person deciding what to learn.
     const isTeach = String(row.source ?? "") === "teach-offer";
@@ -122,21 +127,24 @@ serve(async (req) => {
 
     // What they wrote about, for the subject line and the opening — from the row we
     // just re-read, never from the webhook payload.
-    let craft = "", name = "";
+    let craft = "", name = "", school = "";
     for (const it of Array.isArray(row.interests) ? row.interests : []) {
       if (!it || typeof it !== "object") continue;
       if (it.kind === "discipline" && !craft) craft = String(it.discipline ?? it.label ?? "").trim();
       if (it.kind === "instructor" && !craft) craft = String(it.craft ?? "").trim();
       if (it.kind === "profile" && !name) name = String(it.name ?? "").trim();
+      if (it.kind === "school-interest" && !school) school = String(it.school ?? "").trim();
     }
     if (!craft) craft = "that craft";
 
-    const key = isTeach ? "teach-offer" : isLetter ? "atlas-letter" : "welcome";
+    const key = isTeach ? "teach-offer" : isLetter ? "atlas-letter" : isInterest ? "atlas-interest" : "welcome";
 
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
     const { subject, html, text } = ISSUES[key];
     const subj = subject.replace("{CRAFT}", craft);
-    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft), text?.(unsub, name, craft));
+    // The fourth argument only means something to the tap's reply; every other
+    // template takes three and ignores it.
+    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft, school), text?.(unsub, name, craft, school));
     if (!r.ok) {
       console.error(key + " send failed:", r.error);
       return json({ error: r.error }, 500);

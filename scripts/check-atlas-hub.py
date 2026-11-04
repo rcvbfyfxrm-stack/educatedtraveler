@@ -452,9 +452,14 @@ for _cid, _lad in _ladders.items():
     if not _p.is_file():
         bad(f"skillLadders names {_cid} but website/atlas/{_cid}.html does not exist")
         continue
-    _h = _p.read_text()
+    # The ladder is part of the overall, and since 4 Nov 2026 the overall sits on the
+    # craft's in-depth page (the craft page opens on the places). Count it wherever
+    # the craft prints it — the page, or the page behind its door.
+    _pi = ROOT / f"website/atlas/{_cid}-in-depth.html"
+    _h = _p.read_text() + (_pi.read_text() if _pi.is_file() else "")
     if "The ladder &mdash;" not in _h and "The ladder —" not in _h:
-        bad(f"{_cid}.html carries no ladder section, and skillLadders says it has one")
+        bad(f"{_cid}.html (and its in-depth page) carries no ladder section, and "
+            "skillLadders says it has one")
         continue
     for _r in _lad.get("rungs", []):
         if html_mod.escape(_r["name"]) not in _h:

@@ -75,10 +75,10 @@ type Instructor = {
 type Parsed = {
   name: string; region: string; crafts: string[];
   intent: Array<[string, string]>; dream: string; mastery: Mastery | null;
-  instructor: Instructor | null; leftovers: unknown[];
+  instructor: Instructor | null; schools: string[]; leftovers: unknown[];
 };
 function parseInterests(iv: unknown): Parsed {
-  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", mastery: null, instructor: null, leftovers: [] };
+  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", mastery: null, instructor: null, schools: [], leftovers: [] };
   let items: unknown[] = [];
   if (Array.isArray(iv)) items = iv;
   else if (iv && typeof iv === "object") items = Object.values(iv as Record<string, unknown>).flat();
@@ -126,6 +126,15 @@ function parseInterests(iv: unknown): Parsed {
       case "dream":
         out.dream = String(o.text ?? "").trim() || out.dream;
         break;
+      // "I'm interested in this school" — a tap on a school card on an Atlas place
+      // page (4 Nov 2026). The craft rides in its own discipline item; this is the
+      // room they pointed at, by name, with the place.
+      case "school-interest": {
+        const s = String(o.school ?? "").trim();
+        const pl = String(o.place ?? "").trim();
+        if (s) out.schools.push(pl ? `${s} · ${pl}` : s);
+        break;
+      }
       // An offer to teach, from /teach. Deliberately NOT pushed into out.crafts:
       // a craft in that list reads as a craft someone wants to LEARN, and the two
       // must never be counted as the same signal.
@@ -203,7 +212,8 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
          </div>`).join("")
     : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:0;">No crafts picked.</p>`;
 
-  const intentRows = p.intent.map(([k, v]) => kv(k, esc(v))).join("");
+  const intentRows = p.intent.map(([k, v]) => kv(k, esc(v))).join("")
+    + p.schools.map((s) => kv("The school", esc(s))).join("");
 
   const dreamBlock = p.dream
     ? `<div style="background:#efe6d3;border-radius:8px;padding:24px 26px;margin:24px 0 6px 0;box-shadow:0 10px 30px -18px rgba(0,0,0,0.8);">
@@ -478,10 +488,11 @@ serve(async (req) => {
     const extra = p.crafts.length > 1 ? ` +${p.crafts.length - 1}` : "";
     const craftBit = p.crafts.length ? ` — ${p.crafts[0]}${extra}` : "";
     const masterBit = p.mastery?.skill ? ` · masters ${p.mastery.skill}${p.mastery.advanced === "yes" ? " (wants to go deeper)" : ""}` : "";
+    const schoolBit = p.schools.length ? ` · ${p.schools[0]}` : "";
     // An offer to teach is not a signup and must not read as one in the inbox.
     const subject = p.instructor
       ? `A room offered: ${who}${p.instructor.craft ? " — " + p.instructor.craft : ""}${p.instructor.where ? " · " + p.instructor.where : ""}`
-      : `New Circle signup: ${who}${craftBit}${p.dream ? " · with a dream" : ""}${masterBit}`;
+      : `New Circle signup: ${who}${craftBit}${schoolBit}${p.dream ? " · with a dream" : ""}${masterBit}`;
 
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",

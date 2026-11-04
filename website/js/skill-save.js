@@ -6,10 +6,16 @@
 // instructor, a half-finished signup) is NOT a member here.
 //
 //   • member:     click toggles save/un-save in their profile.
-//   • not a member (visitor OR signed-in-but-no-portrait): the skill is
-//     remembered and they're sent to /circle to join/finish. It lands in their
-//     profile the moment they seal their portrait (portrait.html flushes it),
-//     and again as a fallback next time they open a skill page as a member.
+//   • not a member (visitor OR signed-in-but-no-portrait): the button reads
+//     "I'm interested" and the click opens the address dialog on this page
+//     (intent-capture.js → ETNote.interest), with no note in front of it and no
+//     trip to /circle. Arnaud, 4 Nov 2026: "so it's easy for people to reach me."
+//     Until 4 Nov 2026 the click stashed the skill and sent them to /circle; the
+//     stash is still flushed for anyone it was left with, and then it is gone.
+//
+// The page prints the button itself — an <a data-save-skill …> under the title whose
+// href is the note's own id — so a reader with no script still lands on the note.
+// This file takes it over when it arrives.
 //
 // Storage reuses `saved_adventures` (id "skill:<discipline>") — no migration;
 // owner-only RLS keeps saves private. Needs auth.js + database.js on the page.
@@ -107,6 +113,13 @@
     var resolved = false;
 
     function paint() {
+      if (!member) {
+        // the page's own words, until a member is recognised
+        btn.innerHTML = 'I’m interested';
+        btn.classList.remove('is-saved');
+        btn.removeAttribute('aria-pressed');
+        return;
+      }
       btn.innerHTML = isSaved
         ? '<span class="ss-i" aria-hidden="true">✓</span> Saved to your profile'
         : '<span class="ss-i" aria-hidden="true">+</span> Save this skill';
@@ -130,6 +143,7 @@
       var u = signedIn() ? currentUser() : null;
       member = u ? await isMember(u.id) : false;
       resolved = true;
+      paint();
       if (member && u) {
         await flushPending(u.id);   // fallback completion for a returning member
         await refreshSaved(u.id);
@@ -141,19 +155,31 @@
     }
     setTimeout(resolveMember, 700);
 
-    btn.addEventListener('click', async function () {
-      btn.disabled = true;
+    // The page's button is an <a>, which has no `disabled`; say it both ways.
+    function busy(on) {
+      btn.disabled = on;
+      if (on) btn.setAttribute('aria-disabled', 'true'); else btn.removeAttribute('aria-disabled');
+    }
+
+    btn.addEventListener('click', async function (ev) {
+      // The static link jumps to the note; from here the script answers instead.
+      if (ev && ev.preventDefault) ev.preventDefault();
+      if (btn.getAttribute('aria-disabled') === 'true') return;
+      busy(true);
       if (!resolved) await resolveMember();
 
       if (!member) {
-        // Not a Circle member (or not signed in) → remember it, go join/finish.
-        try { localStorage.setItem(PENDING_KEY, JSON.stringify({ id: info.id, name: info.name })); } catch (e) {}
-        window.location.href = '/circle?save=' + encodeURIComponent(info.id);
-        return; // leave disabled during navigation
+        busy(false);
+        if (window.ETNote && window.ETNote.interest) {
+          window.ETNote.interest({ craft: info.name, slug: info.id, label: info.name }, btn);
+        } else {
+          window.location.hash = 'letter';   // the link's own target: the note
+        }
+        return;
       }
 
       var u = currentUser();
-      if (!u || !window.db) { btn.disabled = false; return; }
+      if (!u || !window.db) { busy(false); return; }
       var wanted = !isSaved;
       try {
         if (wanted) await window.db.saveAdventure(u.id, { id: savedId, name: info.name });
@@ -161,7 +187,7 @@
         isSaved = wanted;
         paint();
       } catch (e) { /* leave state as-is */ }
-      btn.disabled = false;
+      busy(false);
     });
   });
 })();

@@ -364,6 +364,53 @@ EducatedTraveler · educatedtraveler.app
 Leave the Circle: ${unsub}`;
 }
 
+// ── the reply to a bare tap — "I'm interested" on a skill or a school ────────
+// Source 'atlas-interest:<slug>'. No note was written, so neither the Mashiko
+// welcome ("your note is here… I will read yours") nor the Atlas reply ("your note
+// about X reached me") is true for this person. This one says what the tap did and
+// leaves the note a reply away. `school` is set when the tap was on a school card.
+function atlasInterestHtml(unsub: string, name?: string, craft?: string, school?: string): string {
+  const who = esc(name || "").trim();
+  const c = esc(craft || "that craft").trim();
+  const s = esc(school || "").trim();
+  const what = s ? `<strong>${s}</strong>, for ${c}` : `<strong>${c}</strong>`;
+  const wa = encodeURIComponent((school || craft || "that craft").trim());
+  const body = `
+    <p ${LP}>${who ? who + "," : "Hello,"}</p>
+    <p ${LP}>You tapped <em>I'm interested</em> on ${what}, and it is noted. <strong>This reply is automatic; the next one won't be.</strong></p>
+    <p ${LP}>Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.</p>
+    <p ${LP}>If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.</p>
+    <p ${LP}>Or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p style="margin:28px 0 0 0;">Talk soon,</p>
+    <p style="margin:0;">— Arnaud</p>`;
+  return plainShell({ body, unsub });
+}
+
+function atlasInterestText(unsub: string, name?: string, craft?: string, school?: string): string {
+  const who = (name || "").trim();
+  const c = (craft || "that craft").trim();
+  const s = (school || "").trim();
+  const what = s ? `${s}, for ${c}` : c;
+  const wa = encodeURIComponent(s || c);
+  return `${who ? who + "," : "Hello,"}
+
+You tapped "I'm interested" on ${what}, and it is noted. This reply is automatic; the next one won't be.
+
+Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.
+
+If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.
+
+Or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
+https://wa.me/33695903520?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}.
+
+Talk soon,
+— Arnaud
+
+--
+EducatedTraveler · educatedtraveler.app
+Leave the Circle: ${unsub}`;
+}
+
 // ── the reply to someone offering to open a room (source 'teach-offer') ──────
 // A master is not a lead, and the Mashiko welcome — written to someone deciding
 // what to learn — reads wrong to someone offering to teach. The hard rule here is
@@ -428,6 +475,7 @@ export const ISSUES: Record<string, {
   "welcome": { subject: "Welcome to the Circle — the potter who signed the box, not the pot", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
   "atlas-letter": { subject: "Got your note about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
+  "atlas-interest": { subject: "Noted — {CRAFT}", html: atlasInterestHtml, text: atlasInterestText, audience: "leads" },
   // A possible master, from /teach. Never broadcast — it answers one person's offer.
   "teach-offer": { subject: "What you could open in {CRAFT} — where this stands", html: teachOfferHtml, text: teachOfferText, audience: "leads" },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml, audience: "leads" },
