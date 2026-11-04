@@ -9,7 +9,7 @@ photo under website/images/collab/<week>/, run this, ship the pages.
   python3 scripts/build-collab-notes.py --check    exit 1 if a page is out of date
 
 Blocks sit between <!--collab-notes:NAME--> and <!--/collab-notes:NAME-->:
-  tally   the five figures and the "N notes in so far" line
+  tally   the five figures (no page shows them: Arnaud, 4 Nov 2026)
   cards   every note in full (the /barcelona page)
   pull    the three opening lines, each a verbatim excerpt ("pull" in the JSON)
   faces   every writer's sticker, no words (the room, on /barcelona)
@@ -25,7 +25,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "website"
 DATA = ROOT / "scripts/collab-notes/lab-week-01.json"
 PAGES = {
-    "barcelona.html": ("pull", "tally", "faces", "cards"),
+    "barcelona.html": ("pull", "faces", "cards"),
     "collaborations.html": ("voices",),
     "index.html": ("strip",),
 }
@@ -118,7 +118,7 @@ def tally(d, style=""):
 def blocks(d):
     return {"tally": tally(d),
             "cards": '<div class="cn-list">' + "".join(card(n) for n in d["notes"]) + "</div>",
-            "voices": "".join(voice(i, n) for i, n in enumerate(d["notes"])) + tally(d, ' style="margin-top:3.4rem"'),
+            "voices": "".join(voice(i, n) for i, n in enumerate(d["notes"])),
             "pull": pull(d),
             "faces": '<div class="cn-faces">' + "".join(sticker(n) for n in d["notes"]) + "</div>",
             "strip": '<div class="cn-strip">' + "".join(mini(n) for n in d["notes"]) + "</div>"}
