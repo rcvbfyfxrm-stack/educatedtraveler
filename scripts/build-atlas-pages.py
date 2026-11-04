@@ -1616,7 +1616,7 @@ details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:1
   letter-spacing:.06em; color:var(--paper); text-decoration:none; background:rgba(243,237,226,.04);
   border:1px solid rgba(127,168,165,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }}
 .hbtn:hover {{ border-color:var(--sea); background:rgba(127,168,165,.10); }}
-.hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible {{ outline:2px solid var(--sea); outline-offset:3px; }}
+.hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible, .pr-arrow:focus-visible {{ outline:2px solid var(--sea); outline-offset:3px; }}
 .hbtn.go {{ color:#14110d; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .hbtn.go:hover {{ filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .about-pop {{ display:none; }}
@@ -1628,12 +1628,47 @@ details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:1
 .about-card h2 {{ font-size:28px; }}
 .about-x {{ position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }}
 .about-x:hover {{ color:var(--paper); }}
-/* The place cards on a rail. Bleeds to the screen edge on a phone so the next card
-   peeks in; two abreast on a desktop. The cards themselves are untouched. */
-.prail {{ margin:0 -24px; padding:6px 24px 18px; scroll-padding-inline:24px; scroll-snap-type:x mandatory; align-items:stretch; }}
-.prail > .card {{ flex:0 0 auto; width:min(86vw,420px); margin-bottom:0; scroll-snap-align:start; }}
+/* The place cards on a rail. The TRACK bleeds to the screen edge on a phone so the
+   next card peeks in; the cards keep their own padding so the scroll-snap lands
+   flush under the edge, not under the arrows. Two abreast on a desktop. The cards
+   themselves are untouched. */
+.prail-track {{ position:relative; margin:0 -24px; }}
+.prail {{ padding:6px 24px 18px; scroll-padding-inline:24px; scroll-snap-type:x mandatory; align-items:stretch; }}
+.prail > .card, .prail > li.school {{ flex:0 0 auto; width:min(86vw,420px); margin-bottom:0; scroll-snap-align:start; }}
+/* ⭐ Arnaud, 4 Nov 2026: "same for the school in the place card, make another way of
+   swiping or seeing them that is direct when you click on the place" — the schools
+   of a town get the identical rail + arrows the places got, on the page the place
+   card's own "Learn more" door opens onto (schools_rail(), beside schools_list()).
+   ⚠ `ul.schools{{display:grid}}` is MORE specific than `.crail{{display:flex}}`
+   (type+class beats class alone), so grid would silently win the cascade and the
+   rail would never scroll — this re-asserts flex at a specificity that beats it
+   regardless of source order. One school needs no rail at all and keeps the full
+   width it already had (schools_rail() returns the plain list, untouched). */
+ul.schools.crail {{ display:flex; }}
 .prail.one > .card {{ width:100%; }}
-@media (min-width:900px) {{ .prail {{ margin:0; padding:6px 2px 18px; scroll-padding-inline:0; scroll-snap-type:x proximity; }} }}
+@media (min-width:900px) {{ .prail-track {{ margin:0; }} .prail {{ padding:6px 2px 18px; scroll-padding-inline:0; scroll-snap-type:x proximity; }} }}
+/* The swipe arrows: a visible pair at every width, not just a desktop pointer's
+   header row (see places_rail()). Disabled rather than hidden at each end of the
+   rail — a dimmed arrow says "no further", a vanished one reads as a glitch.
+   ⚠ NOT vertically centred on the card: a card's own body (facts, teachers, the
+   blurb, "what the course covers") routinely runs past a thousand pixels, so a
+   true 50% centre sits far below the fold and nobody sees it on the first screen.
+   A fixed offset near the top — inside the ribbon/heading band every card shares,
+   photographed or not — is visible the instant the card scrolls into view. */
+.pr-arrow {{ position:absolute; top:118px; z-index:4;
+  display:flex; align-items:center; justify-content:center; width:38px; height:38px;
+  border-radius:99px; border:1px solid rgba(243,237,226,.22); background:rgba(20,17,13,.74);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--paper);
+  font-size:19px; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
+  transition:opacity .2s,border-color .2s,background .2s; }}
+.pr-arrow:hover {{ border-color:rgba(127,168,165,.55); background:rgba(20,17,13,.9); }}
+.pr-arrow[disabled] {{ opacity:.22; cursor:default; }}
+.pr-prev {{ left:6px; }} .pr-next {{ right:6px; }}
+/* Desktop's rail has almost no inner gutter (2px, vs the phone's 24px scroll-padding),
+   so a 6px inset sits ON the heading. Push the arrow out into the .wrap's own margin
+   instead — the same bleed trick .cardshot already uses — clear of the card's text. */
+@media (min-width:900px) {{ .pr-prev {{ left:-19px; }} .pr-next {{ right:-19px; }} }}
+@media (prefers-reduced-motion:reduce) {{ .pr-arrow {{ transition:none; }} }}
 /* On a phone the two taps share one row and the hero gives back what it can, so the
    first place card is on the screen that opens. */
 @media (max-width:560px) {{ header.hero {{ padding-top:48px; padding-bottom:30px; }} .hero-acts {{ gap:8px; margin-top:18px; }}
@@ -2106,17 +2141,22 @@ def interest_link(d):
 def places_rail(d, cards, n):
     """The place cards as a swipe rail — the first thing on the page after the title.
 
-    Same cards, same order (community strength, best place first), on the rail the
-    related-crafts row already uses (atlas_hub.RAIL_CSS / RAIL_JS: arrows, drag, the
-    disabled arrow at each end). On a phone the next card peeks in from the edge, so
-    the swipe explains itself; on a desktop two cards stand side by side.
+    Same cards, same order (community strength, best place first). Arnaud, 4 Nov 2026:
+    "make it so people can see they can swap in horizontally… add some arrows on the
+    right left." On a phone the next card already peeks in from the edge; the arrows
+    sit ON the track itself, at every width, so a thumb sees the signal where it
+    already is — the related-crafts rail's header pair stays desktop-only by design,
+    and is a different rail. `data-cr` is the hook atlas_hub.RAIL_JS already reads
+    (drag, snap, the disabled arrow at each end), so no script change: there is only
+    ever one `data-cr` pair inside this wrap, never a second.
     """
-    nav = ('<div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button>'
-           '<button data-cr="next" aria-label="Next">&#8250;</button></div>') if n > 2 else ""
+    arrows = ('<button type="button" class="pr-arrow pr-prev" data-cr="prev" aria-label="Previous place">&#8249;</button>'
+              '<button type="button" class="pr-arrow pr-next" data-cr="next" aria-label="Next place">&#8250;</button>'
+              ) if n > 1 else ""
     return ('<div class="crail-wrap"><div class="crail-head"><div>'
             '<div class="mono">Ordered by community strength — not by who pays</div>'
-            f'<h2>Where the community gathers</h2></div>{nav}</div>'
-            f'<div class="crail prail{" one" if n == 1 else ""}">{cards}</div></div>')
+            '<h2>Where the community gathers</h2></div></div>'
+            f'<div class="prail-track"><div class="crail prail{" one" if n == 1 else ""}">{cards}</div>{arrows}</div></div>')
 
 
 def compare_fold(d):
@@ -3543,6 +3583,29 @@ def schools_list(d, x):
                      for s in schools]
 
 
+def schools_rail(rows):
+    """The schools of a town, as a swipe rail — the same arrows and the same
+    no-script fallback as places_rail(), reusing its CSS (.prail-track/.pr-arrow)
+    rather than a second set of rules for what is visually the same control.
+
+    Arnaud, 4 Nov 2026: "same for the school in the place card, make another way of
+    swiping or seeing them that is direct when you click on the place." One school
+    is nothing to swipe between — it keeps the plain list it already had, full width.
+    """
+    if len(rows) <= 1:
+        return f'<ul class="schools">{"".join(rows)}</ul>'
+    arrows = ('<button type="button" class="pr-arrow pr-prev" data-cr="prev" aria-label="Previous school">&#8249;</button>'
+              '<button type="button" class="pr-arrow pr-next" data-cr="next" aria-label="Next school">&#8250;</button>')
+    # ⚠ atlas_hub.RAIL_JS finds a rail by walking `.crail-wrap` ancestors for its
+    # `.crail` and its `[data-cr]` pair — a `.prail-track` with no `.crail-wrap`
+    # around it renders arrows that do nothing on click (caught by actually clicking
+    # one in a render check, not by reading the CSS). places_rail() carries both
+    # classes on its own wrapper; this merges them onto the one div rather than
+    # nesting a second, since .crail-wrap contributes only position:relative, which
+    # .prail-track already sets.
+    return f'<div class="prail-track crail-wrap"><ul class="schools crail prail">{"".join(rows)}</ul>{arrows}</div>'
+
+
 # ---------- the place intro: the town, not the craft ----------
 # Arnaud, 13 September 2026, on the gastronomy ranking: "when talking about a place, a
 # school, I want all the information regarding it — is there a strong community, the part
@@ -3828,9 +3891,9 @@ for d in DISC:
                          "you can book, and nothing here paid to be listed.</p>")
                 schools_html = ('<section><div class="wrap"><div class="mono">What is actually there</div>'
                                 f'<h2>On the site today</h2>{vnote}'
-                                f'<ul class="schools">{"".join(rows)}</ul></div></section>')
+                                f'{schools_rail(rows)}</div></section>')
             else:
-                schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="schools">{"".join(rows)}</ul></div></section>'
+                schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}{schools_rail(rows)}</div></section>'
 
         # Two questions, two sections. A destination with a lineage and no living teacher
         # now says exactly that, instead of printing a dead man under a heading the reader
