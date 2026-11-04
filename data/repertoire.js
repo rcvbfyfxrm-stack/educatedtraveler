@@ -18262,7 +18262,7 @@ window.ET_ATLAS = {
       "certBody": "No formal body. A school certifies its own course; a stage certifies nothing but the name on the door.",
       "goldCredential": "A course certificate from a school you can book — or the long way round, a completed stage in a kitchen of this lineage.",
       "ceiling": "A booked course puts the technique in your hands and shows you what each tool is actually for — spherification, foams, sous-vide, hydrocolloids. The stage is the other road, and it is a real one: months on the line in a kitchen of this lineage, applied for with a CV, paid anywhere from nothing to a small stipend, and nobody can promise you one. Both are real ways in. Only one of them is a door you can book.",
-      "disclosure": "EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week costs, and sold out at the time of writing. His classroom courses run in Spanish and carry no published price; English or French is a private course quoted by email. Checked on martinlippo.com, 1 September 2026. If a direct route suits you better, take it.",
+      "disclosure": "EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week cost, and sold out when we read it on 1 September 2026. His classroom courses for 2026 are sold out and no later date is shown; in person, the way in is a private course, quoted by email. Read on martinlippo.com, 4 November 2026. If a direct route suits you better, take it.",
       "blurb": "The science-driven vanguard of foams, spherification and deconstruction that Ferran Adrià unleashed from a cove on the Costa Brava and rewired global fine dining.",
       "destinations": [
         {
@@ -18366,8 +18366,8 @@ window.ET_ATLAS = {
             {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
-              "course": "Classroom courses and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
-              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish; when we read his site on 8 October 2026, every classroom session it listed, priced from EUR 380, had already run — the last in May 2026 — with no new date shown. English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
+              "course": "Private courses in person and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
+              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on — no CV, no invitation, no stage to win. When we read his site on 4 November 2026, every classroom course it listed for 2026, priced from EUR 380, was sold out, with no later date shown; in person, the way in is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack (read 1 September 2026). He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
               "etRelationship": true,
               "confidence": "high",
               "photos": {
@@ -28038,14 +28038,14 @@ window.ET_ATLAS = {
         "country": "Spain",
         "school": "Vakuum by Martin Lippo",
         "url": "https://martinlippo.com/en/",
-        "course": "Open courses, private masterclasses & online modules in modernist technique",
-        "description": "Martin Lippo, an Argentine chef in Barcelona since 2000 and known for his work with liquid nitrogen, runs Vakuum, a dedicated laboratory and training school. It teaches the full modernist toolkit hands-on — sous-vide, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen — through in-person intensives and a deep online curriculum.",
-        "duration": "2-day intensives and longer modular tracks",
+        "course": "Private courses in person & online modules in modernist technique",
+        "description": "Martin Lippo, an Argentine chef in Barcelona since 2000 and known for his work with liquid nitrogen, runs Vakuum, a dedicated laboratory and training school. It teaches the full modernist toolkit hands-on — sous-vide, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen — through private in-person courses and a deep online curriculum.",
+        "duration": "Private courses by arrangement, and online modules",
         "format": "in-person + online",
         "certification": "Vakuum certificate of attendance",
-        "fitsBecause": "It is a master-led avant-garde lab with genuine open enrolment and an unusually complete curriculum — the clearest fit for learning the technique at the source.",
+        "fitsBecause": "It is a master-led avant-garde lab that still takes a stranger — in person by private course, or online — with an unusually complete curriculum: the clearest fit for learning the technique at the source.",
         "sessions": [],
-        "priceNote": "His Spanish course pages print the classroom prices (the sous-vide course €580); the courses run in Spanish, and English or French is a private course, quoted by email. The online modules are listed separately below. Checked on martinlippo.com, 8 October 2026.",
+        "priceNote": "His in-person page, read 4 November 2026, shows every classroom course for 2026 sold out (the sous-vide course was €580) and no later date. In person, the way in is a private course, quoted by email. The online modules are listed separately below.",
         "confidence": "high"
       },
       "destinations": [
@@ -28227,7 +28227,7 @@ window.ET_ATLAS = {
             "mecca",
             "master-lab"
           ],
-          "why": "Catalonia is where the Adrià revolution began, and Barcelona the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.",
+          "why": "Catalonia is where the Adrià revolution began, and Barcelona the rare city where you can still book a master himself rather than apply for a stage — by private course at Martin Lippo's Vakuum lab.",
           "bestSeason": "Year-round",
           "level": "Enthusiast -> Professional",
           "id": "modern-new-technique-cuisine--barcelona",
@@ -28259,8 +28259,8 @@ window.ET_ATLAS = {
             {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
-              "course": "Open courses, private masterclasses & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
-              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. Open group courses run in Spanish; English or French is available as a private course. Listed because the founder met Martin Lippo in person. Martin Lippo is on two crafts here and this is the one he was listed for — the toolkit itself, taught as technique. He appears again under Modernist Spanish Cuisine, for the Barcelona the elBulli cooks made: same lab, a different question.",
+              "course": "Private courses in person & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
+              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. His group courses for 2026 are sold out and no later date is shown (read 4 November 2026); in person, the way in is a private course, quoted by email. Listed because the founder met Martin Lippo in person. Martin Lippo is on two crafts here and this is the one he was listed for — the toolkit itself, taught as technique. He appears again under Modernist Spanish Cuisine, for the Barcelona the elBulli cooks made: same lab, a different question.",
               "confidence": "high",
               "photos": {
                 "given": "2026-07-30",
@@ -28488,7 +28488,7 @@ window.ET_ATLAS = {
           "englishBasis": "native-English country"
         }
       ],
-      "disclosure": "EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week costs, and sold out at the time of writing. His classroom courses run in Spanish and carry no published price; English or French is a private course quoted by email. Checked on martinlippo.com, 1 September 2026. If a direct route suits you better, take it.",
+      "disclosure": "EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week cost, and sold out when we read it on 1 September 2026. His classroom courses for 2026 are sold out and no later date is shown; in person, the way in is a private course, quoted by email. Read on martinlippo.com, 4 November 2026. If a direct route suits you better, take it.",
       "alsoHere": [
         {
           "place": "Copenhagen",
