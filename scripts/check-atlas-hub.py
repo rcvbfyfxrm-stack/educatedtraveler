@@ -138,6 +138,10 @@ if seen != sorted(seen, reverse=True):
 # against the crafts that COULD be in it: asked for, open, and with a date on file.
 in_band = {slug for _, slug, _ in cards}
 should = {s for s in hands if s in opened and (ROOT / f"website/atlas/{s}.html").exists()}
+# Since 4 Nov 2026 the band carries the FOCUS world only, and says so in its title.
+_idx = json.loads(re.search(r"window\.ET_ATLAS_INDEX = (\{.*\});", (ROOT / "website/js/atlas-index.js").read_text(), re.S)[1])
+_world = {c["id"]: c.get("world") for c in _idx["crafts"]}
+should = {s for s in should if _world.get(s) == atlas_hub.FOCUS}
 if should - in_band:
     bad(f"{len(should - in_band)} craft(s) somebody asked for are missing from the band: "
         f"{', '.join(sorted(should - in_band))} — the section claims all of them")

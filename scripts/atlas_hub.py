@@ -33,6 +33,9 @@ TEMPLATE = Path(__file__).resolve().parent / "atlas-hub-template.html"
 # The five worlds, by the colour the page already draws them in. Mirror of the WORLDS
 # map in atlas-hub-template.html — a card in the band must be the same colour as the
 # same card in the grid below it. Checked by scripts/check-atlas-hub.py.
+# The world the Atlas puts forward for now. Mirror of FOCUS in the template.
+FOCUS = "culinary"
+
 WORLD_COLOR = {
     "adventure": "#6fa3a0",
     "culinary": "#c9a24a",
@@ -1096,7 +1099,7 @@ def opened_band(items):
         '<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap">'
         '<div class="nohead">'
         '<div class="eyebrow">Opened by the Circle</div>'
-        '<h2 class="serif" id="opened-h">The crafts someone wrote me a note about, newest first.</h2>'
+        '<h2 class="serif" id="opened-h">The kitchen crafts someone wrote me a note about, newest first.</h2>'
         '</div>'
         f'<div class="nocount"><span id="noseen">1 of {n}</span>'
         f'<span class="track"><i id="nofill"></i></span>'
@@ -1192,7 +1195,10 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     #    it. Asserted, not attempted: if the anchor ever moves in the template the
     #    build stops rather than shipping a page that quietly lost its band.
     anchor = '</main>'
-    band = opened_band(list(opened))
+    # The kitchen only, for now (Arnaud, 4 Nov 2026) — the band leads with what the
+    # catalogue above it puts forward. Colour is the world: band_item() sets it from
+    # WORLD_COLOR and check-atlas-hub check 5 holds the map to the template's.
+    band = opened_band([it for it in opened if it.get("color") == WORLD_COLOR[FOCUS]])
     if band:
         if t.count(anchor) != 1:
             raise SystemExit("atlas_hub: expected exactly one </main> in "
