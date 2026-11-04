@@ -74,7 +74,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 .nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
 .nav-links a{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,237,226,.55);transition:color .25s;white-space:nowrap}
 .nav-links a:hover{color:var(--sea)}
-@media (max-width:700px){.nav-links{display:none}}
+/* ⭐ Arnaud, 4 Nov 2026: "on the landing page it should show on the top collabs and
+   the skill atlas... I don't see it on my phone." These links were never gone — the
+   same three sit in the footer too (the Sept 2026 declutter rule moved them there) —
+   but the TOP copy vanished outright below 700px (display:none, nothing in its
+   place), which reads as missing, not moved. They drop onto their own row under the
+   wordmark/CTA row instead: squeezing three links beside a wordmark and a button in
+   under 350px is not a font-size problem. nav is position:fixed, so .center's top
+   padding is bumped to match in the same breakpoint, just below. */
+@media (max-width:700px){
+  .nav-in{flex-wrap:wrap;row-gap:10px}
+  .nav-links{display:flex;flex-basis:100%;order:3;gap:12px 18px;font-size:10px}
+}
 
 /* ============ THE STAGE — one screen, the fire, the manifesto ============ */
 .stage{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
@@ -159,6 +170,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
   .door .btn{width:min(100%,340px)}
   .base{gap:6px 16px}
   .base .q{font-size:10px}
+}
+@media (max-width:700px){
+  /* nav stays fixed (unchanged, proven everywhere else on the site) — sticky looked
+     like the clean fix, but html,body{height:100%} caps body's own box at one
+     viewport, so a sticky child has nowhere left to stick to past the first
+     screenful and silently scrolls away; not a rule to restructure for this one
+     page. A flat offset, sized to the tallest nav actually measured across real
+     phone widths (320–430px) plus a margin, is simpler and safer than a formula
+     chasing a two-row nav's height — the cost is a little extra air on a wider
+     phone where nav is shorter, never an overlap on a narrower one.
+     ⚠ This has to sit AFTER .center's own unconditional padding rule above — an
+     earlier copy of this same override, placed before it in the file, silently lost
+     on source order despite being in a narrower media query (equal specificity
+     ties go to whichever rule comes LAST in the file, not to the narrower query). */
+  .center{padding-top:170px}
 }
 @media (max-height:640px){
   .lead{font-size:clamp(1.4rem,4vw,2.2rem)}
