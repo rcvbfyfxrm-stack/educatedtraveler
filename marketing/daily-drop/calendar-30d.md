@@ -488,22 +488,22 @@ The full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--ch
 #adventuretravel #skillsnotsouvenirs #learnbydoing #chamonixverbierhauteroute #skitouringsplitboard
 ```
 
-## Day 28 — Wine & Sommellerie · London, United Kingdom  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/wine-and-sommellerie--london
-- **Footage:** WSET School London — https://www.wsetglobal.com/wset-school-london (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 28 — Oaxacan & Mexican Cuisine · Oaxaca, Mexico  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/oaxacan-and-mexican-cuisine--oaxaca
+- **Footage:** Seasons of My Heart (Susana Trilling) — https://www.seasonsofmyheart.com/food-tours/mexico/oaxaca/chefs-intensive (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Oaxacan & Mexican Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-London is both the birthplace of Wine & Sommellerie and its living capital.
+This is where Oaxacan & Mexican Cuisine was born.
 
-The examined craft was born in Britain, and London is where it is still set: the Institute of Masters of Wine works from here, and WSET runs its flagship school in Bermondsey, so this is where wine credentials are earned, not bought.
+Land of the seven moles, where you grind your own masa on a metate and learn Zapotec kitchen wisdom passed down unbroken for generations.
 
-Community strength: Legendary. Season: Sep-Jun.
+Community strength: Legendary. Season: Oct-Nov (Dia de Muertos), Mar-May.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--london
+The full page: https://educatedtraveler.app/atlas/oaxacan-and-mexican-cuisine--oaxaca
 
-#foodtok #cookingclass #learnbydoing #london #winesommellerie
+#foodtok #cookingclass #learnbydoing #oaxaca #oaxacanmexicancuisine
 ```
 
 ## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
@@ -524,20 +524,20 @@ The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--g
 #adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
 ```
 
-## Day 30 — Coffee & Barista · Melbourne, Australia  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/coffee-and-barista--melbourne
-- **Footage:** Melbourne Coffee Academy — https://www.melbournecoffeeacademy.com.au/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Coffee & Barista, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 30 — Wine & Sommellerie · London, United Kingdom  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/wine-and-sommellerie--london
+- **Footage:** WSET School London — https://www.wsetglobal.com/wset-school-london (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest Coffee & Barista community on earth gathers in Melbourne.
+London is both the birthplace of Wine & Sommellerie and its living capital.
 
-The world's most obsessive specialty-coffee culture, where SCA-certified baristas are forged in the city that turned the flat white into an art form.
+The examined craft was born in Britain, and London is where it is still set: the Institute of Masters of Wine works from here, and WSET runs its flagship school in Bermondsey, so this is where wine credentials are earned, not bought.
 
-Community strength: Legendary. Season: Year-round.
+Community strength: Legendary. Season: Sep-Jun.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/coffee-and-barista--melbourne
+The full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--london
 
-#foodtok #cookingclass #learnbydoing #melbourne #coffeebarista
+#foodtok #cookingclass #learnbydoing #london #winesommellerie
 ```
