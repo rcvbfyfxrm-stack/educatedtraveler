@@ -339,7 +339,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
           if(S[0]==='p2')col.appendChild(wend?el('div','lunch sp','&nbsp;'):el('div','lunch','Lunch break · included'));
           if(S[0]==='p3')col.appendChild(wend?el('div','lunch sp','&nbsp;'):el('div','lunch','Clean up'));
           var cell=el('div','slot'+(S[0]==='eve'?' eve':'')),lab=el('div','sl'+(S[0]==='eve'?' eve':''));
-          lab.textContent=S[0]==='eve'?'Evening':(wend?S[2]:(S[0]==='p3'?S[1]+' · self practice':S[1]));
+          lab.textContent=S[0]==='eve'?'Evening':(wend?S[2]:(S[0]==='p3'?S[1]+' · self practice with Hiroko':S[1]));
           var box=el('div','col');inSlot(k,S[0]).forEach(function(id){box.appendChild(chip(id));});
           var add=el('button','addbtn',S[0]==='eve'?'+ idea':'+');add.type='button';add.setAttribute('aria-label','Add a block to '+inf.label+', '+(S[0]==='eve'?'evening':S[1]));
           add.addEventListener('click',function(){addMod(k,S[0]);});box.appendChild(add);
