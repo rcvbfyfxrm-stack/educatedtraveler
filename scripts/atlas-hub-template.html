@@ -103,6 +103,15 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
 .cam-tick:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));background:rgba(20,17,13,.88);box-shadow:0 18px 40px rgba(0,0,0,.45)}.cam-tick:hover::before{opacity:1}
 .cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:11px}
 .cam-tick .rot{display:block;opacity:0;transition:opacity .5s}.cam-tick .rot.on{opacity:1}
+/* the picture, in the geometry every card on this page wears (4/3, bled to the top
+   corners, fading into the card's own ground); .lic is the licensed class, told apart
+   by the same light tone step as .craftshot and by nothing else. Never zoomed, never
+   panned: one still, then the next. */
+.cam-tick .rotshot{display:block;aspect-ratio:4/3;margin:-19px -23px 14px;border-radius:16px 16px 0 0;
+  background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,rgba(20,17,13,.96) 100%),var(--shot);
+  background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat;opacity:0;transition:opacity .5s}
+.cam-tick .rotshot.on{opacity:1}.cam-tick .rotshot.lic{filter:saturate(.92)}
+@media (prefers-reduced-motion:reduce){.cam-tick .rot,.cam-tick .rotshot{transition:none}}
 /* two lines each, so the tallest craft name and the longest place still fit inside the
    height the card holds — a card that grew mid-fade would shove the caption around */
 .cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.4vw,26px);line-height:1.12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -511,7 +520,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
     <div class="hero-body">
       <div class="hero-demo">
-        <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
+        <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="rotshot" id="rotshot" aria-hidden="true"></span><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
       </div>
     </div>
   </div>
@@ -947,30 +956,35 @@ function syncWorldCounts(){
 }
 hub.onclick=function(){if(curFeat&&curFeat.did){location.href="/atlas/"+curFeat.did;}else{F.worlds={};F.craft="";syncSearch();renderSide();render();syncWorld();}};
 function hexA(h,a){var n=parseInt(h.slice(1),16);return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")";}
-// the flashing centre cycles the most surprising crafts first; each links to its best place
-var SURPRISE=["freediv","apnea","knife","blade","smith","forge","perfum","falconr","cheese","ferment","sake","chocolat","glassblow","glass","tango","flamenco","calligraph","indigo","dye","forag","mushroom","sourdough","kintsugi","leather","ceramic","pottery","blacksmith","woodblock","beekeep","honey","spearfish","cooper","lacquer","weav","whisky","whiskey","mezcal","truffle","oyster","lutherie","violin","wooden boat"];
-function isSurprising(name){name=(name||"").toLowerCase();return SURPRISE.some(function(k){return name.indexOf(k)>-1;});}
-// the place a craft's community is most alive in — the same one its card prints
-function aliveDest(d){var t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});return t;}
-// Open crafts only, while there are any. The card's third line is the reason to go
-// to THAT place, and only an open craft has one — on a craft nobody has asked for yet
-// the same slot carries what the craft IS, which is a true sentence sitting where the
-// caption promises a reason, and that is exactly the kind of true-parts-false-picture
-// this page cannot afford. It also means the first click off the hero lands on a full
-// sheet rather than a short entry. `rest` is the fallback and nothing more.
-var feats=[],rest=[];
+// ⭐ The flashing centre, 4 Nov 2026 (Arnaud: "make the flashing card on the top focus
+// on culinary and only show the one with photo… the photo should be flashing").
+// The FOCUS world only (the kitchen, same switch as the rest of the page), and only a
+// craft whose resting place carries a picture: a school's photograph of its own room
+// first, then a licensed picture of the craft taken at that place (illusFor) — the same
+// two classes, the same rules and the same resting place the grid cards wear, so the
+// hero cannot show a room the card below would not. No picture, no turn in the
+// rotation. The credit is not printed here, as on every card on this page since
+// 22 Sept 2026: it is on the place or craft page the click opens.
 // same rule as the cards: the written line for that place, the researched
 // reason-to-go when nobody has written one yet
 function feat(d,t,w){return {craft:d.discipline,blurb:d.blurb||"",place:t.place,country:t.country||"",why:(t.learn||"").trim()||t.why||"",color:WORLDS[w].color,did:d.id};}
-function known(id){return feats.concat(rest).some(function(f){return f.did===id;});}
-A.forEach(function(d){if(!isSurprising(d.discipline)||isLater(worldOf(d)))return;var t=aliveDest(d);if(!t||!t.place)return;(d._open===true?feats:rest).push(feat(d,t,worldOf(d)));});
-ORDER.forEach(function(w){if(isLater(w))return;byWorldDisc[w].slice(0,3).forEach(function(o){if(!o.top.place||known(o.d.id))return;(o.d._open===true?feats:rest).push(feat(o.d,o.top,w));});});
-if(!feats.length)feats=rest;
+var HERO_WORLD=FOCUS||"culinary",feats=[];
+(byWorldDisc[HERO_WORLD]||[]).forEach(function(o){var t=o.top;if(!t||!t.place)return;
+  var il=illusFor(o.d.id,t.id);if(!t.shot&&!il.illus)return;
+  var f=feat(o.d,t,HERO_WORLD);f.shot=t.shot||"";f.focal=t.focal||"";f.illus=il.illus||"";f.illusFocal=il.illusFocal||"";f.open=o.d._open===true;feats.push(f);});
+feats.sort(function(a,b){return ((b.shot?1:0)-(a.shot?1:0))||((b.open?1:0)-(a.open?1:0));});
+// every frame fetched once, up front, so the first change is a picture and not a blank
+feats.forEach(function(f){var i=new Image();i.src=f.shot||f.illus;});
 // The hero's worked example. It is written exactly the way every card is, so the
 // page teaches its own format before you have scrolled to a single card.
-var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");
+var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");rotshot.classList.remove("on");
   hub.style.setProperty("--sc",f.color);
-  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.blurb?'<span class="whatline">'+esc(f.blurb)+'</span>':'')+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
+  setTimeout(function(){
+    rotshot.classList.toggle("lic",!f.shot);
+    rotshot.style.setProperty("--shot","url("+(f.shot||f.illus)+")");
+    rotshot.style.setProperty("--focal",(f.shot?f.focal:f.illusFocal)||"center");
+    rotshot.classList.add("on");
+    rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.blurb?'<span class="whatline">'+esc(f.blurb)+'</span>':'')+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 
