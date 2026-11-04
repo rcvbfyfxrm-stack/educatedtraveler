@@ -454,6 +454,12 @@ select.fin option{background:var(--ink2)}
 .cint{font-size:11.5px;color:var(--sea);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);line-height:1.45}
 .cint:empty{display:none}
 .cint .cint-dot{font-size:7px;vertical-align:2px;margin-right:6px;opacity:.85}
+.later{margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
+.later h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.4vw,25px);margin:8px 0 16px;color:var(--muted)}
+.laterbox{position:relative;border-radius:16px;overflow:hidden;min-height:300px}
+.laterbox .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:13px;filter:blur(7px) saturate(.6);opacity:.5;pointer-events:none;user-select:none;max-height:520px;overflow:hidden}
+.laterask{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 18px;background:radial-gradient(closest-side,rgba(13,11,9,.82),rgba(13,11,9,.35))}
+.laterask p{max-width:46ch;color:var(--paper);font-size:15px;line-height:1.6;margin:0 0 18px}
 .gridwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:13px}
 .empty{padding:60px 10px;text-align:center;color:var(--muted)}.empty .btn-ghost{margin-top:16px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
@@ -598,6 +604,14 @@ var WORLDS={
 // that list the worlds — the filter chips, the catalogue sections and the rails — so
 // one line moves it everywhere and they cannot disagree.
 var ORDER=["culinary","adventure","creative","movement","wellness"];
+// The Atlas is about the kitchen for now (Arnaud, 4 November 2026). FOCUS is drawn in
+// full; every other world is drawn under a blur in the "later" section, with one
+// question under it: would you want one of these? Their sheets still exist and still
+// answer a direct link — this changes what the catalogue puts forward, nothing else.
+// Set FOCUS to "" and the page is the five worlds again.
+var FOCUS="culinary";
+function isLater(w){return !!FOCUS&&w!==FOCUS;}
+var LATER=ORDER.filter(isLater);
 // ⚠ Trust the world the BUILD resolved. world_of() in build-atlas-pages.py reads
 // MOVEMENT_IDS and ADVENTURE_IDS as well as the category, and recomputing from the
 // category alone got wildlife-photography wrong — "creative" here, "adventure" in
@@ -949,8 +963,8 @@ var feats=[],rest=[];
 // reason-to-go when nobody has written one yet
 function feat(d,t,w){return {craft:d.discipline,blurb:d.blurb||"",place:t.place,country:t.country||"",why:(t.learn||"").trim()||t.why||"",color:WORLDS[w].color,did:d.id};}
 function known(id){return feats.concat(rest).some(function(f){return f.did===id;});}
-A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=aliveDest(d);if(!t||!t.place)return;(d._open===true?feats:rest).push(feat(d,t,worldOf(d)));});
-ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(!o.top.place||known(o.d.id))return;(o.d._open===true?feats:rest).push(feat(o.d,o.top,w));});});
+A.forEach(function(d){if(!isSurprising(d.discipline)||isLater(worldOf(d)))return;var t=aliveDest(d);if(!t||!t.place)return;(d._open===true?feats:rest).push(feat(d,t,worldOf(d)));});
+ORDER.forEach(function(w){if(isLater(w))return;byWorldDisc[w].slice(0,3).forEach(function(o){if(!o.top.place||known(o.d.id))return;(o.d._open===true?feats:rest).push(feat(o.d,o.top,w));});});
 if(!feats.length)feats=rest;
 // The hero's worked example. It is written exactly the way every card is, so the
 // page teaches its own format before you have scrolled to a single card.
@@ -1168,6 +1182,23 @@ function countOpen(){return A.filter(function(d){return d.open;}).length;}
 // Where and when only exist for a craft somebody has asked for. Rather than let
 // the map look like it shrank, the crafts without a place yet stay on screen in
 // their own band, saying exactly why they are not in the results.
+/* ── the later section ────────────────────────────────────────────────────
+   The other worlds, under a blur. Not removed: a reader sees there is more, and
+   is asked one thing about it — would you want one of these. The cards are the
+   same cards, made inert (no link, no tab stop, hidden from a screen reader),
+   so a blurred card can never be clicked into a sheet the page is not putting
+   forward. The question is the only live thing in the section. */
+function laterBand(items,head){
+  if(!items.length)return "";
+  var names=LATER.map(function(w){return WORLDS[w].label;});
+  return '<section class="later" aria-labelledby="later-h">'
+    +'<div class="eyebrow">Later</div>'
+    +'<h3 class="serif" id="later-h">'+esc(head)+'</h3>'
+    +'<div class="laterbox"><div class="lgrid" aria-hidden="true" inert>'+items.join("")+'</div>'
+    +'<div class="laterask"><p>For now the Atlas is about the kitchen. '+esc(names.slice(0,-1).join(", "))+' and '+esc(names[names.length-1])
+    +' come later. Would you want one of them? Tell me which in a note: what people ask for decides what opens next.</p>'
+    +'<a class="btn-ghost" href="#letter">I would want one of these →</a></div></div></section>';
+}
 function closedBand(n){
   if(!n)return "";
   return '<div class="closedband"><p>More crafts have no place on the map yet — '
@@ -1240,7 +1271,11 @@ function render(){
     var cb=document.getElementById("clr");
     if(cb)cb.onclick=function(){F=blankF();openStep=0;reached=0;syncSearch();renderSide();render();syncWorld();};
     return;}
-  h+='<div class="gridwrap">'+list.map(gcard).join("")+'</div>';
+  var now=list.filter(function(x){return !isLater(x.world);}),
+      later=list.filter(function(x){return isLater(x.world);});
+  if(now.length)h+='<div class="gridwrap">'+now.map(gcard).join("")+'</div>';
+  else if(later.length)h+='<div class="qnone">Nothing in the kitchen matches that yet.</div>';
+  h+=laterBand(later.slice(0,8).map(gcard),later.length===1?"This one comes later.":"These come later.");
   h+=closedBand(nClosed);
   results.innerHTML=h;signalRender();
 }
@@ -1354,6 +1389,17 @@ function renderRails(){
   var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
   var ns=0;ORDER.forEach(function(w){ns+=countShots(byWorldDisc[w],shotFirst);});
   var h='<div class="rhead"><div class="count">Skills you can go and learn</div><div class="sortby">'+orderLine(ns,nw,"open the filter to narrow it")+'</div></div>';
+  if(FOCUS){
+    // The kitchen, all of it, as one grid: there is one world on the page, so a
+    // rail that hides most of it behind an arrow would be hiding the whole Atlas.
+    var fm=WORLDS[FOCUS],fl=craftsInOrder(FOCUS);
+    h='<div class="rhead"><div class="count">'+esc(fm.label)+' — skills you can go and learn</div><div class="sortby">'+orderLine(countShots(fl,shotFirst),countWanted(fl,function(o){return o.d.discipline;}),"open the filter to narrow it")+'</div></div>';
+    h+='<div class="gridwrap">'+fl.map(function(o){return catCard(o,fm.color);}).join("")+'</div>';
+    var lat=[];LATER.forEach(function(w){craftsInOrder(w).slice(0,4).forEach(function(o){lat.push(catCard(o,WORLDS[w].color));});});
+    h+=laterBand(lat,"The other crafts — "+LATER.map(function(w){return WORLDS[w].label;}).join(", ")+".");
+    var nC=A.filter(function(d){return !d.open&&!isLater(worldOf(d));}).length;
+    results.innerHTML=h+closedBand(nC);signalRender();return;
+  }
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
