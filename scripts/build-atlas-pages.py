@@ -2138,6 +2138,43 @@ def interest_link(d):
             "I&rsquo;m interested</a>")
 
 
+def place_about_panel(d, x):
+    """'About this place': the craft's history and the town's own paragraph — the two
+    long reads a place page used to print before a single school — in the same
+    no-script pop-up as about_panel() on the craft page.
+
+    Arnaud, 4 Nov 2026, on clicking a place card's own written line: "should be
+    direct the school card, no big writing! The big writing come when if people
+    want to learn more about it." Same law as the craft page, one tap later: the
+    hero stays thin (title, the one-line why, the closure note if any), the schools
+    are the next thing on the page, and the prose is a tap away, not a scroll past.
+    """
+    inner = craft_intro(d) + place_intro(x)
+    if not inner.strip():
+        return "", ""
+    link = '<a class="hbtn" href="#about" id="about-open">About this place</a>'
+    panel = ('<div class="about-pop" id="about" role="dialog" aria-modal="true" aria-labelledby="about-h">'
+             '<a class="about-back" href="#about-closed" aria-label="Close"></a>'
+             '<div class="about-card" tabindex="-1">'
+             '<a class="about-x" href="#about-closed" aria-label="Close">&times;</a>'
+             '<div class="mono">About this place</div>'
+             f'<h2 id="about-h" style="margin:6px 0 4px">{e(x["place"])}, {e(x["country"])}</h2>'
+             f'{inner}</div></div>')
+    return link, panel
+
+
+def place_interest_link(x):
+    """One tap, on a place page, with no school chosen yet. The same dialog the
+    school cards open (data-interest, read by intent-capture.js's wireInterestLinks()
+    off the note form's own data-* — this link is not inside any li[data-school], so
+    the tap carries the craft and the place and no school). Arnaud, 4 Nov 2026:
+    "I'm interested about this should appear always with the skill or the place or
+    the school." A closed place has no course to want; it stays off that page."""
+    if is_closed(x):
+        return ""
+    return '<a class="hbtn go" href="#letter" data-interest>I&rsquo;m interested</a>'
+
+
 def places_rail(d, cards, n):
     """The place cards as a swipe rail — the first thing on the page after the title.
 
@@ -3982,12 +4019,19 @@ for d in DISC:
         intent = intent_form(
             source=f'atlas:{x["id"]}', discipline=d["id"], place=x["id"],
             label=f'{d["discipline"]} · {x["place"]}')
+        # THE SCHOOLS COME DIRECT, same law as the craft page one door up: a thin
+        # hero (title, the one-line why, the closure note if any, two taps), then
+        # the place's own compact card (badges and a season/level line — facts, not
+        # prose), then the schools. The craft's history and the town's own paragraph
+        # move into "About this place", a tap away.
+        _p_about_link, _p_about_panel = place_about_panel(d, x)
         body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
 <h1>{_h1}</h1>
-<p class="lead">{e(x['why'])}</p>{_closed_band}{craft_intro(d)}
+<p class="lead">{e(x['why'])}</p>{_closed_band}
+<div class="hero-acts">{_p_about_link}{place_interest_link(x)}</div>{_p_about_panel}
 </div></header>
-{place_intro(x)}<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}</div></section>
+<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}</div></section>
 {disclosure_block(d) if has_relationship(x) else ""}
 {schools_html}{lab_week_block(d, x)}
 {masters_html}
@@ -3995,7 +4039,10 @@ for d in DISC:
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""
         # saveable=False: skill-save.js hooks form.intent[data-discipline], which only
-        # a craft page carries. A place page has never had the save button.
+        # a craft page carries. The hero's "I'm interested" here is the simpler
+        # data-interest link school cards already use (intent-capture.js's own
+        # wireInterestLinks()), not skill-save.js's member-save path — a place page
+        # loads intent-capture.js regardless of `saveable`, so nothing else to wire.
         (OUT / f'{x["id"]}.html').write_text(page(title, desc, path, body,
             breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], f'/atlas/{d["id"]}'), (x["place"], path)],
             jsonld=jsonld, saveable=False))
