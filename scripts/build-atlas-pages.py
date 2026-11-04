@@ -89,6 +89,13 @@ if _dups:
 MANIFEST = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
 PRESERVE = set(MANIFEST["preserve"])
 PINNED_OPEN = set(MANIFEST.get("pinnedOpen", []))
+# ⛔ A RETIRED craft leaves the Atlas entirely: no card, no sheet, no place pages. Arnaud,
+# 4 Nov 2026: "pick only one from the new techniques and modern Spanish — keep only modern
+# techniques." Its old addresses are hand-written redirect stubs in `preserve`, so every
+# URL already shared still lands on the craft that replaced it. The nightly unlock cannot
+# bring it back: it is gone from DISC before anything reads OPEN.
+RETIRED = MANIFEST.get("retired", {})
+DISC[:] = [d for d in DISC if d["id"] not in RETIRED]
 HUB_CARDS = MANIFEST.get("hubCards", [])
 
 UNLOCK_PATH = ROOT / "data/atlas-unlocked.json"
@@ -1598,6 +1605,19 @@ dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
 .steachlab {{ display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--faint); margin-bottom:3px; }}
 details.smore {{ margin-top:12px; }}
+li.school[data-cover] {{ padding:0 0 20px; overflow:hidden; }}
+.prail > li.school {{ align-self:flex-start; }}
+li.school[data-cover] > :not(.scover) {{ margin-left:22px; margin-right:22px; }}
+.scover {{ position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }}
+.scover img {{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }}
+.scover::after {{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.62) 68%,rgba(13,11,9,.96) 100%); }}
+.scap {{ position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }}
+.scap .sname {{ color:var(--paper); }}
+.scap .scourse {{ color:var(--paper); opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
+.scap .stag {{ background:rgba(13,11,9,.55); }}
+li.school .scourse {{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
+details.sall .smh {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }}
+details.sall > dl.sfacts {{ margin-top:12px; }}
 details.smore > summary {{ cursor:pointer; list-style:none; font-family:'IBM Plex Mono',monospace; font-size:11px;
   letter-spacing:.1em; text-transform:uppercase; color:var(--sea); }}
 details.smore > summary::-webkit-details-marker {{ display:none; }}
@@ -3494,6 +3514,12 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
         if t in _SCHOOL_LABELS:
             return f'<span class="stag sea">{e(t)}</span>'
         return f'<span class="stag">{e(t)}</span>'
+    # The face carries only what changes a decision: the pick, a partnership, a standing.
+    # The comparison labels (shortest, longest, photographed…) were four chips across the
+    # photograph — Arnaud, 4 Nov 2026: "too much writing". The facts they summarised are
+    # printed on the card itself.
+    tags = [t for t in tags if t.startswith("Best course") or t == "We work together"
+            or (stand and t == SCHOOL_STANDING[stand["state"]][0])]
     chips = "".join(_chip(t) for t in tags)
 
     _sh = (s_.get("photos") or {})
@@ -3520,18 +3546,26 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
         price_html = ("about " if price_is_approx(ft) else "from ") + money_html(ps)
     elif is_pick and ps == "Donation-based":
         price_html = "Donation-based"
+    # ⭐ Arnaud, 4 Nov 2026: "make the school card more simple, there is too much writing".
+    # The face keeps three facts a reader decides on — how long, in what language, what it
+    # costs. Every other fact moves into the one fold below; nothing is deleted.
+    _FACE = ("length", "language")
     cells = "".join(f'<div><dt>{lab}</dt><dd>{e(facts[k])}</dd></div>'
-                    for k, lab in SCHOOL_FACT_KEYS if facts.get(k))
+                    for k, lab in SCHOOL_FACT_KEYS if facts.get(k) and k in _FACE)
     if price_html:
         cells += f'<div><dt>Price</dt><dd>{price_html}</dd></div>'
     facts_html = f'<dl class="sfacts">{cells}</dl>' if cells else ""
+    rest = "".join(f'<div><dt>{lab}</dt><dd>{e(facts[k])}</dd></div>'
+                   for k, lab in SCHOOL_FACT_KEYS if facts.get(k) and k not in _FACE)
+    rest_html = f'<dl class="sfacts">{rest}</dl>' if rest else ""
 
     blurb = f'<p class="sblurb">{e(s_["blurb"])}</p>' if s_.get("blurb") else ""
-    if stand:
-        blurb = (f'<p class="sstand">{e(stand["what"])} '
-                 f'<a class="school-url" rel="nofollow noopener" target="_blank" '
-                 f'href="{e(stand["from"])}">read on their site, {e(pretty_date(stand["read"]))} ↗</a></p>'
-                 + blurb)
+    # A school's standing (closed, no longer runs it) stays on the face: it is the one
+    # sentence a reader must not miss.
+    stand_html = (f'<p class="sstand">{e(stand["what"])} '
+                  f'<a class="school-url" rel="nofollow noopener" target="_blank" '
+                  f'href="{e(stand["from"])}">read on their site, {e(pretty_date(stand["read"]))} ↗</a></p>'
+                  if stand else "")
     teachers = school_teachers(s_)
 
     more = ""
@@ -3544,11 +3578,13 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
                        "next intake — and tell me what they say.") + "</p>")
         body = (f'<p>{e(ft["description"])}</p>' if ft.get("description") else "") + sessions + alts_block(ft)
         if body:
-            more += f'<details class="smore"><summary>What the course covers</summary>{body}</details>'
+            more += f'<h4 class="smh">What the course covers</h4>{body}'
     photos = photo_block(x, only=s_)
     if photos:
-        # open by default — ruling 5, 25 Sept 2026; Arnaud, 7 Oct: "i dont see all the photo on the page"
-        more += f'<details class="smore" open><summary>Photographs from the school</summary>{photos}</details>'
+        # ⚠ Ruling 5 (25 Sept) had the photographs open by default. Arnaud, 4 Nov 2026,
+        # wants the photograph to BE the card: the cover now carries it, and the rest of the
+        # school's frames sit in the fold with everything else.
+        more += f'<h4 class="smh">Photographs from the school</h4>{photos}'
 
     # The rating: the school's own, or the pick's cited sources. One line, never a section.
     rates = []
@@ -3588,11 +3624,27 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     read = (f'<p class="sread">Facts read on the school\'s own pages, {e(pretty_date(own["read"]))}.</p>'
             if own.get("read") else "")
 
-    return (f'<li class="school" data-school="{e(s_["name"])}" data-craft="{e(d["id"])}" data-dest="{e(x["id"])}">'
-            + (f'<div class="stags">{chips}</div>' if chips else "")
-            + f'<h3 class="sname">{shot}{e(s_["name"])}</h3>'
-            + (f'<div class="scourse">{e(s_["course"])}</div>' if s_.get("course") else "")
-            + f'{facts_html}{teachers}{blurb}{more}{foot}{read}</li>')
+    # The fold: everything that is not on the face, in one place, closed.
+    _rate = f'<div class="sfoot">{rating_html}</div>' if rating_html else ""
+    fold_body = rest_html + teachers + blurb + more + _rate + read
+    fold = (f'<details class="smore sall"><summary>More about this school</summary>{fold_body}</details>'
+            if fold_body else "")
+    foot = (f'<div class="sfoot">{visit}{interest}</div>' if (visit or interest) else "")
+    head = ((f'<div class="stags">{chips}</div>' if chips else "")
+            + f'<h3 class="sname">{e(s_["name"])}</h3>'
+            + (f'<div class="scourse">{e(s_["course"])}</div>' if s_.get("course") else ""))
+    if _thumb:
+        # ⭐ THE CARD IS THE PHOTOGRAPH (Arnaud, 4 Nov 2026: "the photo taking all the card,
+        # same like masterclass presentation"). The school's own frame fills the top of the
+        # card edge to edge; its name sits on the foot of the picture, in paper, over a fade.
+        _cover = (_sh.get("card") or "").strip() or _thumb
+        _calt = next((i.get("alt", "") for i in (_sh.get("items") or []) if i["src"] == _cover), "") or _alt
+        _foc = (_sh.get("focal") or "").strip()
+        head = (f'<div class="scover"><img src="{e(_cover)}" alt="{e(_calt)}" loading="lazy" decoding="async"'
+                + (f' style="object-position:{e(_foc)}"' if _foc else "")
+                + f'><div class="scap">{head}</div></div>')
+    return (f'<li class="school"{" data-cover" if _thumb else ""} data-school="{e(s_["name"])}" data-craft="{e(d["id"])}" data-dest="{e(x["id"])}">'
+            + f'{head}{stand_html}{facts_html}{foot}{fold}</li>')
 
 
 _SCHOOL_LABELS = {r[0] for r in _SCHOOL_LABEL_RULES}

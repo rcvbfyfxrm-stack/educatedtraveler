@@ -502,6 +502,31 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 .hero-head h1{margin-left:auto;margin-right:auto}
 .hero-head h1 em{white-space:normal}
 .hero-body{grid-template-columns:1fr;justify-items:center}
+
+/* ⭐ THE CARD IS THE PHOTOGRAPH. Arnaud, 4 Nov 2026: "I want the photo taking all the card,
+   same like a masterclass presentation". The picture fills the card edge to edge; the craft
+   and the place sit on its foot over a fade to ink, in paper, never in the world colour
+   (the 18 Sept measurement: a mid-tone line drowns on a picture — paper on a 94 % fade
+   does not). Every card shares one 3:4 shape so the grid stays a grid; a card with no
+   honest photograph stays typographic, on the same shape. Type never leaves the picture. */
+.gcard[data-shot],.gcard[data-illus],.dcard[data-shot],.dcard[data-illus]{aspect-ratio:3/4}
+.gcard,.dcard{justify-content:flex-end}
+.gcard.walks .placecue,.dcard.walks .placecue{margin-top:12px}
+.gcard[data-shot],.gcard[data-illus],.dcard[data-shot],.dcard[data-illus]{justify-content:flex-end;border-color:transparent;padding:20px 18px 18px;
+  background-image:linear-gradient(180deg,rgba(13,11,9,0) 38%,rgba(13,11,9,.6) 64%,rgba(13,11,9,.95) 100%),var(--shot,var(--illus));
+  background-size:cover;background-position:var(--focal,var(--illusfocal,center));background-repeat:no-repeat}
+.gcard[data-shot] .cardshot,.gcard[data-illus] .craftshot,.dcard[data-shot] .cardshot,.dcard[data-illus] .craftshot{display:none}
+.gcard[data-shot] .wherealive,.gcard[data-illus] .wherealive,.dcard[data-shot] .wherealive,.dcard[data-illus] .wherealive{color:var(--paper)}
+.gcard[data-shot] .walks .placecue,.gcard[data-shot].walks .placecue,.gcard[data-illus].walks .placecue{margin-top:12px;color:var(--paper);border-color:rgba(243,237,226,.45);background:rgba(13,11,9,.35)}
+
+/* The hero card follows the same law: the photograph is the whole card, the words sit on
+   its foot (Arnaud, 4 Nov 2026). The rotating frame becomes the card's background layer. */
+.cam-tick{aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 24px 24px}
+.cam-tick .rotshot{position:absolute;inset:0;margin:0;aspect-ratio:auto;border-radius:16px;z-index:0;
+  background-image:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.6) 66%,rgba(13,11,9,.95) 100%),var(--shot)}
+.cam-tick .lab,.cam-tick .rot{position:relative;z-index:1}
+.cam-tick .lab{color:rgba(243,237,226,.7)}
+.cam-tick .place{color:var(--paper)}
 </style>
 </head>
 <body>
@@ -781,7 +806,7 @@ var PULLS=[
   {id:"slow", label:"Slow it down",        note:"breath · stillness · healing hands"}
 ];
 var PULL_LIST={
-feed:["asado-and-open-fire-cooking","bread-and-boulangerie","cheese-and-fermentation","chef-at-sea","chocolate-and-confectionery","classical-french-cuisine","coffee-and-barista","french-pastry-and-patisserie","italian-cuisine-and-pasta","korean-cuisine-hansik","mixology-and-bartending","modern-new-technique-cuisine","modernist-spanish-cuisine","new-basque-cuisine","north-indian-cuisine","oaxacan-and-mexican-cuisine","peruvian-cuisine","sake-and-sommellerie-of-sake","self-sufficiency","sichuan-and-chinese-cuisine","sushi-and-washoku","tea-and-tea-ceremony","thai-cuisine","viennoiserie","vietnamese-cuisine","whisky-and-distilling","wine-and-sommellerie"],
+feed:["asado-and-open-fire-cooking","bread-and-boulangerie","cheese-and-fermentation","chef-at-sea","chocolate-and-confectionery","classical-french-cuisine","coffee-and-barista","french-pastry-and-patisserie","italian-cuisine-and-pasta","korean-cuisine-hansik","mixology-and-bartending","modern-new-technique-cuisine","new-basque-cuisine","north-indian-cuisine","oaxacan-and-mexican-cuisine","peruvian-cuisine","sake-and-sommellerie-of-sake","self-sufficiency","sichuan-and-chinese-cuisine","sushi-and-washoku","tea-and-tea-ceremony","thai-cuisine","viennoiserie","vietnamese-cuisine","whisky-and-distilling","wine-and-sommellerie"],
 fire:["asado-and-open-fire-cooking","blacksmithing-and-bladesmithing","bread-and-boulangerie","glassblowing","japanese-knife-making","jewelry-and-goldsmithing","pottery-and-ceramics","whisky-and-distilling","wilderness-survival-and-bushcraft"],
 make:["blacksmithing-and-bladesmithing","bookbinding-and-letterpress","bread-and-boulangerie","calligraphy-and-lettering","chocolate-and-confectionery","cigar-rolling","filmmaking","french-pastry-and-patisserie","glassblowing","japanese-knife-making","jewelry-and-goldsmithing","kintsugi-japanese-gold-repair","leatherwork","lutherie-and-instrument-making","marble-sculpture-and-stone-carving","natural-dyeing","painting-and-fine-art","perfumery","photography","pottery-and-ceramics","printmaking","self-sufficiency","tattooing","textiles-and-weaving","viennoiserie","watchmaking","wooden-boatbuilding","woodworking-and-joinery"],
 water:["canyoning","cave-and-technical-diving","chef-at-sea","expedition-sea-kayaking","fly-fishing","freediving","kitesurfing","sailing-and-yachtmaster","scuba-diving","spearfishing","surfing","whitewater-kayaking","whitewater-rafting","windsurfing-and-wing-foil","wooden-boatbuilding","yacht-crew-and-stcw"],
@@ -984,7 +1009,7 @@ var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%fea
     rotshot.style.setProperty("--shot","url("+(f.shot||f.illus)+")");
     rotshot.style.setProperty("--focal",(f.shot?f.focal:f.illusFocal)||"center");
     rotshot.classList.add("on");
-    rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.blurb?'<span class="whatline">'+esc(f.blurb)+'</span>':'')+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
+    rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 
@@ -1356,8 +1381,9 @@ function cardInner(o){
   return (o.shot?'<div class="cardshot"></div>':(o.illus?'<div class="craftshot"></div>':''))+
     sayHTML(o.craft)+
     (o.place?whereHTML(o.place,o.country):'')+
-    (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
-    (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
+    // ⛔ No sentence on the card. Arnaud, 4 Nov 2026: "make the skill card more simple, there
+    // is too much writing". The craft, the place, the photograph; the sheet behind the
+    // card carries every line that used to sit here.
     '<div class="cfoot"></div>'+
     // A link, not a button: it needs no JavaScript, it middle-clicks, it announces a
     // destination, and it survives #results being rebuilt on every filter change with

@@ -27,7 +27,13 @@
     "pottery-and-ceramics-in-depth.html",
     "sailing-and-yachtmaster-in-depth.html",
     "self-sufficiency-in-depth.html",
-    "chef-at-sea-in-depth.html"
+    "chef-at-sea-in-depth.html",
+    "modernist-spanish-cuisine.html",
+    "modernist-spanish-cuisine--barcelona.html",
+    "modernist-spanish-cuisine--madrid.html",
+    "modernist-spanish-cuisine--girona.html",
+    "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava.html",
+    "modernist-spanish-cuisine-in-depth.html"
   ],
   "pinnedOpen": [
     "oaxacan-and-mexican-cuisine",
@@ -60,7 +66,6 @@
     "The classical kitchen": [
       "classical-french-cuisine",
       "new-basque-cuisine",
-      "modernist-spanish-cuisine",
       "modern-new-technique-cuisine",
       "italian-cuisine-and-pasta",
       "chef-at-sea"
@@ -427,26 +432,6 @@
         {
           "what": "Phototrend on the Rencontres d’Arles (175,000 visitors in 2025)",
           "url": "https://phototrend.fr/2026/06/rencontres-arles-2026/",
-          "read": "5 October 2026"
-        }
-      ]
-    },
-    "modernist-spanish-cuisine": {
-      "p": "This cuisine’s most famous kitchen stood in a cove. ElBulli stood above Cala Montjoi, near Roses on the Costa Brava. Ferran Adrià joined its kitchen in 1984 and took full charge in 1987, and from there came the foams and the spherification it made famous. Restaurant magazine’s list named it the best restaurant in the world five times, in 2002 and every year from 2006 to 2009. It served its last meals in 2011, closing on 30 July, and became a foundation for creative cooking. Its cooks carried the work on. Today the craft is most alive in Barcelona, where three of them, Oriol Castro, Eduard Xatruch and Mateu Casañas, opened Disfrutar in December 2014; in 2024 it was named the world’s best restaurant.",
-      "sources": [
-        {
-          "what": "Wikipedia, El Bulli",
-          "url": "https://en.wikipedia.org/wiki/El_Bulli",
-          "read": "5 October 2026"
-        },
-        {
-          "what": "Wikipedia, Disfrutar",
-          "url": "https://en.wikipedia.org/wiki/Disfrutar",
-          "read": "5 October 2026"
-        },
-        {
-          "what": "Restaurant Online (William Reed, publisher of the 50 Best), 6 June 2024",
-          "url": "https://www.restaurantonline.co.uk/Article/2024/06/06/Barcelona-s-Disfrutar-named-The-World-s-Best-Restaurant",
           "read": "5 October 2026"
         }
       ]
@@ -1258,10 +1243,6 @@
     "kitesurfing--maui-kite-beach-kanaha": "Learn to ride Kanaha’s reliable trades, where the sport was proven.",
     "kitesurfing--tarifa": "Learn to ride Valdevaqueros in the wind capital of Europe, where it blows some 300 days a year.",
     "kitesurfing--cabarete": "Learn on 250-plus kiteable days a year, in one bay stacked with schools and afternoon trades.",
-    "modernist-spanish-cuisine--madrid": "Learn the avant-garde block of a Spanish kitchen diploma, with the lesson translated into your ear.",
-    "modernist-spanish-cuisine--barcelona": "Stand in the scene the elBulli cooks scattered into, and learn the technique at a bench in it.",
-    "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": "Stand in the cove where it started. The kitchen is gone; a museum stands in its place.",
-    "modernist-spanish-cuisine--girona": "Learn inside the densest node of Spanish avant-garde technique, where a stage is earned and never bought.",
     "new-basque-cuisine--san-sebasti-n-donostia": "Learn where Arzak and Subijana launched the movement, in one of the most starred square kilometres on earth.",
     "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa": "Learn on a stage inside the kitchens where the avant-garde keeps reinventing itself.",
     "organic-farm-to-table-cooking--shanagarry-east-cork": "Learn to cook the vegetables, eggs and milk that came off the 100 acres outside the kitchen door.",
@@ -1497,49 +1478,6 @@
   ],
   "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five questions on the five dots, asked in the same words and the same order on every craft, because a legend a reader has to relearn is not a legend (the build refuses any other wording — see MEASURE_QUESTIONS in scripts/atlas_hub.py). The instrument's own shorthand — the room, the door, the bench, the ground, the stretch — stays in THE-MEASURE-META-PROMPT.md and never reaches a reader: on the page we ask the question rather than name it. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — whether a craft is alive in its place, and whether there is enough there to keep you going, are exactly what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
-    "modernist-spanish-cuisine": {
-      "dots": 4,
-      "verdict": "If this craft already pulls you, there is enough here to go on — we have not stood in it, so we will not tell you to cross the world for it yet",
-      "state": "researched, not checked",
-      "conditions": [
-        {
-          "n": "Is there a teacher, and can we name them?",
-          "on": true,
-          "t": "Le Cordon Bleu Madrid — the school this craft recommends, and so the one that has to answer — names the chefs who teach its Spanish Cuisine programmes on its own Meet the Chefs page, read 17 September 2026: Natalia Vázquez at their head, with chef instructors David Vela, Manuel Lucas and Diego Muñoz, one of them described there as joining the teaching team for the Spanish Cooking Diploma in 2016. Barcelona answers it a second way: Martín Lippo teaches modernist technique himself, in his own laboratory."
-        },
-        {
-          "n": "Can a stranger get in, on a date you can book?",
-          "on": true,
-          "t": "You can book your way in, on dates. Madrid's avant-garde teaching is the last third of a nine-month Spanish Cuisine Diploma, and their own syllabus names the block — spherifications, low-temperature cooking, the fundamentals of molecular cuisine. Barcelona's lab courses are shorter. The stage is the other road and it is a real one, but it is applied for with a CV and nobody can promise you one: only one of the two is a way in you can book. Your hands can ruin the work on either."
-        },
-        {
-          "n": "Will there be other people learning beside you?",
-          "on": true,
-          "t": "The strongest thing this craft has — and the community dots above are the evidence for it, not a second opinion. Barcelona is where the elBulli cooks actually landed, and Disfrutar, opened by three of them, was named the world's best restaurant in 2024. Madrid gathers the whole avant-garde once a year at Madrid Fusión, running since 2003 and reaching its 25th edition in February 2027. There is a generation above you here, and one below."
-        },
-        {
-          "n": "Is the craft alive in this place, or is the school the only thing here?",
-          "on": true,
-          "t": "Yes, and this is the question that separates this craft from the travelling toolkit. Madrid Fusión — Alimentos de España — has been the vanguard's own congress since 2003, and it happens here rather than in any of the places the technique has since reached. <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">That technique</a> goes anywhere; this cuisine came from here and still argues with itself in the same rooms.",
-          "evidence": [
-            {
-              "what": "Madrid Fusión — Alimentos de España",
-              "url": "https://www.madridfusion.net/en/",
-              "date": "4 September 2026"
-            }
-          ]
-        },
-        {
-          "n": "Is there enough here to keep you learning for years?",
-          "on": false,
-          "t": "Nobody of ours has been, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. As high as this craft goes is very high — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
-        }
-      ],
-      "check": "Read from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last one, not doubt about the places. When somebody does, the line will carry their name and the day they went. The fourth answer rests on Madrid Fusión's own site, read 4 September 2026. Amended 17 September 2026: the first answer was written on 4 September, when the course this craft recommended was Martín Lippo's in Barcelona and it said Madrid named no teacher. The recommendation moved to Le Cordon Bleu Madrid on 15 September, which by this standard makes that school the one that has to answer — and its own Meet the Chefs page now names four, read 17 September 2026. The dot was lit before and is lit now, but it no longer rests on a school we do not send you to. The other four answers are unchanged.",
-      "ceilingNote": "All five are reachable here: this cuisine belongs to its places, so a visit could answer the last one.",
-      "checker": "Arnaud Callier",
-      "date": "17 September 2026"
-    },
     "ashtanga-yoga": {
       "dots": 4,
       "verdict": "The lineage is intact and the doors are open, but the man this map's pick was named after died in 2024 and access is now a lottery — go in knowing both",
@@ -3298,7 +3236,6 @@
     "lifestyle-medicine",
     "lymphatic-drainage",
     "modern-new-technique-cuisine",
-    "modernist-spanish-cuisine",
     "new-basque-cuisine",
     "organic-farm-to-table-cooking",
     "perfumery",
@@ -3391,10 +3328,6 @@
     "sushi-and-washoku--osaka": "Two schools, and the structure is a national licence rather than a scene — a one-year course that ends at the state's own chef's licence, so the people beside you are on the same year-long track. What is not established is anything outside the classroom: no count, no body describing the town, nobody of ours has been.",
     "sushi-and-washoku--kyoto": "Three schools, and what the record holds is a tradition rather than a cohort: centuries of seasonal discipline, and no account at all of who is learning it now. No count, no outside body, and of the three only Haru Cooking Class names who teaches.",
     "sushi-and-washoku--los-angeles-torrance": "One school, one named master — Andy Matsuda, Osaka-trained, teaching the course himself, which is the whole of the community here. There is no scene around it: the room is the room. Nothing outside the school is established.",
-    "modernist-spanish-cuisine--madrid": "The whole craft gathers in this city once a year, and the congress belongs to the trade rather than to any school — it has run since 2003 and reaches its 25th edition in February 2027. That is a town hosting the argument about its own cuisine. ⚠ Only one school is on the record here, and it does not name who teaches.",
-    "modernist-spanish-cuisine--barcelona": "The densest scene the cuisine has: this is where the elBulli cooks landed, and the restaurant three of them opened was named the world's best in 2024. There is a generation above you here and one below. ⚠ It is a scene of kitchens, not of classrooms — two schools serve it, and we hold a commercial interest in one of them, disclosed on this page.",
-    "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": "There is no community here to weigh. The restaurant closed on 30 July 2011 and what stands in the cove is a museum selling a two-and-a-half-hour visit — no course, no enrolment, nobody teaching. One dot, and it is for the pilgrimage.",
-    "modernist-spanish-cuisine--girona": "Two doors, and only one of them is a course: a stage at a three-star kitchen is a job you apply for, so the people around you there would be staff on a rota rather than students. The city's standing rests on that one restaurant and the family that runs it. Nothing outside the trade describes a wider scene.",
     "modern-new-technique-cuisine--paris": "One school, one named chef, and a class rather than a private hire. ⚠ The number nobody publishes is the one that matters in a technique lab — how many are in the room decides whether you touch the equipment or watch it. Ask before you book; the record cannot tell you.",
     "modern-new-technique-cuisine--barcelona": "One lab, and you book the master himself, by private course, rather than applying for a stage — which on this craft is still the rare open door. ⚠ Two things the record cannot give you: the group size, which is not published, and neutrality — we hold a commercial interest here, disclosed on this page.",
     "modern-new-technique-cuisine--puebla-mexico-city": "One academy, teaching since 2009 under a named chef, and it runs a diplomado as a class rather than a private booking. Nothing else is established — no congress, no body, no count, and nobody of ours has been. Ask the group size before you book.",
@@ -3596,33 +3529,6 @@
         {
           "url": "https://ich.unesco.org/en/RL/artisanal-talavera-of-puebla-and-tlaxcala-mexico-and-ceramics-of-talavera-de-la-reina-and-el-puente-del-arzobispo-spain-01462",
           "what": "on the Representative List of the Intangible Cultural Heritage of Humanity",
-          "read": "13 September 2026"
-        }
-      ],
-      "checker": "Arnaud Callier",
-      "date": "15 September 2026"
-    },
-    "modernist-spanish-cuisine--barcelona": {
-      "text": "Barcelona has a mountain range behind it. Collserola runs to almost 11,000 hectares, and the park declared over it in 1987 covers 8,465 of them — worth knowing on a week where you are indoors all day. The other thing worth timing is the calçot, a winter onion that has held an EU protected name since 31 May 2002 — the kind of protection a region files for something it is still arguing about. Ask when they are coming in before you fix your dates.",
-      "sources": [
-        {
-          "url": "https://www.parcnaturalcollserola.cat/en/",
-          "what": "The Sierra de Collserola, with its almost 11,000 hectares",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://www.parcnaturalcollserola.cat/en/",
-          "what": "8,465 hectares",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://www.gov.uk/protected-food-drink-names/calcot-de-valls",
-          "what": "Date of original registration with the EU: 31 May 2002",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://www.parcnaturalcollserola.cat/en/",
-          "what": "in 1987 the Collserola Park was created",
           "read": "13 September 2026"
         }
       ],
@@ -3857,11 +3763,6 @@
     "modern-new-technique-cuisine--melbourne-lilydale",
     "modern-new-technique-cuisine--paris",
     "modern-new-technique-cuisine--puebla-mexico-city",
-    "modernist-spanish-cuisine--barcelona",
-    "modernist-spanish-cuisine--girona",
-    "modernist-spanish-cuisine--madrid",
-    "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
-    "modernist-spanish-cuisine--san-sebasti-n-donostia",
     "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
     "new-basque-cuisine--san-sebasti-n-donostia",
     "organic-farm-to-table-cooking--shanagarry-east-cork",
@@ -3970,6 +3871,132 @@
       "date": "1 October 2026",
       "what": "Taro, who runs Haru Cooking Class, read this page and told us what his class is: a home cook teaching Kyoto-style washoku from his own kitchen, with wagyu as a treat. We had described it by its vegetarian and non-vegetarian courses. His card below now says it his way, in our words.",
       "who": "Taro"
+    }
+  },
+  "retired": {
+    "modernist-spanish-cuisine": "modern-new-technique-cuisine"
+  },
+  "retiredRecord": {
+    "_comment": "What a retired craft carried, kept as the record (never deleted): signed grades, intros, lines. The build reads none of it.",
+    "modernist-spanish-cuisine": {
+      "measure": {
+        "modernist-spanish-cuisine": {
+          "dots": 4,
+          "verdict": "If this craft already pulls you, there is enough here to go on — we have not stood in it, so we will not tell you to cross the world for it yet",
+          "state": "researched, not checked",
+          "conditions": [
+            {
+              "n": "Is there a teacher, and can we name them?",
+              "on": true,
+              "t": "Le Cordon Bleu Madrid — the school this craft recommends, and so the one that has to answer — names the chefs who teach its Spanish Cuisine programmes on its own Meet the Chefs page, read 17 September 2026: Natalia Vázquez at their head, with chef instructors David Vela, Manuel Lucas and Diego Muñoz, one of them described there as joining the teaching team for the Spanish Cooking Diploma in 2016. Barcelona answers it a second way: Martín Lippo teaches modernist technique himself, in his own laboratory."
+            },
+            {
+              "n": "Can a stranger get in, on a date you can book?",
+              "on": true,
+              "t": "You can book your way in, on dates. Madrid's avant-garde teaching is the last third of a nine-month Spanish Cuisine Diploma, and their own syllabus names the block — spherifications, low-temperature cooking, the fundamentals of molecular cuisine. Barcelona's lab courses are shorter. The stage is the other road and it is a real one, but it is applied for with a CV and nobody can promise you one: only one of the two is a way in you can book. Your hands can ruin the work on either."
+            },
+            {
+              "n": "Will there be other people learning beside you?",
+              "on": true,
+              "t": "The strongest thing this craft has — and the community dots above are the evidence for it, not a second opinion. Barcelona is where the elBulli cooks actually landed, and Disfrutar, opened by three of them, was named the world's best restaurant in 2024. Madrid gathers the whole avant-garde once a year at Madrid Fusión, running since 2003 and reaching its 25th edition in February 2027. There is a generation above you here, and one below."
+            },
+            {
+              "n": "Is the craft alive in this place, or is the school the only thing here?",
+              "on": true,
+              "t": "Yes, and this is the question that separates this craft from the travelling toolkit. Madrid Fusión — Alimentos de España — has been the vanguard's own congress since 2003, and it happens here rather than in any of the places the technique has since reached. <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">That technique</a> goes anywhere; this cuisine came from here and still argues with itself in the same rooms.",
+              "evidence": [
+                {
+                  "what": "Madrid Fusión — Alimentos de España",
+                  "url": "https://www.madridfusion.net/en/",
+                  "date": "4 September 2026"
+                }
+              ]
+            },
+            {
+              "n": "Is there enough here to keep you learning for years?",
+              "on": false,
+              "t": "Nobody of ours has been, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. As high as this craft goes is very high — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
+            }
+          ],
+          "check": "Read from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last one, not doubt about the places. When somebody does, the line will carry their name and the day they went. The fourth answer rests on Madrid Fusión's own site, read 4 September 2026. Amended 17 September 2026: the first answer was written on 4 September, when the course this craft recommended was Martín Lippo's in Barcelona and it said Madrid named no teacher. The recommendation moved to Le Cordon Bleu Madrid on 15 September, which by this standard makes that school the one that has to answer — and its own Meet the Chefs page now names four, read 17 September 2026. The dot was lit before and is lit now, but it no longer rests on a school we do not send you to. The other four answers are unchanged.",
+          "ceilingNote": "All five are reachable here: this cuisine belongs to its places, so a visit could answer the last one.",
+          "checker": "Arnaud Callier",
+          "date": "17 September 2026"
+        }
+      },
+      "craftIntros": {
+        "modernist-spanish-cuisine": {
+          "p": "This cuisine’s most famous kitchen stood in a cove. ElBulli stood above Cala Montjoi, near Roses on the Costa Brava. Ferran Adrià joined its kitchen in 1984 and took full charge in 1987, and from there came the foams and the spherification it made famous. Restaurant magazine’s list named it the best restaurant in the world five times, in 2002 and every year from 2006 to 2009. It served its last meals in 2011, closing on 30 July, and became a foundation for creative cooking. Its cooks carried the work on. Today the craft is most alive in Barcelona, where three of them, Oriol Castro, Eduard Xatruch and Mateu Casañas, opened Disfrutar in December 2014; in 2024 it was named the world’s best restaurant.",
+          "sources": [
+            {
+              "what": "Wikipedia, El Bulli",
+              "url": "https://en.wikipedia.org/wiki/El_Bulli",
+              "read": "5 October 2026"
+            },
+            {
+              "what": "Wikipedia, Disfrutar",
+              "url": "https://en.wikipedia.org/wiki/Disfrutar",
+              "read": "5 October 2026"
+            },
+            {
+              "what": "Restaurant Online (William Reed, publisher of the 50 Best), 6 June 2024",
+              "url": "https://www.restaurantonline.co.uk/Article/2024/06/06/Barcelona-s-Disfrutar-named-The-World-s-Best-Restaurant",
+              "read": "5 October 2026"
+            }
+          ]
+        }
+      },
+      "learnLines": {
+        "modernist-spanish-cuisine--madrid": "Learn the avant-garde block of a Spanish kitchen diploma, with the lesson translated into your ear.",
+        "modernist-spanish-cuisine--barcelona": "Stand in the scene the elBulli cooks scattered into, and learn the technique at a bench in it.",
+        "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": "Stand in the cove where it started. The kitchen is gone; a museum stands in its place.",
+        "modernist-spanish-cuisine--girona": "Learn inside the densest node of Spanish avant-garde technique, where a stage is earned and never bought."
+      },
+      "communityLines": {
+        "modernist-spanish-cuisine--madrid": "The whole craft gathers in this city once a year, and the congress belongs to the trade rather than to any school — it has run since 2003 and reaches its 25th edition in February 2027. That is a town hosting the argument about its own cuisine. ⚠ Only one school is on the record here, and it does not name who teaches.",
+        "modernist-spanish-cuisine--barcelona": "The densest scene the cuisine has: this is where the elBulli cooks landed, and the restaurant three of them opened was named the world's best in 2024. There is a generation above you here and one below. ⚠ It is a scene of kitchens, not of classrooms — two schools serve it, and we hold a commercial interest in one of them, disclosed on this page.",
+        "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": "There is no community here to weigh. The restaurant closed on 30 July 2011 and what stands in the cove is a museum selling a two-and-a-half-hour visit — no course, no enrolment, nobody teaching. One dot, and it is for the pilgrimage.",
+        "modernist-spanish-cuisine--girona": "Two doors, and only one of them is a course: a stage at a three-star kitchen is a job you apply for, so the people around you there would be staff on a rota rather than students. The city's standing rests on that one restaurant and the family that runs it. Nothing outside the trade describes a wider scene."
+      },
+      "placeIntros": {
+        "modernist-spanish-cuisine--barcelona": {
+          "text": "Barcelona has a mountain range behind it. Collserola runs to almost 11,000 hectares, and the park declared over it in 1987 covers 8,465 of them — worth knowing on a week where you are indoors all day. The other thing worth timing is the calçot, a winter onion that has held an EU protected name since 31 May 2002 — the kind of protection a region files for something it is still arguing about. Ask when they are coming in before you fix your dates.",
+          "sources": [
+            {
+              "url": "https://www.parcnaturalcollserola.cat/en/",
+              "what": "The Sierra de Collserola, with its almost 11,000 hectares",
+              "read": "13 September 2026"
+            },
+            {
+              "url": "https://www.parcnaturalcollserola.cat/en/",
+              "what": "8,465 hectares",
+              "read": "13 September 2026"
+            },
+            {
+              "url": "https://www.gov.uk/protected-food-drink-names/calcot-de-valls",
+              "what": "Date of original registration with the EU: 31 May 2002",
+              "read": "13 September 2026"
+            },
+            {
+              "url": "https://www.parcnaturalcollserola.cat/en/",
+              "what": "in 1987 the Collserola Park was created",
+              "read": "13 September 2026"
+            }
+          ],
+          "checker": "Arnaud Callier",
+          "date": "15 September 2026"
+        }
+      },
+      "ladderDebtKnown": [
+        "modernist-spanish-cuisine"
+      ],
+      "placeIntroDebtKnown": [
+        "modernist-spanish-cuisine--barcelona",
+        "modernist-spanish-cuisine--girona",
+        "modernist-spanish-cuisine--madrid",
+        "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
+        "modernist-spanish-cuisine--san-sebasti-n-donostia"
+      ]
     }
   }
 }

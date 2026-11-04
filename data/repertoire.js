@@ -28236,7 +28236,7 @@ window.ET_ATLAS = {
             "name": "Culinary Institute of Barcelona (CIB)",
             "url": "https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas",
             "course": "Curso de Especialización en Técnicas Culinarias Avanzadas: Cocina Molecular, Fuego y Baja Temperatura — 330 hours over three months",
-            "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught in Spanish with support in English. Its own title says what it is — cocina molecular, fuego y baja temperatura — which is why it sits on this craft and not on Modernist Spanish Cuisine, where it was filed until 14 September 2026. Intakes January, May and September 2027, at 11,000, 9,900 and 10,285 EUR respectively. ⚠ Honest note: it is a school programme taught by a faculty. Its own page says '+20 profesionales referentes en cada materia' and names nobody, so you cannot look up your teacher before you pay — ask who will be in the room. Checked on cib.education, 14 September 2026.",
+            "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught in Spanish with support in English. Intakes January, May and September 2027, at 11,000, 9,900 and 10,285 EUR respectively. ⚠ Honest note: it is a school programme taught by a faculty. Its own page says '+20 profesionales referentes en cada materia' and names nobody, so you cannot look up your teacher before you pay — ask who will be in the room. Checked on cib.education, 14 September 2026.",
             "confidence": "high",
             "verify": [
               "Técnicas Culinarias Avanzadas",
@@ -28260,7 +28260,7 @@ window.ET_ATLAS = {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
               "course": "Private courses in person & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
-              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. His group courses for 2026 are sold out and no later date is shown (read 4 November 2026); in person, the way in is a private course, quoted by email. Listed because the founder met Martin Lippo in person. Martin Lippo is on two crafts here and this is the one he was listed for — the toolkit itself, taught as technique. He appears again under Modernist Spanish Cuisine, for the Barcelona the elBulli cooks made: same lab, a different question.",
+              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. His group courses for 2026 are sold out and no later date is shown (read 4 November 2026); in person, the way in is a private course, quoted by email. Listed because the founder met Martin Lippo in person.",
               "confidence": "high",
               "photos": {
                 "given": "2026-07-30",
@@ -28351,7 +28351,7 @@ window.ET_ATLAS = {
               "facts": {
                 "where": "Passatge Centelles, Barcelona",
                 "length": "2 days, 14 hours (sous-vide course)",
-                "format": "10am-2pm and 3pm-6pm; the 2026 classroom dates have run, new dates pending",
+                "format": "10am-2pm and 3pm-6pm; the 2026 classroom dates are sold out, no later date shown",
                 "language": "Spanish; English or French only as a private course",
                 "credential": "Certificate of attendance signed by Martin Lippo",
                 "price": "€580",

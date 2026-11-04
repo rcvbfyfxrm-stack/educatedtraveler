@@ -204,6 +204,19 @@ dl.sfacts dd { font-size:14px; line-height:1.45; margin-top:3px; }
 .steachlab { display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--faint); margin-bottom:3px; }
 details.smore { margin-top:12px; }
+li.school[data-cover] { padding:0 0 20px; overflow:hidden; }
+.prail > li.school { align-self:flex-start; }
+li.school[data-cover] > :not(.scover) { margin-left:22px; margin-right:22px; }
+.scover { position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }
+.scover img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.scover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.62) 68%,rgba(13,11,9,.96) 100%); }
+.scap { position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }
+.scap .sname { color:var(--paper); }
+.scap .scourse { color:var(--paper); opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.scap .stag { background:rgba(13,11,9,.55); }
+li.school .scourse { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+details.sall .smh { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }
+details.sall > dl.sfacts { margin-top:12px; }
 details.smore > summary { cursor:pointer; list-style:none; font-family:'IBM Plex Mono',monospace; font-size:11px;
   letter-spacing:.1em; text-transform:uppercase; color:var(--sea); }
 details.smore > summary::-webkit-details-marker { display:none; }
@@ -326,7 +339,7 @@ footer a { color:var(--sea); }
 <div class="mono">Why there's nothing more on this page</div>
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it &mdash; or, now and then, when one pulls at me hard enough that I go and check it myself.</p>
-<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking 116 things badly.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking 115 things badly.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a note, and the note comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
 <div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
@@ -344,7 +357,7 @@ footer a { color:var(--sea); }
     </form>
   </div>
 </section></div>
-<section><div class="wrap"><div class="crail-wrap"><div class="crail-head"><div><div class="mono">If this one pulls you</div><h2>Close to this on the map</h2></div><div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button><button data-cr="next" aria-label="Next">&#8250;</button></div></div><p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p><div class="crail"><a href="/atlas/italian-cuisine-and-pasta"><span class="cr-w">The classical kitchen</span><span class="cr-n">Italian Cuisine &amp; Pasta</span><span class="cr-p">Bologna, Italy</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/modernist-spanish-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">Modernist Spanish Cuisine</span><span class="cr-p">Barcelona, Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/new-basque-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">New Basque Cuisine</span><span class="cr-p">San Sebastián (Donostia), Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/modern-new-technique-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">New culinary techniques &amp; technologies</span><span class="cr-p">Barcelona, Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a></div></div></div></section>
+<section><div class="wrap"><div class="crail-wrap"><div class="crail-head"><div><div class="mono">If this one pulls you</div><h2>Close to this on the map</h2></div><div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button><button data-cr="next" aria-label="Next">&#8250;</button></div></div><p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p><div class="crail"><a href="/atlas/italian-cuisine-and-pasta"><span class="cr-w">The classical kitchen</span><span class="cr-n">Italian Cuisine &amp; Pasta</span><span class="cr-p">Bologna, Italy</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/new-basque-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">New Basque Cuisine</span><span class="cr-p">San Sebastián (Donostia), Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/modern-new-technique-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">New culinary techniques &amp; technologies</span><span class="cr-p">Barcelona, Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/chef-at-sea"><span class="cr-w">The classical kitchen</span><span class="cr-n">Being a Chef at Sea</span><span class="cr-p">Mallorca, Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a></div></div></div></section>
 <section style="border-top:1px solid var(--line);background:var(--ink2)">
 <div class="wrap prose">
 <details class="fold">
