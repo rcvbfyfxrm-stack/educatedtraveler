@@ -268,7 +268,7 @@
   @media(max-width:620px){.ph-bench{grid-template-columns:1fr 1fr;gap:.5rem}.ph-evenings{gap:.5rem}}
   .topbar a.atlas{white-space:nowrap}
   @media(max-width:480px){.topbar a.atlas[href="/atlas/"]{display:none}}
-  /* another week with Martin: a one-tap interest, in a sheet, without leaving the page */
+  /* a private week with Martin: a one-tap interest, in a sheet, without leaving the page */
   button.btn{cursor:pointer;font-weight:500}
   #again{border:1px solid var(--line);border-radius:12px;background:var(--ink-2);color:var(--paper);padding:0;width:min(440px,calc(100vw - 32px))}
   #again::backdrop{background:rgba(0,0,0,.65)}
@@ -400,7 +400,7 @@
     <p>EducatedTraveler is a free map of where a craft is still alive and who still teaches it. A collaboration is that map come true: one teacher, in their own working room, with a small room of people who want the same craft. The next one is not announced yet. Leave your name and I write to you first, when it is real. Free, and you can leave in one click.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="/circle">Keep me posted &rarr;</a>
-      <button type="button" class="btn btn-peer" id="again-open">Another week with Martin? Count me in</button>
+      <button type="button" class="btn btn-peer" id="again-open">A private week with Martin? Count me in</button>
       <a class="btn btn-ghost" href="/collaborations">All the collaborations</a>
     </div>
   </div>
@@ -450,7 +450,7 @@
 </script>
 <dialog id="again" aria-labelledby="again-h">
   <form id="again-f" novalidate>
-    <h3 id="again-h">Another week with Martin.</h3>
+    <h3 id="again-h">A private week with Martin.</h3>
     <p>Nothing is set yet. Leave your email and you'll hear first if it happens.</p>
     <input type="email" id="again-email" placeholder="you@wherever.com" autocomplete="email" aria-label="Your email">
     <label class="tick"><input type="checkbox" id="again-ok"><span>You may write to me at this address. One click to leave, any time.</span></label>
@@ -483,11 +483,11 @@
     try{
       await sb(); var c=window.supabaseClient; if(!c) throw new Error('no connection');
       var r=await c.from('launch_waitlist').insert({email:email, source:'collab-interest:martin-lippo',
-        interests:[{kind:'collab-interest', teacher:'martin-lippo'},{kind:'dream', text:'Would come to another week with Martin Lippo (from /barcelona).'}]});
+        interests:[{kind:'collab-interest', teacher:'martin-lippo'},{kind:'dream', text:'Would come to a private week with Martin Lippo (from /barcelona).'}]});
       if(r && r.error) throw r.error;
       if(window.plausible) window.plausible('MartinAgain');
     }catch(e){ console.error('[again]',e); b.disabled=false; err('Could not save that just now. Try again, or write to arnaudcallier@pm.me.'); return }
-    f.innerHTML='<h3>Noted.</h3><p>If there is another week with Martin, you will hear it first.</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
+    f.innerHTML='<h3>Noted.</h3><p>If there is a private week with Martin, you will hear it first.</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
   });
 })();
 </script>

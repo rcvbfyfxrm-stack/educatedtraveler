@@ -163,7 +163,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
   </section>
 
   <section>
-    <button type="button" class="martin" id="martin" aria-pressed="false"><span>I'd come to another week with Martin<small>Tap, and it's noted with your name below.</small></span><span class="tick" aria-hidden="true"></span></button>
+    <button type="button" class="martin" id="martin" aria-pressed="false"><span>I'd come to a private week with Martin<small>Tap, and it's noted with your name below.</small></span><span class="tick" aria-hidden="true"></span></button>
   </section>
 
   <section id="signup">
@@ -257,7 +257,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
     <div class="v"><img src="/images/collab/lab-week-01/mariola.jpg" alt="" loading="lazy"><div><q>Everything amazing!! Best host best Master.</q><span class="who">Mariola Cid Acorral · Private jet catering chef · <a href="https://www.instagram.com/lolacidcorral/" target="_blank" rel="noopener">@lolacidcorral</a></span></div></div>
     <div class="v"><img src="/images/collab/lab-week-01/luigi.jpg" alt="" loading="lazy"><div><q>The good energy</q><span class="who">Luigi Fumarola · Yacht chef on 87m · <a href="https://www.instagram.com/yachtchef/" target="_blank" rel="noopener">@yachtchef</a></span></div></div>
 
-    <button type="button" class="martin" id="martin2" aria-pressed="false" style="margin:18px 0 0"><span>I'd come to another week with Martin</span><span class="tick" aria-hidden="true"></span></button>
+    <button type="button" class="martin" id="martin2" aria-pressed="false" style="margin:18px 0 0"><span>I'd come to a private week with Martin</span><span class="tick" aria-hidden="true"></span></button>
     <button type="button" class="cta go back-to" id="backv">Back to sign up</button>
     <a class="more" href="/barcelona" target="_blank" rel="noopener">The whole week, with every note</a>
   </div>
@@ -282,7 +282,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
   $('backv').addEventListener('click',function(){closeV();$('signup').scrollIntoView({block:'start'})});
   dlg.addEventListener('click',function(e){if(e.target===dlg) closeV()});
 
-  // "Another week with Martin": one toggle, mirrored in the page and the pop-up,
+  // "A private week with Martin": one toggle, mirrored in the page and the pop-up,
   // recorded with the sign-up (it rides in the same row).
   var wantsMartin=false;
   function setMartin(v){
@@ -330,7 +330,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
       source: SOURCE,
       interests: [ {kind:'profile', name:name, region:null},
                    {kind:'dream', text:'Works at: '+where+'\nCame from the WhatsApp note (Barcelona done, Tokyo teased). Wants to hear first.'
-                      + (wantsMartin ? '\nWould come to another week with Martin Lippo.' : '')} ]
+                      + (wantsMartin ? '\nWould come to a private week with Martin Lippo.' : '')} ]
     };
     if(wantsMartin) payload.interests.push({kind:'collab-interest', teacher:'martin-lippo'});
 
@@ -350,7 +350,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
       await sb.auth.signInWithOtp({email:email, options:{emailRedirectTo:location.origin+'/portrait', shouldCreateUser:true}});
     }catch(e){ console.error('[Circle] link failed',e) }
 
-    if(wantsMartin) $('donenews').textContent="When there is news on Tokyo, or another week with Martin, you'll hear it first.";
+    if(wantsMartin) $('donenews').textContent="When there is news on Tokyo, or a private week with Martin, you'll hear it first.";
     $('doneemail').textContent=email;
     $('doneh').textContent="You're in the Circle, "+first(name)+".";
     $('join').style.display='none'; $('join-hero').style.display='none'; $('done').style.display='block';
