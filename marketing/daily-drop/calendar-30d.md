@@ -345,7 +345,7 @@ The full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--mau
 ```
 
 ## Day 20 — Modernist Spanish Cuisine · Barcelona, Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona
+- **Atlas page:** https://educatedtraveler.app/atlas/modernist-spanish-cuisine
 - **Footage:** Vakuum by Martin Lippo — https://martinlippo.com/en/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
@@ -357,7 +357,7 @@ Where the elBulli cooks actually landed. Disfrutar, opened by three chefs out of
 
 Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona
+The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine
 
 #foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine
 ```
