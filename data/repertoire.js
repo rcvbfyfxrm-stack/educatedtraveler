@@ -9,6 +9,27 @@ window.ET_ATLAS = {
   "disciplines": [
     {
       "discipline": "Japanese Knife-Making",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Forging the blade",
+            "Carbon steel heated until it glows, then hammered out into the shape of the blade and its bevel."
+          ],
+          [
+            "The quench",
+            "The hot blade is hardened in the quench: the edge cools fast and turns hard, the spine cools slowly and stays springy."
+          ],
+          [
+            "Tempering, grinding, water stones",
+            "The blade is tempered so it will not shatter, then ground, sharpened on water stones and fitted with a handle."
+          ],
+          [
+            "The single bevel",
+            "The kitchen blade is sharpened on one side only, like a chisel, with the back hollow-ground."
+          ]
+        ]
+      },
       "category": "creative",
       "id": "japanese-knife-making",
       "blurb": "The blade that lost its war in 1876 and moved to the kitchen — and the one souvenir you're meant to use until it wears out. In a day at a real fire you hammer the guided steps while a master keeps the dangerous ones, and you carry home a single-bevel knife you helped forge.",
@@ -75,6 +96,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Self-Sufficiency & Food Preservation",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Soil and water",
+            "Building soil you feed before it feeds you, and dryland gardening where water is thought about every day."
+          ],
+          [
+            "Seed and harvest",
+            "Keeping seed from one season to the next, and bringing in the harvest."
+          ],
+          [
+            "Putting food up safely",
+            "Low-acid food needs a pressure canner, because a pot of boiling water will not destroy botulinum spores."
+          ],
+          [
+            "Lactic fermentation",
+            "Sauerkraut, kimchi and pickles keep because bacteria turn sugars into lactic acid, too sour for rot."
+          ]
+        ]
+      },
       "category": "creative",
       "id": "self-sufficiency",
       "blurb": "The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.",
@@ -135,6 +177,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Hatha & Vinyasa Yoga",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Asana",
+            "The postures themselves, practised every day: often once before dawn and again at dusk."
+          ],
+          [
+            "Pranayama",
+            "Breathing practice, taught as its own discipline alongside the postures."
+          ],
+          [
+            "Breath joined to movement",
+            "Postures linked by the breath into one flow. Mysore is where the flow began."
+          ],
+          [
+            "Philosophy and anatomy",
+            "Yoga philosophy and the anatomy of the body, studied through the day between the practices."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "Yoga Alliance",
       "goldCredential": "RYT-200 / RYT-500 (Registered Yoga Teacher)",
@@ -769,6 +832,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Ashtanga Yoga",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The set sequence",
+            "A fixed series of postures linked by breath and movement, practised daily at dawn."
+          ],
+          [
+            "Mysore-style self-practice",
+            "Each student works through the sequence alone in a shared room, receiving individual adjustments from the teacher."
+          ],
+          [
+            "Postures one at a time",
+            "A new posture is given only when you are ready for it: you earn each one, practice by practice."
+          ],
+          [
+            "The led class and study",
+            "The room moves through the sequence together to the teacher's count, alongside study of philosophy and Sanskrit."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "Sharath Yoga Centre (formerly KPJAYI) / Yoga Alliance",
       "goldCredential": "KPJAYI/SYC Authorisation (then Certification) — historically the rarest stamp in yoga",
@@ -1613,6 +1697,23 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Vipassana & Meditation",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Noble Silence",
+            "No talking for the whole course, and no contact with the outside world."
+          ],
+          [
+            "Anapana",
+            "Observing the breath. The ten-day course begins here, before moving on to sensation."
+          ],
+          [
+            "Vipassana",
+            "Observing sensation in the body with bare attention: the step that follows the breath."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "Vipassana Research Institute (Goenka / U Ba Khin tradition); Theravada monastic lineages",
       "goldCredential": "Completed 10-day silent course (prerequisite to serve/assist), then long-courses and Assistant Teacher appointment in the Goenka tradition",
@@ -2229,6 +2330,23 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Sound Healing",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Singing bowls",
+            "Playing singing bowls, and using them on the body in what the schools call bowl massage."
+          ],
+          [
+            "Working with the voice",
+            "Your own voice used as the instrument, alongside gong, drum, crystal and Himalayan bowls."
+          ],
+          [
+            "Listening inward",
+            "Listening for an inner sound, as an old Sanskrit yoga text describes it: first like the ocean or thunder, then finer."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "No single global body; recognized diplomas via College of Sound Healing (UK), Globe Institute (state-approved, USA); Nada Yoga tradition",
       "goldCredential": "Practitioner / Sound Therapist Diploma (College of Sound Healing) or Sound Healing & Therapy Certificate (Globe Institute)",
@@ -2768,6 +2886,23 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Thai Massage",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The Sen lines",
+            "Working along the body's energy lines, the Sen Sib, with palms, thumbs, elbows and feet."
+          ],
+          [
+            "Pressure and assisted stretching",
+            "Acupressure on points along the body and assisted, yoga-like stretches, all given on the floor."
+          ],
+          [
+            "The core sequence",
+            "The complete sequence from start to finish, practised hands-on in pairs."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "Thai Ministry of Public Health / Ministry of Education (Nuad Thai certification)",
       "goldCredential": "Professional Thai Massage Certificate (150-200+ hrs, government-accredited) up to Thai Massage Instructor",
@@ -3942,6 +4077,23 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Cold Exposure (Wim Hof Method)",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The breathing",
+            "Conscious breathing with long breath-holds, done on land only: never in water, because practitioners have drowned."
+          ],
+          [
+            "Ice baths and cold water",
+            "Deliberate cold, practised again and again: ice baths, cold-water swims and time barefoot in the snow."
+          ],
+          [
+            "The mindset",
+            "The third part beside breath and cold: a focused mind, trained through meditation."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "Wim Hof Method Academy",
       "goldCredential": "Certified Wim Hof Method Instructor (Modules I-III, Fundamentals)",
@@ -4925,6 +5077,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Freediving",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Relaxation and the breath",
+            "Calming the heart, breathing well and equalising the ears: the dive is won by stillness, not by force."
+          ],
+          [
+            "Static and dynamic apnea",
+            "Static is a still breath-hold at the surface; dynamic is distance swum underwater in a pool."
+          ],
+          [
+            "Constant weight and free immersion",
+            "Going down a line for depth: with fins, carrying your weights the whole way, or pulling hand over hand on the rope."
+          ],
+          [
+            "Buddy diving and rescue",
+            "One diver down, one watching the surface, every dive, with training to rescue a diver who blacks out."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "AIDA / Molchanovs / Apnea Academy / SSI",
       "goldCredential": "AIDA 1-4 / Molchanovs Wave 1-3 -> Instructor",
@@ -5355,6 +5528,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Spearfishing",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Hunting on one breath",
+            "Stalking fish on a single breath, on the reef or in open blue water, done on lungs alone."
+          ],
+          [
+            "The single clean shot",
+            "Speargun control and fish identification, so that one clean shot takes the fish you chose."
+          ],
+          [
+            "Bluewater hunting",
+            "Hunting open-water fish such as wahoo, tuna and dorado in deep blue water off a steep drop-off."
+          ],
+          [
+            "Safety and the rules",
+            "Safety, gear, physiology and the local regulations, with sustainable hunting taught alongside the technique."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "CMAS (spearfishing commission) / national federations",
       "goldCredential": "CMAS Spearfishing grades / national federation licence + freediving certification",
@@ -5853,6 +6047,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Sailing & Yachtmaster",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Navigation and passage planning",
+            "Planning a passage and finding your way along it, reading wind and tide, with radar work alongside."
+          ],
+          [
+            "Handling the yacht",
+            "Manoeuvres and anchoring, done by your own hand, and the judgement behind each one."
+          ],
+          [
+            "Night sailing and watches",
+            "Sailing by day and by night, taking your turn on watch while the boat keeps going."
+          ],
+          [
+            "Sea survival and the engine",
+            "What to do when things go wrong at sea, and enough engineering to look after the diesel engine."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "RYA (Royal Yachting Association)",
       "goldCredential": "RYA Yachtmaster Offshore / Ocean (Certificate of Competence)",
@@ -6250,6 +6465,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Surfing",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Reading the ocean",
+            "Reading the swell, tide and wind to choose the break and when to go out."
+          ],
+          [
+            "Paddling and timing",
+            "Paddling into a moving wall of water, timed to catch it while its face is still unbroken."
+          ],
+          [
+            "Pop-up and stance",
+            "Getting from lying on the board to standing, and the stance that keeps you riding."
+          ],
+          [
+            "Trimming and turning",
+            "Riding along the face of the wave, then learning to turn on it."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "ISA (International Surfing Association)",
       "goldCredential": "ISA Surf Instructor / Coach Certification (Levels 1-2)",
@@ -6854,6 +7090,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Kitesurfing",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Flying the kite on land",
+            "Setting up, launching and landing the kite on the beach, and learning to fly it in the wind window."
+          ],
+          [
+            "Body-dragging and relaunch",
+            "Pulled through the water by the kite without the board, relaunching it from the sea and getting your board back."
+          ],
+          [
+            "Waterstart and riding upwind",
+            "Getting up on the board, then edging to control your speed and ride upwind."
+          ],
+          [
+            "Safety and right of way",
+            "Releasing the kite in an emergency, rescuing yourself in deep water, and the rules on who gives way."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "IKO (International Kiteboarding Organization)",
       "goldCredential": "IKO Kiteboarder Level 3 / IKO Instructor Certification",
@@ -7381,6 +7638,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Windsurfing & Wing-foil",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Rigging and steering",
+            "Rigging a sail to a board, then steering by feel through your feet."
+          ],
+          [
+            "Waterstart, harness and footstraps",
+            "The steps past the beginner board: waterstarting, then the harness, the footstraps and stance."
+          ],
+          [
+            "Planing and the carve gybe",
+            "From reliable tacks and gybes to powered planing, then the carve gybe."
+          ],
+          [
+            "Wing and foil",
+            "Then a handheld wing, on a foil that lifts the board clear of the water."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "VDWS / IWO (International Windsurfing & Wingfoiling Organisation)",
       "goldCredential": "VDWS Windsurf / Wingfoil Licence & Instructor Certification",
@@ -7988,6 +8266,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Rock Climbing",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Belaying and abseiling",
+            "Working the rope for a partner and coming back down on it, drilled for safety before the routes."
+          ],
+          [
+            "Leading",
+            "Climbing first on the rope: where a course takes a beginner after a first move outdoors."
+          ],
+          [
+            "Anchors and placements",
+            "Building anchors and placing your own gear, then trusting those placements as you move up the rock."
+          ],
+          [
+            "Footwork and jamming",
+            "Reading stone with your fingertips and your feet: footwork and jamming, learned on gritstone."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "AMGA / IFMGA (national bodies: BMG, AMGA); UIAA standards",
       "goldCredential": "AMGA / IFMGA Rock Guide (recreational tier: AMGA Single Pitch Instructor)",
@@ -8959,6 +9258,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Ski-touring & Splitboard",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Skinning",
+            "Climbing uphill on skins under your own power, then skiing or riding down beyond the resort boundary."
+          ],
+          [
+            "Avalanche safety",
+            "Evaluating the hazard, making the decision, and companion rescue, taught on hands-on field days."
+          ],
+          [
+            "Snowpack and risk",
+            "Observing the snow and managing the risk, on tours the students lead themselves."
+          ],
+          [
+            "Hut to hut",
+            "A multi-day traverse on skins over glaciers and cols, sleeping in mountain huts along the way."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "IFMGA guides + national avalanche standards (CAA, AIARE, AAA); ISMF (racing)",
       "goldCredential": "AIARE / avalanche Pro certification + IFMGA ski-touring guiding (recreational gold: AIARE 1-2)",
@@ -10533,6 +10853,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Safari & Wildlife Guiding",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Tracking on foot",
+            "Reading spoor and sign on the ground, then following an animal's trail on foot."
+          ],
+          [
+            "Identification",
+            "Naming the mammals, birds, reptiles, amphibians and trees around you, and the behaviour you are watching."
+          ],
+          [
+            "Ecology, geology and weather",
+            "How the bush works as a whole: its ecology, the rock beneath it and the weather over it."
+          ],
+          [
+            "Leading drives and walks",
+            "Planning and leading game drives and walks, with navigation and radio procedure; in the Okavango, by mokoro too."
+          ]
+        ]
+      },
       "category": "adventure",
       "certBody": "FGASA (Field Guides Association of Southern Africa) / CATHSSETA; KPSGA in East Africa",
       "goldCredential": "FGASA Professional Field Guide (NQF2) + Apprentice Trails Guide",
@@ -11680,6 +12021,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Pottery & Ceramics",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Centring the clay",
+            "Getting the lump of wet clay to run true on the spinning wheel before you ever open it."
+          ],
+          [
+            "Throwing a pot",
+            "Opening the clay and pulling a vessel up out of it, learning how much pressure is exactly enough."
+          ],
+          [
+            "Drying and trimming",
+            "Letting the pot dry without cracking, then trimming it without letting it collapse."
+          ],
+          [
+            "Glaze and the kiln",
+            "Glazing, then firing: in a wood firing the flame marks the pot, and where it sits in the chamber changes it."
+          ]
+        ]
+      },
       "category": "creative",
       "certBody": "Apprenticeship / studio-residency lineage (no single global body)",
       "goldCredential": "Recognized studio apprenticeship completion or college diploma in ceramics (e.g. Leach/Mashiko lineage, MA Ceramics)",
@@ -12912,6 +13274,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Photography",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Light and exposure",
+            "Working with light and time: how much light reaches the frame, and for how long."
+          ],
+          [
+            "Composition",
+            "Deciding what goes into a single frame and where, then committing to it."
+          ],
+          [
+            "Studio and reportage",
+            "Two ways of working: pictures made under lights in the studio, and photo reportage shot on location."
+          ],
+          [
+            "Editing and critique",
+            "Back at base, choosing and editing your pictures, with one-to-one reviews of your images."
+          ]
+        ]
+      },
       "category": "creative",
       "certBody": "ICP / Spéos / no universal body (portfolio + diploma based)",
       "goldCredential": "One-Year Photography Certificate (e.g. ICP)",
@@ -14500,6 +14883,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Jewelry & Goldsmithing",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Sawing, filing and soldering",
+            "Metal sawn, filed and joined with solder at the bench, as a sketch is taken towards a wearable piece."
+          ],
+          [
+            "Raising metal",
+            "Raising and finishing metal by hand until a sketch becomes an object that can be worn and handed down."
+          ],
+          [
+            "Stone setting",
+            "Setting stones into the metal: part of the goldsmithing course, and taught as a course of its own."
+          ],
+          [
+            "Wax modelling and casting",
+            "Modelling a piece in wax and casting it, taught alongside the fundamental techniques and stone setting."
+          ]
+        ]
+      },
       "category": "creative",
       "certBody": "GIA (gemology) / Le Arti Orafe & guild diplomas (goldsmithing)",
       "goldCredential": "GIA Graduate Gemologist (GG) diploma, or Le Arti Orafe goldsmithing diploma",
@@ -15298,6 +15702,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Perfumery",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The perfumer's organ",
+            "Where the perfumer works, with hundreds of raw materials within reach, building a blend one drop at a time."
+          ],
+          [
+            "Raw materials",
+            "Smelling and studying the raw materials one by one: the olfactory training under every formula."
+          ],
+          [
+            "Accords and blending",
+            "Building accords from a few materials, then blending them in hands-on formulation exercises."
+          ],
+          [
+            "Fragrance families",
+            "How fragrances are grouped into families, and how a single fragrance is structured."
+          ]
+        ]
+      },
       "category": "creative",
       "certBody": "ISIPCA (Université de Versailles diploma) / Grasse Institute of Perfumery",
       "goldCredential": "ISIPCA state-recognized perfumery diploma, or the GIP International Technical Degree in Fragrance Creation",
@@ -16168,6 +16593,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "French Pastry & Patisserie",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The creams",
+            "Each cream made by its own method, then used to fill and build the cakes."
+          ],
+          [
+            "Doughs and petits fours",
+            "Doughs, dry and soft petits fours and meringues: prepared, baked and finished at your own station."
+          ],
+          [
+            "The entremets",
+            "A cake built layer by layer from its bases, then assembled, filled, glazed and decorated."
+          ],
+          [
+            "Plated desserts",
+            "Desserts finished on the plate, taught next to entremets, glazing and ganache."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "CAP Pâtissier (French State Diploma) / MOF",
       "goldCredential": "CAP Pâtissier (State Diploma) — capped by the Meilleur Ouvrier de France title",
@@ -16973,6 +17419,23 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Chocolate & Confectionery",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Tempering",
+            "Working chocolate so it sets glossy, snaps clean and melts at body heat: taught first, before bonbons and tablets."
+          ],
+          [
+            "Ganache",
+            "Formulating the ganache: the filling that goes inside a filled chocolate bonbon."
+          ],
+          [
+            "Moulded and enrobed bonbons",
+            "Bonbons made two ways: in a mould, or coated on an enrober with a cooling tunnel."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "Callebaut/Cacao Barry Chocolate Academy / L'École Valrhona",
       "goldCredential": "Chocolate Academy or L'École Valrhona certificate — crowned by the World Chocolate Masters title",
@@ -17691,6 +18154,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Italian Cuisine & Pasta",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The sfoglia",
+            "The egg sheet rolled by hand on the wooden board, worked until the dough is read by touch."
+          ],
+          [
+            "Tagliatelle",
+            "Ribbons cut from the rolled sheet. Bologna keeps a gold sample of the cooked tagliatella, eight millimetres wide."
+          ],
+          [
+            "Tortellini and lasagne",
+            "The rest of the Bolognese fresh-pasta repertoire, made from the same sheet and shaped by hand."
+          ],
+          [
+            "The regional table",
+            "Dough, shaping and sauces at the board, then a menu built from what the land around it grows."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "ALMA — La Scuola Internazionale di Cucina Italiana (Italian Cuisine Diploma)",
       "goldCredential": "ALMA Diploma in Italian Cuisine / La Vecchia Scuola Bolognese Sfoglina certificate",
@@ -18003,6 +18487,23 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "New Basque Cuisine",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Market cooking",
+            "Cooking from what the market brings, the principle the founders took home from French nouvelle cuisine."
+          ],
+          [
+            "Product and fire",
+            "Local Basque product cooked over the grill, the old tradition the new kitchen set out to revive."
+          ],
+          [
+            "Core technique",
+            "Handling, preserving and cooking vegetables, meat, fish, seafood and grains, with pastry and bakery fundamentals."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "Basque Culinary Center / Mondragon University (Bachelor & Master in Gastronomy)",
       "goldCredential": "Basque Culinary Center Degree in Gastronomy & Culinary Arts / Master in Culinary Arts",
@@ -18258,6 +18759,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Modernist Spanish Cuisine",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Spherification",
+            "Liquids set into spheres. With foams, it is the technique this cuisine first became known for."
+          ],
+          [
+            "Foams and the siphon",
+            "Foams and sodas made with a siphon, part of the modernist toolkit taught at the bench."
+          ],
+          [
+            "Sous-vide and low temperature",
+            "Food cooked under vacuum at low temperature: one of the avant-garde techniques on the syllabus."
+          ],
+          [
+            "Deconstructing a classic",
+            "Taking a classic dish apart and building it again in new and varied textures."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "No formal body. A school certifies its own course; a stage certifies nothing but the name on the door.",
       "goldCredential": "A course certificate from a school you can book — or the long way round, a completed stage in a kitchen of this lineage.",
@@ -18748,6 +19270,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Sushi & Washoku",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Shari",
+            "Sushi rice and its preparation: with the knife, the first fundamental of the day."
+          ],
+          [
+            "The knife",
+            "Japanese knife use and maintenance, from cleaning and filleting fish to cutting sashimi."
+          ],
+          [
+            "Edomae nigiri",
+            "Nigiri, the hand-pressed form born in Edo, with rolled sushi and omakase service at the counter."
+          ],
+          [
+            "Dashi and the washoku meal",
+            "From basic dashi through sashimi to kaiseki, and the logic that holds a washoku meal together."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "Japanese government National Cooking License (Chorishi) / MAFF Japanese Cuisine Skills Certification",
       "goldCredential": "Chorishi National Chef's License (or MAFF Japanese Cuisine Gold/Silver certification)",
@@ -19383,7 +19926,28 @@ window.ET_ATLAS = {
     {
       "discipline": "Oaxacan & Mexican Cuisine",
       "category": "culinary",
-      "certBody": "— (no single body; UNESCO-recognized heritage cuisine; CONALEP / private culinary schools)",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Nixtamal and masa",
+            "Corn cooked with lime, washed, then ground: the dough under the tortilla, the tamal and the atole."
+          ],
+          [
+            "Mole",
+            "Chillies, seeds and spices toasted and ground, sometimes with chocolate. In Oaxaca, a class can be given to the moles alone."
+          ],
+          [
+            "Salsas in stone",
+            "Charred tomatoes, tomatillos and chillies, ground by hand in the molcajete."
+          ],
+          [
+            "The pib",
+            "Yucatán's Maya earth oven, where cochinita pibil cooks underground in banana leaves."
+          ]
+        ]
+      },
+      "certBody": "no single body; each school prints its own",
       "goldCredential": "Cooking-school immersion certificate (e.g. Seasons of My Heart week-long diploma)",
       "blurb": "The slow alchemy of mole, masa, and mezcal, ground on a metate and built on UNESCO-honored Mesoamerican tradition that runs centuries deep.",
       "destinations": [
@@ -19429,6 +19993,57 @@ window.ET_ATLAS = {
               "course": "Oaxacan cooking class with market tour / Moles class",
               "blurb": "Oaxaca City cooking school run by chef Oscar Carrizosa focused solely on Oaxacan cuisine, teaching daily market-tour classes covering tortillas, ancestral salsas and mole using produce from his own Mixteca farm.",
               "confidence": "high",
+              "photos": {
+                "given": "2026-11-02",
+                "by": "Alix Verrips",
+                "source": "student",
+                "thumb": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg",
+                "card": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg",
+                "items": [
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg",
+                    "w": 520,
+                    "h": 650,
+                    "alt": "Óscar Carrizosa in a denim Casa Crespo apron watches over a pan of onions while a student's hand stirs it with a red spatula.",
+                    "caption": "Óscar at the stove with the class."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-02-the-market.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "A market stall in Oaxaca hung with embroidered OAXACA bags above baskets of dried chillies, each labelled on a pink card: costeño amarillo, chile de árbol, pasilla, morita, chipotle, chile pulla.",
+                    "caption": "The market comes first, with the chef. Each basket of chillies has its name on it."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-03-mole-negro.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "A market stall stacked with packets of mole paste under a MOLE NEGRO sign, with baskets of chilhuacle, tabiche and chiltepe chillies in front.",
+                    "caption": "Mole negro at the market, sold as paste, with the chilhuacle and chiltepe chillies beside it."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-04-tamales.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "Hands lifting a tamal in its corn husk from a tall steamer on a flowered oilcloth table, among bowls of lime, onion, coriander, salt and chillies.",
+                    "caption": "The tamales come out of the steamer, still in the husk."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-05-the-long-table.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "A long table in the courtyard laid with blue and white Talavera plates, painted glasses and small bowls of salsa, with guests sitting at the far end.",
+                    "caption": "Then everyone sits at one long table and eats what they made."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-06-the-soup.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "A bowl of orange broth with mushrooms and squash blossoms on a hand-painted plate.",
+                    "caption": "A broth of mushrooms and squash blossom, from the day's menu."
+                  }
+                ]
+              },
               "facts": {
                 "length": "4 hours",
                 "format": "Market tour, then cooking in the chef's home",
@@ -19548,6 +20163,71 @@ window.ET_ATLAS = {
               "course": "Traditional Mexican cooking classes, 5½ hours; a 6-hour class with the market in Valladolid",
               "blurb": "Chef Alejandra Kauachi's school, from a family of Mexican and Lebanese cooks. Two kitchens: one on the Ruta de los Cenotes road in Puerto Morelos, on the Caribbean coast in Quintana Roo, the other five minutes outside Valladolid, in Yucatán, where the class starts at the market. The menus are cooked from scratch: salsas, handmade tortillas, tamales, and a Yucatán menu with pork in pibil sauce. The school also lists Rosalía Chay, a Maya cook in her home village of Yaxunah, as a featured chef.",
               "confidence": "medium",
+              "photos": {
+                "given": "2026-11-02",
+                "by": "Alix Verrips",
+                "source": "student",
+                "thumb": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-02-tortilla.jpg",
+                "card": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-01-the-kitchen.jpg",
+                "items": [
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-01-the-kitchen.jpg",
+                    "w": 960,
+                    "h": 1280,
+                    "alt": "A bright kitchen with a pink hood, a sun mask and red and white checked tiles over a steel range lined with clay cazuelas and copper pans.",
+                    "caption": "Ale's kitchen, with the clay pots already out on the range."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-02-tortilla.jpg",
+                    "w": 480,
+                    "h": 848,
+                    "alt": "A cook in an embroidered blouse and a black apron presses a ball of masa flat with both hands on a square of banana leaf.",
+                    "caption": "A tortilla pressed by hand on a banana leaf. Still from Alix's video."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-03-roasted-tomatoes.jpg",
+                    "w": 480,
+                    "h": 848,
+                    "alt": "A cook in an embroidered blouse peels charred tomatoes over a bowl, beside a stone molcajete on a tiled table.",
+                    "caption": "Charred tomatoes peeled for the salsa, the molcajete waiting. Still from Alix's video."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-04-molcajetes.jpg",
+                    "w": 960,
+                    "h": 1280,
+                    "alt": "Two stone molcajetes on a tiled table, one with a green salsa and a spoon in it, the other with a red one.",
+                    "caption": "The salsas, ground in the stone."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-05-tamales.jpg",
+                    "w": 960,
+                    "h": 1280,
+                    "alt": "Tamales wrapped in corn husk, tied with string, standing upright in a steamer.",
+                    "caption": "Tamales, tied in the husk and steamed."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-06-mole.jpg",
+                    "w": 960,
+                    "h": 1280,
+                    "alt": "A piece of chicken in dark mole topped with sesame on a bright Talavera plate, with a bowl of black beans in front.",
+                    "caption": "Mole and black beans, chosen by Alix for her private class."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-07-rosalia-the-mill.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "Rosalía Chay, in a white huipil embroidered with flowers, feeds nixtamalised corn into a hand mill under a palm-thatched roof, smiling at the camera.",
+                    "caption": "The day Ale arranged in Yaxunah: Rosalía Chay grinding the corn for the tortillas at her home."
+                  },
+                  {
+                    "src": "/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-08-the-pib.jpg",
+                    "w": 1050,
+                    "h": 1400,
+                    "alt": "An earth pit lined with stones and banana leaves, with pots set inside on a frame of branches.",
+                    "caption": "The pib, the Maya earth oven, before it is covered. The cochinita cooks underground."
+                  }
+                ]
+              },
               "facts": {
                 "where": "Puerto Morelos and Valladolid",
                 "length": "5½ to 6 hours",
@@ -19919,6 +20599,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Wine & Sommellerie",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Blind tasting",
+            "Tasting wines with the label hidden and naming what is in the glass by its taste alone."
+          ],
+          [
+            "Terroir, vintage and grape",
+            "Reading in the glass where a wine was grown, the year it was made and the grape behind it."
+          ],
+          [
+            "Viticulture and winemaking",
+            "How vines are grown and wine is made, down to the chemistry and microbiology of production."
+          ],
+          [
+            "Service and pairing",
+            "Serving wine and pairing drinks with a meal, taught beside the tasting."
+          ]
+        ]
+      },
       "bestPlace": "wine-and-sommellerie--bordeaux",
       "category": "culinary",
       "certBody": "WSET (Wine & Spirit Education Trust) / Court of Master Sommeliers",
@@ -20596,6 +21297,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Coffee & Barista",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Dialling in espresso",
+            "Dosing, tamping and extraction at the machine, and adjusting the grinder until the espresso runs right."
+          ],
+          [
+            "Milk and latte art",
+            "Steaming and texturing milk, then pouring it into the espresso to draw latte art."
+          ],
+          [
+            "Brewing and filter coffee",
+            "Making coffee by hand without the espresso machine: filter coffee and the other brewing methods."
+          ],
+          [
+            "Cupping",
+            "Tasting coffees side by side to tell origin, roast and extraction apart in the cup."
+          ]
+        ]
+      },
       "bestPlace": "coffee-and-barista--melbourne",
       "category": "culinary",
       "certBody": "SCA (Specialty Coffee Association)",
@@ -21033,6 +21755,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Mixology & Bartending",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The classics",
+            "Classic cocktails made behind a working bar; one course works through more than forty IBA cocktails."
+          ],
+          [
+            "A balanced build",
+            "Building a cocktail so that it is balanced, from the classics to drinks of your own."
+          ],
+          [
+            "Speed and precision",
+            "Working behind a real bar with speed and precision: most of the training day is spent there."
+          ],
+          [
+            "Spirits",
+            "Knowing the spirits themselves, taught in theory next to the practice at the bar."
+          ]
+        ]
+      },
       "category": "culinary",
       "certBody": "WSET (Wine & Spirit Education Trust)",
       "goldCredential": "WSET Level 3 Award in Spirits — examined in person by WSET: a closed-book theory paper and a blind tasting. It examines what you know about spirits, not your work behind the bar.",
@@ -27960,6 +28703,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "New culinary techniques & technologies",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Sous-vide",
+            "Food sealed under vacuum and cooked in a water bath held at a precise temperature."
+          ],
+          [
+            "Spherification",
+            "A liquid with alginate dropped into a calcium bath, where it sets inside a thin gel skin."
+          ],
+          [
+            "Foams and the siphon",
+            "A flavoured liquid with lecithin or protein, aerated in a nitrous-oxide siphon: foam without cream or egg."
+          ],
+          [
+            "Hydrocolloids",
+            "Agar, xanthan, methylcellulose and their kin, used to thicken a liquid or set it into a gel."
+          ]
+        ]
+      },
       "category": "culinary",
       "id": "modern-new-technique-cuisine",
       "sweep": {
@@ -28539,6 +29303,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Lymphatic Drainage",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "The light stroke",
+            "No kneading and no real pressure: the hand stretches the skin and lets it recoil."
+          ],
+          [
+            "Working the return line",
+            "Lymph returns to the blood, so the hands work slowly, in exactly the right direction, for a long time."
+          ],
+          [
+            "When not to touch",
+            "Recognising an acute infection, an untreated clot, a failing heart or a cancer in the area, and stopping."
+          ],
+          [
+            "Lymphoedema and compression",
+            "Treating chronic swelling that often follows cancer surgery, with the hands added to compression bandaging, which does most of the work."
+          ]
+        ]
+      },
       "category": "wellness",
       "certBody": "Dr. Vodder Academy / Wittlinger",
       "goldCredential": "Manual Lymph Drainage / CDT certificate (state-recognised where it counts)",
@@ -29271,6 +30056,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Organic Farm-to-Table Cooking",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Cooking from the land",
+            "Vegetables, eggs, milk and meat come off the farm outside the kitchen door, and the growers work alongside the cooks."
+          ],
+          [
+            "Cooking with the season",
+            "A menu changed every day to follow what is in season."
+          ],
+          [
+            "A meal as a team",
+            "Students cook a three- or four-course meal together, marked on time management and prioritising, then serve and host lunch."
+          ],
+          [
+            "Growing, keeping and preserving",
+            "Living soil, composting, seed-saving, keeping hens and bees: the growing half of the craft, taught on the farm."
+          ]
+        ]
+      },
       "category": "culinary",
       "blurb": "Cooking that starts in the soil. The vegetables, dairy and meat come off the farm outside the kitchen door and the growers work alongside the cooks — the short distance between the bed and the pan is the whole lesson. Ask the school exactly which of it your own hands do.",
       "destinations": [
@@ -29475,6 +30281,27 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Wildlife Photography",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Hide craft",
+            "Working unseen from a hide; behind one-way glass you can be within metres of an undisturbed bird."
+          ],
+          [
+            "Long-lens technique",
+            "Shooting with a long lens from the hide or the vehicle, still and ready for the moment."
+          ],
+          [
+            "Reading light",
+            "Working dawn and dusk, and waiting until the light, the animal and the frame arrive together."
+          ],
+          [
+            "Patience, then the edit",
+            "Sitting out a subject, then the middle of the day for editing and critique."
+          ]
+        ]
+      },
       "category": "creative",
       "certBody": "No universal body — portfolio and prize based. SINWP offers voluntary nature/wildlife qualifications, PPA a general Certified Professional Photographer credential, and NANPA is the main association. Wildlife Photographer of the Year (Natural History Museum, London) is the recognised summit.",
       "certShort": "No universal body (portfolio + prize based)",

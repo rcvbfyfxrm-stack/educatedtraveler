@@ -103,7 +103,34 @@
     '.etn-fine{font-size:11.5px;line-height:1.6;color:var(--faint,rgba(243,237,226,.45));margin:13px 0 0;}',
     '.etn-fine a{color:var(--sea,#7fa8a5);}',
     '.etn-sub span{color:var(--sea,#7fa8a5);}',
-    '.etn-card[data-done] .etn-email,.etn-card[data-done] .etn-ok,.etn-card[data-done] .etn-go.etn-send,.etn-card[data-done] .etn-fine{display:none;}'
+    '.etn-card[data-done] .etn-email,.etn-card[data-done] .etn-ok,.etn-card[data-done] .etn-go.etn-send,.etn-card[data-done] .etn-fine{display:none;}',
+    '.etsu .etn-card{padding:22px 24px 22px;}',
+    '.etsu-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 30px 14px 0;}',
+    '.etsu-what{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea,#7fa8a5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}',
+    '.etsu-top[hidden]{display:none;}',
+    '.etsu-dots{display:flex;gap:6px;flex:0 0 auto;}',
+    '.etsu-dots i{width:22px;height:3px;border-radius:3px;background:rgba(243,237,226,.16);transition:background .3s;}',
+    '.etsu-dots i.on{background:linear-gradient(90deg,var(--sea,#7fa8a5),var(--ember,#d28a52));}',
+    '.etsu-step{animation:etsu-in .32s cubic-bezier(.2,.8,.2,1) both;}',
+    '@keyframes etsu-in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}',
+    '.etsu .etn-h{font-size:25px;}',
+    '.etsu-chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 4px;}',
+    '.etsu-chip{border:1px solid rgba(243,237,226,.18);background:rgba(243,237,226,.03);color:var(--paper,#f3ede2);border-radius:99px;padding:9px 14px;font:inherit;font-size:13.5px;cursor:pointer;transition:border-color .2s,background .2s;}',
+    '.etsu-chip:hover{border-color:rgba(127,168,165,.6);}',
+    '.etsu-chip[aria-checked=true]{border-color:var(--ember,#d28a52);background:rgba(210,138,82,.14);}',
+    '.etsu .etsu-other{margin-top:10px;}',
+    '.etsu-back{display:block;margin:12px auto 0;background:none;border:none;color:var(--muted,rgba(243,237,226,.6));font:inherit;font-size:13px;cursor:pointer;}',
+    '.etsu-back:hover{color:var(--paper,#f3ede2);}',
+    '.etsu-seal{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;color:#14110d;margin:4px 0 14px;background:linear-gradient(135deg,var(--sea,#7fa8a5),var(--ember,#d28a52));animation:etsu-pop .45s cubic-bezier(.2,1.4,.4,1) both;}',
+    '@keyframes etsu-pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}',
+    '.etsu-done .etn-sub span{color:var(--sea,#7fa8a5);}',
+    '.etsu-grow{margin-top:16px;padding:16px;border:1px solid rgba(210,138,82,.35);border-radius:12px;background:rgba(210,138,82,.06);}',
+    '.etsu-k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember,#d28a52);}',
+    '.etsu-share{display:flex;gap:8px;flex-wrap:wrap;}',
+    '.etsu-share .etn-go{flex:1 1 170px;margin:0;text-align:center;text-decoration:none;white-space:nowrap;}',
+    '.etsu-copy{flex:1 1 120px;border:1px solid rgba(243,237,226,.22);background:none;color:var(--paper,#f3ede2);border-radius:99px;padding:12px 16px;font:inherit;font-size:14px;cursor:pointer;}',
+    '@media (max-width:520px){.etsu.etn-back{align-items:flex-end;padding:0;}.etsu .etn-card{width:100%;border-radius:18px 18px 0 0;max-height:92vh;}}',
+    '@media (prefers-reduced-motion:reduce){.etsu-step,.etsu-seal{animation:none;}}'
   ].join('');
 
   // What the dialog says over a note, and over a bare tap. The tick is the same.
@@ -326,26 +353,21 @@
     var school = String(info.school || '').trim();
     var what = school || craft || 'this one';
     var pageSlug = atlasSlug();
-
-    dialog().open(opener, function (addr, btn, warn, close) {
-      sendInterest(addr, btn, warn, close);
-    }, {
-      h: 'Where do I write?',
-      sub: 'Leave me an address. I’ll write when there’s something real about ' + what + ' — nothing else.',
-      go: 'Count me in →',
-      fine: 'Your address comes straight to me — never sold, never passed on. '
-        + 'Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed and it '
-        + 'is done. &middot; <a href="/privacy">What I keep</a>'
+    signup().open(opener, what, function (who, addr, btn, warn) {
+      return sendInterest(who, addr, btn, warn);
     });
 
-    async function sendInterest(addr, btn, warn, close) {
+    // who: { name, profession }. Resolves true when the row landed.
+    async function sendInterest(who, addr, btn, warn) {
       var label = btn.textContent;
       btn.disabled = true; btn.textContent = 'One moment…';
 
       var already = false;
       try { already = await emailHasAccount(addr); } catch (e) { already = false; }
 
-      var interests = [];
+      // The person first, in the shape every Circle surface writes: circle-welcome
+      // greets them by this name, notify-lead prints it and what they do.
+      var interests = [{ kind: 'profile', name: who.name, region: null, profession: who.profession }];
       if (craft) {
         var disc = { kind: 'discipline', discipline: craft, label: info.label || craft };
         if (info.slug || pageSlug) disc.slug = info.slug || pageSlug;
@@ -371,27 +393,192 @@
         var res = await sb.from('launch_waitlist').insert(payload);
         if (res && res.error) throw res.error;
         unstash();
-        if (window.plausible) window.plausible('Interest', { props: { source: payload.source, school: school ? 'yes' : 'no', member: already ? 'yes' : 'no' } });
+        if (window.plausible) window.plausible('Interest', { props: { source: payload.source, school: school ? 'yes' : 'no', member: already ? 'yes' : 'no', steps: 'name-trade-email' } });
       } catch (err) {
         stash(payload);
         btn.disabled = false; btn.textContent = label;
         warn('Couldn’t save that just now — try once more, or write to '
            + '<a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.');
-        return;
+        return false;
       }
-
-      dialog().done('Got it.',
-        '<p class="etn-sub">' + esc(what) + ' is noted against <span>' + esc(addr) + '</span>'
-        + (already ? ' — you’re already in the Circle with this address' : '') + '. '
-        + 'If you want to say more — how you’d love to learn it, and where — there’s a note '
-        + 'further down this page, and I read every one myself.</p>'
-        + '<button class="etn-go" type="button" data-etn-note>Write a note →</button>');
-      var b = document.querySelector('.etn-card [data-etn-note]');
-      if (b) b.addEventListener('click', function () {
-        close();
-        if (window.ETNote) window.ETNote.open();
-      });
+      signup().done(who.name, what, addr, already);
+      return true;
     }
+  }
+
+  // ── the sign-up behind every "I'm interested" ─────────────────────────────
+  // Arnaud, 4 Nov 2026: "make a cool design sign up. where first ask their name, and
+  // what their experience for example yacht chefs etc.. then done then ask for their
+  // email and enlarge the circle!" Three short questions, one per screen, then a
+  // last one that is not a question: send it to somebody. A name and a trade are what
+  // make a Circle a set of people rather than a list of addresses, and the trade is
+  // what another member can weigh ("a yacht chef wants this").
+  var TRADES = ['Yacht chef', 'Yacht crew', 'Chef or cook', 'I already do this craft',
+                'Curious, just starting'];
+  var OTHER = 'Something else';
+  var SU = null;
+  function signup() {
+    if (SU) return SU;
+    var back = el('div', 'etn-back etsu', { hidden: 'hidden' });
+    var card = el('div', 'etn-card', { role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'etsu-h', tabindex: '-1' });
+    card.innerHTML =
+        '<button class="etn-x" type="button" aria-label="Close">&times;</button>'
+      + '<div class="etsu-top"><span class="etsu-what"></span><span class="etsu-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>'
+      + '<div class="etsu-step" data-s="1">'
+      +   '<h3 class="etn-h" id="etsu-h">First, what’s your name?</h3>'
+      +   '<p class="etn-sub">So I know who I’m writing to.</p>'
+      +   '<input class="etn-email etsu-name" type="text" autocomplete="given-name" aria-label="Your name" placeholder="Your first name" maxlength="60">'
+      +   '<button class="etn-go" type="button" data-next>Next →</button>'
+      + '</div>'
+      + '<div class="etsu-step" data-s="2" hidden>'
+      +   '<h3 class="etn-h etsu-h2"></h3>'
+      +   '<p class="etn-sub">It tells me who the Circle is made of.</p>'
+      +   '<div class="etsu-chips" role="radiogroup" aria-label="What you do"></div>'
+      +   '<input class="etn-email etsu-other" type="text" aria-label="What you do" placeholder="In your own words" maxlength="80" hidden>'
+      +   '<button class="etn-go" type="button" data-next>Next →</button>'
+      +   '<button class="etsu-back" type="button" data-prev>← Back</button>'
+      + '</div>'
+      + '<div class="etsu-step" data-s="3" hidden>'
+      +   '<h3 class="etn-h etsu-h3"></h3>'
+      +   '<p class="etn-sub etsu-sub3"></p>'
+      +   '<input class="etn-email etsu-mail" type="email" autocomplete="email" spellcheck="false" aria-label="Your email" placeholder="you@wherever.com">'
+      +   '<label class="etn-ok"><input type="checkbox" class="etsu-ok"><span></span></label>'
+      +   '<button class="etn-go" type="button" data-send>Join the Circle →</button>'
+      +   '<button class="etsu-back" type="button" data-prev>← Back</button>'
+      +   '<p class="etn-fine">Your name and address come straight to me — never sold, never passed on. '
+      +   'Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed and it is done. '
+      +   '&middot; <a href="/privacy">What I keep</a></p>'
+      + '</div>'
+      + '<div class="etsu-step etsu-done" data-s="4" hidden aria-live="polite"></div>'
+      + '<p class="etn-err" role="alert" hidden></p>';
+    back.appendChild(card);
+    document.body.appendChild(back);
+    card.querySelector('.etn-ok span').textContent = CONSENT;
+
+    var $ = function (s) { return card.querySelector(s); };
+    var err = $('.etn-err'), nameIn = $('.etsu-name'), other = $('.etsu-other'),
+        mail = $('.etsu-mail'), ok = $('.etsu-ok'), chips = $('.etsu-chips');
+    var who = { name: '', profession: '' }, step = 1, opener = null, onSend = null, what = '';
+
+    TRADES.concat([OTHER]).forEach(function (t) {
+      var b = el('button', 'etsu-chip', { type: 'button', role: 'radio', 'aria-checked': 'false' });
+      b.textContent = t;
+      b.addEventListener('click', function () {
+        Array.prototype.forEach.call(chips.children, function (c) { c.setAttribute('aria-checked', 'false'); });
+        b.setAttribute('aria-checked', 'true');
+        other.hidden = t !== OTHER;
+        if (t === OTHER) { other.focus(); who.profession = other.value.trim(); }
+        else { who.profession = t; other.value = ''; }
+        err.hidden = true;
+      });
+      chips.appendChild(b);
+    });
+    other.addEventListener('input', function () { who.profession = other.value.trim(); });
+    ok.addEventListener('change', function () { if (ok.checked) err.hidden = true; });
+
+    function say(html) { err.innerHTML = html; err.hidden = false; }
+    function show(n) {
+      step = n; err.hidden = true;
+      Array.prototype.forEach.call(card.querySelectorAll('.etsu-step'), function (s) {
+        s.hidden = Number(s.getAttribute('data-s')) !== n;
+      });
+      Array.prototype.forEach.call(card.querySelectorAll('.etsu-dots i'), function (d, i) {
+        d.className = i < n ? 'on' : '';
+      });
+      $('.etsu-top').hidden = n === 4;
+      if (n === 2) $('.etsu-h2').textContent = 'Nice to meet you, ' + who.name + '. What do you do?';
+      if (n === 3) {
+        $('.etsu-h3').textContent = 'Where do I write, ' + who.name + '?';
+        $('.etsu-sub3').textContent = 'I’ll write when there’s something real about ' + what + ' — nothing else.';
+      }
+      var f = { 1: nameIn, 2: chips.querySelector('[aria-checked="true"]') || chips.firstChild, 3: mail }[n] || $('.etn-x');
+      setTimeout(function () { try { f.focus(); } catch (e) {} }, 40);
+    }
+    function next() {
+      if (step === 1) {
+        who.name = nameIn.value.trim();
+        if (!who.name) { say('Just a first name is fine.'); nameIn.focus(); return; }
+        show(2);
+      } else if (step === 2) {
+        if (!who.profession) { say(other.hidden ? 'Pick the closest one — or “Something else”.' : 'Say it in a few words.'); return; }
+        show(3);
+      }
+    }
+    function close() {
+      back.hidden = true;
+      document.documentElement.style.overflow = '';
+      if (opener) { try { opener.focus(); } catch (e) {} }
+    }
+
+    Array.prototype.forEach.call(card.querySelectorAll('[data-next]'), function (b) { b.addEventListener('click', next); });
+    Array.prototype.forEach.call(card.querySelectorAll('[data-prev]'), function (b) { b.addEventListener('click', function () { show(step - 1); }); });
+    nameIn.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); next(); } });
+    other.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); next(); } });
+    mail.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); $('[data-send]').click(); } });
+    $('[data-send]').addEventListener('click', function () {
+      var addr = mail.value.trim();
+      if (!validEmail(addr)) { say('I need a real address to write back to.'); mail.focus(); return; }
+      if (!ok.checked) { say('Tick the box first — I will not keep your details without it.'); ok.focus(); return; }
+      err.hidden = true;
+      if (onSend) onSend({ name: who.name, profession: who.profession }, addr, $('[data-send]'), say);
+    });
+    $('.etn-x').addEventListener('click', close);
+    back.addEventListener('mousedown', function (ev) { if (ev.target === back) close(); });
+    document.addEventListener('keydown', function (ev) {
+      if (back.hidden) return;
+      if (ev.key === 'Escape') { ev.preventDefault(); close(); return; }
+      if (ev.key !== 'Tab') return;
+      var f = Array.prototype.filter.call(card.querySelectorAll('button,input,a[href]'), function (n) { return n.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (ev.shiftKey && document.activeElement === first) { ev.preventDefault(); last.focus(); }
+      else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
+    });
+
+    SU = {
+      open: function (from, w, handler) {
+        opener = from; onSend = handler; what = w;
+        $('.etsu-what').textContent = w;
+        var s = $('[data-send]'); s.disabled = false; s.textContent = 'Join the Circle →';
+        back.hidden = false;
+        document.documentElement.style.overflow = 'hidden';
+        show(who.name ? (who.profession ? 3 : 2) : 1);
+      },
+      done: function (name, w, addr, already) {
+        var url = location.origin + location.pathname;
+        var msg = 'I just joined the EducatedTraveler Circle for ' + w + ' — where you can learn a craft from the people who do it. ' + url;
+        var d = $('.etsu-done');
+        d.innerHTML =
+            '<div class="etsu-seal" aria-hidden="true">✓</div>'
+          + '<h3 class="etn-h">You’re in, ' + esc(name) + '.</h3>'
+          + '<p class="etn-sub">' + esc(w) + ' is noted against <span>' + esc(addr) + '</span>'
+          + (already ? ', and you were already in the Circle with this address' : '') + '. '
+          + 'The Circle is the people who tell me what they want to learn: what it asks for decides '
+          + 'which craft I open next, and which week I build.</p>'
+          + '<div class="etsu-grow"><div class="etsu-k">Enlarge the Circle</div>'
+          + '<p class="etn-sub" style="margin:4px 0 12px">Know somebody who would want this? Send it to them.</p>'
+          + '<div class="etsu-share">'
+          + '<a class="etn-go etsu-wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(msg) + '">Send on WhatsApp</a>'
+          + '<button class="etsu-copy" type="button">' + (navigator.share ? 'Share it another way' : 'Copy the link') + '</button>'
+          + '</div></div>'
+          + '<button class="etsu-back" type="button" data-etn-note>Or write me a note about it →</button>';
+        d.querySelector('.etsu-copy').addEventListener('click', function () {
+          var b = this;
+          var fin = function () { b.textContent = 'Copied ✓'; };
+          if (navigator.share) { navigator.share({ text: msg }).catch(function () {}); return; }
+          if (navigator.clipboard) navigator.clipboard.writeText(url).then(fin, fin); else fin();
+        });
+        d.querySelector('.etsu-wa').addEventListener('click', function () {
+          if (window.plausible) window.plausible('CircleShare', { props: { via: 'whatsapp' } });
+        });
+        d.querySelector('[data-etn-note]').addEventListener('click', function () {
+          close(); if (window.ETNote) window.ETNote.open();
+        });
+        show(4);
+      },
+      close: close
+    };
+    return SU;
   }
 
   // The school links the page prints. The craft and the place come off the note's

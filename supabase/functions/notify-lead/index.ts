@@ -73,12 +73,12 @@ type Instructor = {
   where: string; level: string; length: string;
 };
 type Parsed = {
-  name: string; region: string; crafts: string[];
+  name: string; region: string; profession: string; crafts: string[];
   intent: Array<[string, string]>; dream: string; mastery: Mastery | null;
   instructor: Instructor | null; schools: string[]; leftovers: unknown[];
 };
 function parseInterests(iv: unknown): Parsed {
-  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", mastery: null, instructor: null, schools: [], leftovers: [] };
+  const out: Parsed = { name: "", region: "", profession: "", crafts: [], intent: [], dream: "", mastery: null, instructor: null, schools: [], leftovers: [] };
   let items: unknown[] = [];
   if (Array.isArray(iv)) items = iv;
   else if (iv && typeof iv === "object") items = Object.values(iv as Record<string, unknown>).flat();
@@ -90,6 +90,8 @@ function parseInterests(iv: unknown): Parsed {
       case "profile": {
         out.name = String(o.name ?? "").trim() || out.name;
         out.region = String(o.region ?? "").trim() || out.region;
+        // The Atlas "I'm interested" sign-up (4 Nov 2026) asks what they do: "Yacht chef", …
+        out.profession = String(o.profession ?? "").trim() || out.profession;
         // The /browse orb (circle-onboarding.js) packs its intent answers INTO this
         // profile item as slugs, not as a separate kind:'intent'. Surface them so
         // Arnaud's sheet shows how far / when / what level every orb joiner answered
@@ -276,6 +278,7 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
       <table style="width:100%;border-collapse:collapse;margin-bottom:6px;">
         ${kv("Name", esc(name))}
         ${kv("Email", email ? `<a href="mailto:${esc(email)}" style="color:#3f6b67;">${esc(email)}</a>` : "")}
+        ${kv("What they do", p.profession ? esc(p.profession) : "")}
         ${kv("Where they live", (p.region && !inst) ? esc(p.region) : "")}
         ${kv("Came in through", src ? esc(src) : "")}
       </table>

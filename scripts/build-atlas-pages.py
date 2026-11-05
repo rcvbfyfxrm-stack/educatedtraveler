@@ -1711,7 +1711,7 @@ ul.schools.crail {{ display:flex; }}
 .cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .cta:hover {{ opacity:.92; }}
 .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
-.shots {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:18px 14px; align-items:start; }}
+.shots {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr)); gap:18px 14px; align-items:start; }}
 .shots figure {{ margin:0; }}
 .shots figure.wide {{ grid-column:1/-1; }}
 .shots img {{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }}
@@ -2018,29 +2018,42 @@ def photo_block(x, only=None):
         # sentence about its own provenance to save a branch. `source: "site"` says what
         # actually happened. Anything else stops the build rather than guessing.
         src_kind = (ph.get("source") or "sent").strip()
-        if src_kind not in ("sent", "site"):
+        # "student" (4 Nov 2026): somebody who learnt here took them and sent them to me, and
+        # the school agreed to them being shown. `by` is then the student, never the school.
+        if src_kind not in ("sent", "site", "student"):
             raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has photos.source '
                              f'{src_kind!r}. It is "sent" (the school attached them) or '
                              '"site" (the school gave permission to use its own site\'s).')
+        if src_kind == "student" and not (ph.get("by") or "").strip():
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has student photographs '
+                             "with no `by`. Name the student who took them.")
         got = (f"{name} sent these when I wrote to ask whether this page described the "
                "school correctly."
                if src_kind == "sent" else
+               f"{e(ph.get('by', ''))} learnt here, took these on the day and sent them to me "
+               "for this page."
+               if src_kind == "student" else
                f"{name} gave me permission to use the photographs on its own website when "
                "I wrote to ask whether this page described the school correctly.")
         by = (f', {"sent by" if src_kind == "sent" else "permission given by"} '
-              f'{e(ph["by"])}') if ph.get("by") else ""
+              f'{e(ph["by"])}') if ph.get("by") and src_kind != "student" else ""
+        whose = ("They are her photographs, not the school's, and credited to her"
+                 if src_kind == "student" else
+                 "They are the school's own photographs, published with its permission and "
+                 "credited to it")
+        credit_line = (f'{e(ph["by"])} at {credit}' if src_kind == "student" else f'{credit}{by}')
         given = f', {e(pretty_date(ph["given"]))}' if ph.get("given") else ""
         blocks.append(
-            f'<div class="mono" style="margin-top:14px">{"Sent by the school" if src_kind == "sent" else "Published by the school"}</div>'
+            f'<div class="mono" style="margin-top:14px">{ {"sent": "Sent by the school", "site": "Published by the school", "student": "Taken by a student"}[src_kind] }</div>'
             + ("" if only else '<h2>What a lesson here looks like</h2>')
-            + f'<p class="meta" style="margin:8px 0 18px;max-width:62ch">{got} They are the '
-            "school's own photographs, published with its permission and credited to it — and "
+            + f'<p class="meta" style="margin:8px 0 18px;max-width:62ch">{got} {whose} — and '
             "they do not move it up the page: where it sits was decided from its own course "
-            "pages, before I wrote. Any school on this page can have the same space, on the "
-            "same terms.</p>"
+            + ("pages. " if src_kind == "student" else "pages, before I wrote. ")
+            + "Any school on this page can have the same space, on the same terms.</p>"
             f'<div class="shots">{figs}</div>'
-            f'<p class="meta" style="margin-top:14px">Photographs: {credit}{by}{given}. '
-            "Used with permission; all rights remain theirs.</p>")
+            f'<p class="meta" style="margin-top:14px">Photographs: {credit_line}{given}. '
+            + ("Used with her permission; all rights remain hers.</p>" if src_kind == "student"
+               else "Used with permission; all rights remain theirs.</p>"))
     if not blocks:
         return ""
     if only:
@@ -3223,6 +3236,7 @@ SCHOOL_TAGS = (
     "We work together",
     "Read and corrected by the school",
     "Photographs from the school",
+    "Photographs from a student",
     "Provisional, verifying",
     # What this school is, next to the others in the same town — see school_labels().
     "Taught in English", "Smallest class here", "Shortest course here",
@@ -3268,7 +3282,10 @@ def school_tags(d, x, s_, page_id):
     # ⚠ "Publicly rated" came off, 16 September 2026: the card prints the rating itself
     # two centimetres below, so the chip was the same fact said twice.
     if (s_.get("photos") or {}).get("items"):
-        out.append("Photographs from the school")
+        # A student's pictures are not the school's: the chip says whose camera it was.
+        out.append("Photographs from a student"
+                   if (s_["photos"].get("source") or "sent") == "student"
+                   else "Photographs from the school")
     if s_.get("confidence") == "low" and not is_pick:
         out.append("Provisional, verifying")
     for t in out:
@@ -3596,7 +3613,9 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
         # ⚠ Ruling 5 (25 Sept) had the photographs open by default. Arnaud, 4 Nov 2026,
         # wants the photograph to BE the card: the cover now carries it, and the rest of the
         # school's frames sit in the fold with everything else.
-        more += f'<h4 class="smh">Photographs from the school</h4>{photos}'
+        _who = ("Photographs from a student" if ((s_.get("photos") or {}).get("source") or "sent") == "student"
+                else "Photographs from the school")
+        more += f'<h4 class="smh">{_who}</h4>{photos}'
 
     # The rating: the school's own, or the pick's cited sources. One line, never a section.
     rates = []

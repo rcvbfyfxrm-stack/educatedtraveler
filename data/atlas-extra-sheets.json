@@ -251,6 +251,36 @@
   },
   "_craftIntros_comment": "One short paragraph per craft, under the lead on the craft page: where the craft was born and how alive it is in the world today. Arnaud, 4 Oct 2026 (coffee): 'present the skill in a small paragraph to say where it was born and how alive it is worldwide.' Every claim carries a source with the day it was read; rendered by craft_intro() in scripts/build-atlas-pages.py.",
   "craftIntros": {
+    "oaxacan-and-mexican-cuisine": {
+      "p": "This cuisine starts with corn. Cooks soften the maize in water and lime before they grind it, a step called nixtamalization that frees its nutrients and lets it hold together as masa; the oldest direct trace found so far comes from Maya pits at San Bartolo, in Guatemala, from the seventh or eighth century. On that corn, with beans and chilli, stands what UNESCO inscribed in 2010 as traditional Mexican cuisine: a living culture kept by community cooks, many of them women. It is most alive in Oaxaca, where cooks speak of seven moles, and in Yucatán, where Maya cooks still bury cochinita pibil in the pib, an earth oven of stones and fire, and leave it there for half a day.",
+      "sources": [
+        {
+          "what": "UNESCO Intangible Cultural Heritage, Traditional Mexican cuisine (2010)",
+          "url": "https://ich.unesco.org/en/RL/00400",
+          "read": "4 November 2026"
+        },
+        {
+          "what": "Boston University, the San Bartolo study of Maya nixtamalization (Journal of Archaeological Science)",
+          "url": "https://www.bu.edu/articles/2022/what-ancient-toilets-can-teach-us-about-maya-life-and-tamales",
+          "read": "4 November 2026"
+        },
+        {
+          "what": "Wikipedia, Nixtamalization",
+          "url": "https://en.wikipedia.org/wiki/Nixtamalization",
+          "read": "4 November 2026"
+        },
+        {
+          "what": "FlashPack, Óscar Carrizosa of Casa Crespo on Oaxaca's seven moles",
+          "url": "https://www.flashpack.com/us/solo/travel/local-foods/mexican-chef-oscar-carrizosa/",
+          "read": "4 November 2026"
+        },
+        {
+          "what": "The Yucatán Times, Rosalía Chay's cochinita pibil in the pib",
+          "url": "https://theyucatantimes.com/2021/07/rosalias-cochinita-pibil-with-an-ancestral-touch",
+          "read": "4 November 2026"
+        }
+      ]
+    },
     "coffee-and-barista": {
       "p": "Coffee the plant comes from the mountain forests of south-western Ethiopia, where arabica still grows wild. The barista’s craft was born much later, and in Italy. In 1884 Angelo Moriondo of Turin patented the machine that led to espresso; at the start of the twentieth century the Milanese inventor Luigi Bezzera built one that made a single cup to order; and in Milan in 1947 Achille Gaggia’s lever pushed water through the grounds hard enough to raise a crema. That cup is espresso, and the person who pulls it is the barista. Today the craft is most alive in Melbourne, in a country whose cafés were strong enough that Starbucks closed 61 of its 84 Australian stores in 2008, and where Jack Simpson of Axil Coffee Roasters won the 2025 World Barista Championship against competitors from more than fifty countries.",
       "sources": [
@@ -3216,7 +3246,7 @@
     }
   },
   "laddersNotPublished": {
-    "oaxacan-and-mexican-cuisine": "Its own certifying line on this map reads 'no single body; UNESCO-recognized heritage cuisine; CONALEP / private culinary schools'. No body publishes a ladder for it: what UNESCO inscribed in 2010 is a living community practice, not a curriculum, and each school here prints its own certificate.",
+    "oaxacan-and-mexican-cuisine": "Its own certifying line on this map reads 'no single body; each school prints its own'. No body publishes a ladder for it: what UNESCO inscribed in 2010 is a living community practice, not a curriculum, and each school here prints its own certificate.",
     "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
