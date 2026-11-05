@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-11-03 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-11-05 — 425 published claims re-read against the pages they came from, across 38 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -12,6 +12,10 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 - **kitesurfing · the IKO Kiteboarder levels** — https://d8.ikointl.com/courses
   - page no longer says: Kiteboarder; Instructor
+- **kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery** — https://d8.ikointl.com/course/kiteboarder/discovery
+  - page no longer says: SEA (Spot, Environment, Activity) assessment; Self-land
+- **kitesurfing · the IKO Kiteboarder levels — Level 2 — Intermediate** — https://d8.ikointl.com/course/kiteboarder/intermediate
+  - page no longer says: Body-drag upwind & Board Recovery; Waterstart
 - **kitesurfing · the IKO Kiteboarder levels — Level 3 — Independent** — https://d8.ikointl.com/course/kiteboarder/independent
   - page no longer says: Ride upwind; Self-rescue and pack down in deep water
 - **kitesurfing · the IKO Kiteboarder levels — Level 4 — Advanced** — https://d8.ikointl.com/course/kiteboarder/advanced
@@ -29,25 +33,35 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 57 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 58 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- wine-and-sommellerie · Université de Bordeaux DUAD (oenology) — 13 nights, after 5 counted as failing by the older check — URLError: <urlopen error timed out>
-  - https://formations-isvv.u-bordeaux.fr/d-u-a-d-diplome-universitaire-daptitude-a-la-degustation.html
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 30 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- pottery-and-ceramics · Mashiko Ceramics Art Museum / Tougei Messe Mashiko (Ceramic Art Center) — 1 night — URLError: <urlopen error [Errno 104] Connection reset by peer>
+  - https://www.mashiko-museum.jp/en/
+- new-basque-cuisine · Aiala — Karlos Arguiñano Eskola (Zarautz) — 1 night — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
+  - https://www.aiala.es/
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 1 night — URLError: <urlopen error timed out>
+  - https://www.taiwa.ac.jp/global/en/kyocho.php
+- sushi-and-washoku · La Carriere Cooking School (since 1931) — 1 night — URLError: <urlopen error timed out>
+  - https://www.taiwa.ac.jp/lacarriere/en/course/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 31 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 30 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 31 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
   - https://www.havanaclubmuseum.com/en/experiences/
+- italian-cuisine-and-pasta · 62 km of arcades along the entire urban stretch, Bologna is the City of Porticoes. Named a UNESCO World Heritage Site in 2021 — 1 night — TimeoutError: The read operation timed out
+  - https://www.bolognawelcome.com/en/information/unesco-porticoes-of-bologna-en
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **coffee-and-barista · African Coffee Campus** — 10 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
-  - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1010)>
-- **perfumery · Musée International de la Parfumerie** — 51 nights — https://www.museesdegrasse.com/mip/presentation
-  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 51 nights — https://www.museesdegrasse.com/mip/presentation
-  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
+- **wine-and-sommellerie · WSET School London** — 1 night — https://www.wsetglobal.com/wset-school-london
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
+- **coffee-and-barista · African Coffee Campus** — 11 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+  - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)>
+- **perfumery · Musée International de la Parfumerie** — 52 nights — https://www.museesdegrasse.com/mip/presentation
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
+- **perfumery · Un conservatoire de plantes à parfum** — 52 nights — https://www.museesdegrasse.com/mip/presentation
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
 
 ## Back to normal
 
@@ -62,9 +76,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - ashtanga-yoga · Stillpoint Yoga London — HTTP 403
 - vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
 - sound-healing · British Academy of Sound Therapy — HTTP 403
-- sailing-and-yachtmaster · UKSA (United Kingdom Sailing Academy), Cowes — HTTP 401
-- sailing-and-yachtmaster · RYA Day Skipper Practical — HTTP 401
-- sailing-and-yachtmaster · RYA Day Skipper Shorebased Theory — HTTP 401
 - surfing · Baleal Surf Camp — HTTP 403
 - kitesurfing · HST Windsurfing & Kitesurfing School — HTTP 403
 - kitesurfing · Private Single Kitesurfing Lesson — HTTP 403
@@ -87,7 +98,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - mixology-and-bartending · European Bartender School London — HTTP 403
-- yacht-crew-and-stcw · UKSA (United Kingdom Sailing Academy), Cowes — HTTP 401
 - wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
 - surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
@@ -100,12 +110,12 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
-- modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1011)>
 - coffee-and-barista · Yirgacheffe / Addis Ababa, as a place on this page — HTTP 403
 - coffee-and-barista · Coffee Craft Academy — URLError: <urlopen error [Errno -2] Name or service not known>
 - mixology-and-bartending · Havana, as a place on this page — URLError: <urlopen error [Errno 111] Connection refused>
 - mixology-and-bartending · European Bartender School New York — HTTP 403
-- modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1011)>
 - modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
@@ -173,4 +183,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - spearfishing · Kona, Big Island · Top Shot Spearfishing
 - spearfishing · Cabo San Lucas / Sea of Cortez · Spearfishing Baja (Cabo San Lucas)
 
-_271 in total._
+_283 in total._
