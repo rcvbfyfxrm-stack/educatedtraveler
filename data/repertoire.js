@@ -17186,11 +17186,11 @@ window.ET_ATLAS = {
       ]
     },
     {
-      "discipline": "Bread & Boulangerie",
+      "discipline": "Bread & Viennoiserie",
       "category": "culinary",
       "certBody": "CAP Boulanger (French State Diploma) / Bac Pro Boulangerie",
       "goldCredential": "CAP Boulanger (State Diploma) — or the EIDB state-recognized organic-sourdough diploma",
-      "blurb": "Flour, water, salt and time — the oldest culinary craft, where a living levain and a fierce oven turn four ingredients into something alive.",
+      "blurb": "Flour, water, salt and time — and then butter folded into a yeasted dough. The baker's whole trade, from a living levain to the croissant's flaky layers.",
       "ceiling": "A week in a bakery teaches you to build and read a levain, shape, score and bake a real crusty loaf — honestly enough to bake well at home. Running a production bakery is another craft entirely.",
       "room": {
         "ratio": "Small, hands-in-the-dough classes, a few students per baker.",
@@ -17207,11 +17207,10 @@ window.ET_ATLAS = {
           "communityLabel": "Legendary",
           "schools": [
             "École de Boulangerie et de Pâtisserie de Paris (EBP)",
-            "Le Cordon Bleu Paris"
+            "Le Cordon Bleu Paris",
+            "FERRANDI Paris"
           ],
-          "masters": [
-            "Apollonia Poilâne"
-          ],
+          "masters": [],
           "badges": [
             "source",
             "scene",
@@ -17229,8 +17228,26 @@ window.ET_ATLAS = {
               "name": "École de Boulangerie et de Pâtisserie de Paris (EBP)",
               "url": "https://www.ebp-paris.com/formations/cap-boulangerie/",
               "course": "CAP Boulangerie (Adult Continuing-Education Track)",
-              "blurb": "France's first dedicated bakery school, founded in 1929, runs an adult retraining route to the CAP Boulanger state diploma.",
-              "confidence": "high"
+              "blurb": "France's first dedicated bakery school, founded in 1929, runs an adult retraining route to the CAP Boulanger state diploma: thirteen weeks in its workshops between September and June, the rest of the eight months in a working bakery. It is taught and examined in French only, and open to EU or Swiss nationals or to holders of a residence permit that allows work.",
+              "confidence": "high",
+              "verify": [
+                "exclusivement en français",
+                "13 semaines",
+                "7 985,60"
+              ],
+              "facts": {
+                "where": "Paris",
+                "length": "8 months, 13 weeks of them in school",
+                "format": "Full-time blocks, the rest in a bakery",
+                "language": "French only",
+                "class": "12 in practice, 24 in theory",
+                "credential": "CAP Boulanger, a state diploma",
+                "price": "€7,985.60",
+                "from": [
+                  "https://www.ebp-paris.com/formations/cap-boulangerie/"
+                ],
+                "read": "2026-11-04"
+              }
             },
             {
               "name": "Le Cordon Bleu Paris",
@@ -17238,13 +17255,40 @@ window.ET_ATLAS = {
               "course": "Boulangerie Diploma",
               "blurb": "Paris flagship of the French culinary institute running an eight-month Boulangerie Diploma across basic and advanced levels plus a two-month internship, teaching kneading, fermentation and traditional and artistic bread production.",
               "confidence": "high"
+            },
+            {
+              "name": "FERRANDI Paris",
+              "url": "https://www.ferrandi-paris.com/en/bread-baking-programs/intensive-professional-program-bread-baking",
+              "course": "Intensive Professional Program in Bread Baking & Viennoiseries",
+              "blurb": "Twelve intensive weeks of French breads and viennoiseries in a bread-baking lab, taught in English, with an optional two-month internship after. Fluent English is a condition of entry; French is not.",
+              "confidence": "high",
+              "verify": [
+                "12 weeks + optional 2 months internship",
+                "18 500"
+              ],
+              "facts": {
+                "where": "Paris",
+                "length": "12 weeks, then an optional 2-month internship",
+                "format": "Full-time, in a bread-baking lab",
+                "language": "English",
+                "credential": "A FERRANDI Paris certificate",
+                "price": "€18,500",
+                "priceNote": "uniforms, course materials and excursions included; next session 25 August to 19 November 2027",
+                "from": [
+                  "https://www.ferrandi-paris.com/en/bread-baking-programs/intensive-professional-program-bread-baking"
+                ],
+                "read": "2026-11-04"
+              }
             }
           ],
           "tripTier": 5,
           "tripType": "Mastery track",
           "tripLength": "months–years",
           "englishTaught": true,
-          "englishBasis": "Le Cordon Bleu Paris Boulangerie Diploma taught in French with simultaneous English translation"
+          "englishBasis": "Le Cordon Bleu Paris Boulangerie Diploma taught in French with simultaneous English translation",
+          "lineage": [
+            "Apollonia Poilâne"
+          ]
         },
         {
           "place": "Vallée du Jabron (Provence)",
@@ -17322,14 +17366,14 @@ window.ET_ATLAS = {
             {
               "name": "Tartine Manufactory",
               "url": "https://tartinebakery.com/san-francisco/manufactory",
-              "course": "",
+              "course": "No public course under its own name — a working bakery",
               "blurb": "Chad Robertson and Elisabeth Prueitt's larger San Francisco bakery-restaurant; no multi-day immersive bread course is run under its own name, though its founders teach guest workshops at the San Francisco Baking Institute.",
               "confidence": "low"
             },
             {
               "name": "Acme Bread Company",
               "url": "https://acmebread.com/",
-              "course": "",
+              "course": "No public course under its own name — a working bakery",
               "blurb": "Pioneering Berkeley artisan bakery founded in 1983 by Steve Sullivan that helped launch the American artisan-bread movement; it is a wholesale and retail bakery rather than a school, with Sullivan teaching occasional guest classes at the San Francisco Baking Institute.",
               "confidence": "low"
             }
@@ -17367,11 +17411,106 @@ window.ET_ATLAS = {
               "confidence": "medium"
             }
           ],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a day",
           "englishTaught": true,
           "englishBasis": "Meyers offers the bread-making class explicitly 'In English'"
+        },
+        {
+          "place": "Vienna",
+          "country": "Austria",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Kruste&Krume (Vienna workshops)",
+            "Joseph Brot (apprenticeship scene)"
+          ],
+          "masters": [],
+          "badges": [
+            "heritage",
+            "lineage"
+          ],
+          "why": "The true birthplace: the crescent kipferl was a Viennese pastry long before Paris claimed it — pilgrimage to where viennoiserie got its name.",
+          "bestSeason": "Apr-Oct",
+          "level": "Beginner -> Professional",
+          "id": "bread-and-boulangerie--vienna",
+          "schoolsInfo": [
+            {
+              "name": "Kruste&Krume (Vienna workshops)",
+              "url": "https://krusteundkrume.at/backworkshops/",
+              "course": "Croissant and laminated-dough baking workshops",
+              "blurb": "Kruste&Krume is a Vienna bread-baking atelier led by Barbara van Melle and a master baker offering croissant, Kipferl and laminated-dough workshops plus a two-day recipe-development masterclass, though courses run a few hours rather than as multi-day immersions.",
+              "confidence": "medium",
+              "facts": {
+                "where": "Vienna",
+                "length": "3 to 4.5 hours",
+                "format": "A single workshop",
+                "price": "From €159 (croissants)",
+                "from": [
+                  "https://krusteundkrume.at/backworkshops/"
+                ],
+                "read": "2026-11-04"
+              },
+              "verify": [
+                "Buttrige Croissants",
+                "zwischen 3 und 4,5 Stunden"
+              ]
+            },
+            {
+              "name": "Joseph Brot (apprenticeship scene)",
+              "url": "https://www.joseph.co.at/en/",
+              "course": "No public course — a working bakery",
+              "blurb": "Joseph Brot is an organic Vienna bakery founded by Josef Weghaupt known for hand-crafted heritage-grain sourdough and laminated pastries, but it is a working bakery with no verified structured public apprenticeship or immersive course program.",
+              "confidence": "low"
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a few hours",
+          "englishTaught": null
+        },
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "region": "East Asia",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Le Cordon Bleu Tokyo"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "record"
+          ],
+          "why": "Tokyo's croissant obsession rivals Paris — a thriving cohort of laminating fanatics chasing the perfect honeycomb crumb.",
+          "bestSeason": "Year-round",
+          "level": "Intermediate -> Professional",
+          "id": "bread-and-boulangerie--tokyo",
+          "schoolsInfo": [
+            {
+              "name": "Le Cordon Bleu Tokyo",
+              "url": "https://www.cordonbleu.edu/tokyo/home/en",
+              "course": "Diplôme de Boulangerie (bakery diploma covering viennoiserie and bread)",
+              "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
+              "confidence": "medium",
+              "standing": {
+                "state": "paused",
+                "what": "Le Cordon Bleu Japan says it has closed its Daikanyama campus in Tokyo and will eventually move into a new campus; it gives no date, and points students to its other schools in the meantime.",
+                "from": "https://www.cordonbleu.edu/tokyo/home/en",
+                "read": "2026-11-04"
+              }
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
         }
       ],
       "id": "bread-and-boulangerie",
@@ -17388,9 +17527,7 @@ window.ET_ATLAS = {
         "format": "Full-time in-school blocks plus bakery placement; adult cohort",
         "certification": "CAP Boulanger (French national state diploma, RNCP level 3)",
         "fitsBecause": "A full-time, hands-on path to the recognized CAP Boulanger diploma in Paris, learning the levain-and-oven craft in a working-bakery cohort at the source.",
-        "sessions": [
-          "Sep 2026"
-        ],
+        "sessions": [],
         "priceNote": "~€7,986 (continuing-education track)",
         "confidence": "high",
         "alternatives": [
@@ -17777,187 +17914,6 @@ window.ET_ATLAS = {
             "place": "Brussels / Wieze, Belgium",
             "url": "https://www.cacao-barry.com/en/chocolate-academy",
             "why": "Listed as a school at Wieze, but its page is a general one for a network of academies, not a course in this place."
-          }
-        ]
-      }
-    },
-    {
-      "discipline": "Viennoiserie",
-      "category": "culinary",
-      "certBody": "CAP Boulanger / CAP Pâtissier (French State Diploma)",
-      "goldCredential": "CAP Boulanger or CAP Pâtissier with laminated-dough specialization",
-      "blurb": "The laminated-dough art of the croissant and pain au chocolat — butter folded into yeasted dough until it bakes into a honeycomb of shattering, flaky layers.",
-      "destinations": [
-        {
-          "place": "Vienna",
-          "country": "Austria",
-          "region": "Western Europe",
-          "role": "source",
-          "communityRank": 3,
-          "communityLabel": "Strong",
-          "schools": [
-            "Kruste&Krume (Vienna workshops)",
-            "Joseph Brot (apprenticeship scene)"
-          ],
-          "masters": [],
-          "badges": [
-            "source",
-            "heritage",
-            "lineage"
-          ],
-          "why": "The true birthplace: the crescent kipferl was a Viennese pastry long before Paris claimed it — pilgrimage to where viennoiserie got its name.",
-          "bestSeason": "Apr-Oct",
-          "level": "Beginner -> Professional",
-          "id": "viennoiserie--vienna",
-          "schoolsInfo": [
-            {
-              "name": "Kruste&Krume (Vienna workshops)",
-              "url": "https://krusteundkrume.at/backworkshops/",
-              "course": "Croissant and laminated-dough baking workshops",
-              "blurb": "Kruste&Krume is a Vienna bread-baking atelier led by Barbara van Melle and a master baker offering croissant, Kipferl and laminated-dough workshops plus a two-day recipe-development masterclass, though courses run a few hours rather than as multi-day immersions.",
-              "confidence": "medium"
-            },
-            {
-              "name": "Joseph Brot (apprenticeship scene)",
-              "url": "https://www.joseph.co.at/en/",
-              "course": "",
-              "blurb": "Joseph Brot is an organic Vienna bakery founded by Josef Weghaupt known for hand-crafted heritage-grain sourdough and laminated pastries, but it is a working bakery with no verified structured public apprenticeship or immersive course program.",
-              "confidence": "low"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": null
-        },
-        {
-          "place": "Paris",
-          "country": "France",
-          "region": "Western Europe",
-          "role": "both",
-          "communityRank": 5,
-          "communityLabel": "Legendary",
-          "schools": [
-            "FERRANDI Paris",
-            "Le Cordon Bleu Paris",
-            "École de Boulangerie et de Pâtisserie de Paris (EBP)"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "mecca",
-            "school",
-            "gold-cred",
-            "lineage",
-            "record"
-          ],
-          "why": "August Zang brought the Viennese kipferl to his Boulangerie Viennoise in 1839, and Paris bakers later folded it into the laminated croissant the rest of the world now copies.",
-          "bestSeason": "Sep-Jun",
-          "level": "Beginner -> Professional",
-          "id": "viennoiserie--paris",
-          "schoolsInfo": [
-            {
-              "name": "FERRANDI Paris",
-              "url": "https://www.ferrandi-paris.com/en/bread-baking-programs/intensive-professional-program-bread-baking",
-              "course": "Intensive Professional Program in French Bread Baking (Boulangerie)",
-              "blurb": "Taught fully in English by bilingual chef-instructors to small groups of about 12, this hands-on boulangerie program (roughly 70% practice) drills yeasted doughs, baguettes, country and specialty brea",
-              "confidence": "high"
-            },
-            {
-              "name": "Le Cordon Bleu Paris",
-              "url": "https://www.cordonbleu.edu/paris/bakery-programmes/en",
-              "course": "Boulangerie Diploma / Danish Pastries and Artisan Breads programmes",
-              "blurb": "Paris flagship of the French institute whose bakery school teaches laminated-dough viennoiserie within its Boulangerie Diploma and dedicated Danish-pastry and artisan-bread programmes.",
-              "confidence": "high"
-            },
-            {
-              "name": "École de Boulangerie et de Pâtisserie de Paris (EBP)",
-              "url": "https://www.ebp-paris.com/",
-              "course": "CAP Boulanger / CAP Pâtissier (with viennoiserie)",
-              "blurb": "France's first dedicated bakery-and-pastry training centre, founded in 1929, running CAP Boulanger and CAP Pâtissier diplomas plus short courses that cover viennoiserie production for apprentices and career-changers.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
-          "englishTaught": true,
-          "englishBasis": "FERRANDI Intensive Professional Program in French Bread Baking taught in English; LCB Paris boulangerie also English-translated"
-        },
-        {
-          "place": "Tokyo",
-          "country": "Japan",
-          "region": "East Asia",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Le Cordon Bleu Tokyo"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "record"
-          ],
-          "why": "Tokyo's croissant obsession rivals Paris — a thriving cohort of laminating fanatics chasing the perfect honeycomb crumb.",
-          "bestSeason": "Year-round",
-          "level": "Intermediate -> Professional",
-          "id": "viennoiserie--tokyo",
-          "schoolsInfo": [
-            {
-              "name": "Le Cordon Bleu Tokyo",
-              "url": "https://www.cordonbleu.edu/tokyo/home/en",
-              "course": "Diplôme de Boulangerie (bakery diploma covering viennoiserie and bread)",
-              "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
-              "confidence": "medium"
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": true,
-          "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
-        }
-      ],
-      "id": "viennoiserie",
-      "certShort": "CAP Boulanger",
-      "featured": {
-        "id": "viennoiserie--paris",
-        "place": "Paris",
-        "country": "France",
-        "school": "FERRANDI Paris",
-        "url": "https://www.ferrandi-paris.com/en/bread-baking-programs/intensive-professional-program-bread-baking",
-        "course": "Intensive Professional Program in French Bread Baking (Boulangerie)",
-        "description": "Taught fully in English by bilingual chef-instructors to small groups of about 12, this hands-on boulangerie program (roughly 70% practice) drills yeasted doughs, baguettes, country and specialty breads, rolls, brioche and laminated viennoiseries such as croissants and pains aux raisins. No prior experience is required; the program is built for career-changers and serious beginners. It pairs classroom production with a month-long internship arranged through FERRANDI's network of industry contacts.",
-        "duration": "Approx. 5 months in-school plus a 1-month internship",
-        "format": "Residential city program, full-time, small groups of ~12 students, taught in English",
-        "certification": "FERRANDI Paris professional program certificate (with internship)",
-        "fitsBecause": "A full-time, small-group immersive at the Paris institution most associated with French baking, taught in English and ending in a real internship and certificate.",
-        "sessions": [
-          "Sep 2026",
-          "Feb 2027"
-        ],
-        "priceNote": "~€24,500",
-        "confidence": "high",
-        "alternatives": [
-          {
-            "course": "Introduction to the Fundamentals of French Pastry",
-            "duration": "2 weeks (70 hours)",
-            "format": "In-person, Paris (English, max 14)",
-            "priceFrom": "€4,000",
-            "url": "https://www.ferrandi-paris.com/en/french-pastry-programs/introduction-fundamentals-french-pastry-class-paris",
-            "fit": "Shorter",
-            "note": "Two-week foundations at FERRANDI; broad basics rather than the 16-week immersive boulangerie professional program.",
-            "confidence": "high"
-          },
-          {
-            "course": "Bakery School Short Programmes",
-            "school": "Le Cordon Bleu Paris",
-            "format": "In-person, Paris",
-            "url": "https://www.cordonbleu.edu/paris/bakery-programmes/en",
-            "fit": "Shorter",
-            "note": "Alternative same-city bakery courses; useful but not the sustained source immersion of the intensive program.",
-            "confidence": "med"
           }
         ]
       }
@@ -18622,64 +18578,6 @@ window.ET_ATLAS = {
           "tripLength": "months–years",
           "englishTaught": true,
           "englishBasis": "Escuela Luis Irizar professional culinary diploma offered with English option for international students (BCC mastery course itself is Spanish-delivered)."
-        },
-        {
-          "place": "Errenteria / Lasarte-Oria (Gipuzkoa)",
-          "country": "Spain",
-          "region": "Western Europe",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Mugaritz (creativity stage)",
-            "Martín Berasategui (restaurant stage)"
-          ],
-          "masters": [],
-          "lineage": [
-            "Andoni Luis Aduriz (Mugaritz)",
-            "Martín Berasategui"
-          ],
-          "badges": [
-            "scene",
-            "master",
-            "mecca"
-          ],
-          "why": "Martín Berasategui's three-starred kitchen and Mugaritz's laboratory ring San Sebastián — stage here and you stand inside the kitchens where the avant-garde keeps reinventing itself.",
-          "bestSeason": "Apr-Oct",
-          "level": "Intermediate -> Professional",
-          "id": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
-          "schoolsInfo": [
-            {
-              "name": "Mugaritz (creativity stage)",
-              "url": "https://www.mugaritz.com/en/",
-              "course": "Kitchen stage / culinary internship at Mugaritz (Errenteria)",
-              "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-              "confidence": "high",
-              "standing": {
-                "state": "course-gone",
-                "what": "Mugaritz's own site lists no kitchen stage or internship; its only programme is the Mugaritz Creativity Program, 'A 6-month program at Madrid Culinary Campus (MACC), including a one-week residency at Mugaritz'.",
-                "from": "https://www.mugaritz.com/en/programa-creatividad-mugaritz/",
-                "read": "2026-10-07"
-              }
-            },
-            {
-              "name": "Martín Berasategui (restaurant stage)",
-              "url": "https://www.martinberasategui.com/en/inicio",
-              "course": "Restaurant stage / práctica at the Lasarte-Oria flagship ('Work with us')",
-              "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-              "confidence": "high",
-              "standing": {
-                "state": "course-gone",
-                "what": "The 'Work with us' page is a plain job application form (areas: FHO, Kitchen, Sommelier; attach CV) and never mentions a stage or práctica.",
-                "from": "https://www.martinberasategui.com/en/trabaja-con-nosotros",
-                "read": "2026-10-07"
-              }
-            }
-          ],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
-          "englishTaught": null
         }
       ],
       "id": "new-basque-cuisine",
@@ -18754,517 +18652,6 @@ window.ET_ATLAS = {
           "place": "Logroño & Rioja",
           "country": "Spain",
           "note": "An hour south, where the wine region's own tapas street feeds the same industry."
-        }
-      ]
-    },
-    {
-      "discipline": "Modernist Spanish Cuisine",
-      "beforeAboard": {
-        "heading": "What you learn at the source",
-        "items": [
-          [
-            "Spherification",
-            "Liquids set into spheres. With foams, it is the technique this cuisine first became known for."
-          ],
-          [
-            "Foams and the siphon",
-            "Foams and sodas made with a siphon, part of the modernist toolkit taught at the bench."
-          ],
-          [
-            "Sous-vide and low temperature",
-            "Food cooked under vacuum at low temperature: one of the avant-garde techniques on the syllabus."
-          ],
-          [
-            "Deconstructing a classic",
-            "Taking a classic dish apart and building it again in new and varied textures."
-          ]
-        ]
-      },
-      "category": "culinary",
-      "certBody": "No formal body. A school certifies its own course; a stage certifies nothing but the name on the door.",
-      "goldCredential": "A course certificate from a school you can book — or the long way round, a completed stage in a kitchen of this lineage.",
-      "ceiling": "A booked course puts the technique in your hands and shows you what each tool is actually for — spherification, foams, sous-vide, hydrocolloids. The stage is the other road, and it is a real one: months on the line in a kitchen of this lineage, applied for with a CV, paid anywhere from nothing to a small stipend, and nobody can promise you one. Both are real ways in. Only one of them is a door you can book.",
-      "disclosure": "EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week cost, and sold out when we read it on 1 September 2026. His classroom courses for 2026 are sold out and no later date is shown; in person, the way in is a private course, quoted by email. Read on martinlippo.com, 4 November 2026. If a direct route suits you better, take it.",
-      "blurb": "The science-driven vanguard of foams, spherification and deconstruction that Ferran Adrià unleashed from a cove on the Costa Brava and rewired global fine dining.",
-      "destinations": [
-        {
-          "place": "Madrid",
-          "country": "Spain",
-          "region": "Mediterranean",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "school",
-            "mecca"
-          ],
-          "why": "Where the whole craft meets once a year — Madrid Fusión, the congress that has gathered the Spanish avant-garde since 2003, holds its 25th edition here in February 2027 — and where Dabiz Muñoz cooks three Michelin stars of it at DiverXO. The teaching is institutional rather than personal, and it is the only room on this craft with English in your ear.",
-          "bestSeason": "Sep-Jun",
-          "level": "Beginner -> Professional",
-          "id": "modernist-spanish-cuisine--madrid",
-          "schoolsInfo": [
-            {
-              "name": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
-              "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
-              "course": "Spanish Cuisine Diploma — the Superior Certificate is the avant-garde one",
-              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. ⚠ Honest note: when we first listed this diploma, Le Cordon Bleu named no chef on it. Its Meet the Chefs page now names the team that teaches Spanish Cuisine — Natalia Vázquez at its head, with chef instructors David Vela, Manuel Lucas and Diego Muñoz — so you can look them up before you pay. Ask which of them will be in your room. Checked on cordonbleu.edu, 1 and 17 September 2026.",
-              "confidence": "high",
-              "verify": [
-                "Avant-garde techniques & utensils",
-                "17,316",
-                "simultaneous translation"
-              ],
-              "facts": {
-                "where": "Pozuelo de Alarcón, Madrid",
-                "length": "9 months (30 weeks), in three certificates",
-                "format": "2 demonstrations and 2 practicals a week, 3 hours each",
-                "language": "Spanish, with English simultaneous translation by earphones",
-                "credential": "Spanish Cuisine Diploma: Basic, Intermediate, Superior certificates",
-                "price": "€17,316",
-                "priceNote": "full diploma, local students; international students €19,240",
-                "from": [
-                  "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Head Chef of Spanish Cuisine Programmes",
-                    [
-                      "Natalia Vázquez"
-                    ]
-                  ],
-                  [
-                    "Spanish Cuisine chef instructors",
-                    [
-                      "David Vela",
-                      "Manuel Lucas",
-                      "Diego Muñoz"
-                    ]
-                  ]
-                ],
-                "from": "https://www.cordonbleu.edu/madrid/meet-chefs-instructor/en",
-                "read": "2026-09-17"
-              }
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": true,
-          "englishBasis": "Le Cordon Bleu Madrid publishes the Spanish Cuisine Diploma as 'Spanish // English (simultaneous translation system through earphones)' on its own programme page.",
-          "instructionLanguage": "Spanish, with simultaneous English translation"
-        },
-        {
-          "place": "Barcelona",
-          "country": "Spain",
-          "region": "Mediterranean",
-          "role": "scene",
-          "communityRank": 5,
-          "communityLabel": "Legendary",
-          "schools": [
-            "Vakuum by Martin Lippo"
-          ],
-          "masters": [
-            "Martin Lippo"
-          ],
-          "badges": [
-            "scene",
-            "mecca",
-            "master",
-            "school"
-          ],
-          "why": "Where the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.",
-          "bestSeason": "Year-round",
-          "level": "Enthusiast -> Professional",
-          "id": "modernist-spanish-cuisine--barcelona",
-          "schoolsInfo": [
-            {
-              "name": "Vakuum by Martin Lippo",
-              "url": "https://martinlippo.com/en/",
-              "course": "Private courses in person and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
-              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on — no CV, no invitation, no stage to win. When we read his site on 4 November 2026, every classroom course it listed for 2026, priced from EUR 380, was sold out, with no later date shown; in person, the way in is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack (read 1 September 2026). He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
-              "etRelationship": true,
-              "confidence": "high",
-              "photos": {
-                "given": "2026-07-30",
-                "by": "Martin Lippo",
-                "source": "sent",
-                "thumb": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
-                "card": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
-                "focal": "50% 50%",
-                "items": [
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
-                    "w": 1066,
-                    "h": 1600,
-                    "alt": "Martin Lippo, in a white chef's jacket with his name embroidered on it, leaning over a steel bench and pouring from a blue-gloved hand into a small container while thick white vapour from liquid nitrogen rolls off the surface and spills toward the camera.",
-                    "caption": "Liquid nitrogen, off the bench and over the edge. The technique first, the dish afterwards."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
-                    "w": 1600,
-                    "h": 1200,
-                    "alt": "A studio portrait of Martin Lippo against a plain pale background, in a white chef's jacket embroidered “Martin Lippo” with the Vakuum badge on the sleeve, one hand raised to his chin, looking straight at the camera.",
-                    "caption": "Martin Lippo, who runs Vakuum and teaches it himself."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-03-the-lab.jpg",
-                    "w": 1600,
-                    "h": 900,
-                    "wide": true,
-                    "alt": "The Vakuum kitchen seen through a glass wall with the word Vakuum lettered across it in gold, the room behind full of stainless benches, mixers and rack shelving, with people working at the far side.",
-                    "caption": "The lab behind its own glass. It is a working kitchen with a teaching room inside it, not a demonstration set."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-04-it-starts-on-paper.jpg",
-                    "w": 600,
-                    "h": 900,
-                    "alt": "A man in a white chef's jacket stands beside a paper flipchart marked with a diagram, a pen in his raised hand, talking to people seated at a bench in front of him who are writing in notebooks; shelves of labelled storage boxes fill the wall behind.",
-                    "caption": "It starts on paper. The why comes before the nitrogen."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-05-the-class.jpg",
-                    "w": 1400,
-                    "h": 924,
-                    "alt": "Cooks in white jackets and black kitchen dress sit in two rows at long steel benches with notebooks and water bottles in front of them, facing a man in a white jacket standing at the head of the room beneath a sign reading Vakuum.",
-                    "caption": "Between the benches: the part that gets explained before it gets done."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-06-he-teaches-it-himself.jpg",
-                    "w": 600,
-                    "h": 900,
-                    "alt": "A man in a white chef's jacket stands alone in a laboratory kitchen in front of a tall combi oven, one hand open mid-sentence; two people watch from the foreground with their backs to the camera.",
-                    "caption": "Martin Lippo teaches in the lab himself. It is his own room."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-07-the-bench.jpg",
-                    "w": 633,
-                    "h": 950,
-                    "alt": "Four cooks in white jackets stand shoulder to shoulder along a steel bench, leaning over trays, small bowls and a chopping board, each working with a hand tool; a man in glasses at the left watches the work.",
-                    "caption": "Everybody works. Nobody is sitting down watching."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-08-shown-not-demonstrated.jpg",
-                    "w": 754,
-                    "h": 772,
-                    "alt": "Several cooks in white jackets lean in close together over a steel bench; one in glasses works a small spoon into a metal cup beside a large glass jug of white liquid, a dark-haired woman watching from beside him and another man looking down at the work.",
-                    "caption": "Four pairs of hands over one cup. This is what it looks like when something is being shown."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-09-spherification-at-the-bench.jpg",
-                    "w": 633,
-                    "h": 950,
-                    "alt": "Four cooks in white jackets at a steel bench: one holds a red-capped squeeze bottle over a shallow glass tray, another lifts a small glass of dark liquid to taste, and a syringe and white bowl sit on the bench between them.",
-                    "caption": "Spherification at the bench, with somebody tasting it the moment it is made."
-                  },
-                  {
-                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
-                    "w": 1600,
-                    "h": 900,
-                    "alt": "A hand holds a clear plastic tub of bright yellow liquid in which five large translucent spheres sit, each skinned and holding its shape.",
-                    "caption": "Five spheres in the bath, skinned on contact, thin enough to break on the tongue."
-                  }
-                ]
-              },
-              "verify": [
-                "Sous Vide",
-                "386"
-              ],
-              "facts": {
-                "where": "Passatge de Centelles, Barcelona",
-                "format": "Classroom in Barcelona; online video modules, 8 months' access",
-                "language": "Spanish; English or French only as a private course",
-                "credential": "Online: course certificate signed by Chef Martin Lippo",
-                "price": "€580",
-                "from": [
-                  "https://martinlippo.com/en/contact/",
-                  "https://martinlippo.com/en/course-category/classroom-courses/foams-sodas-and-works-with-siphon-course/",
-                  "https://martinlippo.com/en/classroom-courses/",
-                  "https://martinlippo.com/en/course/full-online-course-pack-foams-carbonation-and-siphon-techniques/",
-                  "https://martinlippo.com/en/online-courses/"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Chef",
-                    [
-                      "Martin Lippo"
-                    ]
-                  ]
-                ],
-                "from": "https://martinlippo.com/en/course/full-online-course-pack-foams-carbonation-and-siphon-techniques/",
-                "read": "2026-09-17"
-              }
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "days to weeks",
-          "englishTaught": false,
-          "englishBasis": "Vakuum's classroom courses are in Spanish — English or French only as a private booking, per his own classroom-courses page; the online modules are sold in English.",
-          "instructionLanguage": "Spanish (English online; English or French in person only as a private course)"
-        },
-        {
-          "place": "Roses / Cala Montjoi (Costa Brava)",
-          "country": "Spain",
-          "region": "Mediterranean",
-          "role": "source",
-          "communityRank": 1,
-          "communityLabel": "Gone",
-          "closedToLearners": true,
-          "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the cuisine itself, go to Barcelona. For the technique on its own, the Basque Culinary Center's avant-garde course is on New culinary techniques & technologies, not on this craft.",
-          "schools": [
-            "elBulli1846 (elBullifoundation museum & creativity lab)"
-          ],
-          "masters": [],
-          "lineage": [
-            "Ferran Adrià",
-            "Albert Adrià"
-          ],
-          "badges": [
-            "source",
-            "mecca",
-            "heritage"
-          ],
-          "why": "The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world's best restaurant, until it closed in 2011 — a pilgrimage to the origin point of the avant-garde, and nothing more than that.",
-          "bestSeason": "May-Oct",
-          "level": "Nothing is taught here",
-          "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
-          "schoolsInfo": [
-            {
-              "name": "elBulli1846 (elBullifoundation museum & creativity lab)",
-              "url": "https://elbullifoundation.com/en/proyecto/elbulli1846/",
-              "course": "A museum visit — not a course",
-              "blurb": "Built on the site of elBulli, which closed in 2011, elBulli1846 is the elBullifoundation's museum and exhibition lab at Cala Montjoi: a visit of about two and a half hours, on a ticket, with a multimedia guide or a small-group guided tour. The 2026 season runs 1 May to 12 October. Their own pages sell a visit and help you plan one — there is no enrolment, no kitchen you cook in and no teacher. Checked on elbullifoundation.com, 31 August 2026.",
-              "confidence": "high",
-              "verify": [
-                "museum of the restaurant"
-              ],
-              "facts": {
-                "where": "Cala Montjoi, Roses (Girona)",
-                "length": "2.5 hours",
-                "format": "Museum visit with free multimedia guide; or small-group guided tour",
-                "language": "Spanish, Catalan and English",
-                "price": "€27.50",
-                "priceNote": "General visit ticket, 2026 season; guided tour €47.50; parking +€8.50",
-                "from": [
-                  "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
-                  "https://elbullifoundation.com/elbulli1846/en/faqs/",
-                  "https://elbullifoundation.com/elbulli1846/en/where-we-are/"
-                ],
-                "read": "2026-10-07"
-              }
-            }
-          ],
-          "tripTier": 0,
-          "tripType": "Visit",
-          "tripLength": "a couple of hours",
-          "englishTaught": false,
-          "englishBasis": "Nothing is taught here in any language — elBulli1846 sells a museum visit, not a course.",
-          "instructionLanguage": ""
-        },
-        {
-          "place": "Girona",
-          "country": "Spain",
-          "region": "Mediterranean",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "El Celler de Can Roca (stage program)",
-            "Escola d'Hostaleria i Turisme de Girona"
-          ],
-          "masters": [],
-          "lineage": [
-            "Joan Roca",
-            "Jordi Roca"
-          ],
-          "badges": [
-            "scene",
-            "mecca",
-            "master",
-            "lineage"
-          ],
-          "why": "Home of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique, where a stage is earned, not bought.",
-          "bestSeason": "Apr-Oct",
-          "level": "Intermediate -> Professional",
-          "id": "modernist-spanish-cuisine--girona",
-          "schoolsInfo": [
-            {
-              "name": "El Celler de Can Roca (stage program)",
-              "url": "https://cellercanroca.com/en/",
-              "course": "Internship / stage at El Celler de Can Roca (incl. BBVA scholarship intake)",
-              "blurb": "The Roca brothers' three-Michelin-star restaurant in Girona hosts paid stages, including a BBVA scholarship cohort that adds accommodation, meals and University of Barcelona-backed coursework on chocolate, caviar and team management. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-              "confidence": "high",
-              "facts": {
-                "where": "Carrer de Can Sunyer, Girona",
-                "format": "Internships by application, for institutions or individuals",
-                "from": [
-                  "https://cellercanroca.com/en/practices-internships/"
-                ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Escola d'Hostaleria i Turisme de Girona",
-              "url": "https://agora.xtec.cat/ehtg/",
-              "course": "FP Cuina i Gastronomia / professional cooking certificates",
-              "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
-              "confidence": "high",
-              "facts": {
-                "where": "C. Josep Viader i Moliner, Girona",
-                "length": "2,000 hours over two academic years",
-                "credential": "Official technician (tècnic) title in cooking and gastronomy",
-                "from": [
-                  "https://agora.xtec.cat/ehtg/",
-                  "https://agora.xtec.cat/ehtg/cfgm/"
-                ],
-                "read": "2026-09-17"
-              }
-            }
-          ],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
-          "englishTaught": false,
-          "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
-          "instructionLanguage": "Spanish"
-        }
-      ],
-      "id": "modernist-spanish-cuisine",
-      "bestPlace": "modernist-spanish-cuisine--barcelona",
-      "sweep": {
-        "date": "2026-09-01",
-        "regions": [
-          "Southern Europe & Mediterranean"
-        ],
-        "bounded": "This craft is Spanish by definition, so the search is Spain-wide rather than worldwide — every autonomous community, not every continent. The same technique taught outside Spain lives under New culinary techniques & technologies, which is swept worldwide.",
-        "rejected": [
-          {
-            "name": "Le Cordon Bleu Madrid — Cocina Española de Vanguardia",
-            "place": "Madrid, Spain",
-            "url": "https://www.cordonbleu.edu/madrid/curso-corto-cocina-espanola-vanguardia/es",
-            "why": "A single four-hour evening, taught once, on 17 November 2017. The page is still up, still ranks and still reads like an offer — its own footer asks whether you would have liked to attend. Their live avant-garde teaching is inside the Spanish Cuisine Diploma instead, which is why Madrid is on the map and this course is not."
-          },
-          {
-            "name": "Espai Sucre",
-            "place": "Barcelona, Spain",
-            "url": "https://espaisucre.com/",
-            "why": "Closed on 31 July 2024, announced by Jordi Butrón in April that year on his cardiologist's advice. The site is now a blank page. It was listed here as 'operating and enrollable' until the night check found the dead certificate on 1 September 2026."
-          },
-          {
-            "name": "elBulli1846",
-            "place": "Roses / Cala Montjoi, Spain",
-            "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
-            "why": "A museum, and it keeps its place on this craft as exactly that. A ticket and a two-and-a-half-hour visit; no enrolment, no kitchen, no teacher."
-          },
-          {
-            "name": "Fundació Alícia",
-            "place": "Sant Fruitós de Bages, Spain",
-            "url": "https://alicia.cat/en/",
-            "why": "A serious food-science centre whose workshops are built on request for companies and groups. Nothing an individual can put a date on."
-          },
-          {
-            "name": "Paco Roncero Taller",
-            "place": "Madrid, Spain",
-            "url": "https://www.pacoroncerorestaurante.com/en/paco-roncero-lab/",
-            "why": "A research and multisensory dining room, opened 2012. It develops dishes and serves them; it does not teach them."
-          },
-          {
-            "name": "MOM Culinary Institute",
-            "place": "Madrid, Spain",
-            "url": "https://www.gastroactitud.com/pista/mom-culinary-institute-by-paco-roncero/",
-            "why": "Two-year vocational degrees in cuisine and restaurant management, with Paco Roncero's name on the door since 2021. A hospitality school, not a modernist one."
-          },
-          {
-            "name": "Disfrutar",
-            "place": "Barcelona, Spain",
-            "url": "https://www.disfrutarbarcelona.com/",
-            "why": "Named the world's best restaurant in 2024 and opened by three cooks out of elBulli — and still a restaurant. It is the reason Barcelona is on this map, and it is not somewhere you can enrol."
-          }
-        ]
-      },
-      "certShort": "elBullifoundation legacy",
-      "sibling": {
-        "id": "modern-new-technique-cuisine",
-        "label": "New culinary techniques & technologies",
-        "line": "This is the cuisine and the lineage, in the country it came from — learned through a Spanish school or a Spanish kitchen. The technique itself left Spain long ago and is taught in labs from Paris to Melbourne; that is a different craft."
-      },
-      "featured": {
-        "id": "modernist-spanish-cuisine--madrid",
-        "place": "Madrid",
-        "country": "Spain",
-        "school": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
-        "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
-        "course": "Spanish Cuisine Diploma — nine months in three certificates, the Superior one avant-garde",
-        "description": "Nine months, thirty weeks, on the Universidad Francisco de Vitoria campus at Pozuelo de Alarcón, in three certificates. The avant-garde is not a bolt-on here, it is the last third, and their own syllabus names it: 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', sous-vide, 'Reinventing & deconstructing classic dishes'. It is taught in Spanish with simultaneous English translation through earphones, which nothing else on this craft offers. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months.",
-        "duration": "9 months (30 weeks), in three certificates",
-        "format": "In person, Pozuelo de Alarcón; Spanish, with simultaneous English translation through earphones",
-        "certification": "Le Cordon Bleu Spanish Cuisine Diploma — Basic, Intermediate and Superior Certificates",
-        "fitsBecause": "It is the only route on this craft that a stranger can actually book AND whose subject is this cuisine: everything else here either teaches the toolkit on its own, which is a different craft, or is a restaurant stage you are picked for. It publishes its dates, its price and its syllabus, and it is the one room on this craft you can sit in without Spanish. ⛔ It is NOT the pick because Le Cordon Bleu is famous. Reputation, age and alumni light nothing on this map — that rule is in docs/THE-MEASURE.md and it cost FERRANDI a dot. It is the pick on what it publishes, and it still names no chef, which is why this craft's first Measure dot stays dark.",
-        "sessions": [],
-        "priceNote": "EUR 17,316 for local students, EUR 19,240 for international, for the full nine months. Intakes January, April, July and October. Checked on cordonbleu.edu, 14 September 2026.",
-        "confidence": "high",
-        "alternatives": [
-          {
-            "course": "Técnicas Culinarias de Vanguardia — the same course, online",
-            "duration": "15 September 2026 to 18 February 2027, 8 ECTS",
-            "format": "Online, in Spanish, one live class a week",
-            "url": "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia",
-            "priceNote": "2.310 EUR. Checked 1 September 2026.",
-            "fit": "Online",
-            "note": "Taught by Luis Arrufat, a former elBulli pastry chef — a named teacher out of the lineage, which the in-person course does not advertise. Capped at 30. No bench, and nobody at the next station.",
-            "confidence": "high"
-          },
-          {
-            "course": "The toolkit on its own, at a master-led lab",
-            "format": "In person and online",
-            "url": "/atlas/modern-new-technique-cuisine",
-            "fit": "Technique",
-            "note": "If it is the technique you want rather than the cuisine — sous-vide, spherification, foams, nitrogen — that is a different craft on this map, and it has its own page and its own pick.",
-            "confidence": "high"
-          }
-        ]
-      },
-      "alsoHere": [
-        {
-          "place": "Valencia & Dénia",
-          "country": "Spain",
-          "note": "Rice cookery treated with the same rigour, and a Mediterranean produce tradition behind it."
-        },
-        {
-          "place": "Bilbao",
-          "country": "Spain",
-          "note": "Basque avant-garde work that sits alongside the Catalan story rather than under it."
-        },
-        {
-          "place": "Seville & Cádiz",
-          "country": "Spain",
-          "note": "Andalusian frying and a sherry-country larder that the modernists have repeatedly borrowed from."
-        },
-        {
-          "place": "Tenerife & Las Palmas",
-          "country": "Spain",
-          "note": "An Atlantic island scene with its own produce and a growing high-end restaurant trade."
-        },
-        {
-          "place": "Málaga & Marbella",
-          "country": "Spain",
-          "note": "A concentrated coastal restaurant economy that draws chefs from the northern scenes."
-        },
-        {
-          "place": "Madrid's outskirts (Alcalá & Aranjuez)",
-          "country": "Spain",
-          "note": "Where several of the capital's kitchens source and where quieter training happens."
         }
       ]
     },
@@ -21952,11 +21339,11 @@ window.ET_ATLAS = {
       }
     },
     {
-      "discipline": "Cheese & Fermentation",
+      "discipline": "Cheese & Affinage",
       "category": "culinary",
       "certBody": "ENIL / Académie d'Affinage (FR) / American Cheese Society (ACS CCP)",
       "goldCredential": "Crémier-Fromager / Affineur diploma (FR); ACS Certified Cheese Professional (US)",
-      "blurb": "Making, aging and reading cheese, plus the wider live craft of fermentation, from curd and koji to a perfectly ripened rind.",
+      "blurb": "Making, ageing and reading cheese, from the curd to a perfectly ripened rind.",
       "destinations": [
         {
           "place": "Poligny, Jura",
@@ -22072,89 +21459,6 @@ window.ET_ATLAS = {
           "tripLength": "a weekend",
           "englishTaught": true,
           "englishBasis": "native-English country"
-        },
-        {
-          "place": "Copenhagen",
-          "country": "Denmark",
-          "region": "Nordic & Baltic",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Noma Projects / fermentation workshops",
-            "Empirical / Nordic Food Lab alumni courses"
-          ],
-          "masters": [],
-          "lineage": [
-            "Rene Redzepi & David Zilber (Noma fermentation lineage)"
-          ],
-          "badges": [
-            "scene",
-            "master",
-            "school"
-          ],
-          "why": "Ground zero of the modern fermentation movement, where Noma's lab rewrote the rules and a thriving cohort pushes koji, garum and lacto-ferments forward.",
-          "bestSeason": "Apr-Oct",
-          "level": "Beginner -> Fermentation specialist",
-          "id": "cheese-and-fermentation--copenhagen",
-          "schoolsInfo": [
-            {
-              "name": "Noma Projects / fermentation workshops",
-              "url": "https://nomaprojects.com/",
-              "course": "Taste Buds 'Unlocked' membership (fermentation workshops at noma plus DIY fermentation kits and HQ tours)",
-              "blurb": "Noma Projects is the Copenhagen test-kitchen and fermentation-lab spin-off of the noma restaurant, offering through its Taste Buds 'Unlocked' membership in-person fermentation workshops with the noma team, guided HQ visits, and DIY fermentation kits.",
-              "confidence": "medium"
-            },
-            {
-              "name": "Empirical / Nordic Food Lab alumni courses",
-              "url": "https://empiricalspirits.co/",
-              "course": "",
-              "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
-              "confidence": "low"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
-        },
-        {
-          "place": "Tokyo",
-          "country": "Japan",
-          "region": "Asia",
-          "role": "source",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "&LAB TOKYO"
-          ],
-          "masters": [
-            "Chie Ando"
-          ],
-          "badges": [
-            "source",
-            "school",
-            "master-lab"
-          ],
-          "why": "At the home of koji, &LAB Tokyo teaches Japan's fermentation toolkit — koji, miso, shio-koji, amazake — as a progressive hands-on curriculum you can actually enrol in.",
-          "bestSeason": "Year-round",
-          "level": "Beginner -> Professional",
-          "id": "cheese-and-fermentation--tokyo",
-          "schoolsInfo": [
-            {
-              "name": "&LAB TOKYO",
-              "url": "https://www.andlabtokyo.com/en/fermentation",
-              "course": "Progressive koji-centred courses (Basic / Intermediate / Master) plus a Fermentation Creator masterclass, in English",
-              "blurb": "A dedicated Tokyo fermentation school led by instructor Chie Ando, teaching koji cultivation, miso and koji seasonings hands-on from beginner to professional. Ando is a teaching/media expert rather than a traditional brewery (jozo) master.",
-              "confidence": "med"
-            }
-          ],
-          "tripTier": 1,
-          "tripType": "Taster",
-          "tripLength": "a weekend",
-          "englishTaught": true,
-          "englishBasis": "&LAB Tokyo runs its koji/fermentation planner courses on a fully English course site with English textbook references and online English course options aimed at an international audience"
         }
       ],
       "id": "cheese-and-fermentation",
@@ -22173,6 +21477,142 @@ window.ET_ATLAS = {
         "fitsBecause": "Week-long residential, tiny-cohort training inside a renowned French affineur's working caves - hands-on at the source of cheese maturing.",
         "sessions": [],
         "priceNote": "~EUR 2,800",
+        "confidence": "high"
+      }
+    },
+    {
+      "discipline": "Fermentation",
+      "category": "culinary",
+      "certBody": "No formal body. A school certifies its own course; nobody certifies fermentation as a trade.",
+      "goldCredential": "None. A school's own certificate of the course is the most there is.",
+      "blurb": "Koji, miso, shio-koji and lacto-ferments — cooking with moulds and bacteria, taught hands-on in the few rooms that grow their own.",
+      "destinations": [
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "region": "Asia",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "&LAB TOKYO"
+          ],
+          "masters": [
+            "Chie Ando"
+          ],
+          "badges": [
+            "school",
+            "master-lab"
+          ],
+          "why": "At the home of koji, &LAB Tokyo teaches Japan's fermentation toolkit — koji, miso, shio-koji, amazake — as a progressive hands-on curriculum you can actually enrol in.",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Professional",
+          "id": "fermentation--tokyo",
+          "schoolsInfo": [
+            {
+              "name": "&LAB TOKYO",
+              "url": "https://www.andlabtokyo.com/en/fermentation",
+              "course": "The Fermentation Alchemist Course — Basic (one day) and Advance (three days, growing your own koji), or both back to back as a three-day intensive",
+              "blurb": "Chie Ando's fermentation studio in Jingumae, Shibuya, where you make koji seasonings — shio-koji, ama-koji, shoyu-koji — and then grow koji yourself over three days. Groups of one to four, tools provided, two textbooks included. It is taught in Japanese: English support is a paid extra, booked at least a month ahead. Every step is also sold online, so ask yourself what the room adds before you fly for it.",
+              "confidence": "high",
+              "verify": [
+                "Lessons are taught in Japanese",
+                "¥156,000",
+                "Taught by Chie Ando"
+              ],
+              "facts": {
+                "where": "Jingumae, Shibuya, Tokyo",
+                "length": "3 days (Basic + Advance intensive)",
+                "format": "In person, or online",
+                "language": "Japanese; English support ¥15,000 a day",
+                "class": "1 to 4 people",
+                "price": "¥156,000, tax excluded",
+                "priceNote": "Basic alone ¥42,500, Advance alone ¥123,000, both tax excluded",
+                "from": [
+                  "https://www.andlabtokyo.com/en/fermentation"
+                ],
+                "read": "2026-11-04"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "three days",
+          "englishTaught": false,
+          "englishBasis": "&LAB TOKYO's own course page: 'Lessons are taught in Japanese; English support is available on request', at ¥15,000 a day.",
+          "instructionLanguage": "Japanese, with English support on request"
+        },
+        {
+          "place": "Copenhagen",
+          "country": "Denmark",
+          "region": "Nordic & Baltic",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Noma Projects / fermentation workshops",
+            "Empirical / Nordic Food Lab alumni courses"
+          ],
+          "masters": [],
+          "lineage": [
+            "Rene Redzepi & David Zilber (Noma fermentation lineage)"
+          ],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "Ground zero of the modern fermentation movement, where Noma's lab rewrote the rules and a thriving cohort pushes koji, garum and lacto-ferments forward.",
+          "bestSeason": "Apr-Oct",
+          "level": "Beginner -> Enthusiast",
+          "id": "fermentation--copenhagen",
+          "schoolsInfo": [
+            {
+              "name": "Noma Projects / fermentation workshops",
+              "url": "https://nomaprojects.com/products/taste-buds-membership",
+              "course": "Taste Buds membership — one summer day of hands-on workshops with the noma team in Copenhagen, 13 or 14 August 2027, for members",
+              "blurb": "Noma Projects is the shop and fermentation lab that grew out of the restaurant. It runs no public course: the in-person teaching is a single summer day of workshops and tastings in Copenhagen, sold as an add-on to its annual Taste Buds membership, alongside fermentation kits posted to your home. A day, not a course.",
+              "confidence": "high",
+              "verify": [
+                "2027 Summer Event",
+                "hands-on workshops"
+              ]
+            },
+            {
+              "name": "Empirical / Nordic Food Lab alumni courses",
+              "url": "https://empiricalspirits.co/",
+              "course": "No public fermentation course on its site",
+              "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
+              "confidence": "low",
+              "standing": {
+                "state": "not-here",
+                "what": "The address we linked now redirects away, and Empirical's own shop gives its address as Brooklyn, New York, with no course listed.",
+                "from": "https://us.empirical.co/",
+                "read": "2026-11-04"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a day",
+          "englishTaught": true,
+          "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
+        }
+      ],
+      "id": "fermentation",
+      "certShort": "No formal body",
+      "featured": {
+        "id": "fermentation--tokyo",
+        "place": "Tokyo",
+        "country": "Japan",
+        "school": "&LAB TOKYO",
+        "url": "https://www.andlabtokyo.com/en/fermentation",
+        "course": "The Fermentation Alchemist Course — Basic + Advance intensive",
+        "description": "Three consecutive days in Chie Ando's studio in Jingumae: a day of koji seasonings, then two of growing koji yourself, which is why the course cannot be shorter. Groups of one to four. Taught in Japanese, with English support at ¥15,000 a day.",
+        "duration": "3 days",
+        "format": "In person, groups of 1-4 (also sold online)",
+        "certification": "&LAB TOKYO's own course",
+        "fitsBecause": "The one room on this craft where a stranger can book a date and grow koji with their own hands, with the teacher named.",
+        "priceNote": "¥156,000, tax excluded",
         "confidence": "high"
       }
     },
@@ -28789,6 +28229,18 @@ window.ET_ATLAS = {
             "place": "France, Italy, United States",
             "url": "https://www.ferrandi-paris.com/en",
             "why": "Three of the strongest schools in the world, checked together because they fail on the same point: their published catalogues are classical French, Italian and American programmes. Nothing dedicated to modernist technique that a working professional can book short. Worth re-checking — a school this size can add one in a season."
+          },
+          {
+            "name": "Le Cordon Bleu Madrid — Cocina Española de Vanguardia",
+            "place": "Madrid, Spain",
+            "url": "https://www.cordonbleu.edu/madrid/curso-corto-cocina-espanola-vanguardia/es",
+            "why": "A single four-hour evening, taught once, on 17 November 2017. The page is still up, still ranks and still reads like an offer — its own footer asks whether you would have liked to attend. Their live avant-garde teaching is inside the Spanish Cuisine Diploma instead, which is why Madrid is on the map and this course is not."
+          },
+          {
+            "name": "elBulli1846",
+            "place": "Roses / Cala Montjoi, Spain",
+            "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
+            "why": "A museum, and it keeps its place on this craft as exactly that. A ticket and a two-and-a-half-hour visit; no enrolment, no kitchen, no teacher."
           }
         ]
       },
@@ -28996,30 +28448,30 @@ window.ET_ATLAS = {
           "level": "Enthusiast -> Professional",
           "id": "modern-new-technique-cuisine--barcelona",
           "schoolsInfo": [
-          {
-            "name": "Culinary Institute of Barcelona (CIB)",
-            "url": "https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas",
-            "course": "Curso de Especialización en Técnicas Culinarias Avanzadas: Cocina Molecular, Fuego y Baja Temperatura — 330 hours over three months",
-            "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught in Spanish with support in English. Intakes January, May and September 2027, at 11,000, 9,900 and 10,285 EUR respectively. ⚠ Honest note: it is a school programme taught by a faculty. Its own page says '+20 profesionales referentes en cada materia' and names nobody, so you cannot look up your teacher before you pay — ask who will be in the room. Checked on cib.education, 14 September 2026.",
-            "confidence": "high",
-            "verify": [
-              "Técnicas Culinarias Avanzadas",
-              "330",
-              "profesionales referentes"
-            ],
-            "facts": {
-              "where": "Santander 49-51, Barcelona",
-              "length": "330 hours over 3 months",
-              "format": "Mon-Fri, 8am-2pm or 3pm-9pm, in person",
-              "language": "Spanish, with support in English",
-              "class": "16 students at most",
-              "price": "€11,000",
-              "from": [
-                "https://cib.education/cursos-de-cocina/chef-especialista-cocina-molecular"
+            {
+              "name": "Culinary Institute of Barcelona (CIB)",
+              "url": "https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas",
+              "course": "Curso de Especialización en Técnicas Culinarias Avanzadas: Cocina Molecular, Fuego y Baja Temperatura — 330 hours over three months",
+              "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught in Spanish with support in English. Intakes January, May and September 2027, at 11,000, 9,900 and 10,285 EUR respectively. ⚠ Honest note: it is a school programme taught by a faculty. Its own page says '+20 profesionales referentes en cada materia' and names nobody, so you cannot look up your teacher before you pay — ask who will be in the room. Checked on cib.education, 14 September 2026.",
+              "confidence": "high",
+              "verify": [
+                "Técnicas Culinarias Avanzadas",
+                "330",
+                "profesionales referentes"
               ],
-              "read": "2026-09-17"
-            }
-          },
+              "facts": {
+                "where": "Santander 49-51, Barcelona",
+                "length": "330 hours over 3 months",
+                "format": "Mon-Fri, 8am-2pm or 3pm-9pm, in person",
+                "language": "Spanish, with support in English",
+                "class": "16 students at most",
+                "price": "€11,000",
+                "from": [
+                  "https://cib.education/cursos-de-cocina/chef-especialista-cocina-molecular"
+                ],
+                "read": "2026-09-17"
+              }
+            },
             {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
@@ -29034,77 +28486,77 @@ window.ET_ATLAS = {
                 "card": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
                 "focal": "50% 78%",
                 "items": [
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
-                      "w": 1066,
-                      "h": 1600,
-                      "alt": "Martin Lippo, in a white chef's jacket with his name embroidered on it, leaning over a steel bench and pouring from a blue-gloved hand into a small container while thick white vapour from liquid nitrogen rolls off the surface and spills toward the camera.",
-                      "caption": "Liquid nitrogen, off the bench and over the edge. This is the toolkit the craft is named for — the technique first, the dish afterwards."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
-                      "w": 1600,
-                      "h": 1200,
-                      "alt": "A studio portrait of Martin Lippo against a plain pale background, in a white chef's jacket embroidered “Martin Lippo” with the Vakuum badge on the sleeve, one hand raised to his chin, looking straight at the camera.",
-                      "caption": "Martin Lippo, who runs Vakuum and teaches it himself. The Atlas names a teacher wherever one can be named; on this craft almost nothing else can."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-03-the-lab.jpg",
-                      "w": 1600,
-                      "h": 900,
-                      "wide": true,
-                      "alt": "The Vakuum kitchen seen through a glass wall with the word Vakuum lettered across it in gold, the room behind full of stainless benches, mixers and rack shelving, with people working at the far side.",
-                      "caption": "The lab behind its own glass. It is a working kitchen with a teaching room inside it, not a demonstration set."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-04-it-starts-on-paper.jpg",
-                      "w": 600,
-                      "h": 900,
-                      "alt": "A man in a white chef's jacket stands beside a paper flipchart marked with a diagram, a pen in his raised hand, talking to people seated at a bench in front of him who are writing in notebooks; shelves of labelled storage boxes fill the wall behind.",
-                      "caption": "It starts on paper. The why comes before the nitrogen."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-05-the-class.jpg",
-                      "w": 1400,
-                      "h": 924,
-                      "alt": "Cooks in white jackets and black kitchen dress sit in two rows at long steel benches with notebooks and water bottles in front of them, facing a man in a white jacket standing at the head of the room beneath a sign reading Vakuum.",
-                      "caption": "Between the benches: the part that gets explained before it gets done."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-06-he-teaches-it-himself.jpg",
-                      "w": 600,
-                      "h": 900,
-                      "alt": "A man in a white chef's jacket stands alone in a laboratory kitchen in front of a tall combi oven, one hand open mid-sentence; two people watch from the foreground with their backs to the camera.",
-                      "caption": "Martin Lippo teaches in the lab himself. It is his own room."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-07-the-bench.jpg",
-                      "w": 633,
-                      "h": 950,
-                      "alt": "Four cooks in white jackets stand shoulder to shoulder along a steel bench, leaning over trays, small bowls and a chopping board, each working with a hand tool; a man in glasses at the left watches the work.",
-                      "caption": "Everybody works. Nobody is sitting down watching."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-08-shown-not-demonstrated.jpg",
-                      "w": 754,
-                      "h": 772,
-                      "alt": "Several cooks in white jackets lean in close together over a steel bench; one in glasses works a small spoon into a metal cup beside a large glass jug of white liquid, a dark-haired woman watching from beside him and another man looking down at the work.",
-                      "caption": "Four pairs of hands over one cup. This is what it looks like when something is being shown."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-09-spherification-at-the-bench.jpg",
-                      "w": 633,
-                      "h": 950,
-                      "alt": "Four cooks in white jackets at a steel bench: one holds a red-capped squeeze bottle over a shallow glass tray, another lifts a small glass of dark liquid to taste, and a syringe and white bowl sit on the bench between them.",
-                      "caption": "Spherification at the bench, with somebody tasting it the moment it is made."
-                    },
-                    {
-                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
-                      "w": 1600,
-                      "h": 900,
-                      "alt": "A hand holds a clear plastic tub of bright yellow liquid in which five large translucent spheres sit, each skinned and holding its shape.",
-                      "caption": "Five spheres in the bath, skinned on contact, thin enough to break on the tongue."
-                    }
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
+                    "w": 1066,
+                    "h": 1600,
+                    "alt": "Martin Lippo, in a white chef's jacket with his name embroidered on it, leaning over a steel bench and pouring from a blue-gloved hand into a small container while thick white vapour from liquid nitrogen rolls off the surface and spills toward the camera.",
+                    "caption": "Liquid nitrogen, off the bench and over the edge. This is the toolkit the craft is named for — the technique first, the dish afterwards."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
+                    "w": 1600,
+                    "h": 1200,
+                    "alt": "A studio portrait of Martin Lippo against a plain pale background, in a white chef's jacket embroidered “Martin Lippo” with the Vakuum badge on the sleeve, one hand raised to his chin, looking straight at the camera.",
+                    "caption": "Martin Lippo, who runs Vakuum and teaches it himself. The Atlas names a teacher wherever one can be named; on this craft almost nothing else can."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-03-the-lab.jpg",
+                    "w": 1600,
+                    "h": 900,
+                    "wide": true,
+                    "alt": "The Vakuum kitchen seen through a glass wall with the word Vakuum lettered across it in gold, the room behind full of stainless benches, mixers and rack shelving, with people working at the far side.",
+                    "caption": "The lab behind its own glass. It is a working kitchen with a teaching room inside it, not a demonstration set."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-04-it-starts-on-paper.jpg",
+                    "w": 600,
+                    "h": 900,
+                    "alt": "A man in a white chef's jacket stands beside a paper flipchart marked with a diagram, a pen in his raised hand, talking to people seated at a bench in front of him who are writing in notebooks; shelves of labelled storage boxes fill the wall behind.",
+                    "caption": "It starts on paper. The why comes before the nitrogen."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-05-the-class.jpg",
+                    "w": 1400,
+                    "h": 924,
+                    "alt": "Cooks in white jackets and black kitchen dress sit in two rows at long steel benches with notebooks and water bottles in front of them, facing a man in a white jacket standing at the head of the room beneath a sign reading Vakuum.",
+                    "caption": "Between the benches: the part that gets explained before it gets done."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-06-he-teaches-it-himself.jpg",
+                    "w": 600,
+                    "h": 900,
+                    "alt": "A man in a white chef's jacket stands alone in a laboratory kitchen in front of a tall combi oven, one hand open mid-sentence; two people watch from the foreground with their backs to the camera.",
+                    "caption": "Martin Lippo teaches in the lab himself. It is his own room."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-07-the-bench.jpg",
+                    "w": 633,
+                    "h": 950,
+                    "alt": "Four cooks in white jackets stand shoulder to shoulder along a steel bench, leaning over trays, small bowls and a chopping board, each working with a hand tool; a man in glasses at the left watches the work.",
+                    "caption": "Everybody works. Nobody is sitting down watching."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-08-shown-not-demonstrated.jpg",
+                    "w": 754,
+                    "h": 772,
+                    "alt": "Several cooks in white jackets lean in close together over a steel bench; one in glasses works a small spoon into a metal cup beside a large glass jug of white liquid, a dark-haired woman watching from beside him and another man looking down at the work.",
+                    "caption": "Four pairs of hands over one cup. This is what it looks like when something is being shown."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-09-spherification-at-the-bench.jpg",
+                    "w": 633,
+                    "h": 950,
+                    "alt": "Four cooks in white jackets at a steel bench: one holds a red-capped squeeze bottle over a shallow glass tray, another lifts a small glass of dark liquid to taste, and a syringe and white bowl sit on the bench between them.",
+                    "caption": "Spherification at the bench, with somebody tasting it the moment it is made."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
+                    "w": 1600,
+                    "h": 900,
+                    "alt": "A hand holds a clear plastic tub of bright yellow liquid in which five large translucent spheres sit, each skinned and holding its shape.",
+                    "caption": "Five spheres in the bath, skinned on contact, thin enough to break on the tongue."
+                  }
                 ]
               },
               "verify": [
@@ -29250,6 +28702,130 @@ window.ET_ATLAS = {
           "tripLength": "months–years",
           "englishTaught": true,
           "englishBasis": "native-English country"
+        },
+        {
+          "place": "Madrid",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "mecca"
+          ],
+          "why": "Where the whole craft meets once a year — Madrid Fusión, the congress that has gathered the Spanish avant-garde since 2003, holds its 25th edition here in February 2027 — and where Dabiz Muñoz cooks three Michelin stars of it at DiverXO. The teaching is institutional rather than personal, and it is the only room on this craft with English in your ear.",
+          "bestSeason": "Sep-Jun",
+          "level": "Beginner -> Professional",
+          "id": "modern-new-technique-cuisine--madrid",
+          "schoolsInfo": [
+            {
+              "name": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
+              "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
+              "course": "Spanish Cuisine Diploma — the Superior Certificate is the avant-garde one",
+              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. ⚠ Honest note: when we first listed this diploma, Le Cordon Bleu named no chef on it. Its Meet the Chefs page now names the team that teaches Spanish Cuisine — Natalia Vázquez at its head, with chef instructors David Vela, Manuel Lucas and Diego Muñoz — so you can look them up before you pay. Ask which of them will be in your room. Checked on cordonbleu.edu, 1 and 17 September 2026.",
+              "confidence": "high",
+              "verify": [
+                "Avant-garde techniques & utensils",
+                "17,316",
+                "simultaneous translation"
+              ],
+              "facts": {
+                "where": "Pozuelo de Alarcón, Madrid",
+                "length": "9 months (30 weeks), in three certificates",
+                "format": "2 demonstrations and 2 practicals a week, 3 hours each",
+                "language": "Spanish, with English simultaneous translation by earphones",
+                "credential": "Spanish Cuisine Diploma: Basic, Intermediate, Superior certificates",
+                "price": "€17,316",
+                "priceNote": "full diploma, local students; international students €19,240",
+                "from": [
+                  "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Head Chef of Spanish Cuisine Programmes",
+                    [
+                      "Natalia Vázquez"
+                    ]
+                  ],
+                  [
+                    "Spanish Cuisine chef instructors",
+                    [
+                      "David Vela",
+                      "Manuel Lucas",
+                      "Diego Muñoz"
+                    ]
+                  ]
+                ],
+                "from": "https://www.cordonbleu.edu/madrid/meet-chefs-instructor/en",
+                "read": "2026-09-17"
+              }
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Madrid publishes the Spanish Cuisine Diploma as 'Spanish // English (simultaneous translation system through earphones)' on its own programme page.",
+          "instructionLanguage": "Spanish, with simultaneous English translation"
+        },
+        {
+          "place": "Girona",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Escola d'Hostaleria i Turisme de Girona"
+          ],
+          "masters": [],
+          "lineage": [
+            "Joan Roca",
+            "Jordi Roca"
+          ],
+          "badges": [
+            "scene",
+            "mecca",
+            "lineage"
+          ],
+          "why": "Home of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique.",
+          "bestSeason": "Apr-Oct",
+          "level": "Beginner -> Professional",
+          "id": "modern-new-technique-cuisine--girona",
+          "schoolsInfo": [
+            {
+              "name": "Escola d'Hostaleria i Turisme de Girona",
+              "url": "https://agora.xtec.cat/ehtg/",
+              "course": "FP Cuina i Gastronomia / professional cooking certificates",
+              "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
+              "confidence": "high",
+              "facts": {
+                "where": "C. Josep Viader i Moliner, Girona",
+                "length": "2,000 hours over two academic years",
+                "credential": "Official technician (tècnic) title in cooking and gastronomy",
+                "from": [
+                  "https://agora.xtec.cat/ehtg/",
+                  "https://agora.xtec.cat/ehtg/cfgm/"
+                ],
+                "read": "2026-09-17"
+              }
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "two years",
+          "englishTaught": false,
+          "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
+          "instructionLanguage": "Spanish"
         }
       ],
       "disclosure": "EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week cost, and sold out when we read it on 1 September 2026. His classroom courses for 2026 are sold out and no later date is shown; in person, the way in is a private course, quoted by email. Read on martinlippo.com, 4 November 2026. If a direct route suits you better, take it.",
@@ -29298,6 +28874,36 @@ window.ET_ATLAS = {
           "place": "Dubai",
           "country": "United Arab Emirates",
           "note": "A fast-growing restaurant market that hires internationally and pays for technique."
+        },
+        {
+          "place": "Valencia & Dénia",
+          "country": "Spain",
+          "note": "Rice cookery treated with the same rigour, and a Mediterranean produce tradition behind it."
+        },
+        {
+          "place": "Bilbao",
+          "country": "Spain",
+          "note": "Basque avant-garde work that sits alongside the Catalan story rather than under it."
+        },
+        {
+          "place": "Seville & Cádiz",
+          "country": "Spain",
+          "note": "Andalusian frying and a sherry-country larder that the modernists have repeatedly borrowed from."
+        },
+        {
+          "place": "Tenerife & Las Palmas",
+          "country": "Spain",
+          "note": "An Atlantic island scene with its own produce and a growing high-end restaurant trade."
+        },
+        {
+          "place": "Málaga & Marbella",
+          "country": "Spain",
+          "note": "A concentrated coastal restaurant economy that draws chefs from the northern scenes."
+        },
+        {
+          "place": "Madrid's outskirts (Alcalá & Aranjuez)",
+          "country": "Spain",
+          "note": "Where several of the capital's kitchens source and where quieter training happens."
         }
       ]
     },

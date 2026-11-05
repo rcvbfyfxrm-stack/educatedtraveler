@@ -1,38 +1,154 @@
 {
   "drafts": {
     "modern-new-technique-cuisine": {
-      "dots": 3,
-      "verdict": "Three named masters running three labs you can enrol in — the strongest teaching on this map that belongs to no ground at all, which is the whole point of a toolkit",
+      "dots": 4,
+      "verdict": "Named teachers in most of the rooms, and now the Spanish ones too — a toolkit you can learn anywhere, beside the places that invented it",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
           "on": true,
-          "t": "Yes in three of the four places, each a named living person teaching in their own lab: Martin Lippo at Vakuum in Barcelona, Éric Briffard at Le Cordon Bleu Paris, Miguel Ángel Cepeda in Puebla and Mexico City. Three out of four is still more than anything else on this map manages. The fourth has changed shape rather than closed: Sous Vide Australia's site now offers bespoke training built for a venue's own team, not the public workshops this map listed, and its card says so. ⛔ Where we stand: EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him; the way in without us is his own site, martinlippo.com."
+          "t": "Yes in five of the seven places, each a named living person: Martin Lippo at Vakuum in Barcelona, Éric Briffard at Le Cordon Bleu Paris, Miguel Ángel Cepeda in Puebla and Mexico City, Luis Arrufat with Txema Urda on the Basque Culinary Center's online course, and in Madrid the chefs Le Cordon Bleu names on its own Meet the Chefs page, read 17 September 2026 — Natalia Vázquez with David Vela, Manuel Lucas and Diego Muñoz. Girona's hotel school names nobody, and Sous Vide Australia now trains a venue's own team rather than the public. ⛔ Where we stand: EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him; the way in without us is his own site, martinlippo.com."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
           "on": true,
-          "t": "Open, and unusually so for the avant-garde. This is the rare corner of modernist cooking you can enrol in rather than apply for a stage at: private courses at Vakuum (his classroom courses for 2026 are sold out and no later date is shown, read 4 November 2026), a four-day 31-hour Advanced Culinary Techniques course in Paris taught with English translation as it is given, a multi-week diplomado in Mexico. Melbourne is no longer one of them: what is offered there is training a venue books for its own team. And the hands can ruin it — a spherification bath and liquid nitrogen are unforgiving, which is why the labs are labs."
+          "t": "Open, and unusually so for the avant-garde. Private courses at Vakuum (his classroom courses for 2026 are sold out and no later date is shown, read 4 November 2026), four days in Paris with English translation as it is taught, a diplomado in Mexico, five weeks or an online course in San Sebastián, the avant-garde third of a nine-month diploma in Madrid, and a two-year professional course in Girona. Kitchen stages are not listed here: Arnaud's ruling of 4 November 2026 took them off the map, because you cannot book one. The hands can ruin it — a spherification bath and liquid nitrogen are unforgiving."
         },
         {
           "n": "Will there be other people learning beside you?",
           "on": true,
-          "t": "Yes, on the Paris course and the diplomado, which run as classes rather than as private hire. At Vakuum the way in is now a private course. What is not published anywhere is the group size at any of the four, and in a technique lab that is the number that decides whether you touch the equipment or watch it. Ask before you book."
+          "t": "Yes, on the Paris course, the diplomado and the diplomas, which run as classes rather than as private hire. At Vakuum the way in is now a private course. The group size is published almost nowhere, and in a technique lab it decides whether you touch the equipment or watch it. Ask before you book."
         },
         {
           "n": "Is the craft alive in this place, or is the school the only thing here?",
-          "on": false,
-          "t": "No, and it is worth saying why rather than treating it as a hole. The test this question applies is whether the craft, taught this way, would make sense anywhere else — and a technique toolkit is designed to travel. Sous-vide was worked out at Troisgros in 1974 and now belongs to every kitchen with a circulator. Catalonia's claim on the avant-garde is real and it is graded on this map's modernist Spanish cuisine page, where the restaurants are. Here you are buying a technique, and the technique is portable by design."
+          "on": true,
+          "t": "Yes in Spain, and that is what changed. The toolkit travels — sous-vide was worked out at Troisgros in 1974 and belongs to every kitchen with a circulator — but Madrid Fusión has been the vanguard's own congress since 2003, and it meets in Madrid, which is now one of this craft's places. The places outside Spain are here for the toolkit; the ones inside it are here for the argument.",
+          "evidence": [
+            {
+              "what": "Madrid Fusión — Alimentos de España",
+              "url": "https://www.madridfusion.net/en/",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
           "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "Nobody of ours has been, and this craft has no ladder to point at instead: its own record says there is no single formal body and that the qualification is a certificate of attendance. That is not a criticism of the labs, which are teaching real skills. It does mean that what happens after the course is entirely up to you and your own kitchen."
+          "t": "Nobody of ours has been, and no single body publishes a ladder: the qualification is a school's certificate, or in Madrid and Girona a diploma. What happens after the course is up to you and your own kitchen."
         }
       ],
-      "ceilingNote": "Four is the ceiling here, not five: the fourth answer is a settled no, because this is a toolkit rather than a tradition, and portability is what makes it worth learning.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has taken any of these four courses. ⛔ The interest above is disclosed here because it must be disclosed at the point of the judgement — and grading this craft found it was not disclosed on this page at all: the same school carried the relationship flag and the full disclosure on the modernist Spanish cuisine page, and nothing on this one. That is now fixed — this page carries the same disclosure and the same flag — and the grade was written before the fix rather than after it. Amended 22 September 2026: the first answer said four out of four and the verdict said four labs. Sous Vide Australia's own page now offers bespoke training for venue teams rather than the public workshops listed here, read 17 September 2026, so it is three — which is still the most on this map. No dot moves, and the disclosure above stands unchanged. Amended 4 November 2026: Martin Lippo's own site, read that day, shows every classroom course for 2026 sold out and no later date; in person, the way in at Vakuum is a private course, quoted by email. The second and third answers now say so, and the first says our week with him ran in October 2026. No dot moved: Paris and Mexico still run classes a stranger can book."
+      "check": "Re-graded because Modernist Spanish Cuisine was folded into this craft on 4 November 2026: its places came here and its signed grade is kept, word for word, in retiredCrafts. The fourth answer rests on Madrid Fusión's own site, read 4 September 2026 for the grade it replaces. Graded from the entries on this page, not from a visit; nobody from EducatedTraveler has taken any of these courses. It also carries the amendment drafted earlier the same day: Martin Lippo's own site, read 4 November 2026, shows every classroom course for 2026 sold out and no later date, so in person the way in at Vakuum is a private course, quoted by email.",
+      "ceilingNote": "Four is the ceiling from a desk; the fifth waits for somebody who went."
+    },
+    "fermentation": {
+      "dots": 2,
+      "verdict": "One teacher you can name, in a room you can book, in Tokyo — and a single summer day in Copenhagen. Thin, and we would rather say so",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes in Tokyo: &LAB TOKYO's own page says Chie Ando teaches the course in person, and names her. In Copenhagen nobody is named — the summer day at noma Projects is taught by 'the noma team', and the Copenhagen distillery once listed here has moved to Brooklyn and runs no course."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes, two ways. &LAB TOKYO takes a stranger directly and arranges the dates when you apply; its three-day intensive is ¥156,000 before tax, taught in Japanese, with English support at ¥15,000 a day. noma Projects sells a ticket for 13 or 14 August 2027 to anyone who buys its yearly membership — a day, not a course."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": false,
+          "t": "Not reliably. &LAB's groups are one to four, so you may well be alone with the teacher, which is good teaching and no company. noma's summer day has a room full of people, for one day."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. Everything we have on both places comes from the people selling the course, and that cannot tell you whether the craft lives in the town around it."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and no body publishes a ladder for fermentation: a school's own certificate is the most there is."
+        }
+      ],
+      "check": "Graded from the two school pages, both read 4 November 2026. Nobody from EducatedTraveler has stood in either room. Every step of the Tokyo course is also sold online, which the school says itself.",
+      "ceilingNote": "Two places is too few to say more. A third with a named teacher and a date would change this grade before any visit would."
+    },
+    "bread-and-boulangerie": {
+      "dots": 2,
+      "verdict": "Real doors, in English and in French, with dates and prices on them — and not one teacher we have yet named from a page we read",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Not yet, on our own reading. The École Internationale de Boulangerie names its founder, Thomas Teffri-Chambelland, but a founder is not a teacher. FERRANDI Paris and the École de Boulangerie et de Pâtisserie de Paris name nobody on the course pages we read on 4 November 2026. Ask who will be in the bakery with you."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. FERRANDI Paris runs twelve weeks of bread and viennoiseries in English, 25 August to 19 November 2027, at €18,500. The École de Boulangerie et de Pâtisserie de Paris runs its CAP route from September, in French only and only for EU or Swiss nationals or holders of a work permit. In Copenhagen, Meyers Madhus sells one-day classes in English with dates on them. Le Cordon Bleu's Tokyo campus is closed for now."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. These are classes, not private lessons: the Paris CAP takes forty-eight a year in groups of twelve at the bench, and Meyers seats sixteen."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. Everything here comes from the schools themselves. A guild, a market or a bakers' competition would answer it, and we have not read one yet."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder exists in public — the CAP Boulanger is a state diploma with a published référentiel — and we have not adopted it on this page yet."
+        }
+      ],
+      "check": "Graded from the school pages read on 4 November 2026, not from a visit. Nobody from EducatedTraveler has stood in any of these bakeries. Viennoiserie was folded into this craft on 4 November 2026; its places are graded here with the rest.",
+      "ceilingNote": "Four is within reach from a desk: one named teacher and one source outside the schools."
+    },
+    "new-basque-cuisine": {
+      "dots": 4,
+      "verdict": "A faculty the Basque chefs built for themselves, examined by a university rather than vouched for by a teacher — and the great names beside it are a lineage, not a class",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Lit, but not by the names you would expect, and the difference is the whole answer. The great kitchens here — Andoni Luis Aduriz's Mugaritz, Martín Berasategui's at Lasarte-Oria — offer a stage you apply for, not a course you book, and since 4 November 2026 this map does not list them as places to learn. The Basque Culinary Center, which is where a stranger can actually enrol, still names no teacher. What lights this answer is the other way in: its Culinary Techniques Mastery carries 6 ECTS awarded with Mondragon University, so somebody outside the kitchen sets the standard and marks against it. That is a weaker promise than a name and a stronger one than a brochure. Ask them who runs the five weeks; the names would be worth more than the credits."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open at the faculty. The Basque Culinary Center runs its Culinary Techniques Mastery at about 3,320 EUR and the Escuela de Cocina Luis Irizar a two-year professional specialisation. The restaurants take stagiaires on their own terms, which is why they are no longer on this map. Your hands can ruin it in either room."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "San Sebastián reads Legendary above, and the reason is not a school — it is that a town of a hundred and eighty thousand people holds one of the densest concentrations of serious kitchens in Europe, plus the faculty those kitchens founded. There is a generation above you here and one below, and they drink in the same bars."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes. San Sebastián Gastronomika fills the Kursaal in Donostia every autumn — 5–7 October in 2026 — a congress the city's own kitchens built and still fill. A town that hosts the argument about its cuisine is a town that cuisine belongs to. What we still have not done is walk the Gipuzkoa markets, which is where a week would teach more than the reading has.",
+          "evidence": [
+            {
+              "what": "San Sebastián Gastronomika",
+              "url": "https://www.sansebastiangastronomika.com/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The Basque Culinary Center's degree is awarded with Mondragon University, which is an outside body with an examination behind it — one of the better ladders on this map. We have read it. We have not seen anyone climb it."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this cuisine belongs to its place, so one visit could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. The fourth answer is new: San Sebastián Gastronomika's own site, read 4 September 2026. Amended 5 September 2026: the first answer rested on Aduriz and Berasategui, whose own entries say they are listed for the lineage rather than as a class; both have moved to 'where it comes from'. The dot stays lit on Mondragon University's 6 ECTS, which is an outside examiner, not on a chef. Re-drafted for Arnaud's ruling of 4 November 2026, which took the restaurant stages off this map: the first two answers no longer point at entries that are gone. No dot moves."
     }
   }
 }

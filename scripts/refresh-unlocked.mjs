@@ -61,6 +61,9 @@ const ALIAS = {
   "lymphatic-drainage-massage": "lymphatic-drainage",
   "self-sufficient-agriculture-farming-and-food-preservation": "self-sufficiency",
   "avant-garde-and-modernist-technique": "modern-new-technique-cuisine",
+  // Folded by Arnaud, 4 Nov 2026 — an ask for the old craft is an ask for the one it became.
+  "modernist-spanish-cuisine": "modern-new-technique-cuisine",
+  "viennoiserie": "bread-and-boulangerie",
 };
 
 // ── the index of everything a craft can be called ──

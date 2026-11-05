@@ -92,6 +92,12 @@
 <url><loc>https://educatedtraveler.app/atlas/french-pastry-and-patisserie--tokyo-osaka</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/french-pastry-and-patisserie--new-york-city</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/french-pastry-and-patisserie--barcelona</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie--paris</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie--vall-e-du-jabron-provence</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie--san-francisco-bay-area</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie--copenhagen</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie--vienna</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie--tokyo</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--tain-l-hermitage</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--paris</loc></url>
@@ -99,7 +105,6 @@
 <url><loc>https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--colorno-parma</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia</loc></url>
-<url><loc>https://educatedtraveler.app/atlas/new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--osaka</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--kyoto</loc></url>
@@ -116,11 +121,15 @@
 <url><loc>https://educatedtraveler.app/atlas/coffee-and-barista--san-rafael</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/mixology-and-bartending--london</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/mixology-and-bartending--new-york-city</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/fermentation--tokyo</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/fermentation--copenhagen</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--san-sebasti-n-donostia</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--paris</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--puebla-mexico-city</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--melbourne-lilydale</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--madrid</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/modern-new-technique-cuisine--girona</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/lymphatic-drainage--walchsee</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/lifestyle-medicine--united-states</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes</loc></url>
@@ -204,8 +213,8 @@
 <url><loc>https://educatedtraveler.app/atlas/french-pastry-and-patisserie</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/french-pastry-and-patisserie-in-depth</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/bread-and-boulangerie-in-depth</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery</loc></url>
-<url><loc>https://educatedtraveler.app/atlas/viennoiserie</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/classical-french-cuisine</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/italian-cuisine-and-pasta</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/italian-cuisine-and-pasta-in-depth</loc></url>
@@ -223,6 +232,7 @@
 <url><loc>https://educatedtraveler.app/atlas/coffee-and-barista-in-depth</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/mixology-and-bartending</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/cheese-and-fermentation</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/fermentation</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/tea-and-tea-ceremony</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/muay-thai</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/brazilian-jiu-jitsu</loc></url>

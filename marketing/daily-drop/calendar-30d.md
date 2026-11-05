@@ -128,22 +128,22 @@ The full page: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-s
 #adventuretravel #skillsnotsouvenirs #learnbydoing #thesolentcoweshamble #sailingyachtmaster
 ```
 
-## Day 8 — Chocolate & Confectionery · Brussels / Wieze, Belgium  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze
-- **Footage:** Callebaut Chocolate Academy (Wieze) — https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1 (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Chocolate & Confectionery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 8 — Bread & Viennoiserie · Paris, France  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/bread-and-boulangerie--paris
+- **Footage:** École de Boulangerie et de Pâtisserie de Paris (EBP) — https://www.ebp-paris.com/formations/cap-boulangerie/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Bread & Viennoiserie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Brussels / Wieze is both the birthplace of Chocolate & Confectionery and its living capital.
+Paris is both the birthplace of Bread & Viennoiserie and its living capital.
 
-The filled praline was invented in Brussels in 1912, and Callebaut’s Chocolate Academy has taught on the grounds of its largest factory, at Wieze, since 1988. The Academy has announced a renovation closure from November 2026 to April 2027, so confirm your date with them before you book.
+Home of the CAP Boulanger and the baguette de tradition — earn your levain where the craft's modern rules were written.
 
-Community strength: Legendary. Season: Year-round.
+Community strength: Legendary. Season: Sep-Jun.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze
+The full page: https://educatedtraveler.app/atlas/bread-and-boulangerie--paris
 
-#foodtok #cookingclass #learnbydoing #brusselswieze #chocolateconfectionery
+#foodtok #cookingclass #learnbydoing #paris #breadviennoiserie
 ```
 
 ## Day 9 — Jewelry & Goldsmithing · Florence, Italy  `[creative]`
@@ -200,22 +200,22 @@ The full page: https://educatedtraveler.app/atlas/surfing--waikiki-oahu
 #adventuretravel #skillsnotsouvenirs #learnbydoing #waikikioahu #surfing
 ```
 
-## Day 12 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
-- **Footage:** La Vecchia Scuola Bolognese (Alessandra Spisni) — https://www.vsb-bologna.it/en/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 12 — Chocolate & Confectionery · Brussels / Wieze, Belgium  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze
+- **Footage:** Callebaut Chocolate Academy (Wieze) — https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1 (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Chocolate & Confectionery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.
+Brussels / Wieze is both the birthplace of Chocolate & Confectionery and its living capital.
 
-The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.
+The filled praline was invented in Brussels in 1912, and Callebaut’s Chocolate Academy has taught on the grounds of its largest factory, at Wieze, since 1988. The Academy has announced a renovation closure from November 2026 to April 2027, so confirm your date with them before you book.
 
 Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
+The full page: https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze
 
-#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
+#foodtok #cookingclass #learnbydoing #brusselswieze #chocolateconfectionery
 ```
 
 ## Day 13 — Perfumery · Grasse, France  `[creative]`
@@ -272,22 +272,22 @@ The full page: https://educatedtraveler.app/atlas/kitesurfing--tarifa
 #adventuretravel #skillsnotsouvenirs #learnbydoing #tarifa #kitesurfing
 ```
 
-## Day 16 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
-- **Footage:** Basque Culinary Center — https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 16 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
+- **Footage:** La Vecchia Scuola Bolognese (Alessandra Spisni) — https://www.vsb-bologna.it/en/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
+The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.
 
-The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.
+The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.
 
-Community strength: Legendary. Season: May-Oct.
+Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
+The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
 
-#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
+#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
 ```
 
 ## Day 17 — Wildlife Photography · Pusztaszer, Hungary  `[creative]`
@@ -344,22 +344,22 @@ The full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--mau
 #adventuretravel #skillsnotsouvenirs #learnbydoing #mauihookipakanaha #windsurfingwingfoil
 ```
 
-## Day 20 — Modernist Spanish Cuisine · Barcelona, Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/modernist-spanish-cuisine
-- **Footage:** Vakuum by Martin Lippo — https://martinlippo.com/en/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 20 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
+- **Footage:** Basque Culinary Center — https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest Modernist Spanish Cuisine community on earth gathers in Barcelona.
+San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
 
-Where the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.
+The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.
 
-Community strength: Legendary. Season: Year-round.
+Community strength: Legendary. Season: May-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine
+The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
 
-#foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine
+#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
 ```
 
 ## Day 21 — Japanese Knife-Making · Shimanto, Japan  `[creative]`

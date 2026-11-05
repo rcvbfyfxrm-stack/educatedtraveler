@@ -191,7 +191,7 @@
     "ayurveda","bharatanatyam-indian-classical-dance","blacksmithing-and-bladesmithing","bookbinding-and-letterpress","brazilian-jiu-jitsu","bread-and-boulangerie",
     "bush-and-floatplane-flying","calligraphy-and-lettering","canyoning","capoeira","cave-and-technical-diving","caving-and-speleology",
     "cheese-and-fermentation","chocolate-and-confectionery","cigar-rolling","classical-french-cuisine","coffee-and-barista","cold-exposure-wim-hof-method",
-    "dog-sledding-and-mushing","ecstatic-dance-and-movement","expedition-sea-kayaking","falconry","filmmaking","flamenco-and-dance",
+    "dog-sledding-and-mushing","ecstatic-dance-and-movement","expedition-sea-kayaking","falconry","fermentation","filmmaking","flamenco-and-dance",
     "fly-fishing","freediving","french-pastry-and-patisserie","glassblowing","guitar-and-music-performance","hatha-and-vinyasa-yoga",
     "horsemanship","ice-and-mixed-climbing","italian-cuisine-and-pasta","iyengar-yoga","jewelry-and-goldsmithing","karate",
     "kintsugi-japanese-gold-repair","kitesurfing","korean-cuisine-hansik","kundalini-yoga","kung-fu","kyudo-japanese-archery",

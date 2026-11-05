@@ -33,7 +33,14 @@
     "modernist-spanish-cuisine--madrid.html",
     "modernist-spanish-cuisine--girona.html",
     "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava.html",
-    "modernist-spanish-cuisine-in-depth.html"
+    "modernist-spanish-cuisine-in-depth.html",
+    "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa.html",
+    "viennoiserie.html",
+    "viennoiserie--paris.html",
+    "viennoiserie--vienna.html",
+    "viennoiserie--tokyo.html",
+    "cheese-and-fermentation--tokyo.html",
+    "cheese-and-fermentation--copenhagen.html"
   ],
   "pinnedOpen": [
     "oaxacan-and-mexican-cuisine",
@@ -50,7 +57,9 @@
     "yacht-crew-and-stcw",
     "coffee-and-barista",
     "chocolate-and-confectionery",
-    "mixology-and-bartending"
+    "mixology-and-bartending",
+    "fermentation",
+    "bread-and-boulangerie"
   ],
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [],
@@ -60,6 +69,7 @@
       "organic-farm-to-table-cooking",
       "self-sufficiency",
       "cheese-and-fermentation",
+      "fermentation",
       "asado-and-open-fire-cooking",
       "bread-and-boulangerie"
     ],
@@ -73,7 +83,6 @@
     "Baking, pastry and sweet": [
       "bread-and-boulangerie",
       "french-pastry-and-patisserie",
-      "viennoiserie",
       "chocolate-and-confectionery"
     ],
     "Kitchens of the world": [
@@ -1274,7 +1283,6 @@
     "kitesurfing--tarifa": "Learn to ride Valdevaqueros in the wind capital of Europe, where it blows some 300 days a year.",
     "kitesurfing--cabarete": "Learn on 250-plus kiteable days a year, in one bay stacked with schools and afternoon trades.",
     "new-basque-cuisine--san-sebasti-n-donostia": "Learn where Arzak and Subijana launched the movement, in one of the most starred square kilometres on earth.",
-    "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa": "Learn on a stage inside the kitchens where the avant-garde keeps reinventing itself.",
     "organic-farm-to-table-cooking--shanagarry-east-cork": "Learn to cook the vegetables, eggs and milk that came off the 100 acres outside the kitchen door.",
     "perfumery--grasse": "Learn the nose in the world capital of perfume, where field, still and perfumer have run unbroken since the 1600s.",
     "perfumery--versailles-paris": "Learn at ISIPCA, founded by a Guerlain, for the diploma the great houses actually hire on.",
@@ -1472,8 +1480,8 @@
       "takenAt": "wine-and-sommellerie--bordeaux"
     }
   },
-  "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet.",
-  "schoolShotDebtFloor": 30,
+  "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet. 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; no school on either has sent a photograph.",
+  "schoolShotDebtFloor": 32,
   "schoolShotDebtKnown": [
     "chocolate-and-confectionery",
     "mixology-and-bartending",
@@ -1504,7 +1512,9 @@
     "windsurfing-and-wing-foil",
     "wine-and-sommellerie",
     "yacht-crew-and-stcw",
-    "chef-at-sea"
+    "chef-at-sea",
+    "bread-and-boulangerie",
+    "fermentation"
   ],
   "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five questions on the five dots, asked in the same words and the same order on every craft, because a legend a reader has to relearn is not a legend (the build refuses any other wording — see MEASURE_QUESTIONS in scripts/atlas_hub.py). The instrument's own shorthand — the room, the door, the bench, the ground, the stretch — stays in THE-MEASURE-META-PROMPT.md and never reaches a reader: on the page we ask the question rather than name it. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — whether a craft is alive in its place, and whether there is enough there to keep you going, are exactly what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
@@ -3013,9 +3023,12 @@
     "stood in it": 4,
     "twoOrReturn": 5
   },
-  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1. 7 October 2026: chef-at-sea signed by Arnaud Callier (2 of 5); floor back 2 -> 1.",
-  "measureDebtFloor": 1,
-  "measureDebtKnown": [],
+  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1. 7 October 2026: chef-at-sea signed by Arnaud Callier (2 of 5); floor back 2 -> 1. ⚠ 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; their grades are drafted and wait for his signature. Lower it by one each time one is signed.",
+  "measureDebtFloor": 3,
+  "measureDebtKnown": [
+    "bread-and-boulangerie",
+    "fermentation"
+  ],
   "_skillLadders_comment": "The ladder a craft is climbed by — ALWAYS somebody else's published standard, adopted and cited, never ours. 112 of 113 crafts carry a certBody and a goldCredential, so the ladder usually exists in public; where no body publishes one, the craft goes in laddersNotPublished and shows no ladder, because an invented rung is this map awarding itself an authority it does not have. A rung is the unit a course is ticked against, and the body's own skills are printed under it as what the rung means: IKO lists 46 skills across four levels and a kite school's page says 'we take you to Level 2', so ticking skills would have measured what a school writes on its website. url + read + verify on the ladder and on every rung, because night-check.py re-reads all of them.",
   "skillLadders": {
     "kitesurfing": {
@@ -3247,11 +3260,12 @@
   },
   "laddersNotPublished": {
     "oaxacan-and-mexican-cuisine": "Its own certifying line on this map reads 'no single body; each school prints its own'. No body publishes a ladder for it: what UNESCO inscribed in 2010 is a living community practice, not a curriculum, and each school here prints its own certificate.",
-    "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
+    "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write.",
+    "fermentation": "Its own certifying line on this map reads 'No formal body. A school certifies its own course; nobody certifies fermentation as a trade.' There is no ladder to adopt, and writing rungs for it would be this map awarding itself a standard nobody asked it to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
-  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand. 7 Oct 2026: raised 33 -> 34 for the same reason as 15 Sept — chef-at-sea moved from hubCards into disciplines (Arnaud: 'make sure all the skills card look like the new update… chef at sea its still the old version'), so the census caught up with a debt it already had. No body publishes a ladder for cooking at sea that we have read; the MCA's Ship's Cook Certificate is a ticket, not a ladder.",
-  "ladderDebtFloor": 34,
+  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand. 7 Oct 2026: raised 33 -> 34 for the same reason as 15 Sept — chef-at-sea moved from hubCards into disciplines (Arnaud: 'make sure all the skills card look like the new update… chef at sea its still the old version'), so the census caught up with a debt it already had. No body publishes a ladder for cooking at sea that we have read; the MCA's Ship's Cook Certificate is a ticket, not a ladder. 4 Nov 2026: raised by one when Arnaud opened bread-and-boulangerie by hand; the CAP Boulanger référentiel is the ladder to adopt.",
+  "ladderDebtFloor": 35,
   "ladderDebtKnown": [
     "mixology-and-bartending",
     "coffee-and-barista",
@@ -3285,7 +3299,8 @@
     "windsurfing-and-wing-foil",
     "wine-and-sommellerie",
     "yacht-crew-and-stcw",
-    "chef-at-sea"
+    "chef-at-sea",
+    "bread-and-boulangerie"
   ],
   "_communityLines_comment": "The paragraph under the five community dots on a place card. Arnaud, 10 September 2026: 'I would like to have a small paragraph for each school explaining is the community their is strong.' The dots and the one-word label have sat on every card since the beginning with NOTHING UNDER THEM, and the `why` beside them is a reason to go rather than an account of who is already there. ⛔ THESE DESCRIBE, THEY DO NOT GRADE — they say what the record already holds about the town and what it rests on, and where the record holds nothing they say so out loud. A second verdict in different words would be a grade nobody signed, and the Measure is where a judgement with a name on it lives. Keyed by destination id. A place with no line simply shows none: an absence is honest, a filler sentence is not. ⭐⭐ AND IT MAY NOT RESTATE THE `why`. The two sit four lines apart on the card and they answer different questions: the `why` is the reason to GO, this is HOW WE KNOW who is already there and how far that knowledge goes. The first draft of these repeated the `why` almost sentence for sentence — Ericeira's reserve twice, Bali's ladder twice — which is the redite the house voice cuts on sight. Say the thing the `why` does not: who designated it, when, whether they sell anything, how many rooms are running, and what nobody has established. The build refuses a line sharing a long verbatim run with its `why`.",
   "communityLines": {
@@ -3353,7 +3368,6 @@
     "italian-cuisine-and-pasta--bologna": "The sfogline are a living trade here rather than a heritage act, and the school sits in the middle of it — with Alessandra Spisni named, which almost nothing on this craft is. Two schools. ⚠ Everything establishing the trade's health comes from inside it; no register, no guild page, nobody counted.",
     "italian-cuisine-and-pasta--colorno-parma": "One academy, and it draws cooks from everywhere, which is the whole of the community here: the cohort arrives with you and leaves with you. The town around it is a food valley rather than a scene of schools. Nothing outside the academy is established.",
     "new-basque-cuisine--san-sebasti-n-donostia": "A town of a hundred and eighty thousand holding one of the densest concentrations of serious kitchens in Europe, and the congress those kitchens built fills the Kursaal every autumn — 5 to 7 October in 2026, run by the city's own trade and not by a school. There is a generation above you here and one below, and they drink in the same bars.",
-    "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa": "Two kitchens rather than two schools, and the difference matters: a stage is a job you apply for, not a course you book, so the people around you would be staff. Both are named for the chefs who own them. Nothing here establishes a room you can join on a date.",
     "sushi-and-washoku--tokyo-tsukiji-toyosu": "All four schools here name their teachers on their own pages, more than twenty people between them, among them a sushi chef who ran a Michelin one-star counter and teachers who came up through kaiseki. Tokyo Sushi Academy says more than 5,600 of its alumni have gone on to careers in over 50 countries since 2002.",
     "sushi-and-washoku--osaka": "Two schools, and the structure is a national licence rather than a scene — a one-year course that ends at the state's own chef's licence, so the people beside you are on the same year-long track. What is not established is anything outside the classroom: no count, no body describing the town, nobody of ours has been.",
     "sushi-and-washoku--kyoto": "Three schools, and what the record holds is a tradition rather than a cohort: centuries of seasonal discipline, and no account at all of who is learning it now. No count, no outside body, and of the three only Haru Cooking Class names who teaches.",
@@ -3757,8 +3771,8 @@
       "date": "9 October 2026"
     }
   },
-  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign.",
-  "placeIntroDebtFloor": 113,
+  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign. 4 Nov 2026: raised by six when Arnaud opened fermentation and bread-and-boulangerie by hand (eight places, no intro yet) and three places left the map.",
+  "placeIntroDebtFloor": 119,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
@@ -3793,7 +3807,6 @@
     "modern-new-technique-cuisine--melbourne-lilydale",
     "modern-new-technique-cuisine--paris",
     "modern-new-technique-cuisine--puebla-mexico-city",
-    "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
     "new-basque-cuisine--san-sebasti-n-donostia",
     "organic-farm-to-table-cooking--shanagarry-east-cork",
     "perfumery--grasse",
@@ -4027,6 +4040,184 @@
         "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
         "modernist-spanish-cuisine--san-sebasti-n-donostia"
       ]
+    }
+  },
+  "_removedFromMap_comment": "Taken off the map by Arnaud's ruling, in his words, with the day. Nothing here is read by the build. Kept word for word so a reader or an auditor can see what was listed and why it went.",
+  "removedFromMap": {
+    "ruling": "can roca intership and elbulli are not educatedtraveler way to learn!",
+    "by": "Arnaud",
+    "on": "2026-11-04",
+    "schools": [
+      {
+        "craft": "modernist-spanish-cuisine",
+        "place": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
+        "record": {
+          "name": "elBulli1846 (elBullifoundation museum & creativity lab)",
+          "url": "https://elbullifoundation.com/en/proyecto/elbulli1846/",
+          "course": "A museum visit — not a course",
+          "blurb": "Built on the site of elBulli, which closed in 2011, elBulli1846 is the elBullifoundation's museum and exhibition lab at Cala Montjoi: a visit of about two and a half hours, on a ticket, with a multimedia guide or a small-group guided tour. The 2026 season runs 1 May to 12 October. Their own pages sell a visit and help you plan one — there is no enrolment, no kitchen you cook in and no teacher. Checked on elbullifoundation.com, 31 August 2026.",
+          "confidence": "high",
+          "verify": [
+            "museum of the restaurant"
+          ],
+          "facts": {
+            "where": "Cala Montjoi, Roses (Girona)",
+            "length": "2.5 hours",
+            "format": "Museum visit with free multimedia guide; or small-group guided tour",
+            "language": "Spanish, Catalan and English",
+            "price": "€27.50",
+            "priceNote": "General visit ticket, 2026 season; guided tour €47.50; parking +€8.50",
+            "from": [
+              "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
+              "https://elbullifoundation.com/elbulli1846/en/faqs/",
+              "https://elbullifoundation.com/elbulli1846/en/where-we-are/"
+            ],
+            "read": "2026-10-07"
+          }
+        }
+      },
+      {
+        "craft": "modernist-spanish-cuisine",
+        "place": "modernist-spanish-cuisine--girona",
+        "record": {
+          "name": "El Celler de Can Roca (stage program)",
+          "url": "https://cellercanroca.com/en/",
+          "course": "Internship / stage at El Celler de Can Roca (incl. BBVA scholarship intake)",
+          "blurb": "The Roca brothers' three-Michelin-star restaurant in Girona hosts paid stages, including a BBVA scholarship cohort that adds accommodation, meals and University of Barcelona-backed coursework on chocolate, caviar and team management. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
+          "confidence": "high",
+          "facts": {
+            "where": "Carrer de Can Sunyer, Girona",
+            "format": "Internships by application, for institutions or individuals",
+            "from": [
+              "https://cellercanroca.com/en/practices-internships/"
+            ],
+            "read": "2026-09-17"
+          }
+        }
+      },
+      {
+        "craft": "new-basque-cuisine",
+        "place": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
+        "record": {
+          "name": "Mugaritz (creativity stage)",
+          "url": "https://www.mugaritz.com/en/",
+          "course": "Kitchen stage / culinary internship at Mugaritz (Errenteria)",
+          "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
+          "confidence": "high",
+          "standing": {
+            "state": "course-gone",
+            "what": "Mugaritz's own site lists no kitchen stage or internship; its only programme is the Mugaritz Creativity Program, 'A 6-month program at Madrid Culinary Campus (MACC), including a one-week residency at Mugaritz'.",
+            "from": "https://www.mugaritz.com/en/programa-creatividad-mugaritz/",
+            "read": "2026-10-07"
+          }
+        }
+      },
+      {
+        "craft": "new-basque-cuisine",
+        "place": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
+        "record": {
+          "name": "Martín Berasategui (restaurant stage)",
+          "url": "https://www.martinberasategui.com/en/inicio",
+          "course": "Restaurant stage / práctica at the Lasarte-Oria flagship ('Work with us')",
+          "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
+          "confidence": "high",
+          "standing": {
+            "state": "course-gone",
+            "what": "The 'Work with us' page is a plain job application form (areas: FHO, Kitchen, Sommelier; attach CV) and never mentions a stage or práctica.",
+            "from": "https://www.martinberasategui.com/en/trabaja-con-nosotros",
+            "read": "2026-10-07"
+          }
+        }
+      }
+    ],
+    "places": {
+      "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": {
+        "craft": "modernist-spanish-cuisine",
+        "redirectsTo": "modern-new-technique-cuisine",
+        "record": {
+          "place": "Roses / Cala Montjoi (Costa Brava)",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "source",
+          "communityRank": 1,
+          "communityLabel": "Gone",
+          "closedToLearners": true,
+          "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the cuisine itself, go to Barcelona. For the technique on its own, the Basque Culinary Center's avant-garde course is on New culinary techniques & technologies, not on this craft.",
+          "schools": [],
+          "masters": [],
+          "lineage": [
+            "Ferran Adrià",
+            "Albert Adrià"
+          ],
+          "badges": [
+            "source",
+            "mecca",
+            "heritage"
+          ],
+          "why": "The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world's best restaurant, until it closed in 2011 — a pilgrimage to the origin point of the avant-garde, and nothing more than that.",
+          "bestSeason": "May-Oct",
+          "level": "Nothing is taught here",
+          "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
+          "schoolsInfo": [],
+          "tripTier": 0,
+          "tripType": "Visit",
+          "tripLength": "a couple of hours",
+          "englishTaught": false,
+          "englishBasis": "Nothing is taught here in any language — elBulli1846 sells a museum visit, not a course.",
+          "instructionLanguage": ""
+        },
+        "lines": {}
+      },
+      "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa": {
+        "craft": "new-basque-cuisine",
+        "redirectsTo": "new-basque-cuisine",
+        "record": {
+          "place": "Errenteria / Lasarte-Oria (Gipuzkoa)",
+          "country": "Spain",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [],
+          "masters": [],
+          "lineage": [
+            "Andoni Luis Aduriz (Mugaritz)",
+            "Martín Berasategui"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "mecca"
+          ],
+          "why": "Martín Berasategui's three-starred kitchen and Mugaritz's laboratory ring San Sebastián — stage here and you stand inside the kitchens where the avant-garde keeps reinventing itself.",
+          "bestSeason": "Apr-Oct",
+          "level": "Intermediate -> Professional",
+          "id": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
+          "schoolsInfo": [],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
+        },
+        "lines": {
+          "learnLines": "Learn on a stage inside the kitchens where the avant-garde keeps reinventing itself.",
+          "communityLines": "Two kitchens rather than two schools, and the difference matters: a stage is a job you apply for, not a course you book, so the people around you would be staff. Both are named for the chefs who own them. Nothing here establishes a room you can join on a date."
+        }
+      }
+    },
+    "gironaLines": {}
+  },
+  "_retiredCrafts_comment": "Crafts folded into another by Arnaud's ruling. Nothing here is read by the build. A name is moved, never deleted: what each one carried — a signed Measure, a craft intro, the lines on a place that did not move — is kept here word for word, with the day and the reason, so the record of what was said and signed survives the page that said it.",
+  "retiredCrafts": {
+    "modernist-spanish-cuisine": {
+      "mergedInto": "modern-new-technique-cuisine",
+      "on": "2026-11-04",
+      "why": "Arnaud, 4 Nov 2026: keep one of the two modernist crafts — Martin's week is named for New culinary techniques, so that one stays. Its places moved there; Barcelona was already there, with the same school."
+    },
+    "viennoiserie": {
+      "mergedInto": "bread-and-boulangerie",
+      "on": "2026-11-04",
+      "why": "Arnaud, 4 Nov 2026: viennoiserie is the baker's trade in France and the same schools teach it beside bread, so it folds into Bread & Viennoiserie. Vienna and Tokyo moved; Paris merged into Bread's Paris."
     }
   }
 }

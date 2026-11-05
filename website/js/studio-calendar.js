@@ -82,13 +82,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 8,
     "core": "culinary",
-    "discipline": "Chocolate & Confectionery",
-    "place": "Brussels / Wieze, Belgium",
-    "atlasUrl": "https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze",
-    "clipBrief": "30-60s wordless process: hands + material of Chocolate & Confectionery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Callebaut Chocolate Academy (Wieze)",
-    "footageUrl": "https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1",
-    "caption": "Brussels / Wieze is both the birthplace of Chocolate & Confectionery and its living capital.\n\nThe filled praline was invented in Brussels in 1912, and Callebaut’s Chocolate Academy has taught on the grounds of its largest factory, at Wieze, since 1988. The Academy has announced a renovation closure from November 2026 to April 2027, so confirm your date with them before you book.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze\n\n#foodtok #cookingclass #learnbydoing #brusselswieze #chocolateconfectionery"
+    "discipline": "Bread & Viennoiserie",
+    "place": "Paris, France",
+    "atlasUrl": "https://educatedtraveler.app/atlas/bread-and-boulangerie--paris",
+    "clipBrief": "30-60s wordless process: hands + material of Bread & Viennoiserie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "École de Boulangerie et de Pâtisserie de Paris (EBP)",
+    "footageUrl": "https://www.ebp-paris.com/formations/cap-boulangerie/",
+    "caption": "Paris is both the birthplace of Bread & Viennoiserie and its living capital.\n\nHome of the CAP Boulanger and the baguette de tradition — earn your levain where the craft's modern rules were written.\n\nCommunity strength: Legendary. Season: Sep-Jun.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/bread-and-boulangerie--paris\n\n#foodtok #cookingclass #learnbydoing #paris #breadviennoiserie"
   },
   {
     "day": 9,
@@ -126,13 +126,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 12,
     "core": "culinary",
-    "discipline": "Italian Cuisine & Pasta",
-    "place": "Bologna, Italy",
-    "atlasUrl": "https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna",
-    "clipBrief": "30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "La Vecchia Scuola Bolognese (Alessandra Spisni)",
-    "footageUrl": "https://www.vsb-bologna.it/en/",
-    "caption": "The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.\n\nThe world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna\n\n#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta"
+    "discipline": "Chocolate & Confectionery",
+    "place": "Brussels / Wieze, Belgium",
+    "atlasUrl": "https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze",
+    "clipBrief": "30-60s wordless process: hands + material of Chocolate & Confectionery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Callebaut Chocolate Academy (Wieze)",
+    "footageUrl": "https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1",
+    "caption": "Brussels / Wieze is both the birthplace of Chocolate & Confectionery and its living capital.\n\nThe filled praline was invented in Brussels in 1912, and Callebaut’s Chocolate Academy has taught on the grounds of its largest factory, at Wieze, since 1988. The Academy has announced a renovation closure from November 2026 to April 2027, so confirm your date with them before you book.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze\n\n#foodtok #cookingclass #learnbydoing #brusselswieze #chocolateconfectionery"
   },
   {
     "day": 13,
@@ -170,13 +170,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 16,
     "core": "culinary",
-    "discipline": "New Basque Cuisine",
-    "place": "San Sebastián (Donostia), Spain",
-    "atlasUrl": "https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia",
-    "clipBrief": "30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Basque Culinary Center",
-    "footageUrl": "https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias",
-    "caption": "San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.\n\nThe cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.\n\nCommunity strength: Legendary. Season: May-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia\n\n#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine"
+    "discipline": "Italian Cuisine & Pasta",
+    "place": "Bologna, Italy",
+    "atlasUrl": "https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna",
+    "clipBrief": "30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "La Vecchia Scuola Bolognese (Alessandra Spisni)",
+    "footageUrl": "https://www.vsb-bologna.it/en/",
+    "caption": "The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.\n\nThe world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna\n\n#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta"
   },
   {
     "day": 17,
@@ -214,13 +214,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 20,
     "core": "culinary",
-    "discipline": "Modernist Spanish Cuisine",
-    "place": "Barcelona, Spain",
-    "atlasUrl": "https://educatedtraveler.app/atlas/modernist-spanish-cuisine",
-    "clipBrief": "30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Vakuum by Martin Lippo",
-    "footageUrl": "https://martinlippo.com/en/",
-    "caption": "The strongest Modernist Spanish Cuisine community on earth gathers in Barcelona.\n\nWhere the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine\n\n#foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine"
+    "discipline": "New Basque Cuisine",
+    "place": "San Sebastián (Donostia), Spain",
+    "atlasUrl": "https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia",
+    "clipBrief": "30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Basque Culinary Center",
+    "footageUrl": "https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias",
+    "caption": "San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.\n\nThe cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.\n\nCommunity strength: Legendary. Season: May-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia\n\n#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine"
   },
   {
     "day": 21,
