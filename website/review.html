@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sign your review — EDUCATEDTRAVELER</title>
     <meta name="description" content="A personal link: review the schools you cooked at, under your own name.">
     <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0d0b09">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -15,155 +16,125 @@
     <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
     <style>
         /* Warm-Dark Editorial: the same tokens as /you and /portrait */
-        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
-               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
-        *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
-        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
-              min-height:100vh; line-height:1.55; }
-        ::selection{ background:rgba(210,138,82,0.30); }
+        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,.58);
+               --faint:rgba(243,237,226,.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,.10); }
+        *{ box-sizing:border-box; margin:0; padding:0; -webkit-font-smoothing:antialiased; }
+        html,body{ height:100%; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper); line-height:1.5; overflow-x:hidden; }
         a{ color:var(--sea); text-decoration:none; }
-        .top{ position:sticky; top:0; z-index:5; background:rgba(13,11,9,.86); backdrop-filter:blur(14px);
-              border-bottom:1px solid var(--line); }
-        .top .in{ max-width:720px; margin:0 auto; padding:16px; display:flex; justify-content:space-between; align-items:center; }
-        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:.16em; font-size:15px; color:var(--paper); }
+        .mono{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+        .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; }
+
+        /* the thin bar is the whole navigation */
+        .bar{ position:fixed; top:0; left:0; right:0; height:3px; z-index:9; background:var(--line); }
+        .bar i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--sea),var(--ember)); transition:width .5s cubic-bezier(.2,.7,.2,1); }
+        .back{ position:fixed; top:14px; left:12px; z-index:9; width:40px; height:40px; border-radius:50%; border:0;
+               background:rgba(13,11,9,.55); backdrop-filter:blur(10px); color:var(--paper); font-size:20px; cursor:pointer; display:none; }
+        .back.on{ display:block; }
+        .brand{ display:inline-block; font-family:'Fraunces',Georgia,serif; letter-spacing:.16em; font-size:12px; color:var(--paper); opacity:.75; margin-bottom:18px; }
         .brand b{ font-weight:300; color:var(--sea); }
-        main{ max-width:720px; margin:0 auto; padding:34px 16px 90px; }
-        .mono{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--sea); }
-        h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(30px,7vw,46px); line-height:1.08; margin:12px 0 14px; }
+
+        .screen{ display:none; flex-direction:column; min-height:100vh; }
+        .screen.on{ display:flex; animation:in .42s cubic-bezier(.2,.7,.2,1) backwards; }
+        .screen.on.back-in{ animation-name:in-back; }
+        @keyframes in{ from{ opacity:0; transform:translateX(18px); } to{ opacity:1; transform:none; } }
+        @keyframes in-back{ from{ opacity:0; transform:translateX(-18px); } to{ opacity:1; transform:none; } }
+
+        .photo{ position:relative; height:46vh; min-height:260px; max-height:520px; overflow:hidden; flex:0 0 auto; }
+        .photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,11,9,.15) 0%, transparent 35%, rgba(13,11,9,.92) 100%); }
+        .photo .over{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:0 20px 18px; max-width:640px; margin:0 auto; }
+        .photo .over .mono{ color:var(--sea); }
+        .photo h2{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(30px,8vw,46px); line-height:1.04; margin-top:6px; }
+        .photo .sub{ color:rgba(243,237,226,.78); font-size:14px; margin-top:4px; }
+        .duo{ display:grid; grid-template-columns:1fr 1fr; gap:3px; height:100%; }
+        .duo img{ height:100%; }
+
+        .body{ flex:1; width:100%; max-width:640px; margin:0 auto; padding:22px 20px calc(28px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; }
+        .lede{ color:var(--muted); font-size:16px; }
+        h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(34px,9vw,52px); line-height:1.02; }
         h1 em{ font-style:italic; color:var(--ember); }
-        .lede{ color:var(--muted); font-size:16px; max-width:56ch; }
-        .step{ margin-top:40px; padding-top:26px; border-top:1px solid var(--line); }
-        .step h2{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:23px; margin:6px 0 14px; }
-        label.f{ display:block; font-size:13px; color:var(--muted); margin:14px 0 6px; }
-        input[type=text], input[type=email], input[type=month], textarea{
-            width:100%; background:rgba(243,237,226,.04); border:1px solid rgba(243,237,226,.16); border-radius:12px;
-            color:var(--paper); font:inherit; font-size:16px; padding:13px 14px; transition:border-color .2s; }
-        input:focus, textarea:focus{ outline:none; border-color:var(--sea); }
-        input[type=month]{ color-scheme:dark; max-width:240px; }
-        textarea{ min-height:150px; resize:vertical; line-height:1.55; }
-        .row{ display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
-        @media (max-width:560px){ .row{ grid-template-columns:1fr; } }
+
+        textarea{ width:100%; min-height:132px; background:transparent; border:0; border-bottom:1px solid rgba(243,237,226,.2);
+                  color:var(--paper); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:21px; line-height:1.45;
+                  padding:6px 0 12px; resize:none; overflow:hidden; transition:border-color .25s; }
+        textarea::placeholder{ color:var(--faint); font-style:italic; }
+        textarea:focus{ outline:none; border-color:var(--sea); }
+        .meter{ height:2px; background:var(--line); margin-top:-1px; }
+        .meter i{ display:block; height:100%; width:0; background:var(--sea); transition:width .25s; }
+        .hint{ display:flex; justify-content:space-between; gap:12px; font-size:12.5px; color:var(--faint); margin-top:8px; }
+
+        .label{ font-size:13px; color:var(--muted); margin:22px 0 10px; }
         .chips{ display:flex; flex-wrap:wrap; gap:8px; }
         .chip{ border:1px solid rgba(243,237,226,.18); background:rgba(243,237,226,.03); color:var(--paper);
-               border-radius:99px; padding:9px 14px; font:inherit; font-size:13.5px; cursor:pointer; transition:border-color .2s, background .2s; }
+               border-radius:99px; padding:9px 14px; font:inherit; font-size:14px; cursor:pointer; transition:border-color .2s, background .2s; }
         .chip:hover{ border-color:rgba(127,168,165,.6); }
-        .chip[aria-pressed=true]{ border-color:var(--sea); background:rgba(127,168,165,.18); }
-        .ig{ position:relative; }
-        .ig span{ position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--faint); }
-        .ig input{ padding-left:30px; }
-        .school{ margin-top:20px; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--ink2); }
-        .school .ph{ position:relative; aspect-ratio:16/9; background:#1b1712; }
-        .school .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
-        .school .ph .cap{ position:absolute; left:0; right:0; bottom:0; padding:44px 18px 14px;
-                          background:linear-gradient(transparent, rgba(13,11,9,.88)); }
-        .school .ph h3{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:23px; line-height:1.15; }
-        .school .ph .where{ font-size:13px; color:rgba(243,237,226,.75); margin-top:3px; }
-        .school .bd{ padding:4px 18px 20px; }
-        .school.off .bd .fields{ display:none; }
-        .skip{ display:flex; gap:10px; align-items:center; margin-top:14px; font-size:13.5px; color:var(--muted); cursor:pointer; }
-        .count{ font-size:12px; color:var(--faint); text-align:right; margin-top:5px; }
-        .count.ok{ color:var(--sea); }
-        .reads{ margin-top:12px; padding:12px 14px; border-left:2px solid var(--ember); background:rgba(210,138,82,.06);
-                border-radius:0 10px 10px 0; font-size:14px; color:var(--muted); }
-        .reads q{ display:block; color:var(--paper); font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:16px; margin-bottom:6px; quotes:'\201C' '\201D'; }
-        .reads q:empty::before{ content:'Your words appear here as you write.'; color:var(--faint); }
-        .tick{ display:flex; gap:12px; align-items:flex-start; margin-top:14px; font-size:14.5px; cursor:pointer; }
-        .tick input{ width:20px; height:20px; margin-top:2px; accent-color:var(--sea); flex:0 0 auto; }
+        .chip[aria-pressed=true]{ border-color:var(--sea); background:rgba(127,168,165,.2); }
+        input[type=month]{ color-scheme:dark; margin-top:10px; }
+
+        .field{ position:relative; margin-top:16px; }
+        .field input{ width:100%; background:rgba(243,237,226,.04); border:1px solid rgba(243,237,226,.16); border-radius:14px;
+                      color:var(--paper); font:inherit; font-size:16px; padding:22px 14px 9px; transition:border-color .2s; }
+        .field input:focus{ outline:none; border-color:var(--sea); }
+        .field label{ position:absolute; left:15px; top:8px; font-size:11.5px; color:var(--faint); pointer-events:none; }
+        .field.at input{ padding-left:30px; }
+        .field.at::before{ content:'@'; position:absolute; left:15px; bottom:10px; color:var(--faint); font-size:16px; }
+
+        .reads{ margin-top:18px; padding:14px 16px; border-left:2px solid var(--ember); background:rgba(210,138,82,.06); border-radius:0 12px 12px 0; }
+        .reads q{ display:block; font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:300; font-size:16.5px; line-height:1.45; quotes:'\201C' '\201D'; }
+        .reads span{ display:block; color:var(--muted); font-size:13px; margin-top:6px; }
+        .reads + .reads{ margin-top:10px; }
+
+        .tick{ display:flex; gap:12px; align-items:flex-start; margin-top:16px; font-size:15px; cursor:pointer; }
+        .tick input{ width:22px; height:22px; margin-top:1px; accent-color:var(--sea); flex:0 0 auto; }
         .tick small{ display:block; color:var(--muted); font-size:13px; margin-top:2px; }
-        .go{ margin-top:26px; width:100%; border:0; border-radius:99px; padding:16px 22px; font:inherit; font-size:16px; font-weight:500;
-             color:var(--ink); background:linear-gradient(110deg, var(--sea), var(--ember)); cursor:pointer; transition:transform .2s, opacity .2s; }
+
+        .foot{ margin-top:auto; padding-top:26px; }
+        .go{ width:100%; border:0; border-radius:99px; padding:17px 22px; font:inherit; font-size:16px; font-weight:500; color:var(--ink);
+             background:linear-gradient(110deg,var(--sea),var(--ember)); cursor:pointer; transition:transform .2s, opacity .3s; }
         .go:hover{ transform:translateY(-1px); }
-        .go[disabled]{ opacity:.55; cursor:default; transform:none; }
+        .go[disabled]{ opacity:.35; cursor:default; transform:none; }
+        .skip{ display:block; margin:14px auto 0; background:none; border:0; color:var(--faint); font:inherit; font-size:13.5px; cursor:pointer; }
+        .skip:hover{ color:var(--muted); }
         .err{ color:var(--ember); font-size:14px; margin-top:12px; min-height:1px; }
-        .small{ color:var(--faint); font-size:12.5px; margin-top:14px; line-height:1.6; }
-        .done{ display:none; }
-        .done.show{ display:block; }
-        .done ul{ list-style:none; margin-top:18px; }
-        .done li{ padding:14px 0; border-top:1px solid var(--line); }
-        .done li:last-child{ border-bottom:1px solid var(--line); }
-        .share{ display:inline-flex; margin-top:20px; border:1px solid var(--sea); border-radius:99px; padding:12px 18px; color:var(--paper); }
-        @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
+        .fine{ color:var(--faint); font-size:12.5px; margin-top:14px; line-height:1.6; text-align:center; }
+
+        .done-list{ list-style:none; margin-top:22px; border-top:1px solid var(--line); }
+        .done-list li{ padding:14px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+        .ghost{ display:block; text-align:center; margin-top:12px; border:1px solid var(--sea); border-radius:99px; padding:15px 20px; color:var(--paper); }
+
+        @media (min-width:900px){
+            .screen.split{ flex-direction:row; }
+            .screen.split .photo{ height:100vh; max-height:none; width:50%; position:sticky; top:0; }
+            .screen.split .body{ width:50%; max-width:560px; padding:110px 48px 48px; margin:0; }
+        }
+        @media (prefers-reduced-motion:reduce){ *{ transition:none !important; animation:none !important; } }
     </style>
 </head>
 <body>
-<header class="top"><div class="in"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><a class="mono" href="/atlas">The Atlas</a></div></header>
-
-<main>
-    <div id="nobody" style="display:none">
-        <div class="mono">A personal link</div>
-        <h1>This link is made for one person.</h1>
-        <p class="lede">To say something about a school you went to, open its page on <a href="/atlas">the Atlas</a> and use <em>Been here? Write a comment</em> on its card.</p>
-    </div>
-
-    <form id="form" novalidate style="display:none">
-        <div class="mono" id="kicker"></div>
-        <h1 id="hello"></h1>
-        <p class="lede" id="lede"></p>
-
-        <section class="step">
-            <div class="mono">1 · You</div>
-            <h2>How your name reads on the page</h2>
-            <div class="row">
-                <div><label class="f" for="r-name">Your name</label><input type="text" id="r-name" maxlength="40" autocomplete="name"></div>
-                <div><label class="f" for="r-ig">Instagram (optional, shown with your name)</label>
-                    <div class="ig"><span>@</span><input type="text" id="r-ig" maxlength="30" autocapitalize="off" autocomplete="off" spellcheck="false"></div></div>
-            </div>
-            <label class="f">What you do</label>
-            <div class="chips" id="r-trades"></div>
-            <input type="text" id="r-trade-other" maxlength="60" placeholder="In your own words" style="display:none;margin-top:10px">
-        </section>
-
-        <section class="step">
-            <div class="mono">2 · The kitchens</div>
-            <h2>What you saw, in your own words</h2>
-            <p class="lede" style="font-size:14.5px">Who taught, what you made with your own hands, what you would tell a chef thinking of going. A few lines is plenty.</p>
-            <div id="schools"></div>
-        </section>
-
-        <section class="step">
-            <div class="mono">3 · Sign</div>
-            <h2>Where Arnaud can write back</h2>
-            <label class="f" for="r-email">Your email (never shown)</label>
-            <input type="email" id="r-email" autocomplete="email" inputmode="email">
-            <label class="tick"><input type="checkbox" id="r-publish">
-                <span>Put these on the pages, under my name<small>Arnaud reads each one himself before it goes up.</small></span></label>
-            <label class="tick"><input type="checkbox" id="r-circle">
-                <span>And keep me in the Circle<small>A short note now and then about the crafts people here want to learn. Leave whenever you like.</small></span></label>
-            <button class="go" type="submit" id="r-send">Sign my reviews</button>
-            <div class="err" id="r-err" role="alert"></div>
-            <p class="small">Your email stays with Arnaud. Nothing on this page is paid for, and no school knows what you wrote until it is on the page.</p>
-        </section>
-    </form>
-
-    <div class="done" id="done">
-        <div class="mono">Signed</div>
-        <h1 id="done-h"></h1>
-        <p class="lede">Arnaud reads them himself, then they go on the schools' cards with your name.</p>
-        <ul id="done-list"></ul>
-        <a class="share" id="done-share" href="#">Send this to a chef who should see it →</a>
-    </div>
-</main>
+<div class="bar"><i id="bar"></i></div>
+<button class="back" id="back" type="button" aria-label="Back">&#8249;</button>
+<main id="app"></main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
 <script>
 (function () {
-    // One link per person. Their name and the schools they cooked at are written
-    // here by hand; everything they SAY is theirs, typed by them on this page.
+    // One link per person. Their name and the schools they cooked at are written here by
+    // hand; everything they SAY is theirs, typed by them on this page.
     // ⛔ Never prefill what they saw: a review we wrote in their name is a made-up review.
     var INVITES = {
         alix: {
-            first: 'Alix', name: 'Alix Verrips', trade: 'Yacht chef',
-            craft: 'oaxacan-and-mexican-cuisine', craftName: 'Mexican cooking',
+            first: 'Alix', name: 'Alix Verrips', trade: 'Yacht chef', craft: 'oaxacan-and-mexican-cuisine',
             schools: [
-                { school: 'Casa Crespo Cooking Classes', teacher: 'Óscar',
+                { school: 'Casa Crespo Cooking Classes', label: 'Casa Crespo', teacher: 'Óscar',
                   dest: 'oaxacan-and-mexican-cuisine--oaxaca', where: 'Oaxaca', page: 'Oaxaca',
-                  img: '/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg',
-                  pos: '50% 12%' },
+                  img: '/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg', pos: '50% 18%',
+                  ask: 'What did Óscar teach you that you still use?' },
                 { school: 'México Lindo Cooking (Chef Alejandra Kauachi)', label: 'México Lindo', teacher: 'Ale and Rosalía',
-                  dest: 'oaxacan-and-mexican-cuisine--merida-yucatan', where: 'Puerto Morelos, Valladolid and Yaxunah', page: 'Mérida–Yucatán',
-                  img: '/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-07-rosalia-the-mill.jpg',
-                  pos: '50% 40%' }
+                  dest: 'oaxacan-and-mexican-cuisine--merida-yucatan', where: 'Puerto Morelos · Valladolid · Yaxunah', page: 'Mérida–Yucatán',
+                  img: '/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-07-rosalia-the-mill.jpg', pos: '50% 35%',
+                  ask: 'What happened in that kitchen that a chef should know?' }
             ]
         }
     };
@@ -173,84 +144,171 @@
     function $(id) { return document.getElementById(id); }
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+    var app = $('app');
 
     var key = (new URLSearchParams(location.search).get('for') || '').toLowerCase();
     var inv = INVITES[key];
-    if (!inv) { $('nobody').style.display = ''; return; }
-
-    $('form').style.display = '';
-    $('kicker').textContent = 'For ' + inv.first + ' · ' + inv.craftName;
-    $('hello').innerHTML = esc(inv.first) + ', you cooked in <em>' + (inv.schools.length === 2 ? 'two kitchens' : 'these kitchens') + '</em>.';
-    $('lede').textContent = 'Nobody from EducatedTraveler has stood in them. You have. Sign what you saw, and it goes on each school’s card with your name: the first review there from a chef who actually went.';
-    $('r-name').value = inv.name;
-
-    // ── trade ──
-    var trade = inv.trade;
-    $('r-trades').innerHTML = TRADES.map(function (t) {
-        return '<button type="button" class="chip" aria-pressed="' + (t === trade) + '">' + esc(t) + '</button>';
-    }).join('');
-    $('r-trades').addEventListener('click', function (e) {
-        var b = e.target.closest('.chip'); if (!b) return;
-        this.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === b); });
-        trade = b.textContent;
-        $('r-trade-other').style.display = trade === 'Something else' ? '' : 'none';
-        if (trade === 'Something else') $('r-trade-other').focus();
-        paint();
-    });
-    function tradeValue() { return trade === 'Something else' ? $('r-trade-other').value.trim() : trade; }
-
-    // ── how the byline will read: name, Instagram, trade, month ──
-    function ig() { return $('r-ig').value.trim().replace(/^@+/, '').replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/[\/?#].*$/, ''); }
-    function displayName() {
-        var n = $('r-name').value.trim(), h = ig();
-        var full = h ? n + ' · @' + h : n;
-        return full.length <= 40 ? full : n;          // the column holds 40; the name always wins
-    }
-    function monthLabel(v) {
-        if (!v) return '';
-        var d = new Date(v + '-01T12:00:00');
-        return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    if (!inv) {
+        app.innerHTML = '<section class="screen on"><div class="body" style="padding-top:110px"><div class="mono" style="color:var(--sea)">A personal link</div>' +
+            '<h1 style="margin:12px 0 14px">This link is made for one person.</h1><p class="lede">To say something about a school you went to, open its page on ' +
+            '<a href="/atlas">the Atlas</a> and use <em>Been here? Write a comment</em> on its card.</p></div></section>';
+        return;
     }
 
-    var now = new Date(), thisMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
-    $('schools').innerHTML = inv.schools.map(function (s, i) {
-        return '<article class="school" data-i="' + i + '">' +
-            '<div class="ph"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos || 'center') + '">' +
-            '<div class="cap"><h3>' + esc(s.label || s.school) + '</h3><div class="where">' + esc(s.where) + ' · with ' + esc(s.teacher) + '</div></div></div>' +
-            '<div class="bd"><label class="skip"><input type="checkbox" class="s-on" checked> I’ll write about this one</label>' +
-            '<div class="fields">' +
-            '<label class="f" for="w' + i + '">What you saw</label>' +
-            '<textarea id="w' + i + '" class="s-what" maxlength="' + MAX + '"></textarea>' +
-            '<div class="count" id="c' + i + '"></div>' +
-            '<label class="f" for="m' + i + '">When you were there</label>' +
-            '<input type="month" id="m' + i + '" class="s-when" max="' + thisMonth + '">' +
-            '<div class="reads"><q id="q' + i + '"></q><span id="b' + i + '"></span></div>' +
-            '<p class="small" style="margin-top:8px">How it reads on the <a href="/atlas/' + esc(s.dest) + '" target="_blank" rel="noopener">' + esc(s.page) + ' page ↗</a></p>' +
-            '</div></div></article>';
-    }).join('');
+    // ── state, kept in this browser only so a closed tab loses nothing ──
+    var SAVE = 'et-review-' + key;
+    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, when: {}, skip: {} };
+    try { Object.assign(st, JSON.parse(localStorage.getItem(SAVE) || '{}')); } catch (e) {}
+    function keep() { try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (e) {} }
 
-    function paint() {
+    function ig() { return st.ig.trim().replace(/^@+/, '').replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/[\/?#\s].*$/, ''); }
+    function trade() { return st.trade === 'Something else' ? st.other.trim() : st.trade; }
+    function byname() { var n = st.name.trim(), h = ig(), f = h ? n + ' · @' + h : n; return f.length <= 40 ? f : n; }
+    function monthLabel(v) { if (!v) return ''; var d = new Date(v + '-01T12:00:00'); return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }); }
+    function months() {   // the last four months as chips; anything older goes in "Earlier"
+        var out = [], d = new Date(); d.setDate(1);
+        for (var i = 0; i < 4; i++) { out.push(d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0')); d.setMonth(d.getMonth() - 1); }
+        return out;
+    }
+
+    // ── screens: intro, one per school, you, done ──
+    var N = inv.schools.length, at = 0;
+    function screens() {
+        var h = [];
+        h.push('<section class="screen split" data-s="0">' +
+            '<div class="photo"><div class="duo">' + inv.schools.slice(0, 2).map(function (s) {
+                return '<img src="' + esc(s.img) + '" alt="" style="object-fit:cover;object-position:' + esc(s.pos) + '">'; }).join('') + '</div></div>' +
+            '<div class="body"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><div class="mono" style="color:var(--sea)">For ' + esc(inv.first) + '</div>' +
+            '<h1 style="margin:10px 0 14px">' + (N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
+            '<p class="lede">You cooked there. Say what you saw, in your own words, and it goes on each school’s card under your name: the first review there from a chef who went.</p>' +
+            '<div class="foot"><button class="go" type="button" data-next>Start</button>' +
+            '<p class="fine">Arnaud reads every one before it goes up.</p></div></div></section>');
         inv.schools.forEach(function (s, i) {
-            var t = $('w' + i).value.trim(), n = t.length;
-            $('q' + i).textContent = t;
-            var who = [displayName(), tradeValue()].filter(Boolean).join(', ');
-            var m = monthLabel($('m' + i).value);
-            $('b' + i).textContent = '— ' + (who || 'your name') + (m ? ' · ' + m : '');
-            var c = $('c' + i);
-            c.textContent = n < MIN ? (MIN - n) + ' more characters' : n + ' / ' + MAX;
-            c.className = 'count' + (n >= MIN ? ' ok' : '');
+            h.push('<section class="screen split" data-s="' + (i + 1) + '">' +
+                '<div class="photo"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos) + '">' +
+                '<div class="over"><div class="mono">' + (i + 1) + ' of ' + N + ' · ' + esc(s.where) + '</div>' +
+                '<h2>' + esc(s.label) + '</h2><div class="sub">with ' + esc(s.teacher) + '</div></div></div>' +
+                '<div class="body"><textarea id="w' + i + '" maxlength="' + MAX + '" rows="3" placeholder="' + esc(s.ask) + '"></textarea>' +
+                '<div class="meter"><i id="mt' + i + '"></i></div><div class="hint"><span id="h' + i + '">A few lines is plenty.</span><span id="n' + i + '"></span></div>' +
+                '<div class="label">When were you there?</div><div class="chips" id="mo' + i + '">' +
+                months().map(function (m) { return '<button type="button" class="chip" data-m="' + m + '" aria-pressed="false">' +
+                    esc(new Date(m + '-01T12:00:00').toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })) + '</button>'; }).join('') +
+                '<button type="button" class="chip" data-m="earlier" aria-pressed="false">Earlier</button></div>' +
+                '<input type="month" id="me' + i + '" style="display:none" max="' + months()[0] + '">' +
+                '<div class="foot"><button class="go" type="button" data-next id="g' + i + '">' + (i + 1 < N ? 'Next kitchen' : 'Last step') + '</button>' +
+                '<button class="skip" type="button" data-skip="' + i + '">I’d rather not review this one</button></div></div></section>');
         });
+        h.push('<section class="screen" data-s="' + (N + 1) + '"><div class="body" style="padding-top:76px">' +
+            '<div class="mono" style="color:var(--sea)">Last step</div><h1 style="margin:10px 0 6px;font-size:clamp(30px,8vw,42px)">Sign it.</h1>' +
+            '<div id="reads"></div>' +
+            '<div class="field"><label for="f-name">Your name</label><input id="f-name" maxlength="40" autocomplete="name"></div>' +
+            '<div class="field at"><label for="f-ig">Instagram, shown with your name (optional)</label><input id="f-ig" maxlength="30" autocapitalize="off" autocomplete="off" spellcheck="false"></div>' +
+            '<div class="label">What you do</div><div class="chips" id="tr">' + TRADES.map(function (t) {
+                return '<button type="button" class="chip" aria-pressed="false">' + esc(t) + '</button>'; }).join('') + '</div>' +
+            '<div class="field" id="f-other-w" style="display:none"><label for="f-other">In your own words</label><input id="f-other" maxlength="60"></div>' +
+            '<div class="field"><label for="f-email">Email, never shown</label><input id="f-email" type="email" inputmode="email" autocomplete="email"></div>' +
+            '<label class="tick"><input type="checkbox" id="f-pub"><span>Put these on the pages, under my name<small>Arnaud reads each one himself first.</small></span></label>' +
+            '<label class="tick"><input type="checkbox" id="f-circle"><span>Keep me in the Circle<small>A short note now and then about the crafts chefs here want to learn. Leave any time.</small></span></label>' +
+            '<div class="foot"><button class="go" type="button" id="send">Sign my reviews</button><div class="err" id="err" role="alert"></div>' +
+            '<p class="fine">Nobody paid to be on these pages, and your email stays with Arnaud.</p></div></div></section>');
+        h.push('<section class="screen" data-s="' + (N + 2) + '"><div class="body" style="padding-top:96px">' +
+            '<div class="mono" style="color:var(--sea)">Signed</div><h1 style="margin:10px 0 12px">Thank you, <em>' + esc(inv.first) + '</em>.</h1>' +
+            '<p class="lede">Arnaud reads them himself, then they go on the cards with your name.</p>' +
+            '<ul class="done-list" id="done"></ul>' +
+            '<div class="foot"><a class="ghost" id="share" href="#">Send it to a chef who should see it</a></div></div></section>');
+        app.innerHTML = h.join('');
     }
-    $('r-ig').addEventListener('input', function () { var v = this.value.replace(/^@+/, ''); if (v !== this.value) this.value = v; });
-    document.addEventListener('input', paint);
-    $('schools').addEventListener('change', function (e) {
-        if (!e.target.classList.contains('s-on')) return;
-        e.target.closest('.school').classList.toggle('off', !e.target.checked);
-    });
-    paint();
+    screens();
 
-    // ── send ──
-    function say(m) { $('r-err').innerHTML = m; }
+    function go(n) {
+        var cur = app.querySelector('.screen.on');
+        if (cur) cur.classList.remove('on', 'back-in');
+        var was = at; at = n;
+        var nx = app.querySelector('[data-s="' + n + '"]');
+        nx.classList.toggle('back-in', n < was); nx.classList.add('on');
+        $('bar').style.width = Math.round(n / (N + 2) * 100) + '%';
+        $('back').classList.toggle('on', n > 0 && n < N + 2);
+        window.scrollTo(0, 0);
+        if (n >= 1 && n <= N) { var t = $('w' + (n - 1)); setTimeout(function () { t.focus({ preventScroll: true }); }, 380); }
+        if (n === N + 1) paintReads();
+    }
+    $('back').addEventListener('click', function () { if (at > 0) go(at - 1); });
+
+    // ── the kitchens ──
+    function grow(t) { t.style.height = 'auto'; t.style.height = t.scrollHeight + 'px'; }
+    function paintSchool(i) {
+        var t = $('w' + i), n = t.value.trim().length;
+        $('mt' + i).style.width = Math.min(100, n / MIN * 100) + '%';
+        $('n' + i).textContent = n ? (n < MIN ? (MIN - n) + ' to go' : '✓') : '';
+        $('h' + i).textContent = n >= MIN ? 'Good. Add more if you like.' : 'Who taught, what you made, what you would tell a chef.';
+        $('g' + i).disabled = n < MIN;
+    }
+    inv.schools.forEach(function (s, i) {
+        var t = $('w' + i);
+        t.value = st.said[i] || '';
+        t.addEventListener('input', function () { st.said[i] = t.value; keep(); grow(t); paintSchool(i); });
+        var mo = $('mo' + i), me = $('me' + i);
+        function pick(v) {
+            st.when[i] = v; keep();
+            var isChip = months().indexOf(v) >= 0;
+            mo.querySelectorAll('.chip').forEach(function (c) {
+                c.setAttribute('aria-pressed', c.dataset.m === v || (c.dataset.m === 'earlier' && v && !isChip)); });
+            me.style.display = v && !isChip ? '' : 'none';
+        }
+        mo.addEventListener('click', function (e) {
+            var c = e.target.closest('.chip'); if (!c) return;
+            if (c.dataset.m === 'earlier') { pick(me.value || 'earlier'); me.style.display = ''; me.focus(); }
+            else pick(c.dataset.m);
+        });
+        me.addEventListener('change', function () { if (me.value) pick(me.value); });
+        if (st.when[i]) { if (months().indexOf(st.when[i]) < 0 && st.when[i] !== 'earlier') me.value = st.when[i]; pick(st.when[i]); }
+        paintSchool(i);
+        setTimeout(function () { grow(t); }, 0);
+    });
+    app.addEventListener('click', function (e) {
+        if (e.target.closest('[data-next]')) {
+            if (at >= 1 && at <= N) st.skip[at - 1] = false, keep();
+            go(at + 1);
+        }
+        var sk = e.target.closest('[data-skip]');
+        if (sk) { st.skip[+sk.dataset.skip] = true; keep(); go(at + 1); }
+    });
+
+    // ── you ──
+    function picked() {
+        return inv.schools.map(function (s, i) {
+            var w = (st.said[i] || '').trim(), m = st.when[i];
+            return { s: s, what: w, when: m && m !== 'earlier' ? m : '' };
+        }).filter(function (p, i) { return !st.skip[i] && p.what.length >= MIN; });
+    }
+    function paintReads() {
+        var who = [byname(), trade()].filter(Boolean).join(', ');
+        var ps = picked();
+        $('reads').innerHTML = ps.length ? '<div class="label" style="margin-top:14px">How it reads</div>' + ps.map(function (p) {
+            var m = monthLabel(p.when);
+            return '<div class="reads"><q>' + esc(p.what) + '</q><span>— ' + esc(who) + (m ? ' · ' + esc(m) : '') + ' · on ' + esc(p.s.label) + '</span></div>';
+        }).join('') : '<p class="lede" style="margin-top:12px">Nothing to sign yet. Go back and write about at least one kitchen.</p>';
+    }
+    $('f-name').value = st.name; $('f-ig').value = st.ig; $('f-other').value = st.other; $('f-email').value = st.email;
+    function paintTrade() {
+        $('tr').querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c.textContent === st.trade); });
+        $('f-other-w').style.display = st.trade === 'Something else' ? '' : 'none';
+    }
+    paintTrade();
+    $('tr').addEventListener('click', function (e) {
+        var c = e.target.closest('.chip'); if (!c) return;
+        st.trade = c.textContent; keep(); paintTrade(); paintReads();
+        if (st.trade === 'Something else') $('f-other').focus();
+    });
+    [['f-name', 'name'], ['f-ig', 'ig'], ['f-other', 'other'], ['f-email', 'email']].forEach(function (p) {
+        $(p[0]).addEventListener('input', function () {
+            if (p[1] === 'ig') this.value = this.value.replace(/^@+/, '');
+            st[p[1]] = this.value; keep(); paintReads();
+        });
+    });
+
+    function say(m) { $('err').innerHTML = m; }
+    ['f-pub', 'f-circle'].forEach(function (id) { $(id).addEventListener('change', function () { say(''); }); });
     function hasAccount(email) {
         var sb = window.supabaseClient;
         if (!sb || !sb.functions) return Promise.resolve(false);
@@ -259,72 +317,59 @@
         return Promise.race([probe, new Promise(function (ok) { setTimeout(function () { ok(false); }, 8000); })]);
     }
 
-    $('form').addEventListener('submit', async function (ev) {
-        ev.preventDefault(); say('');
-        var name = $('r-name').value.trim(), email = $('r-email').value.trim();
-        if (name.length < 2) { $('r-name').focus(); return say('Your name, as you want it on the page.'); }
-        if (!tradeValue()) { $('r-trade-other').focus(); return say('What you do, in a few words.'); }
-        var picked = [];
-        for (var i = 0; i < inv.schools.length; i++) {
-            if (!document.querySelector('.school[data-i="' + i + '"] .s-on').checked) continue;
-            var w = $('w' + i).value.trim();
-            if (w.length < MIN) { $('w' + i).focus(); return say('A few more words about ' + esc(inv.schools[i].label || inv.schools[i].school) + ': at least ' + MIN + ' characters.'); }
-            picked.push({ s: inv.schools[i], what: w, when: $('m' + i).value });
-        }
-        if (!picked.length) return say('Tick at least one kitchen to write about.');
-        if (!/.+@.+\..+/.test(email)) { $('r-email').focus(); return say('An email address, so Arnaud can write back. It is never shown.'); }
-        if (!$('r-publish').checked) return say('Tick the first box so your words can go on the pages. Or write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> instead.');
+    $('send').addEventListener('click', async function () {
+        say('');
+        var ps = picked(), email = st.email.trim();
+        if (!ps.length) return say('Write about at least one kitchen first.');
+        if (st.name.trim().length < 2) { $('f-name').focus(); return say('Your name, as you want it on the page.'); }
+        if (!trade()) { $('f-other').focus(); return say('What you do, in a few words.'); }
+        if (!/.+@.+\..+/.test(email)) { $('f-email').focus(); return say('An email, so Arnaud can write back. It is never shown.'); }
+        if (!$('f-pub').checked) return say('Tick the first box so your words can go on the pages.');
         var sb = window.supabaseClient;
         if (!sb) return say('Could not reach the site just now. Try again in a minute.');
         if (window.etCanWrite && !window.etCanWrite()) return say('Preview host: nothing was written. Add ?live=1 to write for real.');
 
-        var btn = $('r-send'); btn.disabled = true; btn.textContent = 'Signing…';
-        var circle = $('r-circle').checked, done = [], failed = [];
-        for (var k = 0; k < picked.length; k++) {
-            var p = picked[k];
-            var row = {
-                user_id: null, craft: inv.craft, destination: p.s.dest, school: p.s.school,
-                what: p.what, state: 'stood in it', route: 'direct', trade: tradeValue(),
-                visited_on: p.when ? p.when + '-01' : null,
-                display_name: displayName(), email: email,
-                consent_public: true, wants_circle: circle, status: 'pending'
-            };
+        var btn = this; btn.disabled = true; btn.textContent = 'Signing…';
+        var circle = $('f-circle').checked, ok = [], bad = [];
+        for (var k = 0; k < ps.length; k++) {
+            var p = ps[k];
             try {
-                var r = await sb.from('vouches').insert(row);
+                var r = await sb.from('vouches').insert({
+                    user_id: null, craft: inv.craft, destination: p.s.dest, school: p.s.school,
+                    what: p.what, state: 'stood in it', route: 'direct', trade: trade(),
+                    visited_on: p.when ? p.when + '-01' : null, display_name: byname(), email: email,
+                    consent_public: true, wants_circle: circle, status: 'pending' });
                 if (r && r.error) throw r.error;
-                done.push(p.s);
+                ok.push(p.s);
             } catch (e) {
                 var m = (e && (e.message || e.details)) || '';
-                if (/duplicate|unique/i.test(m)) done.push(p.s);      // already signed: still signed
-                else failed.push(p.s);
+                (/duplicate|unique/i.test(m) ? ok : bad).push(p.s);   // already signed is still signed
             }
         }
-        if (circle && done.length) {
-            var already = await hasAccount(email);
-            var interests = [{ kind: 'profile', name: name, region: null, profession: tradeValue() },
+        if (circle && ok.length) {
+            var interests = [{ kind: 'profile', name: st.name.trim(), region: null, profession: trade() },
                              { kind: 'discipline', discipline: inv.craft }];
             if (ig()) interests[0].instagram = '@' + ig();
             var payload = { email: email, source: 'review:' + key, interests: interests };
-            if (already) payload.is_carrier = true;
+            if (await hasAccount(email)) payload.is_carrier = true;
             try { await sb.from('launch_waitlist').insert(payload); } catch (e) { /* the reviews are what mattered */ }
         }
-        if (!done.length) {
+        if (!ok.length) {
             btn.disabled = false; btn.textContent = 'Sign my reviews';
-            return say('That did not save. Try again, or send your words to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> and Arnaud adds them by hand.');
+            return say('That did not save. Try again, or send your words to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.');
         }
-        if (window.plausible) window.plausible('ReviewSigned', { props: { for: key, n: done.length } });
-        $('form').style.display = 'none';
-        $('done-h').textContent = 'Thank you, ' + inv.first + '.';
-        $('done-list').innerHTML = done.map(function (s) {
-            return '<li><strong style="font-weight:500">' + esc(s.label || s.school) + '</strong><br><a href="/atlas/' + esc(s.dest) + '">See the ' + esc(s.page) + ' page →</a></li>';
-        }).join('') + failed.map(function (s) {
-            return '<li>' + esc(s.label || s.school) + ': this one did not save. Send it to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.</li>';
+        try { localStorage.removeItem(SAVE); } catch (e) {}
+        if (window.plausible) window.plausible('ReviewSigned', { props: { for: key, n: ok.length } });
+        $('done').innerHTML = ok.map(function (s) {
+            return '<li><span>' + esc(s.label) + '</span><a href="/atlas/' + esc(s.dest) + '">' + esc(s.page) + ' page →</a></li>';
+        }).join('') + bad.map(function (s) {
+            return '<li><span>' + esc(s.label) + '</span><span style="color:var(--ember)">did not save, send it to arnaudcallier@pm.me</span></li>';
         }).join('');
-        var txt = 'If you cook, this is a free map of where you can still learn a craft at the source: https://educatedtraveler.app/atlas/' + inv.craft;
-        $('done-share').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
-        $('done').classList.add('show');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        $('share').href = 'https://wa.me/?text=' + encodeURIComponent('If you cook, this is a free map of where you can still learn a craft at the source: https://educatedtraveler.app/atlas/' + inv.craft);
+        go(N + 2);
     });
+
+    go(0);
 })();
 </script>
 </body>
