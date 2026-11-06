@@ -48,11 +48,11 @@ serve(async (req) => {
       if (typeof body?.issue === "string" && body.issue !== key) {
         return json({ error: `unknown issue '${body.issue}'`, known: Object.keys(ISSUES) }, 400);
       }
-      const { subject, html, text } = issue;
+      const { subject, html, text, from } = issue;
       const name = typeof body?.name === "string" ? body.name : "";
       const craft = typeof body?.craft === "string" ? body.craft : "";
       const subj = "[TEST] " + subject.replace("{CRAFT}", craft || "that craft");
-      const r = await sendPersonalEmail(TEST_TO, subj, html(unsub, name, craft), text?.(unsub, name, craft));
+      const r = await sendPersonalEmail(TEST_TO, subj, html(unsub, name, craft), text?.(unsub, name, craft), from);
       return json(r.ok ? { ok: true, test: true, issue: key, id: r.id, to: TEST_TO,
                            textChars: text ? text(unsub, name, craft).length : 0 } : { error: r.error }, r.ok ? 200 : 500);
     }
@@ -140,11 +140,11 @@ serve(async (req) => {
     const key = isTeach ? "teach-offer" : isLetter ? "atlas-letter" : isInterest ? "atlas-interest" : "welcome";
 
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
-    const { subject, html, text } = ISSUES[key];
+    const { subject, html, text, from } = ISSUES[key];
     const subj = subject.replace("{CRAFT}", craft);
     // The fourth argument only means something to the tap's reply; every other
     // template takes three and ignores it.
-    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft, school), text?.(unsub, name, craft, school));
+    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft, school), text?.(unsub, name, craft, school), from);
     if (!r.ok) {
       console.error(key + " send failed:", r.error);
       return json({ error: r.error }, 500);
