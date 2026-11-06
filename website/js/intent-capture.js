@@ -554,7 +554,7 @@
           + (already ? ', and you were already in the Circle with this address' : '') + '. '
           + 'The Circle is the people who tell me what they want to learn: what it asks for decides '
           + 'which craft I open next, and which week I build.</p>'
-          + '<div class="etsu-grow"><div class="etsu-k">Enlarge the Circle</div>'
+          + '<div class="etsu-grow"><div class="etsu-k">Tell a friend</div>'
           + '<p class="etn-sub" style="margin:4px 0 12px">Know somebody who would want this? Send it to them.</p>'
           + '<div class="etsu-share">'
           + '<a class="etn-go etsu-wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(msg) + '">Send on WhatsApp</a>'
