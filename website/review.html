@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign your review — EDUCATEDTRAVELER</title>
+    <meta name="description" content="A personal link: review the schools you cooked at, under your own name.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+    <style>
+        /* Warm-Dark Editorial: the same tokens as /you and /portrait */
+        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+        *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+              min-height:100vh; line-height:1.55; }
+        ::selection{ background:rgba(210,138,82,0.30); }
+        a{ color:var(--sea); text-decoration:none; }
+        .top{ position:sticky; top:0; z-index:5; background:rgba(13,11,9,.86); backdrop-filter:blur(14px);
+              border-bottom:1px solid var(--line); }
+        .top .in{ max-width:720px; margin:0 auto; padding:16px; display:flex; justify-content:space-between; align-items:center; }
+        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:.16em; font-size:15px; color:var(--paper); }
+        .brand b{ font-weight:300; color:var(--sea); }
+        main{ max-width:720px; margin:0 auto; padding:34px 16px 90px; }
+        .mono{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--sea); }
+        h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(30px,7vw,46px); line-height:1.08; margin:12px 0 14px; }
+        h1 em{ font-style:italic; color:var(--ember); }
+        .lede{ color:var(--muted); font-size:16px; max-width:56ch; }
+        .step{ margin-top:40px; padding-top:26px; border-top:1px solid var(--line); }
+        .step h2{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:23px; margin:6px 0 14px; }
+        label.f{ display:block; font-size:13px; color:var(--muted); margin:14px 0 6px; }
+        input[type=text], input[type=email], input[type=month], textarea{
+            width:100%; background:rgba(243,237,226,.04); border:1px solid rgba(243,237,226,.16); border-radius:12px;
+            color:var(--paper); font:inherit; font-size:16px; padding:13px 14px; transition:border-color .2s; }
+        input:focus, textarea:focus{ outline:none; border-color:var(--sea); }
+        input[type=month]{ color-scheme:dark; max-width:240px; }
+        textarea{ min-height:150px; resize:vertical; line-height:1.55; }
+        .row{ display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+        @media (max-width:560px){ .row{ grid-template-columns:1fr; } }
+        .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+        .chip{ border:1px solid rgba(243,237,226,.18); background:rgba(243,237,226,.03); color:var(--paper);
+               border-radius:99px; padding:9px 14px; font:inherit; font-size:13.5px; cursor:pointer; transition:border-color .2s, background .2s; }
+        .chip:hover{ border-color:rgba(127,168,165,.6); }
+        .chip[aria-pressed=true]{ border-color:var(--sea); background:rgba(127,168,165,.18); }
+        .ig{ position:relative; }
+        .ig span{ position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--faint); }
+        .ig input{ padding-left:30px; }
+        .school{ margin-top:20px; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--ink2); }
+        .school .ph{ position:relative; aspect-ratio:16/9; background:#1b1712; }
+        .school .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .school .ph .cap{ position:absolute; left:0; right:0; bottom:0; padding:44px 18px 14px;
+                          background:linear-gradient(transparent, rgba(13,11,9,.88)); }
+        .school .ph h3{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:23px; line-height:1.15; }
+        .school .ph .where{ font-size:13px; color:rgba(243,237,226,.75); margin-top:3px; }
+        .school .bd{ padding:4px 18px 20px; }
+        .school.off .bd .fields{ display:none; }
+        .skip{ display:flex; gap:10px; align-items:center; margin-top:14px; font-size:13.5px; color:var(--muted); cursor:pointer; }
+        .count{ font-size:12px; color:var(--faint); text-align:right; margin-top:5px; }
+        .count.ok{ color:var(--sea); }
+        .reads{ margin-top:12px; padding:12px 14px; border-left:2px solid var(--ember); background:rgba(210,138,82,.06);
+                border-radius:0 10px 10px 0; font-size:14px; color:var(--muted); }
+        .reads q{ display:block; color:var(--paper); font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:16px; margin-bottom:6px; quotes:'\201C' '\201D'; }
+        .reads q:empty::before{ content:'Your words appear here as you write.'; color:var(--faint); }
+        .tick{ display:flex; gap:12px; align-items:flex-start; margin-top:14px; font-size:14.5px; cursor:pointer; }
+        .tick input{ width:20px; height:20px; margin-top:2px; accent-color:var(--sea); flex:0 0 auto; }
+        .tick small{ display:block; color:var(--muted); font-size:13px; margin-top:2px; }
+        .go{ margin-top:26px; width:100%; border:0; border-radius:99px; padding:16px 22px; font:inherit; font-size:16px; font-weight:500;
+             color:var(--ink); background:linear-gradient(110deg, var(--sea), var(--ember)); cursor:pointer; transition:transform .2s, opacity .2s; }
+        .go:hover{ transform:translateY(-1px); }
+        .go[disabled]{ opacity:.55; cursor:default; transform:none; }
+        .err{ color:var(--ember); font-size:14px; margin-top:12px; min-height:1px; }
+        .small{ color:var(--faint); font-size:12.5px; margin-top:14px; line-height:1.6; }
+        .done{ display:none; }
+        .done.show{ display:block; }
+        .done ul{ list-style:none; margin-top:18px; }
+        .done li{ padding:14px 0; border-top:1px solid var(--line); }
+        .done li:last-child{ border-bottom:1px solid var(--line); }
+        .share{ display:inline-flex; margin-top:20px; border:1px solid var(--sea); border-radius:99px; padding:12px 18px; color:var(--paper); }
+        @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
+    </style>
+</head>
+<body>
+<header class="top"><div class="in"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><a class="mono" href="/atlas">The Atlas</a></div></header>
+
+<main>
+    <div id="nobody" style="display:none">
+        <div class="mono">A personal link</div>
+        <h1>This link is made for one person.</h1>
+        <p class="lede">To say something about a school you went to, open its page on <a href="/atlas">the Atlas</a> and use <em>Been here? Write a comment</em> on its card.</p>
+    </div>
+
+    <form id="form" novalidate style="display:none">
+        <div class="mono" id="kicker"></div>
+        <h1 id="hello"></h1>
+        <p class="lede" id="lede"></p>
+
+        <section class="step">
+            <div class="mono">1 · You</div>
+            <h2>How your name reads on the page</h2>
+            <div class="row">
+                <div><label class="f" for="r-name">Your name</label><input type="text" id="r-name" maxlength="40" autocomplete="name"></div>
+                <div><label class="f" for="r-ig">Instagram (optional, shown with your name)</label>
+                    <div class="ig"><span>@</span><input type="text" id="r-ig" maxlength="30" autocapitalize="off" autocomplete="off" spellcheck="false"></div></div>
+            </div>
+            <label class="f">What you do</label>
+            <div class="chips" id="r-trades"></div>
+            <input type="text" id="r-trade-other" maxlength="60" placeholder="In your own words" style="display:none;margin-top:10px">
+        </section>
+
+        <section class="step">
+            <div class="mono">2 · The kitchens</div>
+            <h2>What you saw, in your own words</h2>
+            <p class="lede" style="font-size:14.5px">Who taught, what you made with your own hands, what you would tell a chef thinking of going. A few lines is plenty.</p>
+            <div id="schools"></div>
+        </section>
+
+        <section class="step">
+            <div class="mono">3 · Sign</div>
+            <h2>Where Arnaud can write back</h2>
+            <label class="f" for="r-email">Your email (never shown)</label>
+            <input type="email" id="r-email" autocomplete="email" inputmode="email">
+            <label class="tick"><input type="checkbox" id="r-publish">
+                <span>Put these on the pages, under my name<small>Arnaud reads each one himself before it goes up.</small></span></label>
+            <label class="tick"><input type="checkbox" id="r-circle">
+                <span>And keep me in the Circle<small>A short note now and then about the crafts people here want to learn. Leave whenever you like.</small></span></label>
+            <button class="go" type="submit" id="r-send">Sign my reviews</button>
+            <div class="err" id="r-err" role="alert"></div>
+            <p class="small">Your email stays with Arnaud. Nothing on this page is paid for, and no school knows what you wrote until it is on the page.</p>
+        </section>
+    </form>
+
+    <div class="done" id="done">
+        <div class="mono">Signed</div>
+        <h1 id="done-h"></h1>
+        <p class="lede">Arnaud reads them himself, then they go on the schools' cards with your name.</p>
+        <ul id="done-list"></ul>
+        <a class="share" id="done-share" href="#">Send this to a chef who should see it →</a>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script>
+(function () {
+    // One link per person. Their name and the schools they cooked at are written
+    // here by hand; everything they SAY is theirs, typed by them on this page.
+    // ⛔ Never prefill what they saw: a review we wrote in their name is a made-up review.
+    var INVITES = {
+        alix: {
+            first: 'Alix', name: 'Alix Verrips', trade: 'Yacht chef',
+            craft: 'oaxacan-and-mexican-cuisine', craftName: 'Mexican cooking',
+            schools: [
+                { school: 'Casa Crespo Cooking Classes', teacher: 'Óscar',
+                  dest: 'oaxacan-and-mexican-cuisine--oaxaca', where: 'Oaxaca', page: 'Oaxaca',
+                  img: '/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg',
+                  pos: '50% 12%' },
+                { school: 'México Lindo Cooking (Chef Alejandra Kauachi)', label: 'México Lindo', teacher: 'Ale and Rosalía',
+                  dest: 'oaxacan-and-mexican-cuisine--merida-yucatan', where: 'Puerto Morelos, Valladolid and Yaxunah', page: 'Mérida–Yucatán',
+                  img: '/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-07-rosalia-the-mill.jpg',
+                  pos: '50% 40%' }
+            ]
+        }
+    };
+    var TRADES = ['Yacht chef', 'Yacht crew', 'Chef or cook', 'Something else'];
+    var MIN = 40, MAX = 1200;
+
+    function $(id) { return document.getElementById(id); }
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+    var key = (new URLSearchParams(location.search).get('for') || '').toLowerCase();
+    var inv = INVITES[key];
+    if (!inv) { $('nobody').style.display = ''; return; }
+
+    $('form').style.display = '';
+    $('kicker').textContent = 'For ' + inv.first + ' · ' + inv.craftName;
+    $('hello').innerHTML = esc(inv.first) + ', you cooked in <em>' + (inv.schools.length === 2 ? 'two kitchens' : 'these kitchens') + '</em>.';
+    $('lede').textContent = 'Nobody from EducatedTraveler has stood in them. You have. Sign what you saw, and it goes on each school’s card with your name: the first review there from a chef who actually went.';
+    $('r-name').value = inv.name;
+
+    // ── trade ──
+    var trade = inv.trade;
+    $('r-trades').innerHTML = TRADES.map(function (t) {
+        return '<button type="button" class="chip" aria-pressed="' + (t === trade) + '">' + esc(t) + '</button>';
+    }).join('');
+    $('r-trades').addEventListener('click', function (e) {
+        var b = e.target.closest('.chip'); if (!b) return;
+        this.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === b); });
+        trade = b.textContent;
+        $('r-trade-other').style.display = trade === 'Something else' ? '' : 'none';
+        if (trade === 'Something else') $('r-trade-other').focus();
+        paint();
+    });
+    function tradeValue() { return trade === 'Something else' ? $('r-trade-other').value.trim() : trade; }
+
+    // ── how the byline will read: name, Instagram, trade, month ──
+    function ig() { return $('r-ig').value.trim().replace(/^@+/, '').replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/[\/?#].*$/, ''); }
+    function displayName() {
+        var n = $('r-name').value.trim(), h = ig();
+        var full = h ? n + ' · @' + h : n;
+        return full.length <= 40 ? full : n;          // the column holds 40; the name always wins
+    }
+    function monthLabel(v) {
+        if (!v) return '';
+        var d = new Date(v + '-01T12:00:00');
+        return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    }
+
+    var now = new Date(), thisMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+    $('schools').innerHTML = inv.schools.map(function (s, i) {
+        return '<article class="school" data-i="' + i + '">' +
+            '<div class="ph"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos || 'center') + '">' +
+            '<div class="cap"><h3>' + esc(s.label || s.school) + '</h3><div class="where">' + esc(s.where) + ' · with ' + esc(s.teacher) + '</div></div></div>' +
+            '<div class="bd"><label class="skip"><input type="checkbox" class="s-on" checked> I’ll write about this one</label>' +
+            '<div class="fields">' +
+            '<label class="f" for="w' + i + '">What you saw</label>' +
+            '<textarea id="w' + i + '" class="s-what" maxlength="' + MAX + '"></textarea>' +
+            '<div class="count" id="c' + i + '"></div>' +
+            '<label class="f" for="m' + i + '">When you were there</label>' +
+            '<input type="month" id="m' + i + '" class="s-when" max="' + thisMonth + '">' +
+            '<div class="reads"><q id="q' + i + '"></q><span id="b' + i + '"></span></div>' +
+            '<p class="small" style="margin-top:8px">How it reads on the <a href="/atlas/' + esc(s.dest) + '" target="_blank" rel="noopener">' + esc(s.page) + ' page ↗</a></p>' +
+            '</div></div></article>';
+    }).join('');
+
+    function paint() {
+        inv.schools.forEach(function (s, i) {
+            var t = $('w' + i).value.trim(), n = t.length;
+            $('q' + i).textContent = t;
+            var who = [displayName(), tradeValue()].filter(Boolean).join(', ');
+            var m = monthLabel($('m' + i).value);
+            $('b' + i).textContent = '— ' + (who || 'your name') + (m ? ' · ' + m : '');
+            var c = $('c' + i);
+            c.textContent = n < MIN ? (MIN - n) + ' more characters' : n + ' / ' + MAX;
+            c.className = 'count' + (n >= MIN ? ' ok' : '');
+        });
+    }
+    $('r-ig').addEventListener('input', function () { var v = this.value.replace(/^@+/, ''); if (v !== this.value) this.value = v; });
+    document.addEventListener('input', paint);
+    $('schools').addEventListener('change', function (e) {
+        if (!e.target.classList.contains('s-on')) return;
+        e.target.closest('.school').classList.toggle('off', !e.target.checked);
+    });
+    paint();
+
+    // ── send ──
+    function say(m) { $('r-err').innerHTML = m; }
+    function hasAccount(email) {
+        var sb = window.supabaseClient;
+        if (!sb || !sb.functions) return Promise.resolve(false);
+        var probe = sb.functions.invoke('check-email', { body: { email: email } })
+            .then(function (r) { return !!(r && !r.error && r.data && r.data.member); }, function () { return false; });
+        return Promise.race([probe, new Promise(function (ok) { setTimeout(function () { ok(false); }, 8000); })]);
+    }
+
+    $('form').addEventListener('submit', async function (ev) {
+        ev.preventDefault(); say('');
+        var name = $('r-name').value.trim(), email = $('r-email').value.trim();
+        if (name.length < 2) { $('r-name').focus(); return say('Your name, as you want it on the page.'); }
+        if (!tradeValue()) { $('r-trade-other').focus(); return say('What you do, in a few words.'); }
+        var picked = [];
+        for (var i = 0; i < inv.schools.length; i++) {
+            if (!document.querySelector('.school[data-i="' + i + '"] .s-on').checked) continue;
+            var w = $('w' + i).value.trim();
+            if (w.length < MIN) { $('w' + i).focus(); return say('A few more words about ' + esc(inv.schools[i].label || inv.schools[i].school) + ': at least ' + MIN + ' characters.'); }
+            picked.push({ s: inv.schools[i], what: w, when: $('m' + i).value });
+        }
+        if (!picked.length) return say('Tick at least one kitchen to write about.');
+        if (!/.+@.+\..+/.test(email)) { $('r-email').focus(); return say('An email address, so Arnaud can write back. It is never shown.'); }
+        if (!$('r-publish').checked) return say('Tick the first box so your words can go on the pages. Or write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> instead.');
+        var sb = window.supabaseClient;
+        if (!sb) return say('Could not reach the site just now. Try again in a minute.');
+        if (window.etCanWrite && !window.etCanWrite()) return say('Preview host: nothing was written. Add ?live=1 to write for real.');
+
+        var btn = $('r-send'); btn.disabled = true; btn.textContent = 'Signing…';
+        var circle = $('r-circle').checked, done = [], failed = [];
+        for (var k = 0; k < picked.length; k++) {
+            var p = picked[k];
+            var row = {
+                user_id: null, craft: inv.craft, destination: p.s.dest, school: p.s.school,
+                what: p.what, state: 'stood in it', route: 'direct', trade: tradeValue(),
+                visited_on: p.when ? p.when + '-01' : null,
+                display_name: displayName(), email: email,
+                consent_public: true, wants_circle: circle, status: 'pending'
+            };
+            try {
+                var r = await sb.from('vouches').insert(row);
+                if (r && r.error) throw r.error;
+                done.push(p.s);
+            } catch (e) {
+                var m = (e && (e.message || e.details)) || '';
+                if (/duplicate|unique/i.test(m)) done.push(p.s);      // already signed: still signed
+                else failed.push(p.s);
+            }
+        }
+        if (circle && done.length) {
+            var already = await hasAccount(email);
+            var interests = [{ kind: 'profile', name: name, region: null, profession: tradeValue() },
+                             { kind: 'discipline', discipline: inv.craft }];
+            if (ig()) interests[0].instagram = '@' + ig();
+            var payload = { email: email, source: 'review:' + key, interests: interests };
+            if (already) payload.is_carrier = true;
+            try { await sb.from('launch_waitlist').insert(payload); } catch (e) { /* the reviews are what mattered */ }
+        }
+        if (!done.length) {
+            btn.disabled = false; btn.textContent = 'Sign my reviews';
+            return say('That did not save. Try again, or send your words to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> and Arnaud adds them by hand.');
+        }
+        if (window.plausible) window.plausible('ReviewSigned', { props: { for: key, n: done.length } });
+        $('form').style.display = 'none';
+        $('done-h').textContent = 'Thank you, ' + inv.first + '.';
+        $('done-list').innerHTML = done.map(function (s) {
+            return '<li><strong style="font-weight:500">' + esc(s.label || s.school) + '</strong><br><a href="/atlas/' + esc(s.dest) + '">See the ' + esc(s.page) + ' page →</a></li>';
+        }).join('') + failed.map(function (s) {
+            return '<li>' + esc(s.label || s.school) + ': this one did not save. Send it to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.</li>';
+        }).join('');
+        var txt = 'If you cook, this is a free map of where you can still learn a craft at the source: https://educatedtraveler.app/atlas/' + inv.craft;
+        $('done-share').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
+        $('done').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+</script>
+</body>
+</html>
