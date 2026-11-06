@@ -5,6 +5,9 @@
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const FROM = "Arnaud · EducatedTraveler <founder@educatedtraveler.app>";
+// The new name (Arnaud, 6 Nov 2026). Only the welcome carries it so far; the other
+// templates keep FROM until the site-wide rename is ruled.
+const FROM_WELCOME = "Arnaud · The Educated Travelers <founder@educatedtraveler.app>";
 // Replies go straight to Arnaud's Proton inbox (his order, 2026-07-22).
 // FROM stays on the domain — that's what DKIM/DMARC align on; Reply-To
 // doesn't affect authentication.
@@ -244,65 +247,60 @@ ${opts.body}
 
 const LP = 'style="margin:0 0 18px 0;"';
 
+// The welcome (compagnons version, approved by Arnaud 6 Nov 2026; facts checked
+// against compagnons-du-devoir.com the same day). Its own reading layout: a plain
+// letter, a little larger and airier than plainShell. Still no banner, no buttons.
+const WL = 'style="margin:0 0 22px 0;"';
+const WLINK = 'style="color:#2f5d59;text-decoration:underline;text-underline-offset:2px;"';
+
+function welcomeShell(opts: { body: string; unsub: string }): string {
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
+<body style="margin:0;padding:0;background:#ffffff;">
+  <div style="max-width:560px;margin:0 auto;padding:36px 24px 28px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#262624;">
+${opts.body}
+    <div style="margin:44px 0 0 0;padding-top:16px;border-top:1px solid #e6e1d8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#8a8279;">
+      The Educated Travelers · <a href="https://educatedtraveler.app" style="color:#8a8279;">educatedtraveler.app</a> · <a href="${opts.unsub}" style="color:#8a8279;">Leave the Circle</a>
+    </div>
+  </div>
+</body></html>`;
+}
+
 function welcomePlainHtml(unsub: string): string {
   const body = `
-    <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A skill, a place, a person, your people.</p>
-    <p ${LP}>Your note is here. <strong>This reply is automatic — the answer won't be.</strong> I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
-    <p ${LP}>While you wait, here is what you have joined. The Circle is the people who have told me which craft they want to learn. That is all it is, and you are on it now. What the Circle asks for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. Whatever I find goes up on the Atlas for everyone, not just for you. And when a place is worth knowing I write about it, the way I am about to.</p>
-    <p ${LP}>So — one place.</p>
-    <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had spent three years in England building a pottery beside <strong>Bernard Leach</strong>, he was already good, and the capital was open to him. He chose <strong>Mashiko</strong> — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.</p>
-    <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.</p>
-    <p ${LP}>The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the potters who wanted to learn came and stayed.</p>
-    <p ${LP}>Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill that goes on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it is genuinely good, and let the pot go without your name on it. Mashiko is still a pottery town.</p>
-    <p ${LP}>That is the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, judged by the strength of the people you'd find when you arrived.</p>
-    <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
-    <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
-    <p ${LP}>There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.</p>
-    <p ${LP}>I read every note myself, and I answer.</p>
-    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
-    <p style="margin:28px 0 0 0;">Talk soon,</p>
-    <p style="margin:0;">— Arnaud</p>
-    <p style="margin:28px 0 0 0;"><strong>P.S.</strong> What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.</p>`;
-  return plainShell({ body, unsub });
+    <p style="margin:0 0 22px 0;font-size:19px;line-height:1.6;color:#111111;">In France, a carpenter or a stonemason who wants to become a Compagnon du Devoir leaves home. For about five years they change city once or twice a year, working beside people better than them. In time they make one piece of work. The compagnons examine it, and if it holds, they are received.</p>
+    <p ${WL}>That is how a craft has always been learned. You go where it lives, and you stand next to someone who knows it.</p>
+    <p ${WL}>The Educated Travelers won't make you a compagnon. That takes years. But it can show you the first door: the place where your craft is still alive, and the person there who will teach a stranger.</p>
+    <p ${WL}>The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:<br><a href="https://educatedtraveler.app/barcelona" ${WLINK}>educatedtraveler.app/barcelona</a></p>
+    <p ${WL}>Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.</p>
+    <p ${WL}>I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.</p>
+    <p ${WL}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p style="margin:34px 0 0 0;">Talk soon,<br>Arnaud</p>`;
+  return welcomeShell({ body, unsub });
 }
 
 function welcomeText(unsub: string): string {
-  return `A skill, a place, a person, your people.
+  return `In France, a carpenter or a stonemason who wants to become a Compagnon du Devoir leaves home. For about five years they change city once or twice a year, working beside people better than them. In time they make one piece of work. The compagnons examine it, and if it holds, they are received.
 
-Your note is here. This reply is automatic — the answer won't be. I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.
+That is how a craft has always been learned. You go where it lives, and you stand next to someone who knows it.
 
-While you wait, here is what you have joined. The Circle is the people who have told me which craft they want to learn. That is all it is, and you are on it now. What the Circle asks for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. Whatever I find goes up on the Atlas for everyone, not just for you. And when a place is worth knowing I write about it, the way I am about to.
+The Educated Travelers won't make you a compagnon. That takes years. But it can show you the first door: the place where your craft is still alive, and the person there who will teach a stranger.
 
-So — one place.
+The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:
+https://educatedtraveler.app/barcelona
 
-In 1924 a young potter named Shoji Hamada could have set up anywhere. He had spent three years in England building a pottery beside Bernard Leach, he was already good, and the capital was open to him. He chose Mashiko — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.
+Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.
 
-He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.
-
-The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the potters who wanted to learn came and stayed.
-
-Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill that goes on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it is genuinely good, and let the pot go without your name on it. Mashiko is still a pottery town.
-
-That is the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, judged by the strength of the people you'd find when you arrived.
-
-The Atlas is here: https://educatedtraveler.app/atlas
-
-I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.
-
-There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.
-
-I read every note myself, and I answer.
+I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
+https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
 
 Talk soon,
-— Arnaud
-
-P.S. What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.
+Arnaud
 
 --
-EducatedTraveler · educatedtraveler.app
+The Educated Travelers · educatedtraveler.app
 Leave the Circle: ${unsub}`;
 }
 
@@ -464,15 +462,17 @@ Leave the Circle: ${unsub}`;
 
 export const ISSUES: Record<string, {
   subject: string;
-  html: (unsub: string, name?: string, craft?: string) => string;
-  text?: (unsub: string, name?: string, craft?: string) => string;
+  html: (unsub: string, name?: string, craft?: string, school?: string) => string;
+  text?: (unsub: string, name?: string, craft?: string, school?: string) => string;
   // audience "leads" = an invite/conversion email ("join", "take your place"):
   //   broadcast MUST skip anyone who already has a member account, or a member
   //   gets told to join the thing they're already in (bug: Jeremie et al., Jul 2026).
   // undefined / "all" = a Circle letter everyone in the Circle should get.
   audience?: "leads" | "all";
+  // Sender display name for this template; FROM when unset.
+  from?: string;
 }> = {
-  "welcome": { subject: "Welcome to the Circle — the potter who signed the box, not the pot", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
+  "welcome": { subject: "Welcome to The Educated Travelers — the ones who travel to learn", html: welcomePlainHtml, text: welcomeText, audience: "leads", from: FROM_WELCOME },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
   "atlas-letter": { subject: "Got your note about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
   "atlas-interest": { subject: "Noted — {CRAFT}", html: atlasInterestHtml, text: atlasInterestText, audience: "leads" },
@@ -492,13 +492,13 @@ export const ISSUES: Record<string, {
 // link keeps the exit honest. A text part (when given) completes the
 // personal-letter shape: multipart/alternative, not marketing HTML.
 export async function sendPersonalEmail(
-  to: string, subject: string, html: string, text?: string,
+  to: string, subject: string, html: string, text?: string, from?: string,
 ): Promise<{ ok: boolean; id?: string; error?: unknown }> {
   if (!RESEND_API_KEY) return { ok: false, error: "RESEND_API_KEY not set" };
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
-    body: JSON.stringify({ from: FROM, to: [to], reply_to: REPLY_TO, subject, html, ...(text ? { text } : {}) }),
+    body: JSON.stringify({ from: from ?? FROM, to: [to], reply_to: REPLY_TO, subject, html, ...(text ? { text } : {}) }),
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) return { ok: false, error: data };
