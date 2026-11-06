@@ -128,7 +128,7 @@ serve(async (req) => {
       <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">If your craft and approach feel like a fit, I'll come back to you within a week to schedule a 15-minute call.</p>
       <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 28px 0;">Want to skip the wait? Reach me directly:</p>
       <div style="text-align:center;margin:28px 0;">
-        <a href="https://wa.me/33695903520?text=Hi%20Arnaud%2C%20I%20just%20applied%20to%20teach%20with%20EducatedTraveler" style="display:inline-block;background:#178040;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">WhatsApp +33 6 95 90 35 20</a>
+        <a href="https://wa.me/33749745254?text=Hi%20Arnaud%2C%20I%20just%20applied%20to%20teach%20with%20EducatedTraveler" style="display:inline-block;background:#178040;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">WhatsApp +33 6 95 90 35 20</a>
       </div>
       <p style="color:#6b625a;font-size:13px;line-height:1.6;margin:16px 0 0 0;text-align:center;">Or reply to this email — it goes straight to my inbox.</p>
     </div>

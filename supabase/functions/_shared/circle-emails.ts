@@ -259,7 +259,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
     <p ${LP}>There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.</p>
     <p ${LP}>I read every note myself, and I answer.</p>
-    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>
     <p style="margin:28px 0 0 0;"><strong>P.S.</strong> What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.</p>`;
@@ -294,7 +294,7 @@ There is nothing you need to do now. You have told me the craft, which is normal
 I read every note myself, and I answer.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
+https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
 
 Talk soon,
 — Arnaud
@@ -327,7 +327,7 @@ function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
     <p ${LP}><a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a></p>
     <p ${LP}>Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better I can point you at the right one.</p>
     <p ${LP}>When there's a real week worth telling you about, I tell you, and you decide.</p>
-    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>`;
   return plainShell({ body, unsub });
@@ -354,7 +354,7 @@ Five minutes, and none of it is required. I ask because the craft alone isn't en
 When there's a real week worth telling you about, I tell you, and you decide.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}.
+https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}.
 
 Talk soon,
 — Arnaud
@@ -380,7 +380,7 @@ function atlasInterestHtml(unsub: string, name?: string, craft?: string, school?
     <p ${LP}>You tapped <em>I'm interested</em> on ${what}, and it is noted. <strong>This reply is automatic; the next one won't be.</strong></p>
     <p ${LP}>Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.</p>
     <p ${LP}>If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.</p>
-    <p ${LP}>Or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${LP}>Or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>`;
   return plainShell({ body, unsub });
@@ -401,7 +401,7 @@ Here is what that tap means. You're in the Circle — the people who have told m
 If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.
 
 Or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33695903520?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}.
+https://wa.me/33749745254?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}.
 
 Talk soon,
 — Arnaud
