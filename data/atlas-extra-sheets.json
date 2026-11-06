@@ -40,7 +40,10 @@
     "viennoiserie--vienna.html",
     "viennoiserie--tokyo.html",
     "cheese-and-fermentation--tokyo.html",
-    "cheese-and-fermentation--copenhagen.html"
+    "cheese-and-fermentation--copenhagen.html",
+    "fermentation--copenhagen.html",
+    "bread-and-boulangerie--tokyo.html",
+    "modern-new-technique-cuisine--girona.html"
   ],
   "pinnedOpen": [
     "oaxacan-and-mexican-cuisine",
@@ -4281,7 +4284,185 @@
         }
       }
     },
-    "gironaLines": {}
+    "gironaLines": {},
+    "later": [
+      {
+        "ruling": "yes fix all",
+        "by": "Arnaud",
+        "on": "2026-11-06",
+        "places": {
+          "fermentation--copenhagen": {
+            "craft": "fermentation",
+            "redirectsTo": "fermentation",
+            "why": "noma Projects' own page, read 6 November 2026, is 'reserved for our Taste Buds members': its one summer day of workshops is sold only with a yearly membership, so it is not a course a stranger can book. Empirical, the other line here, had already moved to Brooklyn and runs no course. Nothing is left that a stranger can enrol in.",
+            "record": {
+              "place": "Copenhagen",
+              "country": "Denmark",
+              "region": "Nordic & Baltic",
+              "role": "scene",
+              "communityRank": 4,
+              "communityLabel": "Thriving",
+              "schools": [
+                "Noma Projects / fermentation workshops",
+                "Empirical / Nordic Food Lab alumni courses"
+              ],
+              "masters": [],
+              "lineage": [
+                "Rene Redzepi & David Zilber (Noma fermentation lineage)"
+              ],
+              "badges": [
+                "scene",
+                "school"
+              ],
+              "why": "Ground zero of the modern fermentation movement, where Noma's lab rewrote the rules and a thriving cohort pushes koji, garum and lacto-ferments forward.",
+              "bestSeason": "Apr-Oct",
+              "level": "Beginner -> Enthusiast",
+              "id": "fermentation--copenhagen",
+              "schoolsInfo": [
+                {
+                  "name": "Noma Projects / fermentation workshops",
+                  "url": "https://nomaprojects.com/products/taste-buds-membership",
+                  "course": "Taste Buds membership — one summer day of hands-on workshops with the noma team in Copenhagen, 13 or 14 August 2027, for members",
+                  "blurb": "Noma Projects is the shop and fermentation lab that grew out of the restaurant. It runs no public course: the in-person teaching is a single summer day of workshops and tastings in Copenhagen, sold as an add-on to its annual Taste Buds membership, alongside fermentation kits posted to your home. A day, not a course.",
+                  "confidence": "high",
+                  "verify": [
+                    "2027 Summer Event",
+                    "hands-on workshops"
+                  ]
+                },
+                {
+                  "name": "Empirical / Nordic Food Lab alumni courses",
+                  "url": "https://empiricalspirits.co/",
+                  "course": "No public fermentation course on its site",
+                  "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
+                  "confidence": "low",
+                  "standing": {
+                    "state": "not-here",
+                    "what": "The address we linked now redirects away, and Empirical's own shop gives its address as Brooklyn, New York, with no course listed.",
+                    "from": "https://us.empirical.co/",
+                    "read": "2026-11-04"
+                  }
+                }
+              ],
+              "tripTier": 1,
+              "tripType": "Taster",
+              "tripLength": "a day",
+              "englishTaught": true,
+              "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
+            },
+            "lines": {}
+          },
+          "bread-and-boulangerie--tokyo": {
+            "craft": "bread-and-boulangerie",
+            "redirectsTo": "bread-and-boulangerie",
+            "why": "Its only school, Le Cordon Bleu Tokyo, has closed its Daikanyama campus and gives no date for a new one (its own page, read 4 November 2026). Nothing is left that a stranger can enrol in.",
+            "record": {
+              "place": "Tokyo",
+              "country": "Japan",
+              "region": "East Asia",
+              "role": "scene",
+              "communityRank": 4,
+              "communityLabel": "Thriving",
+              "schools": [
+                "Le Cordon Bleu Tokyo"
+              ],
+              "masters": [],
+              "badges": [
+                "scene",
+                "record"
+              ],
+              "why": "Tokyo's croissant obsession rivals Paris — a thriving cohort of laminating fanatics chasing the perfect honeycomb crumb.",
+              "bestSeason": "Year-round",
+              "level": "Intermediate -> Professional",
+              "id": "bread-and-boulangerie--tokyo",
+              "schoolsInfo": [
+                {
+                  "name": "Le Cordon Bleu Tokyo",
+                  "url": "https://www.cordonbleu.edu/tokyo/home/en",
+                  "course": "Diplôme de Boulangerie (bakery diploma covering viennoiserie and bread)",
+                  "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
+                  "confidence": "medium",
+                  "standing": {
+                    "state": "paused",
+                    "what": "Le Cordon Bleu Japan says it has closed its Daikanyama campus in Tokyo and will eventually move into a new campus; it gives no date, and points students to its other schools in the meantime.",
+                    "from": "https://www.cordonbleu.edu/tokyo/home/en",
+                    "read": "2026-11-04"
+                  }
+                }
+              ],
+              "tripTier": 5,
+              "tripType": "Mastery track",
+              "tripLength": "months–years",
+              "englishTaught": true,
+              "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
+            },
+            "lines": {}
+          },
+          "modern-new-technique-cuisine--girona": {
+            "craft": "modern-new-technique-cuisine",
+            "redirectsTo": "modern-new-technique-cuisine",
+            "why": "Once the Can Roca stage came off on 4 November 2026, what was left is the Escola d'Hostaleria i Turisme de Girona: a good two-year general cooking school, not a course in modern technique.",
+            "record": {
+              "place": "Girona",
+              "country": "Spain",
+              "region": "Mediterranean",
+              "role": "scene",
+              "communityRank": 4,
+              "communityLabel": "Thriving",
+              "schools": [
+                "Escola d'Hostaleria i Turisme de Girona"
+              ],
+              "masters": [],
+              "lineage": [
+                "Joan Roca",
+                "Jordi Roca"
+              ],
+              "badges": [
+                "scene",
+                "mecca",
+                "lineage"
+              ],
+              "why": "Home of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique.",
+              "bestSeason": "Apr-Oct",
+              "level": "Beginner -> Professional",
+              "id": "modern-new-technique-cuisine--girona",
+              "schoolsInfo": [
+                {
+                  "name": "Escola d'Hostaleria i Turisme de Girona",
+                  "url": "https://agora.xtec.cat/ehtg/",
+                  "course": "FP Cuina i Gastronomia / professional cooking certificates",
+                  "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
+                  "confidence": "high",
+                  "facts": {
+                    "where": "C. Josep Viader i Moliner, Girona",
+                    "length": "2,000 hours over two academic years",
+                    "credential": "Official technician (tècnic) title in cooking and gastronomy",
+                    "from": [
+                      "https://agora.xtec.cat/ehtg/",
+                      "https://agora.xtec.cat/ehtg/cfgm/"
+                    ],
+                    "read": "2026-09-17"
+                  }
+                }
+              ],
+              "tripTier": 5,
+              "tripType": "Mastery track",
+              "tripLength": "two years",
+              "englishTaught": false,
+              "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
+              "instructionLanguage": "Spanish"
+            },
+            "lines": {}
+          }
+        },
+        "rejectedEntryDropped": {
+          "name": "elBulli1846",
+          "place": "Roses / Cala Montjoi, Spain",
+          "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
+          "why": "A museum, and it keeps its place on this craft as exactly that. A ticket and a two-and-a-half-hour visit; no enrolment, no kitchen, no teacher."
+        }
+      }
+    ]
   },
   "_retiredCrafts_comment": "Crafts folded into another by Arnaud's ruling. Nothing here is read by the build. A name is moved, never deleted: what each one carried — a signed Measure, a craft intro, the lines on a place that did not move — is kept here word for word, with the day and the reason, so the record of what was said and signed survives the page that said it.",
   "retiredCrafts": {

@@ -17252,9 +17252,20 @@ window.ET_ATLAS = {
             {
               "name": "Le Cordon Bleu Paris",
               "url": "https://www.cordonbleu.edu/paris/bakery-diploma/en",
-              "course": "Boulangerie Diploma",
-              "blurb": "Paris flagship of the French culinary institute running an eight-month Boulangerie Diploma across basic and advanced levels plus a two-month internship, teaching kneading, fermentation and traditional and artistic bread production.",
-              "confidence": "high"
+              "course": "Diplôme de Boulangerie (Basic and Advanced Boulangerie)",
+              "blurb": "Paris flagship of the French culinary institute. Its Diplôme de Boulangerie runs three months over two levels, Basic and Advanced, covering kneading, fermentation and traditional and artistic bread. Classes are taught in French with simultaneous English translation. €17,500, including the €1,500 application fee; intakes in January, April, July and October, the next from 5 January to 19 March 2027.",
+              "confidence": "high",
+              "facts": {
+                "length": "3 months, two levels (Basic, Advanced)",
+                "price": "€17,500",
+                "priceNote": "including the €1,500 application fee",
+                "language": "French, with simultaneous English translation",
+                "credential": "Le Cordon Bleu Diplôme de Boulangerie, on passing both levels",
+                "from": [
+                  "https://www.cordonbleu.edu/paris/bakery-diploma/en"
+                ],
+                "read": "2026-11-06"
+              }
             },
             {
               "name": "FERRANDI Paris",
@@ -17471,46 +17482,6 @@ window.ET_ATLAS = {
           "tripType": "Taster",
           "tripLength": "a few hours",
           "englishTaught": null
-        },
-        {
-          "place": "Tokyo",
-          "country": "Japan",
-          "region": "East Asia",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Le Cordon Bleu Tokyo"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "record"
-          ],
-          "why": "Tokyo's croissant obsession rivals Paris — a thriving cohort of laminating fanatics chasing the perfect honeycomb crumb.",
-          "bestSeason": "Year-round",
-          "level": "Intermediate -> Professional",
-          "id": "bread-and-boulangerie--tokyo",
-          "schoolsInfo": [
-            {
-              "name": "Le Cordon Bleu Tokyo",
-              "url": "https://www.cordonbleu.edu/tokyo/home/en",
-              "course": "Diplôme de Boulangerie (bakery diploma covering viennoiserie and bread)",
-              "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
-              "confidence": "medium",
-              "standing": {
-                "state": "paused",
-                "what": "Le Cordon Bleu Japan says it has closed its Daikanyama campus in Tokyo and will eventually move into a new campus; it gives no date, and points students to its other schools in the meantime.",
-                "from": "https://www.cordonbleu.edu/tokyo/home/en",
-                "read": "2026-11-04"
-              }
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": true,
-          "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
         }
       ],
       "id": "bread-and-boulangerie",
@@ -21541,61 +21512,6 @@ window.ET_ATLAS = {
           "englishTaught": false,
           "englishBasis": "&LAB TOKYO's own course page: 'Lessons are taught in Japanese; English support is available on request', at ¥15,000 a day.",
           "instructionLanguage": "Japanese, with English support on request"
-        },
-        {
-          "place": "Copenhagen",
-          "country": "Denmark",
-          "region": "Nordic & Baltic",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Noma Projects / fermentation workshops",
-            "Empirical / Nordic Food Lab alumni courses"
-          ],
-          "masters": [],
-          "lineage": [
-            "Rene Redzepi & David Zilber (Noma fermentation lineage)"
-          ],
-          "badges": [
-            "scene",
-            "school"
-          ],
-          "why": "Ground zero of the modern fermentation movement, where Noma's lab rewrote the rules and a thriving cohort pushes koji, garum and lacto-ferments forward.",
-          "bestSeason": "Apr-Oct",
-          "level": "Beginner -> Enthusiast",
-          "id": "fermentation--copenhagen",
-          "schoolsInfo": [
-            {
-              "name": "Noma Projects / fermentation workshops",
-              "url": "https://nomaprojects.com/products/taste-buds-membership",
-              "course": "Taste Buds membership — one summer day of hands-on workshops with the noma team in Copenhagen, 13 or 14 August 2027, for members",
-              "blurb": "Noma Projects is the shop and fermentation lab that grew out of the restaurant. It runs no public course: the in-person teaching is a single summer day of workshops and tastings in Copenhagen, sold as an add-on to its annual Taste Buds membership, alongside fermentation kits posted to your home. A day, not a course.",
-              "confidence": "high",
-              "verify": [
-                "2027 Summer Event",
-                "hands-on workshops"
-              ]
-            },
-            {
-              "name": "Empirical / Nordic Food Lab alumni courses",
-              "url": "https://empiricalspirits.co/",
-              "course": "No public fermentation course on its site",
-              "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
-              "confidence": "low",
-              "standing": {
-                "state": "not-here",
-                "what": "The address we linked now redirects away, and Empirical's own shop gives its address as Brooklyn, New York, with no course listed.",
-                "from": "https://us.empirical.co/",
-                "read": "2026-11-04"
-              }
-            }
-          ],
-          "tripTier": 1,
-          "tripType": "Taster",
-          "tripLength": "a day",
-          "englishTaught": true,
-          "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
         }
       ],
       "id": "fermentation",
@@ -28186,13 +28102,19 @@ window.ET_ATLAS = {
             "name": "elBulli1846 (elBullifoundation)",
             "place": "Roses / Cala Montjoi, Spain",
             "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
-            "why": "A museum. Their own pages sell a ticket and a visit of about two and a half hours; there is no enrolment, no kitchen you cook in and no teacher."
+            "why": "A museum. Their own pages sell a ticket and a visit of about two and a half hours; there is no enrolment, no kitchen you cook in and no teacher. Off this map since 4 November 2026: a museum visit is not the EducatedTraveler way to learn."
           },
           {
             "name": "El Celler de Can Roca",
             "place": "Girona, Spain",
             "url": "https://cellercanroca.com/en/",
-            "why": "A stage, not a course. They pick you from a CV and a photograph, on their timetable, and no amount of money changes that. Real, and not something a stranger can book."
+            "why": "A stage, not a course. They pick you from a CV and a photograph, on their timetable, and no amount of money changes that. Real, and not something a stranger can book. Off this map since 4 November 2026: an invitation-only stage is not the EducatedTraveler way to learn."
+          },
+          {
+            "name": "Escola d'Hostaleria i Turisme de Girona",
+            "place": "Girona, Spain",
+            "url": "https://agora.xtec.cat/ehtg/",
+            "why": "Catalonia's first catering school, opened in 1965: two years and 2,000 hours towards the official cooking technician title, taught in Catalan and Spanish. A good general cooking school, and not a course in modern technique, which is the line this craft draws. Taken off on 6 November 2026."
           },
           {
             "name": "Disfrutar",
@@ -28235,12 +28157,6 @@ window.ET_ATLAS = {
             "place": "Madrid, Spain",
             "url": "https://www.cordonbleu.edu/madrid/curso-corto-cocina-espanola-vanguardia/es",
             "why": "A single four-hour evening, taught once, on 17 November 2017. The page is still up, still ranks and still reads like an offer — its own footer asks whether you would have liked to attend. Their live avant-garde teaching is inside the Spanish Cuisine Diploma instead, which is why Madrid is on the map and this course is not."
-          },
-          {
-            "name": "elBulli1846",
-            "place": "Roses / Cala Montjoi, Spain",
-            "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
-            "why": "A museum, and it keeps its place on this craft as exactly that. A ticket and a two-and-a-half-hour visit; no enrolment, no kitchen, no teacher."
           }
         ]
       },
@@ -28776,56 +28692,6 @@ window.ET_ATLAS = {
           "englishTaught": true,
           "englishBasis": "Le Cordon Bleu Madrid publishes the Spanish Cuisine Diploma as 'Spanish // English (simultaneous translation system through earphones)' on its own programme page.",
           "instructionLanguage": "Spanish, with simultaneous English translation"
-        },
-        {
-          "place": "Girona",
-          "country": "Spain",
-          "region": "Mediterranean",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Escola d'Hostaleria i Turisme de Girona"
-          ],
-          "masters": [],
-          "lineage": [
-            "Joan Roca",
-            "Jordi Roca"
-          ],
-          "badges": [
-            "scene",
-            "mecca",
-            "lineage"
-          ],
-          "why": "Home of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique.",
-          "bestSeason": "Apr-Oct",
-          "level": "Beginner -> Professional",
-          "id": "modern-new-technique-cuisine--girona",
-          "schoolsInfo": [
-            {
-              "name": "Escola d'Hostaleria i Turisme de Girona",
-              "url": "https://agora.xtec.cat/ehtg/",
-              "course": "FP Cuina i Gastronomia / professional cooking certificates",
-              "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
-              "confidence": "high",
-              "facts": {
-                "where": "C. Josep Viader i Moliner, Girona",
-                "length": "2,000 hours over two academic years",
-                "credential": "Official technician (tècnic) title in cooking and gastronomy",
-                "from": [
-                  "https://agora.xtec.cat/ehtg/",
-                  "https://agora.xtec.cat/ehtg/cfgm/"
-                ],
-                "read": "2026-09-17"
-              }
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "two years",
-          "englishTaught": false,
-          "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
-          "instructionLanguage": "Spanish"
         }
       ],
       "disclosure": "EducatedTraveler ran a paid week with Martin Lippo in October 2026, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week cost, and sold out when we read it on 1 September 2026. His classroom courses for 2026 are sold out and no later date is shown; in person, the way in is a private course, quoted by email. Read on martinlippo.com, 4 November 2026. If a direct route suits you better, take it.",
