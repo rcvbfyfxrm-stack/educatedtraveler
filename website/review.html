@@ -111,6 +111,9 @@
 
         .done-list{ list-style:none; margin-top:22px; border-top:1px solid var(--line); }
         .done-list li{ padding:14px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+        .gal{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-top:16px; border-radius:12px; overflow:hidden; }
+        .gal img{ width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
+        .gal-note{ color:var(--faint); font-size:12.5px; margin-top:8px; }
         .ghost{ display:block; text-align:center; margin-top:12px; border:1px solid var(--sea); border-radius:99px; padding:15px 20px; color:var(--paper); }
 
         @media (min-width:900px){
@@ -132,6 +135,21 @@
     // One link per person. Their name and the schools they cooked at are written here by
     // hand; everything they SAY is theirs, typed by them on this page.
     // ⛔ Never prefill what they saw: a review we wrote in their name is a made-up review.
+    // `school` must match the card's data-school on the live page exactly.
+    var JCMA = { school: 'Japan Culinary Masters Academy (JCMA)', label: 'JCMA', teacher: 'Hiroko', lead: 'Hiroko',
+                 dest: 'sushi-and-washoku--tokyo-tsukiji-toyosu', where: 'Otsuka, Tokyo', page: 'Tokyo',
+                 img: '/images/review/hiroko/the-bench.jpg', pos: '50% 30%',
+                 ask: 'What did Hiroko correct on your board that you still do her way?' };
+    var TSA = { school: 'Tokyo Sushi Academy', label: 'Tokyo Sushi Academy', teacher: 'Hiro and Hiroko', lead: 'Hiroko',
+                dest: 'sushi-and-washoku--tokyo-tsukiji-toyosu', where: 'Tokyo', page: 'Tokyo',
+                img: '/images/review/hiroko/hiroko.jpg', pos: '50% 25%',
+                ask: 'What did Hiroko teach you that you still use?' };
+    // Photos of Hiroko: only the carousel set, whose permission is on file. Credit names the school and stops.
+    var HIROKO_GAL = { note: 'Hiroko Ishii at JCMA, Tokyo, and the exam plate from her first level. Photographs: Japan Culinary Masters Academy.', imgs: [
+        { src: '/images/review/hiroko/hiroko.jpg', pos: '50% 25%' },
+        { src: '/images/review/hiroko/the-bench.jpg', pos: '30% 30%' },
+        { src: '/images/review/hiroko/the-plate.jpg', pos: '50% 50%' } ] };
+    var HIROKO_WHY = 'I’m building cooking classes for professional chefs: you and your people, with the best instructor I can find, in the place where that craft is most alive. I design each one with the teacher. Before I build anything with a teacher, I want chefs who have cooked with them to vouch for them first. You’d be among the first to do that for Hiroko, so what you write really counts.';
     var INVITES = {
         alix: {
             first: 'Alix', name: 'Alix Verrips', trade: 'Yacht chef', craft: 'oaxacan-and-mexican-cuisine',
@@ -145,8 +163,22 @@
                   img: '/images/atlas/oaxacan-and-mexican-cuisine--merida-yucatan/mexico-lindo-07-rosalia-the-mill.jpg', pos: '50% 35%',
                   ask: 'What happened in that kitchen that a chef should know?' }
             ]
-        }
+        },
+        // ── Hiroko Ishii. One kitchen each, and the kitchen is the one they stood in. ──
+        // JCMA opened in June 2026: only Robin has stood in that room. Everyone else learned
+        // with Hiroko at Tokyo Sushi Academy, so their words go on THAT card, never on JCMA's.
+        robin: hiroko('Robin', 'Robin Sjostrom', 'Yacht chef', [JCMA]),
+        adri: hiroko('Adri', 'Beatriz Adriana Sánchez Núñez', 'Yacht chef', [TSA]),
+        malgorzata: hiroko('Malgorzata', 'Malgorzata Scheidle', 'Yacht chef', [TSA]),
+        damla: hiroko('Damla', 'Damla Yazıcı Kertiş', '', [TSA]),
+        alexa: hiroko('Alexa', 'Alexa López', 'Yacht chef', [TSA]),
+        // The OPEN link, for Arnaud to send to anyone on WhatsApp: no name, no trade,
+        // both kitchens; each person writes about the one they stood in and skips the other.
+        hiroko: { open: true, first: '', name: '', trade: '', craft: 'sushi-and-washoku', why: HIROKO_WHY, gallery: HIROKO_GAL, cover: { src: '/images/review/hiroko/the-room.jpg', pos: '50% 50%' }, schools: [JCMA, TSA] }
     };
+    function hiroko(first, name, trade, schools) {
+        return { first: first, name: name, trade: trade, craft: 'sushi-and-washoku', why: HIROKO_WHY, gallery: HIROKO_GAL, schools: schools };
+    }
     var TRADES = ['Yacht chef', 'Yacht crew', 'Chef or cook', 'Something else'];
     var MIN = 40, MAX = 1200;
 
@@ -190,20 +222,25 @@
     function screens() {
         var h = [];
         h.push('<section class="screen split" data-s="0">' +
-            '<div class="photo"><div class="duo">' + inv.schools.slice(0, 2).map(function (s) {
-                return '<img src="' + esc(s.img) + '" alt="" style="object-fit:cover;object-position:' + esc(s.pos) + '">'; }).join('') + '</div></div>' +
-            '<div class="body"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><div class="mono" style="color:var(--sea)">For ' + esc(inv.first) + '</div>' +
-            '<h1 style="margin:10px 0 14px">' + (N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
-            '<p class="lede">You cooked there. Say what you saw, in your own words, and it goes on each school’s card under your name.</p>' +
+            '<div class="photo">' + (inv.cover ? '<img src="' + esc(inv.cover.src) + '" alt="" style="object-position:' + esc(inv.cover.pos) + '">'
+                : N === 1 ? '<img src="' + esc(inv.schools[0].img) + '" alt="" style="object-position:' + esc(inv.schools[0].pos) + '">'
+                : '<div class="duo">' + inv.schools.slice(0, 2).map(function (s) {
+                return '<img src="' + esc(s.img) + '" alt="" style="object-fit:cover;object-position:' + esc(s.pos) + '">'; }).join('') + '</div>') + '</div>' +
+            '<div class="body"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><div class="mono" style="color:var(--sea)">' + (inv.open ? 'For anyone who learned with Hiroko' : 'For ' + esc(inv.first)) + '</div>' +
+            '<h1 style="margin:10px 0 14px">' + (inv.open ? 'Learned with Hiroko?<br><em>Two minutes.</em>' : N === 1 ? 'One kitchen.<br><em>Two minutes.</em>' : N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
+            '<p class="lede">' + (inv.open ? 'Write about the kitchen where you learned with her, and skip the other. ' : 'You cooked there. ') + 'Say what you saw, in your own words, and it goes on ' + (inv.open ? 'that school’s card' : N === 1 ? 'the school’s card' : 'each school’s card') + ' under your name.</p>' +
             '<div class="why"><div class="mono" style="color:var(--sea)">Why I’m asking</div>' +
-            '<p>Before I build anything with a teacher, I want chefs who have actually cooked with them to vouch for them first. You’d be the first to do that for ' + esc(inv.schools.map(function (s) { return s.teacher.split(' and ')[0]; }).join(' and ')) + ', so what you write really counts for what I build next.</p>' +
+            '<p>' + (inv.why ? esc(inv.why) : 'Before I build anything with a teacher, I want chefs who have actually cooked with them to vouch for them first. You’d be ' + (inv.among ? 'among the first' : 'the first') + ' to do that for ' + esc(inv.schools.map(function (s) { return s.lead || s.teacher.split(' and ')[0]; }).join(' and ')) + ', so what you write really counts for what I build next.') + '</p>' +
             '<span class="sig">Arnaud</span></div>' +
+            (inv.gallery ? '<div class="gal">' + inv.gallery.imgs.map(function (g) {
+                return '<img src="' + esc(g.src) + '" alt="" loading="lazy" style="object-position:' + esc(g.pos) + '">'; }).join('') +
+                '</div><p class="gal-note">' + esc(inv.gallery.note) + '</p>' : '') +
             '<div class="foot"><button class="go" type="button" data-next>Start</button>' +
             '<p class="fine">I read every one before it goes up.</p></div></div></section>');
         inv.schools.forEach(function (s, i) {
             h.push('<section class="screen split" data-s="' + (i + 1) + '">' +
                 '<div class="photo"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos) + '">' +
-                '<div class="over"><div class="mono">' + (i + 1) + ' of ' + N + ' · ' + esc(s.where) + '</div>' +
+                '<div class="over"><div class="mono">' + (N > 1 ? (i + 1) + ' of ' + N + ' · ' : '') + esc(s.where) + '</div>' +
                 '<h2>' + esc(s.label) + '</h2><div class="sub">with ' + esc(s.teacher) + '</div></div></div>' +
                 '<div class="body"><textarea id="w' + i + '" maxlength="' + MAX + '" rows="3" placeholder="' + esc(s.ask) + '"></textarea>' +
                 '<div class="meter"><i id="mt' + i + '"></i></div><div class="hint"><span id="h' + i + '">A few lines is plenty.</span><span id="n' + i + '"></span></div>' +
@@ -215,7 +252,7 @@
                 '<input type="month" id="me' + i + '" style="display:none" max="' + THIS_MONTH + '">' +
                 '<div class="hint" id="wh' + i + '"></div>' +
                 '<div class="foot"><button class="go" type="button" data-next id="g' + i + '">' + (i + 1 < N ? 'Next kitchen' : 'Last step') + '</button>' +
-                '<button class="skip" type="button" data-skip="' + i + '">I’d rather not review this one</button></div></div></section>');
+                '<button class="skip" type="button" data-skip="' + i + '">' + (inv.open ? 'I didn’t learn with her here' : 'I’d rather not review this one') + '</button></div></div></section>');
         });
         h.push('<section class="screen" data-s="' + (N + 1) + '"><div class="body" style="padding-top:84px">' +
             '<div class="mono" style="color:var(--sea)">Last step</div><h1 style="margin:10px 0 6px;font-size:clamp(30px,8vw,42px)">Sign it.</h1>' +
@@ -231,7 +268,7 @@
             '<div class="foot"><button class="go" type="button" id="send">Sign my reviews</button><div class="err" id="err" role="alert"></div>' +
             '<p class="fine">Nobody paid to be on these pages, and your email stays with me.</p></div></div></section>');
         h.push('<section class="screen" data-s="' + (N + 2) + '"><div class="body" style="padding-top:96px">' +
-            '<div class="mono" style="color:var(--sea)">Signed</div><h1 style="margin:10px 0 12px">Thank you, <em>' + esc(inv.first) + '</em>.</h1>' +
+            '<div class="mono" style="color:var(--sea)">Signed</div><h1 style="margin:10px 0 12px">Thank you' + (inv.open ? '' : ', <em>' + esc(inv.first) + '</em>') + '.</h1>' +
             '<p class="lede">I’ll read them myself, then they go on the cards with your name. I’ll tell you when they’re up.</p>' +
             '<ul class="done-list" id="done"></ul>' +
             '<div class="foot"><a class="ghost" id="share" href="#">Send it to a chef who should see it</a></div></div></section>');
