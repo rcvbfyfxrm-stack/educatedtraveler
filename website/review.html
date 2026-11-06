@@ -166,7 +166,7 @@
 
     // ── state, kept in this browser only so a closed tab loses nothing ──
     var SAVE = 'et-review-' + key;
-    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, when: {}, skip: {} };
+    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, yr: {}, mon: {}, early: {}, skip: {} };
     try { Object.assign(st, JSON.parse(localStorage.getItem(SAVE) || '{}')); } catch (e) {}
     function keep() { try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (e) {} }
 
@@ -174,10 +174,15 @@
     function trade() { return st.trade === 'Something else' ? st.other.trim() : st.trade; }
     function byname() { var n = st.name.trim(), h = ig(), f = h ? n + ' · @' + h : n; return f.length <= 40 ? f : n; }
     function monthLabel(v) { if (!v) return ''; var d = new Date(v + '-01T12:00:00'); return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }); }
-    function months() {   // the last four months as chips; anything older goes in "Earlier"
-        var out = [], d = new Date(); d.setDate(1);
-        for (var i = 0; i < 4; i++) { out.push(d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0')); d.setMonth(d.getMonth() - 1); }
-        return out;
+    // When: the year first (this one, last one, or earlier), then the month. A year with no
+    // month leaves the date off the page rather than inventing "January".
+    var NOW = new Date(), Y = NOW.getFullYear(), M = NOW.getMonth() + 1;
+    var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var THIS_MONTH = Y + '-' + String(M).padStart(2, '0');
+    function whenOf(i) {
+        var y = st.yr[i], m = st.mon[i];
+        if (y === 'earlier') return /^\d{4}-\d{2}$/.test(st.early[i] || '') ? st.early[i] : '';
+        return y && m ? y + '-' + String(m).padStart(2, '0') : '';
     }
 
     // ── screens: intro, one per school, you, done ──
@@ -202,11 +207,13 @@
                 '<h2>' + esc(s.label) + '</h2><div class="sub">with ' + esc(s.teacher) + '</div></div></div>' +
                 '<div class="body"><textarea id="w' + i + '" maxlength="' + MAX + '" rows="3" placeholder="' + esc(s.ask) + '"></textarea>' +
                 '<div class="meter"><i id="mt' + i + '"></i></div><div class="hint"><span id="h' + i + '">A few lines is plenty.</span><span id="n' + i + '"></span></div>' +
-                '<div class="label">When were you there?</div><div class="chips" id="mo' + i + '">' +
-                months().map(function (m) { return '<button type="button" class="chip" data-m="' + m + '" aria-pressed="false">' +
-                    esc(new Date(m + '-01T12:00:00').toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })) + '</button>'; }).join('') +
-                '<button type="button" class="chip" data-m="earlier" aria-pressed="false">Earlier</button></div>' +
-                '<input type="month" id="me' + i + '" style="display:none" max="' + months()[0] + '">' +
+                '<div class="label">When were you there?</div><div class="chips" id="yr' + i + '">' +
+                [Y, Y - 1, 'earlier'].map(function (y) { return '<button type="button" class="chip" data-y="' + y + '" aria-pressed="false">' +
+                    (y === 'earlier' ? 'Earlier' : y) + '</button>'; }).join('') + '</div>' +
+                '<div class="chips mons" id="mo' + i + '" style="display:none;margin-top:10px">' +
+                MON.map(function (m, k) { return '<button type="button" class="chip" data-mon="' + (k + 1) + '" aria-pressed="false">' + m + '</button>'; }).join('') + '</div>' +
+                '<input type="month" id="me' + i + '" style="display:none" max="' + THIS_MONTH + '">' +
+                '<div class="hint" id="wh' + i + '"></div>' +
                 '<div class="foot"><button class="go" type="button" data-next id="g' + i + '">' + (i + 1 < N ? 'Next kitchen' : 'Last step') + '</button>' +
                 '<button class="skip" type="button" data-skip="' + i + '">I’d rather not review this one</button></div></div></section>');
         });
@@ -268,21 +275,37 @@
         var t = $('w' + i);
         t.value = st.said[i] || '';
         t.addEventListener('input', function () { st.said[i] = t.value; st.skip[i] = false; keep(); grow(t); paintSchool(i); });
-        var mo = $('mo' + i), me = $('me' + i);
-        function pick(v) {
-            st.when[i] = v; keep();
-            var isChip = months().indexOf(v) >= 0;
+        var yr = $('yr' + i), mo = $('mo' + i), me = $('me' + i);
+        function paintWhen() {
+            var y = st.yr[i];
+            yr.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.y) === String(y)); });
+            mo.style.display = y && y !== 'earlier' ? '' : 'none';
+            me.style.display = y === 'earlier' ? '' : 'none';
             mo.querySelectorAll('.chip').forEach(function (c) {
-                c.setAttribute('aria-pressed', c.dataset.m === v || (c.dataset.m === 'earlier' && v && !isChip)); });
-            me.style.display = v && !isChip ? '' : 'none';
+                var k = +c.dataset.mon;
+                c.disabled = +y === Y && k > M;                       // no month that has not happened yet
+                c.style.opacity = c.disabled ? .35 : '';
+                c.setAttribute('aria-pressed', st.mon[i] === k);
+            });
+            var w = whenOf(i);
+            $('wh' + i).textContent = w ? 'On the page: ' + monthLabel(w) + '.'
+                : y ? 'And the month? If you are not sure, leave it and the date stays off the page.' : '';
         }
-        mo.addEventListener('click', function (e) {
+        yr.addEventListener('click', function (e) {
             var c = e.target.closest('.chip'); if (!c) return;
-            if (c.dataset.m === 'earlier') { pick(me.value || 'earlier'); me.style.display = ''; me.focus(); }
-            else pick(c.dataset.m);
+            var y = c.dataset.y === 'earlier' ? 'earlier' : +c.dataset.y;
+            st.yr[i] = st.yr[i] === y ? null : y;                 // tap again to clear
+            if (+st.yr[i] === Y && st.mon[i] > M) st.mon[i] = null;
+            keep(); paintWhen();
+            if (st.yr[i] === 'earlier') me.focus();
         });
-        me.addEventListener('change', function () { if (me.value) pick(me.value); });
-        if (st.when[i]) { if (months().indexOf(st.when[i]) < 0 && st.when[i] !== 'earlier') me.value = st.when[i]; pick(st.when[i]); }
+        mo.addEventListener('click', function (e) {
+            var c = e.target.closest('.chip'); if (!c || c.disabled) return;
+            var k = +c.dataset.mon; st.mon[i] = st.mon[i] === k ? null : k; keep(); paintWhen();
+        });
+        me.addEventListener('change', function () { st.early[i] = me.value; keep(); paintWhen(); });
+        if (st.early[i]) me.value = st.early[i];
+        paintWhen();
         paintSchool(i);
         setTimeout(function () { grow(t); }, 0);
     });
@@ -300,8 +323,7 @@
     // ── you ──
     function picked() {
         return inv.schools.map(function (s, i) {
-            var w = (st.said[i] || '').trim(), m = st.when[i];
-            return { s: s, what: w, when: m && m !== 'earlier' ? m : '' };
+            return { s: s, what: (st.said[i] || '').trim(), when: whenOf(i) };
         }).filter(function (p, i) { return !st.skip[i] && p.what.length >= MIN; });
     }
     function paintReads() {

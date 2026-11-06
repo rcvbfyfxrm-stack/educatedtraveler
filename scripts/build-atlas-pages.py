@@ -2018,8 +2018,10 @@ def photo_block(x, only=None):
         # sentence about its own provenance to save a branch. `source: "site"` says what
         # actually happened. Anything else stops the build rather than guessing.
         src_kind = (ph.get("source") or "sent").strip()
-        # "student" (4 Nov 2026): somebody who learnt here took them and sent them to me, and
-        # the school agreed to them being shown. `by` is then the student, never the school.
+        # "student" (4 Nov 2026): somebody who learnt here took them and sent them to me.
+        # `by` is then the student, never the school, and `given` is the day they reached me,
+        # NOT the day they were taken (Alix's were from a class a year earlier), so the credit
+        # says "sent to me" and never dates the visit.
         if src_kind not in ("sent", "site", "student"):
             raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has photos.source '
                              f'{src_kind!r}. It is "sent" (the school attached them) or '
@@ -2042,7 +2044,8 @@ def photo_block(x, only=None):
                  "They are the school's own photographs, published with its permission and "
                  "credited to it")
         credit_line = (f'{e(ph["by"])} at {credit}' if src_kind == "student" else f'{credit}{by}')
-        given = f', {e(pretty_date(ph["given"]))}' if ph.get("given") else ""
+        given = ((f', sent to me {e(pretty_date(ph["given"]))}' if src_kind == "student"
+                  else f', {e(pretty_date(ph["given"]))}') if ph.get("given") else "")
         blocks.append(
             f'<div class="mono" style="margin-top:14px">{ {"sent": "Sent by the school", "site": "Published by the school", "student": "Taken by a student"}[src_kind] }</div>'
             + ("" if only else '<h2>What a lesson here looks like</h2>')
