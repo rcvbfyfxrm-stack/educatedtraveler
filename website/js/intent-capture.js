@@ -443,7 +443,7 @@
       +   '<p class="etn-sub etsu-sub3"></p>'
       +   '<input class="etn-email etsu-mail" type="email" autocomplete="email" spellcheck="false" aria-label="Your email" placeholder="you@wherever.com">'
       +   '<label class="etn-ok"><input type="checkbox" class="etsu-ok"><span></span></label>'
-      +   '<button class="etn-go" type="button" data-send>Join the Circle →</button>'
+      +   '<button class="etn-go" type="button" data-send>Enlarge the Circle →</button>'
       +   '<button class="etsu-back" type="button" data-prev>← Back</button>'
       +   '<p class="etn-fine">Your name and address come straight to me — never sold, never passed on. '
       +   'Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed and it is done. '
@@ -500,7 +500,6 @@
         if (!who.name) { say('Just a first name is fine.'); nameIn.focus(); return; }
         show(2);
       } else if (step === 2) {
-        if (!who.profession) { say(other.hidden ? 'Pick the closest one — or “Something else”.' : 'Say it in a few words.'); return; }
         show(3);
       }
     }
@@ -539,7 +538,7 @@
       open: function (from, w, handler) {
         opener = from; onSend = handler; what = w;
         $('.etsu-what').textContent = w;
-        var s = $('[data-send]'); s.disabled = false; s.textContent = 'Join the Circle →';
+        var s = $('[data-send]'); s.disabled = false; s.textContent = 'Enlarge the Circle →';
         back.hidden = false;
         document.documentElement.style.overflow = 'hidden';
         show(who.name ? (who.profession ? 3 : 2) : 1);
