@@ -69,6 +69,10 @@
                   color:var(--paper); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:21px; line-height:1.45;
                   padding:6px 0 12px; resize:none; overflow:hidden; transition:border-color .25s; }
         textarea::placeholder{ color:var(--faint); font-style:italic; }
+        .more{ margin-top:26px; padding-top:18px; border-top:1px solid var(--line); }
+        .more .mq{ margin-top:16px; }
+        .more .mq span{ display:block; font-size:14.5px; color:var(--paper); margin-bottom:2px; }
+        textarea.small{ min-height:52px; font-size:17px; padding:4px 0 8px; }
         textarea:focus{ outline:none; border-color:var(--sea); }
         .meter{ height:2px; background:var(--line); margin-top:-1px; }
         .meter i{ display:block; height:100%; width:0; background:var(--sea); transition:width .25s; }
@@ -136,14 +140,23 @@
     // hand; everything they SAY is theirs, typed by them on this page.
     // ⛔ Never prefill what they saw: a review we wrote in their name is a made-up review.
     // `school` must match the card's data-school on the live page exactly.
+    // What a chef needs to decide about Hiroko. The first box is required; the rest are optional
+    // and join the same review as short labelled sentences (the card shows one paragraph).
+    // 600 + 3 x 180 + the labels stays under the table's 1,200-character limit.
+    var HIROKO_ASK = 'Describe Hiroko as a teacher: how she explains, how she corrects you, what you still do her way.';
+    var HIROKO_HINT = 'How she teaches, how she corrects you, what stayed with you.';
+    var HIROKO_MORE = [
+        { tag: 'Before you go', q: 'What should a chef know before going?', ph: 'Level needed, pace, hours, the English, what to bring.' },
+        { tag: 'Who it suits', q: 'Who would you send to her, and who not?', ph: 'A line is enough.' },
+        { tag: 'Worth knowing', q: 'Anything else that would help a chef decide?', ph: 'The market visit, the knives, the group, the price for what you got.' } ];
     var JCMA = { school: 'Japan Culinary Masters Academy (JCMA)', label: 'JCMA', teacher: 'Hiroko', lead: 'Hiroko',
                  dest: 'sushi-and-washoku--tokyo-tsukiji-toyosu', where: 'Otsuka, Tokyo', page: 'Tokyo',
                  img: '/images/review/hiroko/the-bench.jpg', pos: '50% 30%',
-                 ask: 'What did Hiroko correct on your board that you still do her way?' };
+                 ask: HIROKO_ASK, hint: HIROKO_HINT, max: 600, more: HIROKO_MORE };
     var TSA = { school: 'Tokyo Sushi Academy', label: 'Tokyo Sushi Academy', teacher: 'Hiro and Hiroko', lead: 'Hiroko',
                 dest: 'sushi-and-washoku--tokyo-tsukiji-toyosu', where: 'Tokyo', page: 'Tokyo',
                 img: '/images/review/hiroko/hiroko.jpg', pos: '50% 25%',
-                ask: 'What did Hiroko teach you that you still use?' };
+                ask: HIROKO_ASK, hint: HIROKO_HINT, max: 600, more: HIROKO_MORE };
     // Photos of Hiroko: only the carousel set, whose permission is on file. Credit names the school and stops.
     var HIROKO_GAL = { note: 'Hiroko Ishii at JCMA, Tokyo, and the exam plate from her first level. Photographs: Japan Culinary Masters Academy.', imgs: [
         { src: '/images/review/hiroko/hiroko.jpg', pos: '50% 25%' },
@@ -198,7 +211,7 @@
 
     // ── state, kept in this browser only so a closed tab loses nothing ──
     var SAVE = 'et-review-' + key;
-    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, yr: {}, mon: {}, early: {}, skip: {} };
+    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, more: {}, yr: {}, mon: {}, early: {}, skip: {} };
     try { Object.assign(st, JSON.parse(localStorage.getItem(SAVE) || '{}')); } catch (e) {}
     function keep() { try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (e) {} }
 
@@ -242,8 +255,12 @@
                 '<div class="photo"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos) + '">' +
                 '<div class="over"><div class="mono">' + (N > 1 ? (i + 1) + ' of ' + N + ' · ' : '') + esc(s.where) + '</div>' +
                 '<h2>' + esc(s.label) + '</h2><div class="sub">with ' + esc(s.teacher) + '</div></div></div>' +
-                '<div class="body"><textarea id="w' + i + '" maxlength="' + MAX + '" rows="3" placeholder="' + esc(s.ask) + '"></textarea>' +
+                '<div class="body"><textarea id="w' + i + '" maxlength="' + (s.max || MAX) + '" rows="3" placeholder="' + esc(s.ask) + '"></textarea>' +
                 '<div class="meter"><i id="mt' + i + '"></i></div><div class="hint"><span id="h' + i + '">A few lines is plenty.</span><span id="n' + i + '"></span></div>' +
+                (s.more ? '<div class="more"><div class="mono" style="color:var(--sea)">If you have another minute</div>' +
+                    s.more.map(function (m, k) { return '<label class="mq"><span>' + esc(m.q) + '</span>' +
+                        '<textarea class="small" id="m' + i + '-' + k + '" maxlength="180" rows="2" placeholder="' + esc(m.ph) + '"></textarea></label>'; }).join('') +
+                    '</div>' : '') +
                 '<div class="label">When were you there?</div><div class="chips" id="yr' + i + '">' +
                 [Y, Y - 1, 'earlier'].map(function (y) { return '<button type="button" class="chip" data-y="' + y + '" aria-pressed="false">' +
                     (y === 'earlier' ? 'Earlier' : y) + '</button>'; }).join('') + '</div>' +
@@ -305,13 +322,19 @@
         var t = $('w' + i), n = t.value.trim().length;
         $('mt' + i).style.width = Math.min(100, n / MIN * 100) + '%';
         $('n' + i).textContent = n ? (n < MIN ? (MIN - n) + ' to go' : '✓') : '';
-        $('h' + i).textContent = n >= MIN ? 'Good. Add more if you like.' : 'Who taught, what you made, what you would tell a chef.';
+        $('h' + i).textContent = n >= MIN ? 'Good. Add more if you like.' : (inv.schools[i].hint || 'Who taught, what you made, what you would tell a chef.');
         $('g' + i).disabled = n < MIN;
     }
     inv.schools.forEach(function (s, i) {
         var t = $('w' + i);
         t.value = st.said[i] || '';
         t.addEventListener('input', function () { st.said[i] = t.value; st.skip[i] = false; keep(); grow(t); paintSchool(i); });
+        (s.more || []).forEach(function (m, k) {
+            var mt = $('m' + i + '-' + k), id = i + '-' + k;
+            mt.value = st.more[id] || '';
+            mt.addEventListener('input', function () { st.more[id] = mt.value; keep(); grow(mt); });
+            setTimeout(function () { grow(mt); }, 0);
+        });
         var yr = $('yr' + i), mo = $('mo' + i), me = $('me' + i);
         function paintWhen() {
             var y = st.yr[i];
@@ -358,10 +381,20 @@
     });
 
     // ── you ──
+    // The review as it is published: their main answer, then each optional answer as a labelled sentence.
+    function stop(x) { return /[.!?…"”)]$/.test(x) ? x : x + '.'; }
+    function said(i) {
+        var main = (st.said[i] || '').trim(), parts = main ? [stop(main)] : [];
+        (inv.schools[i].more || []).forEach(function (m, k) {
+            var a = (st.more[i + '-' + k] || '').trim().replace(/\s+/g, ' ');
+            if (a) parts.push(m.tag + ': ' + stop(a));
+        });
+        return parts.join(' ');
+    }
     function picked() {
         return inv.schools.map(function (s, i) {
-            return { s: s, what: (st.said[i] || '').trim(), when: whenOf(i) };
-        }).filter(function (p, i) { return !st.skip[i] && p.what.length >= MIN; });
+            return { s: s, main: (st.said[i] || '').trim(), what: said(i), when: whenOf(i) };
+        }).filter(function (p, i) { return !st.skip[i] && p.main.length >= MIN; });
     }
     function paintReads() {
         var who = [byname(), trade()].filter(Boolean).join(', ');
