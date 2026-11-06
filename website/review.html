@@ -25,12 +25,22 @@
         .mono{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
         .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; }
 
-        /* the thin bar is the whole navigation */
-        .bar{ position:fixed; top:0; left:0; right:0; height:3px; z-index:9; background:var(--line); }
-        .bar i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--sea),var(--ember)); transition:width .5s cubic-bezier(.2,.7,.2,1); }
-        .back{ position:fixed; top:14px; left:12px; z-index:9; width:40px; height:40px; border-radius:50%; border:0;
-               background:rgba(13,11,9,.55); backdrop-filter:blur(10px); color:var(--paper); font-size:20px; cursor:pointer; display:none; }
-        .back.on{ display:block; }
+        /* the steps ARE the navigation: tap any of them to go back to an answer */
+        .steps{ position:fixed; top:0; left:0; right:0; z-index:9; display:flex; gap:6px; padding:10px 14px 18px;
+                background:linear-gradient(180deg, rgba(13,11,9,.92) 0%, rgba(13,11,9,.6) 60%, rgba(13,11,9,0)); }
+        .steps.off{ display:none; }
+        .steps button{ flex:1; min-width:0; background:none; border:0; padding:4px 0; cursor:pointer; color:rgba(243,237,226,.72); text-align:left; text-shadow:0 1px 6px rgba(0,0,0,.7); }
+        .steps i{ display:block; height:3px; border-radius:2px; background:rgba(243,237,226,.3); transition:background .3s; }
+        .steps span{ display:block; margin-top:7px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
+                     text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color .3s; }
+        .steps button.past i{ background:var(--sea); }
+        .steps button.now i{ background:linear-gradient(90deg,var(--sea),var(--ember)); }
+        .steps button.now span{ color:var(--paper); }
+        .steps button:hover span{ color:var(--paper); }
+        .why{ margin-top:20px; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:rgba(243,237,226,.03); }
+        .why p{ font-size:14.5px; line-height:1.55; margin-top:6px; }
+        .why .sig{ font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--ember); margin-top:6px; display:block; }
+        .edit{ background:none; border:0; color:var(--sea); font:inherit; font-size:13px; cursor:pointer; padding:0; margin-left:6px; }
         .brand{ display:inline-block; font-family:'Fraunces',Georgia,serif; letter-spacing:.16em; font-size:12px; color:var(--paper); opacity:.75; margin-bottom:18px; }
         .brand b{ font-weight:300; color:var(--sea); }
 
@@ -112,8 +122,7 @@
     </style>
 </head>
 <body>
-<div class="bar"><i id="bar"></i></div>
-<button class="back" id="back" type="button" aria-label="Back">&#8249;</button>
+<nav class="steps" id="steps" aria-label="Steps"></nav>
 <main id="app"></main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -180,9 +189,12 @@
                 return '<img src="' + esc(s.img) + '" alt="" style="object-fit:cover;object-position:' + esc(s.pos) + '">'; }).join('') + '</div></div>' +
             '<div class="body"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><div class="mono" style="color:var(--sea)">For ' + esc(inv.first) + '</div>' +
             '<h1 style="margin:10px 0 14px">' + (N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
-            '<p class="lede">You cooked there. Say what you saw, in your own words, and it goes on each school’s card under your name: the first review there from a chef who went.</p>' +
+            '<p class="lede">You cooked there. Say what you saw, in your own words, and it goes on each school’s card under your name.</p>' +
+            '<div class="why"><div class="mono" style="color:var(--sea)">Why I’m asking</div>' +
+            '<p>Before I build anything with a teacher, I want chefs who have actually cooked with them to vouch for them first. You’d be the first to do that for ' + esc(inv.schools.map(function (s) { return s.teacher.split(' and ')[0]; }).join(' and ')) + ', so what you write really counts for what I build next.</p>' +
+            '<span class="sig">Arnaud</span></div>' +
             '<div class="foot"><button class="go" type="button" data-next>Start</button>' +
-            '<p class="fine">Arnaud reads every one before it goes up.</p></div></div></section>');
+            '<p class="fine">I read every one before it goes up.</p></div></div></section>');
         inv.schools.forEach(function (s, i) {
             h.push('<section class="screen split" data-s="' + (i + 1) + '">' +
                 '<div class="photo"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos) + '">' +
@@ -198,7 +210,7 @@
                 '<div class="foot"><button class="go" type="button" data-next id="g' + i + '">' + (i + 1 < N ? 'Next kitchen' : 'Last step') + '</button>' +
                 '<button class="skip" type="button" data-skip="' + i + '">I’d rather not review this one</button></div></div></section>');
         });
-        h.push('<section class="screen" data-s="' + (N + 1) + '"><div class="body" style="padding-top:76px">' +
+        h.push('<section class="screen" data-s="' + (N + 1) + '"><div class="body" style="padding-top:84px">' +
             '<div class="mono" style="color:var(--sea)">Last step</div><h1 style="margin:10px 0 6px;font-size:clamp(30px,8vw,42px)">Sign it.</h1>' +
             '<div id="reads"></div>' +
             '<div class="field"><label for="f-name">Your name</label><input id="f-name" maxlength="40" autocomplete="name"></div>' +
@@ -207,13 +219,13 @@
                 return '<button type="button" class="chip" aria-pressed="false">' + esc(t) + '</button>'; }).join('') + '</div>' +
             '<div class="field" id="f-other-w" style="display:none"><label for="f-other">In your own words</label><input id="f-other" maxlength="60"></div>' +
             '<div class="field"><label for="f-email">Email, never shown</label><input id="f-email" type="email" inputmode="email" autocomplete="email"></div>' +
-            '<label class="tick"><input type="checkbox" id="f-pub"><span>Put these on the pages, under my name<small>Arnaud reads each one himself first.</small></span></label>' +
-            '<label class="tick"><input type="checkbox" id="f-circle"><span>Keep me in the Circle<small>A short note now and then about the crafts chefs here want to learn. Leave any time.</small></span></label>' +
+            '<label class="tick"><input type="checkbox" id="f-pub"><span>Put these on the pages, under my name<small>I read each one myself first.</small></span></label>' +
+            '<label class="tick"><input type="checkbox" id="f-circle"><span>Sign up to hear what I’m building next<small>A short note from me now and then. Leave any time.</small></span></label>' +
             '<div class="foot"><button class="go" type="button" id="send">Sign my reviews</button><div class="err" id="err" role="alert"></div>' +
-            '<p class="fine">Nobody paid to be on these pages, and your email stays with Arnaud.</p></div></div></section>');
+            '<p class="fine">Nobody paid to be on these pages, and your email stays with me.</p></div></div></section>');
         h.push('<section class="screen" data-s="' + (N + 2) + '"><div class="body" style="padding-top:96px">' +
             '<div class="mono" style="color:var(--sea)">Signed</div><h1 style="margin:10px 0 12px">Thank you, <em>' + esc(inv.first) + '</em>.</h1>' +
-            '<p class="lede">Arnaud reads them himself, then they go on the cards with your name.</p>' +
+            '<p class="lede">I’ll read them myself, then they go on the cards with your name. I’ll tell you when they’re up.</p>' +
             '<ul class="done-list" id="done"></ul>' +
             '<div class="foot"><a class="ghost" id="share" href="#">Send it to a chef who should see it</a></div></div></section>');
         app.innerHTML = h.join('');
@@ -226,13 +238,22 @@
         var was = at; at = n;
         var nx = app.querySelector('[data-s="' + n + '"]');
         nx.classList.toggle('back-in', n < was); nx.classList.add('on');
-        $('bar').style.width = Math.round(n / (N + 2) * 100) + '%';
-        $('back').classList.toggle('on', n > 0 && n < N + 2);
+        paintSteps();
         window.scrollTo(0, 0);
         if (n >= 1 && n <= N) { var t = $('w' + (n - 1)); setTimeout(function () { t.focus({ preventScroll: true }); }, 380); }
         if (n === N + 1) paintReads();
     }
-    $('back').addEventListener('click', function () { if (at > 0) go(at - 1); });
+    // one step per screen except the last; every step can be tapped, back or forward
+    var LABELS = ['Why'].concat(inv.schools.map(function (s) { return s.label; }), ['Sign']);
+    $('steps').innerHTML = LABELS.map(function (l, i) {
+        return '<button type="button" data-go="' + i + '"><i></i><span>' + esc(l) + '</span></button>'; }).join('');
+    function paintSteps() {
+        $('steps').classList.toggle('off', at > N + 1);
+        $('steps').querySelectorAll('button').forEach(function (b, i) {
+            b.className = i < at ? 'past' : i === at ? 'now' : '';
+            if (i === at) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+        });
+    }
 
     // ── the kitchens ──
     function grow(t) { t.style.height = 'auto'; t.style.height = t.scrollHeight + 'px'; }
@@ -246,7 +267,7 @@
     inv.schools.forEach(function (s, i) {
         var t = $('w' + i);
         t.value = st.said[i] || '';
-        t.addEventListener('input', function () { st.said[i] = t.value; keep(); grow(t); paintSchool(i); });
+        t.addEventListener('input', function () { st.said[i] = t.value; st.skip[i] = false; keep(); grow(t); paintSchool(i); });
         var mo = $('mo' + i), me = $('me' + i);
         function pick(v) {
             st.when[i] = v; keep();
@@ -265,7 +286,9 @@
         paintSchool(i);
         setTimeout(function () { grow(t); }, 0);
     });
-    app.addEventListener('click', function (e) {
+    document.addEventListener('click', function (e) {
+        var g = e.target.closest('[data-go]');
+        if (g) { go(+g.dataset.go); return; }
         if (e.target.closest('[data-next]')) {
             if (at >= 1 && at <= N) st.skip[at - 1] = false, keep();
             go(at + 1);
@@ -284,10 +307,11 @@
     function paintReads() {
         var who = [byname(), trade()].filter(Boolean).join(', ');
         var ps = picked();
+        var idx = function (s) { return inv.schools.indexOf(s) + 1; };
         $('reads').innerHTML = ps.length ? '<div class="label" style="margin-top:14px">How it reads</div>' + ps.map(function (p) {
             var m = monthLabel(p.when);
-            return '<div class="reads"><q>' + esc(p.what) + '</q><span>— ' + esc(who) + (m ? ' · ' + esc(m) : '') + ' · on ' + esc(p.s.label) + '</span></div>';
-        }).join('') : '<p class="lede" style="margin-top:12px">Nothing to sign yet. Go back and write about at least one kitchen.</p>';
+            return '<div class="reads"><q>' + esc(p.what) + '</q><span>— ' + esc(who) + (m ? ' · ' + esc(m) : '') + ' · on ' + esc(p.s.label) + ' <button type="button" class="edit" data-go="' + idx(p.s) + '">Edit</button></span></div>';
+        }).join('') : '<p class="lede" style="margin-top:12px">Nothing to sign yet. Write about at least one kitchen first.</p>';
     }
     $('f-name').value = st.name; $('f-ig').value = st.ig; $('f-other').value = st.other; $('f-email').value = st.email;
     function paintTrade() {
@@ -323,7 +347,7 @@
         if (!ps.length) return say('Write about at least one kitchen first.');
         if (st.name.trim().length < 2) { $('f-name').focus(); return say('Your name, as you want it on the page.'); }
         if (!trade()) { $('f-other').focus(); return say('What you do, in a few words.'); }
-        if (!/.+@.+\..+/.test(email)) { $('f-email').focus(); return say('An email, so Arnaud can write back. It is never shown.'); }
+        if (!/.+@.+\..+/.test(email)) { $('f-email').focus(); return say('An email, so I can write back. It is never shown.'); }
         if (!$('f-pub').checked) return say('Tick the first box so your words can go on the pages.');
         var sb = window.supabaseClient;
         if (!sb) return say('Could not reach the site just now. Try again in a minute.');
