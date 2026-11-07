@@ -21483,8 +21483,8 @@ window.ET_ATLAS = {
             {
               "name": "&LAB TOKYO",
               "url": "https://www.andlabtokyo.com/en/fermentation",
-              "course": "The Fermentation Alchemist Course — Basic (one day) and Advance (three days, growing your own koji), or both back to back as a three-day intensive",
-              "blurb": "Chie Ando's fermentation studio in Jingumae, Shibuya, where you make koji seasonings — shio-koji, ama-koji, shoyu-koji — and then grow koji yourself over three days. Groups of one to four, tools provided, two textbooks included. It is taught in Japanese: English support is a paid extra, booked at least a month ahead. Every step is also sold online, so ask yourself what the room adds before you fly for it.",
+              "course": "The Fermentation Alchemist Course — Basic (one day) and Intermediate (growing your own koji), or both back to back as a three-day intensive; Advance is a further three-day step, with other kinds of koji",
+              "blurb": "Chie Ando's fermentation studio in Jingumae, Shibuya, where you make koji seasonings — shio-koji, ama-koji, shoyu-koji — and then grow koji yourself over three days. Chie Ando teaches every day of it herself. Groups of one to four, tools provided, two textbooks included. It is taught in Japanese: English support is a paid extra, cheaper if you ask three months ahead, and it closes a month before the course. Every step is also sold online, so ask yourself what the room adds before you fly for it.",
               "confidence": "high",
               "verify": [
                 "Lessons are taught in Japanese",
@@ -21493,16 +21493,18 @@ window.ET_ATLAS = {
               ],
               "facts": {
                 "where": "Jingumae, Shibuya, Tokyo",
-                "length": "3 days (Basic + Advance intensive)",
+                "length": "3 days (Basic + Intermediate intensive)",
                 "format": "In person, or online",
-                "language": "Japanese; English support ¥15,000 a day",
+                "language": "Japanese; English support ¥15,000 a day, ¥12,000 if asked three months ahead",
                 "class": "1 to 4 people",
                 "price": "¥156,000, tax excluded",
-                "priceNote": "Basic alone ¥42,500, Advance alone ¥123,000, both tax excluded",
+                "priceNote": "Basic alone ¥42,500, Intermediate ¥123,000, Advance ¥123,000, all tax excluded",
                 "from": [
-                  "https://www.andlabtokyo.com/en/fermentation"
+                  "https://www.andlabtokyo.com/en/fermentation",
+                  "https://www.andlabtokyo.com/fermentation",
+                  "Chie Ando, by email to Arnaud Callier, 7 Nov 2026"
                 ],
-                "read": "2026-11-04"
+                "read": "2026-11-07"
               }
             }
           ],
@@ -21522,8 +21524,8 @@ window.ET_ATLAS = {
         "country": "Japan",
         "school": "&LAB TOKYO",
         "url": "https://www.andlabtokyo.com/en/fermentation",
-        "course": "The Fermentation Alchemist Course — Basic + Advance intensive",
-        "description": "Three consecutive days in Chie Ando's studio in Jingumae: a day of koji seasonings, then two of growing koji yourself, which is why the course cannot be shorter. Groups of one to four. Taught in Japanese, with English support at ¥15,000 a day.",
+        "course": "The Fermentation Alchemist Course — Basic + Intermediate intensive",
+        "description": "Three consecutive days in Chie Ando's studio in Jingumae: a day of koji seasonings, then two of growing koji yourself, which is why the course cannot be shorter. Groups of one to four. Taught in Japanese, with English support at ¥15,000 a day, or ¥12,000 if you ask three months ahead.",
         "duration": "3 days",
         "format": "In person, groups of 1-4 (also sold online)",
         "certification": "&LAB TOKYO's own course",
