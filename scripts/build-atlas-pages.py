@@ -553,7 +553,7 @@ def sibling_line(d):
     return ('<p class="meta" style="margin-top:14px;padding-top:12px;'
             'border-top:1px solid var(--line);max-width:62ch">'
             f'{e(sib["line"])} <a href="/atlas/{e(sib["id"])}" style="color:var(--sea);'
-            'text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)">'
+            'text-decoration:none;border-bottom:1px solid rgba(78,123,120,.32)">'
             f'{e(sib["label"])} &rarr;</a></p>')
 
 
@@ -834,7 +834,7 @@ def rising_star(s_):
            "open one month" if months == 1 else f"open {months} months")
     return ('<div style="margin-top:6px"><span style="display:inline-block;'
             "font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;"
-            'text-transform:uppercase;color:var(--ember);border:1px solid rgba(210,138,82,.45);'
+            'text-transform:uppercase;color:var(--ember);border:1px solid rgba(78,123,120,.45);'
             f'border-radius:99px;padding:2px 9px">Rising star &middot; {e(age)}</span>'
             '<div style="font-size:13.5px;color:var(--muted);margin-top:6px;max-width:62ch">'
             f'{e(r["why"])}</div></div>')
@@ -991,18 +991,18 @@ LAB_WEEKS = _lab_weeks()
 
 LABWEEK_CSS = (
     ".labweek{border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:14px;"
-    "padding:24px 26px 22px;background:var(--ink2)}"
+    "padding:24px 26px 22px;background:var(--surface)}"
     ".labweek .lockup{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px;"
     "font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.6vw,24px);line-height:1.1}"
     ".labweek .lockup i{font-style:normal;color:var(--ember);font-size:.8em;opacity:.9}"
     ".labweek .lockup .et{color:var(--sea)}"
-    ".labweek .lede{font-size:16px;color:rgba(243,237,226,.88);max-width:62ch;margin:0}"
+    ".labweek .lede{font-size:16px;color:rgba(14,22,21,1);max-width:62ch;margin:0}"
     ".labweek .facts{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 4px}"
     ".labweek .facts span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;"
     "color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}"
-    ".labweek .facts b{color:var(--paper);font-weight:500}"
+    ".labweek .facts b{color:var(--type);font-weight:500}"
     ".labweek .btn{display:inline-block;margin-top:16px;padding:12px 24px;border-radius:99px;font-size:14px;"
-    "font-weight:500;color:#14110d;text-decoration:none;"
+    "font-weight:500;color:#ffffff;text-decoration:none;"
     "background:linear-gradient(135deg,var(--sea),var(--ember) 130%)}"
     ".labweek .btn:hover{filter:brightness(1.05)}"
     ".labweek .fine{font-size:13px;color:var(--faint);margin:14px 0 0;max-width:62ch}"
@@ -1304,7 +1304,7 @@ e = html.escape
 # Founder-voice trust block — appears small at the bottom of every Atlas page.
 # Voice: Arnaud, first person, plain, no hype. No fabricated ratings — only what
 # we can stand behind. The reader's 5 questions sit in <details> to stay compact.
-TRUST_HTML = ("""<section style="border-top:1px solid var(--line);background:var(--ink2)">
+TRUST_HTML = ("""<section style="border-top:1px solid var(--line);background:var(--surface)">
 <div class="wrap prose">
 <details class="fold">
 <summary>
@@ -1377,7 +1377,7 @@ CUR_TOGGLE = """<div class="cur-toggle" id="cur-toggle" hidden title="Show price
 # Atlas. They live here now: the generator owns the page again.
 NAV_AUTH = ('<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" '
             'style="margin:0;padding:8px 18px;font-size:13px;" '
-            'title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a>'
+            'title="The people who have told me which craft they want to learn. One note joins it.">Join the Circle</a>'
             '<a href="/you" id="et-nav-profile" class="cta" '
             'style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>')
 
@@ -1422,7 +1422,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
         '<p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me'
         '?subject=' + _q("Atlas — " + _clean) +
         '&amp;body=' + _q("What looked wrong:\n\n\n(page: " + SITE + canonical_path + ")") +
-        '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">'
+        '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)">'
         'Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p>'
     )
     # The licensed picture this craft's card wears is credited here, because the card
@@ -1479,10 +1479,10 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
 {crumbs}{extra}
 {ANALYTICS}{extra_head}
 <style>
-:root {{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
-         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }}
+:root {{ --ground:#ffffff; --surface:#ffffff; --type:#0e1615; --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.09);
+         --muted:rgba(14,22,21,.72); --faint:rgba(14,22,21,.6); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
-body {{ font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }}
+body {{ font-family:'Inter',system-ui,sans-serif; background:var(--ground); color:var(--type); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }}
 .serif {{ font-family:'Fraunces',Georgia,serif; }}
 .mono {{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }}
 a {{ color:inherit; }}
@@ -1493,16 +1493,16 @@ a {{ color:inherit; }}
    instead of the container — same 62ch as .lead. Narrowing the container is what
    used to jog the left edge 80px mid-scroll. */
 .wrap.prose > * {{ max-width:62ch; }}
-nav.top {{ position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }}
+nav.top {{ position:sticky; top:0; background:rgba(255,255,255,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }}
 nav.top .wrap {{ display:flex; justify-content:space-between; align-items:center; height:60px; }}
 nav.top a {{ text-decoration:none; opacity:.7; font-size:14px; }} nav.top a:hover {{ opacity:1; color:var(--sea); }}
-.brand {{ font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; font-size:13px; opacity:1 !important; }}
+.brand{{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}}.brand-mark{{width:22px;height:22px;display:block}}
 header.hero {{ padding:72px 0 40px; border-bottom:1px solid var(--line); }}
 h1 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.12; margin:14px 0 18px; }}
 h2 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; margin-bottom:14px; }}
 .lead {{ font-size:17px; opacity:.78; max-width:62ch; }}
 section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
-.card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }}
+.card {{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }}
 .card a.t {{ text-decoration:none; }} .card a.t:hover {{ color:var(--sea); }}
 /* ── the whole card is the door ──────────────────────────────────────────────
    The heading's link stretches over the card with ::after, so a reader can press
@@ -1540,7 +1540,7 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
    students' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */
 .cardshot {{ width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
+  background-image:linear-gradient(180deg,rgba(255,255,255,0) 60%,var(--surface) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }}
 /* The places compared. The first table on this site, and it earns the form: five
    long cards is five scrolls and no comparison, and what a reader is choosing
@@ -1559,7 +1559,7 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 .cmp .c-season, .cmp .c-howlong, .cmp .c-tier {{ white-space:nowrap; }}
 .cmp tbody th a {{ color:var(--sea); text-decoration:none; }}
 .cmp tbody th a:hover {{ text-decoration:underline; }}
-.cmp td {{ color:rgba(243,237,226,.78); }}
+.cmp td {{ color:rgba(14,22,21,.72); }}
 .cmp .gone {{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); font-weight:400; margin-left:6px; }}
 .cmp tbody tr:last-child th, .cmp tbody tr:last-child td {{ border-bottom:none; }}
@@ -1570,7 +1570,7 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 .shotcredit:empty {{ display:none; }}
 .dwhere {{ font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }}
 .dwhere .in {{ font-size:13px; font-weight:400; opacity:.62; }}
-.badge {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(243,237,226,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }}
+.badge {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(14,22,21,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }}
 .dots {{ color:var(--sea); letter-spacing:3px; }}
 .meta {{ font-size:13px; opacity:.6; }}
 ul.clean {{ list-style:none; }} ul.clean li {{ padding:10px 0; border-bottom:1px solid var(--line); }}
@@ -1593,14 +1593,14 @@ ul.clean li:last-child {{ border-bottom:none; }}
    itself — a last resort, only when a genuinely unbroken run of characters would
    otherwise overflow; it does not touch how normal multi-word text wraps. */
 ul.schools {{ list-style:none; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }}
-li.school {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }}
+li.school {{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }}
 li.school .stags {{ margin:0 0 10px; }}
 .stag {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;
   color:var(--muted); }}
-.stag.gold {{ color:#14110d; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#d28a52,#e0a877); }}
-.stag.ember {{ color:var(--ember); border-color:rgba(210,138,82,.45); }}
-.stag.sea {{ color:var(--sea); border-color:rgba(127,168,165,.4); }}
+.stag.gold {{ color:#ffffff; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#4e7b78,#4e7b78); }}
+.stag.ember {{ color:var(--ember); border-color:rgba(78,123,120,.45); }}
+.stag.sea {{ color:var(--sea); border-color:rgba(78,123,120,.4); }}
 .sname {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; line-height:1.24; margin:2px 0 4px; }}
 .scourse {{ font-size:15px; color:var(--sea); margin:0 0 14px; max-width:62ch; }}
 dl.sfacts {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px 18px;
@@ -1610,7 +1610,7 @@ dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
 .snote {{ font-size:12.5px; color:var(--muted); }}
 .sblurb {{ font-size:15px; opacity:.82; max-width:62ch; }}
 .sstand {{ font-size:14.5px; max-width:62ch; margin:0 0 10px; padding:10px 14px; border-radius:8px;
-  border-left:2px solid var(--ember); background:rgba(210,138,82,.06); }}
+  border-left:2px solid var(--ember); background:rgba(78,123,120,.06); }}
 .steach {{ font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }}
 .steach .school-url {{ word-break:normal; white-space:nowrap; }}
 .sfoot .school-url {{ word-break:normal; overflow-wrap:anywhere; }}
@@ -1622,11 +1622,11 @@ li.school[data-cover] {{ padding:0 0 20px; overflow:hidden; }}
 li.school[data-cover] > :not(.scover) {{ margin-left:22px; margin-right:22px; }}
 .scover {{ position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }}
 .scover img {{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }}
-.scover::after {{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.62) 68%,rgba(13,11,9,.96) 100%); }}
+.scover::after {{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(14,22,21,0) 40%,rgba(14,22,21,.62) 68%,rgba(14,22,21,.96) 100%); }}
 .scap {{ position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }}
-.scap .sname {{ color:var(--paper); }}
-.scap .scourse {{ color:var(--paper); opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
-.scap .stag {{ background:rgba(13,11,9,.55); }}
+.scap .sname, .scap .sname a {{ color:#fff; }}
+.scap .scourse {{ color:#fff; opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
+.scap .stag {{ background:rgba(14,22,21,.45); color:#fff; border-color:rgba(255,255,255,.5); }}
 li.school .scourse {{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
 details.sall .smh {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }}
 details.sall > dl.sfacts {{ margin-top:12px; }}
@@ -1645,21 +1645,21 @@ details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:1
    is taken over by skill-save.js / intent-capture.js and falls back to the note. */
 .hero-acts {{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }}
 .hbtn {{ display:inline-flex; align-items:center; gap:.5em; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
-  letter-spacing:.06em; color:var(--paper); text-decoration:none; background:rgba(243,237,226,.04);
-  border:1px solid rgba(127,168,165,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }}
-.hbtn:hover {{ border-color:var(--sea); background:rgba(127,168,165,.10); }}
+  letter-spacing:.06em; color:var(--type); text-decoration:none; background:rgba(14,22,21,.04);
+  border:1px solid rgba(78,123,120,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }}
+.hbtn:hover {{ border-color:var(--sea); background:rgba(78,123,120,.10); }}
 .hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible, .pr-arrow:focus-visible {{ outline:2px solid var(--sea); outline-offset:3px; }}
-.hbtn.go {{ color:#14110d; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.hbtn.go {{ color:#ffffff; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .hbtn.go:hover {{ filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .about-pop {{ display:none; }}
 .about-pop:target {{ display:flex; position:fixed; inset:0; z-index:2300; align-items:center; justify-content:center;
-  padding:22px; background:rgba(13,11,9,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }}
+  padding:22px; background:rgba(255,255,255,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }}
 .about-back {{ position:absolute; inset:0; }}
-.about-card {{ position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--ink2);
+.about-card {{ position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--surface);
   border:1px solid var(--line); border-radius:16px; padding:28px 26px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.75); }}
 .about-card h2 {{ font-size:28px; }}
 .about-x {{ position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }}
-.about-x:hover {{ color:var(--paper); }}
+.about-x:hover {{ color:var(--type); }}
 /* The place cards on a rail. The TRACK bleeds to the screen edge on a phone so the
    next card peeks in; the cards keep their own padding so the scroll-snap lands
    flush under the edge, not under the arrows. Two abreast on a desktop. The cards
@@ -1689,11 +1689,11 @@ ul.schools.crail {{ display:flex; }}
    photographed or not — is visible the instant the card scrolls into view. */
 .pr-arrow {{ position:absolute; top:118px; z-index:4;
   display:flex; align-items:center; justify-content:center; width:38px; height:38px;
-  border-radius:99px; border:1px solid rgba(243,237,226,.22); background:rgba(20,17,13,.74);
-  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--paper);
+  border-radius:99px; border:1px solid rgba(14,22,21,.22); background:rgba(255,255,255,.74);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--type);
   font-size:19px; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
   transition:opacity .2s,border-color .2s,background .2s; }}
-.pr-arrow:hover {{ border-color:rgba(127,168,165,.55); background:rgba(20,17,13,.9); }}
+.pr-arrow:hover {{ border-color:rgba(78,123,120,.55); background:rgba(255,255,255,.9); }}
 .pr-arrow[disabled] {{ opacity:.22; cursor:default; }}
 .pr-prev {{ left:6px; }} .pr-next {{ right:6px; }}
 /* Desktop's rail has almost no inner gutter (2px, vs the phone's 24px scroll-padding),
@@ -1708,38 +1708,38 @@ ul.schools.crail {{ display:flex; }}
 .sread {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }}
 @media (max-width:560px) {{ li.school {{ padding:18px 18px; }} dl.sfacts {{ grid-template-columns:1fr 1fr; }} }}
 .school-url {{ font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; }} .school-url:hover {{ text-decoration:underline; }}
-.cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--surface); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .cta:hover {{ opacity:.92; }}
 .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
 .shots {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr)); gap:18px 14px; align-items:start; }}
 .shots figure {{ margin:0; }}
 .shots figure.wide {{ grid-column:1/-1; }}
-.shots img {{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }}
+.shots img {{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--surface); }}
 .shots figcaption {{ font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }}
-.intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }}
+.intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(14,22,21,.02); margin:18px 0 0; }}
 .intent-q {{ font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }}
-.intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#ffffff; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .intent-go:hover {{ filter:brightness(1.05); }} .intent-go:disabled {{ opacity:.5; cursor:default; }}
-.intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#e0915f; }}
+.intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#4e7b78; }}
 .intent-fine {{ font-size:12px; opacity:.5; margin-top:8px; }}
-footer {{ padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }}
+footer {{ padding:40px 0 60px; font-size:13px; color:rgba(14,22,21,.72); }}
 .piccredit {{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
-  color:rgba(243,237,226,.42); margin:0 0 14px; line-height:1.6; }}
-.piccredit a {{ color:rgba(243,237,226,.58); }}
+  color:rgba(14,22,21,.6); margin:0 0 14px; line-height:1.6; }}
+.piccredit a {{ color:rgba(14,22,21,.72); }}
 footer a {{ color:var(--sea); }}
 .cur-toggle {{ position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
-  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }}
+  background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }}
 .cur-toggle .lab {{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }}
-.cur-toggle button {{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }}
+.cur-toggle button {{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--type); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }}
 .cur-toggle button:hover {{ opacity:1; }}
-.cur-toggle button.on {{ opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }}
+.cur-toggle button.on {{ opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#ffffff; font-weight:500; }}
 .price[data-amt] {{ cursor:default; }}
 @media(max-width:560px) {{ .cur-toggle .lab {{ display:none; }} .cur-toggle {{ right:10px; bottom:10px; }} }}
 </style>
 </head>
 <body{body_attrs}>
 <nav class="top"><div class="wrap">
-<a class="brand" href="/">EDUCATEDTRAVELER</a>
+<a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
 {NAV_AUTH}
 </div></nav>
 {body}
@@ -1795,7 +1795,7 @@ def intent_form(source, discipline=None, place=None, label=None):
 # the state badge and the "most alive" line. The note's own button is drawn by
 # /js/intent-capture.js, so there is no .btn here to keep in step with it.
 SHORT_CSS = """
-.notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
+.notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(78,123,120,.34); border-radius:99px; padding:4px 11px; }
 .opensby { font-size:13.5px; opacity:.62; white-space:nowrap; }
 @media (max-width:520px) { .opensby { display:block; margin-top:8px; white-space:normal; } }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
@@ -1865,9 +1865,9 @@ def dest_stub(dest_id, parent_id, parent_name, place, country):
 <meta http-equiv="refresh" content="0; url={url}">
 <script>window.location.replace({json.dumps(url)});</script>
 </head>
-<body style="background:#0d0b09;color:#f3ede2;font-family:system-ui,sans-serif;padding:40px">
+<body style="background:#ffffff;color:#0e1615;font-family:system-ui,sans-serif;padding:40px">
 <p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — a note to me, Arnaud, is what opens it.</p>
-<p><a href="{url}" style="color:#7fa8a5">Go to {e(parent_name)} &rarr;</a></p>
+<p><a href="{url}" style="color:#4e7b78">Go to {e(parent_name)} &rarr;</a></p>
 </body>
 </html>"""
 
@@ -2264,7 +2264,7 @@ def before_aboard_block(d):
     lis = "".join(f'<li style="margin:6px 0"><strong style="font-weight:500">{e(a)}.</strong> '
                   f'<span style="opacity:.82">{e(t)}</span></li>' for a, t in ba["items"])
     door = (f'<a href="/atlas/{d["id"]}-in-depth#need" style="text-decoration:none;font-size:14px;'
-            f'color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
+            f'color:var(--sea);border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">'
             f'{e(ba["door"])} &rarr;</a>') if in_depth_preserved(d) and ba.get("door") else ""
     return (f'<div style="margin-top:20px;max-width:62ch"><div class="mono">{e(ba["heading"])}</div>'
             f'<ul style="margin:8px 0 10px;padding-left:18px;font-size:15px;line-height:1.5">{lis}</ul>{door}</div>')
@@ -2355,13 +2355,13 @@ def coverage_block(d, x):
 
 
 COMMUNITY_TIER = {
-    "Legendary":  ("#f0c27a", "Legendary living community"),
+    "Legendary":  ("#4e7b78", "Legendary living community"),
     "Thriving":   ("#a3cdc9", "Thriving living community"),
-    "Strong":     ("rgba(243,237,226,.78)", "Strong living community"),
-    "Growing":    ("rgba(243,237,226,.55)", "Growing community"),
-    "Hidden-gem": ("rgba(243,237,226,.55)", "Hidden-gem community"),
+    "Strong":     ("rgba(14,22,21,.72)", "Strong living community"),
+    "Growing":    ("rgba(14,22,21,.72)", "Growing community"),
+    "Hidden-gem": ("rgba(14,22,21,.72)", "Hidden-gem community"),
     # the closed cell — see is_closed(). Not a weak community: no community.
-    "Gone":       ("rgba(243,237,226,.45)", "The community is gone"),
+    "Gone":       ("rgba(14,22,21,.6)", "The community is gone"),
 }
 
 # ── what the dots mean, in this town, in words ────────────────────────────
@@ -2450,7 +2450,7 @@ def community_pill(x):
     """
     if (x.get("communityRank") or 0) > 2:
         return ""
-    col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(243,237,226,.78)", (x.get("communityLabel") or "") + " community"))
+    col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(14,22,21,.72)", (x.get("communityLabel") or "") + " community"))
     return (f'<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.1em;'
             f'text-transform:uppercase;color:{col};font-weight:500">{e(text)}</span>')
 
@@ -2736,8 +2736,8 @@ def check_line(x):
             'Read it knowing that.</span>') if route == "with-us" else (
            f'<br>{e(ROUTES[route])}.' if route else "")
     return ('<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
-            'letter-spacing:.02em;color:rgba(243,237,226,.62);margin:14px 0 0;padding-top:10px;'
-            'border-top:1px dashed rgba(127,168,165,.28)">'
+            'letter-spacing:.02em;color:rgba(14,22,21,.72);margin:14px 0 0;padding-top:10px;'
+            'border-top:1px dashed rgba(78,123,120,.28)">'
             f'{e(st)} &middot; {who} &middot; {e(c["date"])}{what}{disc}</p>')
 
 
@@ -2796,10 +2796,10 @@ def sheet_link(d, x, href=None, on_page=False):
     label = (f'The full entry on {e(x["place"])}, further down this page &darr;' if on_page
              else f'The full sheet on {e(x["place"])} &rarr;')
     target = href or f'/atlas/{x["id"]}'
-    return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)">'
+    return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(14,22,21,.09)">'
             f'<a href="{target}" '
             'style="text-decoration:none;font-size:14px;color:var(--sea);'
-            'border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
+            'border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">'
             f'{label}</a>'
             f'<span class="meta" style="display:block;margin-top:7px">{what.capitalize()}.</span></p>')
 
@@ -2965,10 +2965,10 @@ def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
     else:
         head = f'<h2 style="margin:6px 0 4px">{place}</h2>{learn_line(x)}'
     ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:10px;'
-              'letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;'
-              'background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;'
+              'letter-spacing:.14em;text-transform:uppercase;color:#ffffff;font-weight:600;'
+              'background:linear-gradient(135deg,#4e7b78,#4e7b78);border-radius:6px;padding:3px 9px;'
               'margin-bottom:10px">★ Best place to go</div>') if is_best else ""
-    border = 'border-left:3px solid #d28a52;' if is_best else ""
+    border = 'border-left:3px solid #4e7b78;' if is_best else ""
     # A closed place gets the opposite of a ribbon: the plainest possible label, and the
     # honest note sits ABOVE the badges so nobody reads "Birthplace · Mecca · Heritage"
     # and arrives at a school that is not there.
@@ -3060,7 +3060,7 @@ PLACES_FIRST_CLOSE = "<!-- /et:places-first -->"
 # from the generated stylesheet on purpose, not imported: a preserved sheet defines its
 # own palette in its own tokens, and these rules are written against those tokens.
 PLACES_FIRST_CSS = (
-    "#other-places .card{background:var(--ink2);border:1px solid var(--line);border-radius:10px;"
+    "#other-places .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;"
     "padding:22px 24px;margin-bottom:14px;position:relative;transition:border-color .25s}"
     "#other-places .card:hover{border-color:color-mix(in srgb,var(--sea) 30%,var(--line))}"
     "#other-places .card h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:24px;"
@@ -3077,7 +3077,7 @@ PLACES_FIRST_CSS = (
     # makes Chrome shrink the WIDTH once the height cap bites.
     "#other-places .cardshot{width:calc(100% + 48px);aspect-ratio:16/9;max-height:460px;"
     "margin:-22px -24px 18px;border-radius:10px 10px 0 0;"
-    "background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);"
+    "background-image:linear-gradient(180deg,rgba(255,255,255,0) 60%,var(--surface) 100%),var(--shot);"
     "background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}"
     "#other-places .shotcredit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;"
     "text-transform:uppercase;opacity:.5;margin:12px 0 0}"
@@ -3085,7 +3085,7 @@ PLACES_FIRST_CSS = (
     "#other-places .dwhere{font-size:17px;font-weight:500;color:var(--sea);line-height:1.3;margin:2px 0 10px}"
     "#other-places .dwhere .in{font-size:13px;font-weight:400;opacity:.62}"
     "#other-places .badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;"
-    "letter-spacing:.06em;border:1px solid rgba(243,237,226,.18);border-radius:99px;padding:3px 10px;"
+    "letter-spacing:.06em;border:1px solid rgba(14,22,21,.18);border-radius:99px;padding:3px 10px;"
     "margin:0 6px 6px 0;opacity:.85}"
     "#other-places .meta{font-size:13px;opacity:.6;max-width:62ch}"
     "#other-places .mono{color:var(--sea);font-size:12px;letter-spacing:.08em}"
@@ -3176,10 +3176,10 @@ def featured_block(d, x, wrap=True):
     ps = price_start(f)
     if ps and ps != "Donation-based":
         _lead = "about " if price_is_approx(f) else "from "
-        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">' + _lead + '</span>'
-                      + money_html(ps, style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a"))
+        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#4e7b78">' + _lead + '</span>'
+                      + money_html(ps, style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#4e7b78"))
     elif ps == "Donation-based":
-        price_html = '<span style="color:#f0c27a">Donation-based</span>'
+        price_html = '<span style="color:#4e7b78">Donation-based</span>'
     else:
         price_html = '<span style="opacity:.6;font-style:italic">Price on request</span>'
     chips = " ".join(f'<span class="badge">{e(c)}</span>' for c in
@@ -3208,7 +3208,7 @@ def featured_block(d, x, wrap=True):
         # Inside the school's own fold: the card already prints the school, the place and
         # the course name in its summary, so repeating them here is the redite again.
         return inner
-    return (f'<section><div class="wrap"><div class="mono" style="color:#f0c27a">★ {e(tag)}</div>'
+    return (f'<section><div class="wrap"><div class="mono" style="color:#4e7b78">★ {e(tag)}</div>'
             f'<h2 style="margin:8px 0 4px">{e(f["course"])}</h2>'
             f'<div class="meta">{e(f.get("school",""))} — {e(f.get("place",""))}'
             f'{", " + e(f["country"]) if f.get("country") else ""}</div>{inner}</div></section>')
@@ -3378,8 +3378,8 @@ def school_teachers(s_):
 # no longer find is "course-gone", not "closed" — the difference is the whole standard:
 # "failed" requires evidence of failure, and a wall is not a grave.
 SCHOOL_STANDING = {
-    "closed":      ("Closed", "#d28a52"),
-    "paused":      ("Closed for now", "#d28a52"),
+    "closed":      ("Closed", "#4e7b78"),
+    "paused":      ("Closed for now", "#4e7b78"),
     "course-gone": ("This course is not listed now", None),
     "site-gone":   ("The site we link is no longer theirs", None),
     # ⚠ Not the same as site-gone: the domain answers nobody at all. Atmavikasa's stopped
@@ -3537,7 +3537,7 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     def _chip(t):
         if stand and t == SCHOOL_STANDING[stand["state"]][0]:
             col = SCHOOL_STANDING[stand["state"]][1]
-            return (f'<span class="stag" style="color:{col};border-color:rgba(210,138,82,.45)">{e(t)}</span>'
+            return (f'<span class="stag" style="color:{col};border-color:rgba(78,123,120,.45)">{e(t)}</span>'
                     if col else f'<span class="stag">{e(t)}</span>')
         if t.startswith("Best course"):
             return f'<span class="stag gold">★ {e(t)}</span>'
@@ -4098,8 +4098,8 @@ for d in DISC:
         _h1 = (f"{e(d['discipline'])} in {e(x['place'])}" if is_closed(x)
                else f"Learn {e(d['discipline'])} in {e(x['place'])}")
         _closed_band = ('<p style="margin:18px 0 0;padding:14px 18px;border:1px solid var(--line);'
-                        'border-left:3px solid var(--ember);border-radius:10px;background:var(--ink2);'
-                        f'max-width:62ch;color:var(--paper);opacity:.92">{e(x["closedNote"])}</p>'
+                        'border-left:3px solid var(--ember);border-radius:10px;background:var(--surface);'
+                        f'max-width:62ch;color:var(--type);opacity:.92">{e(x["closedNote"])}</p>'
                         ) if is_closed(x) else ""
 
         intent = intent_form(
@@ -4216,7 +4216,7 @@ for d in DISC:
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
 <h1>{e(d['discipline'])} in depth</h1>
 <p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{_cred}
-<p style="margin-top:16px"><a href="/atlas/{d['id']}" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
+<p style="margin-top:16px"><a href="/atlas/{d['id']}" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
 </div></header>
 {_idb}
 {related_block(d["id"])}"""
@@ -4451,7 +4451,8 @@ def band_item(s):
     return {"id": s, "name": c["name"],
             "place": r.get("place", c["place"]),
             "country": r.get("country", c["country"]),
-            "color": atlas_hub.WORLD_COLOR.get(c["world"], "#7fa8a5"),
+            "color": atlas_hub.WORLD_COLOR.get(c["world"], "#4e7b78"),
+            "world": c["world"],
             "why": r.get("why", c.get("why", "")), "blurb": c.get("blurb", ""),
             # the written line for the place the card rests on, so the band card at
             # rest says exactly what the first step of its walk says
@@ -4709,8 +4710,8 @@ if _lfloor is not None:
 # lands. Without this they would be the only three pictures on the Atlas published with no
 # attribution anywhere — and check 14c fails the build if that ever happens again.
 _PIC_CSS = (".piccredit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;"
-            "color:rgba(243,237,226,.42);margin:0 0 14px;line-height:1.6}"
-            ".piccredit a{color:rgba(243,237,226,.58)}")
+            "color:rgba(14,22,21,.6);margin:0 0 14px;line-height:1.6}"
+            ".piccredit a{color:rgba(14,22,21,.72)}")
 #
 # ⚠ A credit already on the sheet is REPLACED, not kept: the picture behind it can change
 # (27 Sept 2026, every picture re-sourced at the card's own place), and a kept line would

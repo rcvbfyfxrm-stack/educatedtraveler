@@ -55,12 +55,12 @@ export function renderAtlasPage(row) {
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root{--ink:#0d0b09;--ink2:#14110d;--paper:#f3ede2;--sea:#7fa8a5;--ember:#d28a52;--line:rgba(243,237,226,0.09);--muted:rgba(243,237,226,0.72);}
+:root{--ground:#ffffff;--surface:#ffffff;--type:#0e1615;--sea:#4e7b78;--ember:#4e7b78;--line:rgba(14,22,21,.09);--muted:rgba(14,22,21,.72);}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--paper);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ground);color:var(--type);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;}
 .serif{font-family:'Fraunces',Georgia,serif;} .mono{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sea);}
 a{color:inherit;} .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
-nav.top{position:sticky;top:0;background:rgba(13,11,9,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:50;}
+nav.top{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:50;}
 nav.top .wrap{max-width:1100px;display:flex;justify-content:space-between;align-items:center;height:60px;}
 nav.top a{text-decoration:none;opacity:.7;font-size:14px;} nav.top a:hover{opacity:1;color:var(--sea);}
 .brand{font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;font-size:13px;opacity:1 !important;}
@@ -68,25 +68,25 @@ header.hero{padding:66px 0 30px;border-bottom:1px solid var(--line);}
 h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.12;margin:12px 0 10px;}
 .article{padding:36px 0 10px;}
 .article h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:26px;margin:34px 0 12px;line-height:1.2;}
-.article h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;margin:26px 0 10px;color:var(--paper);}
+.article h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;margin:26px 0 10px;color:var(--type);}
 .article h4{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--sea);margin:22px 0 8px;}
 .article p{margin:0 0 14px;color:var(--muted);font-size:16px;}
 .article ul{margin:0 0 16px 20px;} .article li{margin:0 0 7px;color:var(--muted);}
-.article a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3);} .article a:hover{border-color:var(--sea);}
+.article a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3);} .article a:hover{border-color:var(--sea);}
 .article hr{border:none;border-top:1px solid var(--line);margin:32px 0;}
-.article strong{color:var(--paper);font-weight:500;} .article code{font-family:'IBM Plex Mono',monospace;font-size:.9em;background:rgba(243,237,226,.06);padding:1px 5px;border-radius:4px;}
+.article strong{color:var(--type);font-weight:500;} .article code{font-family:'IBM Plex Mono',monospace;font-size:.9em;background:rgba(14,22,21,.06);padding:1px 5px;border-radius:4px;}
 .sheet-tbl{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:14.5px;} .sheet-tbl td{border:1px solid var(--line);padding:9px 12px;vertical-align:top;color:var(--muted);}
-.cta{display:inline-block;margin-top:10px;padding:13px 26px;border-radius:99px;text-decoration:none;color:var(--paper);font-size:14px;background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%);}
-section.trust{padding:40px 0;border-top:1px solid var(--line);background:var(--ink2);margin-top:30px;}
-.intent{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:rgba(243,237,226,0.02);margin:26px 0 0;}
+.cta{display:inline-block;margin-top:10px;padding:13px 26px;border-radius:99px;text-decoration:none;color:var(--type);font-size:14px;background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%);}
+section.trust{padding:40px 0;border-top:1px solid var(--line);background:var(--surface);margin-top:30px;}
+.intent{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:rgba(14,22,21,.02);margin:26px 0 0;}
 .intent-q{font-size:15px;opacity:.82;margin-bottom:12px;} .intent-row{display:flex;gap:8px;flex-wrap:wrap;}
-.intent-input{flex:1 1 220px;background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16);border-radius:99px;padding:11px 16px;color:var(--paper);font-size:14px;}
-.intent-go{border:none;border-radius:99px;padding:11px 22px;font-size:14px;font-weight:500;color:#14110d;cursor:pointer;background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%);}
+.intent-input{flex:1 1 220px;background:rgba(14,22,21,.04);border:1px solid rgba(14,22,21,.16);border-radius:99px;padding:11px 16px;color:var(--type);font-size:14px;}
+.intent-go{border:none;border-radius:99px;padding:11px 22px;font-size:14px;font-weight:500;color:#ffffff;cursor:pointer;background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%);}
 footer{padding:40px 0 60px;font-size:13px;opacity:.5;} footer a{color:var(--sea);}
 </style></head>
 <body>
 <nav class="top"><div class="wrap">
-<a class="brand" href="/">EDUCATEDTRAVELER</a>
+<a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
 <div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;">Join the Circle</a><a href="/profile" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your Profile</a></div>
 </div></nav>
 <header class="hero"><div class="wrap">

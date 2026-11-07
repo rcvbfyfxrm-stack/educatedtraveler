@@ -19,10 +19,10 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas", "item": "https://educatedtraveler.app/atlas/"}, {"@type": "ListItem", "position": 2, "name": "Italian Cuisine & Pasta", "item": "https://educatedtraveler.app/atlas/italian-cuisine-and-pasta"}, {"@type": "ListItem", "position": 3, "name": "In depth", "item": "https://educatedtraveler.app/atlas/italian-cuisine-and-pasta-in-depth"}]}</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
-         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }
+:root { --ground:#ffffff; --surface:#ffffff; --type:#0e1615; --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.09);
+         --muted:rgba(14,22,21,.72); --faint:rgba(14,22,21,.6); }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }
+body { font-family:'Inter',system-ui,sans-serif; background:var(--ground); color:var(--type); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }
 .serif { font-family:'Fraunces',Georgia,serif; }
 .mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
 a { color:inherit; }
@@ -47,9 +47,9 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 .crail.drag{cursor:grabbing;scroll-behavior:auto}
 .crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
   display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
-  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
   transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
-.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(78,123,120,.42);background:rgba(78,123,120,.05)}
 .crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--faint)}
 .crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
@@ -60,9 +60,9 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 .crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
 .crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
 .crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
-  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  background:var(--surface);color:var(--type);cursor:pointer;font-size:13px;line-height:1;
   opacity:.72;transition:opacity .2s,border-color .2s}
-.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button:hover{opacity:1;border-color:rgba(78,123,120,.42)}
 .crail-nav button[disabled]{opacity:.22;cursor:default}
 @media(max-width:560px){.crail-nav{display:none}}
 
@@ -71,16 +71,16 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
    instead of the container — same 62ch as .lead. Narrowing the container is what
    used to jog the left edge 80px mid-scroll. */
 .wrap.prose > * { max-width:62ch; }
-nav.top { position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
+nav.top { position:sticky; top:0; background:rgba(255,255,255,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
 nav.top .wrap { display:flex; justify-content:space-between; align-items:center; height:60px; }
 nav.top a { text-decoration:none; opacity:.7; font-size:14px; } nav.top a:hover { opacity:1; color:var(--sea); }
-.brand { font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; font-size:13px; opacity:1 !important; }
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}.brand-mark{width:22px;height:22px;display:block}
 header.hero { padding:72px 0 40px; border-bottom:1px solid var(--line); }
 h1 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.12; margin:14px 0 18px; }
 h2 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; margin-bottom:14px; }
 .lead { font-size:17px; opacity:.78; max-width:62ch; }
 section { padding:44px 0; border-bottom:1px solid var(--line); }
-.card { background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }
 .card a.t { text-decoration:none; } .card a.t:hover { color:var(--sea); }
 /* ── the whole card is the door ──────────────────────────────────────────────
    The heading's link stretches over the card with ::after, so a reader can press
@@ -118,7 +118,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
    students' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */
 .cardshot { width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
+  background-image:linear-gradient(180deg,rgba(255,255,255,0) 60%,var(--surface) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }
 /* The places compared. The first table on this site, and it earns the form: five
    long cards is five scrolls and no comparison, and what a reader is choosing
@@ -137,7 +137,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
 .cmp .c-season, .cmp .c-howlong, .cmp .c-tier { white-space:nowrap; }
 .cmp tbody th a { color:var(--sea); text-decoration:none; }
 .cmp tbody th a:hover { text-decoration:underline; }
-.cmp td { color:rgba(243,237,226,.78); }
+.cmp td { color:rgba(14,22,21,.72); }
 .cmp .gone { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); font-weight:400; margin-left:6px; }
 .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom:none; }
@@ -148,7 +148,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
 .shotcredit:empty { display:none; }
 .dwhere { font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }
 .dwhere .in { font-size:13px; font-weight:400; opacity:.62; }
-.badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(243,237,226,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }
+.badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(14,22,21,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }
 .dots { color:var(--sea); letter-spacing:3px; }
 .meta { font-size:13px; opacity:.6; }
 ul.clean { list-style:none; } ul.clean li { padding:10px 0; border-bottom:1px solid var(--line); }
@@ -171,14 +171,14 @@ ul.clean li:last-child { border-bottom:none; }
    itself — a last resort, only when a genuinely unbroken run of characters would
    otherwise overflow; it does not touch how normal multi-word text wraps. */
 ul.schools { list-style:none; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }
-li.school { background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }
+li.school { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }
 li.school .stags { margin:0 0 10px; }
 .stag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;
   color:var(--muted); }
-.stag.gold { color:#14110d; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#d28a52,#e0a877); }
-.stag.ember { color:var(--ember); border-color:rgba(210,138,82,.45); }
-.stag.sea { color:var(--sea); border-color:rgba(127,168,165,.4); }
+.stag.gold { color:#ffffff; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#4e7b78,#4e7b78); }
+.stag.ember { color:var(--ember); border-color:rgba(78,123,120,.45); }
+.stag.sea { color:var(--sea); border-color:rgba(78,123,120,.4); }
 .sname { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; line-height:1.24; margin:2px 0 4px; }
 .scourse { font-size:15px; color:var(--sea); margin:0 0 14px; max-width:62ch; }
 dl.sfacts { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px 18px;
@@ -188,7 +188,7 @@ dl.sfacts dd { font-size:14px; line-height:1.45; margin-top:3px; }
 .snote { font-size:12.5px; color:var(--muted); }
 .sblurb { font-size:15px; opacity:.82; max-width:62ch; }
 .sstand { font-size:14.5px; max-width:62ch; margin:0 0 10px; padding:10px 14px; border-radius:8px;
-  border-left:2px solid var(--ember); background:rgba(210,138,82,.06); }
+  border-left:2px solid var(--ember); background:rgba(78,123,120,.06); }
 .steach { font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }
 .steach .school-url { word-break:normal; white-space:nowrap; }
 .sfoot .school-url { word-break:normal; overflow-wrap:anywhere; }
@@ -200,11 +200,11 @@ li.school[data-cover] { padding:0 0 20px; overflow:hidden; }
 li.school[data-cover] > :not(.scover) { margin-left:22px; margin-right:22px; }
 .scover { position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }
 .scover img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.scover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.62) 68%,rgba(13,11,9,.96) 100%); }
+.scover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(14,22,21,0) 40%,rgba(14,22,21,.62) 68%,rgba(14,22,21,.96) 100%); }
 .scap { position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }
-.scap .sname { color:var(--paper); }
-.scap .scourse { color:var(--paper); opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.scap .stag { background:rgba(13,11,9,.55); }
+.scap .sname, .scap .sname a { color:#fff; }
+.scap .scourse { color:#fff; opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.scap .stag { background:rgba(14,22,21,.45); color:#fff; border-color:rgba(255,255,255,.5); }
 li.school .scourse { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 details.sall .smh { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }
 details.sall > dl.sfacts { margin-top:12px; }
@@ -223,21 +223,21 @@ details.smore > p { font-size:14.5px; opacity:.82; max-width:62ch; margin-top:10
    is taken over by skill-save.js / intent-capture.js and falls back to the note. */
 .hero-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
 .hbtn { display:inline-flex; align-items:center; gap:.5em; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
-  letter-spacing:.06em; color:var(--paper); text-decoration:none; background:rgba(243,237,226,.04);
-  border:1px solid rgba(127,168,165,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }
-.hbtn:hover { border-color:var(--sea); background:rgba(127,168,165,.10); }
+  letter-spacing:.06em; color:var(--type); text-decoration:none; background:rgba(14,22,21,.04);
+  border:1px solid rgba(78,123,120,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }
+.hbtn:hover { border-color:var(--sea); background:rgba(78,123,120,.10); }
 .hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible, .pr-arrow:focus-visible { outline:2px solid var(--sea); outline-offset:3px; }
-.hbtn.go { color:#14110d; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.hbtn.go { color:#ffffff; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .hbtn.go:hover { filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .about-pop { display:none; }
 .about-pop:target { display:flex; position:fixed; inset:0; z-index:2300; align-items:center; justify-content:center;
-  padding:22px; background:rgba(13,11,9,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+  padding:22px; background:rgba(255,255,255,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
 .about-back { position:absolute; inset:0; }
-.about-card { position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--ink2);
+.about-card { position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--surface);
   border:1px solid var(--line); border-radius:16px; padding:28px 26px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.75); }
 .about-card h2 { font-size:28px; }
 .about-x { position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }
-.about-x:hover { color:var(--paper); }
+.about-x:hover { color:var(--type); }
 /* The place cards on a rail. The TRACK bleeds to the screen edge on a phone so the
    next card peeks in; the cards keep their own padding so the scroll-snap lands
    flush under the edge, not under the arrows. Two abreast on a desktop. The cards
@@ -267,11 +267,11 @@ ul.schools.crail { display:flex; }
    photographed or not — is visible the instant the card scrolls into view. */
 .pr-arrow { position:absolute; top:118px; z-index:4;
   display:flex; align-items:center; justify-content:center; width:38px; height:38px;
-  border-radius:99px; border:1px solid rgba(243,237,226,.22); background:rgba(20,17,13,.74);
-  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--paper);
+  border-radius:99px; border:1px solid rgba(14,22,21,.22); background:rgba(255,255,255,.74);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--type);
   font-size:19px; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
   transition:opacity .2s,border-color .2s,background .2s; }
-.pr-arrow:hover { border-color:rgba(127,168,165,.55); background:rgba(20,17,13,.9); }
+.pr-arrow:hover { border-color:rgba(78,123,120,.55); background:rgba(255,255,255,.9); }
 .pr-arrow[disabled] { opacity:.22; cursor:default; }
 .pr-prev { left:6px; } .pr-next { right:6px; }
 /* Desktop's rail has almost no inner gutter (2px, vs the phone's 24px scroll-padding),
@@ -286,49 +286,49 @@ ul.schools.crail { display:flex; }
 .sread { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }
 @media (max-width:560px) { li.school { padding:18px 18px; } dl.sfacts { grid-template-columns:1fr 1fr; } }
 .school-url { font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; } .school-url:hover { text-decoration:underline; }
-.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--surface); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .cta:hover { opacity:.92; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
 .shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr)); gap:18px 14px; align-items:start; }
 .shots figure { margin:0; }
 .shots figure.wide { grid-column:1/-1; }
-.shots img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }
+.shots img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--surface); }
 .shots figcaption { font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }
-.intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
+.intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(14,22,21,.02); margin:18px 0 0; }
 .intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
-.intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#ffffff; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
-.intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#e0915f; }
+.intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#4e7b78; }
 .intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
-footer { padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }
+footer { padding:40px 0 60px; font-size:13px; color:rgba(14,22,21,.72); }
 .piccredit { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
-  color:rgba(243,237,226,.42); margin:0 0 14px; line-height:1.6; }
-.piccredit a { color:rgba(243,237,226,.58); }
+  color:rgba(14,22,21,.6); margin:0 0 14px; line-height:1.6; }
+.piccredit a { color:rgba(14,22,21,.72); }
 footer a { color:var(--sea); }
 .cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
-  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+  background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
 .cur-toggle .lab { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }
-.cur-toggle button { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }
+.cur-toggle button { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--type); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }
 .cur-toggle button:hover { opacity:1; }
-.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }
+.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#ffffff; font-weight:500; }
 .price[data-amt] { cursor:default; }
 @media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }
 </style>
 </head>
 <body>
 <nav class="top"><div class="wrap">
-<a class="brand" href="/">EDUCATEDTRAVELER</a>
-<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;" title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a><a href="/you" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>
+<a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
+<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;" title="The people who have told me which craft they want to learn. One note joins it.">Join the Circle</a><a href="/you" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>
 </div></nav>
 <header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/italian-cuisine-and-pasta" style="text-decoration:none">Italian Cuisine &amp; Pasta</a></div>
 <h1>Italian Cuisine &amp; Pasta in depth</h1>
 <p class="lead">The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.</p><p style="opacity:.85;font-size:16px;max-width:62ch;margin-top:14px">Nobody can name the first plate of pasta, and the old story that Marco Polo brought it from China is a myth. One of the earliest firm records on Italian soil comes from 1154, when the geographer al-Idrisi described buildings at Trabia, in Sicily, making vast quantities of itriyya, strands of dough dried before cooking and shipped everywhere. One Italian table came later. In 1891 Pellegrino Artusi of Forlimpopoli, unable to find a publisher, paid to print his own book of recipes gathered from across the regions. Today Bologna guards the craft most closely: its Chamber of Commerce has kept a gold sample of the cooked tagliatella, eight millimetres wide, since 1972, and in a country whose cooking UNESCO added to the intangible heritage of humanity in 2025.</p><p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">ALMA Diploma in Italian Cuisine / La Vecchia Scuola Bolognese Sfoglina certificate</strong> · ALMA — La Scuola Internazionale di Cucina Italiana (Italian Cuisine Diploma)</p>
-<p style="margin-top:16px"><a href="/atlas/italian-cuisine-and-pasta" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
+<p style="margin-top:16px"><a href="/atlas/italian-cuisine-and-pasta" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
 </div></header>
 <section id="in-depth"><div class="wrap prose"><div class="mono">If this one pulls you</div><h2>Italian Cuisine &amp; Pasta &mdash; the overall</h2><p style="opacity:.82;font-size:15px;margin-bottom:16px"><strong style="font-weight:500">What you can realistically reach:</strong> A few days with a pasta maestra gets your hands genuinely fluent in fresh dough, shaping and a handful of regional classics — enough to cook them honestly forever. The full regional repertoire is a lifetime.</p><ul class="clean" style="font-size:14.5px"><li><strong style="font-weight:500">Group</strong> — Small home- or studio-kitchen classes, a few students per cook.</li><li><strong style="font-weight:500">A normal day</strong> — Hands-on from the board — dough, shaping, sauces — then sitting down to eat what you made; some include a market visit.</li><li><strong style="font-weight:500">Who comes</strong> — Home cooks and food-lovers, often couples and friends, mixed ages.</li></ul><p class="meta" style="margin-top:12px">This is the craft, not one school's version of it. What each place does with it is on that place's own sheet.</p></div></section>
 <section><div class="wrap"><div class="crail-wrap"><div class="crail-head"><div><div class="mono">If this one pulls you</div><h2>Close to this on the map</h2></div><div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button><button data-cr="next" aria-label="Next">&#8250;</button></div></div><p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p><div class="crail"><a href="/atlas/new-basque-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">New Basque Cuisine</span><span class="cr-p">San Sebastián (Donostia), Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/oaxacan-and-mexican-cuisine"><span class="cr-w">Kitchens of the world</span><span class="cr-n">Oaxacan &amp; Mexican Cuisine</span><span class="cr-p">Oaxaca, Mexico</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/modern-new-technique-cuisine"><span class="cr-w">The classical kitchen</span><span class="cr-n">New culinary techniques &amp; technologies</span><span class="cr-p">Barcelona, Spain</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/sushi-and-washoku"><span class="cr-w">Kitchens of the world</span><span class="cr-n">Sushi &amp; Washoku</span><span class="cr-p">Tokyo (Tsukiji / Toyosu), Japan</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a></div></div></div></section>
-<section style="border-top:1px solid var(--line);background:var(--ink2)">
+<section style="border-top:1px solid var(--line);background:var(--surface)">
 <div class="wrap prose">
 <details class="fold">
 <summary>
@@ -372,7 +372,7 @@ footer a { color:var(--sea); }
 </script>
 <script src="/js/intent-capture.js" defer></script>
 <script src="/js/school-note.js" defer></script>
-<footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Italian%20Cuisine%20%26%20Pasta%20in%20depth&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/italian-cuisine-and-pasta-in-depth%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/collaborations" style="color:var(--sea);text-decoration:none;">Collaborations</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Italian%20Cuisine%20%26%20Pasta%20in%20depth&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/italian-cuisine-and-pasta-in-depth%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/collaborations" style="color:var(--sea);text-decoration:none;">Collaborations</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 <div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — converted at live ECB rates; the original is the source of truth">
 <span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
 <script>

@@ -19,10 +19,10 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas", "item": "https://educatedtraveler.app/atlas/"}, {"@type": "ListItem", "position": 2, "name": "Spearfishing", "item": "https://educatedtraveler.app/atlas/spearfishing"}, {"@type": "ListItem", "position": 3, "name": "C\u00f4te d'Azur (Cassis to Antibes)", "item": "https://educatedtraveler.app/atlas/spearfishing--c-te-d-azur-cassis-to-antibes"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "name": "C\u00f4te d'Azur (Cassis to Antibes), France", "description": "Modern sport spearfishing took off on this French-Italian Mediterranean coast in the 1920s, and the hunt helped bring in the modern mask, fins and snorkel.", "url": "https://educatedtraveler.app/atlas/spearfishing--c-te-d-azur-cassis-to-antibes", "containedInPlace": {"@type": "Country", "name": "France"}}</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
-         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }
+:root { --ground:#ffffff; --surface:#ffffff; --type:#0e1615; --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.09);
+         --muted:rgba(14,22,21,.72); --faint:rgba(14,22,21,.6); }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }
+body { font-family:'Inter',system-ui,sans-serif; background:var(--ground); color:var(--type); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }
 .serif { font-family:'Fraunces',Georgia,serif; }
 .mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
 a { color:inherit; }
@@ -47,9 +47,9 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 .crail.drag{cursor:grabbing;scroll-behavior:auto}
 .crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
   display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
-  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
   transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
-.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(78,123,120,.42);background:rgba(78,123,120,.05)}
 .crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--faint)}
 .crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
@@ -60,9 +60,9 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 .crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
 .crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
 .crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
-  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  background:var(--surface);color:var(--type);cursor:pointer;font-size:13px;line-height:1;
   opacity:.72;transition:opacity .2s,border-color .2s}
-.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button:hover{opacity:1;border-color:rgba(78,123,120,.42)}
 .crail-nav button[disabled]{opacity:.22;cursor:default}
 @media(max-width:560px){.crail-nav{display:none}}
 
@@ -71,16 +71,16 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
    instead of the container — same 62ch as .lead. Narrowing the container is what
    used to jog the left edge 80px mid-scroll. */
 .wrap.prose > * { max-width:62ch; }
-nav.top { position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
+nav.top { position:sticky; top:0; background:rgba(255,255,255,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
 nav.top .wrap { display:flex; justify-content:space-between; align-items:center; height:60px; }
 nav.top a { text-decoration:none; opacity:.7; font-size:14px; } nav.top a:hover { opacity:1; color:var(--sea); }
-.brand { font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; font-size:13px; opacity:1 !important; }
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}.brand-mark{width:22px;height:22px;display:block}
 header.hero { padding:72px 0 40px; border-bottom:1px solid var(--line); }
 h1 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.12; margin:14px 0 18px; }
 h2 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; margin-bottom:14px; }
 .lead { font-size:17px; opacity:.78; max-width:62ch; }
 section { padding:44px 0; border-bottom:1px solid var(--line); }
-.card { background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }
 .card a.t { text-decoration:none; } .card a.t:hover { color:var(--sea); }
 /* ── the whole card is the door ──────────────────────────────────────────────
    The heading's link stretches over the card with ::after, so a reader can press
@@ -118,7 +118,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
    students' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */
 .cardshot { width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
+  background-image:linear-gradient(180deg,rgba(255,255,255,0) 60%,var(--surface) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }
 /* The places compared. The first table on this site, and it earns the form: five
    long cards is five scrolls and no comparison, and what a reader is choosing
@@ -137,7 +137,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
 .cmp .c-season, .cmp .c-howlong, .cmp .c-tier { white-space:nowrap; }
 .cmp tbody th a { color:var(--sea); text-decoration:none; }
 .cmp tbody th a:hover { text-decoration:underline; }
-.cmp td { color:rgba(243,237,226,.78); }
+.cmp td { color:rgba(14,22,21,.72); }
 .cmp .gone { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); font-weight:400; margin-left:6px; }
 .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom:none; }
@@ -148,7 +148,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
 .shotcredit:empty { display:none; }
 .dwhere { font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }
 .dwhere .in { font-size:13px; font-weight:400; opacity:.62; }
-.badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(243,237,226,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }
+.badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(14,22,21,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }
 .dots { color:var(--sea); letter-spacing:3px; }
 .meta { font-size:13px; opacity:.6; }
 ul.clean { list-style:none; } ul.clean li { padding:10px 0; border-bottom:1px solid var(--line); }
@@ -171,14 +171,14 @@ ul.clean li:last-child { border-bottom:none; }
    itself — a last resort, only when a genuinely unbroken run of characters would
    otherwise overflow; it does not touch how normal multi-word text wraps. */
 ul.schools { list-style:none; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }
-li.school { background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }
+li.school { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }
 li.school .stags { margin:0 0 10px; }
 .stag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;
   color:var(--muted); }
-.stag.gold { color:#14110d; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#d28a52,#e0a877); }
-.stag.ember { color:var(--ember); border-color:rgba(210,138,82,.45); }
-.stag.sea { color:var(--sea); border-color:rgba(127,168,165,.4); }
+.stag.gold { color:#ffffff; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#4e7b78,#4e7b78); }
+.stag.ember { color:var(--ember); border-color:rgba(78,123,120,.45); }
+.stag.sea { color:var(--sea); border-color:rgba(78,123,120,.4); }
 .sname { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; line-height:1.24; margin:2px 0 4px; }
 .scourse { font-size:15px; color:var(--sea); margin:0 0 14px; max-width:62ch; }
 dl.sfacts { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px 18px;
@@ -188,7 +188,7 @@ dl.sfacts dd { font-size:14px; line-height:1.45; margin-top:3px; }
 .snote { font-size:12.5px; color:var(--muted); }
 .sblurb { font-size:15px; opacity:.82; max-width:62ch; }
 .sstand { font-size:14.5px; max-width:62ch; margin:0 0 10px; padding:10px 14px; border-radius:8px;
-  border-left:2px solid var(--ember); background:rgba(210,138,82,.06); }
+  border-left:2px solid var(--ember); background:rgba(78,123,120,.06); }
 .steach { font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }
 .steach .school-url { word-break:normal; white-space:nowrap; }
 .sfoot .school-url { word-break:normal; overflow-wrap:anywhere; }
@@ -200,11 +200,11 @@ li.school[data-cover] { padding:0 0 20px; overflow:hidden; }
 li.school[data-cover] > :not(.scover) { margin-left:22px; margin-right:22px; }
 .scover { position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }
 .scover img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.scover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.62) 68%,rgba(13,11,9,.96) 100%); }
+.scover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(14,22,21,0) 40%,rgba(14,22,21,.62) 68%,rgba(14,22,21,.96) 100%); }
 .scap { position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }
-.scap .sname { color:var(--paper); }
-.scap .scourse { color:var(--paper); opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.scap .stag { background:rgba(13,11,9,.55); }
+.scap .sname, .scap .sname a { color:#fff; }
+.scap .scourse { color:#fff; opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.scap .stag { background:rgba(14,22,21,.45); color:#fff; border-color:rgba(255,255,255,.5); }
 li.school .scourse { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 details.sall .smh { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }
 details.sall > dl.sfacts { margin-top:12px; }
@@ -223,21 +223,21 @@ details.smore > p { font-size:14.5px; opacity:.82; max-width:62ch; margin-top:10
    is taken over by skill-save.js / intent-capture.js and falls back to the note. */
 .hero-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
 .hbtn { display:inline-flex; align-items:center; gap:.5em; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
-  letter-spacing:.06em; color:var(--paper); text-decoration:none; background:rgba(243,237,226,.04);
-  border:1px solid rgba(127,168,165,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }
-.hbtn:hover { border-color:var(--sea); background:rgba(127,168,165,.10); }
+  letter-spacing:.06em; color:var(--type); text-decoration:none; background:rgba(14,22,21,.04);
+  border:1px solid rgba(78,123,120,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }
+.hbtn:hover { border-color:var(--sea); background:rgba(78,123,120,.10); }
 .hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible, .pr-arrow:focus-visible { outline:2px solid var(--sea); outline-offset:3px; }
-.hbtn.go { color:#14110d; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.hbtn.go { color:#ffffff; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .hbtn.go:hover { filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .about-pop { display:none; }
 .about-pop:target { display:flex; position:fixed; inset:0; z-index:2300; align-items:center; justify-content:center;
-  padding:22px; background:rgba(13,11,9,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+  padding:22px; background:rgba(255,255,255,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
 .about-back { position:absolute; inset:0; }
-.about-card { position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--ink2);
+.about-card { position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--surface);
   border:1px solid var(--line); border-radius:16px; padding:28px 26px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.75); }
 .about-card h2 { font-size:28px; }
 .about-x { position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }
-.about-x:hover { color:var(--paper); }
+.about-x:hover { color:var(--type); }
 /* The place cards on a rail. The TRACK bleeds to the screen edge on a phone so the
    next card peeks in; the cards keep their own padding so the scroll-snap lands
    flush under the edge, not under the arrows. Two abreast on a desktop. The cards
@@ -267,11 +267,11 @@ ul.schools.crail { display:flex; }
    photographed or not — is visible the instant the card scrolls into view. */
 .pr-arrow { position:absolute; top:118px; z-index:4;
   display:flex; align-items:center; justify-content:center; width:38px; height:38px;
-  border-radius:99px; border:1px solid rgba(243,237,226,.22); background:rgba(20,17,13,.74);
-  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--paper);
+  border-radius:99px; border:1px solid rgba(14,22,21,.22); background:rgba(255,255,255,.74);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--type);
   font-size:19px; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
   transition:opacity .2s,border-color .2s,background .2s; }
-.pr-arrow:hover { border-color:rgba(127,168,165,.55); background:rgba(20,17,13,.9); }
+.pr-arrow:hover { border-color:rgba(78,123,120,.55); background:rgba(255,255,255,.9); }
 .pr-arrow[disabled] { opacity:.22; cursor:default; }
 .pr-prev { left:6px; } .pr-next { right:6px; }
 /* Desktop's rail has almost no inner gutter (2px, vs the phone's 24px scroll-padding),
@@ -286,39 +286,39 @@ ul.schools.crail { display:flex; }
 .sread { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }
 @media (max-width:560px) { li.school { padding:18px 18px; } dl.sfacts { grid-template-columns:1fr 1fr; } }
 .school-url { font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; } .school-url:hover { text-decoration:underline; }
-.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--surface); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .cta:hover { opacity:.92; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
 .shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr)); gap:18px 14px; align-items:start; }
 .shots figure { margin:0; }
 .shots figure.wide { grid-column:1/-1; }
-.shots img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }
+.shots img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--surface); }
 .shots figcaption { font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }
-.intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
+.intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(14,22,21,.02); margin:18px 0 0; }
 .intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
-.intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#ffffff; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
-.intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#e0915f; }
+.intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#4e7b78; }
 .intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
-footer { padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }
+footer { padding:40px 0 60px; font-size:13px; color:rgba(14,22,21,.72); }
 .piccredit { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
-  color:rgba(243,237,226,.42); margin:0 0 14px; line-height:1.6; }
-.piccredit a { color:rgba(243,237,226,.58); }
+  color:rgba(14,22,21,.6); margin:0 0 14px; line-height:1.6; }
+.piccredit a { color:rgba(14,22,21,.72); }
 footer a { color:var(--sea); }
 .cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
-  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+  background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
 .cur-toggle .lab { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }
-.cur-toggle button { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }
+.cur-toggle button { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--type); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }
 .cur-toggle button:hover { opacity:1; }
-.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }
+.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#ffffff; font-weight:500; }
 .price[data-amt] { cursor:default; }
 @media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }
 </style>
 </head>
 <body>
 <nav class="top"><div class="wrap">
-<a class="brand" href="/">EDUCATEDTRAVELER</a>
-<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;" title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a><a href="/you" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>
+<a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
+<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;" title="The people who have told me which craft they want to learn. One note joins it.">Join the Circle</a><a href="/you" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>
 </div></nav>
 <header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/spearfishing" style="text-decoration:none">Spearfishing</a></div>
@@ -326,14 +326,14 @@ footer a { color:var(--sea); }
 <p class="lead">Modern sport spearfishing took off on this French-Italian Mediterranean coast in the 1920s, and the hunt helped bring in the modern mask, fins and snorkel.</p>
 <div class="hero-acts"><a class="hbtn" href="#about" id="about-open">About this place</a><a class="hbtn go" href="#letter" data-interest>I&rsquo;m interested</a></div><div class="about-pop" id="about" role="dialog" aria-modal="true" aria-labelledby="about-h"><a class="about-back" href="#about-closed" aria-label="Close"></a><div class="about-card" tabindex="-1"><a class="about-x" href="#about-closed" aria-label="Close">&times;</a><div class="mono">About this place</div><h2 id="about-h" style="margin:6px 0 4px">Côte d&#x27;Azur (Cassis to Antibes), France</h2><p style="opacity:.85;font-size:16px;max-width:62ch;margin-top:14px">People have speared fish since the Palaeolithic, but the sport of hunting on one breath took off in the 1920s on the Mediterranean coast of France and Italy, by swimmers wearing only watertight goggles. It helped bring in the modern diving mask, fins and snorkel; the Frenchman Louis de Corlieu, who had shown a first prototype to naval officers in 1914, patented his swimfins in April 1933. In Antibes, the American writer Guy Gilpatric hunted the same water and in 1938 published The Compleat Goggler, held to be the first full guide to the sport; he drew Jacques-Yves Cousteau and Hans Hass into it. Today the craft is most alive where its champions come from: at the 2025 World Championship in Brazil, Tahiti’s Dell Lamartinière and Taina Orth won both individual titles, and Spain took the men’s team gold.</p></div></div>
 </div></header>
-<section><div class="wrap"><div class="card" style="border-left:3px solid #d28a52;"><div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;margin-bottom:10px">★ Best place to go</div><div class="mono">Birthplace of the discipline</div><h2 style="margin:6px 0 4px">Côte d&#x27;Azur (Cassis to Antibes), France</h2><p style="font-family:'Fraunces',Georgia,serif;font-size:17px;line-height:1.4;color:var(--sea);margin:8px 0 10px;max-width:54ch">Learn on the coast where sport spearfishing took off in the 1920s.</p><div class="meta" style="margin-bottom:4px">Season: May-Oct · Beginner -&gt; Competition</div><p style="margin:0 0 12px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:62ch">Clubs rather than schools, which is the difference that matters: the FFESSM-affiliated associations on this coast are volunteer bodies whose members train and qualify together, and the state diploma at Antibes has a cohort by definition. The Fédération Française de Pêche Sportive en Apnée ran a French Cup round off Sainte-Maxime on 25 April 2026 — 22 two-person teams, its own regional league, selling nothing.</p><span class="badge">Birthplace</span><span class="badge">Heritage</span></div></div></section>
+<section><div class="wrap"><div class="card" style="border-left:3px solid #4e7b78;"><div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#ffffff;font-weight:600;background:linear-gradient(135deg,#4e7b78,#4e7b78);border-radius:6px;padding:3px 9px;margin-bottom:10px">★ Best place to go</div><div class="mono">Birthplace of the discipline</div><h2 style="margin:6px 0 4px">Côte d&#x27;Azur (Cassis to Antibes), France</h2><p style="font-family:'Fraunces',Georgia,serif;font-size:17px;line-height:1.4;color:var(--sea);margin:8px 0 10px;max-width:54ch">Learn on the coast where sport spearfishing took off in the 1920s.</p><div class="meta" style="margin-bottom:4px">Season: May-Oct · Beginner -&gt; Competition</div><p style="margin:0 0 12px;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:62ch">Clubs rather than schools, which is the difference that matters: the FFESSM-affiliated associations on this coast are volunteer bodies whose members train and qualify together, and the state diploma at Antibes has a cohort by definition. The Fédération Française de Pêche Sportive en Apnée ran a French Cup round off Sainte-Maxime on 25 April 2026 — 22 two-person teams, its own regional league, selling nothing.</p><span class="badge">Birthplace</span><span class="badge">Heritage</span></div></div></section>
 
 <section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in Côte d&#x27;Azur (Cassis to Antibes)</h2><p class="meta" style="margin-bottom:12px">Researched by hand against each school's own course pages · Arnaud Callier. No school paid to be listed.</p><div class="prail-track crail-wrap"><ul class="schools crail prail"><li class="school" data-school="CREPS PACA (Antibes)" data-craft="spearfishing" data-dest="spearfishing--c-te-d-azur-cassis-to-antibes"><div class="stags"><span class="stag gold">★ Best course for this craft</span></div><h3 class="sname">CREPS PACA (Antibes)</h3><div class="scourse">BPJEPS Plongée subaquatique option &#x27;sans scaphandre&#x27; (apnée)</div><dl class="sfacts"><div><dt>How long</dt><dd>833 hours: 259 at the centre, 574 in a host structure</dd></div><div><dt>Price</dt><dd><span class="price" data-amt="4144" data-cur="EUR" data-orig="€4,144" style="">€4,144</span> <span class="snote">full course (UC1 to UC4), April 2027 session</span></dd></div></dl><div class="sfoot"><a class="school-url svisit" rel="nofollow noopener" target="_blank" href="https://www.creps-paca.fr/formation.fiche-BPJEPS-PSS-06">Visit CREPS PACA (Antibes) ↗</a><a class="school-url sinterest" href="#letter" data-interest>I&rsquo;m interested in this school &rarr;</a></div><details class="smore sall"><summary>More about this school</summary><dl class="sfacts"><div><dt>Where</dt><dd>CREPS PACA, Antibes site</dd></div><div><dt>Format</dt><dd>Alternance, 21 April to 22 October 2027; 105 hours distance learning</dd></div><div><dt>You leave with</dt><dd>BPJEPS Plongée subaquatique sans scaphandre (level 4 diploma)</dd></div></dl><p class="sblurb">France&#x27;s state-recognized professional diploma for breath-hold disciplines, delivered at the national CREPS center in Antibes on the Côte d&#x27;Azur.</p><h4 class="smh">What the course covers</h4><p>France&#x27;s state-recognized professional diploma for breath-hold disciplines, delivered at the national CREPS center in Antibes on the Côte d&#x27;Azur. The program covers freediving, underwater hunting (chasse sous-marine), underwater hiking and target shooting, with training in safety, regulation, physiology and environmental protection alongside in-water practical work in the Mediterranean. It qualifies the holder to professionally lead and teach apnea and spearfishing activities. Aimed at serious practitioners pursuing a career, not casual visitors.</p><p class="sread">Facts read on the school's own pages, 17 Sep 2026.</p></details></li><li class="school" data-school="FFESSM-affiliated pêche sous-marine clubs (Côte d&#x27;Azur)" data-craft="spearfishing" data-dest="spearfishing--c-te-d-azur-cassis-to-antibes"><h3 class="sname">FFESSM-affiliated pêche sous-marine clubs (Côte d&#x27;Azur)</h3><div class="scourse">FFESSM pêche sous-marine training and licences</div><div class="sfoot"><a class="school-url svisit" rel="nofollow noopener" target="_blank" href="https://peche.ffessm.fr/">Visit FFESSM-affiliated pêche sous-marine clubs (Côte d&#x27;Azur) ↗</a><a class="school-url sinterest" href="#letter" data-interest>I&rsquo;m interested in this school &rarr;</a></div><details class="smore sall"><summary>More about this school</summary><dl class="sfacts"><div><dt>Where</dt><dd>FFESSM clubs, PACA region</dd></div><div><dt>Format</dt><dd>Club training with certified instructors and supervised sea outings</dd></div><div><dt>You leave with</dt><dd>FFESSM pêche sous-marine levels PSM 1, 2 and 3; licence counts as fishing permit</dd></div></dl><p class="sblurb">The FFESSM (French federation for underwater study and sport) runs a national pêche sous-marine commission and affiliated Côte d&#x27;Azur clubs that deliver spearfishing licences and training on Mediterranean spots between Cassis and Antibes.</p><p class="sread">Facts read on the school's own pages, 7 Oct 2026.</p></details></li><li class="school" data-school="Estérel Sea School" data-craft="spearfishing" data-dest="spearfishing--c-te-d-azur-cassis-to-antibes"><h3 class="sname">Estérel Sea School</h3><div class="scourse">Pêche sous-marine: PSM 1 / PSM 2 / PSM 3 practitioner levels (2-day course), plus initiation and perfectionnement half-days</div><dl class="sfacts"><div><dt>How long</dt><dd>2 days</dd></div><div><dt>Price</dt><dd><span class="price" data-amt="380" data-cur="EUR" data-orig="€380" style="">€380</span> <span class="snote">2-day PSM level course; FFESSM licence (€50) not included; gear hire €20</span></dd></div></dl><div class="sfoot"><a class="school-url svisit" rel="nofollow noopener" target="_blank" href="https://www.esterelseaschool.com/">Visit Estérel Sea School ↗</a><a class="school-url sinterest" href="#letter" data-interest>I&rsquo;m interested in this school &rarr;</a></div><details class="smore sall"><summary>More about this school</summary><dl class="sfacts"><div><dt>Where</dt><dd>Saint-Raphaël, Port Santa Lucia</dd></div><div><dt>Format</dt><dd>From a 5.5 m RIB along the Estérel coast, Anthéor and Dramont to Cap Camarat</dd></div><div><dt>Class size</dt><dd>4 to 6 trainees on the boat</dd></div><div><dt>You leave with</dt><dd>FFESSM PSM 1, 2 or 3 level; school is FFESSM-approved (agrément 3383176C)</dd></div></dl><p class="sblurb">A spearfishing and freediving school run out of Port Santa Lucia in Saint-Raphaël by Jean-Michel Annibal, a state-qualified instructor who holds the FFESSM spearfishing monitor grade. He teaches from a 5.5 m RIB along the Estérel coast, from the red rocks of Anthéor and the Dramont to Cap Camarat, and runs the FFESSM PSM levels over two days. Checked on esterelseaschool.com, 7 October 2026.</p><p class="sread">Facts read on the school's own pages, 7 Oct 2026.</p></details></li></ul><button type="button" class="pr-arrow pr-prev" data-cr="prev" aria-label="Previous school">&#8249;</button><button type="button" class="pr-arrow pr-next" data-cr="next" aria-label="Next school">&#8250;</button></div></div></section>
 
 <section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential that counts here</h2><p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">CMAS Spearfishing grades / national federation licence + freediving certification</strong> · Certifying body: CMAS (spearfishing commission) / national federations</p><p class="meta" style="margin-top:10px">That is the one an outside body sets and marks, which is what separates it from a certificate a school prints itself — that proves you attended. We name which of the two a course actually gives you; ask the school the same question before you pay, and judge the answer yourself.</p></div></section>
 <section><div class="wrap"><form class="intent" id="letter" data-discipline="spearfishing" data-place="spearfishing--c-te-d-azur-cassis-to-antibes" data-label="Spearfishing · Côte d&#x27;Azur (Cassis to Antibes)" data-source="atlas:spearfishing--c-te-d-azur-cassis-to-antibes"><p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn it, and where.</p><p class="intent-fine">If this box never loads, the same note reaches me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p></form></div></section>
 <section><div class="wrap"><div class="mono">Same discipline, other sources</div><h2>Also for Spearfishing</h2><div class="grid"><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/spearfishing--kona-big-island">Kona, Big Island, United States</a></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/spearfishing--cabo-san-lucas-sea-of-cortez">Cabo San Lucas / Sea of Cortez, Mexico</a></div></div></div></section>
-<section style="border-top:1px solid var(--line);background:var(--ink2)">
+<section style="border-top:1px solid var(--line);background:var(--surface)">
 <div class="wrap prose">
 <details class="fold">
 <summary>
@@ -377,7 +377,7 @@ footer a { color:var(--sea); }
 </script>
 <script src="/js/intent-capture.js" defer></script>
 <script src="/js/school-note.js" defer></script>
-<footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Spearfishing%20in%20C%C3%B4te%20d%27Azur%20%28Cassis%20to%20Antibes%29%2C%20France&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/spearfishing--c-te-d-azur-cassis-to-antibes%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/collaborations" style="color:var(--sea);text-decoration:none;">Collaborations</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Spearfishing%20in%20C%C3%B4te%20d%27Azur%20%28Cassis%20to%20Antibes%29%2C%20France&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/spearfishing--c-te-d-azur-cassis-to-antibes%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/collaborations" style="color:var(--sea);text-decoration:none;">Collaborations</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 <div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — converted at live ECB rates; the original is the source of truth">
 <span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
 <script>

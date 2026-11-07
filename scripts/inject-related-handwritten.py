@@ -222,7 +222,7 @@ def place_photo_block(slug):
            ".pickshot{width:100%;aspect-ratio:16/9;max-height:300px;margin:0 0 16px;"
            "border-radius:10px;background-size:cover;background-repeat:no-repeat;"
            "background-position:var(--focal,center);"
-           "background-image:linear-gradient(180deg,rgba(20,17,13,0) 62%,rgba(20,17,13,.55) 100%),var(--shot)}"
+           "background-image:linear-gradient(180deg,rgba(255,255,255,0) 62%,rgba(255,255,255,.55) 100%),var(--shot)}"
            ".pickshotcredit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;"
            "text-transform:uppercase;opacity:.5;margin:-8px 0 14px}"
            "</style>")

@@ -19,22 +19,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root{--ink:#0d0b09;--ink2:#14110d;--ink3:#1c1813;--paper:#f3ede2;--muted:rgba(243,237,226,.56);--faint:rgba(243,237,226,.34);--sea:#7fa8a5;--ember:#d28a52;--gold:#e7b54e;--line:rgba(243,237,226,.09);
+:root{--ground:#ffffff;--surface:#ffffff;--ink3:#1c1813;--type:#0e1615;--muted:rgba(14,22,21,.72);--faint:rgba(14,22,21,.6);--sea:#4e7b78;--ember:#4e7b78;--gold:#4e7b78;--line:rgba(14,22,21,.09);
 /* the letter's real paper (matches /circle and /portrait) */
---sheet:#efe6d3;--sheet-edge:#e2d6bd;--sheet-ink:#2c231a;--sheet-faint:#6f6350}
+--sheet:#0e1615;--sheet-edge:#e2d6bd;--sheet-ink:#2c231a;--sheet-faint:#6f6350}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--paper);font-weight:300;line-height:1.6;overflow-x:hidden}
-::selection{background:rgba(210,138,82,.3)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ground);color:var(--type);font-weight:300;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(78,123,120,.3)}
 a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;color:inherit;background:none;border:none}
 .serif{font-family:'Fraunces',Georgia,serif}.mono{font-family:'IBM Plex Mono',monospace}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sea)}
 .wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3.4vw,38px)}
-nav.top{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(13,11,9,.66);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav.top{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(255,255,255,.66);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
 nav.top .row{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3.4vw,38px);height:60px;display:flex;align-items:center;justify-content:space-between}
-nav.top .brand{font-family:'Fraunces',Georgia,serif;font-size:17px;letter-spacing:.14em}.brand b{color:var(--sea);font-weight:400}
+nav.top .brand{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}nav.top .brand-mark{width:22px;height:22px;display:block}
 nav.top .links{display:flex;gap:24px;align-items:center}.links a{font-size:14px;opacity:.62;transition:opacity .25s,color .25s}.links a:hover{opacity:1;color:var(--sea)}
-nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:7px 15px;border-radius:99px}.join:hover{border-color:var(--sea)}
+nav.top .join{opacity:1!important;border:1px solid rgba(14,22,21,.20);padding:7px 15px;border-radius:99px}.join:hover{border-color:var(--sea)}
 nav.top .links a.here{opacity:1;color:var(--sea)}
 @media(max-width:820px){nav.top .row{flex-wrap:wrap;height:auto;padding-top:9px;padding-bottom:5px;row-gap:2px}nav.top .brand{order:1}nav.top .join{order:2;padding:6px 13px;font-size:13px}nav.top .links{order:3;width:100%;justify-content:space-between;gap:10px;padding:2px 0 4px}nav.top .links a{font-size:13px}.hero{padding-top:112px!important}}
 
@@ -49,7 +49,7 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
    The measure is capped well short of the column — display type set to 1240px is a
    banner, not a sentence. */
 .hero-head h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(32px,4.4vw,50px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 0;max-width:min(100%,1040px);text-wrap:balance}
-.hero-head h1 em{font-style:italic;color:var(--sea);white-space:nowrap}
+.hero-head h1 em{font-style:italic;color:inherit;white-space:nowrap}
 .hero-head h1 .nb{white-space:nowrap}
 @media(max-width:344px){.hero-head h1 em{white-space:normal}}
 .hero-body{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,54px);align-items:center;margin-top:clamp(24px,3.2vw,38px)}
@@ -61,14 +61,14 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
 .herofacts{list-style:none;display:flex;flex-wrap:wrap;margin:22px 0 0}
 .herofacts li{padding-right:clamp(15px,2.1vw,25px);margin-right:clamp(15px,2.1vw,25px);border-right:1px solid var(--line)}
 .herofacts li:last-child{padding-right:0;margin-right:0;border-right:none}
-.herofacts b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(25px,2.9vw,33px);line-height:1;color:var(--paper)}
+.herofacts b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(25px,2.9vw,33px);line-height:1;color:var(--type)}
 .herofacts span{display:block;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);line-height:1.7;max-width:21ch}
 .cues{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 22px;border-radius:99px;font-size:14px;font-weight:500;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;transition:transform .25s,box-shadow .25s,filter .25s}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(127,168,165,.22);filter:brightness(1.05)}
-.btn-ghost{display:inline-block;padding:12px 20px;border-radius:99px;font-size:14px;border:1px solid rgba(243,237,226,.2);transition:border-color .25s,background .25s}.btn-ghost:hover{border-color:var(--sea);background:rgba(243,237,226,.04)}
+.btn{display:inline-block;padding:12px 22px;border-radius:99px;font-size:14px;font-weight:500;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#ffffff;transition:transform .25s,box-shadow .25s,filter .25s}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(78,123,120,.22);filter:brightness(1.05)}
+.btn-ghost{display:inline-block;padding:12px 20px;border-radius:99px;font-size:14px;border:1px solid rgba(14,22,21,.20);transition:border-color .25s,background .25s}.btn-ghost:hover{border-color:var(--sea);background:rgba(14,22,21,.04)}
 /* The one line on this page that no rival can print. Inside the paragraph it read as
    a fifth clause nobody reaches; on its own, last in the hero, it is the closing note. */
-.hero-oath{margin-top:24px;padding-left:13px;border-left:1px solid rgba(127,168,165,.45);color:var(--muted);font-size:13.5px;line-height:1.6;max-width:42ch}
+.hero-oath{margin-top:24px;padding-left:13px;border-left:1px solid rgba(78,123,120,.45);color:var(--muted);font-size:13.5px;line-height:1.6;max-width:42ch}
 
 /* the hero's worked example — the rotating craft, written the way every card is */
 .hero-demo{display:flex;flex-direction:column;align-items:center;gap:13px}
@@ -87,20 +87,20 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
 .petal{fill-opacity:.22;cursor:pointer;transition:fill-opacity .3s}
 .petal:hover,.petal.hov{fill-opacity:.5}.petal.active{fill-opacity:.62}
 .hit{cursor:pointer}
-.petal:focus{outline:none}.petal:focus-visible{outline:1px dashed rgba(243,237,226,.6);outline-offset:2px}
+.petal:focus{outline:none}.petal:focus-visible{outline:1px dashed rgba(14,22,21,.72);outline-offset:2px}
 .ring{fill:none;stroke-width:2.3;stroke-opacity:.68;pointer-events:none;transition:stroke-opacity .3s,stroke-width .3s}
 .ring.active{stroke-opacity:1;stroke-width:3.2}
-.heart{fill:var(--ink);stroke:rgba(243,237,226,.24);stroke-width:.9;pointer-events:none}
-.wlabel{font-family:'Fraunces',Georgia,serif;font-size:11.5px;fill:var(--paper);text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round}
-.wcount{font-family:'IBM Plex Mono',monospace;font-size:7.5px;fill:rgba(243,237,226,.55);text-anchor:middle;pointer-events:none;letter-spacing:.05em;paint-order:stroke;stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}
+.heart{fill:var(--ground);stroke:rgba(14,22,21,.24);stroke-width:.9;pointer-events:none}
+.wlabel{font-family:'Fraunces',Georgia,serif;font-size:11.5px;fill:var(--type);text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:var(--ground);stroke-width:2.6;stroke-linejoin:round}
+.wcount{font-family:'IBM Plex Mono',monospace;font-size:7.5px;fill:rgba(14,22,21,.72);text-anchor:middle;pointer-events:none;letter-spacing:.05em;paint-order:stroke;stroke:var(--ground);stroke-width:2.2;stroke-linejoin:round}
 /* The hero's worked example claims "every card reads like that", so it is built like
    one: the same left colour edge in the craft's own world, the same left-aligned
    craft / place / reason-to-go, and the same three-line clamp on the reason — the why
    prose is never re-cut to fit, only clamped. Centred with a caption underneath it
    read as a pull-quote, which is the one thing it is not. */
-.cam-tick{--sc:var(--sea);position:relative;overflow:hidden;display:block;width:min(92vw,442px);min-height:230px;padding:19px 23px 21px;border:1px solid var(--line);border-radius:16px;background:rgba(20,17,13,.62);text-align:left;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s,box-shadow .3s}
+.cam-tick{--sc:var(--sea);position:relative;overflow:hidden;display:block;width:min(92vw,442px);min-height:230px;padding:19px 23px 21px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.62);text-align:left;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s,box-shadow .3s}
 .cam-tick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.55;transition:opacity .3s,background 1.4s ease}
-.cam-tick:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));background:rgba(20,17,13,.88);box-shadow:0 18px 40px rgba(0,0,0,.45)}.cam-tick:hover::before{opacity:1}
+.cam-tick:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));background:rgba(255,255,255,.88);box-shadow:0 18px 40px rgba(0,0,0,.45)}.cam-tick:hover::before{opacity:1}
 .cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:11px}
 .cam-tick .rot{display:block;opacity:0;transition:opacity .5s}.cam-tick .rot.on{opacity:1}
 /* the picture, in the geometry every card on this page wears (4/3, bled to the top
@@ -108,7 +108,7 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
    by the same light tone step as .craftshot and by nothing else. Never zoomed, never
    panned: one still, then the next. */
 .cam-tick .rotshot{display:block;aspect-ratio:4/3;margin:-19px -23px 14px;border-radius:16px 16px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,rgba(20,17,13,.96) 100%),var(--shot);
+  background-image:linear-gradient(180deg,rgba(255,255,255,0) 58%,rgba(255,255,255,.96) 100%),var(--shot);
   background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat;opacity:0;transition:opacity .5s}
 .cam-tick .rotshot.on{opacity:1}.cam-tick .rotshot.lic{filter:saturate(.92)}
 @media (prefers-reduced-motion:reduce){.cam-tick .rot,.cam-tick .rotshot{transition:none}}
@@ -116,17 +116,17 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
    height the card holds — a card that grew mid-fade would shove the caption around */
 .cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.4vw,26px);line-height:1.12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .cam-tick .place{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-top:3px;transition:color 1.4s ease}
-.cam-tick .whatline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:11px;font-size:12.5px;line-height:1.5;color:var(--paper);opacity:.86}
+.cam-tick .whatline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:11px;font-size:12.5px;line-height:1.5;color:var(--type);opacity:.86}
 .cam-tick .whyline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;font-size:11.5px;line-height:1.55;color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
 .legend button{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);padding:4px 9px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
-.legend button:hover{color:var(--paper)}.legend button.on{color:var(--paper);border-color:var(--lc)}
+.legend button:hover{color:var(--type)}.legend button.on{color:var(--type);border-color:var(--lc)}
 .legend .d{width:8px;height:8px;border-radius:2px;background:var(--lc)}
 @media(max-width:620px){.herofacts{display:grid;grid-template-columns:repeat(3,1fr)}
 .herofacts li{padding:0 clamp(6px,2vw,12px);margin:0;border-right:1px solid var(--line)}
 .herofacts li:first-child{padding-left:0}
 .herofacts span{max-width:none}}
-@media(max-width:880px){.hero{padding:84px 0 30px}.hero-head{text-align:center}.hero-body{grid-template-columns:1fr;gap:22px;margin-top:22px}.hero-copy{text-align:center}.hero-copy .sub{margin:0 auto}.cues{justify-content:center}.herofacts{justify-content:center}.herofacts span{margin:7px auto 0}.hero-oath{margin:24px auto 0;padding:13px 0 0;border-left:none;border-top:1px solid rgba(127,168,165,.4);max-width:40ch;text-align:center}}
+@media(max-width:880px){.hero{padding:84px 0 30px}.hero-head{text-align:center}.hero-body{grid-template-columns:1fr;gap:22px;margin-top:22px}.hero-copy{text-align:center}.hero-copy .sub{margin:0 auto}.cues{justify-content:center}.herofacts{justify-content:center}.herofacts span{margin:7px auto 0}.hero-oath{margin:24px auto 0;padding:13px 0 0;border-left:none;border-top:1px solid rgba(78,123,120,.4);max-width:40ch;text-align:center}}
 
 /* studio */
 /* scroll-margin because the nav is fixed. Nothing on the page jumps to #studio any
@@ -146,7 +146,7 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
 .studio .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start}
 .studio .grid.sideopen{grid-template-columns:272px minmax(0,1fr)}
 @media(max-width:880px){.studio .grid.sideopen{grid-template-columns:minmax(0,1fr)}}
-.side{border:1px solid var(--line);border-radius:16px;background:var(--ink2);width:272px;max-width:100%}
+.side{border:1px solid var(--line);border-radius:16px;background:var(--surface);width:272px;max-width:100%}
 .grid.sideopen .side{position:sticky;top:74px;max-height:calc(100vh - 90px);overflow:auto}
 @media(max-width:880px){.side{width:auto}.grid.sideopen .side{position:static;max-height:none}}
 
@@ -159,7 +159,7 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
 .sidefold>summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;align-items:baseline;
   justify-content:space-between;gap:10px;transition:color .2s}
 .sidefold>summary::-webkit-details-marker{display:none}
-.sidefold>summary:hover .sfl{color:var(--paper)}
+.sidefold>summary:hover .sfl{color:var(--type)}
 .sidefold>summary .sfl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--sea);transition:color .2s}
 .sidefold>summary .sfl::after{content:' +';color:var(--faint)}
@@ -180,20 +180,20 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
 .step{border-top:1px solid var(--line)}
 #sideA>.step:first-child{border-top:none}
 .steprow{width:100%;display:flex;align-items:baseline;gap:9px;padding:11px 0;text-align:left;transition:color .2s}
-.steprow:hover .sname{color:var(--paper)}
+.steprow:hover .sname{color:var(--type)}
 .step.on>.steprow{cursor:default}
 .stepn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--faint);flex:0 0 auto;min-width:14px}
 .sname{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--sea);flex:0 0 auto;transition:color .2s}
 .step.done>.steprow .sname{color:var(--muted)}
-.sans{font-size:12px;color:var(--paper);opacity:.82;margin-left:auto;text-align:right;line-height:1.4}
+.sans{font-size:12px;color:var(--type);opacity:.82;margin-left:auto;text-align:right;line-height:1.4}
 .step.done>.steprow .sans::after{content:' \270E';opacity:.45;margin-left:5px;font-size:10px}
 .stepbody{padding:2px 0 14px}
 .stepnext{display:flex;align-items:center;gap:12px;margin-top:13px}
 .stepnext button{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
   border:1px solid var(--line);border-radius:99px;padding:7px 13px;color:var(--muted);transition:all .2s}
-.stepnext button:hover{border-color:var(--sea);color:var(--paper)}
-.stepnext button.go{border-color:rgba(127,168,165,.5);color:var(--sea)}
+.stepnext button:hover{border-color:var(--sea);color:var(--type)}
+.stepnext button.go{border-color:rgba(78,123,120,.5);color:var(--sea)}
 .stepnext .left{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--faint)}
 .optn{opacity:.55;font-size:.92em}
 .pull.dead,.chip.dead{opacity:.34}
@@ -201,12 +201,12 @@ nav.top .links a.here{opacity:1;color:var(--sea)}
    and buys nothing now that only one step is open at a time. */
 @media(max-width:880px){.rosebox .cam{max-width:250px;margin:0 auto}}
 .side h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:14px 0 8px}
-.fin{width:100%;background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--paper);font-size:16px;font-family:inherit}.fin:focus{outline:none;border-color:rgba(127,168,165,.5)}
-select.fin option{background:var(--ink2)}
+.fin{width:100%;background:rgba(14,22,21,.05);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--type);font-size:16px;font-family:inherit}.fin:focus{outline:none;border-color:rgba(78,123,120,.5)}
+select.fin option{background:var(--surface)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.03em;padding:6px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);transition:all .2s;white-space:nowrap}
-.chip:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}.chip.on{color:#14110d;background:var(--cc,var(--sea));border-color:transparent;font-weight:500}
-.chip .wd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cc);margin-right:6px;vertical-align:middle}.chip.on .wd{background:#14110d}
+.chip:hover{color:var(--type);border-color:rgba(14,22,21,.6)}.chip.on{color:#ffffff;background:var(--cc,var(--sea));border-color:transparent;font-weight:500}
+.chip .wd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cc);margin-right:6px;vertical-align:middle}.chip.on .wd{background:#ffffff}
 .months{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
 /* ── what pulls you ──────────────────────────────────────────────────────
    The search box that used to sit here asked you to already know the word.
@@ -217,11 +217,11 @@ select.fin option{background:var(--ink2)}
 .sidenote{color:var(--faint);font-size:11.5px;line-height:1.55;margin:-2px 0 9px}
 .pulls{display:grid;grid-template-columns:1fr;gap:5px}
 .pull{text-align:left;white-space:normal;padding:8px 11px;border-radius:11px;border:1px solid var(--line);color:var(--muted);transition:all .2s;line-height:1.3}
-.pull:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}
+.pull:hover{color:var(--type);border-color:rgba(14,22,21,.6)}
 .pull .pn{display:block;font-size:13px;color:inherit}
 .pull .pw{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;color:var(--faint);margin-top:2px}
-.pull.on{color:#14110d;background:var(--sea);border-color:transparent}
-.pull.on .pn{font-weight:500}.pull.on .pw{color:rgba(20,17,13,.66)}
+.pull.on{color:#ffffff;background:var(--sea);border-color:transparent}
+.pull.on .pn{font-weight:500}.pull.on .pw{color:rgba(255,255,255,.66)}
 .craftnav{border-top:1px solid var(--line);padding:30px 0 10px}
 .craftnav>summary{list-style:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .craftnav>summary::-webkit-details-marker{display:none}
@@ -236,22 +236,22 @@ select.fin option{background:var(--ink2)}
 .morefil>summary::after{content:' +';color:var(--faint)}
 .morefil[open]>summary::after{content:' \2212';color:var(--faint)}
 .morefil[open]>summary{margin-bottom:2px}
-.closedband{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(243,237,226,.02)}
+.closedband{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(14,22,21,.02)}
 .closedband p{color:var(--muted);font-size:13.5px;line-height:1.65;margin:0}
 .closedband a{color:var(--sea)}.months .chip{text-align:center;padding:6px 0;font-size:9.5px}
 .rankrow{display:flex;gap:6px}.rankrow .chip{flex:1;text-align:center}
 .lvlrow{display:flex;gap:6px}.lvlrow .chip{flex:1;text-align:center}
-.reset{width:100%;margin:14px 0 10px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:13px;color:var(--muted)}.reset:hover{border-color:var(--ember);color:var(--paper)}
+.reset{width:100%;margin:14px 0 10px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:13px;color:var(--muted)}.reset:hover{border-color:var(--ember);color:var(--type)}
 
 .results{min-height:60vh;min-width:0}
 .rhead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:2px 2px 18px;flex-wrap:wrap}
 .rhead .count{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.6vw,26px)}.rhead .count b{color:var(--sea);font-weight:400}
 .rhead .sortby{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}
-.shelf{margin-bottom:30px}.shelf-h{display:flex;align-items:center;gap:12px;margin:0 2px 12px;cursor:pointer;border-radius:10px;padding:4px 6px;transition:background .2s}.shelf-h:hover{background:rgba(243,237,226,.04)}.shelf-h:hover h3{color:var(--sc)}
+.shelf{margin-bottom:30px}.shelf-h{display:flex;align-items:center;gap:12px;margin:0 2px 12px;cursor:pointer;border-radius:10px;padding:4px 6px;transition:background .2s}.shelf-h:hover{background:rgba(14,22,21,.04)}.shelf-h:hover h3{color:var(--sc)}
 .shelf-h .bar{width:30px;height:3px;border-radius:3px;background:var(--sc)}.shelf-h h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.4vw,25px);transition:color .2s}.shelf-h .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}.shelf-h .more{margin-left:auto;font-size:12.5px;color:var(--muted)}.shelf-h:hover .more{color:var(--sc)}
 .cathead{margin:2px 2px 22px;position:relative}.cathead .backcat{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:inline-flex;align-items:center;gap:6px}.cathead .backcat:hover{color:var(--sea)}.cathead .catbar{width:46px;height:4px;border-radius:4px;background:var(--sc);margin-bottom:13px}.cathead .catttl{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(28px,4.2vw,46px);line-height:1.04;letter-spacing:-.01em}.cathead .catsub{color:var(--muted);max-width:56ch;margin-top:9px;font-size:14.5px}
 .railwrap{position:relative}.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none;cursor:grab}.rail::-webkit-scrollbar{display:none}.rail.drag{cursor:grabbing;scroll-behavior:auto}
-.arrow{position:absolute;top:34%;z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(28,24,19,.96);border:1px solid rgba(243,237,226,.28);color:var(--paper);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,border-color .25s,background .25s,transform .2s;font-size:20px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.55)}.arrow.show{opacity:.95;pointer-events:auto}.railwrap:hover .arrow.show{opacity:1}.arrow:hover{border-color:var(--sea);background:var(--sea);color:#14110d;transform:scale(1.06)}.arrow.l{left:6px}.arrow.r{right:6px}
+.arrow{position:absolute;top:34%;z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.96);border:1px solid rgba(14,22,21,.6);color:var(--type);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,border-color .25s,background .25s,transform .2s;font-size:20px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.55)}.arrow.show{opacity:.95;pointer-events:auto}.railwrap:hover .arrow.show{opacity:1}.arrow:hover{border-color:var(--sea);background:var(--sea);color:#ffffff;transform:scale(1.06)}.arrow.l{left:6px}.arrow.r{right:6px}
 @media(max-width:820px){.arrow{display:none}}
 
 /* cards — THE SKILL, then the one place it is most alive (or, where a school
@@ -260,7 +260,7 @@ select.fin option{background:var(--ink2)}
    the lineage, the school, the star, the community dots, the level and trip
    length) is on the sheet the card opens; on 113 cards at once it was noise
    in front of the two things a reader is actually choosing between. */
-.dcard,.gcard{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:17px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+.dcard,.gcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
 .dcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
 .dcard::before,.gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.5;transition:opacity .3s}
 .dcard:hover,.gcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));box-shadow:0 18px 40px rgba(0,0,0,.45)}.dcard:hover::before,.gcard:hover::before{opacity:1}
@@ -285,7 +285,7 @@ select.fin option{background:var(--ink2)}
    classes have worn the same geometry since the frame separator was overruled, and
    letting their heights drift apart would put that separator back by accident. */
 .cardshot{aspect-ratio:4/3;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--shot);
+  background-image:linear-gradient(180deg,rgba(255,255,255,0) 58%,var(--surface) 100%),var(--shot);
   background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}
 /* ⛔ THE SECOND CLASS OF PICTURE, AND IT MUST NEVER READ AS THE FIRST.
    .cardshot above is a photograph a school sent us of its own room. This is a licensed
@@ -306,7 +306,7 @@ select.fin option{background:var(--ink2)}
    relied on. If the two ever need telling apart by eye again, take the frame back: it is
    the only thing that ever worked. See CRAFT_IMAGES in build-atlas-pages.py. */
 .craftshot{aspect-ratio:4/3;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--illus);
+  background-image:linear-gradient(180deg,rgba(255,255,255,0) 58%,var(--surface) 100%),var(--illus);
   background-size:cover;background-position:var(--illusfocal,center);background-repeat:no-repeat;
   filter:saturate(.92)}
 /* ⛔ .shotcredit IS GONE FROM THIS PAGE. The browse card carried it at its foot, then on
@@ -320,7 +320,7 @@ select.fin option{background:var(--ink2)}
    pages and is styled there — do not re-add it here expecting it to appear. */
 /* the breathing room the chip's own auto margin cannot guarantee */
 .gcard .craftblurb,.gcard .cardhook,.dcard .craftblurb,.dcard .cardhook{margin-bottom:12px}
-.cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,181,78,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
+.cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(78,123,120,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
 .cred .gem{color:var(--gold)}.cred span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .craft{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;line-height:1.1;margin-bottom:7px}
 .srcscene{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc);margin-bottom:9px}
@@ -334,10 +334,10 @@ select.fin option{background:var(--ink2)}
 /* hover-reveal drawer — calm at rest, depth on lean-in (inline fallback on touch) */
 /* additive desktop-only reveal of the school's endorsement (decision payload now lives at rest) */
 .reveal-extra{display:none}
-.dw-why{font-size:12.5px;color:var(--paper);opacity:.88;font-style:italic;line-height:1.5;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.dw-why{font-size:12.5px;color:var(--type);opacity:.88;font-style:italic;line-height:1.5;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .prov{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:var(--muted)}
 @media(hover:hover){
-  .reveal-extra{display:block;position:absolute;left:0;right:0;bottom:0;margin:0;padding:15px 17px 17px;border-top:1px solid color-mix(in srgb,var(--sc) 45%,var(--line));background:var(--ink2);box-shadow:0 -18px 26px -6px var(--ink2);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .26s ease,transform .26s ease}
+  .reveal-extra{display:block;position:absolute;left:0;right:0;bottom:0;margin:0;padding:15px 17px 17px;border-top:1px solid color-mix(in srgb,var(--sc) 45%,var(--line));background:var(--surface);box-shadow:0 -18px 26px -6px var(--surface);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .26s ease,transform .26s ease}
   .dcard:hover .reveal-extra,.gcard:hover .reveal-extra,.dcard:focus-within .reveal-extra,.gcard:focus-within .reveal-extra{opacity:1;transform:none}
   .dcard .reveal-cue,.gcard .reveal-cue{position:absolute;right:13px;bottom:11px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);opacity:.6;transition:opacity .2s}
   .dcard:hover .reveal-cue,.gcard:hover .reveal-cue{opacity:0}
@@ -365,7 +365,7 @@ select.fin option{background:var(--ink2)}
    the one line the whole card is for, and on a poster it is the thing you read from across
    the room. 700 is as far as Fraunces goes before the counters close at this size. */
 .craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:25px;
-  line-height:1.0;letter-spacing:-.012em;text-transform:uppercase;color:var(--paper)}
+  line-height:1.0;letter-spacing:-.012em;text-transform:uppercase;color:var(--type)}
 .wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px;transition:opacity .22s ease}
 .wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
 /* What the craft IS — two lines, because this one is read at a glance and a third
@@ -374,7 +374,7 @@ select.fin option{background:var(--ink2)}
    may. It is clamped instead, so the cut is visibly a cut and the rest is one
    click away. It belongs to the CRAFT, so it is the one line that holds still
    while the card walks its places. */
-.craftblurb{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.craftblurb{font-size:12.5px;color:var(--type);opacity:.88;line-height:1.5;margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 /* The place's own sentence — the hand-written immersive line where there is one,
    the researched reason-to-go where there is not. It belongs to the place, so it
    changes with it. Three lines: a written line runs 74 to 116 characters and on the
@@ -415,18 +415,18 @@ select.fin option{background:var(--ink2)}
    .cred), in the craft's own world colour, at a size you can hit with a thumb. */
 .placecue{display:none}
 .walks .placecue{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;position:relative;z-index:3;text-decoration:none;margin-top:auto;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
-.walks .placecue:hover,.walks .placecue:focus-visible{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 17%,transparent);color:var(--paper)}
+.walks .placecue:hover,.walks .placecue:focus-visible{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 17%,transparent);color:var(--type)}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
-.bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
+.bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#ffffff;font-weight:600;background:linear-gradient(135deg,#4e7b78,#4e7b78);border-radius:5px;padding:2px 7px;margin-bottom:9px}
 .comm{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
 /* trip-type + language badges */
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .trip{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--tc,var(--sea));border:1px solid color-mix(in srgb,var(--tc,var(--sea)) 34%,transparent);border-radius:99px;padding:3px 9px;line-height:1.2}
 .trip .dur{color:var(--muted)}
-.lang{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sea);border:1px solid rgba(127,168,165,.3);border-radius:99px;padding:3px 8px;line-height:1.2}
-.lang .en{font-weight:600;color:var(--paper)}
-.lang.lang-loc{color:var(--ember);border-color:rgba(210,138,82,.34)}
+.lang{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sea);border:1px solid rgba(78,123,120,.3);border-radius:99px;padding:3px 8px;line-height:1.2}
+.lang .en{font-weight:600;color:var(--type)}
+.lang.lang-loc{color:var(--ember);border-color:rgba(78,123,120,.34)}
 
 /* ── the search bar ────────────────────────────────────────────────────────
    The funnel below answers "I don't know the word for it". This answers the
@@ -435,19 +435,19 @@ select.fin option{background:var(--ink2)}
    It lives above the grid rather than inside it because render() replaces
    results.innerHTML wholesale — an input in there loses its focus, and its
    caret, on every keystroke. */
-.skillsearch{display:flex;align-items:center;gap:11px;margin:0 0 20px;padding:0 16px;border:1px solid var(--line);border-radius:14px;background:rgba(20,17,13,.55);transition:border-color .2s,background .2s}
-.skillsearch:focus-within{border-color:color-mix(in srgb,var(--sea) 55%,var(--line));background:rgba(20,17,13,.85)}
+.skillsearch{display:flex;align-items:center;gap:11px;margin:0 0 20px;padding:0 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.55);transition:border-color .2s,background .2s}
+.skillsearch:focus-within{border-color:color-mix(in srgb,var(--sea) 55%,var(--line));background:rgba(255,255,255,.85)}
 .skillsearch .qi{font-size:19px;line-height:1;color:var(--faint);transform:translateY(-1px)}
 .skillsearch:focus-within .qi{color:var(--sea)}
-.skillsearch input{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--paper);font-family:inherit;font-weight:300;font-size:16px;padding:15px 0;line-height:1.4}
+.skillsearch input{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--type);font-family:inherit;font-weight:300;font-size:16px;padding:15px 0;line-height:1.4}
 .skillsearch input::placeholder{color:var(--faint)}
 .skillsearch input::-webkit-search-cancel-button{display:none}
 .qclear{flex:0 0 auto;width:26px;height:26px;border-radius:99px;border:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1;transition:border-color .2s,color .2s}
-.qclear:hover,.qclear:focus-visible{border-color:var(--sea);color:var(--paper)}
+.qclear:hover,.qclear:focus-visible{border-color:var(--sea);color:var(--type)}
 .qclear[hidden]{display:none}
 /* nothing called that — the Atlas says so plainly and hands you the letter */
 .qnone{padding:52px 10px;text-align:center;color:var(--muted)}
-.qnone b{color:var(--paper);font-weight:400}
+.qnone b{color:var(--type);font-weight:400}
 .qnone .qn2{margin-top:10px;font-size:14px;color:var(--faint)}
 .qnone .btn-ghost{margin-top:18px}
 @media(max-width:760px){.skillsearch input{font-size:16px;padding:13px 0}}
@@ -455,9 +455,9 @@ select.fin option{background:var(--ink2)}
 /* the whole card opens the skill sheet — a stretched link under the content, so
    the one real button on the card (write to Arnaud) still gets its own clicks */
 .cardlink{position:absolute;inset:0;z-index:1;border-radius:inherit}
-.cardlink:focus-visible{outline:1px dashed rgba(243,237,226,.6);outline-offset:-3px}
-.writebtn{position:absolute;top:10px;right:10px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:4px 9px;background:rgba(13,11,9,.92);transition:color .2s,border-color .2s,opacity .25s;line-height:1.3}
-.writebtn:hover{color:var(--paper);border-color:var(--sea)}
+.cardlink:focus-visible{outline:1px dashed rgba(14,22,21,.72);outline-offset:-3px}
+.writebtn{position:absolute;top:10px;right:10px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:4px 9px;background:rgba(255,255,255,.92);transition:color .2s,border-color .2s,opacity .25s;line-height:1.3}
+.writebtn:hover{color:var(--type);border-color:var(--sea)}
 @media(hover:hover){.writebtn{opacity:0}.dcard:hover .writebtn,.gcard:hover .writebtn,.dcard:focus-within .writebtn,.gcard:focus-within .writebtn,.writebtn:focus-visible{opacity:1}}
 /* who from the Circle already wants this craft — drawn only from real rows */
 .cint{font-size:11.5px;color:var(--sea);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);line-height:1.45}
@@ -467,18 +467,18 @@ select.fin option{background:var(--ink2)}
 .later h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.4vw,25px);margin:8px 0 16px;color:var(--muted)}
 .laterbox{position:relative;border-radius:16px;overflow:hidden;min-height:300px}
 .laterbox .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:13px;filter:blur(7px) saturate(.6);opacity:.5;pointer-events:none;user-select:none;max-height:520px;overflow:hidden}
-.laterask{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 18px;background:radial-gradient(closest-side,rgba(13,11,9,.82),rgba(13,11,9,.35))}
-.laterask p{max-width:46ch;color:var(--paper);font-size:15px;line-height:1.6;margin:0 0 18px}
+.laterask{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 18px;background:radial-gradient(closest-side,rgba(255,255,255,.82),rgba(255,255,255,.35))}
+.laterask p{max-width:46ch;color:var(--type);font-size:15px;line-height:1.6;margin:0 0 18px}
 .gridwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:13px}
 .empty{padding:60px 10px;text-align:center;color:var(--muted)}.empty .btn-ghost{margin-top:16px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
-.circle{text-align:center;border:1px solid var(--line);border-radius:18px;padding:clamp(30px,5vw,52px) 24px;margin:46px 0 18px;background:rgba(243,237,226,.02)}
+.circle{text-align:center;border:1px solid var(--line);border-radius:18px;padding:clamp(30px,5vw,52px) 24px;margin:46px 0 18px;background:rgba(14,22,21,.02)}
 .circle h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(24px,3.6vw,36px);margin:12px 0 12px}.circle p{color:var(--muted);max-width:46ch;margin:0 auto 22px;font-size:15px}
 /* the quiet alternative to the letter — one door, not a second sales block */
 .circle-alt{text-align:center;margin:34px 0 10px}
 .circle-alt p{color:var(--faint);font-size:13.5px}
 .circle-alt a{color:var(--sea);text-decoration:underline;text-underline-offset:3px}
-.circle-alt a:hover{color:var(--paper)}
+.circle-alt a:hover{color:var(--type)}
 
 /* ── THE NOTE — the frame only ──────────────────────────────────────────
    The heading, the line under it and the width it sits in. The sheet, the
@@ -489,7 +489,7 @@ select.fin option{background:var(--ink2)}
 .letter .lhead{text-align:center;max-width:60ch;margin:0 auto 24px}
 .letter h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(25px,3.8vw,38px);line-height:1.1;margin:12px 0 14px;letter-spacing:-.01em}
 .letter .lsub{color:var(--muted);font-size:15px;line-height:1.65}
-.letter .lsub b{color:var(--paper);font-weight:400}
+.letter .lsub b{color:var(--type);font-weight:400}
 .lbox{max-width:660px;margin:0 auto}
 .intent-q{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:10px}
 .intent-fine{font-size:12px;color:var(--faint);line-height:1.6}
@@ -513,23 +513,23 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 .gcard,.dcard{justify-content:flex-end}
 .gcard.walks .placecue,.dcard.walks .placecue{margin-top:12px}
 .gcard[data-shot],.gcard[data-illus],.dcard[data-shot],.dcard[data-illus]{justify-content:flex-end;border-color:transparent;padding:20px 18px 18px;
-  background-image:linear-gradient(180deg,rgba(13,11,9,0) 38%,rgba(13,11,9,.6) 64%,rgba(13,11,9,.95) 100%),var(--shot,var(--illus));
+  background-image:linear-gradient(180deg,rgba(14,22,21,0) 38%,rgba(14,22,21,.6) 64%,rgba(14,22,21,.95) 100%),var(--shot,var(--illus));
   background-size:cover;background-position:var(--focal,var(--illusfocal,center));background-repeat:no-repeat}
 .gcard[data-shot] .cardshot,.gcard[data-illus] .craftshot,.dcard[data-shot] .cardshot,.dcard[data-illus] .craftshot{display:none}
-.gcard[data-shot] .wherealive,.gcard[data-illus] .wherealive,.dcard[data-shot] .wherealive,.dcard[data-illus] .wherealive{color:var(--paper)}
-.gcard[data-shot] .walks .placecue,.gcard[data-shot].walks .placecue,.gcard[data-illus].walks .placecue{margin-top:12px;color:var(--paper);border-color:rgba(243,237,226,.45);background:rgba(13,11,9,.35)}
+:is(.gcard,.dcard):is([data-shot],[data-illus]),:is(.gcard,.dcard):is([data-shot],[data-illus]) *{color:#fff}
+.gcard[data-shot] .walks .placecue,.gcard[data-shot].walks .placecue,.gcard[data-illus].walks .placecue{margin-top:12px;color:#fff;border-color:rgba(255,255,255,.6);background:rgba(14,22,21,.35)}
 
 /* The hero card follows the same law: the photograph is the whole card, the words sit on
    its foot (Arnaud, 4 Nov 2026). The rotating frame becomes the card's background layer. */
 .cam-tick{aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 24px 24px}
 .cam-tick .rotshot{position:absolute;inset:0;margin:0;aspect-ratio:auto;border-radius:16px;z-index:0;
-  background-image:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.6) 66%,rgba(13,11,9,.95) 100%),var(--shot)}
+  background-image:linear-gradient(180deg,rgba(14,22,21,0) 40%,rgba(14,22,21,.6) 66%,rgba(14,22,21,.95) 100%),var(--shot)}
 .cam-tick .lab,.cam-tick .rot{position:relative;z-index:1}
-.cam-tick .lab{color:rgba(243,237,226,.7)}
-.cam-tick .place{color:var(--paper)}
+.cam-tick .lab{color:rgba(255,255,255,.78)}
+.cam-tick .craft,.cam-tick .place,.cam-tick .why{color:#fff}
 
 /* a craft nobody has asked for yet — same card, quieter */
-.dcard.shut,.gcard.shut{background:rgba(20,17,13,.55)}
+.dcard.shut,.gcard.shut{background:rgba(255,255,255,.55)}
 .dcard.shut::before,.gcard.shut::before{opacity:.24}
 .dcard.shut .cardsay,.gcard.shut .cardsay{opacity:.9}
 .dcard.shut .wherealive,.gcard.shut .wherealive{opacity:.8}
@@ -557,19 +557,19 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 /* how far along the band you are — the answer to "is that all of them?", which a
    scrolling row has to give in words because it cannot give it by being full */
 .nocount{display:flex;align-items:center;gap:12px;margin:2px 0 12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.nocount .track{flex:1;max-width:230px;height:2px;border-radius:2px;background:rgba(243,237,226,.12);overflow:hidden}
+.nocount .track{flex:1;max-width:230px;height:2px;border-radius:2px;background:rgba(14,22,21,.12);overflow:hidden}
 .nocount .track i{display:block;height:100%;width:20%;border-radius:2px;background:var(--sea);transition:width .25s,margin-left .25s}
 .nomore{margin:16px 0 0;font-size:13.5px}
-.nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)}
-.nomore a:hover{color:var(--paper)}
+.nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)}
+.nomore a:hover{color:var(--type)}
 </style>
 </head>
 <body>
 <!-- built 2026-11-07 · 39 of 115 crafts open · states from data/atlas-unlocked.json -->
 <nav class="top"><div class="row">
-  <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
-  <div class="links" aria-label="Site"><a class="here" href="/atlas/" aria-current="page" title="The free record of where skills are still taught at the source">Atlas of Skills</a><a href="/collaborations" title="A week built with a master, in their own working room">Collaborations</a><a href="/about" title="Who is behind this, and why">The Story</a></div>
-  <a class="join" href="/circle" title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a>
+  <a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
+  <div class="links" aria-label="Site"><a class="here" href="/atlas/" aria-current="page" title="The record of where skills are still taught at the source">Atlas of Skills</a><a href="/collaborations" title="A week built with a teacher, in their own working room">Collaborations</a><a href="/about" title="Who is behind this, and why">The Story</a></div>
+  <a class="join" href="/circle" title="The people who have told me which craft they want to learn. One note joins it.">Join the Circle</a>
 </div></nav>
 
 <header class="hero">
@@ -614,7 +614,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <section class="results" id="results"></section>
 </div></div></main>
 
-<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The kitchen crafts someone wrote me a note about, newest first.</h2></div><div class="nocount"><span id="noseen">1 of 6</span><span class="track"><i id="nofill"></i></span><span>all 6 — scroll</span></div><div class="nowrap-rail"><div class="norail" id="norail"><article class="gcard walks" data-illus style="--sc:#c9a24a;--illus:url(/images/crafts/wine-and-sommellerie--margaux.jpg);--illusfocal:58% 50%" data-craft="Wine &amp; Sommellerie"><a class="cardlink" href="/atlas/wine-and-sommellerie" aria-label="Open the Wine &amp; Sommellerie skill sheet"></a><div class="craftshot"></div><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">Wine &amp; Sommellerie</span></p><div class="wherealive"><span class="in">in</span> Bordeaux, France</div><p class="craftblurb">The disciplined reading of terroir, vintage and varietal in the glass, until your palate can name a wine&#x27;s birthplace blind.</p><p class="cardhook">Learn to taste the terroir that wrote the rulebook, among the classified-growth chateaux.</p><a class="placecue" href="/atlas/wine-and-sommellerie#other-places">+2 other places →</a></article><article class="gcard walks" data-illus style="--sc:#c9a24a;--illus:url(/images/crafts/french-pastry-and-patisserie--paris.jpg);--illusfocal:50% 50%" data-craft="French Pastry &amp; Patisserie"><a class="cardlink" href="/atlas/french-pastry-and-patisserie" aria-label="Open the French Pastry &amp; Patisserie skill sheet"></a><div class="craftshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">French Pastry &amp; Patisserie</span></p><div class="wherealive"><span class="in">in</span> Paris, France</div><p class="craftblurb">The lacquered glaze, the tempered ganache, the entremets built layer by mirrored layer — the most exacting sweet craft on earth, learned plaque by plaque.</p><p class="cardhook">Learn to build an entremets in the city where Carême learned his trade.</p><a class="placecue" href="/atlas/french-pastry-and-patisserie#other-places">+4 other places →</a></article><article class="gcard walks" data-shot style="--sc:#c9a24a;--shot:url(/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg)" data-craft="Italian Cuisine &amp; Pasta"><a class="cardlink" href="/atlas/italian-cuisine-and-pasta" aria-label="Open the Italian Cuisine &amp; Pasta skill sheet"></a><div class="cardshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">Italian Cuisine &amp; Pasta</span></p><div class="wherealive"><span class="in">in</span> Bologna, Italy</div><p class="craftblurb">The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.</p><p class="cardhook">Learn to roll tortellini by hand from the sfogline who guard the tradition, in the city that gave them to the world.</p><a class="placecue" href="/atlas/italian-cuisine-and-pasta#other-places">+1 other place →</a></article><article class="gcard" style="--sc:#c9a24a" data-craft="New Basque Cuisine"><a class="cardlink" href="/atlas/new-basque-cuisine" aria-label="Open the New Basque Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">New Basque Cuisine</span></p><div class="wherealive"><span class="in">in</span> San Sebastián (Donostia), Spain</div><p class="craftblurb">The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product worked with intellect and fire.</p><p class="cardhook">Learn where Arzak and Subijana launched the movement, in one of the most starred square kilometres on earth.</p></article><article class="gcard walks" data-shot style="--sc:#c9a24a;--shot:url(/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg);--focal:50% 78%" data-craft="New culinary techniques &amp; technologies"><a class="cardlink" href="/atlas/modern-new-technique-cuisine" aria-label="Open the New culinary techniques &amp; technologies skill sheet"></a><div class="cardshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">New culinary techniques &amp; technologies</span></p><div class="wherealive"><span class="in">in</span> Barcelona, Spain</div><p class="craftblurb">The teachable toolkit of modernist cuisine — sous-vide and low temperature, spherification, foams, hydrocolloids, liquid nitrogen — taught hands-on at dedicated labs run by named masters. The rare places where the avant-garde is a course you can actually enrol in, not a restaurant you can only eat at.</p><p class="cardhook">Learn the toolkit from the master himself, by private course or his online modules, at Martin Lippo&#x27;s Vakuum lab, where the Adrià revolution began.</p><a class="placecue" href="/atlas/modern-new-technique-cuisine#other-places">+5 other places →</a></article><article class="gcard walks" data-illus style="--sc:#c9a24a;--illus:url(/images/crafts/sushi-and-washoku.jpg);--illusfocal:50% 45%" data-craft="Sushi &amp; Washoku"><a class="cardlink" href="/atlas/sushi-and-washoku" aria-label="Open the Sushi &amp; Washoku skill sheet"></a><div class="craftshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">Sushi &amp; Washoku</span></p><div class="wherealive"><span class="in">in</span> Tokyo (Tsukiji / Toyosu), Japan</div><p class="craftblurb">The exacting art of edomae sushi and washoku, where a lifetime is spent mastering rice, knife, and the fifth taste at the source of a UNESCO-listed cuisine.</p><p class="cardhook">Learn edomae sushi at its birthplace, training beside the world&#x27;s most demanding fish market.</p><a class="placecue" href="/atlas/sushi-and-washoku#other-places">+3 other places →</a></article></div></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
+<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The kitchen crafts someone wrote me a note about, newest first.</h2></div><div class="nocount"><span id="noseen">1 of 6</span><span class="track"><i id="nofill"></i></span><span>all 6 — scroll</span></div><div class="nowrap-rail"><div class="norail" id="norail"><article class="gcard walks" data-illus style="--sc:#4e7b78;--illus:url(/images/crafts/wine-and-sommellerie--margaux.jpg);--illusfocal:58% 50%" data-craft="Wine &amp; Sommellerie"><a class="cardlink" href="/atlas/wine-and-sommellerie" aria-label="Open the Wine &amp; Sommellerie skill sheet"></a><div class="craftshot"></div><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">Wine &amp; Sommellerie</span></p><div class="wherealive"><span class="in">in</span> Bordeaux, France</div><p class="craftblurb">The disciplined reading of terroir, vintage and varietal in the glass, until your palate can name a wine&#x27;s birthplace blind.</p><p class="cardhook">Learn to taste the terroir that wrote the rulebook, among the classified-growth chateaux.</p><a class="placecue" href="/atlas/wine-and-sommellerie#other-places">+2 other places →</a></article><article class="gcard walks" data-illus style="--sc:#4e7b78;--illus:url(/images/crafts/french-pastry-and-patisserie--paris.jpg);--illusfocal:50% 50%" data-craft="French Pastry &amp; Patisserie"><a class="cardlink" href="/atlas/french-pastry-and-patisserie" aria-label="Open the French Pastry &amp; Patisserie skill sheet"></a><div class="craftshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">French Pastry &amp; Patisserie</span></p><div class="wherealive"><span class="in">in</span> Paris, France</div><p class="craftblurb">The lacquered glaze, the tempered ganache, the entremets built layer by mirrored layer — the most exacting sweet craft on earth, learned plaque by plaque.</p><p class="cardhook">Learn to build an entremets in the city where Carême learned his trade.</p><a class="placecue" href="/atlas/french-pastry-and-patisserie#other-places">+4 other places →</a></article><article class="gcard walks" data-shot style="--sc:#4e7b78;--shot:url(/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg)" data-craft="Italian Cuisine &amp; Pasta"><a class="cardlink" href="/atlas/italian-cuisine-and-pasta" aria-label="Open the Italian Cuisine &amp; Pasta skill sheet"></a><div class="cardshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">Italian Cuisine &amp; Pasta</span></p><div class="wherealive"><span class="in">in</span> Bologna, Italy</div><p class="craftblurb">The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.</p><p class="cardhook">Learn to roll tortellini by hand from the sfogline who guard the tradition, in the city that gave them to the world.</p><a class="placecue" href="/atlas/italian-cuisine-and-pasta#other-places">+1 other place →</a></article><article class="gcard" style="--sc:#4e7b78" data-craft="New Basque Cuisine"><a class="cardlink" href="/atlas/new-basque-cuisine" aria-label="Open the New Basque Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">New Basque Cuisine</span></p><div class="wherealive"><span class="in">in</span> San Sebastián (Donostia), Spain</div><p class="craftblurb">The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product worked with intellect and fire.</p><p class="cardhook">Learn where Arzak and Subijana launched the movement, in one of the most starred square kilometres on earth.</p></article><article class="gcard walks" data-shot style="--sc:#4e7b78;--shot:url(/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg);--focal:50% 78%" data-craft="New culinary techniques &amp; technologies"><a class="cardlink" href="/atlas/modern-new-technique-cuisine" aria-label="Open the New culinary techniques &amp; technologies skill sheet"></a><div class="cardshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">New culinary techniques &amp; technologies</span></p><div class="wherealive"><span class="in">in</span> Barcelona, Spain</div><p class="craftblurb">The teachable toolkit of modernist cuisine — sous-vide and low temperature, spherification, foams, hydrocolloids, liquid nitrogen — taught hands-on at dedicated labs run by named masters. The rare places where the avant-garde is a course you can actually enrol in, not a restaurant you can only eat at.</p><p class="cardhook">Learn the toolkit from the master himself, by private course or his online modules, at Martin Lippo&#x27;s Vakuum lab, where the Adrià revolution began.</p><a class="placecue" href="/atlas/modern-new-technique-cuisine#other-places">+5 other places →</a></article><article class="gcard walks" data-illus style="--sc:#4e7b78;--illus:url(/images/crafts/sushi-and-washoku.jpg);--illusfocal:50% 45%" data-craft="Sushi &amp; Washoku"><a class="cardlink" href="/atlas/sushi-and-washoku" aria-label="Open the Sushi &amp; Washoku skill sheet"></a><div class="craftshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="verb">Learn</span><span class="craftname">Sushi &amp; Washoku</span></p><div class="wherealive"><span class="in">in</span> Tokyo (Tsukiji / Toyosu), Japan</div><p class="craftblurb">The exacting art of edomae sushi and washoku, where a lifetime is spent mastering rice, knife, and the fifth taste at the source of a UNESCO-listed cuisine.</p><p class="cardhook">Learn edomae sushi at its birthplace, training beside the world&#x27;s most demanding fish market.</p><a class="placecue" href="/atlas/sushi-and-washoku#other-places">+3 other places →</a></article></div></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
 
 
 <div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
@@ -666,11 +666,11 @@ var A=(window.ET_ATLAS&&window.ET_ATLAS.disciplines)||[];
 var RATINGS=window.ET_RATINGS||{};
 var MOVE={"muay-thai":1,"brazilian-jiu-jitsu":1,"karate":1,"kung-fu":1,"capoeira":1,"flamenco-and-dance":1,"argentine-tango":1,"salsa":1,"bharatanatyam-indian-classical-dance":1,"ecstatic-dance-and-movement":1};
 var WORLDS={
-  adventure:{label:"The Wild",short:"Wild",color:"#6fa3a0"},
-  culinary:{label:"Kitchen & Cellar",short:"Kitchen",color:"#c9a24a"},
-  creative:{label:"Craft & Art",short:"Craft",color:"#cf8f6e"},
-  movement:{label:"Movement & Rhythm",short:"Movement",color:"#bf8088"},
-  wellness:{label:"Body & Spirit",short:"Body",color:"#94ad86"}
+  adventure:{label:"The Wild",short:"Wild",color:"#4e7b78"},
+  culinary:{label:"Kitchen & Cellar",short:"Kitchen",color:"#4e7b78"},
+  creative:{label:"Craft & Art",short:"Craft",color:"#4e7b78"},
+  movement:{label:"Movement & Rhythm",short:"Movement",color:"#4e7b78"},
+  wellness:{label:"Body & Spirit",short:"Body",color:"#4e7b78"}
 };
 // Kitchen & Cellar leads (Arnaud, 15 September 2026). ORDER drives all three surfaces
 // that list the worlds — the filter chips, the catalogue sections and the rails — so
@@ -1048,7 +1048,7 @@ var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%fea
     rotshot.style.setProperty("--focal",(f.shot?f.focal:f.illusFocal)||"center");
     rotshot.classList.add("on");
     rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
-  bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
+  bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ground),var(--surface))";ri++;}
 tick();setInterval(tick,2700);
 
 // ── filter state ──
@@ -1185,7 +1185,7 @@ var STEPS=[
    var ne=nSkills(withF({english:!F.english,craft:""})),nl=nSkills(withF({minRank:F.minRank?0:5,craft:""}));
    return h+'<div class="chips" style="margin-top:6px">'
      +'<button class="chip tgl-en'+(F.english?" on":"")+(F.english?"":dead(ne))+'">Taught in English '+cnt(ne)+'</button>'
-     +'<button class="chip tgl-leg'+(F.minRank?" on":"")+(F.minRank?"":dead(nl))+'" style="color:'+(F.minRank?"#f0c27a":"var(--muted)")+'">Legendary only '+cnt(nl)+'</button></div>';},
+     +'<button class="chip tgl-leg'+(F.minRank?" on":"")+(F.minRank?"":dead(nl))+'" style="color:'+(F.minRank?"#4e7b78":"var(--muted)")+'">Legendary only '+cnt(nl)+'</button></div>';},
  wire:function(r){
    r.querySelectorAll(".chip.role").forEach(function(b){b.onclick=function(){
      var v=b.dataset.r;F.role=(F.role===v?"":v);F.craft="";renderSide();render();};});

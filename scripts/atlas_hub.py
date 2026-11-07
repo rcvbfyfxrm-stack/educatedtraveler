@@ -37,11 +37,11 @@ TEMPLATE = Path(__file__).resolve().parent / "atlas-hub-template.html"
 FOCUS = "culinary"
 
 WORLD_COLOR = {
-    "adventure": "#6fa3a0",
-    "culinary": "#c9a24a",
-    "creative": "#cf8f6e",
-    "movement": "#bf8088",
-    "wellness": "#94ad86",
+    "adventure": "#4e7b78",
+    "culinary": "#4e7b78",
+    "creative": "#4e7b78",
+    "movement": "#4e7b78",
+    "wellness": "#4e7b78",
 }
 
 
@@ -286,7 +286,7 @@ CMP_CSS = r"""
 .cmp .c-season,.cmp .c-howlong,.cmp .c-tier{white-space:nowrap}
 .cmp tbody th a{color:var(--sea);text-decoration:none}
 .cmp tbody th a:hover{text-decoration:underline}
-.cmp td{color:rgba(243,237,226,.78)}
+.cmp td{color:rgba(14,22,21,.72)}
 .cmp .gone{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);font-weight:400;margin-left:6px}
 .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none}
@@ -491,7 +491,7 @@ def measure_html(mm, dots=None, vouch=""):
         for x in c.get("evidence") or []:
             link = (f'<a href="{e(x["url"])}" rel="nofollow noopener" target="_blank" '
                     f'style="color:var(--sea);text-decoration:none;'
-                    f'border-bottom:1px solid rgba(127,168,165,.32)">{e(x["what"])} &nearr;</a>'
+                    f'border-bottom:1px solid rgba(78,123,120,.32)">{e(x["what"])} &nearr;</a>'
                     ) if x.get("url") else e(x["what"])
             ev += f'{"" if not ev else " &middot; "}{link}'
             if x.get("date"):
@@ -504,7 +504,7 @@ def measure_html(mm, dots=None, vouch=""):
                  f'<b style="display:block;color:{col};font-weight:400;margin-bottom:2px">'
                  f'{mark} {c["n"]}</b>{c["t"]}{ev}</p>')
     note = mm.get("ceilingNote")
-    note = (f'<p style="margin:0 0 14px;color:var(--muted)"><b style="color:var(--paper)">'
+    note = (f'<p style="margin:0 0 14px;color:var(--muted)"><b style="color:var(--type)">'
             f'{note}</b></p>') if note else ""
     return (
       '<section><div class="wrap">'
@@ -525,7 +525,7 @@ def measure_html(mm, dots=None, vouch=""):
       # marks against the listing ("ten schools between them and not one named teacher"). A
       # legend on an instrument about honesty may not be the one sentence on the page that is
       # not checked. It now names all three reasons, and the sentence under each dot says which.
-      '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
+      '<div style="padding:20px 22px;background:var(--surface);border:1px solid var(--line);'
       'border-left:2px solid var(--sea)">'
 
       # a sentence, not a badge: uppercase letterspaced mono is for short labels, and
@@ -556,7 +556,7 @@ def measure_html(mm, dots=None, vouch=""):
       # line does not silently collapse into one run of prose here.
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
       f'letter-spacing:.02em;color:var(--muted);margin:16px 0 0;padding-top:10px;'
-      f'border-top:1px dashed rgba(127,168,165,.28)">'
+      f'border-top:1px dashed rgba(78,123,120,.28)">'
       f'<b style="color:var(--sea);text-transform:uppercase;letter-spacing:.14em;font-size:10px;'
       f'font-weight:500;display:block">{mm["state"]} &middot; {mm["checker"]} '
       f'&middot; {mm["date"]}</b></p>'
@@ -644,7 +644,7 @@ def ladder_html(lad, compact=False):
             name = (f'<a href="{e(r["url"])}" rel="nofollow noopener" target="_blank" '
                     f'style="color:var(--sea);text-decoration:none">{name} &nearr;</a>')
         rungs += ('<div style="margin:0 0 14px;padding-left:14px;'
-                  'border-left:2px solid rgba(127,168,165,.34)">'
+                  'border-left:2px solid rgba(78,123,120,.34)">'
                   '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;'
                   'letter-spacing:.14em;text-transform:uppercase;color:var(--sea);'
                   f'margin-bottom:4px">{name}</div>'
@@ -653,7 +653,7 @@ def ladder_html(lad, compact=False):
     if lad.get("url"):
         src = (f'<a href="{e(lad["url"])}" rel="nofollow noopener" target="_blank" '
                f'style="color:var(--sea);text-decoration:none;'
-               f'border-bottom:1px solid rgba(127,168,165,.32)">{src} &nearr;</a>')
+               f'border-bottom:1px solid rgba(78,123,120,.32)">{src} &nearr;</a>')
     head = "" if compact else (
         '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;'
         'letter-spacing:.14em;text-transform:uppercase;color:var(--sea);'
@@ -706,9 +706,9 @@ def coverage_html(cov, lad, school):
                  "own course.")
     src = (f'<a href="{e(cov["url"])}" rel="nofollow noopener" target="_blank" '
            f'style="color:var(--sea);text-decoration:none;'
-           'border-bottom:1px solid rgba(127,168,165,.32)">their own course page &nearr;</a>'
+           'border-bottom:1px solid rgba(78,123,120,.32)">their own course page &nearr;</a>'
            ) if cov.get("url") else "their own course page"
-    return ('<div style="margin:0 0 20px;padding:18px 20px;background:var(--ink2);'
+    return ('<div style="margin:0 0 20px;padding:18px 20px;background:var(--surface);'
             'border:1px solid var(--line);border-left:2px solid var(--sea)">'
             f'<p style="font-size:15px;margin:0 0 3px"><strong style="font-weight:500">'
             f'{e(school)}</strong></p>'
@@ -739,9 +739,9 @@ RAIL_CSS = """
 .crail.drag{cursor:grabbing;scroll-behavior:auto}
 .crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
   display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
-  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
   transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
-.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(78,123,120,.42);background:rgba(78,123,120,.05)}
 .crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--faint)}
 .crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
@@ -752,9 +752,9 @@ RAIL_CSS = """
 .crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
 .crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
 .crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
-  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  background:var(--surface);color:var(--type);cursor:pointer;font-size:13px;line-height:1;
   opacity:.72;transition:opacity .2s,border-color .2s}
-.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button:hover{opacity:1;border-color:rgba(78,123,120,.42)}
 .crail-nav button[disabled]{opacity:.22;cursor:default}
 @media(max-width:560px){.crail-nav{display:none}}
 """
@@ -868,7 +868,7 @@ NOTE_CSS = """
 .letter .lhead{text-align:center;max-width:60ch;margin:0 auto 24px}
 .letter h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(25px,3.8vw,38px);line-height:1.1;margin:12px 0 14px;letter-spacing:-.01em}
 .letter .lsub{color:var(--muted);font-size:15px;line-height:1.65}
-.letter .lsub b{color:var(--paper);font-weight:400}
+.letter .lsub b{color:var(--type);font-weight:400}
 .lbox{max-width:660px;margin:0 auto}
 .cint{font-size:11.5px;color:var(--sea);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);line-height:1.45}
 .cint:empty{display:none}
@@ -914,7 +914,7 @@ def note_section(heading, sub, discipline="", label=""):
 # quieter, and the line it carries instead names what actually opens it.
 HUB_EXTRA_CSS = """
 /* a craft nobody has asked for yet — same card, quieter */
-.dcard.shut,.gcard.shut{background:rgba(20,17,13,.55)}
+.dcard.shut,.gcard.shut{background:rgba(255,255,255,.55)}
 .dcard.shut::before,.gcard.shut::before{opacity:.24}
 .dcard.shut .cardsay,.gcard.shut .cardsay{opacity:.9}
 .dcard.shut .wherealive,.gcard.shut .wherealive{opacity:.8}
@@ -942,11 +942,11 @@ HUB_EXTRA_CSS = """
 /* how far along the band you are — the answer to "is that all of them?", which a
    scrolling row has to give in words because it cannot give it by being full */
 .nocount{display:flex;align-items:center;gap:12px;margin:2px 0 12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.nocount .track{flex:1;max-width:230px;height:2px;border-radius:2px;background:rgba(243,237,226,.12);overflow:hidden}
+.nocount .track{flex:1;max-width:230px;height:2px;border-radius:2px;background:rgba(14,22,21,.12);overflow:hidden}
 .nocount .track i{display:block;height:100%;width:20%;border-radius:2px;background:var(--sea);transition:width .25s,margin-left .25s}
 .nomore{margin:16px 0 0;font-size:13.5px}
-.nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)}
-.nomore a:hover{color:var(--paper)}
+.nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)}
+.nomore a:hover{color:var(--type)}
 """
 
 # The band's arrows and drag. The catalogue rails below get theirs from the page's
@@ -1196,9 +1196,9 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     #    build stops rather than shipping a page that quietly lost its band.
     anchor = '</main>'
     # The kitchen only, for now (Arnaud, 4 Nov 2026) — the band leads with what the
-    # catalogue above it puts forward. Colour is the world: band_item() sets it from
-    # WORLD_COLOR and check-atlas-hub check 5 holds the map to the template's.
-    band = opened_band([it for it in opened if it.get("color") == WORLD_COLOR[FOCUS]])
+    # catalogue above it puts forward. Filtered on the world itself: since the three-colour
+    # design (Nov 2026) every world wears the same sea, so the colour no longer tells them apart.
+    band = opened_band([it for it in opened if it.get("world") == FOCUS])
     if band:
         if t.count(anchor) != 1:
             raise SystemExit("atlas_hub: expected exactly one </main> in "
