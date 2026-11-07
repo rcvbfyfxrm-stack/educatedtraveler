@@ -419,9 +419,16 @@
                         var who = [r.display_name, r.trade].filter(Boolean).join(', ');
                         var el = document.createElement('div');
                         el.className = 'sn-note';
-                        el.innerHTML = '<q>' + esc(r.what) + '</q>' +
-                            (who || stamp
-                                ? '<span class="sn-by">— ' + esc(who || 'someone who went') +
+                        // A signature with no words (review.html allows it) prints as the
+                        // name alone: "learned here" is the whole of what they said.
+                        var said = (r.what || '').trim();
+                        // Next to "learned here" a date reads as WHEN they learned, so the
+                        // day they signed (created_at) must not stand in for it.
+                        if (!said && !r.visited_on) stamp = '';
+                        el.innerHTML = (said ? '<q>' + esc(said) + '</q>' : '') +
+                            (who || stamp || !said
+                                ? '<span class="sn-by"' + (said ? '' : ' style="margin-top:0"') + '>— ' + esc(who || 'someone who went') +
+                                  (said ? '' : ' · learned here') +
                                   (stamp ? ' · ' + esc(stamp) : '') + '</span>'
                                 : '');
                         frag.appendChild(el);

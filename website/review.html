@@ -118,6 +118,12 @@
         .gal{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-top:16px; border-radius:12px; overflow:hidden; }
         .gal img{ width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
         .gal-note{ color:var(--faint); font-size:12.5px; margin-top:8px; }
+        .pk{ display:block; width:100%; text-align:left; margin-top:10px; border:1px solid rgba(14,22,21,.18); background:rgba(14,22,21,.04);
+             color:var(--type); border-radius:16px; padding:15px 18px; font:inherit; cursor:pointer; transition:border-color .2s, background .2s; }
+        .pk b{ display:block; font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:19px; }
+        .pk span{ display:block; color:var(--muted); font-size:13.5px; margin-top:2px; }
+        .pk:hover{ border-color:rgba(78,123,120,.6); }
+        .pk[aria-pressed=true]{ border-color:var(--sea); background:rgba(78,123,120,.18); }
         .ghost{ display:block; text-align:center; margin-top:12px; border:1px solid var(--sea); border-radius:99px; padding:15px 20px; color:var(--type); }
 
         @media (min-width:900px){
@@ -153,8 +159,10 @@
     var JCMA = { school: 'Japan Culinary Masters Academy (JCMA)', label: 'JCMA', teacher: 'Hiroko', lead: 'Hiroko',
                  dest: 'sushi-and-washoku--tokyo-tsukiji-toyosu', where: 'Otsuka, Tokyo', page: 'Tokyo',
                  img: '/images/review/hiroko/the-bench.jpg', pos: '50% 30%',
-                 ask: HIROKO_ASK, hint: HIROKO_HINT, max: 600, more: HIROKO_MORE };
+                 ask: HIROKO_ASK, hint: HIROKO_HINT, max: 600, more: HIROKO_MORE,
+                 pick: 'Her own school in Otsuka, open since June 2026' };
     var TSA = { school: 'Tokyo Sushi Academy', label: 'Tokyo Sushi Academy', teacher: 'Hiro and Hiroko', lead: 'Hiroko',
+                pick: 'The English course she taught with Hiro, before JCMA',
                 dest: 'sushi-and-washoku--tokyo-tsukiji-toyosu', where: 'Tokyo', page: 'Tokyo',
                 img: '/images/review/hiroko/hiroko.jpg', pos: '50% 25%',
                 ask: HIROKO_ASK, hint: HIROKO_HINT, max: 600, more: HIROKO_MORE };
@@ -179,22 +187,39 @@
             ]
         },
         // ── Hiroko Ishii. One kitchen each, and the kitchen is the one they stood in. ──
-        // JCMA opened in June 2026: only Robin has stood in that room. Everyone else learned
-        // with Hiroko at Tokyo Sushi Academy, so their words go on THAT card, never on JCMA's.
-        robin: hiroko('Robin', 'Robin Sjostrom', 'Yacht chef', [JCMA]),
+        // JCMA opened in June 2026. Whoever learned with Hiroko at Tokyo Sushi Academy has their
+        // words go on THAT card, never on JCMA's.
+        // Robin already wrote to JCMA on Instagram. His link shows HIS words, verbatim, and asks
+        // whether they may go on the card: nothing of his is published unless he ticks yes.
+        robin: withQuote(hiroko('Robin', 'Robin Sjostrom', 'Yacht chef', [JCMA]), {
+            i: 0, from: 'What you wrote to JCMA on Instagram',
+            text: 'I would like to sincerely thank you for the excellent training, guidance, and support throughout my sushi course. It has been a great experience learning from such skilled and dedicated chefs. I have gained valuable knowledge and techniques that I will carry with me throughout my career. Thank you for your patience, professionalism, and for making my time at the academy so enjoyable and memorable.',
+            ok: 'Yes, share these words on the JCMA card, under my name',
+            add: 'Anything to add? How Hiroko teaches, what you still do her way.',
+            title: 'Can I share<br><em>your review?</em>',
+            lede: 'You wrote a kind note to JCMA on Instagram. I would like to put it on JCMA’s card on the Atlas, under your name, so other chefs can read it. You can add anything you like, or nothing.' }),
         adri: hiroko('Adri', 'Beatriz Adriana Sánchez Núñez', 'Yacht chef', [TSA]),
         malgorzata: hiroko('Malgorzata', 'Malgorzata Scheidle', 'Yacht chef', [TSA]),
         damla: hiroko('Damla', 'Damla Yazıcı Kertiş', '', [TSA]),
         alexa: hiroko('Alexa', 'Alexa López', 'Yacht chef', [TSA]),
         // The OPEN link, for Arnaud to send to anyone on WhatsApp: no name, no trade,
         // both kitchens; each person writes about the one they stood in and skips the other.
-        hiroko: { open: true, first: '', name: '', trade: '', craft: 'sushi-and-washoku', why: HIROKO_WHY, gallery: HIROKO_GAL, cover: { src: '/images/review/hiroko/the-room.jpg', pos: '50% 50%' }, schools: [JCMA, TSA] }
+        hiroko: { open: true, pickQ: 'Where did you learn with her?', first: '', name: '', trade: '', craft: 'sushi-and-washoku', why: HIROKO_WHY, gallery: HIROKO_GAL, cover: { src: '/images/review/hiroko/the-room.jpg', pos: '50% 50%' }, schools: [JCMA, TSA] }
     };
+    // A quoted invite asks two things only: share it, and add anything. No extra questions, and
+    // the add-on is capped so quote + add-on stays under the table's 1,200 characters.
+    function withQuote(inv, q) {
+        inv.quote = q;
+        inv.schools = inv.schools.map(function (s) { return Object.assign({}, s, { more: null, max: Math.min(600, 1200 - q.text.length - 2) }); });
+        return inv;
+    }
     function hiroko(first, name, trade, schools) {
         return { first: first, name: name, trade: trade, craft: 'sushi-and-washoku', why: HIROKO_WHY, gallery: HIROKO_GAL, schools: schools };
     }
     var TRADES = ['Yacht chef', 'Yacht crew', 'Chef or cook', 'Something else'];
-    var MIN = 40, MAX = 1200;
+    // Nothing is required to sign: a few words, or none. A signature with no words still says
+    // "I learned here, under my name", and that is worth having. (Migration 049 lets the table take it.)
+    var MAX = 1200;
 
     function $(id) { return document.getElementById(id); }
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -212,7 +237,7 @@
 
     // ── state, kept in this browser only so a closed tab loses nothing ──
     var SAVE = 'et-review-' + key;
-    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, more: {}, yr: {}, mon: {}, early: {}, skip: {} };
+    var st = { name: inv.name, ig: '', trade: inv.trade, other: '', email: '', said: {}, more: {}, yr: {}, mon: {}, early: {}, skip: {}, pick: null, qok: false };
     try { Object.assign(st, JSON.parse(localStorage.getItem(SAVE) || '{}')); } catch (e) {}
     function keep() { try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (e) {} }
 
@@ -241,23 +266,34 @@
                 : '<div class="duo">' + inv.schools.slice(0, 2).map(function (s) {
                 return '<img src="' + esc(s.img) + '" alt="" style="object-fit:cover;object-position:' + esc(s.pos) + '">'; }).join('') + '</div>') + '</div>' +
             '<div class="body"><a class="brand et-wordmark" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a><div class="mono" style="color:var(--sea)">' + (inv.open ? 'For anyone who learned with Hiroko' : 'For ' + esc(inv.first)) + '</div>' +
-            '<h1 style="margin:10px 0 14px">' + (inv.open ? 'Learned with Hiroko?<br><em>Two minutes.</em>' : N === 1 ? 'One kitchen.<br><em>Two minutes.</em>' : N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
-            '<p class="lede">' + (inv.open ? 'Write about the kitchen where you learned with her, and skip the other. ' : 'You cooked there. ') + 'Say what you saw, in your own words, and it goes on ' + (inv.open ? 'that school’s card' : N === 1 ? 'the school’s card' : 'each school’s card') + ' under your name.</p>' +
+            '<h1 style="margin:10px 0 14px">' + (inv.quote ? inv.quote.title : inv.open ? 'Learned with Hiroko?<br><em>One minute.</em>' : N === 1 ? 'One kitchen.<br><em>One minute.</em>' : N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
+            '<p class="lede">' + (inv.quote ? esc(inv.quote.lede) + '</p>' : (inv.open ? '' : 'You cooked there. ') + 'A few words is enough, and every box is optional: even with none, your name on ' + (inv.open ? 'that school’s card' : N === 1 ? 'the school’s card' : 'each school’s card') + ' says you learned there.</p>') +
+            // The open link asks WHERE first, right under the title, so the choice is the first
+            // thing they see and nobody wades through a school they never stood in.
+            (inv.pickQ ? '<div id="pick" style="margin-top:20px"><div class="label" style="margin:0;font-size:15px;color:var(--type)">' + esc(inv.pickQ) + '</div>' +
+                inv.schools.map(function (s, i) {
+                    return '<button type="button" class="pk" data-pick="' + i + '" aria-pressed="false"><b>' + esc(s.label) + '</b><span>' + esc(s.pick || s.where) + '</span></button>'; }).join('') +
+                '<button type="button" class="pk" data-pick="all" aria-pressed="false"><b>Both</b><span>I learned with her at each</span></button></div>' : '') +
             '<div class="why"><div class="mono" style="color:var(--sea)">Why I’m asking</div>' +
             '<p>' + (inv.why ? esc(inv.why) : 'Before I build anything with a teacher, I want chefs who have actually cooked with them to vouch for them first. You’d be ' + (inv.among ? 'among the first' : 'the first') + ' to do that for ' + esc(inv.schools.map(function (s) { return s.lead || s.teacher.split(' and ')[0]; }).join(' and ')) + ', so what you write really counts for what I build next.') + '</p>' +
             '<span class="sig">Arnaud</span></div>' +
             (inv.gallery ? '<div class="gal">' + inv.gallery.imgs.map(function (g) {
                 return '<img src="' + esc(g.src) + '" alt="" loading="lazy" style="object-position:' + esc(g.pos) + '">'; }).join('') +
                 '</div><p class="gal-note">' + esc(inv.gallery.note) + '</p>' : '') +
-            '<div class="foot"><button class="go" type="button" data-next>Start</button>' +
-            '<p class="fine">I read every one before it goes up.</p></div></div></section>');
+            (inv.pickQ ? '<div class="foot"><p class="fine">I read every one before it goes up.</p></div>'
+                : '<div class="foot"><button class="go" type="button" data-next>Start</button>' +
+                  '<p class="fine">I read every one before it goes up.</p></div>') + '</div></section>');
         inv.schools.forEach(function (s, i) {
             h.push('<section class="screen split" data-s="' + (i + 1) + '">' +
                 '<div class="photo"><img src="' + esc(s.img) + '" alt="" style="object-position:' + esc(s.pos) + '">' +
-                '<div class="over"><div class="mono">' + (N > 1 ? (i + 1) + ' of ' + N + ' · ' : '') + esc(s.where) + '</div>' +
+                '<div class="over"><div class="mono">' + (N > 1 && !inv.pickQ ? (i + 1) + ' of ' + N + ' · ' : '') + esc(s.where) + '</div>' +
                 '<h2>' + esc(s.label) + '</h2><div class="sub">with ' + esc(s.teacher) + '</div></div></div>' +
-                '<div class="body"><textarea id="w' + i + '" maxlength="' + (s.max || MAX) + '" rows="3" placeholder="' + esc(s.ask) + '"></textarea>' +
-                '<div class="meter"><i id="mt' + i + '"></i></div><div class="hint"><span id="h' + i + '">A few lines is plenty.</span><span id="n' + i + '"></span></div>' +
+                '<div class="body">' + (inv.quote && inv.quote.i === i
+                    ? '<div class="reads" style="margin-top:0"><div class="mono" style="color:var(--sea)">' + esc(inv.quote.from) + '</div><q style="margin-top:8px">' + esc(inv.quote.text) + '</q></div>' +
+                      '<label class="tick"><input type="checkbox" id="qok"><span>' + esc(inv.quote.ok) + '<small>Your words, exactly as you wrote them.</small></span></label>' +
+                      '<div class="label">Add to it (optional)</div>' : '') +
+                '<textarea id="w' + i + '" maxlength="' + (s.max || MAX) + '" rows="3" placeholder="' + esc(inv.quote && inv.quote.i === i ? inv.quote.add : s.ask) + '"></textarea>' +
+                '<div class="meter"><i id="mt' + i + '"></i></div><div class="hint"><span id="h' + i + '">Optional. A word or two is fine.</span><span id="n' + i + '"></span></div>' +
                 (s.more ? '<div class="more"><div class="mono" style="color:var(--sea)">If you have another minute</div>' +
                     s.more.map(function (m, k) { return '<label class="mq"><span>' + esc(m.q) + '</span>' +
                         '<textarea class="small" id="m' + i + '-' + k + '" maxlength="180" rows="2" placeholder="' + esc(m.ph) + '"></textarea></label>'; }).join('') +
@@ -269,15 +305,15 @@
                 MON.map(function (m, k) { return '<button type="button" class="chip" data-mon="' + (k + 1) + '" aria-pressed="false">' + m + '</button>'; }).join('') + '</div>' +
                 '<input type="month" id="me' + i + '" style="display:none" max="' + THIS_MONTH + '">' +
                 '<div class="hint" id="wh' + i + '"></div>' +
-                '<div class="foot"><button class="go" type="button" data-next id="g' + i + '">' + (i + 1 < N ? 'Next kitchen' : 'Last step') + '</button>' +
-                '<button class="skip" type="button" data-skip="' + i + '">' + (inv.open ? 'I didn’t learn with her here' : 'I’d rather not review this one') + '</button></div></div></section>');
+                '<div class="foot"><button class="go" type="button" data-next id="g' + i + '">Last step</button>' +
+                (inv.pickQ ? '' : '<button class="skip" type="button" data-skip="' + i + '">' + (inv.open ? 'I didn’t learn with her here' : 'I’d rather not review this one') + '</button>') + '</div></div></section>');
         });
         h.push('<section class="screen" data-s="' + (N + 1) + '"><div class="body" style="padding-top:84px">' +
             '<div class="mono" style="color:var(--sea)">Last step</div><h1 style="margin:10px 0 6px;font-size:clamp(30px,8vw,42px)">Sign it.</h1>' +
             '<div id="reads"></div>' +
             '<div class="field"><label for="f-name">Your name</label><input id="f-name" maxlength="40" autocomplete="name"></div>' +
             '<div class="field at"><label for="f-ig">Instagram, shown with your name (optional)</label><input id="f-ig" maxlength="30" autocapitalize="off" autocomplete="off" spellcheck="false"></div>' +
-            '<div class="label">What you do</div><div class="chips" id="tr">' + TRADES.map(function (t) {
+            '<div class="label">What you do (optional)</div><div class="chips" id="tr">' + TRADES.map(function (t) {
                 return '<button type="button" class="chip" aria-pressed="false">' + esc(t) + '</button>'; }).join('') + '</div>' +
             '<div class="field" id="f-other-w" style="display:none"><label for="f-other">In your own words</label><input id="f-other" maxlength="60"></div>' +
             '<div class="field"><label for="f-email">Email, never shown</label><input id="f-email" type="email" inputmode="email" autocomplete="email"></div>' +
@@ -309,9 +345,19 @@
     var LABELS = ['Why'].concat(inv.schools.map(function (s) { return s.label; }), ['Sign']);
     $('steps').innerHTML = LABELS.map(function (l, i) {
         return '<button type="button" data-go="' + i + '"><i></i><span>' + esc(l) + '</span></button>'; }).join('');
+    // The school screens still in play: on the open link, only the ones they picked.
+    function inPlay(i) { return !inv.pickQ || !st.skip[i]; }
+    function nextFrom(n) {
+        for (var k = n + 1; k <= N; k++) if (inPlay(k - 1)) return k;
+        return N + 1;
+    }
+    function paintNext() {
+        inv.schools.forEach(function (s, i) { $('g' + i).textContent = nextFrom(i + 1) <= N ? 'Next kitchen' : 'Last step'; });
+    }
     function paintSteps() {
         $('steps').classList.toggle('off', at > N + 1);
         $('steps').querySelectorAll('button').forEach(function (b, i) {
+            b.style.display = i >= 1 && i <= N && !inPlay(i - 1) ? 'none' : '';
             b.className = i < at ? 'past' : i === at ? 'now' : '';
             if (i === at) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
         });
@@ -319,12 +365,12 @@
 
     // ── the kitchens ──
     function grow(t) { t.style.height = 'auto'; t.style.height = t.scrollHeight + 'px'; }
+    // Nothing here blocks: the bar only fills to show a few words is already a full answer.
     function paintSchool(i) {
         var t = $('w' + i), n = t.value.trim().length;
-        $('mt' + i).style.width = Math.min(100, n / MIN * 100) + '%';
-        $('n' + i).textContent = n ? (n < MIN ? (MIN - n) + ' to go' : '✓') : '';
-        $('h' + i).textContent = n >= MIN ? 'Good. Add more if you like.' : (inv.schools[i].hint || 'Who taught, what you made, what you would tell a chef.');
-        $('g' + i).disabled = n < MIN;
+        $('mt' + i).style.width = Math.min(100, n / 40 * 100) + '%';
+        $('n' + i).textContent = n ? '✓' : '';
+        $('h' + i).textContent = n ? 'Good. Add more if you like.' : 'Optional. A word or two is fine. ' + (inv.schools[i].hint || 'Who taught, what you made, what you would tell a chef.');
     }
     inv.schools.forEach(function (s, i) {
         var t = $('w' + i);
@@ -373,19 +419,35 @@
     document.addEventListener('click', function (e) {
         var g = e.target.closest('[data-go]');
         if (g) { go(+g.dataset.go); return; }
+        var pk = e.target.closest('[data-pick]');
+        if (pk) {
+            st.pick = pk.dataset.pick;
+            inv.schools.forEach(function (s, i) { st.skip[i] = st.pick !== 'all' && String(i) !== st.pick; });
+            keep(); paintPick(); paintNext(); go(nextFrom(0));
+            return;
+        }
         if (e.target.closest('[data-next]')) {
             if (at >= 1 && at <= N) st.skip[at - 1] = false, keep();
-            go(at + 1);
+            go(nextFrom(at));
         }
         var sk = e.target.closest('[data-skip]');
-        if (sk) { st.skip[+sk.dataset.skip] = true; keep(); go(at + 1); }
+        if (sk) { st.skip[+sk.dataset.skip] = true; keep(); go(nextFrom(at)); }
     });
+    function paintPick() {
+        document.querySelectorAll('[data-pick]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.pick === st.pick)); });
+    }
+    paintPick(); paintNext();
+    if (inv.quote) {
+        var qb = $('qok'); qb.checked = !!st.qok;
+        qb.addEventListener('change', function () { st.qok = qb.checked; keep(); });
+    }
 
     // ── you ──
     // The review as it is published: their main answer, then each optional answer as a labelled sentence.
     function stop(x) { return /[.!?…"”)]$/.test(x) ? x : x + '.'; }
     function said(i) {
         var main = (st.said[i] || '').trim(), parts = main ? [stop(main)] : [];
+        if (inv.quote && inv.quote.i === i && st.qok) parts.unshift(inv.quote.text);
         (inv.schools[i].more || []).forEach(function (m, k) {
             var a = (st.more[i + '-' + k] || '').trim().replace(/\s+/g, ' ');
             if (a) parts.push(m.tag + ': ' + stop(a));
@@ -395,7 +457,11 @@
     function picked() {
         return inv.schools.map(function (s, i) {
             return { s: s, main: (st.said[i] || '').trim(), what: said(i), when: whenOf(i) };
-        }).filter(function (p, i) { return !st.skip[i] && p.main.length >= MIN; });
+        }).filter(function (p, i) {
+            // Signed: every school they did not skip, words or none. On the open link a school
+            // counts only once they picked it, so an untouched link signs nothing by accident.
+            return !st.skip[i] && (!inv.pickQ || st.pick != null);
+        });
     }
     function paintReads() {
         var who = [byname(), trade()].filter(Boolean).join(', ');
@@ -403,8 +469,9 @@
         var idx = function (s) { return inv.schools.indexOf(s) + 1; };
         $('reads').innerHTML = ps.length ? '<div class="label" style="margin-top:14px">How it reads</div>' + ps.map(function (p) {
             var m = monthLabel(p.when);
-            return '<div class="reads"><q>' + esc(p.what) + '</q><span>— ' + esc(who) + (m ? ' · ' + esc(m) : '') + ' · on ' + esc(p.s.label) + ' <button type="button" class="edit" data-go="' + idx(p.s) + '">Edit</button></span></div>';
-        }).join('') : '<p class="lede" style="margin-top:12px">Nothing to sign yet. Write about at least one kitchen first.</p>';
+            return '<div class="reads">' + (p.what ? '<q>' + esc(p.what) + '</q>' : '<span style="margin-top:0">No words, just your name: it shows you learned there.</span>') +
+                '<span>— ' + esc(who || 'your name') + (m ? ' · ' + esc(m) : '') + ' · on ' + esc(p.s.label) + ' <button type="button" class="edit" data-go="' + idx(p.s) + '">' + (p.what ? 'Edit' : 'Add a few words') + '</button></span></div>';
+        }).join('') : '<p class="lede" style="margin-top:12px">Nothing to sign yet. ' + (inv.pickQ ? '<button type="button" class="edit" style="margin:0;font-size:inherit" data-go="0">Pick the school where you learned with her.</button>' : 'Go back and keep at least one kitchen.') + '</p>';
     }
     $('f-name').value = st.name; $('f-ig').value = st.ig; $('f-other').value = st.other; $('f-email').value = st.email;
     function paintTrade() {
@@ -437,9 +504,8 @@
     $('send').addEventListener('click', async function () {
         say('');
         var ps = picked(), email = st.email.trim();
-        if (!ps.length) return say('Write about at least one kitchen first.');
+        if (!ps.length) return say(inv.pickQ ? 'Pick the school where you learned with her first.' : 'Keep at least one kitchen first.');
         if (st.name.trim().length < 2) { $('f-name').focus(); return say('Your name, as you want it on the page.'); }
-        if (!trade()) { $('f-other').focus(); return say('What you do, in a few words.'); }
         if (!/.+@.+\..+/.test(email)) { $('f-email').focus(); return say('An email, so I can write back. It is never shown.'); }
         if (!$('f-pub').checked) return say('Tick the first box so your words can go on the pages.');
         var sb = window.supabaseClient;
@@ -453,7 +519,7 @@
             try {
                 var r = await sb.from('vouches').insert({
                     user_id: null, craft: inv.craft, destination: p.s.dest, school: p.s.school,
-                    what: p.what, state: 'stood in it', route: 'direct', trade: trade(),
+                    what: p.what || null, state: 'stood in it', route: 'direct', trade: trade().length >= 2 ? trade() : null,
                     visited_on: p.when ? p.when + '-01' : null, display_name: byname(), email: email,
                     consent_public: true, wants_circle: circle, status: 'pending' });
                 if (r && r.error) throw r.error;
