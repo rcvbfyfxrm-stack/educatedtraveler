@@ -21,7 +21,7 @@
                     colors: {
                         'bmw': {
                             50: '#1c1813', 100: '#b3d1ef', 200: '#a7cecb', 300: '#4e7b78',
-                            400: '#4e7b78', 500: '#5b8a89', 600: '#5b8a89', 700: '#38595b',
+                            400: '#4e7b78', 500: '#4e7b78', 600: '#4e7b78', 700: '#38595b',
                             800: '#ffffff', 900: '#ffffff',
                         },
                         'steel': {
@@ -40,7 +40,7 @@
         .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
 
         :root {
-            --bmw-blue: #5b8a89;
+            --bmw-blue: #4e7b78;
             --bmw-light: #4e7b78;
             --bmw-glow: rgba(0, 102, 177, 0.4);
             --bmw-subtle: rgba(0, 102, 177, 0.15);
@@ -64,7 +64,7 @@
         .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
         .status-published { background: rgba(0,102,177,0.2); color: #4e7b78; }
         .status-full { background: rgba(0,102,177,0.3); color: #a7cecb; }
-        .status-in_progress { background: rgba(59,130,246,0.2); color: #9cc0bd; }
+        .status-in_progress { background: rgba(59,130,246,0.2); color: #4e7b78; }
         .row-hover:hover { background: rgba(14,22,21,.03); }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .spinner { animation: spin 1s linear infinite; }
@@ -72,6 +72,7 @@
         .pulse { animation: pulse 2s ease-in-out infinite; }
     </style>
 <link rel="stylesheet" href="/css/wordmark.css">
+<link rel="stylesheet" href="/css/app-light.css">
 </head>
 <body class="text-white min-h-screen">
 
@@ -231,7 +232,7 @@
                             <h4 class="text-sm font-medium">Program Levels</h4>
                             <p class="text-white/30 text-xs">Add levels with dates. Students enroll per level.</p>
                         </div>
-                        <button type="button" id="add-level-btn" class="text-xs px-4 py-1.5 rounded-full bg-[#5b8a89]/20 text-[#4e7b78] hover:bg-[#5b8a89]/30 transition-colors">+ Add Level</button>
+                        <button type="button" id="add-level-btn" class="text-xs px-4 py-1.5 rounded-full bg-[#4e7b78]/20 text-[#4e7b78] hover:bg-[#4e7b78]/30 transition-colors">+ Add Level</button>
                     </div>
 
                     <div id="levels-container" class="space-y-3">
@@ -250,7 +251,7 @@
                     </div>
                 </div>
 
-                <button type="submit" id="prep-submit" class="w-full py-3 bg-[#5b8a89] text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
+                <button type="submit" id="prep-submit" class="w-full py-3 bg-[#4e7b78] text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
                     Create Instructor + Program
                 </button>
                 <p class="text-white/20 text-xs text-center">Instructor will be pre-approved. Cohorts created as drafts.</p>
@@ -574,7 +575,7 @@
                                 <option value="low">Low</option>
                             </select>
                             <input id="task-due" type="date" class="rounded-lg px-3 py-2 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
-                            <button type="submit" class="px-4 py-2 text-sm rounded-lg bg-[#5b8a89] hover:bg-bmw-400 text-white transition-colors">Add</button>
+                            <button type="submit" class="px-4 py-2 text-sm rounded-lg bg-[#4e7b78] hover:bg-bmw-400 text-white transition-colors">Add</button>
                         </form>
                         <div id="task-list" class="space-y-2"></div>
                     </div>
@@ -592,7 +593,7 @@
                             <div>
                                 <div class="flex items-baseline justify-between">
                                     <span class="text-xs text-white/40">Quests completed</span>
-                                    <span class="text-xl mono text-[#c08a6a]">${pulseQuests.thisWeek}</span>
+                                    <span class="text-xl mono text-[#4e7b78]">${pulseQuests.thisWeek}</span>
                                 </div>
                                 <div class="text-xs text-white/30 mt-0.5">vs ${pulseQuests.lastWeek} last week &middot; ${deltaArrow(pulseQuests.thisWeek, pulseQuests.lastWeek)}</div>
                             </div>
@@ -651,12 +652,12 @@
                                         </div>
                                     </td>
                                     <td class="px-5 py-3 text-white/50 text-xs">${esc(p.location || '—')}</td>
-                                    <td class="px-5 py-3 text-xs">${q ? (q.elements||[]).slice(0,3).map(t=>'<span class="inline-block bg-[#5b8a89]/15 text-[#4e7b78] text-[10px] px-2 py-0.5 rounded-full mr-1">' + t + '</span>').join('') : '<span class="text-white/20">—</span>'}</td>
+                                    <td class="px-5 py-3 text-xs">${q ? (q.elements||[]).slice(0,3).map(t=>'<span class="inline-block bg-[#4e7b78]/15 text-[#4e7b78] text-[10px] px-2 py-0.5 rounded-full mr-1">' + t + '</span>').join('') : '<span class="text-white/20">—</span>'}</td>
                                     <td class="px-5 py-3 text-white/60 text-xs">${saved.length ? saved.length + ' adventure' + (saved.length>1?'s':'') : '<span class="text-white/20">—</span>'}</td>
                                     <td class="px-5 py-3 text-white/40 text-xs whitespace-nowrap">${whenLabel}</td>
                                     <td class="px-5 py-3 text-right">
                                         <a href="mailto:${esc(p.email)}" class="text-[#4e7b78] hover:text-bmw-300 text-xs mr-3">Email</a>
-                                        ${p.phone && p.whatsapp_opt_in ? '<a href="https://wa.me/' + esc(p.phone.replace(/[^0-9]/g,'')) + '" target="_blank" class="text-[#4e7b78] hover:text-[#9cc0bd] text-xs">WhatsApp</a>' : ''}
+                                        ${p.phone && p.whatsapp_opt_in ? '<a href="https://wa.me/' + esc(p.phone.replace(/[^0-9]/g,'')) + '" target="_blank" class="text-[#4e7b78] hover:text-[#4e7b78] text-xs">WhatsApp</a>' : ''}
                                     </td>
                                 </tr>`;
                             }).join('')}
@@ -896,7 +897,7 @@
                                     return `
                                     <tr class="border-b border-white/5 row-hover">
                                         <td class="px-4 py-3 mono text-xs">${esc(user?.email || pref.user_id.slice(0,8))}</td>
-                                        <td class="px-4 py-3">${(pref.elements || []).map(t => `<span class="inline-block bg-[#5b8a89]/15 text-[#4e7b78] text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
+                                        <td class="px-4 py-3">${(pref.elements || []).map(t => `<span class="inline-block bg-[#4e7b78]/15 text-[#4e7b78] text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
                                         <td class="px-4 py-3">${(pref.desires || []).map(t => `<span class="inline-block bg-white/5 text-white/60 text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
                                         <td class="px-4 py-3 text-white/60">${esc(pref.time_preference || '—')}</td>
                                         <td class="px-4 py-3 mono">${pref.intensity || '—'}</td>
@@ -972,13 +973,13 @@
             if (adminData.instructors.length === 0) {
                 el.innerHTML = `<div class="text-center py-12">
                     <p class="text-white/20 text-sm mb-4">No instructors yet</p>
-                    <button onclick="openPrepModal()" class="text-sm px-6 py-2 rounded-full bg-[#5b8a89]/20 text-[#4e7b78] hover:bg-[#5b8a89]/30 transition-colors">+ Prepare an Instructor</button>
+                    <button onclick="openPrepModal()" class="text-sm px-6 py-2 rounded-full bg-[#4e7b78]/20 text-[#4e7b78] hover:bg-[#4e7b78]/30 transition-colors">+ Prepare an Instructor</button>
                 </div>`;
                 return;
             }
             el.innerHTML = `
                 <div class="flex justify-end mb-4">
-                    <button onclick="openPrepModal()" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#4e7b78] hover:bg-[#5b8a89]/30 transition-colors">+ Prepare an Instructor</button>
+                    <button onclick="openPrepModal()" class="text-sm px-5 py-2 rounded-full bg-[#4e7b78]/20 text-[#4e7b78] hover:bg-[#4e7b78]/30 transition-colors">+ Prepare an Instructor</button>
                 </div>
                 <div class="glass rounded-xl overflow-hidden">
                     <div class="overflow-x-auto">
@@ -1062,7 +1063,7 @@
                                     const price = c.price_cents ? '$' + (c.price_cents / 100).toLocaleString() : '—';
                                     const reviewActions = c.status === 'pending_review' ? `
                                         <div class="flex items-center gap-1 mt-1">
-                                            <button onclick="approveCohort('${c.id}')" class="text-[10px] px-2 py-0.5 rounded-full bg-[#5b8a89]/20 text-[#4e7b78] hover:bg-[#5b8a89]/30">Approve</button>
+                                            <button onclick="approveCohort('${c.id}')" class="text-[10px] px-2 py-0.5 rounded-full bg-[#4e7b78]/20 text-[#4e7b78] hover:bg-[#4e7b78]/30">Approve</button>
                                             <button onclick="bounceCohort('${c.id}', '${esc(c.title).replace(/'/g, "\\'")}')" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-[#4e7b78] hover:bg-amber-500/30">Bounce</button>
                                         </div>` : '';
                                     return `
@@ -1284,7 +1285,7 @@
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Archetype (Life Stage)</h3>
-                        ${barChart(countField('lifestage'), total, 'bg-[#5b8a89]')}
+                        ${barChart(countField('lifestage'), total, 'bg-[#4e7b78]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Booking Intent</h3>
@@ -1300,7 +1301,7 @@
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Duration</h3>
-                        ${barChart(countField('duration'), total, 'bg-[#c08a6a]')}
+                        ${barChart(countField('duration'), total, 'bg-[#4e7b78]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">#1 Barrier</h3>
@@ -1308,7 +1309,7 @@
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Trust Factors</h3>
-                        ${barChart(countArrayField('trust_factors'), total, 'bg-[#5b8a89]')}
+                        ${barChart(countArrayField('trust_factors'), total, 'bg-[#4e7b78]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Solo vs. Group</h3>
@@ -1324,11 +1325,11 @@
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Age Range</h3>
-                        ${barChart(countField('age_range'), total, 'bg-[#c08a6a]')}
+                        ${barChart(countField('age_range'), total, 'bg-[#4e7b78]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Location</h3>
-                        ${barChart(countField('location'), total, 'bg-[#5b8a89]')}
+                        ${barChart(countField('location'), total, 'bg-[#4e7b78]')}
                     </div>
                 </div>
 
@@ -1465,7 +1466,7 @@
 
             const typeColors = {
                 signup: 'text-[#4e7b78]',
-                quest: 'text-[#c08a6a]',
+                quest: 'text-[#4e7b78]',
                 save: 'text-[#4e7b78]',
                 instructor: 'text-orange-400',
                 enrollment: 'text-[#4e7b78]'

@@ -44,6 +44,7 @@
         .plan-option.selected .plan-radio { border-color: #4e7b78; }
         .plan-option.selected .plan-radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: #4e7b78; }
     </style>
+<link rel="stylesheet" href="/css/app-light.css">
 </head>
 <body class="min-h-screen flex items-center justify-center px-6 py-12">
 
@@ -161,7 +162,7 @@
                 if (error || !enr) { bail('Booking not found.'); return; }
                 if (enr.user_id !== user.id) { bail('This balance is not on your account.'); return; }
                 if (enr.payment_status === 'paid' || !enr.balance_cents) {
-                    summaryEl.innerHTML = '<p class="text-[#9cc0bd] text-sm text-center">You\'re all paid up for this cohort. 🎉</p>' +
+                    summaryEl.innerHTML = '<p class="text-[#4e7b78] text-sm text-center">You\'re all paid up for this cohort. 🎉</p>' +
                         '<p class="text-center mt-4"><a href="/dashboard" class="text-xs uppercase tracking-[0.25em] text-white/50 underline">Go to dashboard</a></p>';
                     return;
                 }

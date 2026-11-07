@@ -68,14 +68,14 @@
         .interest-tag.adventure { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.3); color: #EF4444; }
         .interest-tag.culinary { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #4e7b78; }
         .interest-tag.wellness { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); color: #4e7b78; }
-        .interest-tag.creative { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #c08a6a; }
+        .interest-tag.creative { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #4e7b78; }
         .class-tag {
             padding: 6px 14px;
             border-radius: 9999px;
             font-size: 0.8rem;
             border: 1px solid rgba(78,123,120,0.28);
             background: rgba(78,123,120,0.10);
-            color: #9cc0bd;
+            color: #4e7b78;
         }
         .class-tag em { font-style: normal; color: rgba(14,22,21,.6); font-size: 0.72rem; }
         .class-tag.joined { border-color: rgba(78,123,120,0.35); background: rgba(78,123,120,0.12); color: #4e7b78; }
@@ -99,6 +99,7 @@
         .spinner { animation: spin 1s linear infinite; }
     </style>
 <link rel="stylesheet" href="/css/wordmark.css">
+<link rel="stylesheet" href="/css/app-light.css">
 </head>
 
 <body class="text-white">
@@ -110,10 +111,10 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="/atlas/" class="text-sm text-white/60 hover:text-white transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
-                <a href="/circle" class="text-sm px-4 py-2 rounded-full bg-[#5b8a89] text-white hover:bg-[#38595b] transition-colors">Join the Circle</a>
+                <a href="/circle" class="text-sm px-4 py-2 rounded-full bg-[#4e7b78] text-white hover:bg-[#38595b] transition-colors">Join the Circle</a>
                 <div id="auth-nav">
-                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-[#5b8a89]/50 text-[#4e7b78] hover:bg-[#5b8a89]/10 transition-colors">Sign In</button>
-                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-[#5b8a89]/50 text-[#4e7b78] hover:bg-[#5b8a89]/10 transition-colors">Dashboard</a>
+                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-[#4e7b78]/50 text-[#4e7b78] hover:bg-[#4e7b78]/10 transition-colors">Sign In</button>
+                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-[#4e7b78]/50 text-[#4e7b78] hover:bg-[#4e7b78]/10 transition-colors">Dashboard</a>
                 </div>
             </div>
         </div>
@@ -133,7 +134,7 @@
             <div class="text-5xl mb-6">&#x1F30A;</div>
             <h1 class="text-2xl font-light mb-4">Profile not found</h1>
             <p class="text-white/50 text-sm mb-8">This crew card doesn't exist or is set to private.</p>
-            <a href="/" class="text-[#4e7b78] hover:text-[#9cc0bd] text-sm transition-colors">Back to home</a>
+            <a href="/" class="text-[#4e7b78] hover:text-[#4e7b78] text-sm transition-colors">Back to home</a>
         </div>
     </div>
 
@@ -146,7 +147,7 @@
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                     <!-- Avatar -->
                     <div class="flex-shrink-0">
-                        <div id="card-avatar" class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-semibold" style="background: linear-gradient(135deg, #5b8a89, #4e7b78);">
+                        <div id="card-avatar" class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-semibold" style="background: linear-gradient(135deg, #4e7b78, #4e7b78);">
                             <span id="card-initials">--</span>
                         </div>
                     </div>
@@ -438,7 +439,7 @@
                     ? '<p class="text-white/55 text-xs mt-2 leading-relaxed italic">' + esc(p.notes) + '</p>'
                     : '';
                 const verified = p.verified
-                    ? ' <span class="text-[9px] uppercase tracking-wider text-[#9cc0bd]/80 ml-1">✓ Verified</span>'
+                    ? ' <span class="text-[9px] uppercase tracking-wider text-[#4e7b78]/80 ml-1">✓ Verified</span>'
                     : '';
                 return `
                     <div class="rounded-lg p-3 border border-white/[0.04] bg-white/[0.015]">
