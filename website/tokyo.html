@@ -3,224 +3,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- DRAFT 30 Oct 2026. NOT PUBLISHED. Remove the noindex line below only when Arnaud ships it.
-     OPEN BEFORE SHIP:
-     1. Hiroko confirms in writing: three weeks 1-19 Mar 2027, all of week three in, the Toyosu Saturday 13 March, the sake night on Thu 11, lunch included, the minimum of six.
-     2. Toyosu open on Sat 13 Mar 2027 (2027 calendar not published when this was written; the day was agreed, the market calendar was not checked).
-     2b. "Course starts at 6" (Arnaud, 31 Oct) was read as: it runs from six chefs. Unconfirmed reading.
-     2c. The editable schedule for Hiroko is the Claude artifact in weeks/02-tokyo/schedule-editor.html; her edits are read back from its database.
-     3. Her bio re-read live on jcma.tokyo (it 403s to fetch; use Chrome).
-     4. NO PRICE anywhere, on purpose (Arnaud, 30 Oct).
-     5. The first table and the last dinner are written as commitments (ET pays, as in Barcelona). Everything else around
-        the weeks carries a status tag. The bladesmith week is not on the page: nothing agreed, no dates.
-     6. The interest form writes to launch_waitlist, source collab:tokyo-2027 (same mechanism as the Atlas pages).
-        At ship: copy images/tokyo/ to website/images/tokyo/ and change src="/images/tokyo/" to src="/images/tokyo/".
-     7. Run keel over the copy, then glass the live URL. -->
+<!-- /tokyo, unlisted. Three colours (white, ink, sea), after THE PAGE. 7 Nov 2026.
+     Class days are Hiroko's own, from her 6 Nov calendar. NO PRICE anywhere (Arnaud, 30 Oct).
+     Photographs: the carousel set whose permission is on file; the credit names the school and stops.
+     Status words are honest: agreed / being arranged / idea / on us. Remove noindex only when Arnaud says so. -->
 <meta name="robots" content="noindex">
-<title>Three weeks of omakase in Tokyo — EducatedTraveler</title>
-<meta name="description" content="Learn omakase, then serve it at the counter. Three weeks in Tokyo, 1 to 19 March 2027, for yacht chefs and private chefs. Hands on, in English, taught by Hiroko Ishii.">
+<title>Serve an omakase, Tokyo 2027 — EducatedTraveler</title>
+<meta name="description" content="Three weeks in Tokyo with Hiroko Ishii, 1 to 19 March 2027, for yacht and private chefs. Rice, knife, fish, and on the last day you serve an omakase at the counter.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--ground:#ffffff;--type:#0e1615;--muted:rgba(14,22,21,.72);--faint:rgba(14,22,21,.6);--sea:#4e7b78;--ember:#4e7b78;--line:rgba(14,22,21,.11)}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-[hidden]{display:none!important}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;background:var(--ground);color:var(--type);overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(transparent,transparent),linear-gradient(transparent,transparent)}
-a{color:inherit}
-.wrap{max-width:820px;margin:0 auto;padding:0 20px}
-.mono{font-family:'IBM Plex Mono',monospace}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sea)}
-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-.brand{font-family:'Fraunces',serif;letter-spacing:.16em;font-size:13px;text-decoration:none}
-.brand b{font-weight:400;color:var(--sea)}
-.pill{font-size:13px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);text-decoration:none}
-.pill:hover{border-color:rgba(78,123,120,.5)}
-.hero{padding:96px 0 56px}
-h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,7vw,62px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 24px}
-h1 em{font-style:italic;color:var(--ember)}
-.lede{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:600px}
-.facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--muted)}
-.facts b{color:var(--type);font-weight:500}
-.quiet{margin-top:26px;padding-left:14px;border-left:2px solid var(--ember);font-size:14.5px;color:var(--muted);max-width:560px}
-.quiet b{color:var(--type);font-weight:500}
-.cta{display:inline-block;margin-top:26px;padding:13px 26px;border-radius:999px;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#ffffff;font-weight:500;text-decoration:none;font-size:15px}
-.cta:hover{filter:brightness(1.06)}
-section{padding:60px 0;border-top:1px solid var(--line)}
-h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,5vw,42px);line-height:1.1;letter-spacing:-.015em;margin:12px 0 20px}
-p{margin:0 0 14px;color:var(--muted);max-width:620px}
-p strong{color:var(--type);font-weight:500}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:720px}
-.chip{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.02em;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--type)}
-.figs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;align-items:start}
-.figs figure{margin:0}
-.figs img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
-.figs figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
-.credit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--faint);margin-top:14px}
-.wk{margin-top:40px}
-.wk-h{display:flex;align-items:baseline;gap:16px;padding-bottom:10px;border-bottom:1px solid rgba(14,22,21,.22)}
-.wk-h .n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ember)}
-.wk-h h3{font-family:'Fraunces',serif;font-weight:400;font-size:22px}
-.row{display:grid;grid-template-columns:92px 1fr;gap:2px 20px;padding:16px 0;border-bottom:1px solid var(--line)}
-.row .d{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--ember);padding-top:5px}
-.row h4{font-family:'Fraunces',serif;font-weight:400;font-size:19px;margin-bottom:4px}
-.row p{font-size:14.5px;margin:0;max-width:none}
-.tag{display:inline-block;margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--faint);vertical-align:middle}
-.tag.arr{color:var(--sea);border-color:rgba(78,123,120,.45)}
-.row .ev{margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--sea)}
-.note{font-size:13.5px;color:var(--faint);margin-top:14px}
-.who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
-.card{padding:20px;border:1px solid var(--line);border-radius:14px;background:rgba(14,22,21,.02)}
-.card .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin-bottom:8px;display:block}
-.card ul{list-style:none}
-.card li{font-size:14.5px;color:var(--muted);padding:6px 0;border-top:1px solid var(--line)}
-.card li:first-child{border-top:0}
-.intent-row{display:flex;flex-wrap:wrap;gap:10px}
-.intent-input{flex:1 1 240px;min-width:0;padding:13px 16px;border-radius:999px;background:rgba(14,22,21,.05);border:1px solid rgba(14,22,21,.18);color:var(--type);font:inherit;font-size:15px}
-.intent-input:focus{outline:none;border-color:rgba(78,123,120,.6)}
-.intent-go{padding:13px 26px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#ffffff;font:inherit;font-weight:500;font-size:15px}
-.intent-go:disabled{opacity:.6;cursor:default}
-.intent-msg{margin-top:14px;font-size:15px}
-.intent-msg.ok{color:var(--sea)}
-.intent-msg.err{color:var(--ember)}
-.intent-fine{margin-top:12px;font-size:12.5px;color:var(--faint)}
-.terms{list-style:none;margin-top:6px}
-.terms li{padding:12px 0;border-top:1px solid var(--line);color:var(--muted);max-width:620px;font-size:15px}
-.terms li:first-child{border-top:0}
-.terms b{color:var(--type);font-weight:500}
-section.close{text-align:left;padding:72px 0 80px;background:linear-gradient(transparent,transparent)}
-section.close h2{font-size:clamp(30px,6vw,50px);margin-bottom:6px}
-footer{padding:36px 0 70px;border-top:1px solid var(--line);font-size:13px;color:var(--faint)}
-button.pill{background:none;color:inherit;font-family:inherit;cursor:pointer}
-button.cta{border:0;cursor:pointer;font-family:inherit}
-dialog#raise{margin:auto;width:min(92vw,520px);padding:34px 30px 28px;color:var(--type);background:#ffffff;border:1px solid rgba(78,123,120,.35);border-radius:20px;box-shadow:0 40px 120px rgba(0,0,0,.7),0 0 0 1px rgba(78,123,120,.12);overflow:auto;max-height:92vh}
-dialog#raise::backdrop{background:rgba(8,6,5,.72);backdrop-filter:blur(7px)}
-dialog#raise[open]{animation:pop .28s cubic-bezier(.2,.8,.2,1)}
-@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
-dialog#raise::before{content:"";position:absolute;left:30px;right:30px;top:0;height:2px;background:linear-gradient(90deg,var(--sea),var(--ember));border-radius:2px}
-dialog#raise h2{margin:14px 0 14px;font-size:clamp(32px,7vw,44px)}
-dialog#raise h2 em{font-style:italic;color:var(--ember)}
-dialog#raise p{font-size:15px}
-dialog#raise .intent{margin-top:6px}
-dialog#raise .intent-row{flex-direction:column}
-dialog#raise .intent-input{flex:none;width:100%;padding:15px 18px;font-size:16px}
-dialog#raise .intent-go{width:100%;padding:15px;font-size:16px}
-dialog#raise .intent-input:focus{border-color:var(--sea);box-shadow:0 0 0 3px rgba(78,123,120,.18)}
-dialog#raise .x{position:absolute;top:12px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
-dialog#raise .x:hover{color:var(--type);border-color:rgba(14,22,21,.6)}
-dialog#raise .step[hidden]{display:none}
-dialog#raise .learn[hidden]{display:none}
-dialog#raise fieldset{border:0;margin:18px 0 0}
-dialog#raise legend{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sea);margin-bottom:10px}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer}
-.opt span{display:block;padding:9px 16px;border:1px solid rgba(14,22,21,.20);border-radius:999px;font-size:14px;color:var(--muted);transition:border-color .2s,background .2s,color .2s}
-.opt:hover span{border-color:rgba(14,22,21,.6);color:var(--type)}
-.opt input:checked+span{border-color:var(--ember);background:rgba(78,123,120,.28);color:var(--type);box-shadow:inset 0 0 0 1px var(--ember)}
-.opt input:focus-visible+span{box-shadow:0 0 0 3px rgba(78,123,120,.3)}
-dialog#raise .learn{display:block;margin-top:20px;font-size:13.5px;color:var(--muted)}
-dialog#raise .learn i{font-style:normal;color:var(--faint)}
-dialog#raise .learn input{display:block;width:100%;margin-top:8px;padding:12px 16px;border-radius:12px;background:rgba(14,22,21,.05);border:1px solid rgba(14,22,21,.18);color:var(--type);font:inherit;font-size:15px}
-dialog#raise .learn input:focus{outline:none;border-color:var(--sea)}
-dialog#raise [data-next]{width:100%;margin-top:18px;padding:15px;font-size:16px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#ffffff;font-family:inherit;font-weight:500}
-dialog#raise .hint{font-size:13px;color:var(--faint);margin:0 0 10px}
-dialog#raise .need{color:var(--ember);margin:12px 0 0;font-size:13px}
-dialog#raise .intent-fine a{color:var(--sea)}
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
-.three h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;margin:6px 0 8px}
-.three p{font-size:14.5px;margin:0}
-.three .num{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--ember)}
-.three>div{padding-top:16px;border-top:1px solid rgba(14,22,21,.22)}
-.done{list-style:none;margin-top:8px;max-width:680px}
-.done li{padding:13px 0 13px 28px;position:relative;border-top:1px solid var(--line);color:var(--type);font-size:16px}
-.done li:first-child{border-top:0}
-.done li::before{content:"";position:absolute;left:2px;top:21px;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ember)}
-.by{display:flex;align-items:center;gap:16px;margin:0 0 26px}
-.by .av{flex:none;width:72px;height:72px;border-radius:50%;overflow:hidden;border:1px solid rgba(14,22,21,.6);display:block}
-.by .av img{display:block;width:150%;max-width:none;height:auto;margin:-24px 0 0 -29px}
-.by .lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sea)}
-.by .nm{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,4.4vw,34px);line-height:1.15;color:var(--type)}
-.by .rl{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
-@media(max-width:640px){.three{grid-template-columns:1fr}.who,.figs{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero{padding-top:64px}}
-.sub{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:30px 0 4px}
-.why{display:grid;grid-template-columns:1fr 1fr;gap:26px 28px;margin-top:28px}
-.why>div{padding-top:16px;border-top:1px solid rgba(14,22,21,.22)}
-.why h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;margin:6px 0 8px}
-.why p{font-size:15px;margin:0}
-.why .num{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--ember)}
-details.days{margin-top:26px;border-top:1px solid var(--line)}
-details.days summary{cursor:pointer;list-style:none;padding:16px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sea)}
-details.days summary::-webkit-details-marker{display:none}
-details.days summary::after{content:" +"}
-details.days[open] summary::after{content:" \2212"}
-@media(max-width:640px){.why{grid-template-columns:1fr}}
-</style>
 <link rel="stylesheet" href="/css/wordmark.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;--ink:#0e1615;--sea:#4e7b78;--sea-dark:#7fa8a5;--paper:#f3ede2;
+  --muted:rgba(14,22,21,.72);--line:rgba(14,22,21,.12);--line-2:rgba(14,22,21,.26);--sea-tint:rgba(78,123,120,.08);
+  --f-display:'Fraunces',Georgia,'Times New Roman',serif;--f-body:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;--f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --maxw:1080px;color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--f-body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(78,123,120,.25)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:300;letter-spacing:-.018em;margin:0;text-wrap:balance}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+[hidden]{display:none!important}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px);padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 38px;border-radius:0;font-size:clamp(15px,1.5vw,16px);cursor:pointer;border:1px solid transparent;font-family:inherit;font-weight:500;transition:background .3s,color .3s;white-space:nowrap}
+.btn-primary{background:var(--sea);color:#fff}
+.btn-primary:hover{background:var(--ink)}
+
+/* nav: pale over the photograph, white once the page is white under it */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:60;color:var(--paper);transition:background .35s,color .35s,box-shadow .35s}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:clamp(14px,2.4vh,20px) clamp(18px,4vw,26px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-cta{display:none;align-items:center;min-height:42px;padding:0 18px;border:0;border-radius:0;font-size:13px;color:#fff;background:var(--sea);font-family:inherit;cursor:pointer;font-weight:500;transition:background .3s,opacity .3s}
+.nav-cta:hover{background:var(--ink)}
+nav.solid{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+nav.solid .et-wordmark{color:var(--ink)}
+nav.solid .et-wordmark .et-mark{filter:none}
+nav.solid .nav-cta{display:inline-flex}
+nav.solid.quiet .nav-cta{opacity:0;pointer-events:none}
+
+/* the stage: the photograph, the claim, the door */
+.stage{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;color:var(--paper)}
+.stage-bg{position:absolute;inset:0;background:#2a2320}
+.stage-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.stage-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,22,21,.42) 0%,rgba(14,22,21,.18) 30%,rgba(14,22,21,.46) 62%,rgba(14,22,21,.9) 100%)}
+.stage .wrap{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:clamp(28px,5vh,56px)}
+.claim{font-size:clamp(2.3rem,6.4vw,4.6rem);line-height:1.02;letter-spacing:-.025em;max-width:13ch;color:#fff}
+.stand{font-family:var(--f-display);font-weight:300;font-size:clamp(1.05rem,1.7vw,1.4rem);line-height:1.45;color:rgba(243,237,226,.94);margin-top:clamp(16px,2.4vh,24px);max-width:44ch;text-wrap:pretty}
+.door{margin-top:clamp(22px,3.4vh,34px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.stage .btn-primary{background:#fff;color:var(--ink)}
+.stage .btn-primary:hover{background:var(--sea-dark);color:var(--ink)}
+.door small{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,237,226,.78)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 0;margin-top:clamp(26px,4vh,40px);padding-top:18px;border-top:1px solid rgba(243,237,226,.28);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,237,226,.8)}
+.facts span{padding:0 18px 0 0;margin-right:18px;border-right:1px solid rgba(243,237,226,.28)}
+.facts span:last-child{border:0;margin:0;padding:0}
+.facts b{font-weight:500;color:#fff}
+
+section{padding:clamp(60px,9vh,104px) 0;border-top:1px solid var(--line)}
+.h2{font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.08;max-width:18ch}
+.lede{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:var(--muted);margin-top:18px;max-width:52ch}
+.lede b{color:var(--ink);font-weight:500}
+.lede a,.terms a,.cred a{color:var(--sea);border-bottom:1px solid rgba(78,123,120,.35)}
+.lede a:hover,.terms a:hover{border-color:var(--sea)}
+
+/* the counter: the three services, with the room beside them */
+.two{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start}
+.steps{list-style:none;margin:clamp(28px,4vh,44px) 0 0;padding:0;border-top:1px solid var(--line-2)}
+.steps li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:6px 20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.steps .d{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);padding-top:9px}
+.steps h3{font-size:clamp(1.35rem,2.4vw,1.85rem);line-height:1.18}
+.steps p{font-size:15px;line-height:1.6;color:var(--muted);margin-top:8px;max-width:40ch}
+.ph{overflow:hidden;background:#1a1612}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.room{aspect-ratio:3/4}
+.ph.room img{object-position:50% 60%}
+.cap{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px;line-height:1.6}
+
+/* the wall of tags: what the hands do */
+.plate{width:100%;height:min(62vh,46vw);background:#1a1612}
+.plate img{object-position:50% 55%}
+.wall{list-style:none;margin:clamp(30px,4.5vh,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.wall li{display:flex;flex-direction:column;min-height:196px;padding:18px 18px 16px;border:1px solid var(--line-2);background:var(--white)}
+.wall h3{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.12}
+.wall p{font-size:13.5px;line-height:1.55;color:var(--muted);margin-top:10px;flex:1 1 auto}
+.wall .d{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-top:16px}
+details.days{margin-top:clamp(28px,4vh,40px);border-top:1px solid var(--line-2)}
+details.days summary{cursor:pointer;list-style:none;padding:18px 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);display:flex;justify-content:space-between;align-items:center}
+details.days summary::-webkit-details-marker{display:none}
+details.days summary::after{content:"+";font-size:18px;line-height:1;color:var(--ink)}
+details.days[open] summary::after{content:"\2212"}
+.wk{margin-top:26px}
+.wk-h{display:flex;align-items:baseline;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--line-2)}
+.wk-h .n{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea)}
+.wk-h h3{font-size:1.3rem}
+.row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:2px 20px;padding:14px 0;border-bottom:1px solid var(--line)}
+.row .d{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);padding-top:4px}
+.row h4{font-size:1.1rem;line-height:1.25;margin-bottom:4px;letter-spacing:-.01em}
+.row p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.row .ev{margin-top:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:none;color:var(--sea)}
+.tag{display:inline-block;margin-left:8px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--line-2);color:var(--muted);vertical-align:middle}
+.tag.arr{color:var(--sea);border-color:rgba(78,123,120,.5)}
+.note{font-size:13.5px;color:var(--muted);margin-top:16px;max-width:60ch}
+
+/* around the lessons: a ledger */
+.ledger{list-style:none;margin:clamp(28px,4vh,44px) 0 0;padding:0;border-top:1px solid var(--line-2)}
+.ledger li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ledger .d{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);padding-top:7px;line-height:1.7}
+.ledger .d i{display:block;font-style:normal;color:var(--muted)}
+.ledger h3{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.18}
+.ledger p{font-size:15px;line-height:1.6;color:var(--muted);margin-top:6px;max-width:56ch}
+
+/* the teacher */
+.teacher{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center}
+.ph.portrait{aspect-ratio:3/4}
+.ph.portrait img{object-position:50% 30%}
+
+/* the terms */
+.terms{list-style:none;margin:clamp(24px,3.6vh,36px) 0 0;padding:0;border-top:1px solid var(--line-2);max-width:720px}
+.terms li{padding:15px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.6;color:var(--muted)}
+.terms b{color:var(--ink);font-weight:500}
+
+/* the one block of colour: the door again */
+.band{background:var(--sea);color:#fff;border-top:0;text-align:center}
+.band .wrap{display:flex;flex-direction:column;align-items:center}
+.band .h2{color:#fff;max-width:16ch}
+.band .btn-primary{background:#fff;color:var(--ink);margin-top:clamp(24px,3.6vh,34px)}
+.band .btn-primary:hover{background:var(--ink);color:#fff}
+.band small{display:block;margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+
+footer{text-align:center;padding:40px 22px 56px;border-top:1px solid var(--line)}
+.cred{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.fl{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 11px;line-height:2.2;white-space:nowrap}
+.fl:hover{color:var(--sea)}
+
+/* the sign-up, a white sheet */
+dialog#raise{margin:auto;width:min(92vw,520px);padding:34px 30px 28px;color:var(--ink);background:#fff;border:1px solid var(--line-2);border-radius:0;box-shadow:0 40px 100px rgba(14,22,21,.35)}
+/* the note the shared script builds inside this dialog keeps its cream paper; its buttons take the page's one colour */
+dialog#raise .etl button.etl-go,dialog#raise .etn-go,dialog#raise .etl .intent-go{background:var(--sea);color:#fff;border-radius:0;filter:none}
+dialog#raise .etl button.etl-go:hover,dialog#raise .etn-go:hover{background:var(--ink)}
+dialog#raise .etsu-dots i.on,dialog#raise .etsu-seal{background:var(--sea)}
+dialog#raise::backdrop{background:rgba(14,22,21,.55);backdrop-filter:blur(6px)}
+dialog#raise .close{position:absolute;top:12px;right:14px;width:36px;height:36px;border:1px solid var(--line-2);background:#fff;color:var(--ink);font-size:20px;line-height:1;cursor:pointer}
+dialog#raise .close:hover{background:var(--sea-tint)}
+
+@media (max-width:860px){
+  .two,.teacher{grid-template-columns:1fr}
+  .wall{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ph.room{aspect-ratio:4/3;max-height:52vh}
+  .ph.portrait{max-width:420px}
+}
+@media (max-width:640px){
+  .wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .wall li{min-height:0;padding:14px 14px 12px}
+  .wall p{font-size:12.5px}
+  .steps li,.ledger li,.row{grid-template-columns:1fr}
+  .steps .d,.ledger .d{padding-top:0}
+  .ledger .d i{display:inline;margin-left:10px}
+  .facts{gap:6px 16px;margin-top:22px;padding-top:14px;font-size:10.5px}
+  .facts span{border:0;margin:0;padding:0}
+  .door small{font-size:10.5px}
+  .stage .wrap{padding-top:90px}
+  .stage-bg::after{background:linear-gradient(180deg,rgba(14,22,21,.46) 0%,rgba(14,22,21,.34) 28%,rgba(14,22,21,.6) 58%,rgba(14,22,21,.92) 100%)}
+  .plate{height:min(60vh,78vw)}
+  .door .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.nav-cta,.opt span,nav{transition:none}}
+</style>
 </head>
 <body>
 
-<nav><div class="wrap">
-  <a class="brand et-wordmark" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
-  <button type="button" class="pill" data-open>I am interested</button>
+<nav id="nav"><div class="nav-in">
+  <a class="brand et-wordmark on-photo" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
+  <button type="button" class="nav-cta" data-open>I am interested</button>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <div class="eyebrow">Tokyo · 1 – 19 March 2027 · for yacht and private chefs</div>
-  <h1>Three weeks in Tokyo.<br><em>Then you serve the omakase.</em></h1>
-  <div class="by">
-    <span class="av"><img src="/images/tokyo/hiroko.jpg" width="900" height="1350" alt="Hiroko Ishii" loading="eager"></span>
-    <div><span class="lbl">Taught by</span><span class="nm">Hiroko Ishii</span><span class="rl">Founder, Japan Culinary Masters Academy, Tokyo</span></div>
+<header class="stage">
+  <div class="stage-bg"><img src="/images/review/hiroko/the-bench.jpg" width="900" height="1200" alt="Hiroko Ishii plating sashimi at the bench beside a student, plates of nigiri in front of them" loading="eager" fetchpriority="high"></div>
+  <div class="wrap">
+    <h1 class="claim">Serve an omakase in front of your guests.</h1>
+    <p class="stand">Three weeks in Tokyo with Hiroko Ishii. The rice, the knife, the fish, the order of the pieces. On the last day you stand behind the counter and serve.</p>
+    <div class="door">
+      <button type="button" class="btn btn-primary" data-open>I am interested</button>
+      <small>Nothing is on sale yet. Raise your hand and you hear first.</small>
+    </div>
+    <div class="facts">
+      <span><b>Mon 1 to Fri 19 March 2027</b></span>
+      <span>Otsuka, Tokyo</span>
+      <span>In English</span>
+      <span>Lunch included</span>
+      <span>For yacht and private chefs</span>
+    </div>
   </div>
-  <p class="lede">The rice, the knife, the nigiri formed by hand, and the order of a full omakase. Hands on, in English, in a room of working chefs. On the last day you stand behind the counter and serve.</p>
-  <div class="facts">
-    <span><b>Mon 1 – Fri 19 March 2027</b></span>
-    <span><b>Otsuka, Tokyo</b>, in English</span>
-    <span><b>Lunch included</b></span>
-    <span><b>From six chefs</b></span>
-  </div>
-  <p class="quiet"><b>Not on sale yet.</b> The programme is being finished with Hiroko. Raise your hand and you hear first.</p>
-  <button type="button" class="cta" data-open>I am interested</button>
-</div></header>
+</header>
 
-<section><div class="wrap">
-  <div class="eyebrow">The technique at the centre</div>
-  <h2>Nigiri. One piece, by hand,<br>in front of the guest.</h2>
-  <p>Rice cooked and seasoned until it is steady. Fish cut in one pull of the yanagiba. The piece formed in the hand, set down, eaten within seconds. Then the next one, in the right order, for a whole counter. That is omakase, and it rests on rice, a knife and timing. None of that comes from a video, so here your hands do it, most days, for three weeks.</p>
-  <h3 class="sub">By the last day you will have done this</h3>
-  <ul class="done">
-    <li>Cooked sushi rice and formed nigiri, week after week.</li>
-    <li>Broken down whole fish with the deba: horse mackerel, flounder, a whole salmon, a whole yellowtail.</li>
-    <li>Done ikejime on a sea bream at Toyosu market, if you chose to, and tasted a bream aged four days against a fresh one.</li>
-    <li>Cured fish with kelp and with vinegar, and made the tamago on the pan you use at work.</li>
-    <li>Watched Hiroko serve a full counter, then served your own omakase, and sat as a guest at the others’.</li>
-  </ul>
+<section id="counter"><div class="wrap two">
+  <div>
+    <h2 class="h2">Two weeks of technique. Then the counter.</h2>
+    <p class="lede">Omakase is one piece at a time, in the right order, with nothing to hide behind. The three weeks end with three services.</p>
+    <ol class="steps">
+      <li><span class="d">Fri 12 Mar</span><div><h3>A first small service</h3><p>The chefs serve nigiri to each other, one piece as it is asked for.</p></div></li>
+      <li><span class="d">Thu 18 Mar</span><div><h3>Hiroko serves a full omakase in front of you</h3><p>The prep, the order, the timing. You watch from the guests’ side.</p></div></li>
+      <li><span class="d">Fri 19 Mar</span><div><h3>You serve yours</h3><p>Two rounds at the counter, the other chefs as your guests.</p></div></li>
+    </ol>
+  </div>
+  <figure style="margin:0">
+    <div class="ph room"><img src="/images/review/hiroko/the-room.jpg" width="900" height="1201" alt="The classroom: a long stainless bench and a wooden counter with stools"></div>
+    <figcaption class="cap">The counter you serve from. Otsuka, Tokyo.</figcaption>
+  </figure>
 </div></section>
 
-<section><div class="wrap">
-  <div class="eyebrow">Why this one</div>
-  <h2>Built for chefs who<br>have to serve it.</h2>
-  <div class="why">
-    <div><span class="num">01</span><h3>A room of working chefs</h3><p>Everyone at the bench cooks for a living, on a boat or in a private house. You learn beside people who do your job, and you serve each other.</p></div>
-    <div><span class="num">02</span><h3>It ends at the counter</h3><p>Two weeks of technique, then the counter. Hiroko serves a full omakase in front of you. The next day you serve one yourself, the other chefs as your guests.</p></div>
-    <div><span class="num">03</span><h3>Made for the job you have</h3><p>Squid and scallop from frozen, since frozen is what a boat gets. The tamago on a non-stick pan. And an extra day, if you want it, for sushi for twelve guests at lunch: temaki, chirashi, oshizushi. <span class="tag">asked of Hiroko</span></p></div>
-    <div><span class="num">04</span><h3>At the source</h3><p>Toyosu at dawn, with ikejime in your own hands. A whole bluefin taken apart for the class, and Kappabashi for your knives, both being arranged. All of it in Tokyo, where this craft is most alive.</p></div>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">The three weeks</div>
-  <h2>Week by week.</h2>
-  <div class="three">
-    <div><span class="num">WEEK 1 · 1 – 5 MAR</span><h3>Rice, knife, first fish</h3><p>Sushi rice, the yanagiba, the first nigiri and hosomaki. Horse mackerel in three pieces. Shrimp, dashi, tamago, salmon.</p></div>
-    <div><span class="num">WEEK 2 · 8 – 13 MAR</span><h3>The fish of the counter</h3><p>Yellowtail, flounder, mackerel, gizzard shad, tuna, squid, octopus. Kombu-jime and vinegar cures. A first small service on Friday, Toyosu on Saturday.</p></div>
-    <div><span class="num">WEEK 3 · 15 – 19 MAR</span><h3>To the counter</h3><p>The market bream, shellfish, futomaki. Hiroko serves a full service on Thursday. On Friday you serve yours.</p></div>
-  </div>
-  <p style="margin-top:26px">Monday to Friday: morning class 10:00 to 12:00, <strong>lunch included</strong>, afternoon class 13:00 to 15:00, then self practice until 17:00 with Hiroko in the room. Weekends free.</p>
-  <details class="days"><summary>See every day</summary>
+<section id="hands">
+  <div class="ph plate"><img src="/images/review/hiroko/the-plate.jpg" width="1200" height="900" alt="A stone plate of sea bream sashimi and nigiri with shiso, gari and a half sudachi"></div>
+  <div class="wrap">
+    <h2 class="h2" style="margin-top:clamp(40px,6vh,64px)">Twelve things you do with your hands.</h2>
+    <p class="lede">Every class day is Hiroko’s, set by her. Morning class 10 to 12, lunch, afternoon class 1 to 3, then practice until 5 with her in the room.</p>
+    <ul class="wall">
+      <li><h3>Nigiri, by hand</h3><p>Rice cooked and seasoned until steady, the cut, the piece in the palm.</p><span class="d">Every day</span></li>
+      <li><h3>The yanagiba</h3><p>Fish for sushi cut in one pull. Your own knives sharpened.</p><span class="d">Mon 1, Tue 2</span></li>
+      <li><h3>Sanmai-oroshi</h3><p>A whole fish in three pieces, the skin off with the knife.</p><span class="d">Wed 3, Wed 17</span></li>
+      <li><h3>Ikejime</h3><p>At Toyosu, on a sea bream, in your own hands.</p><span class="d">Sat 13, agreed</span></li>
+      <li><h3>Ageing</h3><p>A bream aged four days, tasted against a fresh one.</p><span class="d">Sat 13, Mon 15</span></li>
+      <li><h3>Kombu-jime</h3><p>Flounder cured between sheets of kelp.</p><span class="d">Tue 9</span></li>
+      <li><h3>Vinegar cures</h3><p>Gizzard shad and mackerel. Bo-zushi, the pressed bar.</p><span class="d">Wed 10, Thu 11</span></li>
+      <li><h3>Whole fish</h3><p>A whole salmon, a whole yellowtail, aburi with the torch.</p><span class="d">Mon 8, Wed 10, Tue 16</span></li>
+      <li><h3>Tamago</h3><p>The omelette, on the pan you use at work. Nigiri from it.</p><span class="d">Thu 4</span></li>
+      <li><h3>The rolls</h3><p>Hosomaki, futomaki, inside-out, softshell crab.</p><span class="d">Tue 2, Fri 5, Tue 16</span></li>
+      <li><h3>Shellfish</h3><p>Ark shell, geoduck, surf clam, abalone, squid.</p><span class="d">Thu 11, Tue 16, Thu 18</span></li>
+      <li><h3>The hot side</h3><p>Dashi, simmered octopus, buri daikon, tempura.</p><span class="d">Wed 3, Mon 8, Thu 11, Fri 12</span></li>
+    </ul>
+    <details class="days"><summary>Every day, as Hiroko set it</summary>
     <div class="wk">
     <div class="wk-h"><span class="n">Week one</span><h3>1 – 5 March</h3></div>
     <div class="row"><div class="d">MON 1</div><div>
@@ -283,130 +300,68 @@ details.days[open] summary::after{content:" \2212"}
       <p>Prep in the morning. Then every chef serves a full omakase at the counter, in two rounds, the others as guests. The afternoon is for repeating any technique the chefs ask for.</p>
       <p class="ev">Evening · a long dinner for everyone, the last night.</p></div></div>
   </div>
-  <p class="note">Every class day is Hiroko’s, as she set it herself. Where it says “being arranged” or “idea”, that is what it is.</p>
-  </details>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">Who teaches it</div>
-  <h2>Hiroko Ishii.</h2>
-  <p>Hiroko founded Japan Culinary Masters Academy in Otsuka, Tokyo, and teaches sushi there in English. A degree in food science, Le Cordon Bleu in Paris, the Tokyo Sushi Academy, then nine years as a sushi chef and instructor in Switzerland, 2009 to 2018.</p>
-  <p>She set this schedule herself, day by day. She is in the room every day, and stays until 17:00 for anyone who wants to keep practising. Check her at <a href="https://jcma.tokyo/">jcma.tokyo</a>.</p>
-  <div class="figs">
-    <figure><img src="/images/tokyo/hiroko.jpg" width="900" height="1350" alt="Hiroko Ishii in her whites, standing in the school"><figcaption>Hiroko Ishii</figcaption></figure>
-    <figure><img src="/images/tokyo/the-room.jpg" width="900" height="1201" alt="The classroom: a long stainless bench, a counter with stools, windows on the street"><figcaption>The classroom. A bench to cook at, a counter to serve from.</figcaption></figure>
+      <p class="note">Where it says “being arranged” or “idea”, that is what it is.</p>
+    </details>
   </div>
-  <p class="credit">Photographs · Japan Culinary Masters Academy, Tokyo.</p>
+</section>
+
+<section id="around"><div class="wrap">
+  <h2 class="h2">Around the lessons, Tokyo.</h2>
+  <p class="lede">Evenings and weekends to eat, look, taste and buy the tools. Each one marked for what it is.</p>
+  <ol class="ledger">
+    <li><span class="d">Sun 28 Feb<i>on us</i></span><div><h3>The first table</h3><p>One long table the night before day one. A plate and a drink, no speeches.</p></div></li>
+    <li><span class="d">Sat 6 Mar<i>being arranged</i></span><div><h3>Kappabashi, then a sushi counter</h3><p>The kitchen-tool street with Hiroko, for your knives. In the evening the class sits on the other side of a counter she chooses.</p></div></li>
+    <li><span class="d">Tue 9 Mar<i>being arranged</i></span><div><h3>The tuna night</h3><p>A whole bluefin of around 30 kg, taken apart by a wholesaler with the long knife, Hiroko explaining each cut. With sake. She is waiting on her supplier for the date and the fish.</p></div></li>
+    <li><span class="d">Thu 11 Mar<i>idea</i></span><div><h3>Sake night in the classroom</h3><p>The whole class, in Hiroko’s room.</p></div></li>
+    <li><span class="d">Sat 13 Mar<i>agreed</i></span><div><h3>Toyosu at dawn</h3><p>The market, ikejime in your own hands, breakfast there.</p></div></li>
+    <li><span class="d">An evening<i>idea</i></span><div><h3>Japanese ingredients, tasted</h3><p>Each product pure, then cooked. Japanese wine, sake, or both.</p></div></li>
+    <li><span class="d">A shop<i>idea</i></span><div><h3>The Japanese dry store</h3><p>What a yacht chef keeps aboard, and where to buy it.</p></div></li>
+    <li><span class="d">A weekend<i>idea</i></span><div><h3>A wasabi farm in Izu</h3><p>Where wasabi grows in running spring water. Pulled, grated, eaten.</p></div></li>
+    <li><span class="d">Fri 19 Mar<i>on us</i></span><div><h3>The last night</h3><p>A long dinner for everyone. The people you cooked for, and who cooked for you, at one table.</p></div></li>
+  </ol>
 </div></section>
 
-<section><div class="wrap">
-  <div class="eyebrow">Around the lessons</div>
-  <h2>Where strangers become friends.</h2>
-  <p>In Barcelona the chefs arrived as strangers and left as a group. Their notes are on the <a href="/collaborations">collaborations page</a>. The first table and the last dinner are on us.</p>
-  <div class="wk">
-    <div class="row"><div class="d">SUN 28 FEB</div><div><h4>The first table</h4><p>One long table the night before day one. A plate and a drink, no speeches. You walk into Monday already knowing four names.</p></div></div>
-    <div class="row"><div class="d">SAT 6 MAR</div><div><h4>Kappabashi, then a sushi counter <span class="tag arr">being arranged</span></h4><p>Tokyo’s kitchen-tool street with Hiroko. In the evening, the class at a counter she chooses, to sit on the other side.</p></div></div>
-    <div class="row"><div class="d">TUE 9 MAR</div><div><h4>The tuna night <span class="tag arr">being arranged</span></h4><p>A whole bluefin of around 30 kg, taken apart by a tuna wholesaler with the long knife, Hiroko explaining each cut. With sake. She is waiting on her supplier for the date and the fish.</p></div></div>
-    <div class="row"><div class="d">THU 11 MAR</div><div><h4>Sake night in the classroom <span class="tag">idea</span></h4><p>The whole class, in Hiroko’s room.</p></div></div>
-    <div class="row"><div class="d">FRI 19 MAR</div><div><h4>The last night</h4><p>A long dinner, all of us. The people you cooked for, and who cooked for you, around one table.</p></div></div>
+<section id="teacher"><div class="wrap teacher">
+  <figure style="margin:0">
+    <div class="ph portrait"><img src="/images/tokyo/hiroko.jpg" width="900" height="1350" alt="Hiroko Ishii in her whites, standing in the school"></div>
+    <figcaption class="cap">Hiroko Ishii, Japan Culinary Masters Academy</figcaption>
+  </figure>
+  <div>
+    <h2 class="h2">Hiroko Ishii.</h2>
+    <p class="lede">Founder of Japan Culinary Masters Academy in Otsuka, Tokyo, where she teaches sushi in English. A degree in food science, Le Cordon Bleu in Paris, the Tokyo Sushi Academy, then nine years as a sushi chef and instructor in Switzerland.</p>
+    <p class="lede">She set this schedule herself, day by day, and stays in the room until five for anyone who keeps practising. Check her at <a href="https://jcma.tokyo/">jcma.tokyo</a>.</p>
   </div>
-  <p class="note">Still ideas: rooms together under one roof near the school, a wasabi farm in Izu on a weekend, an evening at a tempura or soba counter, and how to present sushi on a yacht table.</p>
 </div></section>
 
-<section id="interested"><div class="wrap">
-  <div class="eyebrow">Who it is for</div>
-  <h2>Cooks who cook for a living,<br>and have been asked for sushi.</h2>
-  <div class="who">
-    <div class="card"><span class="k">Yes, if you</span><ul>
-      <li>Cook on a yacht or in a private house, now or soon</li>
-      <li>Have been asked for omakase, or sushi for the table, and want to do it properly</li>
-      <li>Can be in Tokyo for all three weeks, 1 to 19 March 2027. It is three weeks or nothing</li>
-      <li>Will cook, correct and be corrected beside other chefs</li></ul></div>
-    <div class="card"><span class="k">Not this one, if you</span><ul>
-      <li>Have never cooked professionally. Everyone in the room does it for a living</li>
-      <li>Want to watch. Here the hands do the work</li></ul></div>
-  </div>
-  <button type="button" class="cta" data-open>I am interested</button>
-  <noscript><p style="margin-top:20px"><a href="/circle">Join the Circle to hear first</a></p></noscript>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">The honest terms</div>
-  <h2>Straight, like a good galley.</h2>
+<section id="terms"><div class="wrap">
+  <h2 class="h2">The terms, plainly.</h2>
   <ul class="terms">
-    <li><b>Nothing is on sale.</b> The programme comes first. Those who raised a hand hear everything in writing before anything is asked of them.</li>
+    <li><b>For cooks who cook for a living</b>, on a yacht or in a private house, and have been asked for sushi.</li>
+    <li><b>Three weeks, as one programme.</b> There is no two-week version.</li>
     <li><b>Lunch is included</b> on every class day.</li>
-    <li><b>Three weeks, as one programme.</b> It is built to be done whole, so there is no two-week version.</li>
-    <li><b>It runs from six chefs.</b> Hiroko’s number, to keep the counter practice real. Below six it does not run, and nobody pays for a week that does not happen.</li>
-    <li><b>You can go direct.</b> Hiroko teaches at her own school; her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working cooks, and everything around the lessons.</li>
-    <li><b>A plan, not a promise.</b> Where it says “being arranged” or “idea”, that is what it is.</li>
+    <li><b>It runs from six chefs.</b> Below six it does not run, and nobody pays for a week that does not happen.</li>
+    <li><b>Nothing is on sale.</b> Those who raised a hand hear everything in writing before anything is asked of them.</li>
+    <li><b>You can go direct.</b> Her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working chefs, and everything around the lessons.</li>
   </ul>
 </div></section>
 
-<section class="close"><div class="wrap">
-  <h2>Three weeks in Tokyo.<br>Then you serve the omakase.</h2>
-  <button type="button" class="cta" data-open>I am interested</button>
+<section class="band" id="interested"><div class="wrap">
+  <h2 class="h2">Three weeks in Tokyo. Then you serve the omakase.</h2>
+  <button type="button" class="btn btn-primary" data-open>I am interested</button>
+  <small>1 to 19 March 2027</small>
+  <noscript><p style="margin-top:20px"><a href="/circle" style="color:#fff;text-decoration:underline">Join the Circle to hear first</a></p></noscript>
 </div></section>
 
-<footer><div class="wrap">
-  EducatedTraveler · <a href="/">The Atlas</a> · <a href="/collaborations">Collaborations</a>
-</div></footer>
+<footer>
+  <p class="cred">Photographs: Japan Culinary Masters Academy.</p>
+  <a href="/" class="fl">The Atlas</a><a href="/collaborations" class="fl">Collaborations</a>
+</footer>
 
-<dialog id="raise" aria-labelledby="raise-t">
-  <button type="button" class="x" aria-label="Close" data-close>&times;</button>
-  <form class="intent" data-discipline="sushi-and-washoku" data-place="tokyo-omakase-2027" data-label="Tokyo omakase sushi, March 2027" data-source="collab:tokyo-2027">
-    <div class="step" data-step="1">
-      <div class="eyebrow">Tokyo · 1 of 3</div>
-      <h2 id="raise-t">Tell us <em>about you.</em></h2>
-      <fieldset><legend>You are</legend>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="role" value="yacht chef"><span>Yacht chef</span></label>
-          <label class="opt"><input type="radio" name="role" value="private chef"><span>Private chef</span></label>
-          <label class="opt"><input type="radio" name="role" value="restaurant chef"><span>Restaurant chef</span></label>
-          <label class="opt"><input type="radio" name="role" value="other"><span>Something else</span></label>
-        </div></fieldset>
-      <fieldset><legend>Is three weeks too long?</legend>
-        <p class="hint">1 to 19 March 2027. It is three weeks or nothing: the programme is built as one.</p>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="weeks" value="3 weeks ok"><span>No, I can do three weeks</span></label>
-          <label class="opt"><input type="radio" name="weeks" value="3 weeks too long"><span>Too long for me</span></label>
-          <label class="opt"><input type="radio" name="weeks" value="not sure"><span>Not sure yet</span></label>
-        </div></fieldset>
-      <label class="learn" data-long hidden><span>How long could you do? <i>Optional</i></span>
-        <input type="text" name="maxlong" maxlength="60" placeholder="Two weeks, ten days"></label>
-      <p class="need" hidden>Pick what you are, and whether three weeks works.</p>
-      <button type="button" class="intent-go" data-next>Next</button>
-    </div>
-    <div class="step" data-step="2" hidden>
-      <div class="eyebrow">Tokyo · 2 of 3</div>
-      <h2>What would you <em>add?</em></h2>
-      <fieldset><legend>An extra day</legend>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" name="addon" value="sushi for 12 guests (extra day)"><span>Sushi for 12 guests</span></label>
-        </div></fieldset>
-      <fieldset><legend>Around the weeks, you would join</legend>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" name="act" value="wasabi farm"><span>Wasabi farm in Izu</span></label>
-          <label class="opt"><input type="checkbox" name="act" value="tuna night"><span>Whole bluefin tuna night</span></label>
-          <label class="opt"><input type="checkbox" name="act" value="counter dinner"><span>Dinner at a sushi counter with Hiroko</span></label>
-          <label class="opt"><input type="checkbox" name="act" value="show stoppers"><span>Show stoppers: presenting sushi on a yacht</span></label>
-          <label class="opt"><input type="checkbox" name="act" value="tempura/soba counter"><span>Tempura or soba counter</span></label>
-          <label class="opt"><input type="checkbox" name="act" value="kappabashi"><span>Kappabashi, the kitchen-tool street</span></label>
-        </div></fieldset>
-      <label class="learn"><span>What would you most like to learn? <i>Optional</i></span>
-        <input type="text" name="learn" maxlength="140" placeholder="Rice, the knife, the counter, anything"></label>
-      <button type="button" class="intent-go" data-next>Next</button>
-      <p class="intent-fine"><a href="#" data-back>Back</a></p>
-    </div>
-    <div class="step" data-step="3" hidden>
-      <div class="eyebrow">Tokyo · 3 of 3</div>
-      <h2>Where do we <em>write?</em></h2>
-      <p>You hear first, when the programme is final.</p>
-      <div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input" aria-label="Your email" autocomplete="email"><button type="submit" class="intent-go">I am interested</button></div>
-      <p class="intent-msg" hidden></p>
-      <p class="intent-fine">Nothing to pay, nothing to confirm. It tells us who is coming. <a href="#" data-back>Back</a></p>
-    </div>
-  </form>
+<dialog id="raise" aria-label="I am interested">
+  <button type="button" class="close" aria-label="Close" data-close>&times;</button>
+  <!-- /js/intent-capture.js (THE NOTE, 31 Aug 2026) rebuilds this form as the one note on the site:
+       a few lines to Arnaud, then the address. The data-* below is what it reads. -->
+  <form class="intent" data-discipline="sushi-and-washoku" data-place="tokyo-omakase-2027" data-label="Tokyo omakase sushi, March 2027" data-source="collab:tokyo-2027"></form>
 </dialog>
 
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
@@ -416,34 +371,18 @@ details.days[open] summary::after{content:" \2212"}
 <script>
 (function(){
   var d=document.getElementById('raise'); if(!d||!d.showModal) return;
-  var f=d.querySelector('form'), steps=[].slice.call(d.querySelectorAll('.step')), need=d.querySelector('.need'), cur=1;
-  function show(n){cur=n;steps.forEach(function(st){st.hidden=+st.dataset.step!==n;});var t=steps[n-1].querySelector('input:not([type=radio]):not([type=checkbox]),input[type=radio]');if(t)setTimeout(function(){t.focus()},60);}
-  function val(n){var c=f.querySelector('input[name='+n+']:checked');return c?c.value:'';}
-  function all(n){return [].map.call(f.querySelectorAll('input[name='+n+']:checked'),function(i){return i.value;});}
-  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){d.showModal();if(!f.querySelector('.intent-msg.ok'))show(1);});});
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){d.showModal();});});
   d.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){d.close();});});
   d.addEventListener('click',function(e){if(e.target===d)d.close();});
-  d.querySelectorAll('[data-next]').forEach(function(b){b.addEventListener('click',function(){
-    if(cur===1&&(!val('role')||!val('weeks'))){need.hidden=false;return;} need.hidden=true; show(cur+1);});});
-  d.querySelectorAll('[data-back]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show(cur-1);});});
-  f.querySelectorAll('input[name=role],input[name=weeks]').forEach(function(r){r.addEventListener('change',function(){
-    need.hidden=true; f.querySelector('[data-long]').hidden=val('weeks')!=='3 weeks too long';});});
-  var msg=f.querySelector('.intent-msg'), s3=steps[2], h2b=s3.querySelector('h2'), lead=s3.querySelector('p');
-  var thanks='You\u2019re in. We write to you first, when the programme is final.';
-  new MutationObserver(function(){
-    if(!msg.classList.contains('ok')||msg.textContent===thanks)return;
-    msg.textContent=thanks; h2b.innerHTML='Thank <em>you.</em>'; lead.hidden=true;
-  }).observe(msg,{childList:true,attributes:true,characterData:true,subtree:true});
-  // The saving script stores the form label with the email, so the answers ride on it.
-  function clean(v,n){return (v||'').replace(/\s+/g,' ').replace(/\|/g,'/').trim().slice(0,n);}
-  f.addEventListener('submit',function(){
-    var parts=['Tokyo omakase sushi, March 2027','role: '+val('role'),'3 weeks: '+val('weeks').replace('3 weeks ','')];
-    var ml=clean(f.querySelector('input[name=maxlong]').value,60); if(ml&&val('weeks')==='3 weeks too long')parts.push('could do: '+ml);
-    var ad=all('addon'); if(ad.length)parts.push('addon: '+ad.join(', '));
-    var ac=all('act'); if(ac.length)parts.push('would join: '+ac.join(', '));
-    var lr=clean(f.querySelector('input[name=learn]').value,140); if(lr)parts.push('wants: '+lr);
-    f.dataset.label=parts.join(' | ');
-  },true);
+})();
+</script>
+<script>
+(function(){
+  var n=document.getElementById('nav'),st=document.querySelector('.stage'),band=document.getElementById('interested');
+  if(!n||!st) return;
+  function tick(){ n.classList.toggle('solid', window.scrollY > st.offsetHeight-70); }
+  addEventListener('scroll',tick,{passive:true}); tick();
+  if(band&&'IntersectionObserver' in window){ new IntersectionObserver(function(es){ n.classList.toggle('quiet', es[0].isIntersecting); },{threshold:.2}).observe(band); }
 })();
 </script>
 </body>
