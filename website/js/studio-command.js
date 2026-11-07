@@ -78,7 +78,7 @@
     if (!b) return '<div class="panel" style="padding:18px 20px;"><p style="color:var(--faint); font-size:13.5px; font-style:italic; margin:0;">No brief yet — the nightly build writes it. Once the routine runs, "what moved" and "the one thing today" appear here each morning.</p></div>';
     return '<div class="panel" style="padding:22px 24px; border-left:3px solid var(--ember);">' +
       '<div class="eyebrow" style="color:var(--ember); margin-bottom:8px;">Today · ' + esc(fmtDate(b.day)) + '</div>' +
-      (b.do_next_md ? '<p style="font-family:\'Fraunces\',Georgia,serif; font-weight:300; font-size:19px; line-height:1.4; color:var(--paper); margin:0 0 14px;">' + mdLite(b.do_next_md) + '</p>' : '') +
+      (b.do_next_md ? '<p style="font-family:\'Fraunces\',Georgia,serif; font-weight:300; font-size:19px; line-height:1.4; color:var(--type); margin:0 0 14px;">' + mdLite(b.do_next_md) + '</p>' : '') +
       (b.digest_md ? '<div style="font-size:13.5px; line-height:1.7; color:var(--muted);">' + mdLite(b.digest_md) + '</div>' : '') +
       (b.plan_md ? '<details style="margin-top:12px;"><summary style="cursor:pointer; color:var(--sea); font-size:12.5px; font-family:\'IBM Plex Mono\',monospace;">The publication / marketing move staged for you →</summary><div style="font-size:13px; line-height:1.7; color:var(--muted); margin-top:10px;">' + mdLite(b.plan_md) + '</div></details>' : '') +
       '</div>';
@@ -91,9 +91,9 @@
     const strike = done || skipped ? "text-decoration:line-through;" : "";
     const catColor = { crux: "var(--ember)", concierge: "var(--sea)" }[t.category] || "var(--faint)";
     return '<div class="panel" data-task="' + esc(t.id) + '" style="padding:13px 16px; margin-bottom:8px; display:flex; gap:12px; align-items:flex-start; ' + dim + '">' +
-      '<button class="t-done" title="Mark done" style="flex:0 0 auto; margin-top:2px; width:20px; height:20px; border-radius:6px; border:1.5px solid ' + (done ? "var(--sea)" : "var(--line)") + '; background:' + (done ? "var(--sea)" : "transparent") + '; color:#14110d; cursor:pointer; font-size:12px; line-height:1;">' + (done ? "✓" : "") + '</button>' +
+      '<button class="t-done" title="Mark done" style="flex:0 0 auto; margin-top:2px; width:20px; height:20px; border-radius:6px; border:1.5px solid ' + (done ? "var(--sea)" : "var(--line)") + '; background:' + (done ? "var(--sea)" : "transparent") + '; color:#ffffff; cursor:pointer; font-size:12px; line-height:1;">' + (done ? "✓" : "") + '</button>' +
       '<div style="flex:1 1 auto; min-width:0;">' +
-        '<div style="font-size:14.5px; color:var(--paper); ' + strike + '">' + esc(t.title) + '</div>' +
+        '<div style="font-size:14.5px; color:var(--type); ' + strike + '">' + esc(t.title) + '</div>' +
         (t.detail ? '<div style="font-size:12.5px; color:var(--muted); margin-top:3px; ' + strike + '">' + esc(t.detail) + '</div>' : '') +
         (t.why ? '<div style="font-size:11px; color:' + catColor + '; margin-top:4px; font-family:\'IBM Plex Mono\',monospace; letter-spacing:.03em;">' + (t.category ? esc(t.category).toUpperCase() + " · " : "") + esc(t.why) + '</div>' : '') +
       '</div>' +
@@ -109,7 +109,7 @@
       (ranked.length ? ranked.map(taskRow).join("") :
         '<div class="panel" style="padding:16px 18px;"><p style="color:var(--faint); font-size:13px; font-style:italic; margin:0;">Nothing ranked for today yet. Add one below, or wait for tonight’s build.</p></div>') +
       '<div style="display:flex; gap:8px; margin-top:12px;">' +
-        '<input id="t-add" class="fld" type="text" placeholder="Add something to do today…" style="flex:1 1 auto; background:rgba(243,237,226,.04); border:1px solid var(--line); border-radius:10px; color:var(--paper); font-size:13.5px; padding:10px 13px;">' +
+        '<input id="t-add" class="fld" type="text" placeholder="Add something to do today…" style="flex:1 1 auto; background:rgba(14,22,21,.04); border:1px solid var(--line); border-radius:10px; color:var(--type); font-size:13.5px; padding:10px 13px;">' +
         '<button id="t-add-btn" class="btn-primary" style="padding:9px 16px; border-radius:10px; font-size:13px;">Add</button>' +
       '</div>';
   }
@@ -121,22 +121,22 @@
     const isApproved = r.status === "approved";
     const isPublished = r.status === "published";
     const preview = (canPublish && r.page_html)
-      ? '<button class="q-preview" style="margin:12px 8px 0 0; padding:8px 14px; border-radius:10px; font-size:12.5px; font-family:\'IBM Plex Mono\',monospace; color:#14110d; border:none; cursor:pointer; background:linear-gradient(135deg,var(--sea),var(--ember) 130%);">Preview the finished page →</button>'
+      ? '<button class="q-preview" style="margin:12px 8px 0 0; padding:8px 14px; border-radius:10px; font-size:12.5px; font-family:\'IBM Plex Mono\',monospace; color:#ffffff; border:none; cursor:pointer; background:linear-gradient(135deg,var(--sea),var(--ember) 130%);">Preview the finished page →</button>'
       : (canPublish
         ? '<div style="margin:12px 0 0; font-size:11.5px; color:var(--faint); font-style:italic;">The finished page builds on tonight’s run — a preview button appears here once it’s ready.</div>'
         : "");
     const sheet = r.skill_sheet_md
       ? '<details style="margin:12px 0 0;"><summary style="cursor:pointer; color:var(--sea); font-size:12.5px; font-family:\'IBM Plex Mono\',monospace;">The drafted Atlas skill sheet (' + esc((r.skill_sheet_md.length / 1000).toFixed(1)) + 'k) →</summary>' +
-        '<div style="max-height:340px; overflow:auto; background:rgba(243,237,226,.02); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:8px; font-size:12.5px; line-height:1.7; color:var(--muted);">' + mdLite(r.skill_sheet_md) + '</div></details>'
+        '<div style="max-height:340px; overflow:auto; background:rgba(14,22,21,.02); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:8px; font-size:12.5px; line-height:1.7; color:var(--muted);">' + mdLite(r.skill_sheet_md) + '</div></details>'
       : "";
     const fact = r.fact_md
-      ? '<div style="background:rgba(127,168,165,.06); border-left:2px solid var(--sea); border-radius:8px; padding:12px 15px; margin:12px 0 0;">' +
+      ? '<div style="background:rgba(78,123,120,.06); border-left:2px solid var(--sea); border-radius:8px; padding:12px 15px; margin:12px 0 0;">' +
         '<div class="font-mono" style="font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--sea); margin-bottom:6px;">The surprising fact' + (r.fact_source ? " · " + esc(r.fact_source.slice(0, 60)) : "") + '</div>' +
-        '<div style="font-size:13.5px; line-height:1.65; color:var(--paper);">' + mdLite(r.fact_md) + '</div></div>'
+        '<div style="font-size:13.5px; line-height:1.65; color:var(--type);">' + mdLite(r.fact_md) + '</div></div>'
       : "";
     const notes = r.claude_notes_md
       ? '<details style="margin:12px 0 0;" open><summary style="cursor:pointer; color:var(--ember); font-size:12.5px; font-family:\'IBM Plex Mono\',monospace;">Claude’s notes for you (read before it ships) →</summary>' +
-        '<div style="font-size:12.5px; line-height:1.7; color:var(--muted); background:rgba(210,138,82,.05); border:1px solid rgba(210,138,82,.2); border-radius:10px; padding:13px 15px; margin-top:8px;">' + mdLite(r.claude_notes_md) + '</div></details>'
+        '<div style="font-size:12.5px; line-height:1.7; color:var(--muted); background:rgba(78,123,120,.05); border:1px solid rgba(78,123,120,.2); border-radius:10px; padding:13px 15px; margin-top:8px;">' + mdLite(r.claude_notes_md) + '</div></details>'
       : "";
 
     let actions = "";
@@ -171,17 +171,17 @@
 
     return '<div class="panel" data-q="' + esc(r.id) + '" style="padding:20px 22px; margin-bottom:16px;">' +
       '<div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">' +
-        '<h3 class="font-serif" style="font-size:19px; margin:0; color:var(--paper);">' + esc(r.person_name || r.lead_email) + '</h3>' +
+        '<h3 class="font-serif" style="font-size:19px; margin:0; color:var(--type);">' + esc(r.person_name || r.lead_email) + '</h3>' +
         pill(r.status) +
         '<span class="pill none">' + esc(ACTION_LABEL[r.atlas_action] || r.atlas_action) + '</span>' +
         '<a class="link-quiet" style="margin-left:auto; font-size:12px; color:var(--sea); text-decoration:none;" href="mailto:' + esc(r.lead_email) + '">' + esc(r.lead_email) + '</a>' +
       '</div>' +
-      '<div style="font-size:13.5px; color:var(--muted); margin:6px 0 0;">Wants <strong style="color:var(--paper);">' + esc(r.skill_title || r.skill_raw) + '</strong>' + (r.skill_raw && r.skill_raw !== r.skill_title ? ' <span style="color:var(--faint);">— “' + esc(r.skill_raw) + '”</span>' : '') + '</div>' +
+      '<div style="font-size:13.5px; color:var(--muted); margin:6px 0 0;">Wants <strong style="color:var(--type);">' + esc(r.skill_title || r.skill_raw) + '</strong>' + (r.skill_raw && r.skill_raw !== r.skill_title ? ' <span style="color:var(--faint);">— “' + esc(r.skill_raw) + '”</span>' : '') + '</div>' +
       fact + notes + preview + sheet +
       '<div style="margin:14px 0 0;"><div class="font-mono" style="font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:6px;">The message to send (edit freely — this exact text is what goes out)</div>' +
-        '<textarea class="q-msg" style="width:100%; min-height:150px; background:#efe6d3; color:#2c231a; font-family:Georgia,serif; font-size:14px; line-height:1.7; border:1px solid #e2d6bd; border-radius:8px; padding:14px 16px; resize:vertical;">' + esc(r.message_md || "") + '</textarea></div>' +
+        '<textarea class="q-msg" style="width:100%; min-height:150px; background:#ffffff; color:#0e1615; font-family:Georgia,serif; font-size:14px; line-height:1.7; border:1px solid rgba(14,22,21,.16); border-radius:8px; padding:14px 16px; resize:vertical;">' + esc(r.message_md || "") + '</textarea></div>' +
       '<div style="margin:12px 0 0;"><div class="font-mono" style="font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:6px;">Your notes (saved on this card; the next redraft reads them)</div>' +
-        '<textarea class="q-notes" placeholder="What you’d change…" style="width:100%; min-height:60px; background:rgba(243,237,226,.04); color:var(--paper); font-family:inherit; font-size:13px; line-height:1.6; border:1px solid var(--line); border-radius:8px; padding:11px 13px; resize:vertical;">' + esc(r.arnaud_notes || "") + '</textarea></div>' +
+        '<textarea class="q-notes" placeholder="What you’d change…" style="width:100%; min-height:60px; background:rgba(14,22,21,.04); color:var(--type); font-family:inherit; font-size:13px; line-height:1.6; border:1px solid var(--line); border-radius:8px; padding:11px 13px; resize:vertical;">' + esc(r.arnaud_notes || "") + '</textarea></div>' +
       actions +
       '</div>';
   }

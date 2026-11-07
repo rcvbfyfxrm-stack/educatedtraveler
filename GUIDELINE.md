@@ -25,7 +25,7 @@ One page. If you only read this, you can still make the right thing.
 
 **Voice, in brief.** Warm, plain, founder-led. No hype. The verb is INTRODUCE / CONNECT / BRIDGE — never sell, book, or enroll. Banned words: transformation, transformational, life-changing, vacation, holiday, luxury, easy. Public-surface bans: book, enroll, checkout, prices, "Quest", XP/levels/badges, "choose your depth" as a pricing ladder. No decorative emoji (functional star/check/warn glyphs tolerated in UI only).
 
-**Design, in brief.** Warm-Dark Editorial. Ink #0d0b09, surface #14110d, paper text #f3ede2 (never pure white). Accents: SEA #7fa8a5, EMBER #d28a52. Cores: wellness #94ad86 · adventure #6fa3a0 · creative #cf8f6e · culinary #c9a24a. Fraunces + Inter + IBM Plex Mono. Same warmth as Littoralicious, never its CSS or fonts. The cold blue/glass/gamified look is retired forever.
+**Design, in brief.** Three colours (Nov 2026; replaces Warm-Dark Editorial): white ground #ffffff, ink type #0e1615, one sea #4e7b78 (#7fa8a5 over a photograph). Fraunces + Inter + IBM Plex Mono. The full lock is in CLAUDE.md. The cold blue/glass/gamified look is retired forever.
 
 **STOP-DOING.** Don't build more Atlas — 99 disciplines / 424 pages is plenty; distribution is the work now. Don't re-surface selling on the public site. Don't rebuild the open marketplace or instructor-availability portal. Don't run a cold blitz or chase French CPF. Don't make "mastery vs the AI age" the public billboard (it's a quiet one-line foil). Don't pivot the Daily Drop format before day 90. Never cite an unverified market-size / TAM number. Don't reintroduce the cold look or copy Littoralicious CSS/fonts.
 
@@ -1299,7 +1299,7 @@ Print this. It is the whole Guideline at a glance.
 
 **Focus Filter (any NO = out).** Embodied? · Immersive (a week+)? · Community-based? · Returns a real skill? · Does it fight the screen or feed it?
 
-**Design tokens.** Warm-Dark Editorial. bg ink #0d0b09 · surface #14110d · text paper #f3ede2 · muted rgba(243,237,226,.56) · hairline rgba(243,237,226,.09). Accents: SEA #7fa8a5 · EMBER #d28a52. Cores: wellness #94ad86 · adventure #6fa3a0 · creative #cf8f6e · culinary #c9a24a. Fonts: Fraunces · Inter · IBM Plex Mono. Same warmth as Littoralicious, never its CSS or fonts.
+**Design tokens.** Three colours (Nov 2026): ground #ffffff · type #0e1615 · muted rgba(14,22,21,.72) · hairline rgba(14,22,21,.12) · sea #4e7b78 (#7fa8a5 over a photograph). No ember, no world colours. Fonts: Fraunces · Inter · IBM Plex Mono. Same warmth as Littoralicious, never its CSS or fonts.
 
 **The five things to do in the next 90 days.**
 1. Ship the Daily Drop every day, format locked — wordless process clip ending on the finished object, one place-name card, ambient sound, same clip to TikTok + Reels + Shorts.

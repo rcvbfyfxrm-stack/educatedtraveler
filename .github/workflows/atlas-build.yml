@@ -84,7 +84,9 @@ jobs:
       # only when somebody remembered. A red gate leaves yesterday's pages up, which were
       # checked; it never publishes a page known to be broken.
       - name: Gate — every check, before anything is published
-        run: python3 scripts/check-atlas-hub.py
+        run: |
+          python3 scripts/check-atlas-hub.py
+          python3 scripts/check-site-design.py
 
       - name: Commit
         run: |

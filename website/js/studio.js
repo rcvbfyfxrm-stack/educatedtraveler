@@ -116,7 +116,7 @@
     if (live) {
       const next = campaignNextStep(live);
       if (next) {
-        $("#focus-line").innerHTML = 'Do next → <span style="color:var(--paper)">' + esc(next.do) + "</span>";
+        $("#focus-line").innerHTML = 'Do next → <span style="color:var(--type)">' + esc(next.do) + "</span>";
         return;
       }
     }
@@ -125,8 +125,8 @@
     const items = wk.groups.flatMap((g) => g.items);
     const next = items.find((it) => !S.plan[it.id]);
     $("#focus-line").innerHTML = next
-      ? 'Focus now → <span style="color:var(--paper)">' + esc(next.t) + "</span>"
-      : '<span style="color:#94ad86">This week is clear — keep the daily drop running.</span>';
+      ? 'Focus now → <span style="color:var(--type)">' + esc(next.t) + "</span>"
+      : '<span style="color:#4e7b78">This week is clear — keep the daily drop running.</span>';
   }
 
   // first unticked step of a campaign's launch phase (shared with the Launch tab via S.seq)
@@ -162,7 +162,7 @@
       const n = items.find((it) => !S.plan[it.id]);
       if (n) { nextTxt = n.t; nextWhere = "Plan · this week"; }
     }
-    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--paper);", text: nextTxt || "This week is clear — line up the schools' promo content and keep the note shipping." }));
+    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--type);", text: nextTxt || "This week is clear — line up the schools' promo content and keep the note shipping." }));
     if (nextWhere) banner.appendChild(el("span", { class: "tag", style: "margin-top:10px; display:inline-block;", text: "→ " + nextWhere }));
     v.appendChild(banner);
 
@@ -189,7 +189,7 @@
 
     // paused-mode note + optional re-enable of the founder daily-drop rotation
     const note = el("div", { class: "panel", style: "padding:13px 18px; margin-bottom:16px; border-left:3px solid var(--sea);" });
-    note.appendChild(el("div", { style: "font-size:13.5px; line-height:1.55; color:var(--paper);", html: "<strong>Daily founder-clip posting is paused.</strong> Promo content now comes from the instructors &amp; schools running free promotion of their own courses. Click any day to schedule what they send you." }));
+    note.appendChild(el("div", { style: "font-size:13.5px; line-height:1.55; color:var(--type);", html: "<strong>Daily founder-clip posting is paused.</strong> Promo content now comes from the instructors &amp; schools running free promotion of their own courses. Click any day to schedule what they send you." }));
     const drOn = !!S.dailyDrop;
     const tog = el("div", { style: "margin-top:10px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;" });
     tog.appendChild(el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: "Founder daily-drop rotation" }));
@@ -235,12 +235,12 @@
       const isToday = iso === todayStr;
       const it = dayItems[dm];
       const mine = calItems()[iso] || [];
-      const cell = el("div", { class: "panel", title: "Click to schedule a post", style: "min-height:78px; padding:6px 7px; display:flex; flex-direction:column; gap:3px; cursor:pointer;" + (isToday ? " border-color:rgba(210,138,82,.6);" : "") + (calSelected && it && it.day === calSelected ? " background:rgba(210,138,82,.07);" : "") });
+      const cell = el("div", { class: "panel", title: "Click to schedule a post", style: "min-height:78px; padding:6px 7px; display:flex; flex-direction:column; gap:3px; cursor:pointer;" + (isToday ? " border-color:rgba(78,123,120,.6);" : "") + (calSelected && it && it.day === calSelected ? " background:rgba(78,123,120,.07);" : "") });
       cell.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:" + (isToday ? "var(--ember)" : "var(--faint)") + ";", text: String(dm) }));
       // content you scheduled (from the schools / instructors)
       mine.forEach((m) => {
-        const chip = el("div", { title: "Click to remove", style: "line-height:1.2; background:rgba(127,168,165,.12); border-radius:6px; padding:2px 6px;" }, [
-          el("span", { style: "font-size:11px; color:var(--paper);", text: m.text }),
+        const chip = el("div", { title: "Click to remove", style: "line-height:1.2; background:rgba(78,123,120,.12); border-radius:6px; padding:2px 6px;" }, [
+          el("span", { style: "font-size:11px; color:var(--type);", text: m.text }),
         ]);
         chip.addEventListener("click", (e) => { e.stopPropagation(); if (confirm("Remove “" + m.text + "”?")) { calItems()[iso] = mine.filter((x) => x.id !== m.id); if (!calItems()[iso].length) delete calItems()[iso]; save(); render(); } });
         cell.appendChild(chip);
@@ -250,7 +250,7 @@
         const st = dropState(it.day);
         const drop = el("div", { title: "Founder daily-drop — click for the brief", style: "display:flex; gap:5px; align-items:flex-start; line-height:1.2;" }, [
           el("span", { class: "core-dot core-" + it.core, style: "margin-top:3px; flex:none;" }),
-          el("span", { style: "font-size:11px; color:var(--paper);", text: it.discipline }),
+          el("span", { style: "font-size:11px; color:var(--type);", text: it.discipline }),
         ]);
         drop.addEventListener("click", (e) => { e.stopPropagation(); calSelected = it.day; render(); setTimeout(() => { const t = document.getElementById("cal-detail"); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" }); }, 40); });
         cell.appendChild(drop);
@@ -312,7 +312,7 @@
     if (PATH && PATH.oneThing) {
       const ot = el("div", { class: "panel", style: "padding:14px 18px; margin-bottom:18px; border-left:3px solid var(--ember);" });
       ot.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:6px;", text: "The one thing that matters now" }));
-      ot.appendChild(el("div", { style: "font-size:14.5px; line-height:1.55; color:var(--paper);", text: PATH.oneThing }));
+      ot.appendChild(el("div", { style: "font-size:14.5px; line-height:1.55; color:var(--type);", text: PATH.oneThing }));
       v.appendChild(ot);
     }
 
@@ -358,7 +358,7 @@
       wrap.appendChild(box);
       wrap.appendChild(el("div", { style: "font-size:11.5px; color:var(--faint); margin:6px 0 14px;", text: "Ticking this also ticks it in the Launch tab. The full ordered list lives there." }));
     } else {
-      wrap.appendChild(el("div", { style: "font-size:13px; color:#94ad86; margin:8px 0 14px;", text: "Every launch step is ticked. Keep the count honest and the notes shipping." }));
+      wrap.appendChild(el("div", { style: "font-size:13px; color:#4e7b78; margin:8px 0 14px;", text: "Every launch step is ticked. Keep the count honest and the notes shipping." }));
     }
 
     // live seat count entry
@@ -374,12 +374,12 @@
     wrap.appendChild(el("div", { style: "font-size:11.5px; color:var(--faint); margin-top:6px; line-height:1.5;", text: "REAL paid seats confirmed by the lab in writing. Never inflate — a made-up count is the one thing that breaks the whole campaign." }));
 
     // page-count reminder + "I pushed" stamp
-    const rem = el("div", { class: "panel", style: "padding:10px 14px; margin-top:12px; border-left:3px solid var(--ember); background:rgba(210,138,82,.06);" });
-    rem.appendChild(el("div", { style: "font-size:12.5px; line-height:1.5; color:var(--paper);", text: "This figure is the PRIVATE ledger. The public page carries no seat count and never will (Arnaud, 23 Aug 2026) — nothing to edit on the site when this changes, and no number goes into a post, a story or a message." }));
+    const rem = el("div", { class: "panel", style: "padding:10px 14px; margin-top:12px; border-left:3px solid var(--ember); background:rgba(78,123,120,.06);" });
+    rem.appendChild(el("div", { style: "font-size:12.5px; line-height:1.5; color:var(--type);", text: "This figure is the PRIVATE ledger. The public page carries no seat count and never will (Arnaud, 23 Aug 2026) — nothing to edit on the site when this changes, and no number goes into a post, a story or a message." }));
     const stampRow = el("div", { style: "display:flex; gap:10px; align-items:center; margin-top:8px;" });
     stampRow.appendChild(el("button", { class: "btn-ghost", style: "padding:6px 12px; border-radius:8px; font-size:12px;", onclick: () => { st.pushedAt = todayISO(); save(); render(); } }, "I updated the page"));
     if (st.updated && st.pushedAt !== st.updated) stampRow.appendChild(el("span", { class: "pill", style: "background:var(--ember); color:#1a1206;", text: "page is behind — push it" }));
-    else if (st.pushedAt) stampRow.appendChild(el("span", { style: "font-size:12px; color:#94ad86;", text: "page synced " + st.pushedAt }));
+    else if (st.pushedAt) stampRow.appendChild(el("span", { style: "font-size:12px; color:#4e7b78;", text: "page synced " + st.pushedAt }));
     rem.appendChild(stampRow);
     wrap.appendChild(rem);
 
@@ -388,7 +388,7 @@
     if (hit) {
       const mc = el("div", { class: "panel", style: "padding:10px 14px; margin-top:12px; border-left:3px solid var(--sea);" });
       mc.appendChild(el("div", { class: "eyebrow", style: "color:var(--sea); margin-bottom:3px;", text: "At " + hit.at + " paid" }));
-      mc.appendChild(el("div", { style: "font-size:13px; line-height:1.5; color:var(--paper);", text: hit.do }));
+      mc.appendChild(el("div", { style: "font-size:13px; line-height:1.5; color:var(--type);", text: hit.do }));
       wrap.appendChild(mc);
     }
 
@@ -439,7 +439,7 @@
     const card = el("div", { class: "panel", style: "padding:14px 16px; margin-bottom:12px;" });
     const head = el("div", { style: "display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:6px;" });
     head.appendChild(el("span", { class: "tag", text: m.kind }));
-    head.appendChild(el("span", { style: "font-size:14px; color:var(--paper); font-weight:600;", text: m.label }));
+    head.appendChild(el("span", { style: "font-size:14px; color:var(--type); font-weight:600;", text: m.label }));
     card.appendChild(head);
     if (m.when) card.appendChild(el("div", { class: "font-mono", style: "font-size:10.5px; color:var(--ember); letter-spacing:.06em; margin-bottom:8px;", text: m.when }));
 
@@ -486,7 +486,7 @@
       const row = el("div", { style: "display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line);" });
       row.appendChild(el("div", { class: "metric-num font-mono", style: "font-size:20px; color:var(--ember); flex:none; width:26px; text-align:center;", text: String(s.n) }));
       const body = el("div", { style: "flex:1;" });
-      body.appendChild(el("div", { style: "font-size:14.5px; color:var(--paper); font-weight:600; margin-bottom:2px;", text: s.title }));
+      body.appendChild(el("div", { style: "font-size:14.5px; color:var(--type); font-weight:600; margin-bottom:2px;", text: s.title }));
       body.appendChild(el("div", { style: "font-size:12.5px; color:var(--muted); line-height:1.55; margin-bottom:4px;", text: s.what }));
       body.appendChild(el("span", { class: "tag", text: "→ " + s.where }));
       row.appendChild(body);
@@ -581,7 +581,7 @@
     (LETTER.structure || []).forEach((p) => {
       const row = el("div", { class: "chk" });
       row.appendChild(el("div", {}, [
-        el("div", { style: "font-size:13.5px; color:var(--paper); margin-bottom:2px;", text: p.part }),
+        el("div", { style: "font-size:13.5px; color:var(--type); margin-bottom:2px;", text: p.part }),
         el("div", { style: "font-size:12.5px; color:var(--muted); line-height:1.5;", text: p.note }),
       ]));
       sc.appendChild(row);
@@ -679,13 +679,13 @@
     const plan = weekPlanFromDrop(d);
     const slug = String(d.discipline || "week").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-    const card = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:12px; border-color:rgba(210,138,82,0.3);" });
+    const card = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:12px; border-color:rgba(78,123,120,0.3);" });
     card.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--faint); margin-bottom:6px;", text: "Draft note · edit before sending · verify the school from the Atlas" }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:4px 0 4px;", text: "Subject" }));
-    card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:6px;", text: draft.subject }));
+    card.appendChild(el("div", { style: "font-size:14px; color:var(--type); margin-bottom:6px;", text: draft.subject }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:4px 0 4px;", text: "Preview" }));
     card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); margin-bottom:8px;", text: draft.preview }));
-    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.86); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: draft.body + "\n\n" + draft.ps }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(14,22,21,1); background:rgba(14,22,21,.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: draft.body + "\n\n" + draft.ps }));
     const a1 = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;" });
     a1.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full) }, "Copy note"));
     a1.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full + "\n\n----\n\n" + plan) }, "Copy whole week"));
@@ -710,11 +710,11 @@
       card.appendChild(fig);
     }
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Subject line" }));
-    card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:8px;", text: it.subject }));
+    card.appendChild(el("div", { style: "font-size:14px; color:var(--type); margin-bottom:8px;", text: it.subject }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Preview text" }));
     card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); margin-bottom:10px;", text: it.preview }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 6px;", text: "Note (paste-ready)" }));
-    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.62; color:rgba(243,237,226,0.86); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: it.body + "\n\n" + (it.ps || "") }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.62; color:rgba(14,22,21,1); background:rgba(14,22,21,.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: it.body + "\n\n" + (it.ps || "") }));
     const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
     acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(letterFullText(it)) }, "Copy full note"));
     acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-letter-" + it.id + ".txt", letterFullText(it)) }, "Download .txt"));
@@ -732,14 +732,14 @@
       '<div class="eyebrow" style="margin-bottom:8px;">North star</div>' +
       '<p class="font-serif" style="font-size:20px; margin:0 0 14px; line-height:1.4;">' + esc(PLAN.northStar || "") + "</p>" +
       '<div style="display:flex; gap:20px; flex-wrap:wrap;">' +
-      '<div><div class="eyebrow" style="margin-bottom:4px;">The one metric (90 days)</div><div style="color:var(--paper); font-size:14px;">' + esc(PLAN.oneMetric || "") + "</div></div>" +
+      '<div><div class="eyebrow" style="margin-bottom:4px;">The one metric (90 days)</div><div style="color:var(--type); font-size:14px;">' + esc(PLAN.oneMetric || "") + "</div></div>" +
       "</div>";
     v.appendChild(ns);
 
     // Do-not-build
     if (PLAN.stop && PLAN.stop.length) {
       const stop = el("div", { class: "panel", style: "padding:18px; margin-bottom:24px; border-color: rgba(207,143,110,.3);" });
-      stop.appendChild(el("div", { class: "eyebrow", style: "color:#cf8f6e; margin-bottom:10px;", text: "Stop / do not build" }));
+      stop.appendChild(el("div", { class: "eyebrow", style: "color:#4e7b78; margin-bottom:10px;", text: "Stop / do not build" }));
       const ul = el("ul", { style: "margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; line-height:1.8;" });
       PLAN.stop.forEach((s) => ul.appendChild(el("li", { text: s })));
       stop.appendChild(ul);
@@ -881,7 +881,7 @@
     // footage line
     if (d.footageSource) {
       const f = el("div", { style: "font-size:12px; color:var(--muted); margin-top:10px;" });
-      f.innerHTML = 'Footage: <span style="color:var(--paper)">' + esc(d.footageSource) + "</span>" + (d.footageUrl ? ' · <a class="link-quiet" href="' + esc(d.footageUrl) + '" target="_blank" rel="noopener">source ↗</a>' : "");
+      f.innerHTML = 'Footage: <span style="color:var(--type)">' + esc(d.footageSource) + "</span>" + (d.footageUrl ? ' · <a class="link-quiet" href="' + esc(d.footageUrl) + '" target="_blank" rel="noopener">source ↗</a>' : "");
       card.appendChild(f);
     }
 
@@ -939,11 +939,11 @@
     s.beats.forEach((b) => ol.appendChild(el("li", { text: b })));
     card.appendChild(ol);
 
-    card.appendChild(el("p", { style: "font-size:13.5px; margin:12px 0 0;", html: "<strong style='color:#94ad86'>End on:</strong> " + esc(s.ending) }));
+    card.appendChild(el("p", { style: "font-size:13.5px; margin:12px 0 0;", html: "<strong style='color:#4e7b78'>End on:</strong> " + esc(s.ending) }));
     card.appendChild(el("p", { style: "font-size:12.5px; color:var(--muted); margin:6px 0 0;", text: "Sound: " + s.sound + "   ·   Cover: " + s.cover }));
 
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Caption (paste-ready)" }));
-    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.82); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: s.caption }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(14,22,21,1); background:rgba(14,22,21,.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: s.caption }));
     card.appendChild(el("p", { class: "font-mono", style: "font-size:12px; color:var(--sea); margin:8px 0 0; word-break:break-word;", text: s.hashtags }));
 
     const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
@@ -1008,7 +1008,7 @@
         row.appendChild(cb);
         const body = el("div", { style: "flex:1;" });
         const line = el("div", { style: "display:flex; gap:8px; align-items:baseline; flex-wrap:wrap;" });
-        line.appendChild(el("button", { class: "chk-text", style: "background:none; border:none; padding:0; font:inherit; font-size:14px; color:var(--paper); text-align:left; cursor:pointer; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px;", onclick: () => { const c = document.getElementById("post-" + it.id); if (c) c.scrollIntoView({ behavior: "smooth", block: "start" }); }, text: p ? p.title : it.id }));
+        line.appendChild(el("button", { class: "chk-text", style: "background:none; border:none; padding:0; font:inherit; font-size:14px; color:var(--type); text-align:left; cursor:pointer; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px;", onclick: () => { const c = document.getElementById("post-" + it.id); if (c) c.scrollIntoView({ behavior: "smooth", block: "start" }); }, text: p ? p.title : it.id }));
         if (isNext) line.appendChild(el("span", { class: "font-mono", style: "font-size:10px; color:var(--ember); letter-spacing:.12em;", text: "← NEXT" }));
         body.appendChild(line);
         body.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--sea); margin-top:3px;", text: it.when }));
@@ -1025,7 +1025,7 @@
       wrap.appendChild(r);
     }
     if (AGENDA.gate) {
-      const g = el("div", { style: "margin-top:12px; padding:11px 14px; border-left:3px solid var(--sea); background:rgba(127,168,165,.06);" });
+      const g = el("div", { style: "margin-top:12px; padding:11px 14px; border-left:3px solid var(--sea); background:rgba(78,123,120,.06);" });
       g.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:var(--sea); letter-spacing:.12em; margin-bottom:4px;", text: "BEFORE LAB WEEK" }));
       g.appendChild(el("div", { style: "color:var(--muted); font-size:12.5px; line-height:1.6;", text: AGENDA.gate }));
       wrap.appendChild(g);
@@ -1085,7 +1085,7 @@
     }
 
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: p.story ? "Reshare / DM text (paste-ready)" : "Caption (paste-ready)" }));
-    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.82); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: p.caption }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(14,22,21,1); background:rgba(14,22,21,.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: p.caption }));
     if (p.hashtags) card.appendChild(el("p", { class: "font-mono", style: "font-size:12px; color:var(--sea); margin:8px 0 0; word-break:break-word;", text: p.hashtags }));
     if (p.strategy) {
       card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:16px 0 6px; color:var(--ember);", text: "Posting strategy" }));
@@ -1216,7 +1216,7 @@ https://educatedtraveler.app`;
     // preview
     const prev = el("details", { style: "margin-top:14px;" });
     prev.appendChild(el("summary", { class: "link-quiet", style: "font-size:12px;", text: "Preview email" }));
-    prev.appendChild(el("pre", { style: "white-space:pre-wrap; font-size:12px; color:var(--muted); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin-top:8px; line-height:1.6;", text: OUTREACH_TPL(outreachDraft) }));
+    prev.appendChild(el("pre", { style: "white-space:pre-wrap; font-size:12px; color:var(--muted); background:rgba(14,22,21,.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin-top:8px; line-height:1.6;", text: OUTREACH_TPL(outreachDraft) }));
     gen.appendChild(prev);
     v.appendChild(gen);
 
@@ -1229,7 +1229,7 @@ https://educatedtraveler.app`;
     S.outreach.forEach((r) => {
       const row = el("div", { style: "display:grid; grid-template-columns: 92px 1fr 130px 130px 80px 34px; gap:10px; align-items:center; padding:11px 16px; border-bottom:1px solid var(--line); font-size:13px;" });
       row.appendChild(el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: r.date }));
-      row.appendChild(el("div", {}, [el("div", { style: "color:var(--paper);", text: r.school }), el("div", { style: "font-size:11px; color:var(--muted);", text: r.where || "" })]));
+      row.appendChild(el("div", {}, [el("div", { style: "color:var(--type);", text: r.school }), el("div", { style: "font-size:11px; color:var(--muted);", text: r.where || "" })]));
       const cst = el("select", { style: "font-size:11px; padding:5px 8px;" });
       OUT_ST.forEach((s) => cst.appendChild(el("option", { value: s, text: OUT_LBL[s] }))); cst.value = r.status;
       cst.addEventListener("change", () => { r.status = cst.value; save(); });
@@ -1377,7 +1377,7 @@ https://educatedtraveler.app`;
         const c = el("div", { class: "panel", style: "padding:16px;" });
         c.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin-bottom:8px;", text: label }));
         c.appendChild(el("div", { class: "metric-num", text: String(val) }));
-        if (d != null) c.appendChild(el("div", { style: "font-size:12px; margin-top:5px; color:" + (d >= 0 ? "#94ad86" : "#cf8f6e") + ";", text: (d >= 0 ? "▲ +" : "▼ ") + d + " vs last" }));
+        if (d != null) c.appendChild(el("div", { style: "font-size:12px; margin-top:5px; color:" + (d >= 0 ? "#4e7b78" : "#4e7b78") + ";", text: (d >= 0 ? "▲ +" : "▼ ") + d + " vs last" }));
         cards.appendChild(c);
       });
       v.appendChild(cards);
