@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-11-06 — 431 published claims re-read against the pages they came from, across 39 open crafts._
+_2026-11-07 — 427 published claims re-read against the pages they came from, across 39 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -10,14 +10,14 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 **Only the server's own answer reaches this list** — a 404, a 410, or a page that no longer carries what we published. A request that never became a response is two sections down and is not a takedown: on 7 September 2026 this section held two entries and both were wrong, one a timeout on our own runner and one a certificate that did not match a hostname.
 
+- **wine-and-sommellerie · Université de Bordeaux DUAD (oenology)** — https://formations-isvv.u-bordeaux.fr/d-u-a-d-diplome-universitaire-daptitude-a-la-degustation.html
+  - HTTP 503
 - **kitesurfing · the IKO Kiteboarder levels** — https://d8.ikointl.com/courses
   - page no longer says: Kiteboarder; Instructor
 - **kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery** — https://d8.ikointl.com/course/kiteboarder/discovery
   - page no longer says: SEA (Spot, Environment, Activity) assessment; Self-land
 - **kitesurfing · the IKO Kiteboarder levels — Level 2 — Intermediate** — https://d8.ikointl.com/course/kiteboarder/intermediate
   - page no longer says: Body-drag upwind & Board Recovery; Waterstart
-- **kitesurfing · the IKO Kiteboarder levels — Level 3 — Independent** — https://d8.ikointl.com/course/kiteboarder/independent
-  - page no longer says: Ride upwind; Self-rescue and pack down in deep water
 - **kitesurfing · the IKO Kiteboarder levels — Level 4 — Advanced** — https://d8.ikointl.com/course/kiteboarder/advanced
   - page no longer says: Jump with a grab; Board recovery
 - **japanese-knife-making · TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association** — https://kougeihin.jp/en/craft/0713/
@@ -27,37 +27,38 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 A 404 or a 410 on the first evening, which is the one failure worth waking up for: the others are counted and wait for the third night.
 
-- wine-and-sommellerie · WSET School London — HTTP 404 — https://www.wsetglobal.com/wset-school-london
+_none._
 
 ## We could not reach these — as much about us as about them
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 59 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 60 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- surfing · Canggu Bali Surf Lesson (Odysseys Surf School) — 1 night — URLError: <urlopen error timed out>
-  - https://surflessoncanggu.com/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 32 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 1 night — URLError: <urlopen error timed out>
+  - https://www.taiwa.ac.jp/global/en/kyocho.php
+- sushi-and-washoku · La Carriere Cooking School (since 1931) — 1 night — URLError: <urlopen error timed out>
+  - https://www.taiwa.ac.jp/lacarriere/en/course/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 33 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 32 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
+- mixology-and-bartending · Cocktail-making workshop — 33 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
   - https://www.havanaclubmuseum.com/en/experiences/
-- fermentation · Empirical / Nordic Food Lab alumni courses — 1 night — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
-  - https://empiricalspirits.co/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **coffee-and-barista · African Coffee Campus** — 12 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+- **coffee-and-barista · African Coffee Campus** — 13 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
   - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)>
-- **perfumery · Musée International de la Parfumerie** — 53 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 54 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
-- **perfumery · Un conservatoire de plantes à parfum** — 53 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 54 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
 
 ## Back to normal
 
-_none._
+- wine-and-sommellerie · WSET School London
+- kitesurfing · the IKO Kiteboarder levels — Level 3 — Independent
 
 ## Unreadable, not gone
 
@@ -174,4 +175,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - spearfishing · Kona, Big Island · Top Shot Spearfishing
 - spearfishing · Cabo San Lucas / Sea of Cortez · Spearfishing Baja (Cabo San Lucas)
 
-_292 in total._
+_289 in total._
