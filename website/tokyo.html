@@ -68,6 +68,20 @@ nav.solid.quiet .nav-cta{opacity:0;pointer-events:none}
 .facts span:last-child{border:0;margin:0;padding:0}
 .facts b{font-weight:500;color:#fff}
 
+/* a desktop is landscape and the photograph is portrait: no crop shows faces and hands, so above 900px
+   the photograph stands whole in its own column and the words take the other */
+@media (min-width:900px){
+  .stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,46%);background:var(--ink);min-height:100svh}
+  .stage-bg{position:relative;inset:auto;grid-column:2;grid-row:1;min-height:100svh;background:var(--ink)}
+  .stage-bg img{position:absolute;inset:0;object-position:50% 50%}
+  .stage-bg::after{display:none}
+  .stage .wrap{grid-column:1;grid-row:1;max-width:none;margin:0;display:flex;flex-direction:column;justify-content:flex-end;
+    padding-left:max(40px,calc((100vw - 1080px)/2 + 40px));padding-right:clamp(32px,4vw,56px)}
+  .claim{font-size:clamp(2.2rem,4.6vw,3.7rem);max-width:none}
+  .stand{max-width:40ch}
+  .facts{gap:8px 26px}
+  .facts span{border:0;margin:0;padding:0}
+}
 section{padding:clamp(60px,9vh,104px) 0;border-top:1px solid var(--line)}
 .h2{font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.08;max-width:18ch}
 .lede{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:var(--muted);margin-top:18px;max-width:52ch}
