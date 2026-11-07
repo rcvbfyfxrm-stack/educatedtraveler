@@ -29,10 +29,10 @@
         tailwind.config = {
             theme: { extend: {
                 colors: {
-                    sea:   { soft: '#7fa8a5', mid: '#5b8a89', deep: '#38595b' },
-                    ember: { soft: '#e0a877', mid: '#d28a52', deep: '#b06a36' },
-                    paper: { DEFAULT: '#f3ede2', muted: 'rgba(243,237,226,0.56)', faint: 'rgba(243,237,226,0.34)' },
-                    ink:   { DEFAULT: '#0d0b09', 2: '#14110d', 3: '#1c1813' },
+                    sea:   { soft: '#4e7b78', mid: '#5b8a89', deep: '#38595b' },
+                    ember: { soft: '#4e7b78', mid: '#4e7b78', deep: '#b06a36' },
+                    paper: { DEFAULT: '#0e1615', muted: 'rgba(14,22,21,.72)', faint: 'rgba(14,22,21,.6)' },
+                    ink:   { DEFAULT: '#ffffff', 2: '#ffffff', 3: '#1c1813' },
                 },
                 fontFamily: { serif: ['Fraunces','Georgia','serif'], sans: ['Inter','system-ui','sans-serif'], mono: ['IBM Plex Mono','monospace'] }
             } }
@@ -40,47 +40,48 @@
     </script>
 
     <style>
-        :root { --ink:#0d0b09; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+        :root { --ground:#ffffff; --type:#0e1615; --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.09); }
         * { -webkit-font-smoothing: antialiased; }
         html { scroll-behavior: smooth; }
-        body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); overflow-x:hidden; }
-        ::selection { background: rgba(210,138,82,0.30); }
+        body { font-family:'Inter',system-ui,sans-serif; background:var(--ground); color:var(--type); overflow-x:hidden; }
+        ::selection { background: rgba(78,123,120,0.30); }
         .font-serif { font-family:'Fraunces',Georgia,serif; }
         .font-mono { font-family:'IBM Plex Mono',monospace; }
         body::before {
             content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
             background:
-                radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%),
-                radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%);
+                linear-gradient(transparent,transparent),
+                linear-gradient(transparent,transparent);
         }
         .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; color:var(--sea); }
         .rule-top { border-top:1px solid var(--line); }
-        .panel { background:rgba(243,237,226,0.022); border:1px solid var(--line); border-radius:14px; transition:border-color .35s ease, background .35s ease, transform .35s ease; }
-        .panel:hover { border-color:rgba(127,168,165,0.28); background:rgba(243,237,226,0.035); }
-        .btn-primary { background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); color:#14110d; font-weight:500; transition:transform .3s ease, box-shadow .3s ease, filter .3s ease; }
-        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(127,168,165,0.22); filter:brightness(1.04); }
-        .btn-ghost { border:1px solid rgba(243,237,226,0.18); color:var(--paper); transition:background .3s ease, border-color .3s ease; }
-        .btn-ghost:hover { background:rgba(243,237,226,0.05); border-color:rgba(243,237,226,0.32); }
-        .link-quiet { color:var(--paper); opacity:.56; transition:opacity .25s ease, color .25s ease; }
+        .panel { background:rgba(14,22,21,.02); border:1px solid var(--line); border-radius:14px; transition:border-color .35s ease, background .35s ease, transform .35s ease; }
+        .panel:hover { border-color:rgba(78,123,120,0.28); background:rgba(14,22,21,.04); }
+        .btn-primary { background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); color:#ffffff; font-weight:500; transition:transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(78,123,120,0.22); filter:brightness(1.04); }
+        .btn-ghost { border:1px solid rgba(14,22,21,.18); color:var(--type); transition:background .3s ease, border-color .3s ease; }
+        .btn-ghost:hover { background:rgba(14,22,21,.05); border-color:rgba(14,22,21,.6); }
+        .link-quiet { color:var(--type); opacity:.56; transition:opacity .25s ease, color .25s ease; }
         .link-quiet:hover { opacity:1; color:var(--sea); }
         .reveal { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
         .reveal.in { opacity:1; transform:none; }
         .creed p { font-size:1.125rem; line-height:1.9; }
         .creed .lead { font-family:'Fraunces',Georgia,serif; font-size:1.6rem; line-height:1.55; font-weight:300; }
-        .rule { width:40px; height:1px; background:rgba(127,168,165,0.5); }
+        .rule { width:40px; height:1px; background:rgba(78,123,120,0.5); }
         .quote-mark { font-family:'Fraunces',Georgia,serif; font-size:140px; line-height:1; opacity:0.09; position:absolute; top:-30px; left:-10px; color:var(--ember); }
         ::-webkit-scrollbar { width:7px; }
-        ::-webkit-scrollbar-track { background:var(--ink); }
-        ::-webkit-scrollbar-thumb { background:rgba(127,168,165,0.28); border-radius:4px; }
+        ::-webkit-scrollbar-track { background:var(--ground); }
+        ::-webkit-scrollbar-thumb { background:rgba(78,123,120,0.28); border-radius:4px; }
     </style>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body>
 
     <!-- NAV (shared chrome) -->
-    <nav class="fixed top-0 left-0 right-0 z-50" style="background:rgba(13,11,9,0.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);">
+    <nav class="fixed top-0 left-0 right-0 z-50" style="background:rgba(255,255,255,0.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-base font-serif tracking-[0.18em]">EDUCATED<span class="text-sea-soft">TRAVELER</span></a>
+            <a href="/" class="text-base font-serif tracking-[0.18em] et-wordmark"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
             <div class="flex items-center gap-9">
                 <a href="/circle" class="text-sm px-4 py-2 rounded-full btn-ghost">Join the Circle</a>
             </div>
@@ -160,7 +161,7 @@
                 </div>
                 <div class="relative reveal">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden"><img src="images/story/sailing-2.jpg" alt="Open water" class="w-full h-full object-cover" loading="lazy"></div>
-                    <div class="absolute -bottom-6 -left-4 panel p-4 max-w-xs" style="background:rgba(20,17,13,0.92);">
+                    <div class="absolute -bottom-6 -left-4 panel p-4 max-w-xs" style="background:rgba(255,255,255,0.92);">
                         <p class="text-sm text-paper-muted font-serif italic">"The ocean doesn't care about your credentials. It only respects what you can actually do."</p>
                     </div>
                 </div>
@@ -174,32 +175,32 @@
             <div class="panel rounded-3xl p-8 md:p-12">
                 <p class="eyebrow mb-8 text-center">Places that shaped me</p>
                 <div class="flex flex-wrap justify-center gap-2.5 text-sm">
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">France</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Spain</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Portugal</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Greece</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Croatia</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Morocco</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Thailand</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Vietnam</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Indonesia</span>
-                    <span class="px-4 py-2 rounded-full text-sea-soft" style="background:rgba(127,168,165,0.14); border:1px solid rgba(127,168,165,0.3);">India</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Nepal</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Australia</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">New Zealand</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Fiji</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">French Polynesia</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">USA</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Mexico</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Guatemala</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Caribbean</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Brazil</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Colombia</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Peru</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Chile</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Argentina</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Galápagos</span>
-                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(243,237,226,0.04);">Falklands</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">France</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Spain</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Portugal</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Greece</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Croatia</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Morocco</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Thailand</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Vietnam</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Indonesia</span>
+                    <span class="px-4 py-2 rounded-full text-sea-soft" style="background:rgba(78,123,120,0.14); border:1px solid rgba(78,123,120,0.3);">India</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Nepal</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Australia</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">New Zealand</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Fiji</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">French Polynesia</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">USA</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Mexico</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Guatemala</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Caribbean</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Brazil</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Colombia</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Peru</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Chile</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Argentina</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Galápagos</span>
+                    <span class="px-4 py-2 rounded-full text-paper-muted" style="background:rgba(14,22,21,.04);">Falklands</span>
                 </div>
                 <p class="text-center text-paper-faint text-sm mt-8">India highlighted — where the idea for EducatedTraveler took root.</p>
             </div>
@@ -212,7 +213,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1 relative reveal">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden"><img src="images/story/sailing-helm.jpg" alt="Arnaud at the rail, mid-ocean" class="w-full h-full object-cover" loading="lazy"></div>
-                    <div class="absolute -bottom-6 -right-4 panel p-4 max-w-xs" style="background:rgba(20,17,13,0.92);">
+                    <div class="absolute -bottom-6 -right-4 panel p-4 max-w-xs" style="background:rgba(255,255,255,0.92);">
                         <p class="text-sm text-paper-muted font-serif italic">"Every master I met was already teaching. I just needed to connect them to the people ready to learn."</p>
                     </div>
                 </div>
@@ -270,21 +271,21 @@
                 <p class="text-paper-faint text-center mb-12 text-sm">Three things no algorithm can hand you</p>
                 <div class="grid md:grid-cols-3 gap-10">
                     <div class="text-center">
-                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(127,168,165,0.12); border:1px solid rgba(127,168,165,0.25);">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(78,123,120,0.12); border:1px solid rgba(78,123,120,0.25);">
                             <svg class="w-6 h-6 text-sea-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
                         <h3 class="font-serif text-lg mb-2">A real skill</h3>
                         <p class="text-paper-muted text-sm leading-relaxed">Something your hands can do — proof you were there and did the thing, not just talked about it.</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(210,138,82,0.12); border:1px solid rgba(210,138,82,0.25);">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(78,123,120,0.12); border:1px solid rgba(78,123,120,0.25);">
                             <svg class="w-6 h-6 text-ember-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                         </div>
                         <h3 class="font-serif text-lg mb-2">Your people</h3>
                         <p class="text-paper-muted text-sm leading-relaxed">A handful of people who were there for the same days you were. Mine became the reason I kept going; that is what I am trying to build, and no week has run yet.</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(127,168,165,0.12); border:1px solid rgba(127,168,165,0.25);">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(78,123,120,0.12); border:1px solid rgba(78,123,120,0.25);">
                             <svg class="w-6 h-6 text-sea-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <h3 class="font-serif text-lg mb-2">A real edge</h3>
@@ -319,7 +320,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="text-center md:text-left">
-                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED<span class="text-sea-soft">TRAVELER</span></p>
+                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED TRAVELER</p>
                     <p class="text-paper-muted text-sm">A skill, a place, a person, your people.</p>
                     <p class="text-paper-faint text-[11px] font-mono tracking-[0.25em] mt-2">TANS FADE, SKILLS LAST</p>
                 </div>

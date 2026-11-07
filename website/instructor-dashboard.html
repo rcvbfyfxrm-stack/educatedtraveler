@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructor Dashboard — EDUCATEDTRAVELER</title>
+    <title>Instructor Dashboard — EDUCATED TRAVELER</title>
     <meta name="robots" content="noindex">
 
     <meta name="description" content="Manage your cohorts, view enrollments, and track your teaching adventures.">
-    <meta property="og:title" content="Instructor Dashboard — EDUCATEDTRAVELER">
+    <meta property="og:title" content="Instructor Dashboard — EDUCATED TRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -28,13 +28,13 @@
                             50: '#1c1813',
                             100: '#a7cecb',
                             200: '#a7cecb',
-                            300: '#6fa3a0',
-                            400: '#7fa8a5',
+                            300: '#4e7b78',
+                            400: '#4e7b78',
                             500: '#5b8a89',
                             600: '#5b8a89',
                             700: '#38595b',
-                            800: '#14110d',
-                            900: '#0d0b09',
+                            800: '#ffffff',
+                            900: '#ffffff',
                         },
                         'steel': {
                             50: '#f5f5f5',
@@ -46,7 +46,7 @@
                             600: '#333333',
                             700: '#222222',
                             800: '#1c1813',
-                            900: '#0d0b09',
+                            900: '#ffffff',
                         }
                     }
                 }
@@ -60,10 +60,10 @@
 
         :root {
             --bmw-blue: #5b8a89;
-            --bmw-light: #7fa8a5;
+            --bmw-light: #4e7b78;
             --bmw-glow: rgba(0, 102, 177, 0.4);
             --bmw-subtle: rgba(0, 102, 177, 0.15);
-            --steel-bg: #0d0b09;
+            --steel-bg: #ffffff;
             --steel-surface: #1c1813;
         }
 
@@ -72,13 +72,13 @@
         html { scroll-behavior: smooth; }
 
         .glass {
-            background: rgba(243,237,226,0.025);
+            background: rgba(14,22,21,.03);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%);
+            background: linear-gradient(135deg, #5b8a89 0%, #4e7b78 100%);
             transition: all 0.3s ease;
             font-weight: 500;
         }
@@ -88,22 +88,22 @@
         }
 
         .profile-avatar {
-            background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%);
+            background: linear-gradient(135deg, #5b8a89 0%, #4e7b78 100%);
         }
 
         .stat-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
             transition: all 0.3s ease;
         }
 
         .cohort-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
             transition: all 0.3s ease;
         }
         .cohort-card:hover {
-            background: rgba(243,237,226,0.04);
+            background: rgba(14,22,21,.04);
             border-color: var(--bmw-glow);
         }
 
@@ -116,13 +116,13 @@
             font-weight: 600;
         }
         .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
-        .status-published { background: rgba(0,102,177,0.2); color: #7fa8a5; }
+        .status-published { background: rgba(0,102,177,0.2); color: #4e7b78; }
         .status-full { background: rgba(0,102,177,0.3); color: #a7cecb; }
         .status-in_progress { background: rgba(59,130,246,0.2); color: #9cc0bd; }
         .status-completed { background: rgba(139,92,246,0.2); color: #a78bfa; }
         .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
-        .status-pending { background: rgba(0,102,177,0.15); color: #6fa3a0; }
-        .status-approved { background: rgba(0,102,177,0.2); color: #7fa8a5; }
+        .status-pending { background: rgba(0,102,177,0.15); color: #4e7b78; }
+        .status-approved { background: rgba(0,102,177,0.2); color: #4e7b78; }
         .status-pending_review { background: rgba(245,158,11,0.18); color: #e0b07a; }
 
         .enrollment-row {
@@ -139,7 +139,7 @@
         }
 
         input, select, textarea {
-            background: rgba(243,237,226,0.025) !important;
+            background: rgba(14,22,21,.03) !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
             color: white !important;
         }
@@ -149,7 +149,7 @@
             box-shadow: 0 0 0 2px var(--bmw-subtle);
         }
         input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
-        select option { background: #14110d; color: white; }
+        select option { background: #ffffff; color: white; }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -165,19 +165,18 @@
         }
         .spinner { animation: spin 1s linear infinite; }
     </style>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body class="text-white">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-lg font-semibold tracking-wider">
-                EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span>
-            </a>
+            <a href="/" class="text-lg font-semibold tracking-wider et-wordmark"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="/atlas/" class="text-sm text-white/60 hover:text-white transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
-                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-bmw-400/50 text-[#7fa8a5]">
+                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-bmw-400/50 text-[#4e7b78]">
                     Instructor Dashboard
                 </a>
             </div>
@@ -191,7 +190,7 @@
             <div class="px-6 py-4 space-y-3">
                 <a href="/atlas/" class="block py-3 text-white/70 hover:text-white transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
-                <a href="instructor-dashboard.html" class="block py-3 text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">Instructor Dashboard</a>
+                <a href="instructor-dashboard.html" class="block py-3 text-[#4e7b78] hover:text-[#9cc0bd] transition-colors">Instructor Dashboard</a>
             </div>
         </div>
     </nav>
@@ -214,7 +213,7 @@
                 Sign In
             </a>
             <p class="text-white/30 text-xs mt-6">
-                Not an instructor yet? <a href="instructors.html" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Apply here</a>
+                Not an instructor yet? <a href="instructors.html" class="text-[#4e7b78] hover:text-[#9cc0bd]">Apply here</a>
             </p>
         </div>
     </div>
@@ -241,7 +240,7 @@
             <h1 class="text-2xl font-light mb-4">Application under review</h1>
             <p class="text-white/50 text-sm mb-4">We've received your application and are reviewing it. We'll be in touch soon.</p>
             <p class="text-white/30 text-xs">
-                Questions? Email <a href="mailto:arnaudcallier@pm.me" class="text-[#7fa8a5]">arnaudcallier@pm.me</a>
+                Questions? Email <a href="mailto:arnaudcallier@pm.me" class="text-[#4e7b78]">arnaudcallier@pm.me</a>
             </p>
             <p class="text-white/30 text-xs mt-6">
                 <button id="pending-sign-out" class="text-white/40 hover:text-white transition-colors underline">Sign out</button>
@@ -269,7 +268,7 @@
                             <p id="profile-location" class="text-white/30 text-xs mt-1"></p>
                         </div>
                         <div class="flex items-center gap-2">
-                            <button id="edit-profile-btn" class="text-sm text-[#7fa8a5]/70 hover:text-[#7fa8a5] transition-colors px-4 py-2 rounded-full border border-bmw-400/30 hover:border-bmw-400/50">
+                            <button id="edit-profile-btn" class="text-sm text-[#4e7b78]/70 hover:text-[#4e7b78] transition-colors px-4 py-2 rounded-full border border-bmw-400/30 hover:border-bmw-400/50">
                                 Edit Profile
                             </button>
                             <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
@@ -310,15 +309,15 @@
             <section class="mb-10 fade-up delay-1">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-cohorts" class="text-2xl font-light text-[#7fa8a5]">0</p>
+                        <p id="stat-cohorts" class="text-2xl font-light text-[#4e7b78]">0</p>
                         <p class="text-white/40 text-xs mt-1">Cohorts</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-published" class="text-2xl font-light text-[#7fa8a5]">0</p>
+                        <p id="stat-published" class="text-2xl font-light text-[#4e7b78]">0</p>
                         <p class="text-white/40 text-xs mt-1">Published</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-students" class="text-2xl font-light text-[#7fa8a5]">0</p>
+                        <p id="stat-students" class="text-2xl font-light text-[#4e7b78]">0</p>
                         <p class="text-white/40 text-xs mt-1">Students</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
@@ -351,19 +350,19 @@
                 <!-- Revenue summary (shown when Stripe connected) -->
                 <div id="stripe-revenue-summary" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-paid-students" class="text-2xl font-light text-[#7fa8a5]">0</p>
+                        <p id="rev-paid-students" class="text-2xl font-light text-[#4e7b78]">0</p>
                         <p class="text-white/40 text-xs mt-1">Paid Students</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-gross" class="text-2xl font-light text-[#7fa8a5]">$0</p>
+                        <p id="rev-gross" class="text-2xl font-light text-[#4e7b78]">$0</p>
                         <p class="text-white/40 text-xs mt-1">Gross Revenue</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-payout" class="text-2xl font-light text-[#7fa8a5]">$0</p>
+                        <p id="rev-payout" class="text-2xl font-light text-[#4e7b78]">$0</p>
                         <p class="text-white/40 text-xs mt-1">Your Payout (90%)</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-pending" class="text-2xl font-light text-[#d28a52]">0</p>
+                        <p id="rev-pending" class="text-2xl font-light text-[#4e7b78]">0</p>
                         <p class="text-white/40 text-xs mt-1">Pending</p>
                     </div>
                 </div>
@@ -374,7 +373,7 @@
             <section class="mb-10 fade-up delay-2">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-lg font-light">Your Cohorts</h2>
-                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">
+                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#4e7b78] hover:bg-[#5b8a89]/30 transition-colors">
                         + New Cohort
                     </button>
                 </div>
@@ -382,7 +381,7 @@
                 <div id="cohorts-container">
                     <div id="no-cohorts" class="glass rounded-xl p-10 text-center">
                         <p class="text-white/30 text-sm mb-4">No cohorts yet. Create your first one to start accepting students.</p>
-                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">
+                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#4e7b78] hover:bg-[#5b8a89]/30 transition-colors">
                             Create Your First Cohort
                         </button>
                     </div>
@@ -497,7 +496,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <label class="text-sm text-white/40">Curriculum (phases/weeks)</label>
-                        <button type="button" id="add-phase-btn" class="text-xs text-[#7fa8a5] hover:text-[#9cc0bd]">+ Add Phase</button>
+                        <button type="button" id="add-phase-btn" class="text-xs text-[#4e7b78] hover:text-[#9cc0bd]">+ Add Phase</button>
                     </div>
                     <div id="curriculum-container" class="space-y-3"></div>
                 </div>
@@ -506,7 +505,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <label class="text-sm text-white/40">What's Included</label>
-                        <button type="button" id="add-included-btn" class="text-xs text-[#7fa8a5] hover:text-[#9cc0bd]">+ Add Item</button>
+                        <button type="button" id="add-included-btn" class="text-xs text-[#4e7b78] hover:text-[#9cc0bd]">+ Add Item</button>
                     </div>
                     <div id="included-container" class="space-y-3"></div>
                 </div>
@@ -542,7 +541,7 @@
                     <input type="email" id="invite-email" placeholder="student@email.com"
                         class="flex-1 rounded-xl px-4 py-3 text-sm">
                     <button id="invite-student-btn"
-                        class="px-5 py-3 bg-[#5b8a89]/20 text-[#7fa8a5] rounded-xl text-sm hover:bg-[#5b8a89]/30 transition-colors">
+                        class="px-5 py-3 bg-[#5b8a89]/20 text-[#4e7b78] rounded-xl text-sm hover:bg-[#5b8a89]/30 transition-colors">
                         Send Invite
                     </button>
                 </div>
@@ -605,7 +604,7 @@
 
             <div id="contact-success" class="hidden text-center py-6">
                 <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);">
-                    <svg class="w-6 h-6 text-[#7fa8a5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <svg class="w-6 h-6 text-[#4e7b78]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 </div>
                 <p class="text-white text-sm mb-1">Sent.</p>
                 <p class="text-white/40 text-xs">Arnaud's been notified. Check your inbox for a copy.</p>
@@ -646,7 +645,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span></p>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED TRAVELER</p>
                     <p class="text-white/40 text-sm">Tans fade, skills last. At the source, not the simulation.</p>
                 </div>
                 <div class="flex items-center gap-6">
@@ -842,7 +841,7 @@
                 loadingState.innerHTML = `
                     <div class="text-center">
                         <p class="text-red-400 mb-4">Error loading dashboard</p>
-                        <button onclick="window.location.reload()" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Try again</button>
+                        <button onclick="window.location.reload()" class="text-[#4e7b78] hover:text-[#9cc0bd]">Try again</button>
                     </div>
                 `;
             }
@@ -1218,7 +1217,7 @@
                                 <span class="status-badge status-${cohort.status}">${cohort.status.replace('_', ' ')}</span>
                             </div>
                             <p class="text-white/40 text-xs">${escapeHtml(cohort.location || '')} ${cohort.location && dateRange !== 'TBD' ? '·' : ''} ${dateRange} ${price ? '· ' + price : ''}</p>
-                            ${expLabel ? `<p class="text-[#7fa8a5]/60 text-xs mt-1">Linked: ${escapeHtml(expLabel)}</p>` : ''}
+                            ${expLabel ? `<p class="text-[#4e7b78]/60 text-xs mt-1">Linked: ${escapeHtml(expLabel)}</p>` : ''}
                         </div>
                         <div class="flex items-center gap-2 flex-wrap">
                             ${isLocked ? '' : `
@@ -1228,17 +1227,17 @@
                                 </button>`}
                             ${cohort.adventure_id && !isLocked ? `
                                 <button data-edit-experience="${cohort.id}" data-adventure-id="${cohort.adventure_id}"
-                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-[#7fa8a5]/70 hover:bg-bmw-400/10 transition-colors">
+                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-[#4e7b78]/70 hover:bg-bmw-400/10 transition-colors">
                                     Experience
                                 </button>
                             ` : ''}
                             <button data-manage-students="${cohort.id}"
-                                class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-[#7fa8a5]/70 hover:bg-[#5b8a89]/10 transition-colors">
+                                class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-[#4e7b78]/70 hover:bg-[#5b8a89]/10 transition-colors">
                                 Students
                             </button>
                             ${isDraft ? `
                                 <button data-submit-review="${cohort.id}"
-                                    class="text-xs px-4 py-1.5 rounded-full border border-[#5b8a89]/50 text-[#7fa8a5] hover:bg-[#5b8a89]/10 transition-colors">
+                                    class="text-xs px-4 py-1.5 rounded-full border border-[#5b8a89]/50 text-[#4e7b78] hover:bg-[#5b8a89]/10 transition-colors">
                                     Submit for review
                                 </button>
                             ` : ''}
@@ -1253,20 +1252,20 @@
 
                     ${isPendingReview ? `
                         <div class="rounded-lg p-3 mb-4 flex items-start gap-3" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);">
-                            <svg class="w-4 h-4 text-[#d28a52] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <div class="text-xs text-[#d28a52]/90">
+                            <svg class="w-4 h-4 text-[#4e7b78] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <div class="text-xs text-[#4e7b78]/90">
                                 <span class="font-medium">In review with Arnaud.</span>
-                                <span class="text-[#d28a52]/60">Editing is paused until it's approved or sent back. Average turnaround: 24h.</span>
+                                <span class="text-[#4e7b78]/60">Editing is paused until it's approved or sent back. Average turnaround: 24h.</span>
                             </div>
                         </div>
                     ` : ''}
 
                     ${cohort.review_notes && isDraft ? `
                         <div class="rounded-lg p-3 mb-4 flex items-start gap-3" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);">
-                            <svg class="w-4 h-4 text-[#d28a52] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            <svg class="w-4 h-4 text-[#4e7b78] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                             <div class="text-xs">
-                                <p class="font-medium text-[#d28a52] mb-1">Arnaud requested changes:</p>
-                                <p class="text-[#d28a52]/80">${escapeHtml(cohort.review_notes)}</p>
+                                <p class="font-medium text-[#4e7b78] mb-1">Arnaud requested changes:</p>
+                                <p class="text-[#4e7b78]/80">${escapeHtml(cohort.review_notes)}</p>
                             </div>
                         </div>
                     ` : ''}
@@ -1277,7 +1276,7 @@
                     <div class="mb-4">
                         <div class="flex items-center justify-between text-xs mb-1">
                             <span class="text-white/40">${enrolledCount} / ${cohort.capacity} students</span>
-                            <span class="${isFilling ? 'text-[#7fa8a5]' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
+                            <span class="${isFilling ? 'text-[#4e7b78]' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
                         </div>
                         <div class="capacity-bar h-1.5 rounded-full">
                             <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-bmw-400' : 'bg-[#5b8a89]'}" style="width: ${capacityPercent}%"></div>
@@ -1288,7 +1287,7 @@
                         <div class="grid grid-cols-3 gap-3 mb-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
                             <div>
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Paid</p>
-                                <p class="text-sm text-white/80">${rev.paid_count} ${rev.pending_count > 0 ? `<span class="text-[#d28a52]/70">+ ${rev.pending_count} pending</span>` : ''}</p>
+                                <p class="text-sm text-white/80">${rev.paid_count} ${rev.pending_count > 0 ? `<span class="text-[#4e7b78]/70">+ ${rev.pending_count} pending</span>` : ''}</p>
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Gross</p>
@@ -1296,7 +1295,7 @@
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Your Payout</p>
-                                <p class="text-sm text-[#7fa8a5]">${fmtUSD(Math.round((rev.gross_cents || 0) * 0.9))}</p>
+                                <p class="text-sm text-[#4e7b78]">${fmtUSD(Math.round((rev.gross_cents || 0) * 0.9))}</p>
                             </div>
                         </div>
                     ` : ''}
@@ -1564,13 +1563,13 @@
                 // For now, show confirmation — full invite flow requires edge function
                 setTimeout(() => {
                     btn.textContent = 'Invite Sent!';
-                    btn.classList.remove('bg-[#5b8a89]/20', 'text-[#7fa8a5]');
+                    btn.classList.remove('bg-[#5b8a89]/20', 'text-[#4e7b78]');
                     btn.classList.add('bg-[#5b8a89]/40', 'text-[#9cc0bd]');
                     emailInput.value = '';
                     setTimeout(() => {
                         btn.disabled = false;
                         btn.textContent = 'Send Invite';
-                        btn.classList.add('bg-[#5b8a89]/20', 'text-[#7fa8a5]');
+                        btn.classList.add('bg-[#5b8a89]/20', 'text-[#4e7b78]');
                         btn.classList.remove('bg-[#5b8a89]/40', 'text-[#9cc0bd]');
                     }, 2000);
                 }, 500);

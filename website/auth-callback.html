@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signing in... — EDUCATEDTRAVELER</title>
+    <title>Signing in... — EDUCATED TRAVELER</title>
     <!-- A machine endpoint a magic link lands on for a second, never a destination. -->
     <meta name="robots" content="noindex, nofollow">
 
@@ -23,12 +23,12 @@
         .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
 
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; }
 
         .glass {
-            background: rgba(243,237,226,0.025);
+            background: rgba(14,22,21,.03);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
         }
 
         @keyframes spin {
@@ -51,7 +51,7 @@
     <div class="text-center fade-up">
         <!-- Loading State -->
         <div id="loading-state">
-            <div class="w-12 h-12 mx-auto mb-6 border-2 border-[#7fa8a5]/30 border-t-[#7fa8a5] rounded-full spinner"></div>
+            <div class="w-12 h-12 mx-auto mb-6 border-2 border-[#4e7b78]/30 border-t-[#4e7b78] rounded-full spinner"></div>
             <h1 class="text-2xl font-light mb-2">Signing you in...</h1>
             <p class="text-white/50 text-sm">Just a moment while we verify your link.</p>
         </div>
@@ -87,7 +87,7 @@
                     minlength="8"
                     class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                 >
-                <button type="submit" id="reset-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);">
+                <button type="submit" id="reset-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#4e7b78 0%,#4e7b78 100%);">
                     Update Password
                 </button>
             </form>
@@ -99,7 +99,7 @@
             <h1 class="text-2xl font-light mb-2">That link didn't work</h1>
             <p id="error-message" class="text-white/50 text-sm mb-6">This link may have expired or already been used. Ask for a fresh one.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="/you" class="inline-block px-6 py-3 rounded-full text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);">
+                <a href="/you" class="inline-block px-6 py-3 rounded-full text-sm font-medium text-white" style="background:linear-gradient(135deg,#4e7b78 0%,#4e7b78 100%);">
                     Email me a new link
                 </a>
                 <a href="/" class="inline-block px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-colors text-sm">

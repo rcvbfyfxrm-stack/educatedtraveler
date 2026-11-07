@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crew Card — EDUCATEDTRAVELER</title>
+    <title>Crew Card — EDUCATED TRAVELER</title>
     <meta name="robots" content="noindex">
 
-    <meta name="description" content="View an EDUCATEDTRAVELER member's crew card.">
-    <meta property="og:title" content="Crew Card — EDUCATEDTRAVELER">
+    <meta name="description" content="View an EDUCATED TRAVELER member's crew card.">
+    <meta property="og:title" content="Crew Card — EDUCATED TRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -25,17 +25,17 @@
         .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
 
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; }
         html { scroll-behavior: smooth; }
         .font-mono { font-family: 'IBM Plex Mono', monospace; }
 
         .glass {
-            background: rgba(243,237,226,0.025);
+            background: rgba(14,22,21,.03);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
         }
         .glass-strong {
-            background: rgba(243,237,226,0.04);
+            background: rgba(14,22,21,.04);
             backdrop-filter: blur(40px);
             border: 1px solid rgba(255, 255, 255, 0.10);
         }
@@ -64,22 +64,22 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
         }
-        .interest-tag.ocean { background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.3); color: #6fa3a0; }
+        .interest-tag.ocean { background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.3); color: #4e7b78; }
         .interest-tag.adventure { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.3); color: #EF4444; }
-        .interest-tag.culinary { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #d28a52; }
-        .interest-tag.wellness { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); color: #e0a877; }
+        .interest-tag.culinary { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #4e7b78; }
+        .interest-tag.wellness { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); color: #4e7b78; }
         .interest-tag.creative { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #c08a6a; }
         .class-tag {
             padding: 6px 14px;
             border-radius: 9999px;
             font-size: 0.8rem;
-            border: 1px solid rgba(127,168,165,0.28);
-            background: rgba(127,168,165,0.10);
+            border: 1px solid rgba(78,123,120,0.28);
+            background: rgba(78,123,120,0.10);
             color: #9cc0bd;
         }
-        .class-tag em { font-style: normal; color: rgba(243,237,226,0.45); font-size: 0.72rem; }
-        .class-tag.joined { border-color: rgba(210,138,82,0.35); background: rgba(210,138,82,0.12); color: #e0a877; }
-        .class-tag.joined em { color: rgba(243,237,226,0.5); }
+        .class-tag em { font-style: normal; color: rgba(14,22,21,.6); font-size: 0.72rem; }
+        .class-tag.joined { border-color: rgba(78,123,120,0.35); background: rgba(78,123,120,0.12); color: #4e7b78; }
+        .class-tag.joined em { color: rgba(14,22,21,.72); }
 
         .creature-badge {
             width: 64px; height: 64px;
@@ -98,6 +98,7 @@
         }
         .spinner { animation: spin 1s linear infinite; }
     </style>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 
 <body class="text-white">
@@ -105,16 +106,14 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-lg font-semibold tracking-[0.15em]">
-                EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span>
-            </a>
+            <a href="/" class="text-lg font-semibold tracking-[0.15em] et-wordmark"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="/atlas/" class="text-sm text-white/60 hover:text-white transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
                 <a href="/circle" class="text-sm px-4 py-2 rounded-full bg-[#5b8a89] text-white hover:bg-[#38595b] transition-colors">Join the Circle</a>
                 <div id="auth-nav">
-                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-[#5b8a89]/50 text-[#7fa8a5] hover:bg-[#5b8a89]/10 transition-colors">Sign In</button>
-                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-[#5b8a89]/50 text-[#7fa8a5] hover:bg-[#5b8a89]/10 transition-colors">Dashboard</a>
+                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-[#5b8a89]/50 text-[#4e7b78] hover:bg-[#5b8a89]/10 transition-colors">Sign In</button>
+                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-[#5b8a89]/50 text-[#4e7b78] hover:bg-[#5b8a89]/10 transition-colors">Dashboard</a>
                 </div>
             </div>
         </div>
@@ -123,7 +122,7 @@
     <!-- Loading State -->
     <div id="loading-state" class="min-h-screen flex items-center justify-center">
         <div class="text-center">
-            <div class="w-12 h-12 mx-auto mb-4 border-2 border-[#7fa8a5]/30 border-t-blue-400 rounded-full spinner"></div>
+            <div class="w-12 h-12 mx-auto mb-4 border-2 border-[#4e7b78]/30 border-t-blue-400 rounded-full spinner"></div>
             <p class="text-white/50 text-sm">Loading crew card...</p>
         </div>
     </div>
@@ -134,7 +133,7 @@
             <div class="text-5xl mb-6">&#x1F30A;</div>
             <h1 class="text-2xl font-light mb-4">Profile not found</h1>
             <p class="text-white/50 text-sm mb-8">This crew card doesn't exist or is set to private.</p>
-            <a href="/" class="text-[#7fa8a5] hover:text-[#9cc0bd] text-sm transition-colors">Back to home</a>
+            <a href="/" class="text-[#4e7b78] hover:text-[#9cc0bd] text-sm transition-colors">Back to home</a>
         </div>
     </div>
 
@@ -147,7 +146,7 @@
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                     <!-- Avatar -->
                     <div class="flex-shrink-0">
-                        <div id="card-avatar" class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-semibold" style="background: linear-gradient(135deg, #5b8a89, #7fa8a5);">
+                        <div id="card-avatar" class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-semibold" style="background: linear-gradient(135deg, #5b8a89, #4e7b78);">
                             <span id="card-initials">--</span>
                         </div>
                     </div>
@@ -254,7 +253,7 @@
     <!-- Footer -->
     <footer class="border-t border-white/5 py-12 px-6">
         <div class="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <span class="text-xs text-white/20 tracking-[0.15em]">EDUCATED<span class="text-[#7fa8a5]/40">TRAVELER</span></span>
+            <span class="text-xs text-white/20 tracking-[0.15em]">EDUCATED TRAVELER</span>
             <div class="flex gap-6">
                 <a href="/atlas/" class="text-xs text-white/30 hover:text-white/60 transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="text-xs text-white/30 hover:text-white/60 transition-colors">About</a>

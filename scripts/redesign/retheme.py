@@ -16,14 +16,22 @@ def retheme(s):
     s = re.sub(r'--ember\s*:\s*#[0-9a-fA-F]{6}', '--ember:' + SEA, s)
     s = re.sub(r'--sea\s*:\s*#7fa8a5', '--sea:' + SEA, s)
     s = re.sub(r'--gold\s*:\s*#[0-9a-fA-F]{6}', '--gold:' + SEA, s)
-    s = s.replace('var(--ink2)', 'var(--surface)').replace('var(--ink)', 'var(--ground)').replace('var(--paper)', 'var(--type)')
+    s = re.sub(r'var\(--ink2([,)])', r'var(--surface\1', s)
+    s = re.sub(r'var\(--ink([,)])', r'var(--ground\1', s)
+    s = re.sub(r'var\(--paper([,)])', r'var(--type\1', s)
     # literals
     s = re.sub(r'rgba\(\s*243\s*,\s*237\s*,\s*226\s*,\s*([0-9.]+)\s*\)', lambda m: 'rgba(%s,%s)' % (INK_RGB, alpha_text(m.group(1))), s)
     s = re.sub(r'rgba\(\s*(?:13\s*,\s*11\s*,\s*9|20\s*,\s*17\s*,\s*13|28\s*,\s*24\s*,\s*19)\s*,\s*([0-9.]+)\s*\)', r'rgba(255,255,255,\1)', s)
     s = re.sub(r'rgba\(\s*(?:127\s*,\s*168\s*,\s*165|210\s*,\s*138\s*,\s*82|231\s*,\s*181\s*,\s*78)\s*,\s*([0-9.]+)\s*\)', r'rgba(%s,\1)' % SEA_RGB, s)
     for old in ('#14110d', '#0d0b09'): s = re.sub(old, '#ffffff', s, flags=re.I)
     s = re.sub('#f3ede2', '#0e1615', s, flags=re.I)
-    s = re.sub(r'#efe6d3', '#0e1615', s, flags=re.I)
+    # the letter sheet (the note a visitor writes to Arnaud): paper becomes a white sheet with a hairline
+    s = re.sub(r'--sheet\s*:\s*#(?:efe6d3|0e1615)', '--sheet:#ffffff', s, flags=re.I)
+    s = re.sub(r'--sheet-edge\s*:\s*#e2d6bd', '--sheet-edge:rgba(14,22,21,.16)', s, flags=re.I)
+    s = re.sub(r'--sheet-ink\s*:\s*#2c231a', '--sheet-ink:#0e1615', s, flags=re.I)
+    s = re.sub(r'--sheet-faint\s*:\s*#6f6350', '--sheet-faint:rgba(14,22,21,.62)', s, flags=re.I)
+    for old, new in (('#efe6d3', '#ffffff'), ('#ece1cc', '#ffffff'), ('#e2d6bd', 'rgba(14,22,21,.16)'), ('#2c231a', '#0e1615'), ('#6f6350', 'rgba(14,22,21,.62)')):
+        s = re.sub(old, new, s, flags=re.I)
     for old in ('#7fa8a5', '#d28a52', '#e0a877', '#e0915f', '#f0c27a', '#e7b54e',
                 '#6fa3a0', '#c9a24a', '#cf8f6e', '#bf8088', '#94ad86'):   # sea, ember, gold, the five worlds
         s = re.sub(old, SEA, s, flags=re.I)

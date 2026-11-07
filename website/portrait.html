@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your place in the Circle — EDUCATEDTRAVELER</title>
+    <title>Your place in the Circle — EDUCATED TRAVELER</title>
 
     <meta name="description" content="Take your place in the Circle. Tell me who you are, the craft you'd give a week of your life to learn, and write me the note — I read every one, and I build from them.">
     <link rel="canonical" href="https://educatedtraveler.app/portrait">
-    <meta property="og:title" content="Your place in the Circle — EDUCATEDTRAVELER">
+    <meta property="og:title" content="Your place in the Circle — EDUCATED TRAVELER">
     <meta property="og:description" content="Tell me who you are and write me the note. I read every one — and I build from them.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://educatedtraveler.app/portrait">
@@ -27,32 +27,32 @@
 
     <style>
         /* ── Warm-Dark Editorial (ET relook lock) ── */
-        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
-               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+        :root{ --ground:#ffffff; --surface:#ffffff; --type:#0e1615; --muted:rgba(14,22,21,.72);
+               --faint:rgba(14,22,21,.6); --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.09);
                /* the letter's real paper */
-               --sheet:#efe6d3; --sheet-edge:#e2d6bd; --sheet-ink:#2c231a; --sheet-faint:#6f6350; }
+               --sheet:#ffffff; --sheet-edge:rgba(14,22,21,.16); --sheet-ink:#0e1615; --sheet-faint:rgba(14,22,21,.62); }
         *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
-        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ground); color:var(--type);
               min-height:100vh; line-height:1.55; }
-        ::selection{ background:rgba(210,138,82,0.30); }
+        ::selection{ background:rgba(78,123,120,0.30); }
         .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; letter-spacing:-0.01em; }
         .mono{ font-family:'IBM Plex Mono',ui-monospace,monospace; }
         body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
             background:
-                radial-gradient(900px 600px at 15% -8%, rgba(127,168,165,0.10), transparent 60%),
-                radial-gradient(800px 620px at 92% 6%, rgba(210,138,82,0.09), transparent 55%); }
+                linear-gradient(transparent,transparent),
+                linear-gradient(transparent,transparent); }
 
         .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.30em;
                   text-transform:uppercase; color:var(--sea); }
 
         /* nav */
-        nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.72);
+        nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(255,255,255,0.72);
              backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
         .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
-        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; color:var(--paper); text-decoration:none; }
+        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; color:var(--type); text-decoration:none; }
         .brand span{ color:var(--sea); }
         .nav-links{ display:flex; gap:26px; align-items:center; }
-        .nav-links a{ color:var(--paper); opacity:.56; text-decoration:none; font-size:13.5px; transition:opacity .25s,color .25s; }
+        .nav-links a{ color:var(--type); opacity:.56; text-decoration:none; font-size:13.5px; transition:opacity .25s,color .25s; }
         .nav-links a:hover{ opacity:1; color:var(--sea); }
         @media(max-width:720px){ .nav-links{ display:none; } }
 
@@ -62,7 +62,7 @@
 
         /* progress rail */
         .rail{ display:flex; gap:7px; margin-bottom:34px; }
-        .rail i{ height:2px; flex:1; background:rgba(243,237,226,0.12); border-radius:2px; transition:background .5s ease; }
+        .rail i{ height:2px; flex:1; background:rgba(14,22,21,.12); border-radius:2px; transition:background .5s ease; }
         .rail i.on{ background:var(--sea); }
         .rail i.done{ background:var(--ember); }
 
@@ -83,12 +83,12 @@
         .lbl{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase;
               color:var(--faint); margin-bottom:9px; display:block; }
         input[type=text], input[type=email], textarea{
-            width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
-            border-radius:14px; color:var(--paper); font-family:inherit; font-size:16px; padding:14px 16px;
+            width:100%; background:rgba(14,22,21,.04); border:1px solid rgba(14,22,21,.16);
+            border-radius:14px; color:var(--type); font-family:inherit; font-size:16px; padding:14px 16px;
             outline:none; transition:border-color .25s, box-shadow .25s; }
         textarea{ resize:vertical; min-height:118px; line-height:1.6; }
-        input::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
-        input:focus, textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        input::placeholder, textarea::placeholder{ color:rgba(14,22,21,.6); }
+        input:focus, textarea:focus{ border-color:rgba(78,123,120,0.6); box-shadow:0 0 0 3px rgba(78,123,120,0.12); }
         .help{ color:var(--faint); font-size:12.5px; margin-top:8px; line-height:1.5; }
         .consent{ display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer;
                   color:var(--muted); font-size:13.5px; line-height:1.5; }
@@ -99,27 +99,27 @@
 
         /* chips */
         .chips{ display:flex; flex-wrap:wrap; gap:9px; }
-        .chip{ font-family:inherit; font-size:13.5px; color:var(--muted); background:rgba(243,237,226,0.03);
-               border:1px solid rgba(243,237,226,0.15); border-radius:11px; padding:10px 14px; cursor:pointer;
+        .chip{ font-family:inherit; font-size:13.5px; color:var(--muted); background:rgba(14,22,21,.03);
+               border:1px solid rgba(14,22,21,.15); border-radius:11px; padding:10px 14px; cursor:pointer;
                transition:all .18s ease; text-align:left; }
-        .chip:hover{ border-color:rgba(243,237,226,0.34); color:var(--paper); }
-        .chip[aria-pressed="true"], .chip.sel{ border-color:var(--sea); background:rgba(127,168,165,0.13); color:var(--paper); }
+        .chip:hover{ border-color:rgba(14,22,21,.6); color:var(--type); }
+        .chip[aria-pressed="true"], .chip.sel{ border-color:var(--sea); background:rgba(78,123,120,0.13); color:var(--type); }
         .chip:focus-visible{ outline:2px solid var(--sea); outline-offset:2px; }
         .chip small{ display:block; font-size:11px; color:var(--faint); margin-top:3px; letter-spacing:0; }
         .chip[aria-pressed="true"] small{ color:var(--muted); }
         .chip .badge{ display:inline-block; margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:10px;
-                      color:#14110d; background:var(--sea); border-radius:8px; padding:1px 6px; vertical-align:1px; }
+                      color:#ffffff; background:var(--sea); border-radius:8px; padding:1px 6px; vertical-align:1px; }
         /* the running "your crafts" tray — chosen across every world */
         .chosen-wrap{ margin-top:22px; }
-        .chip.chosen{ border-color:var(--sea); background:rgba(127,168,165,0.13); color:var(--paper); padding-right:11px; }
+        .chip.chosen{ border-color:var(--sea); background:rgba(78,123,120,0.13); color:var(--type); padding-right:11px; }
         .chip.chosen .x{ margin-left:9px; color:var(--faint); font-family:'IBM Plex Mono',monospace; }
         .chip.chosen:hover .x{ color:var(--ember); }
         /* "…or in your own words" — a quiet write line under any chip question (perception first) */
         .own{ margin-top:12px; }
-        .own input[type=text]{ background:transparent; border:none; border-bottom:1px solid rgba(243,237,226,0.14);
+        .own input[type=text]{ background:transparent; border:none; border-bottom:1px solid rgba(14,22,21,.14);
               border-radius:0; padding:8px 2px; font-size:16px; box-shadow:none; }
-        .own input[type=text]:focus{ border-color:transparent; border-bottom-color:rgba(127,168,165,0.7); box-shadow:none; }
-        .own input[type=text]::placeholder{ color:rgba(243,237,226,0.26); font-style:italic; }
+        .own input[type=text]:focus{ border-color:transparent; border-bottom-color:rgba(78,123,120,0.7); box-shadow:none; }
+        .own input[type=text]::placeholder{ color:rgba(14,22,21,.26); font-style:italic; }
 
         .worldwrap{ margin-top:22px; }
         .disc-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:11px; }
@@ -127,11 +127,11 @@
         .count{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--faint); }
 
         /* buttons */
-        .cta{ font-family:inherit; font-size:15px; font-weight:500; color:#14110d; border:none; cursor:pointer;
+        .cta{ font-family:inherit; font-size:15px; font-weight:500; color:#ffffff; border:none; cursor:pointer;
               background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border-radius:999px;
               padding:14px 26px; transition:transform .25s, box-shadow .25s, filter .25s; }
-        .cta:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(127,168,165,0.24); filter:brightness(1.04); }
-        .cta:focus-visible{ outline:2px solid var(--paper); outline-offset:3px; }
+        .cta:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(78,123,120,0.24); filter:brightness(1.04); }
+        .cta:focus-visible{ outline:2px solid var(--type); outline-offset:3px; }
         .cta:disabled{ opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
         .row{ display:flex; align-items:center; gap:18px; margin-top:26px; flex-wrap:wrap; }
         .quiet{ background:none; border:none; color:var(--faint); font-family:inherit; font-size:13px; cursor:pointer;
@@ -139,12 +139,12 @@
         .quiet:hover{ color:var(--sea); }
         .back{ background:none; border:none; color:var(--faint); font-family:'IBM Plex Mono',monospace; font-size:11px;
                letter-spacing:0.12em; cursor:pointer; margin-bottom:20px; transition:color .25s; }
-        .back:hover{ color:var(--paper); }
+        .back:hover{ color:var(--type); }
         .err{ color:#f0a58a; font-size:13px; margin-top:12px; display:none; }
 
         /* ── THE LETTER — a real sheet of paper on the dark page ── */
         .sheet-wrap{ margin:6px 0 4px; perspective:1400px; }
-        .sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ece1cc 100%);
+        .sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ffffff 100%);
                 border-radius:5px; padding:30px 30px 26px; color:var(--sheet-ink);
                 box-shadow:0 1px 0 rgba(255,255,255,0.35) inset, 0 30px 60px -24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.35);
                 border:1px solid var(--sheet-edge); }
@@ -165,23 +165,23 @@
         .sheet .sign .name{ font-family:'Caveat','Fraunces',cursive; font-size:30px; line-height:1; color:#3a2c1e; margin-top:2px; }
         .prompts{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 4px; }
         .prompts button{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
-                         color:var(--faint); background:rgba(243,237,226,0.03); border:1px dashed rgba(243,237,226,0.20);
+                         color:var(--faint); background:rgba(14,22,21,.03); border:1px dashed rgba(14,22,21,.20);
                          border-radius:20px; padding:7px 12px; cursor:pointer; transition:all .2s; }
         .prompts button:hover{ color:var(--sea); border-color:var(--sea); }
         .letter-note{ color:var(--faint); font-size:12.5px; margin-top:14px; line-height:1.55; }
         .letter-note b{ color:var(--ember); font-weight:500; }
 
         /* ── PORTRAIT recap (you, the actor) ── */
-        .portrait{ border:1px solid var(--line); border-radius:16px; background:rgba(243,237,226,0.022);
+        .portrait{ border:1px solid var(--line); border-radius:16px; background:rgba(14,22,21,.02);
                    padding:24px 24px 20px; margin:20px 0 6px; }
         .portrait .pline{ display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line); align-items:baseline; }
         .portrait .pline:last-child{ border-bottom:none; }
         .portrait .pk{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
                        color:var(--faint); flex:0 0 116px; }
-        .portrait .pv{ color:var(--paper); font-size:15px; }
+        .portrait .pv{ color:var(--type); font-size:15px; }
         .portrait .pv.serif{ font-family:'Fraunces',Georgia,serif; }
         .portrait .pv .tag{ display:inline-block; margin:0 6px 6px 0; padding:4px 10px; border:1px solid var(--sea);
-                            background:rgba(127,168,165,0.12); border-radius:10px; font-size:13px; }
+                            background:rgba(78,123,120,0.12); border-radius:10px; font-size:13px; }
         .portrait .pv.letterprev{ color:var(--muted); font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:14.5px;
                                   display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 
@@ -197,11 +197,11 @@
                         margin:14px 0 18px; letter-spacing:-0.02em; text-wrap:balance; }
         .done-state p{ color:var(--muted); font-size:15.5px; max-width:34rem; margin:0 auto 14px; line-height:1.65; }
         .done-state .ps{ color:var(--sea); font-size:14.5px; }
-        .done-state .go{ display:inline-block; margin-top:22px; color:var(--paper); opacity:.7; text-decoration:none;
+        .done-state .go{ display:inline-block; margin-top:22px; color:var(--type); opacity:.7; text-decoration:none;
                          font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
         .done-state .go:hover{ opacity:1; color:var(--sea); }
         .seal{ width:58px; height:58px; margin:0 auto; border-radius:50%; display:grid; place-items:center;
-               background:radial-gradient(circle at 35% 30%, #e49a5f, #c0632f 70%); color:#2c1608;
+               background:var(--sea); color:#ffffff;
                font-family:'Fraunces',serif; font-size:22px; box-shadow:0 10px 30px -10px rgba(192,99,47,0.7); }
         /* founder sign-off — a small black & white photo of Arnaud */
         .done-sign{ display:flex; flex-direction:column; align-items:center; gap:7px; margin-top:28px; }
@@ -211,17 +211,18 @@
 
         .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
         .center{ text-align:center; }
-        .spin{ display:inline-block; width:16px; height:16px; border:2px solid rgba(243,237,226,0.25);
+        .spin{ display:inline-block; width:16px; height:16px; border:2px solid rgba(14,22,21,.25);
                border-top-color:var(--sea); border-radius:50%; animation:sp .7s linear infinite; vertical-align:-3px; }
         @keyframes sp{ to{ transform:rotate(360deg); } }
     </style>
     <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body>
 
     <nav>
         <div class="nav-in">
-            <a href="/" class="brand">EDUCATED<span>TRAVELER</span></a>
+            <a href="/" class="brand et-wordmark"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
         </div>
     </nav>
 
@@ -532,7 +533,7 @@
 
                 <div class="row">
                     <button class="cta" id="enrich-save">Save to my portrait &rarr;</button>
-                    <span class="e-saved" id="enrich-saved" style="display:none; color:#94ad86; font-size:13.5px;">Saved — your portrait is richer.</span>
+                    <span class="e-saved" id="enrich-saved" style="display:none; color:#4e7b78; font-size:13.5px;">Saved — your portrait is richer.</span>
                 </div>
                 <p class="err" role="alert" aria-live="assertive" id="enrich-err" style="display:none;"></p>
             </section>
@@ -541,16 +542,16 @@
                 #enrich.show{ display:block; animation:fadeUp .5s ease-out both; }
                 .avatar-row{ display:flex; align-items:center; gap:18px; margin-top:8px; }
                 .avatar{ width:72px; height:72px; flex:0 0 auto; border-radius:50%; border:1px solid var(--line);
-                         background:rgba(243,237,226,0.05); display:flex; align-items:center; justify-content:center;
+                         background:rgba(14,22,21,.05); display:flex; align-items:center; justify-content:center;
                          font-family:'Fraunces',Georgia,serif; font-size:28px; color:var(--sea); overflow:hidden; }
-                .avatar-btn{ display:inline-block; font-family:inherit; font-size:14px; color:#14110d; cursor:pointer;
+                .avatar-btn{ display:inline-block; font-family:inherit; font-size:14px; color:#ffffff; cursor:pointer;
                              background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border-radius:999px; padding:9px 18px; }
                 .avatar-btn:hover{ filter:brightness(1.04); }
                 #class-match .cm{ text-align:left; border:1px solid var(--line); border-left:2px solid var(--ember);
-                                  border-radius:14px; padding:16px 18px; background:rgba(210,138,82,0.05); }
+                                  border-radius:14px; padding:16px 18px; background:rgba(78,123,120,0.05); }
                 #class-match .cm .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em;
                                      text-transform:uppercase; color:var(--ember); margin-bottom:6px; }
-                #class-match .cm .t{ font-family:'Fraunces',Georgia,serif; font-size:18px; color:var(--paper); }
+                #class-match .cm .t{ font-family:'Fraunces',Georgia,serif; font-size:18px; color:var(--type); }
                 #class-match .cm .s{ color:var(--muted); font-size:13.5px; margin-top:4px; }
                 #class-match .cm a{ color:var(--sea); font-size:13px; text-decoration:none; display:inline-block; margin-top:8px; }
             </style>
@@ -1440,13 +1441,13 @@
   var tries=0; (function w(){ if(window.supabaseClient) return boot(); if(window.supabaseError || tries>80) return; tries++; setTimeout(w,50); })();
 })();
 </script>
-<footer style="text-align:center;padding:42px 22px 48px;border-top:1px solid rgba(243,237,226,0.08);position:relative;z-index:1;">
+<footer style="text-align:center;padding:42px 22px 48px;border-top:1px solid rgba(14,22,21,.08);position:relative;z-index:1;">
     <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20the%20portrait&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/portrait%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
   <a href="/atlas/" class="et-foot-link">Atlas of Skills</a>
   <a href="/collaborations" class="et-foot-link">Collaborations</a>
   <a href="/about" class="et-foot-link">The Story</a>
   <a href="/letters/" class="et-foot-link">Founder&#39;s Notes</a>
 </footer>
-<style>.et-foot-link{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,226,0.34);text-decoration:none;margin:0 11px;transition:color .2s;white-space:nowrap;line-height:2.2;}.et-foot-link:hover{color:#7fa8a5;}</style>
+<style>.et-foot-link{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(14,22,21,.6);text-decoration:none;margin:0 11px;transition:color .2s;white-space:nowrap;line-height:2.2;}.et-foot-link:hover{color:#4e7b78;}</style>
 </body>
 </html>

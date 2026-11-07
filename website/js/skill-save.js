@@ -64,12 +64,12 @@
     s.textContent =
       '.skill-save-wrap{display:flex;justify-content:center;margin:0 0 18px}' +
       '.skill-save-btn{display:inline-flex;align-items:center;gap:.5em;font-family:"IBM Plex Mono",ui-monospace,monospace;' +
-        'font-size:12.5px;letter-spacing:.06em;color:#f3ede2;background:rgba(243,237,226,.04);' +
-        'border:1px solid rgba(127,168,165,.5);border-radius:99px;padding:11px 22px;cursor:pointer;' +
+        'font-size:12.5px;letter-spacing:.06em;color:#0e1615;background:rgba(14,22,21,.04);' +
+        'border:1px solid rgba(78,123,120,.5);border-radius:99px;padding:11px 22px;cursor:pointer;' +
         'transition:border-color .2s,background .2s,transform .2s,color .2s}' +
-      '.skill-save-btn:hover{border-color:#7fa8a5;background:rgba(127,168,165,.10);transform:translateY(-1px)}' +
+      '.skill-save-btn:hover{border-color:#4e7b78;background:rgba(78,123,120,.10);transform:translateY(-1px)}' +
       '.skill-save-btn .ss-i{font-size:14px;line-height:1}' +
-      '.skill-save-btn.is-saved{border-color:#7fa8a5;background:linear-gradient(135deg,rgba(127,168,165,.22),rgba(210,138,82,.16));color:#f3ede2}' +
+      '.skill-save-btn.is-saved{border-color:#4e7b78;background:linear-gradient(135deg,rgba(78,123,120,.22),rgba(78,123,120,.16));color:#0e1615}' +
       '.skill-save-btn[disabled]{opacity:.55;cursor:default}';
     document.head.appendChild(s);
   }

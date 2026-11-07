@@ -21,7 +21,7 @@
 <style>
 :root{--ground:#ffffff;--surface:#ffffff;--ink3:#1c1813;--type:#0e1615;--muted:rgba(14,22,21,.72);--faint:rgba(14,22,21,.6);--sea:#4e7b78;--ember:#4e7b78;--gold:#4e7b78;--line:rgba(14,22,21,.09);
 /* the letter's real paper (matches /circle and /portrait) */
---sheet:#0e1615;--sheet-edge:#e2d6bd;--sheet-ink:#2c231a;--sheet-faint:#6f6350}
+--sheet:#ffffff;--sheet-edge:rgba(14,22,21,.16);--sheet-ink:#0e1615;--sheet-faint:rgba(14,22,21,.62)}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--ground);color:var(--type);font-weight:300;line-height:1.6;overflow-x:hidden}
@@ -1048,7 +1048,7 @@ var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%fea
     rotshot.style.setProperty("--focal",(f.shot?f.focal:f.illusFocal)||"center");
     rotshot.classList.add("on");
     rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
-  bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ground),var(--surface))";ri++;}
+  bg.style.background="var(--ground)";ri++;}
 tick();setInterval(tick,2700);
 
 // ── filter state ──
