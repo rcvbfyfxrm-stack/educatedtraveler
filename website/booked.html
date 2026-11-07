@@ -15,24 +15,24 @@
 <style>
   /* Warm-Dark Editorial lock — same tokens as /barcelona and /pay. */
   :root{
-    --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --ember-soft:#e0a877;
-    --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
+    --ground:#ffffff; --ink-2:#ffffff; --type:#0e1615; --sea:#4e7b78; --ember:#4e7b78; --ember-soft:#4e7b78;
+    --line:rgba(14,22,21,.09); --soft:rgba(14,22,21,.72); --softer:rgba(14,22,21,.72);
     --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.65}
-  ::selection{background:var(--ember);color:var(--ink)}
+  body{margin:0;background:var(--ground);color:var(--type);font-family:var(--sans);font-size:16.5px;line-height:1.65}
+  ::selection{background:var(--ember);color:var(--ground)}
   a{color:var(--sea)}
   .wrap{max-width:680px;margin:0 auto;padding:0 1.4rem}
   .topbar{border-bottom:1px solid var(--line);background:var(--ink-2)}
   .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.7rem;padding-bottom:.7rem}
-  .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--paper);text-decoration:none}
+  .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--type);text-decoration:none}
   .wordmark b{font-weight:300;color:var(--sea)}
   .topbar a.back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);text-decoration:none}
   .topbar a.back:hover{color:var(--sea)}
 
   header{padding:3.6rem 0 2.2rem;border-bottom:1px solid var(--line)}
-  .seal{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--sea);border-radius:100px;padding:.45rem 1rem;margin:0 0 1.4rem}
+  .seal{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ground);background:var(--sea);border-radius:100px;padding:.45rem 1rem;margin:0 0 1.4rem}
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,6vw,3.1rem);line-height:1.05;margin:0 0 1rem;letter-spacing:-.01em;text-wrap:balance}
   h1 em{font-style:italic;color:var(--ember)}
   .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.02rem,2.4vw,1.22rem);color:var(--soft);max-width:34em;margin:0}
@@ -40,26 +40,26 @@
   .card{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:6px;padding:1.4rem 1.5rem;margin:2rem 0 0}
   .card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.55rem 1.4rem}
   .card dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);align-self:baseline}
-  .card dd{margin:0;color:var(--paper);font-size:.95rem}
+  .card dd{margin:0;color:var(--type);font-size:.95rem}
   .card dd b{color:var(--ember);font-weight:500;font-family:var(--mono);font-variant-numeric:tabular-nums}
 
   section{padding:2.4rem 0 .4rem;border-bottom:1px solid var(--line)}
   .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .6rem}
   h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.7rem);line-height:1.15;margin:0 0 1rem;text-wrap:balance}
   p{margin:.85rem 0;max-width:62ch;color:var(--soft)}
-  p strong{color:var(--paper)}
+  p strong{color:var(--type)}
 
   /* what happens next — numbered, because the order matters */
   .steps{list-style:none;counter-reset:s;padding:0;margin:1.3rem 0}
   .steps li{counter-increment:s;position:relative;padding:0 0 0 2.6rem;margin:0 0 1.2rem;color:var(--soft);font-size:.95rem}
   .steps li::before{content:counter(s);position:absolute;left:0;top:.05rem;width:1.7rem;height:1.7rem;border-radius:50%;border:1px solid var(--ember);color:var(--ember);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;justify-content:center}
-  .steps li strong{color:var(--paper);display:block}
+  .steps li strong{color:var(--type);display:block}
 
   .flagbox{border-left:3px solid var(--ember);background:var(--ink-2);border-radius:0 6px 6px 0;padding:1rem 1.2rem;margin:1.3rem 0;font-size:.95rem;color:var(--soft)}
   .flagbox strong{color:var(--ember-soft)}
 
   .btn{display:inline-block;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.9rem 1.4rem}
-  .btn-ghost{border:1px solid var(--line);color:var(--paper)}
+  .btn-ghost{border:1px solid var(--line);color:var(--type)}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
   .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.4rem 0 .4rem}
 
@@ -67,12 +67,13 @@
   footer .sig{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--soft);margin:0 0 .8rem}
   footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;line-height:2;color:var(--softer);max-width:none}
 </style>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body>
 
 <div class="topbar">
   <div class="wrap">
-    <a class="wordmark" href="/">EDUCATED<b>TRAVELER</b></a>
+    <a class="wordmark et-wordmark" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
     <a class="back" href="/barcelona">The week in full &rarr;</a>
   </div>
 </div>
@@ -142,7 +143,7 @@
 <footer>
   <div class="wrap">
     <p class="sig">A skill, a place, a person, your people.</p>
-    <p>EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATEDTRAVELER · TAUGHT BY MARTIN LIPPO AT VAKUUM, BARCELONA</p>
+    <p>EDUCATED TRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATED TRAVELER · TAUGHT BY MARTIN LIPPO AT VAKUUM, BARCELONA</p>
   </div>
 </footer>
 

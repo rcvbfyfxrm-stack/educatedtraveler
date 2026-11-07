@@ -92,8 +92,8 @@ function previewBanner() {
         b.id = 'et-preview-bar';
         b.textContent = 'PREVIEW — nothing is saved and no email is sent';
         b.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:2147483000;'
-            + 'background:rgba(210,138,82,0.16);border-top:1px solid rgba(210,138,82,0.45);'
-            + 'color:#d28a52;font:500 10px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;'
+            + 'background:rgba(78,123,120,0.16);border-top:1px solid rgba(78,123,120,0.45);'
+            + 'color:#4e7b78;font:500 10px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;'
             + 'letter-spacing:0.14em;text-transform:uppercase;text-align:center;padding:8px 12px;'
             + 'pointer-events:none;';
         document.body.appendChild(b);

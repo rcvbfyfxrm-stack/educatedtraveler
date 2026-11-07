@@ -17,20 +17,20 @@
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
   :root{
-    --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --ember:#d28a52; --ember-soft:#e0a877; --sea:#7fa8a5;
-    --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
+    --ground:#ffffff; --ink-2:#ffffff; --type:#0e1615; --ember:#4e7b78; --ember-soft:#4e7b78; --sea:#4e7b78;
+    --line:rgba(14,22,21,.09); --soft:rgba(14,22,21,.72); --softer:rgba(14,22,21,.72);
     --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.65}
-  ::selection{background:var(--ember);color:var(--ink)}
+  body{margin:0;background:var(--ground);color:var(--type);font-family:var(--sans);font-size:16.5px;line-height:1.65}
+  ::selection{background:var(--ember);color:var(--ground)}
   a{color:var(--sea)}
   .wrap{max-width:860px;margin:0 auto;padding:0 1.4rem}
   .topbar{border-bottom:1px solid var(--line);background:var(--ink-2)}
   .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.7rem;padding-bottom:.7rem}
-  .wordmark{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--paper);text-decoration:none}
+  .wordmark{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--type);text-decoration:none}
   .topbar a.atlas{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);text-decoration:none}
   .topbar a.atlas:hover{color:var(--sea)}
   header{padding:3.8rem 0 2.4rem;border-bottom:1px solid var(--line)}
@@ -42,44 +42,45 @@
   .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .6rem}
   h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.15;margin:0 0 1rem;text-wrap:balance}
   p{margin:.85rem 0;max-width:64ch;color:var(--soft)}
-  p strong{color:var(--paper)}
-  .quotebox{border-left:3px solid var(--ember);padding:.4rem 0 .4rem 1.2rem;margin:1.4rem 0;font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--paper);max-width:56ch}
+  p strong{color:var(--type)}
+  .quotebox{border-left:3px solid var(--ember);padding:.4rem 0 .4rem 1.2rem;margin:1.4rem 0;font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--type);max-width:56ch}
   .cite{display:block;font-family:var(--mono);font-style:normal;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
   .cite a{color:var(--softer)} .cite a:hover{color:var(--sea)}
   /* the four — one of each, never two */
   .four{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.4rem 0}
   .pick{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:6px;padding:1.1rem 1.2rem;display:flex;flex-direction:column}
   .pick .d{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin:0 0 .4rem}
-  .pick h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin:0 0 .4rem;color:var(--paper)}
-  .pick h3 a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.4)}
+  .pick h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin:0 0 .4rem;color:var(--type)}
+  .pick h3 a{color:var(--type);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.4)}
   .pick h3 a:hover{color:var(--sea)}
   .pick p{font-size:.88rem;margin:0;color:var(--softer)}
   .pick .why{font-family:var(--mono);font-size:.7rem;letter-spacing:.02em;line-height:1.6;color:var(--sea);margin-top:auto;padding-top:.7rem}
   .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0}
   .btn{display:inline-block;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.95rem 1.5rem}
-  .btn-primary{background:linear-gradient(100deg,var(--sea),var(--ember));color:var(--ink);font-weight:500}
+  .btn-primary{background:linear-gradient(100deg,var(--sea),var(--ember));color:var(--ground);font-weight:500}
   .btn-primary:hover,.btn-primary:focus-visible{background:var(--ember-soft);outline:none}
-  .btn-ghost{border:1px solid var(--line);color:var(--paper)}
+  .btn-ghost{border:1px solid var(--line);color:var(--type)}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
   /* register switch — two doors into the same craft */
-  .modes{position:sticky;top:0;z-index:40;background:rgba(13,11,9,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .modes{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
   .modes .wrap{display:flex;gap:.6rem;padding-top:.65rem;padding-bottom:.65rem}
   .mode-btn{flex:1;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);background:none;border:1px solid var(--line);border-radius:6px;padding:.75rem .6rem;cursor:pointer;transition:color .25s,border-color .25s,background .25s}
-  .mode-btn[aria-pressed="true"]{color:var(--ink);background:linear-gradient(100deg,var(--sea),var(--ember));border-color:transparent;font-weight:500}
-  .mode-btn:hover{border-color:var(--sea);color:var(--paper)}
-  .mode-btn[aria-pressed="true"]:hover{color:var(--ink)}
+  .mode-btn[aria-pressed="true"]{color:var(--ground);background:linear-gradient(100deg,var(--sea),var(--ember));border-color:transparent;font-weight:500}
+  .mode-btn:hover{border-color:var(--sea);color:var(--type)}
+  .mode-btn[aria-pressed="true"]:hover{color:var(--ground)}
   .mode-note{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--softer);text-align:center;padding-bottom:.55rem;margin:0;max-width:none}
   body.js .mode-hidden{display:none}
   footer{padding:2.6rem 0 3.2rem}
-  footer .sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--paper);margin:0 0 .6rem}
+  footer .sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--type);margin:0 0 .6rem}
   footer p{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--softer);max-width:none}
 </style>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body>
 
 <div class="topbar">
   <div class="wrap">
-    <a class="wordmark" href="/">EducatedTraveler</a>
+    <a class="wordmark et-wordmark" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
     <a class="atlas" href="/atlas/">The Atlas →</a>
   </div>
 </div>

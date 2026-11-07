@@ -865,9 +865,13 @@ for _f in sorted((ROOT / "website").rglob("*.html")):
 # browser's default triangle beside the identical block that looks right on the other
 # thirteen. Only the Atlas is checked here: website/barcelona.html folds too, with its own
 # right-aligned design and its own correct escape, and it is not this convention.
+# Since Nov 2026 a generated page carries it through /css/atlas.css, not inline.
+_ATLAS_CSS = (ROOT / "website/css/atlas.css")
+_shared_fold = _ATLAS_CSS.is_file() and "details.fold > summary" in _ATLAS_CSS.read_text()
 for _f in sorted((ROOT / "website/atlas").glob("*.html")):
     _t = _f.read_text(errors="replace")
-    if 'details class="fold"' in _t and "details.fold > summary" not in _t:
+    _has = "details.fold > summary" in _t or (_shared_fold and 'href="/css/atlas.css"' in _t)
+    if 'details class="fold"' in _t and not _has:
         bad(f"{_f.name} carries a folded block and none of the CSS for it \u2014 it will "
             "render the browser's own triangle. A preserved sheet gets its styling from "
             "inject-related-handwritten.py (et:fold-css), or it does not get it at all.")

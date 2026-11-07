@@ -84,7 +84,9 @@ jobs:
       # only when somebody remembered. A red gate leaves yesterday's pages up, which were
       # checked; it never publishes a page known to be broken.
       - name: Gate — every check, before anything is published
-        run: python3 scripts/check-atlas-hub.py
+        run: |
+          python3 scripts/check-atlas-hub.py
+          python3 scripts/check-site-design.py
 
       - name: Commit
         run: |
@@ -95,7 +97,7 @@ jobs:
           # `2>/dev/null || true` hid, so every rebuild from 8 to 27 Sept read "nothing
           # changed" and threw its pages away.
           for p in data/atlas-unlocked.json data/atlas-vouches.json \
-                   website/atlas website/js/atlas-index.js \
+                   website/atlas website/css/atlas.css website/js/atlas-index.js \
                    website/sitemap.xml website/robots.txt marketing website/js/studio-calendar.js; do
             if [ -e "$p" ]; then git add -- "$p"; fi
           done

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment received — EDUCATEDTRAVELER</title>
+    <title>Payment received — EDUCATED TRAVELER</title>
     <meta name="description" content="Your payment was received.">
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -20,24 +20,25 @@
         h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
         .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
 
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; color: #fff; }
-        .glass { background: rgba(243,237,226,0.025); backdrop-filter: blur(20px); border: 1px solid rgba(243,237,226,0.09); }
-        .cta-button { background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%); transition: all 0.3s ease; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #fff; }
+        .glass { background: rgba(14,22,21,.03); backdrop-filter: blur(20px); border: 1px solid rgba(14,22,21,.09); }
+        .cta-button { background: linear-gradient(135deg, #4e7b78 0%, #4e7b78 100%); transition: all 0.3s ease; }
         .cta-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,102,177,0.3); }
         @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); } 50% { box-shadow: 0 0 0 24px rgba(16,185,129,0); } }
         .check-circle { animation: pulse-glow 2s ease-out 2; }
     </style>
+<link rel="stylesheet" href="/css/app-light.css">
 </head>
 <body class="min-h-screen flex items-center justify-center px-6 py-16">
     <div class="max-w-md w-full text-center">
 
         <div class="w-16 h-16 mx-auto mb-8 rounded-full check-circle flex items-center justify-center" style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);">
-            <svg class="w-8 h-8 text-[#7fa8a5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 text-[#4e7b78]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
         </div>
 
-        <p id="eyebrow" class="text-xs uppercase tracking-[0.3em] text-[#7fa8a5]/70 mb-3 font-mono">Payment received</p>
+        <p id="eyebrow" class="text-xs uppercase tracking-[0.3em] text-[#4e7b78]/70 mb-3 font-mono">Payment received</p>
         <h1 id="headline" class="text-3xl md:text-4xl font-light mb-4">Thank you.</h1>
 
         <p id="lead" class="text-white/60 text-sm leading-relaxed mb-8">
@@ -102,7 +103,7 @@
             lead.textContent = c.lead;
             steps.innerHTML = c.steps.map(function (s, i) {
                 var n = ('0' + (i + 1)).slice(-2);
-                return '<li class="flex gap-3"><span class="text-[#7fa8a5] font-mono">' + n + '</span><span>' + s + '</span></li>';
+                return '<li class="flex gap-3"><span class="text-[#4e7b78] font-mono">' + n + '</span><span>' + s + '</span></li>';
             }).join('');
         })();
     </script>

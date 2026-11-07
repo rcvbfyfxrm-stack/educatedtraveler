@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founder's Notes — EDUCATEDTRAVELER</title>
+<title>Founder's Notes — EDUCATED TRAVELER</title>
 
 <meta name="description" content="Every note I have sent the Circle, kept here in full: what EducatedTraveler is, and the five days in Martin Lippo's Barcelona lab. Two so far. One note when there is something real to say, never a drip.">
 <link rel="canonical" href="https://educatedtraveler.app/letters/">
-<meta property="og:title" content="Founder's Notes — EDUCATEDTRAVELER">
+<meta property="og:title" content="Founder's Notes — EDUCATED TRAVELER">
 <meta property="og:description" content="Every note I have sent the Circle, kept in full: what EducatedTraveler is, and five days in Martin Lippo's Barcelona lab. Two so far.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/letters/">
@@ -25,27 +25,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{ --ink:#0d0b09; --paper:#f3ede2; --muted:rgba(243,237,226,0.58);
-       --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52;
-       --line:rgba(243,237,226,0.09);
-       --sheet:#efe6d3; --sheet-edge:#e2d6bd; --sheet-ink:#2c231a; --sheet-faint:#6f6350; }
+:root{ --ground:#ffffff; --type:#0e1615; --muted:rgba(14,22,21,.72);
+       --faint:rgba(14,22,21,.6); --sea:#4e7b78; --ember:#4e7b78;
+       --line:rgba(14,22,21,.09);
+       --sheet:#ffffff; --sheet-edge:rgba(14,22,21,.16); --sheet-ink:#0e1615; --sheet-faint:rgba(14,22,21,.62); }
 *{ box-sizing:border-box; margin:0; padding:0; -webkit-font-smoothing:antialiased; }
-body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ground); color:var(--type);
       font-weight:300; line-height:1.6; }
-::selection{ background:rgba(210,138,82,0.30); }
+::selection{ background:rgba(78,123,120,0.30); }
 a{ color:inherit; }
 body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background:radial-gradient(900px 600px at 15% -8%, rgba(127,168,165,0.10), transparent 60%),
-             radial-gradient(800px 620px at 92% 6%, rgba(210,138,82,0.09), transparent 55%); }
+  background:linear-gradient(transparent,transparent),
+             linear-gradient(transparent,transparent); }
 
-nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.72);
+nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(255,255,255,0.72);
      backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
 .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
 .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; text-decoration:none; }
 .brand span{ color:var(--sea); }
 .nav-cta{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
-          color:var(--paper); text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:9px 16px; }
-.nav-cta:hover{ border-color:rgba(127,168,165,.55); color:var(--sea); }
+          color:var(--type); text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:9px 16px; }
+.nav-cta:hover{ border-color:rgba(78,123,120,.55); color:var(--sea); }
 
 .wrap{ max-width:720px; margin:0 auto; padding:120px 22px 80px; }
 .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.30em;
@@ -53,7 +53,7 @@ nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9
 h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9rem,5.2vw,2.9rem);
     line-height:1.12; letter-spacing:-0.02em; margin:18px 0 16px; }
 .sub{ color:var(--muted); font-size:16px; max-width:56ch; }
-.sub b{ color:var(--paper); font-weight:400; }
+.sub b{ color:var(--type); font-weight:400; }
 
 .letter{ margin:44px 0 0; }
 .lmeta{ display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:12px; }
@@ -64,7 +64,7 @@ h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9re
 .lsubject{ font-family:'Fraunces',Georgia,serif; font-size:clamp(1.15rem,2.6vw,1.5rem); line-height:1.3;
            margin-bottom:16px; }
 
-.sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ece1cc 100%);
+.sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ffffff 100%);
         border:1px solid var(--sheet-edge); border-radius:5px; padding:34px 34px 30px; color:var(--sheet-ink);
         box-shadow:0 1px 0 rgba(255,255,255,0.35) inset, 0 30px 60px -24px rgba(0,0,0,0.6); }
 .sheet p{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:1.75; margin:0 0 16px; }
@@ -75,11 +75,11 @@ h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9re
 .sheet .ps{ margin-top:22px; padding-top:18px; border-top:1px solid rgba(44,35,26,0.14); font-size:15.5px; }
 
 .note{ margin:26px 0 0; padding:14px 16px; border-left:2px solid var(--sea);
-       background:rgba(127,168,165,0.07); border-radius:0 4px 4px 0;
-       font-size:14.5px; line-height:1.65; color:rgba(243,237,226,0.80); }
+       background:rgba(78,123,120,0.07); border-radius:0 4px 4px 0;
+       font-size:14.5px; line-height:1.65; color:rgba(14,22,21,1); }
 
 .door{ margin:44px 0 0; text-align:center; }
-.cta{ display:inline-block; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:#14110d;
+.cta{ display:inline-block; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:#ffffff;
       text-decoration:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%);
       border-radius:999px; padding:14px 28px; }
 .cta:hover{ filter:brightness(1.05); }
@@ -90,7 +90,7 @@ h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9re
           text-transform:uppercase; color:var(--faint); font-weight:400; margin-bottom:14px; }
 .also ul{ list-style:none; display:grid; gap:10px; }
 .also a{ color:var(--muted); text-decoration:none; font-size:15px; border-bottom:1px solid transparent; }
-.also a:hover{ color:var(--sea); border-bottom-color:rgba(127,168,165,0.4); }
+.also a:hover{ color:var(--sea); border-bottom-color:rgba(78,123,120,0.4); }
 
 footer{ border-top:1px solid var(--line); margin-top:64px; padding:34px 22px 60px; text-align:center; }
 footer .tag{ font-family:'Fraunces',Georgia,serif; color:var(--muted); font-size:14px; }
@@ -106,12 +106,13 @@ footer .reach a{ color:var(--faint); text-decoration:none; }
 footer .reach a:hover{ color:var(--sea); }
 </style>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-in">
-    <a href="/" class="brand">EDUCATED<span>TRAVELER</span></a>
+    <a href="/" class="brand et-wordmark"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
     <a href="/circle" class="nav-cta">Write me a note</a>
   </div>
 </nav>
@@ -321,7 +322,7 @@ footer .reach a:hover{ color:var(--sea); }
          week.</p>
     </div>
 
-    <p class="note" style="border-left-color:var(--ember);background:rgba(210,138,82,0.07);">
+    <p class="note" style="border-left-color:var(--ember);background:rgba(78,123,120,0.07);">
       <b>Kept as it was sent</b>, less the WhatsApp number and the line naming where at sea it was written from
       &mdash; neither belongs on a public page. What has moved since August: <b>booking now closes 30 September</b>,
       not the 15th, and that date is the last day a seat can be taken rather than a deadline to fill the room. The

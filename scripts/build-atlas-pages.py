@@ -553,7 +553,7 @@ def sibling_line(d):
     return ('<p class="meta" style="margin-top:14px;padding-top:12px;'
             'border-top:1px solid var(--line);max-width:62ch">'
             f'{e(sib["line"])} <a href="/atlas/{e(sib["id"])}" style="color:var(--sea);'
-            'text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)">'
+            'text-decoration:none;border-bottom:1px solid rgba(78,123,120,.32)">'
             f'{e(sib["label"])} &rarr;</a></p>')
 
 
@@ -834,7 +834,7 @@ def rising_star(s_):
            "open one month" if months == 1 else f"open {months} months")
     return ('<div style="margin-top:6px"><span style="display:inline-block;'
             "font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;"
-            'text-transform:uppercase;color:var(--ember);border:1px solid rgba(210,138,82,.45);'
+            'text-transform:uppercase;color:var(--ember);border:1px solid rgba(78,123,120,.45);'
             f'border-radius:99px;padding:2px 9px">Rising star &middot; {e(age)}</span>'
             '<div style="font-size:13.5px;color:var(--muted);margin-top:6px;max-width:62ch">'
             f'{e(r["why"])}</div></div>')
@@ -991,18 +991,18 @@ LAB_WEEKS = _lab_weeks()
 
 LABWEEK_CSS = (
     ".labweek{border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:14px;"
-    "padding:24px 26px 22px;background:var(--ink2)}"
+    "padding:24px 26px 22px;background:var(--surface)}"
     ".labweek .lockup{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px;"
     "font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.6vw,24px);line-height:1.1}"
     ".labweek .lockup i{font-style:normal;color:var(--ember);font-size:.8em;opacity:.9}"
     ".labweek .lockup .et{color:var(--sea)}"
-    ".labweek .lede{font-size:16px;color:rgba(243,237,226,.88);max-width:62ch;margin:0}"
+    ".labweek .lede{font-size:16px;color:rgba(14,22,21,1);max-width:62ch;margin:0}"
     ".labweek .facts{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 4px}"
     ".labweek .facts span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;"
     "color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}"
-    ".labweek .facts b{color:var(--paper);font-weight:500}"
+    ".labweek .facts b{color:var(--type);font-weight:500}"
     ".labweek .btn{display:inline-block;margin-top:16px;padding:12px 24px;border-radius:99px;font-size:14px;"
-    "font-weight:500;color:#14110d;text-decoration:none;"
+    "font-weight:500;color:#ffffff;text-decoration:none;"
     "background:linear-gradient(135deg,var(--sea),var(--ember) 130%)}"
     ".labweek .btn:hover{filter:brightness(1.05)}"
     ".labweek .fine{font-size:13px;color:var(--faint);margin:14px 0 0;max-width:62ch}"
@@ -1304,7 +1304,7 @@ e = html.escape
 # Founder-voice trust block — appears small at the bottom of every Atlas page.
 # Voice: Arnaud, first person, plain, no hype. No fabricated ratings — only what
 # we can stand behind. The reader's 5 questions sit in <details> to stay compact.
-TRUST_HTML = ("""<section style="border-top:1px solid var(--line);background:var(--ink2)">
+TRUST_HTML = ("""<section style="border-top:1px solid var(--line);background:var(--surface)">
 <div class="wrap prose">
 <details class="fold">
 <summary>
@@ -1377,7 +1377,7 @@ CUR_TOGGLE = """<div class="cur-toggle" id="cur-toggle" hidden title="Show price
 # Atlas. They live here now: the generator owns the page again.
 NAV_AUTH = ('<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" '
             'style="margin:0;padding:8px 18px;font-size:13px;" '
-            'title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a>'
+            'title="The people who have told me which craft they want to learn. One note joins it.">Join the Circle</a>'
             '<a href="/you" id="et-nav-profile" class="cta" '
             'style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>')
 
@@ -1411,6 +1411,11 @@ RAIL_CSS = atlas_hub.RAIL_CSS
 RAIL_JS = atlas_hub.RAIL_JS
 
 
+# Every Atlas page links this one stylesheet (Nov 2026). It used to be inlined in each
+# page, 24 KB x 548 pages. The build writes it, so a change here reaches every page.
+ATLAS_CSS = (":root { --ground:#ffffff; --surface:#ffffff; --type:#0e1615; --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.09);\n         --muted:rgba(14,22,21,.72); --faint:rgba(14,22,21,.6); }\n* { margin:0; padding:0; box-sizing:border-box; }\nbody { font-family:'Inter',system-ui,sans-serif; background:var(--ground); color:var(--type); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }\n.serif { font-family:'Fraunces',Georgia,serif; }\n.mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }\na { color:inherit; }\n" + atlas_hub.FOLD_CSS + '\n' + RAIL_CSS + '\n.wrap { max-width:880px; margin:0 auto; padding:0 24px; }\n/* Prose sections keep the page\'s one spine (880px) and cap the READING MEASURE\n   instead of the container — same 62ch as .lead. Narrowing the container is what\n   used to jog the left edge 80px mid-scroll. */\n.wrap.prose > * { max-width:62ch; }\nnav.top { position:sticky; top:0; background:rgba(255,255,255,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }\nnav.top .wrap { display:flex; justify-content:space-between; align-items:center; height:60px; }\nnav.top a { text-decoration:none; opacity:.7; font-size:14px; } nav.top a:hover { opacity:1; color:var(--sea); }\n.brand{display:inline-flex;align-items:center;gap:10px;font-family:\'Fraunces\',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}.brand-mark{width:22px;height:22px;display:block}\nheader.hero { padding:72px 0 40px; border-bottom:1px solid var(--line); }\nh1 { font-family:\'Fraunces\',Georgia,serif; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.12; margin:14px 0 18px; }\nh2 { font-family:\'Fraunces\',Georgia,serif; font-weight:400; font-size:24px; margin-bottom:14px; }\n.lead { font-size:17px; opacity:.78; max-width:62ch; }\nsection { padding:44px 0; border-bottom:1px solid var(--line); }\n.card { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }\n.card a.t { text-decoration:none; } .card a.t:hover { color:var(--sea); }\n/* ── the whole card is the door ──────────────────────────────────────────────\n   The heading\'s link stretches over the card with ::after, so a reader can press\n   anywhere on it — the sentence, the dots, the badges — and land on that place\'s\n   own sheet. Only the place name was clickable before, which is a 90-character\n   target on a card 700px wide.\n   ONE anchor does it: no invisible second link to tab through, and the accessible\n   name is the sentence itself. Everything else that is genuinely its own\n   destination — the place name, the full-sheet line, a school\'s URL — sits above\n   the stretch on z-index 2 and still works. */\n.card h2 a { color:inherit; text-decoration:none; }\n.card h2 a:hover { color:var(--sea); }\n.card:hover { border-color:color-mix(in srgb, var(--sea) 30%, var(--line)); }\n.card h2 a::after { content:""; position:absolute; inset:0; z-index:1; border-radius:10px; }\n.card h2 a:focus-visible::after { outline:2px solid var(--sea); outline-offset:3px; }\n.card .dwhere a, .card p a, .card ul a, .card .school-url { position:relative; z-index:2; }\n/* A school\'s photograph, in its own band at the top of its place card.\n   It was BEHIND the card until 2026-09-10, under a scrim heavy enough to keep\n   every line legible — and Arnaud\'s verdict on that was "readers can\'t really\n   see it now", which the measurements agreed with: at any scrim light enough to\n   show the room, the sea-coloured place line (a mid-tone at 17px) fell under\n   4.5:1 first, exactly as the browse card\'s own note predicted. One layer cannot\n   be a photograph and a page background at once. So the picture gets its own\n   space at full brightness, the words go back onto flat ink at the contrast they\n   were designed for, and nothing has to be traded against anything.\n   The fade at the bottom is to --ink2, the card\'s own ground, so the photograph\n   ends in the card rather than against a hard edge. */\n/* ⚠ width:100% is load-bearing. aspect-ratio + max-height on an auto-width block\n   makes Chrome SHRINK THE WIDTH to keep the ratio once the height cap bites — the\n   band came out 498px wide in an 832px card, a photograph with a gap beside it. A\n   definite width pins the box and lets the cap simply crop the height, which is all\n   it was ever for. */\n/* max-height 280 -> 460: Arnaud, 4 Oct 2026, on the Boot cupping photo: "too zoomed in".\n   At 280px a 3:2 frame in an 880px band kept barely half its height and cut the\n   students\' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */\n.cardshot { width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;\n  border-radius:10px 10px 0 0;\n  background-image:linear-gradient(180deg,rgba(255,255,255,0) 60%,var(--surface) 100%),var(--shot);\n  background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }\n/* The places compared. The first table on this site, and it earns the form: five\n   long cards is five scrolls and no comparison, and what a reader is choosing\n   between here is when they can go, at what level, for how long and in which\n   language. Hairlines and mono headers, no zebra and no borders — the page\'s own\n   register. It scrolls inside its own box on a narrow screen so the page itself\n   never scrolls sideways, and tabindex+role make that box reachable by keyboard,\n   which a scrollable region has to be. */\n.cmp { overflow-x:auto; margin:0 0 26px; border-top:1px solid var(--line); }\n.cmp table { border-collapse:collapse; width:100%; font-size:13.5px; }\n.cmp th, .cmp td { text-align:left; vertical-align:top; padding:10px 18px 10px 0;\n  border-bottom:1px solid var(--line); }\n.cmp thead th { font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.13em;\n  text-transform:uppercase; color:var(--muted); font-weight:400; padding-top:14px; }\n.cmp tbody th { font-weight:500; white-space:nowrap; }\n.cmp .c-season, .cmp .c-howlong, .cmp .c-tier { white-space:nowrap; }\n.cmp tbody th a { color:var(--sea); text-decoration:none; }\n.cmp tbody th a:hover { text-decoration:underline; }\n.cmp td { color:rgba(14,22,21,.72); }\n.cmp .gone { font-family:\'IBM Plex Mono\',monospace; font-size:9.5px; letter-spacing:.1em;\n  text-transform:uppercase; color:var(--muted); font-weight:400; margin-left:6px; }\n.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom:none; }\n/* Whose picture it is. Same words as the browse card, and the :empty rule keeps a\n   card with no photograph from printing a blank line. */\n.shotcredit { font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.1em;\n  text-transform:uppercase; opacity:.5; margin:12px 0 0; }\n.shotcredit:empty { display:none; }\n.dwhere { font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }\n.dwhere .in { font-size:13px; font-weight:400; opacity:.62; }\n.badge { display:inline-block; font-family:\'IBM Plex Mono\',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(14,22,21,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }\n.dots { color:var(--sea); letter-spacing:3px; }\n.meta { font-size:13px; opacity:.6; }\nul.clean { list-style:none; } ul.clean li { padding:10px 0; border-bottom:1px solid var(--line); }\n.schoolshot { float:right; width:92px; height:92px; object-fit:cover; border-radius:10px;\n  border:1px solid var(--line); margin:2px 0 8px 14px; shape-outside:inset(0 round 10px); }\n@media (max-width:560px) { .schoolshot { width:66px; height:66px; margin-left:11px; } }\nul.clean li:last-child { border-bottom:none; }\n/* A school is a card, like a place (16 Sept 2026). One column, full spine, the same\n   ground and radius as a place card, so the two read as the same kind of thing. */\n/* ⚠ A CSS GRID item is NOT like a flex one: its default min-width is `auto`, which\n   resolves to its CONTENT\'s min-content size — so an implicit column sized `auto`\n   (the default) can grow past the container to fit one long unbroken word, pushing\n   the whole page into a horizontal scroll. An explicit minmax(0,1fr) track says the\n   column may shrink to 0 before it grows; min-width:0 on the item says the same for\n   the box itself. A documented, intermittent 12px overflow on this card (glass FAILs\n   on it some runs, PASSes on others — not reproducible on demand, consistent with a\n   font-swap-timing race, not a fixed piece of content) is the exact shape this fixes:\n   whatever the proximate cause on a given run, the grid can no longer grow past the\n   phone to accommodate it. overflow-wrap is the matching safety net on the card\n   itself — a last resort, only when a genuinely unbroken run of characters would\n   otherwise overflow; it does not touch how normal multi-word text wraps. */\nul.schools { list-style:none; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }\nli.school { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }\nli.school .stags { margin:0 0 10px; }\n.stag { display:inline-block; font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.12em;\n  text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;\n  color:var(--muted); }\n.stag.gold { color:#ffffff; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#4e7b78,#4e7b78); }\n.stag.ember { color:var(--ember); border-color:rgba(78,123,120,.45); }\n.stag.sea { color:var(--sea); border-color:rgba(78,123,120,.4); }\n.sname { font-family:\'Fraunces\',Georgia,serif; font-weight:400; font-size:24px; line-height:1.24; margin:2px 0 4px; }\n.scourse { font-size:15px; color:var(--sea); margin:0 0 14px; max-width:62ch; }\ndl.sfacts { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px 18px;\n  margin:0 0 16px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }\ndl.sfacts dt { font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); }\ndl.sfacts dd { font-size:14px; line-height:1.45; margin-top:3px; }\n.snote { font-size:12.5px; color:var(--muted); }\n.sblurb { font-size:15px; opacity:.82; max-width:62ch; }\n.sstand { font-size:14.5px; max-width:62ch; margin:0 0 10px; padding:10px 14px; border-radius:8px;\n  border-left:2px solid var(--ember); background:rgba(78,123,120,.06); }\n.steach { font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }\n.steach .school-url { word-break:normal; white-space:nowrap; }\n.sfoot .school-url { word-break:normal; overflow-wrap:anywhere; }\n.steachlab { display:block; font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.12em;\n  text-transform:uppercase; color:var(--faint); margin-bottom:3px; }\ndetails.smore { margin-top:12px; }\nli.school[data-cover] { padding:0 0 20px; overflow:hidden; }\n.prail > li.school { align-self:flex-start; }\nli.school[data-cover] > :not(.scover) { margin-left:22px; margin-right:22px; }\n.scover { position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }\n.scover img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }\n.scover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(14,22,21,0) 40%,rgba(14,22,21,.62) 68%,rgba(14,22,21,.96) 100%); }\n.scap { position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }\n.scap .sname, .scap .sname a { color:#fff; }\n.scap .scourse { color:#fff; opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }\n.scap .stag { background:rgba(14,22,21,.45); color:#fff; border-color:rgba(255,255,255,.5); }\nli.school .scourse { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }\ndetails.sall .smh { font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }\ndetails.sall > dl.sfacts { margin-top:12px; }\ndetails.smore > summary { cursor:pointer; list-style:none; font-family:\'IBM Plex Mono\',monospace; font-size:11px;\n  letter-spacing:.1em; text-transform:uppercase; color:var(--sea); }\ndetails.smore > summary::-webkit-details-marker { display:none; }\ndetails.smore > summary::before { content:"+ "; }\ndetails.smore[open] > summary::before { content:"− "; }\ndetails.smore > p { font-size:14.5px; opacity:.82; max-width:62ch; margin-top:10px; }\n.sfoot { display:flex; flex-wrap:wrap; align-items:center; gap:8px 20px; margin-top:16px; }\n.svisit { font-size:14px; }\n.sinterest { font-size:14px; color:var(--ember); }\n.srate { font-size:13px; color:var(--muted); }\n/* ── the top of a craft page: two taps, then the places ─────────────────────\n   "About this skill" opens a panel with no script at all (:target); "I\'m interested"\n   is taken over by skill-save.js / intent-capture.js and falls back to the note. */\n.hero-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }\n.hbtn { display:inline-flex; align-items:center; gap:.5em; font-family:\'IBM Plex Mono\',monospace; font-size:12.5px;\n  letter-spacing:.06em; color:var(--type); text-decoration:none; background:rgba(14,22,21,.04);\n  border:1px solid rgba(78,123,120,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }\n.hbtn:hover { border-color:var(--sea); background:rgba(78,123,120,.10); }\n.hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible, .pr-arrow:focus-visible { outline:2px solid var(--sea); outline-offset:3px; }\n.hbtn.go { color:#ffffff; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }\n.hbtn.go:hover { filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }\n.about-pop { display:none; }\n.about-pop:target { display:flex; position:fixed; inset:0; z-index:2300; align-items:center; justify-content:center;\n  padding:22px; background:rgba(255,255,255,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }\n.about-back { position:absolute; inset:0; }\n.about-card { position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--surface);\n  border:1px solid var(--line); border-radius:16px; padding:28px 26px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.75); }\n.about-card h2 { font-size:28px; }\n.about-x { position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }\n.about-x:hover { color:var(--type); }\n/* The place cards on a rail. The TRACK bleeds to the screen edge on a phone so the\n   next card peeks in; the cards keep their own padding so the scroll-snap lands\n   flush under the edge, not under the arrows. Two abreast on a desktop. The cards\n   themselves are untouched. */\n.prail-track { position:relative; margin:0 -24px; }\n.prail { padding:6px 24px 18px; scroll-padding-inline:24px; scroll-snap-type:x mandatory; align-items:stretch; }\n.prail > .card, .prail > li.school { flex:0 0 auto; width:min(86vw,420px); margin-bottom:0; scroll-snap-align:start; }\n/* ⭐ Arnaud, 4 Nov 2026: "same for the school in the place card, make another way of\n   swiping or seeing them that is direct when you click on the place" — the schools\n   of a town get the identical rail + arrows the places got, on the page the place\n   card\'s own "Learn more" door opens onto (schools_rail(), beside schools_list()).\n   ⚠ `ul.schools{display:grid}` is MORE specific than `.crail{display:flex}`\n   (type+class beats class alone), so grid would silently win the cascade and the\n   rail would never scroll — this re-asserts flex at a specificity that beats it\n   regardless of source order. One school needs no rail at all and keeps the full\n   width it already had (schools_rail() returns the plain list, untouched). */\nul.schools.crail { display:flex; }\n.prail.one > .card { width:100%; }\n@media (min-width:900px) { .prail-track { margin:0; } .prail { padding:6px 2px 18px; scroll-padding-inline:0; scroll-snap-type:x proximity; } }\n/* The swipe arrows: a visible pair at every width, not just a desktop pointer\'s\n   header row (see places_rail()). Disabled rather than hidden at each end of the\n   rail — a dimmed arrow says "no further", a vanished one reads as a glitch.\n   ⚠ NOT vertically centred on the card: a card\'s own body (facts, teachers, the\n   blurb, "what the course covers") routinely runs past a thousand pixels, so a\n   true 50% centre sits far below the fold and nobody sees it on the first screen.\n   A fixed offset near the top — inside the ribbon/heading band every card shares,\n   photographed or not — is visible the instant the card scrolls into view. */\n.pr-arrow { position:absolute; top:118px; z-index:4;\n  display:flex; align-items:center; justify-content:center; width:38px; height:38px;\n  border-radius:99px; border:1px solid rgba(14,22,21,.22); background:rgba(255,255,255,.74);\n  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--type);\n  font-size:19px; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);\n  transition:opacity .2s,border-color .2s,background .2s; }\n.pr-arrow:hover { border-color:rgba(78,123,120,.55); background:rgba(255,255,255,.9); }\n.pr-arrow[disabled] { opacity:.22; cursor:default; }\n.pr-prev { left:6px; } .pr-next { right:6px; }\n/* Desktop\'s rail has almost no inner gutter (2px, vs the phone\'s 24px scroll-padding),\n   so a 6px inset sits ON the heading. Push the arrow out into the .wrap\'s own margin\n   instead — the same bleed trick .cardshot already uses — clear of the card\'s text. */\n@media (min-width:900px) { .pr-prev { left:-19px; } .pr-next { right:-19px; } }\n@media (prefers-reduced-motion:reduce) { .pr-arrow { transition:none; } }\n/* On a phone the two taps share one row and the hero gives back what it can, so the\n   first place card is on the screen that opens. */\n@media (max-width:560px) { header.hero { padding-top:48px; padding-bottom:30px; } .hero-acts { gap:8px; margin-top:18px; }\n  .hbtn { padding:10px 16px; font-size:12px; } #other-places { padding-top:32px; } }\n.sread { font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }\n@media (max-width:560px) { li.school { padding:18px 18px; } dl.sfacts { grid-template-columns:1fr 1fr; } }\n.school-url { font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; } .school-url:hover { text-decoration:underline; }\n.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--surface); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }\n.cta:hover { opacity:.92; }\n.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }\n.shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr)); gap:18px 14px; align-items:start; }\n.shots figure { margin:0; }\n.shots figure.wide { grid-column:1/-1; }\n.shots img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--surface); }\n.shots figcaption { font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }\n.intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(14,22,21,.02); margin:18px 0 0; }\n.intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }\n.intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#ffffff; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }\n.intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }\n.intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#4e7b78; }\n.intent-fine { font-size:12px; opacity:.5; margin-top:8px; }\nfooter { padding:40px 0 60px; font-size:13px; color:rgba(14,22,21,.72); }\n.piccredit { font-family:\'IBM Plex Mono\',monospace; font-size:11px; letter-spacing:.04em;\n  color:rgba(14,22,21,.6); margin:0 0 14px; line-height:1.6; }\n.piccredit a { color:rgba(14,22,21,.72); }\nfooter a { color:var(--sea); }\n.cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;\n  background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }\n.cur-toggle .lab { font-family:\'IBM Plex Mono\',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }\n.cur-toggle button { font-family:\'IBM Plex Mono\',monospace; font-size:11px; color:var(--type); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }\n.cur-toggle button:hover { opacity:1; }\n.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#ffffff; font-weight:500; }\n.price[data-amt] { cursor:default; }\n@media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }\n')
+ATLAS_CSS += "@media (max-width:480px){.brand{font-size:13px;letter-spacing:.12em;gap:8px}.brand-mark{width:18px;height:18px}}\n"
+
 def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
          saveable=True, extra_head="", extra_scripts="", body_attrs=""):
     # A quiet way to tell me a sheet has gone stale. The subject carries the page
@@ -1422,7 +1427,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
         '<p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me'
         '?subject=' + _q("Atlas — " + _clean) +
         '&amp;body=' + _q("What looked wrong:\n\n\n(page: " + SITE + canonical_path + ")") +
-        '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">'
+        '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)">'
         'Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p>'
     )
     # The licensed picture this craft's card wears is credited here, because the card
@@ -1478,268 +1483,11 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
 <link href="{fonts}" rel="stylesheet">
 {crumbs}{extra}
 {ANALYTICS}{extra_head}
-<style>
-:root {{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
-         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }}
-* {{ margin:0; padding:0; box-sizing:border-box; }}
-body {{ font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }}
-.serif {{ font-family:'Fraunces',Georgia,serif; }}
-.mono {{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }}
-a {{ color:inherit; }}
-{atlas_hub.FOLD_CSS}
-{RAIL_CSS}
-.wrap {{ max-width:880px; margin:0 auto; padding:0 24px; }}
-/* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
-   instead of the container — same 62ch as .lead. Narrowing the container is what
-   used to jog the left edge 80px mid-scroll. */
-.wrap.prose > * {{ max-width:62ch; }}
-nav.top {{ position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }}
-nav.top .wrap {{ display:flex; justify-content:space-between; align-items:center; height:60px; }}
-nav.top a {{ text-decoration:none; opacity:.7; font-size:14px; }} nav.top a:hover {{ opacity:1; color:var(--sea); }}
-.brand {{ font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; font-size:13px; opacity:1 !important; }}
-header.hero {{ padding:72px 0 40px; border-bottom:1px solid var(--line); }}
-h1 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.12; margin:14px 0 18px; }}
-h2 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; margin-bottom:14px; }}
-.lead {{ font-size:17px; opacity:.78; max-width:62ch; }}
-section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
-.card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }}
-.card a.t {{ text-decoration:none; }} .card a.t:hover {{ color:var(--sea); }}
-/* ── the whole card is the door ──────────────────────────────────────────────
-   The heading's link stretches over the card with ::after, so a reader can press
-   anywhere on it — the sentence, the dots, the badges — and land on that place's
-   own sheet. Only the place name was clickable before, which is a 90-character
-   target on a card 700px wide.
-   ONE anchor does it: no invisible second link to tab through, and the accessible
-   name is the sentence itself. Everything else that is genuinely its own
-   destination — the place name, the full-sheet line, a school's URL — sits above
-   the stretch on z-index 2 and still works. */
-.card h2 a {{ color:inherit; text-decoration:none; }}
-.card h2 a:hover {{ color:var(--sea); }}
-.card:hover {{ border-color:color-mix(in srgb, var(--sea) 30%, var(--line)); }}
-.card h2 a::after {{ content:""; position:absolute; inset:0; z-index:1; border-radius:10px; }}
-.card h2 a:focus-visible::after {{ outline:2px solid var(--sea); outline-offset:3px; }}
-.card .dwhere a, .card p a, .card ul a, .card .school-url {{ position:relative; z-index:2; }}
-/* A school's photograph, in its own band at the top of its place card.
-   It was BEHIND the card until 2026-09-10, under a scrim heavy enough to keep
-   every line legible — and Arnaud's verdict on that was "readers can't really
-   see it now", which the measurements agreed with: at any scrim light enough to
-   show the room, the sea-coloured place line (a mid-tone at 17px) fell under
-   4.5:1 first, exactly as the browse card's own note predicted. One layer cannot
-   be a photograph and a page background at once. So the picture gets its own
-   space at full brightness, the words go back onto flat ink at the contrast they
-   were designed for, and nothing has to be traded against anything.
-   The fade at the bottom is to --ink2, the card's own ground, so the photograph
-   ends in the card rather than against a hard edge. */
-/* ⚠ width:100% is load-bearing. aspect-ratio + max-height on an auto-width block
-   makes Chrome SHRINK THE WIDTH to keep the ratio once the height cap bites — the
-   band came out 498px wide in an 832px card, a photograph with a gap beside it. A
-   definite width pins the box and lets the cap simply crop the height, which is all
-   it was ever for. */
-/* max-height 280 -> 460: Arnaud, 4 Oct 2026, on the Boot cupping photo: "too zoomed in".
-   At 280px a 3:2 frame in an 880px band kept barely half its height and cut the
-   students' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */
-.cardshot {{ width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;
-  border-radius:10px 10px 0 0;
-  background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
-  background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }}
-/* The places compared. The first table on this site, and it earns the form: five
-   long cards is five scrolls and no comparison, and what a reader is choosing
-   between here is when they can go, at what level, for how long and in which
-   language. Hairlines and mono headers, no zebra and no borders — the page's own
-   register. It scrolls inside its own box on a narrow screen so the page itself
-   never scrolls sideways, and tabindex+role make that box reachable by keyboard,
-   which a scrollable region has to be. */
-.cmp {{ overflow-x:auto; margin:0 0 26px; border-top:1px solid var(--line); }}
-.cmp table {{ border-collapse:collapse; width:100%; font-size:13.5px; }}
-.cmp th, .cmp td {{ text-align:left; vertical-align:top; padding:10px 18px 10px 0;
-  border-bottom:1px solid var(--line); }}
-.cmp thead th {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--muted); font-weight:400; padding-top:14px; }}
-.cmp tbody th {{ font-weight:500; white-space:nowrap; }}
-.cmp .c-season, .cmp .c-howlong, .cmp .c-tier {{ white-space:nowrap; }}
-.cmp tbody th a {{ color:var(--sea); text-decoration:none; }}
-.cmp tbody th a:hover {{ text-decoration:underline; }}
-.cmp td {{ color:rgba(243,237,226,.78); }}
-.cmp .gone {{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--muted); font-weight:400; margin-left:6px; }}
-.cmp tbody tr:last-child th, .cmp tbody tr:last-child td {{ border-bottom:none; }}
-/* Whose picture it is. Same words as the browse card, and the :empty rule keeps a
-   card with no photograph from printing a blank line. */
-.shotcredit {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em;
-  text-transform:uppercase; opacity:.5; margin:12px 0 0; }}
-.shotcredit:empty {{ display:none; }}
-.dwhere {{ font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }}
-.dwhere .in {{ font-size:13px; font-weight:400; opacity:.62; }}
-.badge {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(243,237,226,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }}
-.dots {{ color:var(--sea); letter-spacing:3px; }}
-.meta {{ font-size:13px; opacity:.6; }}
-ul.clean {{ list-style:none; }} ul.clean li {{ padding:10px 0; border-bottom:1px solid var(--line); }}
-.schoolshot {{ float:right; width:92px; height:92px; object-fit:cover; border-radius:10px;
-  border:1px solid var(--line); margin:2px 0 8px 14px; shape-outside:inset(0 round 10px); }}
-@media (max-width:560px) {{ .schoolshot {{ width:66px; height:66px; margin-left:11px; }} }}
-ul.clean li:last-child {{ border-bottom:none; }}
-/* A school is a card, like a place (16 Sept 2026). One column, full spine, the same
-   ground and radius as a place card, so the two read as the same kind of thing. */
-/* ⚠ A CSS GRID item is NOT like a flex one: its default min-width is `auto`, which
-   resolves to its CONTENT's min-content size — so an implicit column sized `auto`
-   (the default) can grow past the container to fit one long unbroken word, pushing
-   the whole page into a horizontal scroll. An explicit minmax(0,1fr) track says the
-   column may shrink to 0 before it grows; min-width:0 on the item says the same for
-   the box itself. A documented, intermittent 12px overflow on this card (glass FAILs
-   on it some runs, PASSes on others — not reproducible on demand, consistent with a
-   font-swap-timing race, not a fixed piece of content) is the exact shape this fixes:
-   whatever the proximate cause on a given run, the grid can no longer grow past the
-   phone to accommodate it. overflow-wrap is the matching safety net on the card
-   itself — a last resort, only when a genuinely unbroken run of characters would
-   otherwise overflow; it does not touch how normal multi-word text wraps. */
-ul.schools {{ list-style:none; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }}
-li.school {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }}
-li.school .stags {{ margin:0 0 10px; }}
-.stag {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
-  text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;
-  color:var(--muted); }}
-.stag.gold {{ color:#14110d; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#d28a52,#e0a877); }}
-.stag.ember {{ color:var(--ember); border-color:rgba(210,138,82,.45); }}
-.stag.sea {{ color:var(--sea); border-color:rgba(127,168,165,.4); }}
-.sname {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; line-height:1.24; margin:2px 0 4px; }}
-.scourse {{ font-size:15px; color:var(--sea); margin:0 0 14px; max-width:62ch; }}
-dl.sfacts {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px 18px;
-  margin:0 0 16px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }}
-dl.sfacts dt {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); }}
-dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
-.snote {{ font-size:12.5px; color:var(--muted); }}
-.sblurb {{ font-size:15px; opacity:.82; max-width:62ch; }}
-.sstand {{ font-size:14.5px; max-width:62ch; margin:0 0 10px; padding:10px 14px; border-radius:8px;
-  border-left:2px solid var(--ember); background:rgba(210,138,82,.06); }}
-.steach {{ font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }}
-.steach .school-url {{ word-break:normal; white-space:nowrap; }}
-.sfoot .school-url {{ word-break:normal; overflow-wrap:anywhere; }}
-.steachlab {{ display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--faint); margin-bottom:3px; }}
-details.smore {{ margin-top:12px; }}
-li.school[data-cover] {{ padding:0 0 20px; overflow:hidden; }}
-.prail > li.school {{ align-self:flex-start; }}
-li.school[data-cover] > :not(.scover) {{ margin-left:22px; margin-right:22px; }}
-.scover {{ position:relative; aspect-ratio:4/5; max-height:560px; width:100%; margin:0 0 16px; }}
-.scover img {{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }}
-.scover::after {{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0) 40%,rgba(13,11,9,.62) 68%,rgba(13,11,9,.96) 100%); }}
-.scap {{ position:absolute; left:0; right:0; bottom:0; z-index:1; padding:0 22px 18px; }}
-.scap .sname {{ color:var(--paper); }}
-.scap .scourse {{ color:var(--paper); opacity:.85; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
-.scap .stag {{ background:rgba(13,11,9,.55); }}
-li.school .scourse {{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
-details.sall .smh {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); margin:18px 0 6px; font-weight:400; }}
-details.sall > dl.sfacts {{ margin-top:12px; }}
-details.smore > summary {{ cursor:pointer; list-style:none; font-family:'IBM Plex Mono',monospace; font-size:11px;
-  letter-spacing:.1em; text-transform:uppercase; color:var(--sea); }}
-details.smore > summary::-webkit-details-marker {{ display:none; }}
-details.smore > summary::before {{ content:"+ "; }}
-details.smore[open] > summary::before {{ content:"− "; }}
-details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:10px; }}
-.sfoot {{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 20px; margin-top:16px; }}
-.svisit {{ font-size:14px; }}
-.sinterest {{ font-size:14px; color:var(--ember); }}
-.srate {{ font-size:13px; color:var(--muted); }}
-/* ── the top of a craft page: two taps, then the places ─────────────────────
-   "About this skill" opens a panel with no script at all (:target); "I'm interested"
-   is taken over by skill-save.js / intent-capture.js and falls back to the note. */
-.hero-acts {{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }}
-.hbtn {{ display:inline-flex; align-items:center; gap:.5em; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
-  letter-spacing:.06em; color:var(--paper); text-decoration:none; background:rgba(243,237,226,.04);
-  border:1px solid rgba(127,168,165,.5); border-radius:99px; padding:11px 22px; transition:border-color .2s,background .2s; }}
-.hbtn:hover {{ border-color:var(--sea); background:rgba(127,168,165,.10); }}
-.hbtn:focus-visible, .about-x:focus-visible, .sinterest:focus-visible, .pr-arrow:focus-visible {{ outline:2px solid var(--sea); outline-offset:3px; }}
-.hbtn.go {{ color:#14110d; font-weight:500; border-color:transparent; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
-.hbtn.go:hover {{ filter:brightness(1.05); background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
-.about-pop {{ display:none; }}
-.about-pop:target {{ display:flex; position:fixed; inset:0; z-index:2300; align-items:center; justify-content:center;
-  padding:22px; background:rgba(13,11,9,.78); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }}
-.about-back {{ position:absolute; inset:0; }}
-.about-card {{ position:relative; width:min(640px,100%); max-height:calc(100vh - 44px); overflow:auto; overscroll-behavior:contain; outline:none; background:var(--ink2);
-  border:1px solid var(--line); border-radius:16px; padding:28px 26px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.75); }}
-.about-card h2 {{ font-size:28px; }}
-.about-x {{ position:absolute; top:10px; right:12px; font-size:22px; line-height:1; text-decoration:none; color:var(--muted); padding:6px; }}
-.about-x:hover {{ color:var(--paper); }}
-/* The place cards on a rail. The TRACK bleeds to the screen edge on a phone so the
-   next card peeks in; the cards keep their own padding so the scroll-snap lands
-   flush under the edge, not under the arrows. Two abreast on a desktop. The cards
-   themselves are untouched. */
-.prail-track {{ position:relative; margin:0 -24px; }}
-.prail {{ padding:6px 24px 18px; scroll-padding-inline:24px; scroll-snap-type:x mandatory; align-items:stretch; }}
-.prail > .card, .prail > li.school {{ flex:0 0 auto; width:min(86vw,420px); margin-bottom:0; scroll-snap-align:start; }}
-/* ⭐ Arnaud, 4 Nov 2026: "same for the school in the place card, make another way of
-   swiping or seeing them that is direct when you click on the place" — the schools
-   of a town get the identical rail + arrows the places got, on the page the place
-   card's own "Learn more" door opens onto (schools_rail(), beside schools_list()).
-   ⚠ `ul.schools{{display:grid}}` is MORE specific than `.crail{{display:flex}}`
-   (type+class beats class alone), so grid would silently win the cascade and the
-   rail would never scroll — this re-asserts flex at a specificity that beats it
-   regardless of source order. One school needs no rail at all and keeps the full
-   width it already had (schools_rail() returns the plain list, untouched). */
-ul.schools.crail {{ display:flex; }}
-.prail.one > .card {{ width:100%; }}
-@media (min-width:900px) {{ .prail-track {{ margin:0; }} .prail {{ padding:6px 2px 18px; scroll-padding-inline:0; scroll-snap-type:x proximity; }} }}
-/* The swipe arrows: a visible pair at every width, not just a desktop pointer's
-   header row (see places_rail()). Disabled rather than hidden at each end of the
-   rail — a dimmed arrow says "no further", a vanished one reads as a glitch.
-   ⚠ NOT vertically centred on the card: a card's own body (facts, teachers, the
-   blurb, "what the course covers") routinely runs past a thousand pixels, so a
-   true 50% centre sits far below the fold and nobody sees it on the first screen.
-   A fixed offset near the top — inside the ribbon/heading band every card shares,
-   photographed or not — is visible the instant the card scrolls into view. */
-.pr-arrow {{ position:absolute; top:118px; z-index:4;
-  display:flex; align-items:center; justify-content:center; width:38px; height:38px;
-  border-radius:99px; border:1px solid rgba(243,237,226,.22); background:rgba(20,17,13,.74);
-  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--paper);
-  font-size:19px; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
-  transition:opacity .2s,border-color .2s,background .2s; }}
-.pr-arrow:hover {{ border-color:rgba(127,168,165,.55); background:rgba(20,17,13,.9); }}
-.pr-arrow[disabled] {{ opacity:.22; cursor:default; }}
-.pr-prev {{ left:6px; }} .pr-next {{ right:6px; }}
-/* Desktop's rail has almost no inner gutter (2px, vs the phone's 24px scroll-padding),
-   so a 6px inset sits ON the heading. Push the arrow out into the .wrap's own margin
-   instead — the same bleed trick .cardshot already uses — clear of the card's text. */
-@media (min-width:900px) {{ .pr-prev {{ left:-19px; }} .pr-next {{ right:-19px; }} }}
-@media (prefers-reduced-motion:reduce) {{ .pr-arrow {{ transition:none; }} }}
-/* On a phone the two taps share one row and the hero gives back what it can, so the
-   first place card is on the screen that opens. */
-@media (max-width:560px) {{ header.hero {{ padding-top:48px; padding-bottom:30px; }} .hero-acts {{ gap:8px; margin-top:18px; }}
-  .hbtn {{ padding:10px 16px; font-size:12px; }} #other-places {{ padding-top:32px; }} }}
-.sread {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }}
-@media (max-width:560px) {{ li.school {{ padding:18px 18px; }} dl.sfacts {{ grid-template-columns:1fr 1fr; }} }}
-.school-url {{ font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; }} .school-url:hover {{ text-decoration:underline; }}
-.cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
-.cta:hover {{ opacity:.92; }}
-.grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
-.shots {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr)); gap:18px 14px; align-items:start; }}
-.shots figure {{ margin:0; }}
-.shots figure.wide {{ grid-column:1/-1; }}
-.shots img {{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }}
-.shots figcaption {{ font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }}
-.intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }}
-.intent-q {{ font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }}
-.intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
-.intent-go:hover {{ filter:brightness(1.05); }} .intent-go:disabled {{ opacity:.5; cursor:default; }}
-.intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#e0915f; }}
-.intent-fine {{ font-size:12px; opacity:.5; margin-top:8px; }}
-footer {{ padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }}
-.piccredit {{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
-  color:rgba(243,237,226,.42); margin:0 0 14px; line-height:1.6; }}
-.piccredit a {{ color:rgba(243,237,226,.58); }}
-footer a {{ color:var(--sea); }}
-.cur-toggle {{ position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
-  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }}
-.cur-toggle .lab {{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }}
-.cur-toggle button {{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }}
-.cur-toggle button:hover {{ opacity:1; }}
-.cur-toggle button.on {{ opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }}
-.price[data-amt] {{ cursor:default; }}
-@media(max-width:560px) {{ .cur-toggle .lab {{ display:none; }} .cur-toggle {{ right:10px; bottom:10px; }} }}
-</style>
+<link rel="stylesheet" href="/css/atlas.css">
 </head>
 <body{body_attrs}>
 <nav class="top"><div class="wrap">
-<a class="brand" href="/">EDUCATEDTRAVELER</a>
+<a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
 {NAV_AUTH}
 </div></nav>
 {body}
@@ -1795,7 +1543,7 @@ def intent_form(source, discipline=None, place=None, label=None):
 # the state badge and the "most alive" line. The note's own button is drawn by
 # /js/intent-capture.js, so there is no .btn here to keep in step with it.
 SHORT_CSS = """
-.notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
+.notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(78,123,120,.34); border-radius:99px; padding:4px 11px; }
 .opensby { font-size:13.5px; opacity:.62; white-space:nowrap; }
 @media (max-width:520px) { .opensby { display:block; margin-top:8px; white-space:normal; } }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
@@ -1865,9 +1613,9 @@ def dest_stub(dest_id, parent_id, parent_name, place, country):
 <meta http-equiv="refresh" content="0; url={url}">
 <script>window.location.replace({json.dumps(url)});</script>
 </head>
-<body style="background:#0d0b09;color:#f3ede2;font-family:system-ui,sans-serif;padding:40px">
+<body style="background:#ffffff;color:#0e1615;font-family:system-ui,sans-serif;padding:40px">
 <p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — a note to me, Arnaud, is what opens it.</p>
-<p><a href="{url}" style="color:#7fa8a5">Go to {e(parent_name)} &rarr;</a></p>
+<p><a href="{url}" style="color:#4e7b78">Go to {e(parent_name)} &rarr;</a></p>
 </body>
 </html>"""
 
@@ -2264,7 +2012,7 @@ def before_aboard_block(d):
     lis = "".join(f'<li style="margin:6px 0"><strong style="font-weight:500">{e(a)}.</strong> '
                   f'<span style="opacity:.82">{e(t)}</span></li>' for a, t in ba["items"])
     door = (f'<a href="/atlas/{d["id"]}-in-depth#need" style="text-decoration:none;font-size:14px;'
-            f'color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
+            f'color:var(--sea);border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">'
             f'{e(ba["door"])} &rarr;</a>') if in_depth_preserved(d) and ba.get("door") else ""
     return (f'<div style="margin-top:20px;max-width:62ch"><div class="mono">{e(ba["heading"])}</div>'
             f'<ul style="margin:8px 0 10px;padding-left:18px;font-size:15px;line-height:1.5">{lis}</ul>{door}</div>')
@@ -2355,13 +2103,13 @@ def coverage_block(d, x):
 
 
 COMMUNITY_TIER = {
-    "Legendary":  ("#f0c27a", "Legendary living community"),
+    "Legendary":  ("#4e7b78", "Legendary living community"),
     "Thriving":   ("#a3cdc9", "Thriving living community"),
-    "Strong":     ("rgba(243,237,226,.78)", "Strong living community"),
-    "Growing":    ("rgba(243,237,226,.55)", "Growing community"),
-    "Hidden-gem": ("rgba(243,237,226,.55)", "Hidden-gem community"),
+    "Strong":     ("rgba(14,22,21,.72)", "Strong living community"),
+    "Growing":    ("rgba(14,22,21,.72)", "Growing community"),
+    "Hidden-gem": ("rgba(14,22,21,.72)", "Hidden-gem community"),
     # the closed cell — see is_closed(). Not a weak community: no community.
-    "Gone":       ("rgba(243,237,226,.45)", "The community is gone"),
+    "Gone":       ("rgba(14,22,21,.6)", "The community is gone"),
 }
 
 # ── what the dots mean, in this town, in words ────────────────────────────
@@ -2450,7 +2198,7 @@ def community_pill(x):
     """
     if (x.get("communityRank") or 0) > 2:
         return ""
-    col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(243,237,226,.78)", (x.get("communityLabel") or "") + " community"))
+    col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(14,22,21,.72)", (x.get("communityLabel") or "") + " community"))
     return (f'<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.1em;'
             f'text-transform:uppercase;color:{col};font-weight:500">{e(text)}</span>')
 
@@ -2736,8 +2484,8 @@ def check_line(x):
             'Read it knowing that.</span>') if route == "with-us" else (
            f'<br>{e(ROUTES[route])}.' if route else "")
     return ('<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
-            'letter-spacing:.02em;color:rgba(243,237,226,.62);margin:14px 0 0;padding-top:10px;'
-            'border-top:1px dashed rgba(127,168,165,.28)">'
+            'letter-spacing:.02em;color:rgba(14,22,21,.72);margin:14px 0 0;padding-top:10px;'
+            'border-top:1px dashed rgba(78,123,120,.28)">'
             f'{e(st)} &middot; {who} &middot; {e(c["date"])}{what}{disc}</p>')
 
 
@@ -2796,10 +2544,10 @@ def sheet_link(d, x, href=None, on_page=False):
     label = (f'The full entry on {e(x["place"])}, further down this page &darr;' if on_page
              else f'The full sheet on {e(x["place"])} &rarr;')
     target = href or f'/atlas/{x["id"]}'
-    return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)">'
+    return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(14,22,21,.09)">'
             f'<a href="{target}" '
             'style="text-decoration:none;font-size:14px;color:var(--sea);'
-            'border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
+            'border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">'
             f'{label}</a>'
             f'<span class="meta" style="display:block;margin-top:7px">{what.capitalize()}.</span></p>')
 
@@ -2965,10 +2713,10 @@ def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
     else:
         head = f'<h2 style="margin:6px 0 4px">{place}</h2>{learn_line(x)}'
     ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:10px;'
-              'letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;'
-              'background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;'
+              'letter-spacing:.14em;text-transform:uppercase;color:#ffffff;font-weight:600;'
+              'background:linear-gradient(135deg,#4e7b78,#4e7b78);border-radius:6px;padding:3px 9px;'
               'margin-bottom:10px">★ Best place to go</div>') if is_best else ""
-    border = 'border-left:3px solid #d28a52;' if is_best else ""
+    border = 'border-left:3px solid #4e7b78;' if is_best else ""
     # A closed place gets the opposite of a ribbon: the plainest possible label, and the
     # honest note sits ABOVE the badges so nobody reads "Birthplace · Mecca · Heritage"
     # and arrives at a school that is not there.
@@ -3060,7 +2808,7 @@ PLACES_FIRST_CLOSE = "<!-- /et:places-first -->"
 # from the generated stylesheet on purpose, not imported: a preserved sheet defines its
 # own palette in its own tokens, and these rules are written against those tokens.
 PLACES_FIRST_CSS = (
-    "#other-places .card{background:var(--ink2);border:1px solid var(--line);border-radius:10px;"
+    "#other-places .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;"
     "padding:22px 24px;margin-bottom:14px;position:relative;transition:border-color .25s}"
     "#other-places .card:hover{border-color:color-mix(in srgb,var(--sea) 30%,var(--line))}"
     "#other-places .card h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:24px;"
@@ -3077,7 +2825,7 @@ PLACES_FIRST_CSS = (
     # makes Chrome shrink the WIDTH once the height cap bites.
     "#other-places .cardshot{width:calc(100% + 48px);aspect-ratio:16/9;max-height:460px;"
     "margin:-22px -24px 18px;border-radius:10px 10px 0 0;"
-    "background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);"
+    "background-image:linear-gradient(180deg,rgba(255,255,255,0) 60%,var(--surface) 100%),var(--shot);"
     "background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}"
     "#other-places .shotcredit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;"
     "text-transform:uppercase;opacity:.5;margin:12px 0 0}"
@@ -3085,7 +2833,7 @@ PLACES_FIRST_CSS = (
     "#other-places .dwhere{font-size:17px;font-weight:500;color:var(--sea);line-height:1.3;margin:2px 0 10px}"
     "#other-places .dwhere .in{font-size:13px;font-weight:400;opacity:.62}"
     "#other-places .badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;"
-    "letter-spacing:.06em;border:1px solid rgba(243,237,226,.18);border-radius:99px;padding:3px 10px;"
+    "letter-spacing:.06em;border:1px solid rgba(14,22,21,.18);border-radius:99px;padding:3px 10px;"
     "margin:0 6px 6px 0;opacity:.85}"
     "#other-places .meta{font-size:13px;opacity:.6;max-width:62ch}"
     "#other-places .mono{color:var(--sea);font-size:12px;letter-spacing:.08em}"
@@ -3176,10 +2924,10 @@ def featured_block(d, x, wrap=True):
     ps = price_start(f)
     if ps and ps != "Donation-based":
         _lead = "about " if price_is_approx(f) else "from "
-        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">' + _lead + '</span>'
-                      + money_html(ps, style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a"))
+        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#4e7b78">' + _lead + '</span>'
+                      + money_html(ps, style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#4e7b78"))
     elif ps == "Donation-based":
-        price_html = '<span style="color:#f0c27a">Donation-based</span>'
+        price_html = '<span style="color:#4e7b78">Donation-based</span>'
     else:
         price_html = '<span style="opacity:.6;font-style:italic">Price on request</span>'
     chips = " ".join(f'<span class="badge">{e(c)}</span>' for c in
@@ -3208,7 +2956,7 @@ def featured_block(d, x, wrap=True):
         # Inside the school's own fold: the card already prints the school, the place and
         # the course name in its summary, so repeating them here is the redite again.
         return inner
-    return (f'<section><div class="wrap"><div class="mono" style="color:#f0c27a">★ {e(tag)}</div>'
+    return (f'<section><div class="wrap"><div class="mono" style="color:#4e7b78">★ {e(tag)}</div>'
             f'<h2 style="margin:8px 0 4px">{e(f["course"])}</h2>'
             f'<div class="meta">{e(f.get("school",""))} — {e(f.get("place",""))}'
             f'{", " + e(f["country"]) if f.get("country") else ""}</div>{inner}</div></section>')
@@ -3378,8 +3126,8 @@ def school_teachers(s_):
 # no longer find is "course-gone", not "closed" — the difference is the whole standard:
 # "failed" requires evidence of failure, and a wall is not a grave.
 SCHOOL_STANDING = {
-    "closed":      ("Closed", "#d28a52"),
-    "paused":      ("Closed for now", "#d28a52"),
+    "closed":      ("Closed", "#4e7b78"),
+    "paused":      ("Closed for now", "#4e7b78"),
     "course-gone": ("This course is not listed now", None),
     "site-gone":   ("The site we link is no longer theirs", None),
     # ⚠ Not the same as site-gone: the domain answers nobody at all. Atmavikasa's stopped
@@ -3537,7 +3285,7 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     def _chip(t):
         if stand and t == SCHOOL_STANDING[stand["state"]][0]:
             col = SCHOOL_STANDING[stand["state"]][1]
-            return (f'<span class="stag" style="color:{col};border-color:rgba(210,138,82,.45)">{e(t)}</span>'
+            return (f'<span class="stag" style="color:{col};border-color:rgba(78,123,120,.45)">{e(t)}</span>'
                     if col else f'<span class="stag">{e(t)}</span>')
         if t.startswith("Best course"):
             return f'<span class="stag gold">★ {e(t)}</span>'
@@ -4098,8 +3846,8 @@ for d in DISC:
         _h1 = (f"{e(d['discipline'])} in {e(x['place'])}" if is_closed(x)
                else f"Learn {e(d['discipline'])} in {e(x['place'])}")
         _closed_band = ('<p style="margin:18px 0 0;padding:14px 18px;border:1px solid var(--line);'
-                        'border-left:3px solid var(--ember);border-radius:10px;background:var(--ink2);'
-                        f'max-width:62ch;color:var(--paper);opacity:.92">{e(x["closedNote"])}</p>'
+                        'border-left:3px solid var(--ember);border-radius:10px;background:var(--surface);'
+                        f'max-width:62ch;color:var(--type);opacity:.92">{e(x["closedNote"])}</p>'
                         ) if is_closed(x) else ""
 
         intent = intent_form(
@@ -4216,7 +3964,7 @@ for d in DISC:
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
 <h1>{e(d['discipline'])} in depth</h1>
 <p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{_cred}
-<p style="margin-top:16px"><a href="/atlas/{d['id']}" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
+<p style="margin-top:16px"><a href="/atlas/{d['id']}" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">Where to learn it &rarr;</a><span class="meta" style="display:block;margin-top:7px">The places come first. This is what you read once one of them has pulled you.</span></p>
 </div></header>
 {_idb}
 {related_block(d["id"])}"""
@@ -4451,7 +4199,8 @@ def band_item(s):
     return {"id": s, "name": c["name"],
             "place": r.get("place", c["place"]),
             "country": r.get("country", c["country"]),
-            "color": atlas_hub.WORLD_COLOR.get(c["world"], "#7fa8a5"),
+            "color": atlas_hub.WORLD_COLOR.get(c["world"], "#4e7b78"),
+            "world": c["world"],
             "why": r.get("why", c.get("why", "")), "blurb": c.get("blurb", ""),
             # the written line for the place the card rests on, so the band card at
             # rest says exactly what the first step of its walk says
@@ -4579,6 +4328,7 @@ for u in static_urls + urls:
     sm.append(f"<url><loc>{SITE}{u}</loc></url>")
 sm.append("</urlset>")
 (ROOT / "website/sitemap.xml").write_text("\n".join(sm))
+(ROOT / "website/css/atlas.css").write_text("/* written by scripts/build-atlas-pages.py (ATLAS_CSS); edit it there */\n" + ATLAS_CSS)
 # This file is GENERATED, so a rule hand-added to website/robots.txt is silently
 # clobbered by the next rebuild — that is how /_archive/ nearly went back into
 # search. Add new rules HERE, never to the output.
@@ -4709,8 +4459,8 @@ if _lfloor is not None:
 # lands. Without this they would be the only three pictures on the Atlas published with no
 # attribution anywhere — and check 14c fails the build if that ever happens again.
 _PIC_CSS = (".piccredit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;"
-            "color:rgba(243,237,226,.42);margin:0 0 14px;line-height:1.6}"
-            ".piccredit a{color:rgba(243,237,226,.58)}")
+            "color:rgba(14,22,21,.6);margin:0 0 14px;line-height:1.6}"
+            ".piccredit a{color:rgba(14,22,21,.72)}")
 #
 # ⚠ A credit already on the sheet is REPLACED, not kept: the picture behind it can change
 # (27 Sept 2026, every picture re-sourced at the card's own place), and a kept line would

@@ -19,20 +19,19 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Atlas","item":"https://educatedtraveler.app/atlas/"},{"@type":"ListItem","position":2,"name":"Being a chef at sea","item":"https://educatedtraveler.app/atlas/chef-at-sea"},{"@type":"ListItem","position":3,"name":"The craft in depth","item":"https://educatedtraveler.app/atlas/chef-at-sea-in-depth"}]}</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root{--ink:#0d0b09;--ink2:#14110d;--paper:#f3ede2;--sea:#7fa8a5;--ember:#d28a52;--accent:#c9a24a;--rose:#c98f96;--line:rgba(243,237,226,.09);--muted:rgba(243,237,226,.62);--faint:rgba(243,237,226,.4)}
+:root{--ground:#ffffff;--surface:#ffffff;--type:#0e1615;--sea:#4e7b78;--ember:#4e7b78;--accent:#4e7b78;--rose:#c98f96;--line:rgba(14,22,21,.09);--muted:rgba(14,22,21,.72);--faint:rgba(14,22,21,.6)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--paper);font-weight:300;line-height:1.58;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ground);color:var(--type);font-weight:300;line-height:1.58;-webkit-font-smoothing:antialiased}
 .serif{font-family:'Fraunces',Georgia,serif}
 .mono{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
 a{color:inherit}
-.lk{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.34)}.lk:hover{border-color:var(--sea);color:var(--paper)}
+.lk{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.34)}.lk:hover{border-color:var(--sea);color:var(--type)}
 .wrap{max-width:780px;margin:0 auto;padding:0 26px}
-nav.top{position:sticky;top:0;background:rgba(13,11,9,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:50}
+nav.top{position:sticky;top:0;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:50}
 nav.top .row{max-width:1200px;margin:0 auto;padding:0 26px;display:flex;justify-content:space-between;align-items:center;height:60px}
 nav.top a{text-decoration:none;opacity:.7;font-size:14px}nav.top a:hover{opacity:1;color:var(--sea)}
-.brand{font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;font-size:13px;opacity:1!important}
-.brand b{color:var(--sea);font-weight:400}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}.brand-mark{width:22px;height:22px;display:block}
 .nl{display:flex;gap:22px}@media(max-width:620px){.nl a:not(.brand){display:none}}
 
 header.hero{padding:58px 0 34px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -40,7 +39,7 @@ header.hero:before{content:"";position:absolute;inset:-50% -30% auto;height:130%
 header.hero .wrap{position:relative;z-index:2}
 .bc{color:var(--accent)}.bc a{text-decoration:none;opacity:.85}.bc a:hover{opacity:1}
 h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(32px,5.6vw,54px);line-height:1.04;letter-spacing:-.02em;margin:14px 0 18px}
-.spine{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(19px,2.4vw,25px);line-height:1.4;color:var(--paper);max-width:34ch}
+.spine{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(19px,2.4vw,25px);line-height:1.4;color:var(--type);max-width:34ch}
 .spine em{font-style:italic;color:var(--accent)}
 .subhero{margin-top:13px;font-size:15.5px;color:var(--muted);max-width:58ch}
 
@@ -48,10 +47,10 @@ section{padding:34px 0;border-bottom:1px solid var(--line)}
 section:target{scroll-margin-top:70px}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:13px}
 h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3vw,30px);line-height:1.12;letter-spacing:-.01em;margin:0 0 14px}
-p{margin:0 0 13px;font-size:16px;color:rgba(243,237,226,.9);max-width:64ch}
+p{margin:0 0 13px;font-size:16px;color:rgba(14,22,21,1);max-width:64ch}
 p:last-child{margin-bottom:0}
-p .k{color:var(--paper);font-weight:500}
-.pull{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(18px,2.3vw,21px);line-height:1.42;color:var(--paper);border-left:2px solid var(--accent);padding:5px 0 5px 20px;margin:20px 0;max-width:56ch}
+p .k{color:var(--type);font-weight:500}
+.pull{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(18px,2.3vw,21px);line-height:1.42;color:var(--type);border-left:2px solid var(--accent);padding:5px 0 5px 20px;margin:20px 0;max-width:56ch}
 .pull cite{display:block;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:10.5px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase;margin-top:10px}
 .cite{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--faint);letter-spacing:.03em;line-height:1.6}
 
@@ -61,12 +60,12 @@ p .k{color:var(--paper);font-weight:500}
 .toc a:first-child{border-top:none}
 .toc a:hover{background:rgba(201,162,74,.06)}
 .toc .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);padding-top:2px}
-.toc .t{font-size:15.5px;color:var(--paper);font-weight:400}
+.toc .t{font-size:15.5px;color:var(--type);font-weight:400}
 .toc .d{font-size:13.5px;color:var(--muted);display:block;margin-top:1px;line-height:1.45}
 
 /* — picks — */
-.pick{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--ink2);margin-top:12px}
-.pick .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,var(--accent),#e0c079);border-radius:6px;padding:3px 10px;display:inline-block;margin-bottom:12px}
+.pick{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--surface);margin-top:12px}
+.pick .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#ffffff;font-weight:600;background:linear-gradient(135deg,var(--accent),#e0c079);border-radius:6px;padding:3px 10px;display:inline-block;margin-bottom:12px}
 .pick .tag.alt{background:linear-gradient(135deg,var(--sea),#a9c9c6)}
 .pick .tag.paper{background:linear-gradient(135deg,var(--ember),#e8b088)}
 .pick h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;margin:0 0 5px;line-height:1.2}
@@ -75,84 +74,84 @@ p .k{color:var(--paper);font-weight:500}
 .gate,.direct{font-size:14.5px;color:var(--muted);margin:12px 0 0;max-width:none;padding-left:15px}
 .gate{border-left:2px solid var(--rose)}
 .direct{border-left:2px solid var(--accent)}
-.gate b,.direct b{color:var(--paper);font-weight:500}
+.gate b,.direct b{color:var(--type);font-weight:500}
 .gate>b:first-child,.direct>b:first-child{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:4px}
 .gate>b:first-child{color:var(--rose)}
 .direct>b:first-child{color:var(--accent)}
 
 /* — the decision strip — */
 .gates{counter-reset:g;margin-top:6px}
-.gate-row{position:relative;border:1px solid var(--line);border-radius:12px;padding:15px 20px 15px 56px;background:rgba(243,237,226,.02);margin-bottom:10px}
-.gate-row:before{counter-increment:g;content:counter(g);position:absolute;left:20px;top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#14110d;background:var(--accent);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600}
-.gate-row .q{font-family:'Fraunces',Georgia,serif;font-size:19px;color:var(--paper);margin-bottom:11px;line-height:1.25}
+.gate-row{position:relative;border:1px solid var(--line);border-radius:12px;padding:15px 20px 15px 56px;background:rgba(14,22,21,.02);margin-bottom:10px}
+.gate-row:before{counter-increment:g;content:counter(g);position:absolute;left:20px;top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#ffffff;background:var(--accent);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600}
+.gate-row .q{font-family:'Fraunces',Georgia,serif;font-size:19px;color:var(--type);margin-bottom:11px;line-height:1.25}
 .outs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:620px){.outs{grid-template-columns:1fr}}
-.out{border-radius:9px;padding:11px 13px;font-size:14.5px;color:rgba(243,237,226,.86);line-height:1.5}
-.out.no{background:rgba(127,168,165,.09);border-left:2px solid var(--sea)}
+.out{border-radius:9px;padding:11px 13px;font-size:14.5px;color:rgba(14,22,21,1);line-height:1.5}
+.out.no{background:rgba(78,123,120,.09);border-left:2px solid var(--sea)}
 .out.yes{background:rgba(201,143,150,.09);border-left:2px solid var(--rose)}
-.out b{color:var(--paper);font-weight:500}
+.out b{color:var(--type);font-weight:500}
 .out>b:first-child{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px;font-weight:500}
 .out.no>b:first-child{color:var(--sea)}.out.yes>b:first-child{color:var(--rose)}
-.verdict{margin-top:13px;font-size:16px;color:var(--paper);border-left:2px solid var(--accent);padding-left:16px;max-width:none}
+.verdict{margin-top:13px;font-size:16px;color:var(--type);border-left:2px solid var(--accent);padding-left:16px;max-width:none}
 
 /* — foldables — */
-details{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;background:rgba(243,237,226,.018);overflow:hidden}
-details[open]{background:rgba(243,237,226,.03)}
+details{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;background:rgba(14,22,21,.02);overflow:hidden}
+details[open]{background:rgba(14,22,21,.03)}
 details>summary{cursor:pointer;list-style:none;padding:15px 20px 15px 44px;position:relative;transition:background .18s}
 details>summary::-webkit-details-marker{display:none}
 details>summary:hover{background:rgba(201,162,74,.05)}
 details>summary:before{content:"+";position:absolute;left:20px;top:15px;font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1.2;color:var(--accent)}
 details[open]>summary:before{content:"–"}
-summary .st{display:block;font-family:'Fraunces',Georgia,serif;font-size:18px;color:var(--paper);line-height:1.2}
+summary .st{display:block;font-family:'Fraunces',Georgia,serif;font-size:18px;color:var(--type);line-height:1.2}
 summary .sd{display:block;font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.45}
 details .body{padding:2px 20px 20px}
 details .body p{font-size:15px;max-width:none}
-details .body li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:rgba(243,237,226,.84);list-style:none}
+details .body li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:rgba(14,22,21,1);list-style:none}
 details .body li:last-child{border-bottom:none}
-details .body li b{color:var(--paper);font-weight:500}
+details .body li b{color:var(--type);font-weight:500}
 details .body ul{margin:0}
 
 /* — flag cards — */
 .flags{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
 @media(max-width:760px){.flags{grid-template-columns:1fr}}
-.flag{border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:11px;padding:16px 18px;background:var(--ink2)}
+.flag{border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:11px;padding:16px 18px;background:var(--surface)}
 .flag .n{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
 .flag h4{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:17px;margin:0 0 9px;line-height:1.2}
-.flag p{font-size:14px;max-width:none;margin:0 0 9px;color:rgba(243,237,226,.84)}
+.flag p{font-size:14px;max-width:none;margin:0 0 9px;color:rgba(14,22,21,1)}
 .flag p:last-child{margin:0}
-.flag b{color:var(--paper);font-weight:500}
+.flag b{color:var(--type);font-weight:500}
 
 /* — ledger — */
 .ledger{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
 @media(max-width:620px){.ledger{grid-template-columns:1fr}}
-.col{border:1px solid var(--line);border-radius:11px;padding:16px 18px;background:rgba(243,237,226,.02)}
+.col{border:1px solid var(--line);border-radius:11px;padding:16px 18px;background:rgba(14,22,21,.02)}
 .col.true{border-top:2px solid var(--accent)}
 .col.sold{border-top:2px solid var(--rose)}
 .col .h{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
 .col.true .h{color:var(--accent)}.col.sold .h{color:var(--rose)}
 .col p{font-size:14.5px;margin:0 0 10px;max-width:none}.col p:last-child{margin:0}
-.col b{color:var(--paper);font-weight:500}
+.col b{color:var(--type);font-weight:500}
 
 .wonders{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:4px}
 .w{display:grid;grid-template-columns:34px 1fr;gap:6px;padding:14px 18px;border-top:1px solid var(--line)}
 .w:first-child{border-top:none}
 .w .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);padding-top:2px}
-.w p{margin:0;font-size:15px;max-width:none;color:rgba(243,237,226,.9)}
-.w b{color:var(--paper);font-weight:500}
+.w p{margin:0;font-size:15px;max-width:none;color:rgba(14,22,21,1)}
+.w b{color:var(--type);font-weight:500}
 
 .room .r{padding:13px 0;border-top:1px solid var(--line)}
 .room .r:first-child{border-top:none;padding-top:0}
-.room .r .t{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--paper);margin-bottom:4px}
+.room .r .t{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--type);margin-bottom:4px}
 .room .r p{margin:0;font-size:15px;max-width:none}
 .room .r.ruin .t{color:var(--rose)}
 
 .rules{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 @media(max-width:620px){.rules{grid-template-columns:1fr}}
-.rule{border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:13.5px;color:rgba(243,237,226,.8);line-height:1.45}
-.rule b{color:var(--paper);font-weight:500;display:block;margin-bottom:2px}
+.rule{border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:13.5px;color:rgba(14,22,21,1);line-height:1.45}
+.rule b{color:var(--type);font-weight:500;display:block;margin-bottom:2px}
 .rule.ok{border-left:2px solid var(--accent)}
 .rule.no{border-left:2px solid var(--rose);background:rgba(201,143,150,.05)}
-.rule.un{border-left:2px solid rgba(243,237,226,.2)}
+.rule.un{border-left:2px solid rgba(14,22,21,.20)}
 .rule .m{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;float:right;opacity:.85}
 .rule.ok .m{color:var(--accent)}.rule.no .m{color:var(--rose)}.rule.un .m{color:var(--faint)}
 .score{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
@@ -162,32 +161,32 @@ details .body ul{margin:0}
 
 .deep{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:4px}
 @media(max-width:760px){.deep{grid-template-columns:1fr}}
-.res{display:block;border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:rgba(243,237,226,.02);text-decoration:none}
+.res{display:block;border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:rgba(14,22,21,.02);text-decoration:none}
 .res:hover{border-color:var(--sea)}
 .res.blank{opacity:.68}
 .res .kind{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
-.res .ti{font-family:'Fraunces',Georgia,serif;font-size:16px;color:var(--paper);line-height:1.22}
+.res .ti{font-family:'Fraunces',Georgia,serif;font-size:16px;color:var(--type);line-height:1.22}
 .res .by{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5}
 
-.checked{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.65;color:var(--muted);margin:16px 0 0;padding-top:11px;border-top:1px dashed rgba(127,168,165,.28)}
+.checked{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.65;color:var(--muted);margin:16px 0 0;padding-top:11px;border-top:1px dashed rgba(78,123,120,.28)}
 .checked b{color:var(--sea);text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:500;display:block;margin-bottom:4px}
 .future{font-size:15px;color:var(--muted);margin-top:13px;max-width:none;border-left:2px solid var(--ember);padding-left:15px}
 .future>b:first-child{color:var(--ember);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:4px}
 
 .close{padding:40px 0;text-align:center;border-bottom:1px solid var(--line)}
-.close p{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(20px,3vw,27px);color:var(--paper);margin:0 auto;max-width:28ch}
+.close p{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(20px,3vw,27px);color:var(--type);margin:0 auto;max-width:28ch}
 .cta{padding:34px 0 8px}
 .intent{border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:rgba(201,162,74,.05)}
 .intent-q{font-size:15.5px;color:var(--muted);margin-bottom:13px;max-width:54ch}
 .intent-row{display:flex;gap:8px;flex-wrap:wrap}
-.intent-input{flex:1 1 220px;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:99px;padding:11px 16px;color:var(--paper);font-size:16px}
+.intent-input{flex:1 1 220px;background:rgba(14,22,21,.04);border:1px solid rgba(14,22,21,.16);border-radius:99px;padding:11px 16px;color:var(--type);font-size:16px}
 .intent-input:focus{outline:none;border-color:var(--sea)}
-.intent-go{border:none;border-radius:99px;padding:11px 24px;font-size:14px;font-weight:500;color:#14110d;cursor:pointer;background:linear-gradient(135deg,var(--sea),var(--ember) 130%)}
+.intent-go{border:none;border-radius:99px;padding:11px 24px;font-size:14px;font-weight:500;color:#ffffff;cursor:pointer;background:linear-gradient(135deg,var(--sea),var(--ember) 130%)}
 .intent-fine{font-size:12px;color:var(--faint);margin-top:8px}
-.letter{font-size:15.5px;color:rgba(243,237,226,.86);margin-top:20px;border-left:2px solid var(--ember);padding-left:15px;max-width:58ch}
+.letter{font-size:15.5px;color:rgba(14,22,21,1);margin-top:20px;border-left:2px solid var(--ember);padding-left:15px;max-width:58ch}
 .circle-cta{text-align:center;margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
 .circle-cta p{font-size:15px;color:var(--muted);margin:0 auto 14px;max-width:48ch}
-.circle-btn{display:inline-block;padding:13px 28px;border-radius:99px;font-size:14px;font-weight:500;color:#14110d;text-decoration:none;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);transition:transform .2s,filter .2s}
+.circle-btn{display:inline-block;padding:13px 28px;border-radius:99px;font-size:14px;font-weight:500;color:#ffffff;text-decoration:none;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);transition:transform .2s,filter .2s}
 .circle-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
 footer{padding:28px 0 48px;font-size:13px;color:var(--faint)}footer a{color:var(--sea)}
 .progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--sea),var(--accent));z-index:60;transition:width .12s ease-out}
@@ -196,8 +195,8 @@ footer{padding:28px 0 48px;font-size:13px;color:var(--faint)}footer a{color:var(
 <body>
 <div class="progress" id="progress"></div>
 <nav class="top"><div class="row">
-  <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
-  <div class="nl"><a href="/atlas/">Atlas of Skills</a><a href="/about">Meet the founder of EducatedTraveler</a><a href="/letters/">Founder&#39;s Notes</a><a href="/circle" id="et-nav-join" title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a><a href="/profile" id="et-nav-profile" style="display:none">Your Profile</a></div>
+  <a class="brand" href="/"><img class="brand-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
+  <div class="nl"><a href="/atlas/">Atlas of Skills</a><a href="/about">Meet the founder of EducatedTraveler</a><a href="/letters/">Founder&#39;s Notes</a><a href="/circle" id="et-nav-join" title="The people who have told me which craft they want to learn. One note joins it.">Join the Circle</a><a href="/profile" id="et-nav-profile" style="display:none">Your Profile</a></div>
 </div></nav>
 
 <!-- MEDIA SLOT: no hero photograph yet. Nothing openly-licensed and honest to this craft
@@ -208,7 +207,7 @@ footer{padding:28px 0 48px;font-size:13px;color:var(--faint)}footer a{color:var(
   <p class="mono" style="margin:8px 0 0;opacity:.62">For cooks going aboard, and chefs already there</p>
   <p class="subhero">You are usually the only cook aboard. One person running a whole department: you order weeks of food before you leave, feed the same fixed group three times a day, and do it in a room that does not stay level. When it goes wrong there is nobody to send out for anything.</p>
   <p class="spine">Nobody's country decides whether you're qualified to do it. <em>The flag on the transom does</em> — and it usually asks for less than the schools do.</p>
-  <p style="margin:18px 0 0"><a href="/atlas/chef-at-sea" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">&larr; Where to learn it</a><span style="display:block;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;line-height:1.65;color:var(--faint)">This is the reading. The places to learn it, and who teaches there, stay on the craft page.</span></p>
+  <p style="margin:18px 0 0"><a href="/atlas/chef-at-sea" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(78,123,120,.32);padding-bottom:2px">&larr; Where to learn it</a><span style="display:block;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;line-height:1.65;color:var(--faint)">This is the reading. The places to learn it, and who teaches there, stay on the craft page.</span></p>
 </div></header>
 
 <!-- what it is + where it's alive -->
@@ -491,9 +490,9 @@ footer{padding:28px 0 48px;font-size:13px;color:var(--faint)}footer a{color:var(
 .crail.drag{cursor:grabbing;scroll-behavior:auto}
 .crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
   display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
-  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
   transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
-.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(78,123,120,.42);background:rgba(78,123,120,.05)}
 .crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--faint)}
 .crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
@@ -504,9 +503,9 @@ footer{padding:28px 0 48px;font-size:13px;color:var(--faint)}footer a{color:var(
 .crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
 .crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
 .crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
-  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  background:var(--surface);color:var(--type);cursor:pointer;font-size:13px;line-height:1;
   opacity:.72;transition:opacity .2s,border-color .2s}
-.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button:hover{opacity:1;border-color:rgba(78,123,120,.42)}
 .crail-nav button[disabled]{opacity:.22;cursor:default}
 @media(max-width:560px){.crail-nav{display:none}}
 </style><section><div class="wrap"><div class="crail-wrap"><div class="crail-head"><div><div class="eyebrow">If this one pulls you</div><h2 class="serif" style="margin:6px 0 0">Close to this on the map</h2></div><div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button><button data-cr="next" aria-label="Next">&#8250;</button></div></div><p style="font-size:13px;color:var(--muted);margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p><div class="crail"><a href="/atlas/italian-cuisine-and-pasta"><span class="cr-w">The classical kitchen</span><span class="cr-n">Italian Cuisine &amp; Pasta</span><span class="cr-p">Bologna, Italy</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/sailing-and-yachtmaster"><span class="cr-w">Working at sea</span><span class="cr-n">Sailing &amp; Yachtmaster</span><span class="cr-p">The Solent (Cowes &amp; Hamble), United Kingdom</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/yacht-crew-and-stcw"><span class="cr-w">Working at sea</span><span class="cr-n">Yacht Crew &amp; STCW</span><span class="cr-p">Antibes, France</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a></div></div></div></section><script>
@@ -550,7 +549,7 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 @media(max-width:560px){ details.fold .foldbody { padding-left:0; } }
 </style>
 <!-- /et:fold-css -->
-<footer><div class="wrap"><p style="margin:0 0 14px;font-size:12px;opacity:.9"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Being%20a%20chef%20at%20sea&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/chef-at-sea%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date, or plain wrong? Tell me &mdash; corrections go straight to my inbox.</a></p>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/circle">Join the Circle</a>.<br><span style="opacity:.75">Privacy-light, cookieless analytics.</span></div></footer>
+<footer><div class="wrap"><p style="margin:0 0 14px;font-size:12px;opacity:.9"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Being%20a%20chef%20at%20sea&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/chef-at-sea%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(78,123,120,.3)">Something here out of date, or plain wrong? Tell me &mdash; corrections go straight to my inbox.</a></p>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/circle">Join the Circle</a>.<br><span style="opacity:.75">Privacy-light, cookieless analytics.</span></div></footer>
 
 <script>
 (function(){var b=document.getElementById('progress');if(!b)return;var t;function u(){var h=document.documentElement,m=(h.scrollHeight-h.clientHeight)||1;b.style.width=(Math.min(1,h.scrollTop/m)*100)+'%';}addEventListener('scroll',function(){t||(t=requestAnimationFrame(function(){u();t=0;}));},{passive:true});u();})();

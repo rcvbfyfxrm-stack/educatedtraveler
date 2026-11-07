@@ -1,0 +1,6 @@
+/* The wordmark on every hand-built page: the spark + EDUCATED TRAVELER, one colour.
+   The homepage carries it in /css/et.css; the Atlas in /css/atlas.css. */
+.et-wordmark{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;line-height:1;letter-spacing:.16em;text-transform:none;color:var(--type,#0e1615);text-decoration:none;white-space:nowrap;opacity:1}
+.et-wordmark .et-mark{width:22px;height:22px;display:block;flex:0 0 auto}
+.et-wordmark.on-photo{color:#fff}.et-wordmark.on-photo .et-mark{filter:invert(1)}
+@media (max-width:480px){.et-wordmark{font-size:13px;letter-spacing:.12em;gap:8px}.et-wordmark .et-mark{width:18px;height:18px}}

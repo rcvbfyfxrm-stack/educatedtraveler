@@ -1,0 +1,55 @@
+/* The signed-in pages were drawn white-on-dark with Tailwind classes. On the white ground of the
+   three-colour design, "white" type and lines read again as ink. Linked by the Tailwind pages only;
+   delete this file once those pages are rebuilt on /css/et.css (round 2). */
+html .text-white\/5,html .hover\:text-white\/5:hover,html .placeholder\:text-white\/5::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/5,html .hover\:border-white\/5:hover{border-color:rgba(14,22,21,0.08)!important}
+html .bg-white\/5,html .hover\:bg-white\/5:hover{background-color:rgba(14,22,21,0.03)!important}
+html .text-white\/10,html .hover\:text-white\/10:hover,html .placeholder\:text-white\/10::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/10,html .hover\:border-white\/10:hover{border-color:rgba(14,22,21,0.16)!important}
+html .bg-white\/10,html .hover\:bg-white\/10:hover{background-color:rgba(14,22,21,0.06)!important}
+html .text-white\/15,html .hover\:text-white\/15:hover,html .placeholder\:text-white\/15::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/15,html .hover\:border-white\/15:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/15,html .hover\:bg-white\/15:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/20,html .hover\:text-white\/20:hover,html .placeholder\:text-white\/20::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/20,html .hover\:border-white\/20:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/20,html .hover\:bg-white\/20:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/25,html .hover\:text-white\/25:hover,html .placeholder\:text-white\/25::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/25,html .hover\:border-white\/25:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/25,html .hover\:bg-white\/25:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/30,html .hover\:text-white\/30:hover,html .placeholder\:text-white\/30::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/30,html .hover\:border-white\/30:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/30,html .hover\:bg-white\/30:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/35,html .hover\:text-white\/35:hover,html .placeholder\:text-white\/35::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/35,html .hover\:border-white\/35:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/35,html .hover\:bg-white\/35:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/40,html .hover\:text-white\/40:hover,html .placeholder\:text-white\/40::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/40,html .hover\:border-white\/40:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/40,html .hover\:bg-white\/40:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/45,html .hover\:text-white\/45:hover,html .placeholder\:text-white\/45::placeholder{color:rgba(14,22,21,0.6)!important}
+html .border-white\/45,html .hover\:border-white\/45:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/45,html .hover\:bg-white\/45:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/50,html .hover\:text-white\/50:hover,html .placeholder\:text-white\/50::placeholder{color:rgba(14,22,21,0.72)!important}
+html .border-white\/50,html .hover\:border-white\/50:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/50,html .hover\:bg-white\/50:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/55,html .hover\:text-white\/55:hover,html .placeholder\:text-white\/55::placeholder{color:rgba(14,22,21,0.72)!important}
+html .border-white\/55,html .hover\:border-white\/55:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/55,html .hover\:bg-white\/55:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/60,html .hover\:text-white\/60:hover,html .placeholder\:text-white\/60::placeholder{color:rgba(14,22,21,0.72)!important}
+html .border-white\/60,html .hover\:border-white\/60:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/60,html .hover\:bg-white\/60:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/70,html .hover\:text-white\/70:hover,html .placeholder\:text-white\/70::placeholder{color:rgba(14,22,21,0.72)!important}
+html .border-white\/70,html .hover\:border-white\/70:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/70,html .hover\:bg-white\/70:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/80,html .hover\:text-white\/80:hover,html .placeholder\:text-white\/80::placeholder{color:rgba(14,22,21,1)!important}
+html .border-white\/80,html .hover\:border-white\/80:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/80,html .hover\:bg-white\/80:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/85,html .hover\:text-white\/85:hover,html .placeholder\:text-white\/85::placeholder{color:rgba(14,22,21,1)!important}
+html .border-white\/85,html .hover\:border-white\/85:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/85,html .hover\:bg-white\/85:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white\/90,html .hover\:text-white\/90:hover,html .placeholder\:text-white\/90::placeholder{color:rgba(14,22,21,1)!important}
+html .border-white\/90,html .hover\:border-white\/90:hover{border-color:rgba(14,22,21,0.24)!important}
+html .bg-white\/90,html .hover\:bg-white\/90:hover{background-color:rgba(14,22,21,0.08)!important}
+html .text-white,html .hover\:text-white:hover{color:#0e1615!important}
+html .border-white{border-color:rgba(14,22,21,.2)!important}
+html .bg-white{box-shadow:inset 0 0 0 1px rgba(14,22,21,.18)}
+html :is(.bg-\[\#4e7b78\],.bg-\[\#5b8a89\],.bg-sea,[class*="bg-gradient"]) :is(.text-white,[class*="text-white/"]),html :is(.bg-\[\#4e7b78\],.bg-\[\#5b8a89\],.bg-sea,[class*="bg-gradient"]):is(.text-white,[class*="text-white/"]),html :is(.bg-black\/80,.bg-black\/60,.bg-black\/50) :is(.text-white){color:#fff!important}

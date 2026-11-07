@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dashboard — EDUCATEDTRAVELER</title>
+    <title>My Dashboard — EDUCATED TRAVELER</title>
     <meta name="robots" content="noindex">
 
     <meta name="description" content="Your profile, the skills you saved, and your preferences.">
-    <meta property="og:title" content="My Dashboard — EDUCATEDTRAVELER">
+    <meta property="og:title" content="My Dashboard — EDUCATED TRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -25,17 +25,17 @@
         .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
 
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; }
         html { scroll-behavior: smooth; }
 
         .glass {
-            background: rgba(243,237,226,0.025);
+            background: rgba(14,22,21,.03);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%);
+            background: linear-gradient(135deg, #4e7b78 0%, #4e7b78 100%);
             transition: all 0.3s ease;
         }
         .cta-button:hover {
@@ -44,7 +44,7 @@
         }
 
         .profile-avatar {
-            background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%);
+            background: linear-gradient(135deg, #4e7b78 0%, #4e7b78 100%);
         }
 
         .xp-bar {
@@ -52,7 +52,7 @@
             overflow: hidden;
         }
         .xp-fill {
-            background: linear-gradient(90deg, #5b8a89 0%, #7fa8a5 100%);
+            background: linear-gradient(90deg, #4e7b78 0%, #4e7b78 100%);
             transition: width 1s ease-out;
         }
 
@@ -68,11 +68,11 @@
 
         .adventure-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(243,237,226,0.09);
+            border: 1px solid rgba(14,22,21,.09);
             transition: all 0.3s ease;
         }
         .adventure-card:hover {
-            background: rgba(243,237,226,0.04);
+            background: rgba(14,22,21,.04);
             border-color: rgba(0, 102, 177, 0.3);
             transform: translateY(-2px);
         }
@@ -98,7 +98,7 @@
             position: fixed;
             inset: 0;
             z-index: 60;
-            background: #0d0b09;
+            background: #ffffff;
             overflow-y: auto;
             transition: opacity 0.3s, transform 0.3s;
         }
@@ -115,13 +115,13 @@
             font-family: 'IBM Plex Mono', monospace;
         }
         .glass-strong {
-            background: rgba(243,237,226,0.04);
+            background: rgba(14,22,21,.04);
             backdrop-filter: blur(40px);
             border: 1px solid rgba(255, 255, 255, 0.10);
         }
         .profile-input {
             width: 100%;
-            background: rgba(243,237,226,0.025);
+            background: rgba(14,22,21,.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 12px 16px;
@@ -148,29 +148,29 @@
             cursor: pointer;
             transition: all 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(243,237,226,0.025);
+            background: rgba(14,22,21,.03);
             color: rgba(255, 255, 255, 0.6);
             user-select: none;
         }
         .chip:hover { background: rgba(255, 255, 255, 0.08); color: white; }
         .chip.selected { color: white; border-color: currentColor; }
-        .chip[data-category="ocean"].selected { background: rgba(6, 182, 212, 0.15); border-color: #6fa3a0; color: #6fa3a0; }
+        .chip[data-category="ocean"].selected { background: rgba(6, 182, 212, 0.15); border-color: #4e7b78; color: #4e7b78; }
         .chip[data-category="adventure"].selected { background: rgba(239, 68, 68, 0.15); border-color: #EF4444; color: #EF4444; }
-        .chip[data-category="culinary"].selected { background: rgba(245, 158, 11, 0.15); border-color: #d28a52; color: #d28a52; }
-        .chip[data-category="wellness"].selected { background: rgba(249, 115, 22, 0.15); border-color: #e0a877; color: #e0a877; }
-        .chip[data-category="creative"].selected { background: rgba(139, 92, 246, 0.15); border-color: #c08a6a; color: #c08a6a; }
+        .chip[data-category="culinary"].selected { background: rgba(245, 158, 11, 0.15); border-color: #4e7b78; color: #4e7b78; }
+        .chip[data-category="wellness"].selected { background: rgba(249, 115, 22, 0.15); border-color: #4e7b78; color: #4e7b78; }
+        .chip[data-category="creative"].selected { background: rgba(139, 92, 246, 0.15); border-color: #4e7b78; color: #4e7b78; }
         .chip.pref-chip.selected,
         .chip.pref-radio.selected {
             background: rgba(59, 141, 212, 0.18);
-            border-color: #7fa8a5;
-            color: #9cc0bd;
+            border-color: #4e7b78;
+            color: #4e7b78;
         }
 
         .profile-photo-upload {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #5b8a89, #7fa8a5);
+            background: linear-gradient(135deg, #4e7b78, #4e7b78);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -224,7 +224,7 @@
         @keyframes tamaBounce { 0%,100%{transform:translateY(0) scale(1)} 30%{transform:translateY(-12px) scale(1.15)} 50%{transform:translateY(-6px) scale(0.95)} }
         @keyframes tamaWiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-8deg)} 75%{transform:rotate(8deg)} }
         #tama-name { font-size:0.6rem; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.15em; color:rgba(255,255,255,0.25); }
-        #tama-xp-bar { width:60px; height:3px; background:rgba(243,237,226,0.09); border-radius:2px; overflow:hidden; }
+        #tama-xp-bar { width:60px; height:3px; background:rgba(14,22,21,.09); border-radius:2px; overflow:hidden; }
         #tama-xp-fill { height:100%; width:0%; border-radius:2px; transition:width 0.8s cubic-bezier(0.34,1.56,0.64,1); }
         #tama-shell.ocean { box-shadow: 0 0 20px rgba(6,182,212,0.2); }
         #tama-shell.adventure { box-shadow: 0 0 20px rgba(239,68,68,0.2); }
@@ -234,7 +234,7 @@
 
         /* Progress bar */
         #profile-progress-bar { position:sticky; top:0; z-index:5; height:3px; background:rgba(255,255,255,0.04); }
-        #profile-progress-fill { height:100%; width:0%; background:linear-gradient(90deg,#5b8a89,#7fa8a5); transition:width 0.6s ease; }
+        #profile-progress-fill { height:100%; width:0%; background:linear-gradient(90deg,#4e7b78,#4e7b78); transition:width 0.6s ease; }
         #profile-progress-label { position:absolute; top:8px; right:24px; font-size:0.65rem; font-family:'IBM Plex Mono',monospace; color:rgba(255,255,255,0.3); }
 
         .toggle-track { width:44px; height:24px; background:rgba(255,255,255,0.1); border-radius:12px; cursor:pointer; transition:background 0.2s; position:relative; }
@@ -248,6 +248,8 @@
             #tama-creature { font-size:32px; }
         }
     </style>
+<link rel="stylesheet" href="/css/wordmark.css">
+<link rel="stylesheet" href="/css/app-light.css">
 </head>
 <body class="text-white">
 
@@ -257,7 +259,7 @@
         <div id="tama-shell">
             <span id="tama-creature" class="idle">&#x1F95A;</span>
         </div>
-        <div id="tama-xp-bar"><div id="tama-xp-fill" style="background:#7fa8a5;"></div></div>
+        <div id="tama-xp-bar"><div id="tama-xp-fill" style="background:#4e7b78;"></div></div>
         <span id="tama-name">egg</span>
     </div>
 
@@ -450,8 +452,8 @@
 
                     <div class="mb-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full" style="background:#6fa3a0"></div>
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#6fa3a0">Sailing & Ocean</span>
+                            <div class="w-2 h-2 rounded-full" style="background:#4e7b78"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#4e7b78">Sailing & Ocean</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip" data-category="ocean" data-value="sailing">Sailing</button>
@@ -479,8 +481,8 @@
                     </div>
                     <div class="mb-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full" style="background:#d28a52"></div>
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#d28a52">Culinary</span>
+                            <div class="w-2 h-2 rounded-full" style="background:#4e7b78"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#4e7b78">Culinary</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip" data-category="culinary" data-value="sushi">Sushi / Japanese</button>
@@ -495,8 +497,8 @@
                     </div>
                     <div class="mb-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full" style="background:#e0a877"></div>
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#e0a877">Wellness</span>
+                            <div class="w-2 h-2 rounded-full" style="background:#4e7b78"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#4e7b78">Wellness</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip" data-category="wellness" data-value="yoga">Yoga</button>
@@ -508,8 +510,8 @@
                     </div>
                     <div>
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full" style="background:#c08a6a"></div>
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#c08a6a">Creative</span>
+                            <div class="w-2 h-2 rounded-full" style="background:#4e7b78"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#4e7b78">Creative</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip" data-category="creative" data-value="photography">Photography</button>
@@ -529,8 +531,8 @@
 
                     <div class="mb-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full" style="background:#7fa8a5"></div>
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#7fa8a5">Where</span>
+                            <div class="w-2 h-2 rounded-full" style="background:#4e7b78"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#4e7b78">Where</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip pref-chip" data-pref-group="elements" data-pref-value="ocean">Ocean</button>
@@ -543,8 +545,8 @@
 
                     <div>
                         <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full" style="background:#7fa8a5"></div>
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#7fa8a5">Why</span>
+                            <div class="w-2 h-2 rounded-full" style="background:#4e7b78"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#4e7b78">Why</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="certification">A credential that counts</button>
@@ -739,16 +741,14 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-lg font-semibold tracking-wider">
-                EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span>
-            </a>
+            <a href="/" class="text-lg font-semibold tracking-wider et-wordmark"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="/atlas/" class="text-sm text-white/60 hover:text-white transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
                 <a href="/circle" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     The Circle
                 </a>
-                <a href="dashboard.html" class="text-sm px-4 py-2 rounded-full border border-[#7fa8a5]/50 text-[#7fa8a5]">
+                <a href="dashboard.html" class="text-sm px-4 py-2 rounded-full border border-[#4e7b78]/50 text-[#4e7b78]">
                     My Dashboard
                 </a>
             </div>
@@ -763,7 +763,7 @@
                 <a href="/atlas/" class="block py-3 text-white/70 hover:text-white transition-colors">Atlas of Skills</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
                 <a href="/circle" class="block py-3 text-white/70 hover:text-white transition-colors">The Circle</a>
-                <a href="dashboard.html" class="block py-3 text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">My Dashboard</a>
+                <a href="dashboard.html" class="block py-3 text-[#4e7b78] hover:text-[#4e7b78] transition-colors">My Dashboard</a>
             </div>
         </div>
     </nav>
@@ -771,7 +771,7 @@
     <!-- Loading State -->
     <div id="loading-state" class="min-h-screen flex items-center justify-center">
         <div class="text-center">
-            <div class="w-12 h-12 mx-auto mb-4 border-2 border-[#7fa8a5]/30 border-t-blue-400 rounded-full spinner"></div>
+            <div class="w-12 h-12 mx-auto mb-4 border-2 border-[#4e7b78]/30 border-t-blue-400 rounded-full spinner"></div>
             <p class="text-white/50 text-sm">Loading your dashboard...</p>
         </div>
     </div>
@@ -786,7 +786,7 @@
                 Sign In
             </a>
             <p class="text-white/30 text-xs mt-4">
-                Don't have an account? <a href="/join" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Join</a>
+                Don't have an account? <a href="/join" class="text-[#4e7b78] hover:text-[#4e7b78]">Join</a>
             </p>
         </div>
     </div>
@@ -814,7 +814,7 @@
                                 <div class="flex-1 max-w-xs">
                                     <div class="flex items-center justify-between text-xs mb-1">
                                         <span class="text-white/50">Level <span id="profile-level">1</span></span>
-                                        <span class="text-[#7fa8a5]"><span id="profile-xp">0</span> XP</span>
+                                        <span class="text-[#4e7b78]"><span id="profile-xp">0</span> XP</span>
                                     </div>
                                     <div class="xp-bar h-2 rounded-full">
                                         <div id="xp-fill" class="xp-fill h-full rounded-full" style="width: 20%"></div>
@@ -825,10 +825,10 @@
 
                         <!-- Profile + Sign Out -->
                         <div class="flex items-center gap-3 flex-wrap">
-                            <div id="completion-chip" class="hidden text-xs px-3 py-1.5 rounded-full border border-[#7fa8a5]/30 text-[#9cc0bd] bg-[#7fa8a5]/5">
+                            <div id="completion-chip" class="hidden text-xs px-3 py-1.5 rounded-full border border-[#4e7b78]/30 text-[#4e7b78] bg-[#4e7b78]/5">
                                 Profile <span id="completion-chip-pct">0</span>% — <span id="completion-chip-hint">finish when you like</span>
                             </div>
-                            <button id="edit-profile-btn" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors px-4 py-2 rounded-full border border-[#7fa8a5]/30 hover:border-[#7fa8a5]/50">
+                            <button id="edit-profile-btn" class="text-sm text-[#4e7b78] hover:text-[#4e7b78] transition-colors px-4 py-2 rounded-full border border-[#4e7b78]/30 hover:border-[#4e7b78]/50">
                                 Edit Profile
                             </button>
                             <a id="view-public-profile" href="#" class="text-sm text-white/40 hover:text-white/60 transition-colors px-3 py-2" title="View public profile">
@@ -857,7 +857,7 @@
                         <h2 class="text-lg font-light">Matched to your profile</h2>
                         <p id="recommended-subtitle" class="text-white/40 text-xs mt-1">Based on what you said draws you in.</p>
                     </div>
-                    <a href="/atlas/" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">See all</a>
+                    <a href="/atlas/" class="text-sm text-[#4e7b78] hover:text-[#4e7b78] transition-colors">See all</a>
                 </div>
                 <div id="recommended-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
             </section>
@@ -866,7 +866,7 @@
             <section class="mb-12 fade-up delay-2">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-light">Saved Adventures</h2>
-                    <a href="/#quest" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">Find more</a>
+                    <a href="/#quest" class="text-sm text-[#4e7b78] hover:text-[#4e7b78] transition-colors">Find more</a>
                 </div>
                 <div id="adventures-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <p id="no-adventures" class="text-white/30 text-sm col-span-full">Nothing saved yet. Open the catalogue and keep the crafts that pull at you.</p>
@@ -909,36 +909,36 @@
                             <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Class / Experience *</label>
                             <input type="text" id="pe-name" maxlength="200"
                                    placeholder="e.g. Modernist Cuisine — Barcelona"
-                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#7fa8a5]/40 focus:outline-none">
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#4e7b78]/40 focus:outline-none">
                         </div>
                         <div>
                             <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Instructor</label>
                             <input type="text" id="pe-instructor" maxlength="120"
                                    placeholder="e.g. Martin Lippo"
-                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#7fa8a5]/40 focus:outline-none">
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#4e7b78]/40 focus:outline-none">
                         </div>
                         <div>
                             <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Year</label>
                             <input type="number" id="pe-year" min="1950" max="2099"
                                    placeholder="e.g. 2024"
-                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#7fa8a5]/40 focus:outline-none">
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#4e7b78]/40 focus:outline-none">
                         </div>
                         <div class="sm:col-span-2">
                             <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Location</label>
                             <input type="text" id="pe-location" maxlength="120"
                                    placeholder="e.g. Barcelona, Spain"
-                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#7fa8a5]/40 focus:outline-none">
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#4e7b78]/40 focus:outline-none">
                         </div>
                         <div class="sm:col-span-2">
                             <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">What you remember</label>
                             <textarea id="pe-notes" rows="2" maxlength="1000"
                                       placeholder="A line or two — what stuck with you."
-                                      class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#7fa8a5]/40 focus:outline-none resize-none"></textarea>
+                                      class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-[#4e7b78]/40 focus:outline-none resize-none"></textarea>
                         </div>
                     </div>
                     <div class="flex justify-end gap-2">
                         <button id="prior-cancel-btn" class="text-xs px-4 py-2 rounded-full text-white/50 hover:text-white transition-colors">Cancel</button>
-                        <button id="prior-save-btn" class="text-xs px-4 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">Save</button>
+                        <button id="prior-save-btn" class="text-xs px-4 py-2 rounded-full bg-[#4e7b78]/20 text-[#4e7b78] hover:bg-[#4e7b78]/30 transition-colors">Save</button>
                     </div>
                 </div>
 
@@ -982,7 +982,7 @@
                         </div>
                     </div>
                     <div class="mt-6 pt-6 border-t border-white/10">
-                        <button id="edit-prefs-btn" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">
+                        <button id="edit-prefs-btn" class="text-sm text-[#4e7b78] hover:text-[#4e7b78] transition-colors">
                             Edit preferences →
                         </button>
                     </div>
@@ -997,7 +997,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span></p>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED TRAVELER</p>
                     <p class="text-white/40 text-sm">Tans fade, skills last. At the source, not the simulation.</p>
                 </div>
                 <div class="flex items-center gap-6">
@@ -1090,7 +1090,7 @@
                 loadingState.innerHTML = `
                     <div class="text-center">
                         <p class="text-red-400 mb-4">Authentication service unavailable</p>
-                        <button onclick="window.location.reload()" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Try again</button>
+                        <button onclick="window.location.reload()" class="text-[#4e7b78] hover:text-[#4e7b78]">Try again</button>
                     </div>`;
                 return;
             }
@@ -1134,7 +1134,7 @@
                 loadingState.innerHTML = `
                     <div class="text-center">
                         <p class="text-red-400 mb-4">Error loading dashboard</p>
-                        <button onclick="window.location.reload()" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Try again</button>
+                        <button onclick="window.location.reload()" class="text-[#4e7b78] hover:text-[#4e7b78]">Try again</button>
                     </div>
                 `;
             }
@@ -1250,7 +1250,7 @@
                               p.location || null].filter(Boolean).map(escapeHtml).join(' · ');
                 const notes = p.notes ? '<p class="text-white/50 text-xs mt-2 leading-relaxed">' + escapeHtml(p.notes) + '</p>' : '';
                 const verified = p.verified
-                    ? '<span class="text-[9px] uppercase tracking-wider text-[#9cc0bd]/80 ml-2">✓ Verified</span>'
+                    ? '<span class="text-[9px] uppercase tracking-wider text-[#4e7b78]/80 ml-2">✓ Verified</span>'
                     : '';
                 return `
                     <div class="glass rounded-xl p-4 group">
@@ -1348,11 +1348,11 @@
                 container.innerHTML = interested.map(i => {
                     const url = ADVENTURE_URLS[i.adventure_id] || '';
                     const name = i.adventure_name || i.adventure_id;
-                    const view = url ? '<a href="' + esc(url) + '" class="text-xs text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">View the class &rarr;</a>' : '<span></span>';
+                    const view = url ? '<a href="' + esc(url) + '" class="text-xs text-[#4e7b78] hover:text-[#4e7b78] transition-colors">View the class &rarr;</a>' : '<span></span>';
                     return '<div class="adventure-card rounded-xl p-5" data-aid="' + esc(i.adventure_id) + '">' +
                         '<div class="flex items-start justify-between gap-3 mb-2">' +
                           '<h3 class="font-light text-[15px] leading-snug">' + esc(name) + '</h3>' +
-                          '<span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded-full text-[#e0a877] bg-[#d28a52]/10 border border-[#d28a52]/20 whitespace-nowrap">Following</span>' +
+                          '<span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded-full text-[#4e7b78] bg-[#4e7b78]/10 border border-[#4e7b78]/20 whitespace-nowrap">Following</span>' +
                         '</div>' +
                         '<div class="flex items-center justify-between gap-3 mt-3">' + view +
                           '<button type="button" class="ml-auto text-xs text-white/40 hover:text-red-300 transition-colors" data-remove-interest="' + esc(i.adventure_id) + '">Remove</button>' +
@@ -1402,9 +1402,9 @@
                     if (summaryEl) summaryEl.textContent = summaryBits.join(' · ');
 
                     const STATUS_LABELS = {
-                        planning:  { label: 'Planning to do',  css: 'text-[#e0a877] bg-[#d28a52]/10 border border-[#d28a52]/20' },
-                        awaiting:  { label: 'Awaiting confirmation', css: 'text-[#9cc0bd] bg-sky-400/10 border border-sky-400/25' },
-                        doing:     { label: 'In progress',     css: 'text-[#9cc0bd] bg-emerald-400/10 border border-[#7fa8a5]/25' },
+                        planning:  { label: 'Planning to do',  css: 'text-[#4e7b78] bg-[#4e7b78]/10 border border-[#4e7b78]/20' },
+                        awaiting:  { label: 'Awaiting confirmation', css: 'text-[#4e7b78] bg-sky-400/10 border border-sky-400/25' },
+                        doing:     { label: 'In progress',     css: 'text-[#4e7b78] bg-emerald-400/10 border border-[#4e7b78]/25' },
                         completed: { label: 'Completed',       css: 'text-purple-300 bg-purple-400/10 border border-purple-400/20' },
                         cancelled: { label: 'Cancelled',       css: 'text-red-300 bg-red-400/10 border border-red-400/20' },
                         pending:   { label: 'Pending payment', css: 'text-white/50 bg-white/[0.04] border border-white/10' }
@@ -1433,16 +1433,16 @@
                         const hasPaid = t.payment_status === 'paid' || t.payment_status === 'deposit_paid';
                         const chatAvailable = isConfirmed && hasPaid;
                         const chatLink = chatAvailable
-                            ? `<a href="cohort-chat.html?cohort=${t.cohort_id}" class="text-[11px] px-3 py-1.5 rounded-full bg-[#5b8a89]/15 text-[#9cc0bd] hover:bg-[#5b8a89]/25 transition-colors whitespace-nowrap">Open cohort chat →</a>`
+                            ? `<a href="cohort-chat.html?cohort=${t.cohort_id}" class="text-[11px] px-3 py-1.5 rounded-full bg-[#4e7b78]/15 text-[#4e7b78] hover:bg-[#4e7b78]/25 transition-colors whitespace-nowrap">Open cohort chat →</a>`
                             : '';
 
                         // Outstanding balance on an installment booking → show a Pay balance button.
                         const owesBalance = t.payment_status === 'deposit_paid' && (t.balance_cents || 0) > 0;
                         const balanceNote = owesBalance
-                            ? `<p class="text-[#e0a877]/80 text-xs mt-2">Deposit paid · balance ${fmtUSD(t.balance_cents)} due${t.balance_due_date ? ' by ' + fmtDueDate(t.balance_due_date) : ''}</p>`
+                            ? `<p class="text-[#4e7b78]/80 text-xs mt-2">Deposit paid · balance ${fmtUSD(t.balance_cents)} due${t.balance_due_date ? ' by ' + fmtDueDate(t.balance_due_date) : ''}</p>`
                             : '';
                         const payBalanceBtn = owesBalance
-                            ? `<a href="paypal-checkout.html?enrollment=${t.enrollment_id}&balance=1" class="text-[11px] px-3 py-1.5 rounded-full bg-[#d28a52]/15 text-[#e0a877] hover:bg-[#d28a52]/25 transition-colors whitespace-nowrap">Pay balance →</a>`
+                            ? `<a href="paypal-checkout.html?enrollment=${t.enrollment_id}&balance=1" class="text-[11px] px-3 py-1.5 rounded-full bg-[#4e7b78]/15 text-[#4e7b78] hover:bg-[#4e7b78]/25 transition-colors whitespace-nowrap">Pay balance →</a>`
                             : '';
 
                         const footer = (chatLink || payBalanceBtn)
@@ -1498,11 +1498,11 @@
                                 <div class="flex items-center justify-between">
                                     <span class="text-white/30 text-xs">${spotsLeft > 0 ? spotsLeft + ' spots left' : 'Full'}</span>
                                     ${spotsLeft > 0 ? `
-                                        <a href="paypal-checkout.html?cohort=${c.id}" class="text-xs px-4 py-1.5 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">
+                                        <a href="paypal-checkout.html?cohort=${c.id}" class="text-xs px-4 py-1.5 rounded-full bg-[#4e7b78]/20 text-[#4e7b78] hover:bg-[#4e7b78]/30 transition-colors">
                                             Book
                                         </a>
                                     ` : `
-                                        <span class="text-xs px-4 py-1.5 rounded-full bg-[#d28a52]/10 text-[#d28a52]">Full</span>
+                                        <span class="text-xs px-4 py-1.5 rounded-full bg-[#4e7b78]/10 text-[#4e7b78]">Full</span>
                                     `}
                                 </div>
                             </div>
@@ -1525,8 +1525,8 @@
             try {
                 await window.db.enrollInCohort(user.id, cohortId);
                 btn.textContent = 'Enrolled!';
-                btn.classList.remove('bg-[#5b8a89]/20', 'text-[#7fa8a5]');
-                btn.classList.add('bg-[#5b8a89]/40', 'text-white');
+                btn.classList.remove('bg-[#4e7b78]/20', 'text-[#4e7b78]');
+                btn.classList.add('bg-[#4e7b78]/40', 'text-white');
                 setTimeout(() => window.location.reload(), 1000);
             } catch (err) {
                 console.error('Error enrolling:', err);
@@ -1660,7 +1660,7 @@
                 if (!user || !window.supabaseClient) {
                     if (photoStatus) {
                         photoStatus.textContent = 'Sign in to save photo';
-                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-[#d28a52]';
+                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-[#4e7b78]';
                     }
                     return;
                 }
@@ -1685,7 +1685,7 @@
 
                     if (photoStatus) {
                         photoStatus.textContent = 'Saved';
-                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-[#7fa8a5]';
+                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-[#4e7b78]';
                     }
                 } catch (err) {
                     console.error('Photo upload error:', err);
@@ -1718,7 +1718,7 @@
                     });
                     this.style.borderColor = 'rgba(59,141,212,0.5)';
                     this.style.background = 'rgba(0,102,177,0.1)';
-                    this.style.color = '#7fa8a5';
+                    this.style.color = '#4e7b78';
                 });
             });
             // Set initial state
@@ -1873,7 +1873,7 @@
                     }
 
                     btn.textContent = isComplete ? 'Saved — finding your matches…' : 'Saved (' + completionPct + '%)';
-                    btn.style.background = 'linear-gradient(135deg, #7fa8a5, #10B981)';
+                    btn.style.background = 'linear-gradient(135deg, #4e7b78, #10B981)';
 
                     // Update dashboard header
                     if (profileData.first_name) {
@@ -2006,7 +2006,7 @@
                         const ps = document.getElementById('photo-status');
                         if (ps) {
                             ps.textContent = 'Photo URL broken — re-upload';
-                            ps.className = 'text-[0.6rem] text-center mt-2 text-[#d28a52]';
+                            ps.className = 'text-[0.6rem] text-center mt-2 text-[#4e7b78]';
                         }
                     };
                     photoEl.innerHTML = '';
@@ -2024,7 +2024,7 @@
                 if (visBtn) {
                     visBtn.style.borderColor = 'rgba(59,141,212,0.5)';
                     visBtn.style.background = 'rgba(0,102,177,0.1)';
-                    visBtn.style.color = '#7fa8a5';
+                    visBtn.style.color = '#4e7b78';
                 }
 
                 // Set public profile link
@@ -2121,17 +2121,17 @@
             chip.classList.remove('hidden');
             if (pct >= 100) {
                 hint.textContent = 'complete';
-                chip.classList.remove('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-[#7fa8a5]/5');
-                chip.classList.add('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-emerald-400/5');
+                chip.classList.remove('border-[#4e7b78]/30','text-[#4e7b78]','bg-[#4e7b78]/5');
+                chip.classList.add('border-[#4e7b78]/30','text-[#4e7b78]','bg-emerald-400/5');
             } else if (pct >= 80) {
                 hint.textContent = 'great — matches unlocked';
-                chip.classList.add('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-[#7fa8a5]/5');
+                chip.classList.add('border-[#4e7b78]/30','text-[#4e7b78]','bg-[#4e7b78]/5');
             } else if (pct >= 40) {
                 hint.textContent = 'almost there';
-                chip.classList.add('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-[#7fa8a5]/5');
+                chip.classList.add('border-[#4e7b78]/30','text-[#4e7b78]','bg-[#4e7b78]/5');
             } else {
                 hint.textContent = 'finish when you like';
-                chip.classList.add('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-[#7fa8a5]/5');
+                chip.classList.add('border-[#4e7b78]/30','text-[#4e7b78]','bg-[#4e7b78]/5');
             }
         }
 
@@ -2207,16 +2207,16 @@
             }
 
             const categoryColor = {
-                diving:    '#6fa3a0',
-                sailing:   '#6fa3a0',
-                culinary:  '#d28a52',
-                wellness:  '#e0a877',
+                diving:    '#4e7b78',
+                sailing:   '#4e7b78',
+                culinary:  '#4e7b78',
+                wellness:  '#4e7b78',
                 adventure: '#EF4444',
-                wildlife:  '#94ad86',
+                wildlife:  '#4e7b78',
             };
 
             container.innerHTML = ranked.map(({ exp }) => {
-                const color = categoryColor[exp.category] || '#7fa8a5';
+                const color = categoryColor[exp.category] || '#4e7b78';
                 const slug = exp.id;
                 return `
                     <a href="/atlas/" class="glass rounded-xl p-5 block hover:bg-white/5 transition-colors">
@@ -2249,19 +2249,19 @@
         // TAMAGOTCHI
         // ═══════════════════════════════════════
         const TAMA_CREATURES = {
-            egg:        { emoji: '\u{1F95A}', name: 'Egg',     color: '#7fa8a5' },
-            ocean:      { emoji: '\u{1F42C}', name: 'Finn',    color: '#6fa3a0' },
+            egg:        { emoji: '\u{1F95A}', name: 'Egg',     color: '#4e7b78' },
+            ocean:      { emoji: '\u{1F42C}', name: 'Finn',    color: '#4e7b78' },
             adventure:  { emoji: '\u{1F985}', name: 'Talon',   color: '#EF4444' },
-            culinary:   { emoji: '\u{1F409}', name: 'Ember',   color: '#d28a52' },
-            wellness:   { emoji: '\u{1F98B}', name: 'Zen',     color: '#e0a877' },
-            creative:   { emoji: '\u{1F984}', name: 'Prism',   color: '#c08a6a' },
-            ocean2:     { emoji: '\u{1F433}', name: 'Captain', color: '#6fa3a0' },
+            culinary:   { emoji: '\u{1F409}', name: 'Ember',   color: '#4e7b78' },
+            wellness:   { emoji: '\u{1F98B}', name: 'Zen',     color: '#4e7b78' },
+            creative:   { emoji: '\u{1F984}', name: 'Prism',   color: '#4e7b78' },
+            ocean2:     { emoji: '\u{1F433}', name: 'Captain', color: '#4e7b78' },
             adventure2: { emoji: '\u{1F3D4}', name: 'Summit',  color: '#EF4444' },
-            culinary2:  { emoji: '\u{1F525}', name: 'Blaze',   color: '#d28a52' },
-            wellness2:  { emoji: '\u{1F54A}', name: 'Sage',    color: '#e0a877' },
-            creative2:  { emoji: '\u{1F31F}', name: 'Aurora',  color: '#c08a6a' },
-            multi:      { emoji: '\u{1F30D}', name: 'Atlas',   color: '#7fa8a5' },
-            multi2:     { emoji: '\u{2604}',  name: 'Odyssey', color: '#7fa8a5' },
+            culinary2:  { emoji: '\u{1F525}', name: 'Blaze',   color: '#4e7b78' },
+            wellness2:  { emoji: '\u{1F54A}', name: 'Sage',    color: '#4e7b78' },
+            creative2:  { emoji: '\u{1F31F}', name: 'Aurora',  color: '#4e7b78' },
+            multi:      { emoji: '\u{1F30D}', name: 'Atlas',   color: '#4e7b78' },
+            multi2:     { emoji: '\u{2604}',  name: 'Odyssey', color: '#4e7b78' },
         };
         const TAMA_LINES = {
             egg:       ['Still in the shell...', 'Fill in your profile!', 'Who are you?'],

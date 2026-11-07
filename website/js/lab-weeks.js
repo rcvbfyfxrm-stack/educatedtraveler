@@ -56,7 +56,7 @@ window.LAB_WEEKS = [
         '</p>' +
       '</div>';
     var lock = ((open || done) && w.master)
-      ? '<p class="font-serif text-lg md:text-xl mb-2" style="color:var(--paper)">' + w.master +
+      ? '<p class="font-serif text-lg md:text-xl mb-2" style="color:var(--type)">' + w.master +
         ' <span style="color:var(--ember)">&times;</span> <span style="color:var(--sea)">EducatedTraveler</span></p>'
       : '';
     var title = '<h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-3">' +
@@ -65,7 +65,7 @@ window.LAB_WEEKS = [
     var body = '<p class="text-paper-muted text-sm leading-relaxed mb-4">' +
       ((open || done) && w.dates ? w.teaser + ' <span class="text-paper">' + w.dates + '.</span>' : w.teaser) + '</p>';
     var extras = w.extras
-      ? '<p class="text-paper-faint text-xs mt-4 pt-4" style="border-top:1px solid rgba(243,237,226,0.09)">' + w.extras + '</p>'
+      ? '<p class="text-paper-faint text-xs mt-4 pt-4" style="border-top:1px solid rgba(14,22,21,.09)">' + w.extras + '</p>'
       : '';
     if ((open || done) && w.url) {
       // whole card is the link

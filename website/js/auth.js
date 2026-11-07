@@ -348,7 +348,7 @@
                             required
                             class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                         >
-                        <button type="submit" id="auth-magic-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
+                        <button type="submit" id="auth-magic-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#4e7b78 0%,#4e7b78 100%);color:#ffffff;">
                             Email me a sign-in link
                         </button>
                     </form>

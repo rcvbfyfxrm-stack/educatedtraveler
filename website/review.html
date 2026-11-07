@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Sign your review — EDUCATEDTRAVELER</title>
+    <title>Sign your review — EDUCATED TRAVELER</title>
     <meta name="description" content="A personal link: review the schools you cooked at, under your own name.">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#0d0b09">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -16,32 +16,32 @@
     <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
     <style>
         /* Warm-Dark Editorial: the same tokens as /you and /portrait */
-        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,.58);
-               --faint:rgba(243,237,226,.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,.10); }
+        :root{ --ground:#ffffff; --surface:#ffffff; --type:#0e1615; --muted:rgba(14,22,21,.72);
+               --faint:rgba(14,22,21,.6); --sea:#4e7b78; --ember:#4e7b78; --line:rgba(14,22,21,.10); }
         *{ box-sizing:border-box; margin:0; padding:0; -webkit-font-smoothing:antialiased; }
         html,body{ height:100%; }
-        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper); line-height:1.5; overflow-x:hidden; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ground); color:var(--type); line-height:1.5; overflow-x:hidden; }
         a{ color:var(--sea); text-decoration:none; }
         .mono{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
         .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; }
 
         /* the steps ARE the navigation: tap any of them to go back to an answer */
         .steps{ position:fixed; top:0; left:0; right:0; z-index:9; display:flex; gap:6px; padding:10px 14px 18px;
-                background:linear-gradient(180deg, rgba(13,11,9,.92) 0%, rgba(13,11,9,.6) 60%, rgba(13,11,9,0)); }
+                background:linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.6) 60%, rgba(255,255,255,0)); }
         .steps.off{ display:none; }
-        .steps button{ flex:1; min-width:0; background:none; border:0; padding:4px 0; cursor:pointer; color:rgba(243,237,226,.72); text-align:left; text-shadow:0 1px 6px rgba(0,0,0,.7); }
-        .steps i{ display:block; height:3px; border-radius:2px; background:rgba(243,237,226,.3); transition:background .3s; }
+        .steps button{ flex:1; min-width:0; background:none; border:0; padding:4px 0; cursor:pointer; color:rgba(14,22,21,.72); text-align:left; text-shadow:0 1px 6px rgba(0,0,0,.7); }
+        .steps i{ display:block; height:3px; border-radius:2px; background:rgba(14,22,21,.6); transition:background .3s; }
         .steps span{ display:block; margin-top:7px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
                      text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color .3s; }
         .steps button.past i{ background:var(--sea); }
         .steps button.now i{ background:linear-gradient(90deg,var(--sea),var(--ember)); }
-        .steps button.now span{ color:var(--paper); }
-        .steps button:hover span{ color:var(--paper); }
-        .why{ margin-top:20px; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:rgba(243,237,226,.03); }
+        .steps button.now span{ color:var(--type); }
+        .steps button:hover span{ color:var(--type); }
+        .why{ margin-top:20px; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:rgba(14,22,21,.03); }
         .why p{ font-size:14.5px; line-height:1.55; margin-top:6px; }
         .why .sig{ font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--ember); margin-top:6px; display:block; }
         .edit{ background:none; border:0; color:var(--sea); font:inherit; font-size:13px; cursor:pointer; padding:0; margin-left:6px; }
-        .brand{ display:inline-block; font-family:'Fraunces',Georgia,serif; letter-spacing:.16em; font-size:12px; color:var(--paper); opacity:.75; margin-bottom:18px; }
+        .brand{ display:inline-block; font-family:'Fraunces',Georgia,serif; letter-spacing:.16em; font-size:12px; color:var(--type); opacity:.75; margin-bottom:18px; }
         .brand b{ font-weight:300; color:var(--sea); }
 
         .screen{ display:none; flex-direction:column; min-height:100vh; }
@@ -52,11 +52,11 @@
 
         .photo{ position:relative; height:46vh; min-height:260px; max-height:520px; overflow:hidden; flex:0 0 auto; }
         .photo img{ width:100%; height:100%; object-fit:cover; display:block; }
-        .photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,11,9,.15) 0%, transparent 35%, rgba(13,11,9,.92) 100%); }
+        .photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.15) 0%, transparent 35%, rgba(255,255,255,.92) 100%); }
         .photo .over{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:0 20px 18px; max-width:640px; margin:0 auto; }
         .photo .over .mono{ color:var(--sea); }
         .photo h2{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(30px,8vw,46px); line-height:1.04; margin-top:6px; }
-        .photo .sub{ color:rgba(243,237,226,.78); font-size:14px; margin-top:4px; }
+        .photo .sub{ color:rgba(14,22,21,.72); font-size:14px; margin-top:4px; }
         .duo{ display:grid; grid-template-columns:1fr 1fr; gap:3px; height:100%; }
         .duo img{ height:100%; }
 
@@ -65,13 +65,13 @@
         h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(34px,9vw,52px); line-height:1.02; }
         h1 em{ font-style:italic; color:var(--ember); }
 
-        textarea{ width:100%; min-height:132px; background:transparent; border:0; border-bottom:1px solid rgba(243,237,226,.2);
-                  color:var(--paper); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:21px; line-height:1.45;
+        textarea{ width:100%; min-height:132px; background:transparent; border:0; border-bottom:1px solid rgba(14,22,21,.20);
+                  color:var(--type); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:21px; line-height:1.45;
                   padding:6px 0 12px; resize:none; overflow:hidden; transition:border-color .25s; }
         textarea::placeholder{ color:var(--faint); font-style:italic; }
         .more{ margin-top:26px; padding-top:18px; border-top:1px solid var(--line); }
         .more .mq{ margin-top:16px; }
-        .more .mq span{ display:block; font-size:14.5px; color:var(--paper); margin-bottom:2px; }
+        .more .mq span{ display:block; font-size:14.5px; color:var(--type); margin-bottom:2px; }
         textarea.small{ min-height:52px; font-size:17px; padding:4px 0 8px; }
         textarea:focus{ outline:none; border-color:var(--sea); }
         .meter{ height:2px; background:var(--line); margin-top:-1px; }
@@ -80,21 +80,21 @@
 
         .label{ font-size:13px; color:var(--muted); margin:22px 0 10px; }
         .chips{ display:flex; flex-wrap:wrap; gap:8px; }
-        .chip{ border:1px solid rgba(243,237,226,.18); background:rgba(243,237,226,.03); color:var(--paper);
+        .chip{ border:1px solid rgba(14,22,21,.18); background:rgba(14,22,21,.03); color:var(--type);
                border-radius:99px; padding:9px 14px; font:inherit; font-size:14px; cursor:pointer; transition:border-color .2s, background .2s; }
-        .chip:hover{ border-color:rgba(127,168,165,.6); }
-        .chip[aria-pressed=true]{ border-color:var(--sea); background:rgba(127,168,165,.2); }
+        .chip:hover{ border-color:rgba(78,123,120,.6); }
+        .chip[aria-pressed=true]{ border-color:var(--sea); background:rgba(78,123,120,.2); }
         input[type=month]{ color-scheme:dark; margin-top:10px; }
 
         .field{ position:relative; margin-top:16px; }
-        .field input{ width:100%; background:rgba(243,237,226,.04); border:1px solid rgba(243,237,226,.16); border-radius:14px;
-                      color:var(--paper); font:inherit; font-size:16px; padding:22px 14px 9px; transition:border-color .2s; }
+        .field input{ width:100%; background:rgba(14,22,21,.04); border:1px solid rgba(14,22,21,.16); border-radius:14px;
+                      color:var(--type); font:inherit; font-size:16px; padding:22px 14px 9px; transition:border-color .2s; }
         .field input:focus{ outline:none; border-color:var(--sea); }
         .field label{ position:absolute; left:15px; top:8px; font-size:11.5px; color:var(--faint); pointer-events:none; }
         .field.at input{ padding-left:30px; }
         .field.at::before{ content:'@'; position:absolute; left:15px; bottom:10px; color:var(--faint); font-size:16px; }
 
-        .reads{ margin-top:18px; padding:14px 16px; border-left:2px solid var(--ember); background:rgba(210,138,82,.06); border-radius:0 12px 12px 0; }
+        .reads{ margin-top:18px; padding:14px 16px; border-left:2px solid var(--ember); background:rgba(78,123,120,.06); border-radius:0 12px 12px 0; }
         .reads q{ display:block; font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:300; font-size:16.5px; line-height:1.45; quotes:'\201C' '\201D'; }
         .reads span{ display:block; color:var(--muted); font-size:13px; margin-top:6px; }
         .reads + .reads{ margin-top:10px; }
@@ -104,7 +104,7 @@
         .tick small{ display:block; color:var(--muted); font-size:13px; margin-top:2px; }
 
         .foot{ margin-top:auto; padding-top:26px; }
-        .go{ width:100%; border:0; border-radius:99px; padding:17px 22px; font:inherit; font-size:16px; font-weight:500; color:var(--ink);
+        .go{ width:100%; border:0; border-radius:99px; padding:17px 22px; font:inherit; font-size:16px; font-weight:500; color:var(--ground);
              background:linear-gradient(110deg,var(--sea),var(--ember)); cursor:pointer; transition:transform .2s, opacity .3s; }
         .go:hover{ transform:translateY(-1px); }
         .go[disabled]{ opacity:.35; cursor:default; transform:none; }
@@ -118,7 +118,7 @@
         .gal{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-top:16px; border-radius:12px; overflow:hidden; }
         .gal img{ width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
         .gal-note{ color:var(--faint); font-size:12.5px; margin-top:8px; }
-        .ghost{ display:block; text-align:center; margin-top:12px; border:1px solid var(--sea); border-radius:99px; padding:15px 20px; color:var(--paper); }
+        .ghost{ display:block; text-align:center; margin-top:12px; border:1px solid var(--sea); border-radius:99px; padding:15px 20px; color:var(--type); }
 
         @media (min-width:900px){
             .screen.split{ flex-direction:row; }
@@ -127,6 +127,7 @@
         }
         @media (prefers-reduced-motion:reduce){ *{ transition:none !important; animation:none !important; } }
     </style>
+<link rel="stylesheet" href="/css/wordmark.css">
 </head>
 <body>
 <nav class="steps" id="steps" aria-label="Steps"></nav>
@@ -239,7 +240,7 @@
                 : N === 1 ? '<img src="' + esc(inv.schools[0].img) + '" alt="" style="object-position:' + esc(inv.schools[0].pos) + '">'
                 : '<div class="duo">' + inv.schools.slice(0, 2).map(function (s) {
                 return '<img src="' + esc(s.img) + '" alt="" style="object-fit:cover;object-position:' + esc(s.pos) + '">'; }).join('') + '</div>') + '</div>' +
-            '<div class="body"><a class="brand" href="/">EDUCATED<b>TRAVELER</b></a><div class="mono" style="color:var(--sea)">' + (inv.open ? 'For anyone who learned with Hiroko' : 'For ' + esc(inv.first)) + '</div>' +
+            '<div class="body"><a class="brand et-wordmark" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a><div class="mono" style="color:var(--sea)">' + (inv.open ? 'For anyone who learned with Hiroko' : 'For ' + esc(inv.first)) + '</div>' +
             '<h1 style="margin:10px 0 14px">' + (inv.open ? 'Learned with Hiroko?<br><em>Two minutes.</em>' : N === 1 ? 'One kitchen.<br><em>Two minutes.</em>' : N === 2 ? 'Two kitchens.<br><em>Two minutes.</em>' : 'Your kitchens.<br><em>Two minutes.</em>') + '</h1>' +
             '<p class="lede">' + (inv.open ? 'Write about the kitchen where you learned with her, and skip the other. ' : 'You cooked there. ') + 'Say what you saw, in your own words, and it goes on ' + (inv.open ? 'that school’s card' : N === 1 ? 'the school’s card' : 'each school’s card') + ' under your name.</p>' +
             '<div class="why"><div class="mono" style="color:var(--sea)">Why I’m asking</div>' +
