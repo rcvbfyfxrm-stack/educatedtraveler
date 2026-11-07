@@ -63,7 +63,7 @@ a{color:inherit;} .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
 nav.top{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:50;}
 nav.top .wrap{max-width:1100px;display:flex;justify-content:space-between;align-items:center;height:60px;}
 nav.top a{text-decoration:none;opacity:.7;font-size:14px;} nav.top a:hover{opacity:1;color:var(--sea);}
-.brand{font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;font-size:13px;opacity:1 !important;}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:var(--type);opacity:1!important;text-decoration:none;white-space:nowrap}.brand-mark{width:22px;height:22px;display:block}
 header.hero{padding:66px 0 30px;border-bottom:1px solid var(--line);}
 h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.12;margin:12px 0 10px;}
 .article{padding:36px 0 10px;}
