@@ -8,7 +8,7 @@
      Photographs: the carousel set whose permission is on file; the credit names the school and stops.
      Status words are honest: agreed / being arranged / idea / on us. Remove noindex only when Arnaud says so. -->
 <meta name="robots" content="noindex">
-<title>Serve an omakase, Tokyo 2027 — EducatedTraveler</title>
+<title>Learn to serve an omakase, Tokyo 2027 — EducatedTraveler</title>
 <meta name="description" content="Three weeks in Tokyo with Hiroko Ishii, 1 to 19 March 2027, for yacht and private chefs. Rice, knife, fish, and on the last day you serve an omakase at the counter.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,11 +51,14 @@ nav.solid.quiet .nav-cta{opacity:0;pointer-events:none}
 /* the stage: the photograph, the claim, the door */
 .stage{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;color:var(--paper)}
 .stage-bg{position:absolute;inset:0;background:#2a2320}
-.stage-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
-.stage-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,22,21,.42) 0%,rgba(14,22,21,.18) 30%,rgba(14,22,21,.46) 62%,rgba(14,22,21,.9) 100%)}
+.stage-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.stage-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,22,21,.34) 0%,rgba(14,22,21,.14) 30%,rgba(14,22,21,.48) 62%,rgba(14,22,21,.9) 100%)}
 .stage .wrap{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:clamp(28px,5vh,56px)}
-.claim{font-size:clamp(2.3rem,6.4vw,4.6rem);line-height:1.02;letter-spacing:-.025em;max-width:13ch;color:#fff}
-.stand{font-family:var(--f-display);font-weight:300;font-size:clamp(1.05rem,1.7vw,1.4rem);line-height:1.45;color:rgba(243,237,226,.94);margin-top:clamp(16px,2.4vh,24px);max-width:44ch;text-wrap:pretty}
+.claim{font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.02;letter-spacing:-.025em;max-width:14ch;color:#fff}
+.claim em{font-style:italic;font-weight:300;color:#fff}
+.with{font-family:var(--f-display);font-weight:300;font-size:clamp(1.15rem,2vw,1.6rem);line-height:1.35;color:rgba(243,237,226,.8);margin-top:clamp(18px,2.8vh,28px);max-width:40ch;text-wrap:pretty}
+.with b{font-weight:600;color:#fff;letter-spacing:-.01em}
+.stand{font-family:var(--f-display);font-weight:300;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.5;color:rgba(243,237,226,.9);margin-top:clamp(10px,1.6vh,16px);max-width:44ch;text-wrap:pretty}
 .door{margin-top:clamp(22px,3.4vh,34px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
 .stage .btn-primary{background:#fff;color:var(--ink)}
 .stage .btn-primary:hover{background:var(--sea-dark);color:var(--ink)}
@@ -186,8 +189,9 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 <header class="stage">
   <div class="stage-bg"><img src="/images/review/hiroko/the-bench.jpg" width="900" height="1200" alt="Hiroko Ishii plating sashimi at the bench beside a student, plates of nigiri in front of them" loading="eager" fetchpriority="high"></div>
   <div class="wrap">
-    <h1 class="claim">Serve an omakase in front of your guests.</h1>
-    <p class="stand">Three weeks in Tokyo with Hiroko Ishii. The rice, the knife, the fish, the order of the pieces. On the last day you stand behind the counter and serve.</p>
+    <h1 class="claim">Learn to serve an omakase <em>in front of your guests.</em></h1>
+    <p class="with">Three weeks in Tokyo with <b>Hiroko Ishii</b>, founder of Japan Culinary Masters Academy.</p>
+    <p class="stand">The rice, the knife, the fish, the order of the pieces. On the last day you stand behind the counter and serve.</p>
     <div class="door">
       <button type="button" class="btn btn-primary" data-open>I am interested</button>
       <small>Nothing is on sale yet. Raise your hand and you hear first.</small>
