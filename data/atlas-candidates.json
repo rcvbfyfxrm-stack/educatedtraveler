@@ -543,7 +543,9 @@
       "validated": {
         "on": false
       },
-      "photoWeWouldAskFor": "A photograph from Aurora's kitchen during a workshop: the corn, the metate, hands on the masa."
+      "photoWeWouldAskFor": "A photograph from Aurora's kitchen during a workshop: the corn, the metate, hands on the masa.",
+      "sent": "2026-11-09",
+      "sentFingerprint": "c94f2094f535636d"
     },
     {
       "id": "oaxacan-and-mexican-cuisine--puebla-mesones-sacristia",
@@ -572,7 +574,9 @@
       "validated": {
         "on": false
       },
-      "photoWeWouldAskFor": "A photograph from the workshop: Eufemia Morales at the stove or the metate, with the people cooking beside her."
+      "photoWeWouldAskFor": "A photograph from the workshop: Eufemia Morales at the stove or the metate, with the people cooking beside her.",
+      "sent": "2026-11-09",
+      "sentFingerprint": "8c9eba917068b023"
     },
     {
       "id": "oaxacan-and-mexican-cuisine--mexico-city-casa-jacaranda-boot-camp",
@@ -600,7 +604,9 @@
       "validated": {
         "on": false
       },
-      "photoWeWouldAskFor": "A photograph from a boot-camp day: the chef teaching, the group at the comal or the market."
+      "photoWeWouldAskFor": "A photograph from a boot-camp day: the chef teaching, the group at the comal or the market.",
+      "sent": "2026-11-09",
+      "sentFingerprint": "73c397a7d1d768ad"
     },
     {
       "id": "oaxacan-and-mexican-cuisine--merida-los-dos-one-week",
@@ -634,7 +640,9 @@
       "validated": {
         "on": false
       },
-      "photoWeWouldAskFor": "A photograph from a class at Los Dos: Chef Mario teaching, hands on the recado or the masa."
+      "photoWeWouldAskFor": "A photograph from a class at Los Dos: Chef Mario teaching, hands on the recado or the masa.",
+      "sent": "2026-11-09",
+      "sentFingerprint": "31988cafd22bdc86"
     }
   ],
   "setAside": [
