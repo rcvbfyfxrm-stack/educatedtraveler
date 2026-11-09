@@ -514,6 +514,127 @@
         "on": false
       },
       "photoWeWouldAskFor": "A photograph from inside the Rouen teaching bakery during a course: hands, laminated dough, a tray of viennoiserie out of the oven."
+    },
+    {
+      "id": "oaxacan-and-mexican-cuisine--miahuatlan-mezcouting-maiz",
+      "craft": "Oaxacan & Mexican Cuisine",
+      "place": "Teotitlán del Valle and Miahuatlán, Oaxaca, Mexico",
+      "school": "Mezcouting",
+      "teacher": "Aurora",
+      "weWouldPublish": [
+        "Maíz Criollo & Nixtamalization: a five-day, four-night workshop for chefs and serious cooks, in Teotitlán del Valle and Miahuatlán.",
+        "Taught by Aurora, a traditional cook, natural dyer and weaver, who grows on site the four heirloom corns the workshop uses.",
+        "Nixtamal with lime and with ash, short and long; grinding on the metate and the molino; tortillas, tlayudas and tostadas on a clay comal over a wood fire; yellow mole, tamales, segueza, esquites, tejate and atole.",
+        "Five to eight people. USD 1,265 (MXN 22,800) per person, with transport from Oaxaca City, meals and four nights' lodging."
+      ],
+      "weCouldNotAnswer": [
+        "What is Aurora's full name, and may we print it?",
+        "Does Aurora teach every day of the workshop herself?",
+        "What are the 2027 dates?",
+        "Is the workshop taught in English, or with someone translating?"
+      ],
+      "sources": [
+        {
+          "what": "the Mezcouting page for chefs",
+          "url": "https://www.mezcouting.com/chefs",
+          "read": "9 November 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "A photograph from Aurora's kitchen during a workshop: the corn, the metate, hands on the masa."
+    },
+    {
+      "id": "oaxacan-and-mexican-cuisine--puebla-mesones-sacristia",
+      "craft": "Oaxacan & Mexican Cuisine",
+      "place": "Puebla, Mexico",
+      "school": "Mesones Sacristía",
+      "teacher": "Eufemia Morales",
+      "weWouldPublish": [
+        "A Puebla cooking workshop at Mesones Sacristía, in the historic centre of Puebla.",
+        "Taught by the house's mayora, Eufemia Morales: the techniques behind the most emblematic dishes of Puebla's cooking, with a tasting."
+      ],
+      "weCouldNotAnswer": [
+        "How long is the workshop: one day, or several days?",
+        "What does it cost, and on which dates can someone come?",
+        "How many people cook together, and does everyone cook with their own hands?",
+        "Is mole poblano part of it?",
+        "Is it taught in English, or only in Spanish?"
+      ],
+      "sources": [
+        {
+          "what": "the Mesones Sacristía home page",
+          "url": "https://www.mesones-sacristia.com/",
+          "read": "9 November 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "A photograph from the workshop: Eufemia Morales at the stove or the metate, with the people cooking beside her."
+    },
+    {
+      "id": "oaxacan-and-mexican-cuisine--mexico-city-casa-jacaranda-boot-camp",
+      "craft": "Oaxacan & Mexican Cuisine",
+      "place": "Mexico City, Mexico",
+      "school": "Casa Jacaranda",
+      "teacher": null,
+      "weWouldPublish": [
+        "A three-day Mexican cooking boot camp in Colonia Juárez, Mexico City: the markets and how to judge ingredients, tatemado and fried salsas, nixtamal, regional spices and street food, about forty recipes.",
+        "Hands-on: you cook the dishes yourself, and each evening ends with a dinner together.",
+        "USD 1,738 per session. The 2026 sessions ran 30 July to 1 August and 17 to 19 September."
+      ],
+      "weCouldNotAnswer": [
+        "Which chefs teach the boot camp, by name?",
+        "What are the 2027 dates?",
+        "How many people are in one session?"
+      ],
+      "sources": [
+        {
+          "what": "the Casa Jacaranda page on the three-day boot camp",
+          "url": "https://www.casajacaranda.mx/blog/what-to-expect-from-our-three-day-culinary-boot-camps",
+          "read": "9 November 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "A photograph from a boot-camp day: the chef teaching, the group at the comal or the market."
+    },
+    {
+      "id": "oaxacan-and-mexican-cuisine--merida-los-dos-one-week",
+      "craft": "Oaxacan & Mexican Cuisine",
+      "place": "Mérida, Yucatán, Mexico",
+      "school": "Los Dos",
+      "teacher": "Mario Canul",
+      "weWouldPublish": [
+        "The Yucatán One-Week Culinary Workshop: five days and six nights in Mérida, with three hands-on cooking classes with Chef Mario Canul, who worked beside David Sterling for fifteen years before taking over the kitchen.",
+        "A tortilla class taught by local Maya women, the Mérida market, and days out to Izamal, Uxmal and a Maya family in Santa Elena.",
+        "Two people at least. USD 3,699 per person sharing, or 3,999 with the hotel upgrade; six nights included."
+      ],
+      "weCouldNotAnswer": [
+        "Does the one-week workshop still run? The page we read carries a 2019 date.",
+        "Which dates are open in 2027?",
+        "What is the largest group in one week?",
+        "Is the Taste of Yucatán class still on Tuesdays and Thursdays?"
+      ],
+      "sources": [
+        {
+          "what": "the Los Dos page for the one-week workshop",
+          "url": "https://los-dos.com/class/yucatan-one-week-culinary-workshop/",
+          "read": "9 November 2026"
+        },
+        {
+          "what": "the Los Dos page about Chef Mario Canul",
+          "url": "https://los-dos.com/about-chef-mario-canul/",
+          "read": "9 November 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "A photograph from a class at Los Dos: Chef Mario teaching, hands on the recado or the masa."
     }
   ],
   "setAside": [
