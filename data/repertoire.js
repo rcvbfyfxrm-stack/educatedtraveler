@@ -19323,7 +19323,10 @@ window.ET_ATLAS = {
             "La Casa de los Sabores (Pilar Cabrera)"
           ],
           "masters": [
-            "Susana Trilling (Seasons of My Heart)"
+            "Kaelin Trilling (Seasons of My Heart)"
+          ],
+          "lineage": [
+            "Susana Trilling, who founded Seasons of My Heart"
           ],
           "badges": [
             "source",
@@ -19443,8 +19446,7 @@ window.ET_ATLAS = {
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
-            "Casa Jacaranda",
-            "Culinary Art School (Tijuana, Baja California)"
+            "Casa Jacaranda"
           ],
           "masters": [],
           "badges": [
@@ -19454,7 +19456,7 @@ window.ET_ATLAS = {
           ],
           "why": "The densest professional kitchen scene in the country, where market-to-table classes sit beside the world's most celebrated restaurants.",
           "bestSeason": "Year-round (peak Oct-May)",
-          "level": "Beginner -> Professional",
+          "level": "Beginner -> Intermediate",
           "id": "oaxacan-and-mexican-cuisine--mexico-city",
           "schoolsInfo": [
             {
@@ -19463,18 +19465,11 @@ window.ET_ATLAS = {
               "course": "Market Tour, Cooking Class & Traditional Lunch",
               "blurb": "Set in a 19th-century building in Mexico City's Juárez quarter, Casa Jacaranda pairs a Mercado Medellín market tour with a small-group cooking class led by chefs Beto Estúa and Jorge Fitz, ending in a four-course rooftop lunch.",
               "confidence": "high"
-            },
-            {
-              "name": "Culinary Art School (Tijuana, Baja California)",
-              "url": "https://culinary.mx/",
-              "course": "Master's Degree in Mexican Cuisine / culinary certifications",
-              "blurb": "Northwest Mexico's first specialised culinary school (founded 2003 in Tijuana) teaches a 70%-practical curriculum and offers a Master's in Mexican Cuisine plus certifications, though it sits in Baja California rather than at the Oaxacan/Mexico City source.",
-              "confidence": "medium"
             }
           ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a day",
           "englishTaught": true,
           "englishBasis": "Casa Jacaranda FAQ states experiences are generally in English for international visitors (Spanish on request)"
         },
@@ -19487,7 +19482,6 @@ window.ET_ATLAS = {
           "communityLabel": "Strong",
           "schools": [
             "Los Dos Cooking School (David Sterling legacy, now Chef Mario Canul)",
-            "La Tradicion Cooking Experiences",
             "México Lindo Cooking (Chef Alejandra Kauachi)"
           ],
           "masters": [],
@@ -19507,13 +19501,6 @@ window.ET_ATLAS = {
               "course": "Taste of Yucatan (full-day deep-dive class)",
               "blurb": "Founded in 2003 by James Beard-winning author David Sterling and now led by Chef Mario Canul, this Merida school teaches Yucatecan cuisine through its seven-hour Taste of Yucatan market-and-cook deep dive plus pueblo cocina economica and private classes.",
               "confidence": "high"
-            },
-            {
-              "name": "La Tradicion Cooking Experiences",
-              "url": "",
-              "course": "",
-              "blurb": "A Merida Yucatecan cooking-experience offering could not be verified to a single official school and site of this exact name, as searches surfaced multiple generic market-tour cooking classes instead.",
-              "confidence": "low"
             },
             {
               "name": "México Lindo Cooking (Chef Alejandra Kauachi)",
@@ -19635,7 +19622,7 @@ window.ET_ATLAS = {
             "duration": "1 day",
             "url": "https://www.seasonsofmyheart.com/food-tours/mexico/oaxaca/chefs-intensive",
             "fit": "Shorter",
-            "note": "Single-day class with Susana Trilling; lacks the multi-day market-to-table immersion of the intensive.",
+            "note": "Single-day class at the school; lacks the multi-day market-to-table immersion of the intensive.",
             "confidence": "low"
           }
         ]

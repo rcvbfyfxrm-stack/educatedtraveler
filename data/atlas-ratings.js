@@ -1038,7 +1038,7 @@ window.ET_RATINGS = {
     "count": 97,
     "source": "TripAdvisor",
     "url": "https://www.tripadvisor.com/Attraction_Review-g150801-d584374-Reviews-Seasons_of_My_Heart_Cooking_School-Oaxaca_Southern_Mexico.html",
-    "whyPick": "Founded in 1993 by Susana Trilling, author of the cookbook \"Seasons of My Heart\" and host of the PBS series of the same name; reviewers single out her as a deeply professional instructor and the full-day class for its Etla market tour and hands-on, five-course Oaxacan meal.",
+    "whyPick": "Founded by Susana Trilling, author of the cookbook \"Seasons of My Heart\" and host of the PBS series of the same name; the six-day Chef's Intensive is led by Chef Kaelin Trilling, and reviewers single out the full-day class for its Etla market tour and hands-on, five-course Oaxacan meal.",
     "destPlace": "Oaxaca",
     "sources": [
       {
