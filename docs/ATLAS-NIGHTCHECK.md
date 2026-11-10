@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-11-09 — 427 published claims re-read against the pages they came from, across 39 open crafts._
+_2026-11-10 — 426 published claims re-read against the pages they came from, across 39 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -33,30 +33,28 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 62 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 63 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 1 night — URLError: <urlopen error timed out>
-  - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 1 night — URLError: <urlopen error timed out>
-  - https://www.taiwa.ac.jp/lacarriere/en/course/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 35 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- freediving · Y-40 Deep Joy (Montegrotto Terme) — 1 night — TimeoutError: The read operation timed out
+  - https://www.y-40.com/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 36 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 35 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
+- mixology-and-bartending · Cocktail-making workshop — 36 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
   - https://www.havanaclubmuseum.com/en/experiences/
-- jewelry-and-goldsmithing · the Schmuckmuseum Pforzheim, the town's jewellery museum — 1 night — TimeoutError: The read operation timed out
-  - https://www.schmuckmuseum.de/en/
+- yacht-crew-and-stcw · Maritime Skills Academy, Dover — 1 night — URLError: <urlopen error timed out>
+  - https://www.maritimeskillsacademy.com/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **coffee-and-barista · African Coffee Campus** — 15 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+- **coffee-and-barista · African Coffee Campus** — 16 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
   - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)>
-- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — 2 nights — https://www.ugcb.net/en
+- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — 3 nights — https://www.ugcb.net/en
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.ugcb.net'. (_ssl.c:1011)>
-- **perfumery · Musée International de la Parfumerie** — 56 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 57 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
-- **perfumery · Un conservatoire de plantes à parfum** — 56 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 57 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
 
 ## Back to normal
@@ -95,9 +93,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - mixology-and-bartending · European Bartender School London — HTTP 403
-- wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
-- surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
 - chef-at-sea · Dockwalk — yacht crew recruitment agencies in Palma — HTTP 202
 - italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio — HTTP 202
 
@@ -112,7 +108,6 @@ Informational, never escalated. A rejected place going offline is usually the re
 - mixology-and-bartending · Havana, as a place on this page — URLError: <urlopen error [Errno 111] Connection refused>
 - mixology-and-bartending · European Bartender School New York — HTTP 403
 - modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1011)>
-- modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
 
@@ -179,4 +174,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - spearfishing · Kona, Big Island · Top Shot Spearfishing
 - spearfishing · Cabo San Lucas / Sea of Cortez · Spearfishing Baja (Cabo San Lucas)
 
-_288 in total._
+_289 in total._
