@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.className+=" js"</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
@@ -208,6 +209,72 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
 .hint{font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:8px 0 0;text-align:right}
 @media (min-width:600px){.ph .wide,.swipe{margin-left:0;margin-right:0}.swipe{padding:0 0 4px}.ph .wide figcaption{padding:0}.swipe figure{flex-basis:31%}}
 
+/* ── 11 Nov 2026, "super cool and captivating, according to what it is" ──
+   Same three colours (white, ink, sea), square, hairlines. What changes: the scale
+   of the type, a night band for the evenings, the chefs as cards you swipe, the film
+   on the page, and each part arriving as you reach it. No still zooms or pans. */
+.bleed{margin-inline:calc(50% - 50vw)}
+.in{max-width:560px;margin:0 auto;padding:0 20px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);padding:26px 0 24px}
+.nums div+div{border-left:1px solid var(--line);padding-left:16px}
+.nums b{display:block;font:300 clamp(46px,14vw,68px)/.95 var(--serif);letter-spacing:-.03em}
+.nums span{font:500 10.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--sea)}
+section.week{padding-top:0}
+.sec{font:300 clamp(52px,15.5vw,84px)/.96 var(--serif);letter-spacing:-.035em;margin:44px 0 16px;text-wrap:balance}
+.sec em,.beat h3 em{font-style:italic;color:var(--sea)}
+.intro{font:300 clamp(18px,4.8vw,21px)/1.45 var(--serif);color:var(--muted);margin:0}
+.beat{padding:64px 0 0}
+.tag{font:500 10.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--sea);margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.tag::before{content:"";width:28px;height:1px;background:currentColor}
+.beat h3{font:300 clamp(56px,17vw,92px)/.92 var(--serif);letter-spacing:-.04em;color:var(--ink);margin:0 0 14px;text-transform:none}
+.beat .one{font:300 clamp(18px,4.8vw,21px)/1.45 var(--serif);color:var(--muted);margin:0 0 22px}
+.swipe figure{flex-basis:44%}
+.tech{list-style:none;margin:44px 0 0;padding:0;font:300 clamp(40px,12vw,64px)/1.04 var(--serif);letter-spacing:-.03em}
+.tech li:nth-child(even){font-style:italic;color:var(--sea);padding-left:.9em}
+.tech+.one{margin:16px 0 0}
+.filmp{margin:44px 0 0}
+.filmp video{width:100%;height:auto;display:block;background:var(--ink);aspect-ratio:16/9}
+/* the evenings: night */
+.night{background:var(--ink);color:#fff;margin-top:72px;padding:64px 0 60px}
+.night .beat{padding:0}
+.night .tag{color:var(--sea-dark)}
+.night h3{color:#fff}
+.night h3 em{color:var(--sea-dark)}
+.night .one{color:rgba(255,255,255,.8)}
+.night figcaption{color:rgba(255,255,255,.72)}
+.night .say{color:#fff;font-size:clamp(24px,6.8vw,32px);line-height:1.22;margin-top:34px}
+.night .say::before{content:"\201C";display:block;font:300 56px/.6 var(--serif);color:var(--sea-dark);margin:0 0 8px}
+.night .say::after{content:none}
+.night .by{color:rgba(255,255,255,.75)}
+/* the chefs: cards to swipe, each with their own line */
+.folk{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:6px -20px 0;padding:0 20px 6px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.folk::-webkit-scrollbar{display:none}
+.folk article{flex:0 0 68%;scroll-snap-align:start;border-top:2px solid var(--sea);display:flex;flex-direction:column}
+.folk img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;background:var(--ink)}
+.folk q{display:block;font:italic 300 20px/1.35 var(--serif);margin:14px 0 10px;quotes:"\201C" "\201D"}
+.folk .n{font-weight:500;font-size:15px;margin-top:auto}
+.folk .w{font-size:13px;color:var(--muted)}
+.big{font-size:clamp(30px,8.6vw,44px);line-height:1.12;letter-spacing:-.02em;margin-top:52px}
+/* the way in: a sea band, as the closing band on /tokyo */
+#signup.bleed{background:var(--sea);color:#fff;border-top:0;margin-top:72px;padding:60px 0 64px}
+#signup .card{background:none;border-top:0;padding:0}
+#signup .card h2{font-size:clamp(46px,13.5vw,72px);line-height:.98;letter-spacing:-.03em;margin:8px 0 12px}
+#signup .card h2 em{font-style:italic}
+#signup .sub2{color:#fff;font:300 19px/1.4 var(--serif);margin:0 0 26px}
+#signup #openhear{background:#fff;color:var(--ink)}
+#signup #openhear:hover{background:var(--ink);color:#fff}
+#signup .martin{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+#signup .martin:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+#signup .martin small{color:rgba(255,255,255,.9)}
+#signup .martin .arr{color:#fff}
+#signup+section{border-top:0;margin-top:0}
+/* arriving: only when the script is running, never under reduced motion */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--dl,0s)}
+.js .rvf{opacity:0;transition:opacity 1s ease;transition-delay:var(--dl,0s)}
+.js .rv.on,.js .rvf.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .rvf{opacity:1;transform:none;transition:none}}
+@media (min-width:600px){.folk{margin-left:0;margin-right:0;padding:0 0 6px;scroll-padding:0}.folk article{flex-basis:44%}}
+
 /* ── the word fizzes ── Arnaud, 11 Nov 2026: bubbles, discreet, only around "bubbling".
    A few hairline bubbles rise off the word and fade; nothing else on the page moves.
    Reduced motion: none. */
@@ -237,52 +304,65 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
 <main>
 <div id="join">
 
-  <section aria-label="The week">
-    <p class="label mono"><span>22&ndash;26 Oct &middot; Barcelona</span><span>Vakuum</span></p>
-    <h2 class="sec">Not only a class.</h2>
-    <p class="intro">The lab, the table, the people. This is what the week was.</p>
+<section class="week" aria-label="The week">
+    <div class="nums rv"><div><b>5</b><span>days</span></div><div><b>35</b><span>hours</span></div><div><b>1</b><span>bench</span></div></div>
+    <h2 class="sec rv">Not only <em>a class.</em></h2>
+    <p class="intro rv">The lab, the table, the people. This is what the week in Barcelona was.</p>
 
     <div class="beat">
-      <h3>The lab.</h3>
-      <p class="one">Five days at Martin Lippo's bench. Spheres, nitrogen, foams, sous-vide, all in your own hands.</p>
-      <div class="ph"><figure class="wide"><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind" loading="lazy"><figcaption>At the bench</figcaption></figure></div>
-      <div class="swipe" aria-label="More from the lab"><figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of a bowl of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels on the steel bench" loading="lazy"><figcaption>Gels</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef holding up a smoking frozen bite at the bench while the others watch" loading="lazy"><figcaption>Tasting</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure></div>
+      <p class="tag rv">22&ndash;26 Oct &middot; Vakuum</p>
+      <h3 class="rv">The <em>lab.</em></h3>
+      <p class="one rv">Five days at Martin Lippo's bench, every technique in your own hands.</p>
+      <div class="ph rvf"><figure class="wide"><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind" loading="lazy"><figcaption>At the bench</figcaption></figure></div>
+      <div class="swipe rvf" aria-label="More from the lab"><figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of a bowl of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels on the steel bench" loading="lazy"><figcaption>Gels</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef holding up a smoking frozen bite at the bench while the others watch" loading="lazy"><figcaption>Tasting</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure></div>
       <p class="hint" aria-hidden="true">Swipe &rarr;</p>
+      <ul class="tech" aria-label="What was taught">
+        <li class="rv">Textures.</li><li class="rv" style="--dl:.08s">Spheres.</li><li class="rv" style="--dl:.16s">Nitrogen.</li><li class="rv" style="--dl:.24s">Foams.</li><li class="rv" style="--dl:.32s">Sous-vide.</li>
+      </ul>
+      <div class="filmp rvf">
+        <video controls preload="none" playsinline poster="/video/lippo/poster-presentation.jpg" width="1280" height="720">
+          <source src="/video/lippo/lippo-presentation-web.mp4" type="video/mp4">
+        </video>
+        <p class="cap">Martin on the week, filmed at Vakuum. 69 seconds.</p>
+      </div>
     </div>
 
-    <div class="beat">
-      <h3>The table.</h3>
-      <p class="one">After the lab: lunches together, a vermut and tapas night, dinners out.</p>
-      <div class="ph">
+    <div class="night bleed"><div class="in"><div class="beat">
+      <p class="tag rv">After the lab</p>
+      <h3 class="rv">The <em>table.</em></h3>
+      <p class="one rv">Lunches together, a vermut and tapas night, dinners out.</p>
+      <div class="ph rvf">
         <figure class="wide"><img src="/images/collab/lab-week-01/week/evening-bar.jpg" alt="The group at a pavement bar table in Barcelona at night, glasses of beer, everyone turned to the camera" loading="lazy"><figcaption>Out in Barcelona</figcaption></figure>
-        <figure><img src="/images/collab/lab-week-01/week/evening-terrace.jpg" alt="Lunch on a terrace under a black umbrella, the chefs along a long red table, smiling" loading="lazy"><figcaption>Lunch on the terrace</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/evening-paella.jpg" alt="Dinner around a paella at a white tablecloth, arms in the air" loading="lazy"><figcaption>Paella night</figcaption></figure>
+        <figure><img src="/images/collab/lab-week-01/week/evening-terrace.jpg" alt="Lunch on a terrace under a black umbrella, the chefs along a long red table, smiling" loading="lazy"><figcaption>Lunch on the terrace</figcaption></figure>
+        <figure><img src="/images/collab/lab-week-01/week/evening-paella.jpg" alt="Dinner around a paella at a white tablecloth, arms in the air" loading="lazy"><figcaption>Paella night</figcaption></figure>
       </div>
-      <p class="say">Not only do I feel like I&rsquo;ve learned so much but also like I was traveling with a group almost.</p>
-      <p class="by">Renata, yacht chef</p>
-    </div>
+      <p class="say rv">Not only do I feel like I&rsquo;ve learned so much but also like I was traveling with a group almost.</p>
+      <p class="by rv">Renata, yacht chef</p>
+    </div></div></div>
 
     <div class="beat">
-      <h3>The people.</h3>
-      <p class="one">Eight chefs who cook for a living. They came as strangers and left as friends.</p>
-      <div class="crew">
-        <figure><img src="/images/collab/lab-week-01/renata.jpg" alt="" loading="lazy"><figcaption>Renata</figcaption></figure><figure><img src="/images/collab/lab-week-01/jaimee.jpg" alt="" loading="lazy"><figcaption>Jaimee</figcaption></figure><figure><img src="/images/collab/lab-week-01/paul.jpg" alt="" loading="lazy"><figcaption>Paul</figcaption></figure><figure><img src="/images/collab/lab-week-01/alex.jpg" alt="" loading="lazy"><figcaption>Alex</figcaption></figure><figure><img src="/images/collab/lab-week-01/artem.jpg" alt="" loading="lazy"><figcaption>Artem</figcaption></figure><figure><img src="/images/collab/lab-week-01/mariola.jpg" alt="" loading="lazy"><figcaption>Mariola</figcaption></figure><figure><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="" loading="lazy"><figcaption>Mykhailo</figcaption></figure><figure><img src="/images/collab/lab-week-01/luigi.jpg" alt="" loading="lazy"><figcaption>Luigi</figcaption></figure>
-      </div>
-      <blockquote class="big">Wow wow wow what an incredible week shared with an incredible teacher, friends and city.</blockquote>
-      <p class="by">Alex, private chef</p>
-      <button type="button" class="cta openall" id="openv">Martin's film and every note <span aria-hidden="true">&rarr;</span></button>
+      <p class="tag rv">In their words</p>
+      <h3 class="rv">The <em>people.</em></h3>
+      <p class="one rv">Chefs who cook for a living. They came as strangers and left as friends.</p>
+      <div class="folk rvf" aria-label="The chefs, in their words"><article><img src="/images/collab/lab-week-01/paul.jpg" alt="" loading="lazy"><q>It was amazing to learn from Martin and meet like minded talented chefs, such a wealth of knowledge to share between us.</q><span class="n">Paul Kavanagh</span><span class="w">Yacht chef</span></article><article><img src="/images/collab/lab-week-01/renata.jpg" alt="" loading="lazy"><q>I left the course viewing food completely differently.</q><span class="n">Renata Sullivan</span><span class="w">Freelance yacht chef / private chef</span></article><article><img src="/images/collab/lab-week-01/alex.jpg" alt="" loading="lazy"><q>This was my first time in Barcelona and the class was beyond anything I had expected!</q><span class="n">Alex</span><span class="w">World traveling private chef</span></article><article><img src="/images/collab/lab-week-01/jaimee.jpg" alt="" loading="lazy"><q>Learning from Martin has forever changed the way I view food, its history, and its future</q><span class="n">Jaimee Kivell</span><span class="w">Yacht chef</span></article><article><img src="/images/collab/lab-week-01/artem.jpg" alt="" loading="lazy"><q>The most impressive thing was the team behind and that all the techniques were actually very easy to do though they appeared very special.</q><span class="n">Artem Karpenko</span><span class="w">Yacht chef on a 70m charter yacht</span></article><article><img src="/images/collab/lab-week-01/mariola.jpg" alt="" loading="lazy"><q>Everything amazing!! Best host best Master.</q><span class="n">Mariola Cid Acorral</span><span class="w">Private jet catering chef</span></article><article><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="" loading="lazy"><q>Martin clearly loves what he does and tries to give as much info as possible, love it</q><span class="n">Mykhailo</span><span class="w"></span></article><article><img src="/images/collab/lab-week-01/luigi.jpg" alt="" loading="lazy"><q>The good energy</q><span class="n">Luigi Fumarola</span><span class="w">Yacht chef on 87m</span></article></div>
+      <p class="hint" aria-hidden="true">Swipe &rarr;</p>
+      <blockquote class="big rv">Wow wow wow what an incredible week shared with an incredible teacher, friends and city.</blockquote>
+      <p class="by rv">Alex, private chef</p>
+      <button type="button" class="cta openall" id="openv">Every photo, every note <span aria-hidden="true">&rarr;</span></button>
     </div>
   </section>
-  <section id="signup">
+
+  <section id="signup" class="bleed"><div class="in">
     <div class="card">
-      <p class="mono" style="color:var(--sea);margin:0">The Circle</p>
-      <h2>Be the first to hear.</h2>
+      <p class="mono" style="margin:0">The Circle</p>
+      <h2 class="rv">Be the first <em style="white-space:nowrap">to hear.</em></h2>
       <p class="sub2">Tokyo, and whatever comes next.</p>
       <div class="ways">
         <button type="button" class="cta go" id="openhear">I want to hear first <span aria-hidden="true">&rarr;</span></button>
         <button type="button" class="martin" id="martin"><span>I'd come to a new collab with Martin<small>Your name goes on the list.</small></span><span class="arr" aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
-  </section>
+  </div></section>
 
   <section><div class="follow">
     <p class="mono label" style="margin:0 0 12px"><span>Follow along</span><span>Instagram</span></p>
@@ -312,17 +392,11 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
 <dialog id="voices" aria-labelledby="vh">
   <div class="sheet">
     <div class="sheet-h">
-      <h2 id="vh">Five days at Martin Lippo's bench</h2>
+      <h2 id="vh">Every photo, every note</h2>
       <button type="button" class="x" id="closev" aria-label="Close">&times;</button>
     </div>
     <p class="sub">Vakuum, his lab in Barcelona, 22–26 October 2026. A room of working chefs, thirty-five hours, the foundations of the new culinary techniques. <a href="https://www.instagram.com/vakuum_by_martin_lippo/" target="_blank" rel="noopener">@vakuum_by_martin_lippo</a></p>
 
-    <div class="film">
-      <video controls preload="none" playsinline poster="/video/lippo/poster-presentation.jpg" width="1280" height="720">
-        <source src="/video/lippo/lippo-presentation-web.mp4" type="video/mp4">
-      </video>
-      <p class="cap">Martin on the week, filmed at Vakuum. 69 seconds.</p>
-    </div>
 
     <h3 class="vh3">In the lab</h3>
     <div class="strip" aria-label="The group in the lab">
@@ -516,6 +590,15 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
     f.appendChild(i);
   });
   em.appendChild(f);
+})();
+</script>
+<script>
+// Each part arrives as you reach it. No observer, or reduced motion: everything is simply there.
+(function(){
+  var els=document.querySelectorAll('.rv,.rvf');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e)});
 })();
 </script>
 </body>
