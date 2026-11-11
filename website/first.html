@@ -156,6 +156,40 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
 .vh3{font:300 21px/1.2 var(--serif);margin:6px 0 10px}
 .sheet .back-to{margin:18px 0 0;width:100%}
 .more{display:block;font-size:14px;margin-top:14px;text-align:center}
+
+/* ── bubbles ── the week was nitrogen fog and spheres in a bath; the page fizzes with it.
+   Hairline white bubbles rise through the photograph (tap one, it pops), "bubbling." fizzes,
+   and joining the Circle lets a burst go. Round on purpose: the only round thing on the page
+   besides faces. Reduced motion: a few still bubbles, nothing moves. */
+.hero .top,.hero .bottom{position:relative;z-index:2}
+.bubbles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.bub{position:absolute;bottom:-48px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;pointer-events:auto;cursor:pointer;
+  border:1px solid rgba(255,255,255,.62);
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.7) 0 7%,rgba(255,255,255,.08) 9% 58%,rgba(127,168,165,.22) 100%);
+  animation:rise var(--d) linear var(--w) infinite;opacity:0;
+  transition:scale .28s cubic-bezier(.2,.9,.3,1.4),opacity .28s,border-width .28s}
+.bub::after{content:"";position:absolute;inset:-14px;border-radius:50%}
+@keyframes rise{
+  0%{transform:translate(0,0);opacity:0}
+  8%{opacity:.95}
+  25%{transform:translate(var(--sw),-27svh)}
+  50%{transform:translate(calc(var(--sw) * -1),-55svh)}
+  75%{transform:translate(var(--sw),-82svh)}
+  92%{opacity:.85}
+  100%{transform:translate(0,-112svh);opacity:0}}
+.bub.pop{scale:1.9;opacity:0 !important;border-width:2px}
+.bubbling{position:relative;display:inline-block}
+.fizz{position:absolute;right:.12em;top:.05em;width:.5em;height:.6em;pointer-events:none}
+.fizz i{position:absolute;bottom:0;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;border:1px solid rgba(255,255,255,.8);
+  animation:fizz 2.4s ease-out var(--w) infinite;opacity:0}
+@keyframes fizz{0%{transform:translate(0,0);opacity:0}15%{opacity:1}100%{transform:translate(var(--sw),-1.1em);opacity:0}}
+.burst{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.burst .bub{border-color:var(--sea);background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.95) 0 8%,rgba(78,123,120,.06) 10% 60%,rgba(78,123,120,.18) 100%);
+  pointer-events:none;animation:rise var(--d) cubic-bezier(.25,.6,.4,1) var(--w) 1 forwards}
+@media (prefers-reduced-motion:reduce){
+  .bub{animation:none;opacity:.8;bottom:var(--y)}
+  .fizz,.burst{display:none}
+}
 </style>
 </head>
 <body>
@@ -395,7 +429,52 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
     $('doneh').textContent="You're in the Circle, "+first(name)+".";
     $('join').style.display='none'; $('join-hero').style.display='none'; $('done').style.display='block';
     window.scrollTo(0,0);
+    if(window.etBubbleBurst) window.etBubbleBurst();
   });
+})();
+</script>
+<script>
+// Bubbles: rising through the hero, a fizz on "bubbling.", a burst on joining.
+(function(){
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero = document.getElementById('join-hero'); if(!hero) return;
+  function rnd(a,b){return a+Math.random()*(b-a)}
+  function bubble(parent, i, n, once){
+    var b=document.createElement('span'); b.className='bub';
+    var s=Math.round(rnd(7,34));
+    b.style.cssText='--x:'+rnd(2,96).toFixed(1)+'%;--s:'+s+'px;--d:'+rnd(7,15).toFixed(1)+'s;--w:'+(once?rnd(0,.6):-rnd(0,15)).toFixed(2)+'s;--sw:'+rnd(-26,26).toFixed(0)+'px;--y:'+rnd(10,90).toFixed(0)+'%';
+    if(once) b.style.setProperty('--d', rnd(1.8,3.2).toFixed(2)+'s');
+    parent.appendChild(b); return b;
+  }
+  var box=document.createElement('div'); box.className='bubbles'; box.setAttribute('aria-hidden','true');
+  var n = calm ? 7 : (innerWidth < 700 ? 14 : 22);
+  for(var i=0;i<n;i++) bubble(box,i,n,false);
+  hero.insertBefore(box, hero.querySelector('.top'));
+  // tap a bubble: it pops, then comes back from the bottom
+  box.addEventListener('click', function(e){
+    var b=e.target.closest('.bub'); if(!b || b.classList.contains('pop')) return;
+    b.style.transform=getComputedStyle(b).transform; b.style.opacity=getComputedStyle(b).opacity; b.style.animation='none';
+    requestAnimationFrame(function(){ b.classList.add('pop'); });
+    if(window.plausible && !box.dataset.popped){ box.dataset.popped=1; window.plausible('FirstBubblePopped'); }
+    setTimeout(function(){ var nb=bubble(box,0,0,false); nb.style.setProperty('--w','0s'); b.remove(); }, 320);
+  });
+  // "bubbling." fizzes
+  var em=hero.querySelector('h1 em');
+  if(em && !calm){
+    em.classList.add('bubbling');
+    var f=document.createElement('span'); f.className='fizz'; f.setAttribute('aria-hidden','true');
+    [[10,5,0,4],[55,4,.8,-5],[30,6,1.6,3]].forEach(function(p){
+      var i=document.createElement('i'); i.style.cssText='--x:'+p[0]+'%;--s:'+p[1]+'px;--w:'+p[2]+'s;--sw:'+p[3]+'px'; f.appendChild(i);
+    });
+    em.appendChild(f);
+  }
+  // joining the Circle lets a burst go
+  window.etBubbleBurst=function(){
+    if(calm) return;
+    var c=document.createElement('div'); c.className='burst'; c.setAttribute('aria-hidden','true');
+    for(var i=0;i<26;i++) bubble(c,i,26,true);
+    document.body.appendChild(c); setTimeout(function(){c.remove()}, 4200);
+  };
 })();
 </script>
 </body>
