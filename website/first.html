@@ -90,6 +90,11 @@ blockquote::before{content:"\201C";display:block;font:300 64px/0.6 var(--serif);
 .martin[aria-pressed="true"] .tick{border-color:#fff}
 .martin[aria-pressed="true"] .tick::before{content:"\2713"}
 .martin small{display:block;color:var(--muted);font-size:13px;font-weight:400;margin-top:2px}
+/* 11 Nov: both ways in open the same pop-up: name + where, then email, then Enlarge the Circle */
+.ways{display:grid;gap:10px}
+.martin .arr{flex:none;color:var(--sea);font-size:18px}
+#joinbox .steps{margin:0 0 18px}
+#joinbox form{padding-bottom:6px}
 
 /* the form: under a sea rule, hairlines, square */
 .card{background:var(--white);border-top:2px solid var(--sea);padding:22px 0 4px;position:relative}
@@ -130,6 +135,11 @@ footer .sig{font:italic 300 20px/1.3 var(--serif);color:var(--ink);margin:0 0 10
 #done p{color:var(--muted)}
 #done strong{color:var(--ink);font-weight:500}
 @media (min-width:700px){.hero{padding:26px 40px 48px}}
+/* the way in to the new collab with Martin, at the top (Arnaud, 11 Nov 2026) */
+.ctas{display:grid;gap:14px;justify-items:start}
+.ctas .cta{text-align:left;padding:14px 22px}
+.soft{color:rgba(243,237,226,.9);font-size:15px;text-underline-offset:4px}
+.soft:hover{color:#fff}
 
 /* the chefs' notes, in a sheet over the form so nothing typed is lost */
 dialog{border:0;padding:0;background:var(--white);color:var(--ink);width:min(520px,100vw);max-height:88vh;border-radius:0;margin:auto auto 0;border-top:2px solid var(--sea)}
@@ -217,7 +227,10 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
     <p class="kicker mono"><span class="dot" aria-hidden="true"></span>Barcelona done &middot; next is taking shape</p>
     <h1>More is <em>bubbling.</em></h1>
     <p class="lede">Five days at Martin Lippo's bench, with a room of chefs who care about the craft. Next: <span class="tokyo">Tokyo</span>. Hear it first.</p>
-    <a class="cta" href="#signup">Hear it first <span aria-hidden="true">&darr;</span></a>
+    <div class="ctas">
+      <button type="button" class="cta" id="apply">Apply for the new collab with Martin <span aria-hidden="true">&rarr;</span></button>
+      <a class="soft" href="#signup">Or just hear what comes next <span aria-hidden="true">&darr;</span></a>
+    </div>
   </div>
 </header>
 
@@ -233,7 +246,7 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
       <h3>The lab.</h3>
       <p class="one">Five days at Martin Lippo's bench. Spheres, nitrogen, foams, sous-vide, all in your own hands.</p>
       <div class="ph"><figure class="wide"><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind" loading="lazy"><figcaption>At the bench</figcaption></figure></div>
-      <div class="swipe" aria-label="More from the lab"><figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of a bowl of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels on the steel bench" loading="lazy"><figcaption>Gels</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef working a siphon over the bench while the others watch" loading="lazy"><figcaption>Siphon</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure></div>
+      <div class="swipe" aria-label="More from the lab"><figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of a bowl of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels on the steel bench" loading="lazy"><figcaption>Gels</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef holding up a smoking frozen bite at the bench while the others watch" loading="lazy"><figcaption>Tasting</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure></div>
       <p class="hint" aria-hidden="true">Swipe &rarr;</p>
     </div>
 
@@ -259,42 +272,15 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
       <button type="button" class="cta openall" id="openv">Martin's film and every note <span aria-hidden="true">&rarr;</span></button>
     </div>
   </section>
-  <section>
-    <button type="button" class="martin" id="martin" aria-pressed="false"><span>I'd come to a private week with Martin<small>Tap, and it's noted with your name below.</small></span><span class="tick" aria-hidden="true"></span></button>
-  </section>
-
   <section id="signup">
     <div class="card">
       <p class="mono" style="color:var(--sea);margin:0">The Circle</p>
       <h2>Be the first to hear.</h2>
       <p class="sub2">Tokyo, and whatever comes next.</p>
-      <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span></div>
-
-      <form id="f" novalidate>
-        <div class="step" id="step1">
-          <label><span class="mono">Your name</span>
-            <input id="name" maxlength="60" autocomplete="name" required>
-          </label>
-          <label><span class="mono">Where are you working?</span>
-            <input id="where" maxlength="80" placeholder="A boat, a restaurant, a city" autocomplete="organization" required>
-          </label>
-          <div class="err" id="err1" role="alert"></div>
-          <button type="button" class="cta go" id="next">Next <span aria-hidden="true">&rarr;</span></button>
-        </div>
-
-        <div class="step" id="step2" hidden>
-          <p class="hello" id="hello">Thank you.</p>
-          <label><span class="mono">Your email</span>
-            <input id="email" type="email" placeholder="you@wherever.com" autocomplete="email" required>
-          </label>
-          <label class="consent"><input type="checkbox" id="consent">
-            <span>You may write to me at this address.</span></label>
-          <div class="err" id="err2" role="alert"></div>
-          <button type="submit" class="cta go" id="go">Enlarge the Circle <span aria-hidden="true">&rarr;</span></button>
-          <button type="button" class="back" id="back">Back</button>
-          <p class="fine">I read every note myself.</p>
-        </div>
-      </form>
+      <div class="ways">
+        <button type="button" class="cta go" id="openhear">I want to hear first <span aria-hidden="true">&rarr;</span></button>
+        <button type="button" class="martin" id="martin"><span>I'd come to a new collab with Martin<small>Your name goes on the list.</small></span><span class="arr" aria-hidden="true">&rarr;</span></button>
+      </div>
     </div>
   </section>
 
@@ -345,7 +331,7 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
       <figure><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench" loading="lazy"><figcaption>At the bench</figcaption></figure>
       <figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure>
       <figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels" loading="lazy"><figcaption>Gels</figcaption></figure>
-      <figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef working a siphon while the others watch" loading="lazy"><figcaption>Siphon</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef holding up a smoking frozen bite at the bench while the others watch" loading="lazy"><figcaption>Tasting</figcaption></figure>
     </div>
     <h3 class="vh3">After the lab</h3>
     <div class="strip" aria-label="The group after the lab">
@@ -366,12 +352,47 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
 
         <div class="v"><img src="/images/collab/lab-week-01/alex.jpg" alt="" loading="lazy"><div><q>This was my first time in Barcelona and the class was beyond anything I had expected!</q><span class="who">Alex · World traveling private chef · <a href="https://www.instagram.com/chefalexnaeger/" target="_blank" rel="noopener">@chefalexnaeger</a></span></div></div>
     <div class="v"><img src="/images/collab/lab-week-01/artem.jpg" alt="" loading="lazy"><div><q>The most impressive thing was the team behind and that all the techniques were actually very easy to do though they appeared very special.</q><span class="who">Artem Karpenko · Yacht chef on a 70m charter yacht · <a href="https://www.instagram.com/akaarpenko/" target="_blank" rel="noopener">@akaarpenko</a></span></div></div>
-    <button type="button" class="martin" id="martin2" aria-pressed="false" style="margin:18px 0 0"><span>I'd come to a private week with Martin</span><span class="tick" aria-hidden="true"></span></button>
-    <button type="button" class="cta go back-to" id="backv">Back to sign up</button>
+    <button type="button" class="martin" id="martin2" style="margin:18px 0 0"><span>I'd come to a new collab with Martin</span><span class="arr" aria-hidden="true">&rarr;</span></button>
+    <button type="button" class="cta go back-to" id="backv">I want to hear first</button>
     <a class="more" href="/barcelona" target="_blank" rel="noopener">The whole week, with every note</a>
   </div>
 </dialog>
+<dialog id="joinbox" aria-labelledby="cardh">
+  <div class="sheet">
+    <div class="sheet-h">
+      <h2 id="cardh">Be the first to hear.</h2>
+      <button type="button" class="x" id="closej" aria-label="Close">&times;</button>
+    </div>
+    <p class="sub" id="cardsub">Tokyo, and whatever comes next.</p>
+      <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span></div>
 
+      <form id="f" novalidate>
+        <div class="step" id="step1">
+          <label><span class="mono">Your name</span>
+            <input id="name" maxlength="60" autocomplete="name" required>
+          </label>
+          <label><span class="mono">Where are you working?</span>
+            <input id="where" maxlength="80" placeholder="A boat, a restaurant, a city" autocomplete="organization" required>
+          </label>
+          <div class="err" id="err1" role="alert"></div>
+          <button type="button" class="cta go" id="next">I want to hear first <span aria-hidden="true">&rarr;</span></button>
+        </div>
+
+        <div class="step" id="step2" hidden>
+          <p class="hello" id="hello">Thank you.</p>
+          <label><span class="mono">Your email</span>
+            <input id="email" type="email" placeholder="you@wherever.com" autocomplete="email" required>
+          </label>
+          <label class="consent"><input type="checkbox" id="consent">
+            <span>You may write to me at this address.</span></label>
+          <div class="err" id="err2" role="alert"></div>
+          <button type="submit" class="cta go" id="go">Enlarge the Circle <span aria-hidden="true">&rarr;</span></button>
+          <button type="button" class="back" id="back">Back</button>
+          <p class="fine">I read every note myself.</p>
+        </div>
+      </form>
+  </div>
+</dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
 <script>
@@ -387,19 +408,33 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
     if(window.plausible) window.plausible('FirstVoicesOpened');
   });
   $('closev').addEventListener('click',closeV);
-  $('backv').addEventListener('click',function(){closeV();$('signup').scrollIntoView({block:'start'})});
   dlg.addEventListener('click',function(e){if(e.target===dlg) closeV()});
 
-  // "A private week with Martin": one toggle, mirrored in the page and the pop-up,
-  // recorded with the sign-up (it rides in the same row).
-  var wantsMartin=false;
-  function setMartin(v){
-    wantsMartin=v;
-    ['martin','martin2'].forEach(function(id){$(id).setAttribute('aria-pressed', v?'true':'false')});
-    if(v && window.plausible) window.plausible('FirstMartinAgain');
+  // Two ways in, one pop-up (Arnaud, 11 Nov 2026): name + where they work ->
+  // "I want to hear first" -> email -> "Enlarge the Circle". From a Martin button
+  // the same steps, and the row carries collab-interest martin-lippo.
+  var wantsMartin=false, jb=$('joinbox');
+  function openJoin(m){
+    wantsMartin=m;
+    $('cardh').textContent = m ? 'The new collab with Martin.' : 'Be the first to hear.';
+    $('cardsub').textContent = m ? 'Leave your name and you are on the list. I read every one myself.' : 'Tokyo, and whatever comes next.';
+    $('next').firstChild.textContent = m ? "I'm interested " : 'I want to hear first ';
+    $('step2').hidden=true; $('step1').hidden=false; $('s2').classList.remove('on');
+    hide('err1'); hide('err2');
+    if(dlg.open) closeV();
+    if(jb.showModal) jb.showModal(); else jb.setAttribute('open','');
+    setTimeout(function(){$('name').focus()},60);
+    if(window.plausible) window.plausible(m ? 'FirstOpenMartin' : 'FirstOpenHear');
   }
-  $('martin').addEventListener('click',function(){setMartin(!wantsMartin)});
-  $('martin2').addEventListener('click',function(){setMartin(!wantsMartin)});
+  function closeJ(){ if(jb.close) jb.close(); else jb.removeAttribute('open') }
+  $('apply').addEventListener('click',function(){openJoin(true)});
+  document.querySelector('.ctas .soft').addEventListener('click',function(e){e.preventDefault();openJoin(false)});
+  $('openhear').addEventListener('click',function(){openJoin(false)});
+  $('martin').addEventListener('click',function(){openJoin(true)});
+  $('martin2').addEventListener('click',function(){openJoin(true)});
+  $('backv').addEventListener('click',function(){openJoin(false)});
+  $('closej').addEventListener('click',closeJ);
+  jb.addEventListener('click',function(e){if(e.target===jb) closeJ()});
 
   function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)}
   function show(id,msg){var e=$(id);e.textContent=msg;e.style.display='block'}
@@ -438,7 +473,7 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
       source: SOURCE,
       interests: [ {kind:'profile', name:name, region:null},
                    {kind:'dream', text:'Works at: '+where+'\nCame from the WhatsApp note (Barcelona done, Tokyo teased). Wants to hear first.'
-                      + (wantsMartin ? '\nWould come to a private week with Martin Lippo.' : '')} ]
+                      + (wantsMartin ? '\nApplied for the new collab with Martin Lippo.' : '')} ]
     };
     if(wantsMartin) payload.interests.push({kind:'collab-interest', teacher:'martin-lippo'});
 
@@ -458,9 +493,10 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
       await sb.auth.signInWithOtp({email:email, options:{emailRedirectTo:location.origin+'/portrait', shouldCreateUser:true}});
     }catch(e){ console.error('[Circle] link failed',e) }
 
-    if(wantsMartin) $('donenews').textContent="When there is news on Tokyo, or a private week with Martin, you'll hear it first.";
+    if(wantsMartin) $('donenews').textContent="Your application for the new collab with Martin is in. I'll write to you myself, and you'll hear about Tokyo first too.";
     $('doneemail').textContent=email;
     $('doneh').textContent="You're in the Circle, "+first(name)+".";
+    closeJ();
     $('join').style.display='none'; $('join-hero').style.display='none'; $('done').style.display='block';
     window.scrollTo(0,0);
   });
