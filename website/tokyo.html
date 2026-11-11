@@ -158,6 +158,15 @@ section{padding:clamp(60px,9vh,104px) 0;border-top:1px solid var(--line)}
 .plate img{object-position:50% 55%}
 .wall{list-style:none;margin:clamp(30px,4.5vh,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .wall li{display:flex;flex-direction:column;min-height:196px;padding:18px 18px 16px;border:1px solid var(--line-2);background:var(--white)}
+/* a card carries a photograph only when the school has one of that work; the others stay words */
+.wall .wp{margin:-18px -18px 16px;aspect-ratio:4/3;flex:0 0 auto}
+.wall li.t{justify-content:flex-end}
+.wall li.t p{flex:0 0 auto}
+/* inside the classroom: the film, and four photographs of a class day */
+.room-grid{display:grid;grid-template-columns:3fr 2fr 2fr;gap:12px;margin-top:clamp(28px,4vh,44px)}
+.room-grid .film{grid-row:1/3;background:var(--ink);aspect-ratio:9/16}
+.room-grid .film video{width:100%;height:100%;display:block;object-fit:cover;background:var(--ink)}
+.room-grid .ph{aspect-ratio:3/4}
 .wall h3{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.12}
 .wall p{font-size:13.5px;line-height:1.55;color:var(--muted);margin-top:10px;flex:1 1 auto}
 .wall .d{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-top:16px}
@@ -229,6 +238,9 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 @media (max-width:640px){
   .wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .wall li{min-height:0;padding:14px 14px 12px}
+  .wall .wp{margin:-14px -14px 12px}
+  .room-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .room-grid .film{grid-row:auto;grid-column:1/-1}
   .wall p{font-size:12.5px}
   .steps li,.ledger li,.row{grid-template-columns:1fr}
   .steps .d,.ledger .d{padding-top:0}
@@ -273,7 +285,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 </header>
 
 <section id="sent" hidden><div class="wrap">
-  <figure class="snap"><img id="sent-face" alt="" width="600" height="750"><figcaption><b id="sent-name"></b>Collaboration 01 &middot; Barcelona &middot; October 2026</figcaption></figure>
+  <figure class="snap"><img id="sent-face" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="600" height="750"><figcaption><b id="sent-name"></b>Collaboration 01 &middot; Barcelona &middot; October 2026</figcaption></figure>
   <div>
     <h2 class="h2" id="sent-h"></h2>
     <blockquote class="said" id="sent-q"></blockquote>
@@ -283,6 +295,19 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   <div class="strip" id="sent-strip"></div>
   <p class="cap">Photographs from the five days at Vakuum.</p>
   <p class="next">Tokyo is the second. Three weeks with Hiroko Ishii, and on the last day you serve. <a href="#counter">Here is how it runs</a></p>
+</div></section>
+
+<section id="classroom"><div class="wrap">
+  <h2 class="h2">At her school.</h2>
+  <div class="room-grid">
+    <div class="film"><video controls playsinline preload="none" poster="/images/tokyo/three-weeks-poster.jpg" width="720" height="1280" aria-label="A film of the classroom: Hiroko Ishii shaping nigiri, then the techniques of the three weeks, day by day">
+      <source src="/images/tokyo/three-weeks.mp4" type="video/mp4"></video></div>
+    <div class="ph"><img src="/images/tokyo/kitchen/class-kitchen.jpg" width="900" height="1200" alt="Hiroko Ishii teaching at the stove in the school kitchen" loading="lazy"></div>
+    <div class="ph"><img src="/images/tokyo/kitchen/class-nigiri.jpg" width="900" height="1200" alt="Hiroko Ishii at the bench showing a piece of tuna, trays of fish and a bowl of rice in front of her" loading="lazy"></div>
+    <div class="ph"><img src="/images/tokyo/kitchen/class-rice.jpg" width="900" height="1200" alt="Hiroko Ishii and a student mixing sushi rice in a wooden tub" loading="lazy"></div>
+    <div class="ph"><img src="/images/tokyo/kitchen/class-plating.jpg" width="900" height="1200" alt="A student in the school jacket placing nigiri on a board with chopsticks" loading="lazy"></div>
+  </div>
+  <p class="cap">Film and photographs &middot; Japan Culinary Masters Academy, Tokyo.</p>
 </div></section>
 
 <section id="counter"><div class="wrap two">
@@ -307,18 +332,18 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <h2 class="h2" style="margin-top:clamp(40px,6vh,64px)">Twelve things you do with your hands.</h2>
     <p class="lede">Every class day is Hiroko’s, set by her. Morning class 10 to 12, lunch, afternoon class 1 to 3, then practice until 5 with her in the room.</p>
     <ul class="wall">
-      <li><h3>Nigiri, by hand</h3><p>Rice cooked and seasoned until steady, the cut, the piece in the palm.</p><span class="d">Every day</span></li>
-      <li><h3>The yanagiba</h3><p>Fish for sushi cut in one pull. Your own knives sharpened.</p><span class="d">Mon 1, Tue 2</span></li>
-      <li><h3>Sanmai-oroshi</h3><p>A whole fish in three pieces, the skin off with the knife.</p><span class="d">Wed 3</span></li>
-      <li><h3>Ikejime</h3><p>At Toyosu, on a sea bream, in your own hands.</p><span class="d">Sat 13, agreed</span></li>
-      <li><h3>Ageing</h3><p>A bream aged four days, tasted against a fresh one.</p><span class="d">Sat 13</span></li>
-      <li><h3>Kombu-jime</h3><p>Flounder cured between sheets of kelp.</p><span class="d">Tue 9</span></li>
-      <li><h3>Vinegar cures</h3><p>Gizzard shad and mackerel. Bo-zushi, the pressed bar.</p><span class="d">Wed 10, Thu 11</span></li>
-      <li><h3>Whole fish</h3><p>A whole salmon, a whole yellowtail, aburi with the torch.</p><span class="d">Mon 8, Wed 10, Tue 16</span></li>
-      <li><h3>Tamago</h3><p>The omelette, on the pan you use at work. Nigiri from it.</p><span class="d">Thu 4</span></li>
-      <li><h3>The rolls</h3><p>Hosomaki, futomaki, inside-out, softshell crab.</p><span class="d">Tue 2, Fri 5, Tue 16</span></li>
-      <li><h3>Shellfish</h3><p>Ark shell, geoduck, surf clam, abalone, squid.</p><span class="d">Thu 11, Tue 16, Thu 18</span></li>
-      <li><h3>The hot side</h3><p>Dashi, simmered octopus, buri daikon, tempura.</p><span class="d">Wed 3, Mon 8, Thu 11, Fri 12</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-nigiri.jpg" width="800" height="600" alt="Five pieces of lean tuna nigiri on a long plate" loading="lazy"></div><h3>Nigiri, by hand</h3><p>Rice cooked and seasoned until steady, the cut, the piece in the palm.</p><span class="d">Every day</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-yanagiba.jpg" width="800" height="600" alt="A long knife set against a block of tuna on the board" loading="lazy"></div><h3>The yanagiba</h3><p>Fish for sushi cut in one pull. Your own knives sharpened.</p><span class="d">Mon 1, Tue 2</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-sanmai.jpg" width="800" height="600" alt="Three horse mackerel on a steel tray" loading="lazy"></div><h3>Sanmai-oroshi</h3><p>A whole fish in three pieces, the skin off with the knife.</p><span class="d">Wed 3</span></li>
+      <li class="t"><h3>Ikejime</h3><p>At Toyosu, on a sea bream, in your own hands.</p><span class="d">Sat 13, agreed</span></li>
+      <li class="t"><h3>Ageing</h3><p>A bream aged four days, tasted against a fresh one.</p><span class="d">Sat 13</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-flounder.jpg" width="800" height="600" alt="A whole flounder on the board beside a knife" loading="lazy"></div><h3>Kombu-jime</h3><p>Flounder cured between sheets of kelp.</p><span class="d">Tue 9</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-vinegar.jpg" width="800" height="600" alt="Three pieces of pressed mackerel sushi with pickled ginger" loading="lazy"></div><h3>Vinegar cures</h3><p>Gizzard shad and mackerel. Bo-zushi, the pressed bar.</p><span class="d">Wed 10, Thu 11</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-salmon.jpg" width="800" height="600" alt="A whole salmon on ice" loading="lazy"></div><h3>Whole fish</h3><p>A whole salmon, a whole yellowtail, aburi with the torch.</p><span class="d">Mon 8, Wed 10, Tue 16</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-tamago.jpg" width="800" height="600" alt="A platter of nigiri with the egg omelette in the middle" loading="lazy"></div><h3>Tamago</h3><p>The omelette, on the pan you use at work. Nigiri from it.</p><span class="d">Thu 4</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-rolls.jpg" width="800" height="600" alt="Futomaki and inari on a patterned plate" loading="lazy"></div><h3>The rolls</h3><p>Hosomaki, futomaki, inside-out, softshell crab.</p><span class="d">Tue 2, Fri 5, Tue 16</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-shellfish.jpg" width="800" height="600" alt="A geoduck clam opened in the hand over a steel bowl" loading="lazy"></div><h3>Shellfish</h3><p>Ark shell, geoduck, surf clam, abalone, squid.</p><span class="d">Thu 11, Tue 16, Thu 18</span></li>
+      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-tempura.jpg" width="800" height="600" alt="A tray of tempura held up in the classroom" loading="lazy"></div><h3>The hot side</h3><p>Dashi, simmered octopus, buri daikon, tempura.</p><span class="d">Wed 3, Mon 8, Thu 11, Fri 12</span></li>
     </ul>
     <details class="days"><summary>Every day, as Hiroko set it</summary>
     <div class="wk">
