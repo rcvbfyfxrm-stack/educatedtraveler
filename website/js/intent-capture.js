@@ -312,6 +312,12 @@
       // `copy` is optional: a note opens it as it always did, a tap with its own lines.
       open: function (from, handler, copy) {
         opener = from; onSend = handler;
+        // A note written inside an open modal <dialog> (/tokyo) sits in the browser's
+        // top layer: anything left on <body> is drawn underneath it and cannot be
+        // clicked, so the address box never appeared (found 11 Nov 2026). The card
+        // goes wherever its note is.
+        var host = (from && from.closest && from.closest('dialog[open]')) || document.body;
+        if (back.parentNode !== host) host.appendChild(back);
         setCopy(copy);
         err.hidden = true; done.hidden = true; done.innerHTML = '';
         card.removeAttribute('data-done');
@@ -721,6 +727,12 @@
         if (slug) disc.slug = slug;
         if (form.dataset.place) disc.place = form.dataset.place;
         interests.push(disc);
+      }
+      // A reader who came through another chef's link (/tokyo?from=…, 11 Nov 2026).
+      // The page checks the key against its own short list and sets data-from; the
+      // URL is never trusted here. No page without data-from is changed by this line.
+      if (form.dataset.from) {
+        interests.push({ kind: 'brought-by', key: form.dataset.from, name: form.dataset.fromName || '' });
       }
 
       var payload = {
