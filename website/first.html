@@ -182,6 +182,22 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
 .openall{margin:22px 0 0;width:100%;background:var(--white);color:var(--ink);border:1px solid var(--line-2)}
 .openall:hover{background:var(--ink);color:#fff}
 
+/* 11 Nov, his second ask: "people can read it, not too much, not boring, show everything".
+   Short serif heads, one line, one voice per part; the photos carry it. */
+.beat{padding:40px 0 0}
+.beat h3{font:300 clamp(30px,8.4vw,40px)/1.05 var(--serif);letter-spacing:-.02em;text-transform:none;color:var(--ink);margin:0 0 6px}
+.beat .one{margin:0 0 16px;color:var(--muted);font-size:15.5px}
+.ph .wide{margin:0 -20px}
+.ph .wide img{aspect-ratio:4/3}
+.swipe{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;margin:6px -20px 0;padding:0 20px 4px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.swipe::-webkit-scrollbar{display:none}
+.swipe figure{margin:0;flex:0 0 40%;scroll-snap-align:start}
+.swipe img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--ink)}
+.swipe figcaption,.ph figcaption{font:italic 300 14px var(--serif);color:var(--muted);margin-top:5px}
+.ph .wide figcaption{padding:0 20px}
+.hint{font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:8px 0 0;text-align:right}
+@media (min-width:600px){.ph .wide,.swipe{margin-left:0;margin-right:0}.swipe{padding:0 0 4px}.ph .wide figcaption{padding:0}.swipe figure{flex-basis:31%}}
+
 /* ── the word fizzes ── Arnaud, 11 Nov 2026: bubbles, discreet, only around "bubbling".
    A few hairline bubbles rise off the word and fade; nothing else on the page moves.
    Reduced motion: none. */
@@ -211,43 +227,36 @@ dialog::backdrop{background:rgba(14,22,21,.65)}
   <section aria-label="The week">
     <p class="label mono"><span>22&ndash;26 Oct &middot; Barcelona</span><span>Vakuum</span></p>
     <h2 class="sec">Not only a class.</h2>
-    <p class="intro">Five days at Martin Lippo's bench, and everything around it. This is what the week was.</p>
+    <p class="intro">The lab, the table, the people. This is what the week was.</p>
 
     <div class="beat">
-      <h3>In the lab</h3>
-      <div class="ph">
-        <figure class="wide"><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind" loading="lazy"><figcaption>At the bench</figcaption></figure>
-        <figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure>
-        <figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of a bowl of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure>
-      </div>
-      <p>Martin's complete programme, run as one week in his own laboratory: textures, spherification, liquid nitrogen, foams and siphon, sous-vide. Thirty-five hours, every technique in your own hands.</p>
-      <p class="say">All the techniques were actually very easy to do though they appeared very special.</p>
-      <p class="by">Artem Karpenko, yacht chef on a 70m charter yacht</p>
+      <h3>The lab.</h3>
+      <p class="one">Five days at Martin Lippo's bench. Spheres, nitrogen, foams, sous-vide, all in your own hands.</p>
+      <div class="ph"><figure class="wide"><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind" loading="lazy"><figcaption>At the bench</figcaption></figure></div>
+      <div class="swipe" aria-label="More from the lab"><figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of a bowl of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels on the steel bench" loading="lazy"><figcaption>Gels</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef working a siphon over the bench while the others watch" loading="lazy"><figcaption>Siphon</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure></div>
+      <p class="hint" aria-hidden="true">Swipe &rarr;</p>
     </div>
 
     <div class="beat">
-      <h3>Around the lab</h3>
+      <h3>The table.</h3>
+      <p class="one">After the lab: lunches together, a vermut and tapas night, dinners out.</p>
       <div class="ph">
         <figure class="wide"><img src="/images/collab/lab-week-01/week/evening-bar.jpg" alt="The group at a pavement bar table in Barcelona at night, glasses of beer, everyone turned to the camera" loading="lazy"><figcaption>Out in Barcelona</figcaption></figure>
-        <figure><img src="/images/collab/lab-week-01/week/evening-terrace.jpg" alt="Lunch on a terrace under a black umbrella, the chefs along a long red table, smiling" loading="lazy"><figcaption>Lunch on the terrace</figcaption></figure>
-        <figure><img src="/images/collab/lab-week-01/week/evening-paella.jpg" alt="Dinner around a paella at a white tablecloth, arms in the air" loading="lazy"><figcaption>Paella night</figcaption></figure>
+        <figure><img src="/images/collab/lab-week-01/week/evening-terrace.jpg" alt="Lunch on a terrace under a black umbrella, the chefs along a long red table, smiling" loading="lazy"><figcaption>Lunch on the terrace</figcaption></figure><figure><img src="/images/collab/lab-week-01/week/evening-paella.jpg" alt="Dinner around a paella at a white tablecloth, arms in the air" loading="lazy"><figcaption>Paella night</figcaption></figure>
       </div>
-      <p>After the lab hours, the table: lunches together, a vermut and tapas night, dinners out in the city.</p>
       <p class="say">Not only do I feel like I&rsquo;ve learned so much but also like I was traveling with a group almost.</p>
-      <p class="by">Renata Sullivan, freelance yacht chef / private chef</p>
+      <p class="by">Renata, yacht chef</p>
     </div>
 
     <div class="beat">
-      <h3>The room</h3>
+      <h3>The people.</h3>
+      <p class="one">Eight chefs who cook for a living. They came as strangers and left as friends.</p>
       <div class="crew">
         <figure><img src="/images/collab/lab-week-01/renata.jpg" alt="" loading="lazy"><figcaption>Renata</figcaption></figure><figure><img src="/images/collab/lab-week-01/jaimee.jpg" alt="" loading="lazy"><figcaption>Jaimee</figcaption></figure><figure><img src="/images/collab/lab-week-01/paul.jpg" alt="" loading="lazy"><figcaption>Paul</figcaption></figure><figure><img src="/images/collab/lab-week-01/alex.jpg" alt="" loading="lazy"><figcaption>Alex</figcaption></figure><figure><img src="/images/collab/lab-week-01/artem.jpg" alt="" loading="lazy"><figcaption>Artem</figcaption></figure><figure><img src="/images/collab/lab-week-01/mariola.jpg" alt="" loading="lazy"><figcaption>Mariola</figcaption></figure><figure><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="" loading="lazy"><figcaption>Mykhailo</figcaption></figure><figure><img src="/images/collab/lab-week-01/luigi.jpg" alt="" loading="lazy"><figcaption>Luigi</figcaption></figure>
       </div>
-      <p style="margin:0">Yacht chefs, a private jet catering chef, private chefs. Everyone at the bench cooks for a living, and came to learn.</p>
-      <p class="say">Everyone was there because they were truly interested in learning.</p>
-      <p class="by">Jaimee Kivell, yacht chef</p>
       <blockquote class="big">Wow wow wow what an incredible week shared with an incredible teacher, friends and city.</blockquote>
-      <p class="by">Alex, world traveling private chef</p>
-      <button type="button" class="cta openall" id="openv">The film and every note <span aria-hidden="true">&rarr;</span></button>
+      <p class="by">Alex, private chef</p>
+      <button type="button" class="cta openall" id="openv">Martin's film and every note <span aria-hidden="true">&rarr;</span></button>
     </div>
   </section>
   <section>
