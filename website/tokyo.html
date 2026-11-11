@@ -163,6 +163,9 @@ section{padding:clamp(60px,9vh,104px) 0;border-top:1px solid var(--line)}
 .wall li.t{justify-content:flex-end}
 .wall li.t p{flex:0 0 auto}
 /* inside the classroom: the film, and four photographs of a class day */
+.collab-lock{--lk-type:#fff;--lk-sea:var(--sea-dark);margin:0 0 clamp(22px,3.5vh,36px)}
+.collab-lock svg{display:block;width:min(440px,100%);height:auto;filter:drop-shadow(0 1px 8px rgba(0,0,0,.45))}
+@media (max-width:720px){.collab-lock{display:inline-block;padding:10px 14px 6px;background:rgba(14,22,21,.72);margin-bottom:22px}.collab-lock svg{width:min(330px,calc(100vw - 68px));filter:none}}
 .claim .claim-sub{display:block;font-size:clamp(1.15rem,1.9vw,1.55rem);line-height:1.3;letter-spacing:0;font-weight:300;color:rgba(255,255,255,.9);margin-top:.7em;max-width:30ch}
 .gain{list-style:none;margin:clamp(28px,4vh,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,5vw,64px);border-top:1px solid var(--line-2)}
 .gain li{padding:24px 0;border-bottom:1px solid var(--line)}
@@ -280,6 +283,17 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 <header class="stage">
   <div class="stage-bg"><img src="/images/review/hiroko/the-bench.jpg" width="900" height="1200" alt="Hiroko Ishii plating sashimi at the bench beside a student, plates of nigiri in front of them" loading="eager" fetchpriority="high"></div>
   <div class="wrap">
+    <div class="collab-lock" role="img" aria-label="Hiroko Ishii × EducatedTraveler, Japan Culinary Masters Academy, Tokyo">
+    <svg viewBox="36 18 720 122" aria-hidden="true" focusable="false">
+      <defs><clipPath id="tkL"><rect x="556.2" y="82.5" width="23.8" height="57.0"/></clipPath><clipPath id="tkR"><rect x="580" y="82.5" width="23.8" height="57.0"/></clipPath><path id="tk-arc" d="M 424 96 A 312 312 0 0 1 736 96" fill="none"/></defs>
+      <text x="205" y="46" text-anchor="middle" font-family="var(--f-mono)" font-size="9.5" letter-spacing="3" fill="var(--lk-type)" opacity=".5">JAPAN CULINARY MASTERS ACADEMY</text>
+      <text x="205" y="98" text-anchor="middle" font-family="var(--f-display)" font-size="44" font-weight="500" letter-spacing="-.3" fill="var(--lk-type)">Hiroko Ishii</text>
+      <text x="385" y="96" text-anchor="middle" font-family="var(--f-display)" font-size="34" fill="var(--lk-sea)">×</text>
+      <text font-family="var(--f-display)" font-size="27" font-weight="600" letter-spacing=".6"><textPath href="#tk-arc" startOffset="48.8%" text-anchor="middle"><tspan fill="var(--lk-type)">educated</tspan><tspan fill="var(--lk-sea)">traveler</tspan></textPath></text>
+      <path d="M 461.2 99.4 A 292 292 0 0 1 698.8 99.4" fill="none" stroke="var(--lk-sea)" stroke-width="2.1" stroke-linecap="round"/>
+      <circle cx="589.04" cy="108.06" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="585.58" cy="118.69" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="574.42" cy="118.69" r="9.5" fill="none" stroke="var(--lk-sea)" stroke-width="2.5"/><circle cx="570.96" cy="108.06" r="9.5" fill="none" stroke="var(--lk-sea)" stroke-width="2.5"/><g clip-path="url(#tkL)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--lk-sea)" stroke-width="2.5"/></g><g clip-path="url(#tkR)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/></g>
+    </svg>
+    </div>
     <h1 class="claim">Learn to serve an omakase <em>in front of your guests.</em><span class="claim-sub">And the classic techniques of the Japanese kitchen behind it.</span></h1>
     <p class="with">Three weeks in Tokyo with <b>Hiroko Ishii</b>, founder of Japan Culinary Masters Academy.</p>
     <p class="stand">The rice, the knife, the fish, the order of the pieces. On the last day you stand behind the counter and serve.</p>
