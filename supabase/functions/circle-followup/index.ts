@@ -1,5 +1,5 @@
-// Circle follow-up: two days after the welcome, ask the newcomer what they would
-// like to learn and who they are (Arnaud, 12 Nov 2026). Called once a day by
+// Circle follow-up: two days after the welcome, to people who joined WITHOUT a note,
+// ask who they are and what they would like to learn (Arnaud, 12 Nov 2026). Called once a day by
 // pg_cron (job "circle-followup-daily"). Idempotent: a row is sent once
 // (followed_up_at), a person once (email match), so a forged call can at most
 // send a due follow-up a few hours early. {"test":true} sends to Arnaud only.
@@ -52,6 +52,18 @@ function firstName(interests: unknown) {
   return "";
 }
 
+// Their own words live in interests kind:"dream" (claim_waitlist_answers() carries it
+// into profiles.dream_letter). /first writes an automatic dream ("Works at: ...",
+// "Came from the WhatsApp note ...", "Applied for ..."): those lines are not a note.
+const AUTO = [/^Works at:/i, /^Came from the WhatsApp note/i, /^Applied for /i];
+export function wroteANote(r: Pick<Row, "interests" | "letter">) {
+  const texts = [String(r.letter ?? "")];
+  for (const i of Array.isArray(r.interests) ? r.interests as Record<string, unknown>[] : [])
+    if (i?.kind === "dream") texts.push(String(i.text ?? ""));
+  const own = texts.join("\n").split("\n").map((l) => l.trim()).filter((l) => l && !AUTO.some((re) => re.test(l)));
+  return own.join(" ").split(/\s+/).filter(Boolean).length >= 2;
+}
+
 const mask = (e: string) => e.replace(/^(.).*(@.*)$/, "$1***$2");
 
 serve(async (req) => {
@@ -81,7 +93,7 @@ serve(async (req) => {
     for (const r of (data ?? []) as Row[]) {
       const key = r.email.trim().toLowerCase();
       if (seen.has(key) || SKIP.some((re) => re.test(String(r.source ?? "")))) continue;
-      if ((r.letter ?? "").trim().split(/\s+/).length >= 25) continue; // already wrote a real note
+      if (wroteANote(r)) continue; // only people who joined without a note
       const { count } = await admin.from("launch_waitlist").select("id", { count: "exact", head: true })
         .ilike("email", key).not("followed_up_at", "is", null);
       if (count) continue;

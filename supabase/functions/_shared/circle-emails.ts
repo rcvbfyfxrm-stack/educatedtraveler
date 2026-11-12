@@ -527,22 +527,20 @@ export async function sendCircleEmail(
 }
 
 // ── the follow-up, two days after the welcome (Arnaud, 12 Nov 2026) ─────────
-// Asks the newcomer who they are and what they want to learn, in their own words
-// (a note, never a form). Opens with ONE line naming the door they came in by.
+// Sent only to people who joined WITHOUT writing a note. Asks who they are, where
+// they are going, what they want to learn, in their own words (a note, never a form).
+// Same words as the note Arnaud approved for Ruthie Kallai, 12 Nov 2026. Opens with ONE line naming the door they came in by.
 // NOT in ISSUES on purpose: circle-broadcast must never be able to send it to
 // the whole Circle. Only circle-followup calls this.
 export function followupEmail(unsub: string, firstName: string, doorLine: string) {
   const n = firstName.trim();
-  const subject = n ? `What would you like to learn, ${n}?` : "What would you like to learn?";
+  const subject = n ? `Tell me about you, ${n}` : "Tell me about you";
   const hello = n ? `Hey ${n},` : "Hey,";
-  const wa = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - here is what I would like to learn:");
+  const wa = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - a little about me:");
   const paras = [
     doorLine,
-    "I would like to know you a little. A few lines is enough:",
-    "What would you like to learn next? A technique, a cuisine, a craft away from the kitchen.",
-    "Where would you go to learn it, if you could go anywhere?",
-    "And who are you: where you work, what you cook, where you are based.",
-    "Your answer is the start of your profile in the Circle. It stays between us unless you tell me otherwise, and it is how I know which doors to open for you.",
+    "Tell me about you. Where you are in your career, where you'd like to go next, what you'd love to learn, and what you feel your calling is. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.",
+    "It's the start of your profile in the Circle. It stays between us, and it's how I find the right place and the right teacher for you.",
   ].filter(Boolean);
   const html = welcomeShell({ unsub, body: `
     <p ${WL}>${esc(hello)}</p>
