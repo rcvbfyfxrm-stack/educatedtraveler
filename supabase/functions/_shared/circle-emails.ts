@@ -256,13 +256,17 @@ const WLINK = 'style="color:#2f5d59;text-decoration:underline;text-underline-off
 function welcomeShell(opts: { body: string; unsub: string }): string {
   return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
-<body style="margin:0;padding:0;background:#ffffff;">
-  <div style="max-width:560px;margin:0 auto;padding:36px 24px 28px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#262624;">
+<body style="margin:0;padding:0;background:#ffffff;" bgcolor="#ffffff">
+  <!-- White all the way (Arnaud, 12 Nov 2026): mail apps drop <body> styles, so the
+       wrapper table + the div each carry the white themselves. -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background:#ffffff;width:100%;"><tr><td bgcolor="#ffffff" style="background:#ffffff;">
+  <div style="max-width:560px;margin:0 auto;padding:36px 24px 28px;background:#ffffff;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#262624;">
 ${opts.body}
     <div style="margin:44px 0 0 0;padding-top:16px;border-top:1px solid #e6e1d8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#8a8279;">
       The Educated Travelers · <a href="https://educatedtraveler.app" style="color:#8a8279;">educatedtraveler.app</a> · <a href="${opts.unsub}" style="color:#8a8279;">Leave the Circle</a>
     </div>
   </div>
+  </td></tr></table>
 </body></html>`;
 }
 
