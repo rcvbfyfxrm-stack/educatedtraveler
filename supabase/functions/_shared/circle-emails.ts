@@ -525,3 +525,42 @@ export async function sendCircleEmail(
   if (!res.ok) return { ok: false, error: data };
   return { ok: true, id: data.id };
 }
+
+// ── the follow-up, two days after the welcome (Arnaud, 12 Nov 2026) ─────────
+// Asks the newcomer who they are and what they want to learn, in their own words
+// (a note, never a form). Opens with ONE line naming the door they came in by.
+// NOT in ISSUES on purpose: circle-broadcast must never be able to send it to
+// the whole Circle. Only circle-followup calls this.
+export function followupEmail(unsub: string, firstName: string, doorLine: string) {
+  const n = firstName.trim();
+  const subject = n ? `What would you like to learn, ${n}?` : "What would you like to learn?";
+  const hello = n ? `Hey ${n},` : "Hey,";
+  const wa = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - here is what I would like to learn:");
+  const paras = [
+    doorLine,
+    "I would like to know you a little. A few lines is enough:",
+    "What would you like to learn next? A technique, a cuisine, a craft away from the kitchen.",
+    "Where would you go to learn it, if you could go anywhere?",
+    "And who are you: where you work, what you cook, where you are based.",
+    "Your answer is the start of your profile in the Circle. It stays between us unless you tell me otherwise, and it is how I know which doors to open for you.",
+  ].filter(Boolean);
+  const html = welcomeShell({ unsub, body: `
+    <p ${WL}>${esc(hello)}</p>
+${paras.map((p) => `    <p ${WL}>${esc(p)}</p>`).join("\n")}
+    <p ${WL}>Hit reply, or send it on <a href="${wa}" ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me.</p>
+    <p style="margin:34px 0 0 0;">Talk soon,<br>Arnaud</p>` });
+  const text = `${hello}
+
+${paras.join("\n\n")}
+
+Hit reply, or send it on WhatsApp if that's easier. Both come straight to me.
+${wa}
+
+Talk soon,
+Arnaud
+
+--
+The Educated Travelers · educatedtraveler.app
+Leave the Circle: ${unsub}`;
+  return { subject, html, text, from: FROM_WELCOME };
+}
