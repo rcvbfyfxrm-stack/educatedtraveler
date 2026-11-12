@@ -50,6 +50,7 @@ const SOURCE_LABEL: Record<string, string> = {
   "join-page": "the join page",
   "barcelona": "the /barcelona teaser",
   "teach-offer": "the /teach note — a master's door",
+  "collab:tokyo-2027:interested": "the /tokyo \"I am interested\" button",
 };
 
 const INTENT_LABEL: Record<string, string> = {
@@ -492,8 +493,22 @@ serve(async (req) => {
     const craftBit = p.crafts.length ? ` — ${p.crafts[0]}${extra}` : "";
     const masterBit = p.mastery?.skill ? ` · masters ${p.mastery.skill}${p.mastery.advanced === "yes" ? " (wants to go deeper)" : ""}` : "";
     const schoolBit = p.schools.length ? ` · ${p.schools[0]}` : "";
+    // A raised hand on a collaboration page (/tokyo, 11 Nov 2026) is not a Circle
+    // signup either: name it as what it is, and who sent them the page.
+    // A Circle member already on the list is FOLDED into their old row (036/047):
+    // the source stays the old one, and the new answers are appended at the end.
+    // So the raised hand is also read off the newest item.
+    const srcS = String(row.source ?? "");
+    const items = Array.isArray(row.interests) ? (row.interests as Array<Record<string, unknown>>) : [];
+    const newest = items[items.length - 1];
+    const hand = srcS.endsWith(":interested") || (!!newest && newest.kind === "collab-interest");
+    const recent = [...items].reverse();
+    const what = String(recent.find((x) => x && x.kind === "collab-interest")?.what ?? "a collaboration");
+    const by = String(recent.find((x) => x && x.kind === "brought-by")?.name ?? "");
     // An offer to teach is not a signup and must not read as one in the inbox.
-    const subject = p.instructor
+    const subject = hand
+      ? `Interested: ${who} — ${what}${by ? " · sent by " + by : ""}`
+      : p.instructor
       ? `A room offered: ${who}${p.instructor.craft ? " — " + p.instructor.craft : ""}${p.instructor.where ? " · " + p.instructor.where : ""}`
       : `New Circle signup: ${who}${craftBit}${schoolBit}${p.dream ? " · with a dream" : ""}${masterBit}`;
 

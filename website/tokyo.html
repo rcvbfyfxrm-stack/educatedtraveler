@@ -244,6 +244,17 @@ dialog#raise .etsu-dots i.on,dialog#raise .etsu-seal{background:var(--sea)}
 dialog#raise::backdrop{background:rgba(14,22,21,.55);backdrop-filter:blur(6px)}
 dialog#raise .close{position:absolute;top:12px;right:14px;width:36px;height:36px;border:1px solid var(--line-2);background:#fff;color:var(--ink);font-size:20px;line-height:1;cursor:pointer}
 dialog#raise .close:hover{background:var(--sea-tint)}
+.hand-h{font-size:clamp(1.6rem,4vw,2.1rem);line-height:1.1;margin:0 0 10px}
+.hand-p{font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 20px;max-width:40ch}
+.hand-l{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 14px}
+.hand-l input{display:block;width:100%;margin-top:7px;padding:13px 14px;font:16px/1.3 var(--f-body);letter-spacing:0;text-transform:none;color:var(--ink);background:#fff;border:1px solid var(--line-2);border-radius:0}
+.hand-l input:focus{outline:2px solid var(--sea);outline-offset:1px;border-color:var(--sea)}
+.hand-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.hand-go{width:100%;margin-top:6px}
+.hand-go[disabled]{opacity:.6;cursor:wait}
+.hand-say{min-height:1.4em;font-size:14px;color:#9a3b2a;margin:10px 0 0}
+.hand-fine{font-size:12px;color:var(--muted);margin:6px 0 0}.hand-fine a{color:var(--sea);border-bottom:1px solid rgba(78,123,120,.35)}
+.hand-sig{font-family:var(--f-display);font-style:italic;font-size:20px;margin:6px 0 0}
 
 @media (max-width:860px){
   .two,.teacher{grid-template-columns:1fr}
@@ -518,20 +529,30 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 
 <dialog id="raise" aria-label="I am interested">
   <button type="button" class="close" aria-label="Close" data-close>&times;</button>
-  <!-- /js/intent-capture.js (THE NOTE, 31 Aug 2026) rebuilds this form as the one note on the site:
-       a few lines to Arnaud, then the address. The data-* below is what it reads. -->
-  <form class="intent" data-discipline="sushi-and-washoku" data-place="tokyo-omakase-2027" data-label="Tokyo omakase sushi, March 2027" data-source="collab:tokyo-2027"></form>
+  <!-- A raised hand, nothing more (Arnaud, 11 Nov 2026): no note, no "where", no sign-up,
+       no WhatsApp step. Name + email go to launch_waitlist as source collab:tokyo-2027:interested;
+       notify-lead emails Arnaud (reply goes to them), circle-welcome sends them nothing. -->
+  <form class="hand" id="hand" novalidate>
+    <h2 class="hand-h">I am interested.</h2>
+    <p class="hand-p">Three weeks in Tokyo with Hiroko Ishii, March 2027. Leave your name and your email: it comes straight to me, and I write back myself.</p>
+    <label class="hand-l">Your name<input name="name" type="text" autocomplete="name" maxlength="80" required></label>
+    <label class="hand-l">Your email<input name="email" type="email" autocomplete="email" spellcheck="false" maxlength="160" required></label>
+    <label class="hand-hp" aria-hidden="true">Leave this empty<input name="company" type="text" tabindex="-1" autocomplete="off"></label>
+    <button type="submit" class="btn btn-primary hand-go">Send</button>
+    <p class="hand-say" role="status" aria-live="polite"></p>
+    <p class="hand-fine">Nothing to sign up for, and nothing is on sale yet. <a href="/privacy">Privacy</a></p>
+  </form>
+  <div class="hand-done" hidden><h2 class="hand-h">Thank you<span class="hand-who"></span>.</h2><p class="hand-p">It is with me now. I will write to you myself.</p><p class="hand-sig">Arnaud</p></div>
 </dialog>
 
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
-<script src="/js/intent-capture.js" defer></script>
 <script>
 /* A chef of Collaboration 01 can send a chef this page (11 Nov 2026).
    /tokyo?from=<key>  what the friend opens: who sent it, that chef's face and own words
                       from Barcelona, then Tokyo. The note the friend writes carries the
-                      key to Arnaud (intent-capture.js reads data-from).
+                      key to Arnaud (the hand form reads data-from).
    /tokyo?send=<key>  what the Barcelona chef opens: the same page as their friend will
                       see it, and a bar to send it on WhatsApp. Nothing is remembered and
                       nothing is attached to a note in this mode.
@@ -565,7 +586,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     else{ key=''; try{ var s=JSON.parse(localStorage.getItem(K)||'null'); if(s&&known(s.k)&&Date.now()-s.t<DAYS*864e5) key=s.k; }catch(e){} }
   }
   if(!key) return;
-  var name=CHEFS[key].n,f=document.querySelector('#raise form.intent'),v=el('via'),sec=el('sent');
+  var name=CHEFS[key].n,f=document.querySelector('#raise form.hand'),v=el('via'),sec=el('sent');
   if(f&&!sending){ f.dataset.from=key; f.dataset.fromName=name; }
   if(v){
     var b=document.createElement('b'); b.textContent=name+' sent you this page.';
@@ -627,6 +648,33 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 </script>
 <script>
 document.querySelectorAll('.clip').forEach(function(b){var v=b.querySelector('video');b.addEventListener('click',function(){if(v.paused){v.play().then(function(){b.classList.add('on')}).catch(function(){})}else{v.pause();b.classList.remove('on')}})});
+</script>
+<script>
+/* "I am interested" on /tokyo (Arnaud, 11 Nov 2026): name + email, one tap, straight to him. */
+(function(){
+  var f=document.getElementById('hand'); if(!f) return;
+  var done=document.querySelector('#raise .hand-done'),say=f.querySelector('.hand-say'),go=f.querySelector('.hand-go');
+  function msg(t){ say.textContent=t; }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var E=f.elements,name=E['name'].value.trim(),email=E['email'].value.trim();
+    if(E['company'].value){ return; }
+    if(!name){ msg('Your name, so I know who to write to.'); E['name'].focus(); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg('An email I can write back to.'); E['email'].focus(); return; }
+    var sb=window.supabaseClient;
+    if(!sb||!sb.from){ msg('This did not go through. Please try again in a moment.'); return; }
+    var interests=[{kind:'profile',name:name}];
+    if(f.dataset.from) interests.push({kind:'brought-by',key:f.dataset.from,name:f.dataset.fromName||''});
+    interests.push({kind:'collab-interest',what:'Tokyo, three weeks with Hiroko Ishii, March 2027',page:'/tokyo'});
+    go.disabled=true; msg('');
+    sb.from('launch_waitlist').insert({email:email,source:'collab:tokyo-2027:interested',interests:interests}).then(function(r){
+      if(r&&r.error){ throw r.error; }
+      if(window.plausible) window.plausible('Interest',{props:{source:'collab:tokyo-2027:interested',from:f.dataset.from?'yes':'no'}});
+      done.querySelector('.hand-who').textContent=', '+name.split(/\s+/)[0];
+      f.hidden=true; done.hidden=false;
+    }).catch(function(){ go.disabled=false; msg('This did not go through. Please try again in a moment.'); });
+  });
+})();
 </script>
 </body>
 </html>

@@ -79,6 +79,14 @@ serve(async (req) => {
       return json({ message: "skip (seat payment, not a Circle signup)" });
     }
 
+    // "I am interested" on a collaboration page (/tokyo, 11 Nov 2026): a raised
+    // hand, not a Circle signup. Arnaud's ruling: no sign-up, he writes back
+    // himself. welcomed_at stays null, so if they join the Circle later the
+    // letter still reaches them then.
+    if (String(row.source ?? "").endsWith(":interested")) {
+      return json({ message: "skip (a raised hand for a collaboration, not a Circle signup)" });
+    }
+
     // Per-ROW idempotency. This endpoint is deployed --no-verify-jwt, so anyone who
     // guesses a row id can POST it again; without this, one letter can be turned into
     // unlimited identical emails to that person. Every path checks it, including
