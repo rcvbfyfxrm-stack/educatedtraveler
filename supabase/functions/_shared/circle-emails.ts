@@ -274,7 +274,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${WL}>The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:<br><a href="https://educatedtraveler.app/barcelona" ${WLINK}>educatedtraveler.app/barcelona</a></p>
     <p ${WL}>Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.</p>
     <p ${WL}>I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.</p>
-    <p ${WL}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${WL}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:34px 0 0 0;">Talk soon,<br>Arnaud</p>`;
   return welcomeShell({ body, unsub });
 }
@@ -294,7 +294,7 @@ Your note is here. I read every one myself, and what the Circle asks for decides
 I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
+https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
 
 Talk soon,
 Arnaud
