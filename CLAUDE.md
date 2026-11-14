@@ -60,13 +60,15 @@ name third parties, carry commercial terms and hold unreleased media. Each has a
 
 ---
 
-## Current state — 10 August 2026
+## Current state
 
-- **Atlas:** 100 crafts · 335 places · **118 with a named teacher · 217 blank on purpose · 0 checked and dated · 0 stood in.** 847 school entries. 56 countries (the `63` figure counts label strings, not countries).
-- **Atlas standard v1.0 applied in data**, not deployed. Every destination carries `standard{check, enrolment, vitality, designations, directRoute, bar{10 rules}}`; counts live in `ET_ATLAS.standardMeta`.
-- **Lab Week 01:** Martín Lippo / Vakuum, Barcelona, 22–26 Oct 2026. Signed 29 July. €1,500/seat VAT incl., cap 15, confirms at 10. **Full payment by 15 September.** ⚠ The split, the sum owed and the break-even are commercial terms with a named partner — they live in the gitignored `MASTERPLAN.md`, never here. This file is tracked in a PUBLIC repo and Martín can read it.
-- **Circle:** 32 rows in `launch_waitlist`. **Two letters sent** — 31 of 32 rows carry `last_issue = letter-02a` (verified against Supabase 11 Aug 2026; filenames are not a send log, the column is). **Zero paid seats. Zero alumni** — so nobody has yet learned anything together.
-- **Uncommitted on `feat/circle-onboarding`:** the Atlas standard, the Telluride/Ascona fix, the 56-country correction, the retired-URL redirect map.
+State is not kept in this file. The last snapshot written here was dated 10 August 2026 and was wrong within weeks. For what is live, read `git log` and the pages themselves. For counts, read `ET_ATLAS.standardMeta` and the database, never a number written in a document.
+
+Vocabulary rulings made since August. They win over older wording anywhere in this repo:
+
+- The thing people write to Arnaud is a **note**, never a letter. `scripts/check-vocabulary.py` knows what was renamed and what was left alone on purpose.
+- In outreach, the paid week is a **collaboration** (6 Nov 2026). Whether the site, the page names and the folders follow is not yet ruled, so `weeks/` and "Lab Week" stay as they are in code until Arnaud says.
+- The company's name is **The Educated Travelers** (6 Nov 2026). The Circle keeps its name. The site, the footers and the domain are not yet renamed.
 
 ---
 

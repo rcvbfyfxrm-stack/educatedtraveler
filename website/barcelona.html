@@ -268,13 +268,17 @@
   @media(max-width:620px){.ph-bench{grid-template-columns:1fr 1fr;gap:.5rem}.ph-evenings{gap:.5rem}}
   .topbar a.atlas{white-space:nowrap}
   @media(max-width:480px){.topbar a.atlas[href="/atlas/"]{display:none}}
-  /* another collab with Martin: a one-tap interest, in a sheet, without leaving the page */
+  /* the two doors (next Martin collab / tell me more): one sheet, in a sheet, without leaving the page */
   button.btn{cursor:pointer;font-weight:500}
+  button.btn-primary{border:0}
   #again{border:1px solid var(--line);border-radius:12px;background:var(--ink-2);color:var(--type);padding:0;width:min(440px,calc(100vw - 32px))}
   #again::backdrop{background:rgba(0,0,0,.65)}
   #again form{display:grid;gap:14px;padding:22px 18px}
   #again h3{font:300 1.5rem/1.2 var(--serif);margin:0}
   #again p{margin:0;color:var(--soft);font-size:.95rem}
+  #again label.fl{display:grid;gap:6px;font-size:.85rem;color:var(--soft)}
+  #again label.fl .opt{color:var(--softer)}
+  #again input[type=text],#again textarea{font:inherit;color:var(--type);background:rgba(14,22,21,.05);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%;resize:vertical}
   #again input[type=email]{font:inherit;color:var(--type);background:rgba(14,22,21,.05);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%}
   #again label.tick{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--soft)}
   #again fieldset.picks{border:0;margin:0;padding:0;display:grid;gap:10px}
@@ -403,10 +407,10 @@
     <h2>This was the first.</h2>
     <p>EducatedTraveler is a free map of where a craft is still alive and who still teaches it. A collaboration is that map come true: one teacher, in their own working room, with a small room of people who want the same craft. The next one is not announced yet. Leave your name and I write to you first, when it is real. Free, and you can leave in one click.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="/circle">Keep me posted &rarr;</a>
-      <button type="button" class="btn btn-peer" id="again-open">Another collab with Martin? Count me in</button>
-      <a class="btn btn-ghost" href="/collaborations">All the collaborations</a>
+      <button type="button" class="btn btn-primary" id="again-open" data-mode="martin">Tell me when the next collab with Martin is &rarr;</button>
+      <button type="button" class="btn btn-primary" id="more-open" data-mode="more">I'm interested, tell me more &rarr;</button>
     </div>
+    <p style="margin:0"><a class="btn btn-ghost" href="/collaborations">All the collaborations</a></p>
   </div>
 </section>
 
@@ -454,52 +458,60 @@
 </script>
 <dialog id="again" aria-labelledby="again-h">
   <form id="again-f" novalidate>
-    <h3 id="again-h">Another collab with Martin.</h3>
-    <p>Nothing is set yet. Tick what you want, leave your email, and you hear it first.</p>
-    <fieldset class="picks"><legend>I am interested in</legend>
-      <label class="tick"><input type="checkbox" id="again-martin" checked><span>The next collab with Martin</span></label>
-      <label class="tick"><input type="checkbox" id="again-next"><span>Knowing more about what is coming</span></label>
-    </fieldset>
-    <input type="email" id="again-email" placeholder="you@wherever.com" autocomplete="email" aria-label="Your email">
+    <h3 id="again-h">The next collab with Martin.</h3>
+    <p id="again-sub">Nothing is set yet. Leave your name and email, and you hear it first.</p>
+    <label class="fl">Your name<input type="text" id="again-name" autocomplete="name" maxlength="80"></label>
+    <label class="fl"><span>A note for me <span class="opt">(if you want)</span></span><textarea id="again-note" rows="3" maxlength="2000" placeholder="What you would love to learn, where you are with it today."></textarea></label>
+    <label class="fl">Your email<input type="email" id="again-email" placeholder="you@wherever.com" autocomplete="email"></label>
     <label class="tick"><input type="checkbox" id="again-ok"><span>You may write to me at this address. One click to leave, any time.</span></label>
     <div class="err" id="again-err" role="alert"></div>
-    <button type="submit" class="btn btn-primary" id="again-go">Count me in &rarr;</button>
+    <button type="submit" class="btn btn-primary" id="again-go">Enlarge the Circle &rarr;</button>
     <button type="button" class="x" id="again-x">Close</button>
   </form>
 </dialog>
 
 <script>
-// One tap: email + tick, one row in launch_waitlist (source collab-interest:martin-lippo).
-// Supabase loads only when someone opens the sheet.
+// One sheet, two doors (Arnaud, 14 Nov 2026): "Tell me when the next collab with
+// Martin is" and "I'm interested, tell me more". Name, a note only if they want,
+// email + tick, "Enlarge the Circle". One row in launch_waitlist; the door they
+// chose is in source + interests. Supabase loads only when the sheet opens.
 (function(){
   var d=document.getElementById('again'), f=document.getElementById('again-f');
   if(!d) return;
   var $=function(i){return document.getElementById(i)};
   function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
-  var ready=null;
+  var ready=null, mode='martin';
   function sb(){ if(!ready) ready=load('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2').then(function(){return load('/js/supabase-config.js')}); return ready }
-  $('again-open').addEventListener('click',function(){ sb().catch(function(){}); d.showModal ? d.showModal() : d.setAttribute('open',''); $('again-email').focus() });
+  var COPY={
+    martin:{h:'The next collab with Martin.', p:'Nothing is set yet. Leave your name and email, and you hear it first.'},
+    more:{h:'Keep me posted.', p:'Leave your name and email, and you hear first what comes next.'}
+  };
+  function open(m){ mode=m; $('again-h').textContent=COPY[m].h; $('again-sub').textContent=COPY[m].p;
+    sb().catch(function(){}); d.showModal ? d.showModal() : d.setAttribute('open',''); $('again-name').focus() }
+  $('again-open').addEventListener('click',function(){open('martin')});
+  $('more-open').addEventListener('click',function(){open('more')});
   $('again-x').addEventListener('click',function(){d.close()});
   d.addEventListener('click',function(e){if(e.target===d) d.close()});
   function err(m){var e=$('again-err');e.textContent=m;e.style.display='block'}
   f.addEventListener('submit',async function(ev){
     ev.preventDefault(); $('again-err').style.display='none';
-    var email=$('again-email').value.trim();
-    var wantMartin=$('again-martin').checked, wantNext=$('again-next').checked;
-    if(!wantMartin && !wantNext){err('Tick at least one: the next collab with Martin, or what is coming.');return}
+    var name=$('again-name').value.trim(), note=$('again-note').value.trim(), email=$('again-email').value.trim();
+    if(!name){err('Your name, so I know who I am writing to.');return}
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){err('I need a real address to write to.');return}
     if(!$('again-ok').checked){err('Tick the box so I can write to you.');return}
     var b=$('again-go'); b.disabled=true;
+    var interests=[{kind:'profile', name:name}];
+    if(mode==='martin') interests.push({kind:'collab-interest', teacher:'martin-lippo'});
+    if(note) interests.push({kind:'dream', text:note});
     try{
       await sb(); var c=window.supabaseClient; if(!c) throw new Error('no connection');
-      var r=await c.from('launch_waitlist').insert({email:email, source:'collab-interest:martin-lippo',
-        interests:[].concat(
-          wantMartin?[{kind:'collab-interest', teacher:'martin-lippo'},{kind:'dream', text:'Interested in the next collab with Martin Lippo (from /barcelona).'}]:[],
-          wantNext?[{kind:'dream', text:'Wants to know more about what is coming next (from /barcelona).'}]:[])});
+      var r=await c.from('launch_waitlist').insert({email:email,
+        source: mode==='martin' ? 'collab-interest:martin-lippo' : 'barcelona-keep-posted', interests:interests});
       if(r && r.error) throw r.error;
-      if(window.plausible) window.plausible('MartinAgain');
+      if(window.plausible) window.plausible(mode==='martin' ? 'MartinAgain' : 'BarcelonaKeepPosted');
     }catch(e){ console.error('[again]',e); b.disabled=false; err('Could not save that just now. Try again, or write to arnaudcallier@pm.me.'); return }
-    f.innerHTML='<h3>Noted.</h3><p>'+(wantMartin?'If there is another collab with Martin, you will hear it first.':'When the next one is real, you will hear it first.')+'</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
+    var first=name.split(/\s+/)[0].replace(/[<>&"']/g,'');
+    f.innerHTML='<h3>Welcome to the Circle, '+first+'.</h3><p>'+(mode==='martin'?'If there is another collab with Martin, you hear it first.':'When the next one is real, you hear it first.')+' A welcome is on its way to your inbox.</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
   });
 })();
 </script>
