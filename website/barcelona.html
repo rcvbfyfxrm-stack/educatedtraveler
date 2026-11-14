@@ -268,7 +268,7 @@
   @media(max-width:620px){.ph-bench{grid-template-columns:1fr 1fr;gap:.5rem}.ph-evenings{gap:.5rem}}
   .topbar a.atlas{white-space:nowrap}
   @media(max-width:480px){.topbar a.atlas[href="/atlas/"]{display:none}}
-  /* a private week with Martin: a one-tap interest, in a sheet, without leaving the page */
+  /* another collab with Martin: a one-tap interest, in a sheet, without leaving the page */
   button.btn{cursor:pointer;font-weight:500}
   #again{border:1px solid var(--line);border-radius:12px;background:var(--ink-2);color:var(--type);padding:0;width:min(440px,calc(100vw - 32px))}
   #again::backdrop{background:rgba(0,0,0,.65)}
@@ -277,6 +277,9 @@
   #again p{margin:0;color:var(--soft);font-size:.95rem}
   #again input[type=email]{font:inherit;color:var(--type);background:rgba(14,22,21,.05);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%}
   #again label.tick{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--soft)}
+  #again fieldset.picks{border:0;margin:0;padding:0;display:grid;gap:10px}
+  #again fieldset.picks legend{font:400 .75rem var(--mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:var(--softer);margin-bottom:8px;padding:0}
+  #again fieldset.picks label.tick{font-size:.95rem;color:var(--type)}
   #again .err{color:var(--neon-soft);font-size:.85rem;display:none}
   #again .x{justify-self:start;background:none;border:0;color:var(--softer);font:400 .85rem var(--sans);text-decoration:underline;cursor:pointer;padding:0}
 </style>
@@ -401,7 +404,7 @@
     <p>EducatedTraveler is a free map of where a craft is still alive and who still teaches it. A collaboration is that map come true: one teacher, in their own working room, with a small room of people who want the same craft. The next one is not announced yet. Leave your name and I write to you first, when it is real. Free, and you can leave in one click.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="/circle">Keep me posted &rarr;</a>
-      <button type="button" class="btn btn-peer" id="again-open">A private week with Martin? Count me in</button>
+      <button type="button" class="btn btn-peer" id="again-open">Another collab with Martin? Count me in</button>
       <a class="btn btn-ghost" href="/collaborations">All the collaborations</a>
     </div>
   </div>
@@ -451,8 +454,12 @@
 </script>
 <dialog id="again" aria-labelledby="again-h">
   <form id="again-f" novalidate>
-    <h3 id="again-h">A private week with Martin.</h3>
-    <p>Nothing is set yet. Leave your email and you'll hear first if it happens.</p>
+    <h3 id="again-h">Another collab with Martin.</h3>
+    <p>Nothing is set yet. Tick what you want, leave your email, and you hear it first.</p>
+    <fieldset class="picks"><legend>I am interested in</legend>
+      <label class="tick"><input type="checkbox" id="again-martin" checked><span>The next collab with Martin</span></label>
+      <label class="tick"><input type="checkbox" id="again-next"><span>Knowing more about what is coming</span></label>
+    </fieldset>
     <input type="email" id="again-email" placeholder="you@wherever.com" autocomplete="email" aria-label="Your email">
     <label class="tick"><input type="checkbox" id="again-ok"><span>You may write to me at this address. One click to leave, any time.</span></label>
     <div class="err" id="again-err" role="alert"></div>
@@ -478,17 +485,21 @@
   f.addEventListener('submit',async function(ev){
     ev.preventDefault(); $('again-err').style.display='none';
     var email=$('again-email').value.trim();
+    var wantMartin=$('again-martin').checked, wantNext=$('again-next').checked;
+    if(!wantMartin && !wantNext){err('Tick at least one: the next collab with Martin, or what is coming.');return}
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){err('I need a real address to write to.');return}
     if(!$('again-ok').checked){err('Tick the box so I can write to you.');return}
     var b=$('again-go'); b.disabled=true;
     try{
       await sb(); var c=window.supabaseClient; if(!c) throw new Error('no connection');
       var r=await c.from('launch_waitlist').insert({email:email, source:'collab-interest:martin-lippo',
-        interests:[{kind:'collab-interest', teacher:'martin-lippo'},{kind:'dream', text:'Would come to a private week with Martin Lippo (from /barcelona).'}]});
+        interests:[].concat(
+          wantMartin?[{kind:'collab-interest', teacher:'martin-lippo'},{kind:'dream', text:'Interested in the next collab with Martin Lippo (from /barcelona).'}]:[],
+          wantNext?[{kind:'dream', text:'Wants to know more about what is coming next (from /barcelona).'}]:[])});
       if(r && r.error) throw r.error;
       if(window.plausible) window.plausible('MartinAgain');
     }catch(e){ console.error('[again]',e); b.disabled=false; err('Could not save that just now. Try again, or write to arnaudcallier@pm.me.'); return }
-    f.innerHTML='<h3>Noted.</h3><p>If there is a private week with Martin, you will hear it first.</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
+    f.innerHTML='<h3>Noted.</h3><p>'+(wantMartin?'If there is another collab with Martin, you will hear it first.':'When the next one is real, you will hear it first.')+'</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
   });
 })();
 </script>
