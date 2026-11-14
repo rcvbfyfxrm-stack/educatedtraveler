@@ -315,13 +315,13 @@
             '<div class="mono" style="color:var(--sea)">Last step</div><h1 style="margin:10px 0 6px;font-size:clamp(30px,8vw,42px)">Sign it.</h1>' +
             '<div id="reads"></div>' +
             '<div class="field"><label for="f-name">Your name</label><input id="f-name" maxlength="40" autocomplete="name"></div>' +
-            '<div class="field at"><label for="f-ig">Instagram, shown with your name (optional)</label><input id="f-ig" maxlength="30" autocapitalize="off" autocomplete="off" spellcheck="false"></div>' +
+            '<div class="field at"><label for="f-ig">Your Instagram, so other chefs can see your work (optional)</label><input id="f-ig" maxlength="30" autocapitalize="off" autocomplete="off" spellcheck="false"></div>' +
             '<div class="label">What you do (optional)</div><div class="chips" id="tr">' + TRADES.map(function (t) {
                 return '<button type="button" class="chip" aria-pressed="false">' + esc(t) + '</button>'; }).join('') + '</div>' +
             '<div class="field" id="f-other-w" style="display:none"><label for="f-other">In your own words</label><input id="f-other" maxlength="60"></div>' +
             '<div class="field"><label for="f-email">Email, never shown</label><input id="f-email" type="email" inputmode="email" autocomplete="email"></div>' +
             '<label class="tick"><input type="checkbox" id="f-pub"><span>Put these on the pages, under my name<small>I read each one myself first.</small></span></label>' +
-            '<label class="tick"><input type="checkbox" id="f-circle"><span>Sign up to hear what I’m building next<small>A short note from me now and then. Leave any time.</small></span></label>' +
+            '<label class="tick"><input type="checkbox" id="f-circle"><span>Would you like to hear what else is coming?<small>New classes as I build them, in a short note from me now and then. Leave any time.</small></span></label>' +
             '<div class="foot"><button class="go" type="button" id="send">Sign my reviews</button><div class="err" id="err" role="alert"></div>' +
             '<p class="fine">Nobody paid to be on these pages, and your email stays with me.</p></div></div></section>');
         h.push('<section class="screen" data-s="' + (N + 2) + '"><div class="body" style="padding-top:96px">' +
