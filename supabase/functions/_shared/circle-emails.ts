@@ -247,20 +247,47 @@ ${opts.body}
 
 const LP = 'style="margin:0 0 18px 0;"';
 
-// The welcome (compagnons version, approved by Arnaud 6 Nov 2026; facts checked
+// The welcome (compagnons version, approved by Arnaud 6 Nov 2026; the "tell me about you"
+// ask added 14 Nov 2026 on his word: experience, what to learn, where they are with it; facts checked
 // against compagnons-du-devoir.com the same day). Its own reading layout: a plain
 // letter, a little larger and airier than plainShell. Still no banner, no buttons.
 const WL = 'style="margin:0 0 22px 0;"';
 const WLINK = 'style="color:#2f5d59;text-decoration:underline;text-underline-offset:2px;"';
 
+// Design pass, 14 Nov 2026 (Arnaud: "looks interesting to read while keeping it
+// authentic"). Still a letter, never a newsletter: no banner, no button, no colour
+// band (those push Gmail to Promotions). What changed is the reading: a small name
+// line, a bigger opening, the ask set off by one sea rule, one photo where a place
+// is named, and a signature with his face. Colours = the site lock: white, ink, sea.
+const INK = "#0e1615", SEA = "#4e7b78", SEA_LINK = "#2f5d59", SOFT = "#5f6b69";
+const NAMELINE = `<p style="margin:0 0 30px 0;font-family:'Courier New',Courier,monospace;font-size:11px;line-height:1.4;letter-spacing:3px;text-transform:uppercase;color:${SEA};">The Educated Travelers</p>`;
+// Opening paragraph: a touch larger and darker than the body, so the eye starts there.
+const LEDE = `style="margin:0 0 24px 0;font-size:20px;line-height:1.55;color:${INK};"`;
+// The ask, set off: one sea rule down the left. Table-free, survives Gmail/Outlook.
+function askBlock(inner: string): string {
+  return `<div style="margin:6px 0 28px 0;padding:4px 0 4px 18px;border-left:2px solid ${SEA};">${inner}</div>`;
+}
+// One photograph, only where the letter names the place it shows. Full width, no text on it.
+function photo(src: string, alt: string, caption: string): string {
+  return `<div style="margin:4px 0 28px 0;"><img src="${src}" width="512" alt="${alt}" style="display:block;width:100%;max-width:512px;height:auto;border:0;border-radius:4px;"><p style="margin:8px 0 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.5;color:${SOFT};">${caption}</p></div>`;
+}
+// The signature: his face, his name. If images are off, the alt text and the name still read.
+function signature(close: string): string {
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:34px 0 0 0;"><tr>
+      <td valign="middle" style="padding:0 14px 0 0;"><img src="https://educatedtraveler.app/images/arnaud-portrait.jpg" width="52" height="52" alt="Arnaud" style="display:block;width:52px;height:52px;border-radius:26px;object-fit:cover;border:0;"></td>
+      <td valign="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.4;color:${INK};">${close}<br><span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;color:${SOFT};">The Educated Travelers</span></td>
+    </tr></table>`;
+}
+
 function welcomeShell(opts: { body: string; unsub: string }): string {
   return `<!DOCTYPE html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
+<html lang="en"><head><title>The Educated Travelers</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
 <body style="margin:0;padding:0;background:#ffffff;" bgcolor="#ffffff">
   <!-- White all the way (Arnaud, 12 Nov 2026): mail apps drop <body> styles, so the
        wrapper table + the div each carry the white themselves. -->
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background:#ffffff;width:100%;"><tr><td bgcolor="#ffffff" style="background:#ffffff;">
-  <div style="max-width:560px;margin:0 auto;padding:36px 24px 28px;background:#ffffff;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#262624;">
+  <div style="max-width:560px;margin:0 auto;padding:36px 24px 28px;background:#ffffff;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.7;color:#262624;">
+    ${NAMELINE}
 ${opts.body}
     <div style="margin:44px 0 0 0;padding-top:16px;border-top:1px solid #e6e1d8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#8a8279;">
       The Educated Travelers · <a href="https://educatedtraveler.app" style="color:#8a8279;">educatedtraveler.app</a> · <a href="${opts.unsub}" style="color:#8a8279;">Leave the Circle</a>
@@ -272,14 +299,20 @@ ${opts.body}
 
 function welcomePlainHtml(unsub: string): string {
   const body = `
-    <p style="margin:0 0 22px 0;font-size:19px;line-height:1.6;color:#111111;">In France, a carpenter or a stonemason who wants to become a Compagnon du Devoir leaves home. For about five years they change city once or twice a year, working beside people better than them. In time they make one piece of work. The compagnons examine it, and if it holds, they are received.</p>
+    <p ${LEDE}>In France, a carpenter or a stonemason who wants to become a Compagnon du Devoir leaves home. For about five years they change city once or twice a year, working beside people better than them. In time they make one piece of work. The compagnons examine it, and if it holds, they are received.</p>
     <p ${WL}>That is how a craft has always been learned. You go where it lives, and you stand next to someone who knows it.</p>
     <p ${WL}>The Educated Travelers won't make you a compagnon. That takes years. But it can show you the first door: the place where your craft is still alive, and the person there who will teach a stranger.</p>
     <p ${WL}>The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:<br><a href="https://educatedtraveler.app/barcelona" ${WLINK}>educatedtraveler.app/barcelona</a></p>
+    ${photo("https://educatedtraveler.app/images/collab/lab-week-01/week/bench-blender.jpg", "Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind", "Vakuum, Barcelona, October 2026.")}
+    <div role="separator" style="width:48px;height:0;margin:36px auto 36px auto;border-top:1px solid #d9d2c6;font-size:0;line-height:0;">&nbsp;</div>
     <p ${WL}>Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.</p>
+    ${askBlock(`<p style="margin:0 0 14px 0;font-size:19px;line-height:1.5;color:${INK};">While you wait, tell me about you.</p>
+      <p style="margin:0 0 14px 0;">What you have done so far in your work, and where you are now. What you would love to learn next, even if it feels far away. And where you are with it today:</p>
+      <p style="margin:0 0 14px 0;color:${INK};">never tried it,<br>played with it at home,<br>or already doing it and wanting to go deeper.</p>
+      <p style="margin:0;">Two lines is fine. A whole page is even better, the more you tell me, the better I aim. It becomes the start of your profile in the Circle, and it stays between us.</p>`)}
     <p ${WL}>I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.</p>
     <p ${WL}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
-    <p style="margin:34px 0 0 0;">Talk soon,<br>Arnaud</p>`;
+    ${signature("Talk soon,<br>Arnaud")}`;
   return welcomeShell({ body, unsub });
 }
 
@@ -293,7 +326,11 @@ The Educated Travelers won't make you a compagnon. That takes years. But it can 
 The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:
 https://educatedtraveler.app/barcelona
 
+—
+
 Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.
+
+While you wait, tell me about you. What you have done so far in your work, and where you are now. What you would love to learn next, even if it feels far away. And where you are with it today: never tried it, played with it at home, or already doing it and wanting to go deeper. Two lines is fine. A whole page is even better, the more you tell me, the better I aim. It becomes the start of your profile in the Circle, and it stays between us.
 
 I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.
 
@@ -321,18 +358,17 @@ function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
   // an apostrophe or an ampersand in a craft name.
   const wa = encodeURIComponent((craft || "that craft").trim());
   const body = `
-    <p ${LP}>${who ? who + "," : "Hello,"}</p>
-    <p ${LP}>Your note about <strong>${c}</strong> reached me — thank you for writing it. <strong>This reply is automatic; the answer won't be.</strong> I read every one myself, and notes like yours decide which craft I open next.</p>
-    <p ${LP}>That note is also how you joined the Circle — the people who have told me which craft they want to learn. What they ask for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. And whatever I find about ${c} goes up on the Atlas for everyone, not just for you.</p>
-    <p ${LP}>There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.</p>
-    <p ${LP}>When you're there, fill in the rest. It asks where you're starting from with ${c}, when you could actually go, how long you could give it, how far you'd travel, and where in the world you are.</p>
-    <p ${LP}><a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a></p>
-    <p ${LP}>Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better I can point you at the right one.</p>
-    <p ${LP}>When there's a real week worth telling you about, I tell you, and you decide.</p>
-    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
-    <p style="margin:28px 0 0 0;">Talk soon,</p>
-    <p style="margin:0;">— Arnaud</p>`;
-  return plainShell({ body, unsub });
+    <p ${WL}>${who ? who + "," : "Hello,"}</p>
+    <p ${LEDE}>Your note about <strong>${c}</strong> reached me — thank you for writing it. <strong>This reply is automatic; the answer won't be.</strong> I read every one myself, and notes like yours decide which craft I open next.</p>
+    <p ${WL}>That note is also how you joined the Circle — the people who have told me which craft they want to learn. What they ask for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. And whatever I find about ${c} goes up on the Atlas for everyone, not just for you.</p>
+    <p ${WL}>There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.</p>
+    <p ${WL}>When you're there, fill in the rest. It asks where you're starting from with ${c}, when you could actually go, how long you could give it, how far you'd travel, and where in the world you are.</p>
+    <p ${WL}><a href="https://educatedtraveler.app/portrait" ${WLINK}>educatedtraveler.app/portrait</a></p>
+    <p ${WL}>Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better I can point you at the right one.</p>
+    <p ${WL}>When there's a real week worth telling you about, I tell you, and you decide.</p>
+    <p ${WL}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    ${signature("Talk soon,<br>Arnaud")}`;
+  return welcomeShell({ body, unsub });
 }
 
 function atlasLetterText(unsub: string, name?: string, craft?: string): string {
@@ -378,14 +414,13 @@ function atlasInterestHtml(unsub: string, name?: string, craft?: string, school?
   const what = s ? `<strong>${s}</strong>, for ${c}` : `<strong>${c}</strong>`;
   const wa = encodeURIComponent((school || craft || "that craft").trim());
   const body = `
-    <p ${LP}>${who ? who + "," : "Hello,"}</p>
-    <p ${LP}>You tapped <em>I'm interested</em> on ${what}, and it is noted. <strong>This reply is automatic; the next one won't be.</strong></p>
-    <p ${LP}>Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.</p>
-    <p ${LP}>If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.</p>
-    <p ${LP}>Or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
-    <p style="margin:28px 0 0 0;">Talk soon,</p>
-    <p style="margin:0;">— Arnaud</p>`;
-  return plainShell({ body, unsub });
+    <p ${WL}>${who ? who + "," : "Hello,"}</p>
+    <p ${LEDE}>You tapped <em>I'm interested</em> on ${what}, and it is noted. <strong>This reply is automatic; the next one won't be.</strong></p>
+    <p ${WL}>Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.</p>
+    <p ${WL}>If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.</p>
+    <p ${WL}>Or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    ${signature("Talk soon,<br>Arnaud")}`;
+  return welcomeShell({ body, unsub });
 }
 
 function atlasInterestText(unsub: string, name?: string, craft?: string, school?: string): string {
@@ -423,17 +458,16 @@ function teachOfferHtml(unsub: string, name?: string, craft?: string): string {
   const hi = name ? `${name},` : "Hello,";
   const c = craft && craft !== "that craft" ? craft : "your craft";
   const body = `
-    <p ${LP}>${hi}</p>
-    <p ${LP}>Thank you — what you wrote about ${c} is here. <strong>This reply is automatic; the answer won't be.</strong> I read these myself, and I will come back to you properly.</p>
-    <p ${LP}>Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.</p>
-    <p ${LP}>What happens next is slow, and it is my work, not yours. I check what can be checked, and I put nothing on the Atlas until you have seen it and told me it is right. Then I write to you with real questions — what it costs you to run, how many people you would actually want at the bench, how long it truly needs, what time of year is wrong. A week is the shape I know how to fill, and if your craft needs longer than that I would rather hear it now than trim it to fit. If it fits what people are asking me for, we talk about a date. If it does not fit yet, I will say so plainly and keep you on my list.</p>
-    <p ${LP}>Nothing is agreed by what you sent. It tells me you exist, which is the part I cannot find on my own.</p>
-    <p ${LP}>If you want to see the company you would be keeping, the Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a> — including the blanks, which are counted rather than hidden.</p>
-    <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. I am not the teacher anywhere on this map, and that is the point.</p>
-    <p ${LP}>Just hit reply if anything above is wrong, or if you would rather talk than type.</p>
-    <p style="margin:28px 0 0 0;">Talk soon,</p>
-    <p style="margin:0;">— Arnaud</p>`;
-  return plainShell({ body, unsub });
+    <p ${WL}>${hi}</p>
+    <p ${LEDE}>Thank you — what you wrote about ${c} is here. <strong>This reply is automatic; the answer won't be.</strong> I read these myself, and I will come back to you properly.</p>
+    <p ${WL}>Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.</p>
+    <p ${WL}>What happens next is slow, and it is my work, not yours. I check what can be checked, and I put nothing on the Atlas until you have seen it and told me it is right. Then I write to you with real questions — what it costs you to run, how many people you would actually want at the bench, how long it truly needs, what time of year is wrong. A week is the shape I know how to fill, and if your craft needs longer than that I would rather hear it now than trim it to fit. If it fits what people are asking me for, we talk about a date. If it does not fit yet, I will say so plainly and keep you on my list.</p>
+    <p ${WL}>Nothing is agreed by what you sent. It tells me you exist, which is the part I cannot find on my own.</p>
+    <p ${WL}>If you want to see the company you would be keeping, the Atlas is here: <a href="https://educatedtraveler.app/atlas/" ${WLINK}>educatedtraveler.app/atlas</a> — including the blanks, which are counted rather than hidden.</p>
+    <p ${WL}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. I am not the teacher anywhere on this map, and that is the point.</p>
+    <p ${WL}>Just hit reply if anything above is wrong, or if you would rather talk than type.</p>
+    ${signature("Talk soon,<br>Arnaud")}`;
+  return welcomeShell({ body, unsub });
 }
 
 function teachOfferText(unsub: string, name?: string, craft?: string): string {
@@ -464,10 +498,58 @@ EducatedTraveler · educatedtraveler.app
 Leave the Circle: ${unsub}`;
 }
 
+// ── the reply to "Tell me when the next collab with Martin is" (/barcelona) ──
+// Source 'collab-interest:martin-lippo'. Approved by Arnaud 14 Nov 2026 ("great").
+// Two shapes: they wrote a note in the sheet, or they did not. Nothing promised:
+// nothing is agreed with Martin, so no date, no place, no "private" (his to say).
+const MARTIN_WA = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - about the next collab with Martin.");
+function martinParas(wroteNote: boolean): string[] {
+  return [
+    "You put your name down for the next collab with Martin, and it's noted. This reply is automatic, the next one won't be.",
+    "Nothing is set yet. There is no date and no place. When there is something real with Martin, you will be one of the first I write to, and you decide then. Nothing to commit to today.",
+    wroteNote
+      ? "Your note is here. I read every one myself, and I'll come back to you on it."
+      : "While you wait, tell me where you are with modernist cooking: never tried it, played with it at home, or already doing it in your kitchen and wanting to go deeper. Two lines is fine. It helps me understand what you would want from it, and it stays between us.",
+    "And is there anything else you'd be interested to learn? Any craft, in the kitchen or out of it, near home or far away. Tell me, even if it's just one word. What the Circle asks for is how I choose where to look next.",
+  ];
+}
+function collabMartinHtml(unsub: string, name?: string, _c?: string, _s?: string, opts?: { wroteNote?: boolean }): string {
+  const n = (name || "").trim().split(/\s+/)[0];
+  const [p1, p2, p3, p4] = martinParas(!!opts?.wroteNote);
+  const body = `
+    <p ${WL}>${n ? "Hey " + esc(n) + "," : "Hey,"}</p>
+    <p ${LEDE}>${esc(p1)}</p>
+    <p ${WL}>${esc(p2)}</p>
+    <p ${WL}>${esc(p3)}</p>
+    ${askBlock(`<p style="margin:0;">${esc(p4)}</p>`)}
+    <p ${WL}>Hit reply, or message me on <a href="${MARTIN_WA}" ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    ${signature("Talk soon,<br>Arnaud")}
+    <p style="margin:30px 0 0 0;font-size:15px;line-height:1.65;color:${SOFT};">P.S. If you know a chef who would love this, send them the Barcelona page. The chefs from October wrote what they thought there: <a href="https://educatedtraveler.app/barcelona" ${WLINK}>educatedtraveler.app/barcelona</a></p>`;
+  return welcomeShell({ body, unsub });
+}
+function collabMartinText(unsub: string, name?: string, _c?: string, _s?: string, opts?: { wroteNote?: boolean }): string {
+  const n = (name || "").trim().split(/\s+/)[0];
+  return `${n ? "Hey " + n + "," : "Hey,"}
+
+${martinParas(!!opts?.wroteNote).join("\n\n")}
+
+Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
+${MARTIN_WA}
+
+Talk soon,
+Arnaud
+
+P.S. If you know a chef who would love this, send them the Barcelona page. The chefs from October wrote what they thought there: https://educatedtraveler.app/barcelona
+
+--
+The Educated Travelers · educatedtraveler.app
+Leave the Circle: ${unsub}`;
+}
+
 export const ISSUES: Record<string, {
   subject: string;
-  html: (unsub: string, name?: string, craft?: string, school?: string) => string;
-  text?: (unsub: string, name?: string, craft?: string, school?: string) => string;
+  html: (unsub: string, name?: string, craft?: string, school?: string, opts?: { wroteNote?: boolean }) => string;
+  text?: (unsub: string, name?: string, craft?: string, school?: string, opts?: { wroteNote?: boolean }) => string;
   // audience "leads" = an invite/conversion email ("join", "take your place"):
   //   broadcast MUST skip anyone who already has a member account, or a member
   //   gets told to join the thing they're already in (bug: Jeremie et al., Jul 2026).
@@ -479,6 +561,7 @@ export const ISSUES: Record<string, {
   "welcome": { subject: "Welcome to The Educated Travelers — the ones who travel to learn", html: welcomePlainHtml, text: welcomeText, audience: "leads", from: FROM_WELCOME },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
   "atlas-letter": { subject: "Got your note about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
+  "collab-martin": { subject: "The next collab with Martin", html: collabMartinHtml, text: collabMartinText, audience: "leads", from: FROM_WELCOME },
   "atlas-interest": { subject: "Noted — {CRAFT}", html: atlasInterestHtml, text: atlasInterestText, audience: "leads" },
   // A possible master, from /teach. Never broadcast — it answers one person's offer.
   "teach-offer": { subject: "What you could open in {CRAFT} — where this stands", html: teachOfferHtml, text: teachOfferText, audience: "leads" },
@@ -543,14 +626,14 @@ export function followupEmail(unsub: string, firstName: string, doorLine: string
   const wa = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - a little about me:");
   const paras = [
     doorLine,
-    "Tell me about you. Where you are in your career, where you'd like to go next, what you'd love to learn, and what you feel your calling is. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.",
+    "Tell me about you. What you have done so far in your work, and where you are now. What you would love to learn next, and where you are with it today: never tried it, played with it at home, or already doing it and wanting to go deeper. And what you feel your calling is. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.",
     "It's the start of your profile in the Circle. It stays between us, and it's how I find the right place and the right teacher for you.",
   ].filter(Boolean);
   const html = welcomeShell({ unsub, body: `
     <p ${WL}>${esc(hello)}</p>
 ${paras.map((p) => `    <p ${WL}>${esc(p)}</p>`).join("\n")}
     <p ${WL}>Hit reply, or send it on <a href="${wa}" ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me.</p>
-    <p style="margin:34px 0 0 0;">Talk soon,<br>Arnaud</p>` });
+    ${signature("Talk soon,<br>Arnaud")}` });
   const text = `${hello}
 
 ${paras.join("\n\n")}

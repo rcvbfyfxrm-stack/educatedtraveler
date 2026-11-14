@@ -108,6 +108,11 @@ serve(async (req) => {
     // the Mashiko welcome — that one is written to a person deciding what to learn.
     const isTeach = String(row.source ?? "") === "teach-offer";
 
+    // "Tell me when the next collab with Martin is" on /barcelona (14 Nov 2026).
+    // Its own reply, and it goes even to someone already in the Circle: it answers
+    // a specific ask, like a letter does.
+    const isMartin = String(row.source ?? "") === "collab-interest:martin-lippo";
+
     // welcomed_at is per ROW, but a person is an EMAIL: launch_waitlist has no unique
     // constraint on it, and one person legitimately signs up more than once. Checking
     // the row alone re-sent the welcome to somebody already welcomed.
@@ -126,7 +131,7 @@ serve(async (req) => {
     // A second letter is still worth an acknowledgement — it's a reply about a
     // specific craft, not an introduction. A second plain signup is not: stamp the
     // row so it can't come round again, and say why in last_issue.
-    if (alreadyWelcomed && !isLetter && !isTeach) {
+    if (alreadyWelcomed && !isLetter && !isTeach && !isMartin) {
       await admin.from("launch_waitlist")
         .update({ welcomed_at: new Date().toISOString(), last_issue: "welcome-skipped-duplicate" })
         .eq("id", row.id);
@@ -145,14 +150,20 @@ serve(async (req) => {
     }
     if (!craft) craft = "that craft";
 
-    const key = isTeach ? "teach-offer" : isLetter ? "atlas-letter" : isInterest ? "atlas-interest" : "welcome";
+    // Did they write their own words? The /barcelona sheet stores the note as a
+    // kind:"dream" item; the older one-tap button wrote an automatic dream line.
+    const AUTO_DREAM = [/^Would come to a private week with Martin/i, /^Interested in the next collab with Martin/i, /^Wants to know more about what is coming/i];
+    const wroteNote = (Array.isArray(row.interests) ? row.interests : []).some((it: any) =>
+      it && it.kind === "dream" && String(it.text ?? "").trim() && !AUTO_DREAM.some((re) => re.test(String(it.text).trim())));
+
+    const key = isMartin ? "collab-martin" : isTeach ? "teach-offer" : isLetter ? "atlas-letter" : isInterest ? "atlas-interest" : "welcome";
 
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
     const { subject, html, text, from } = ISSUES[key];
     const subj = subject.replace("{CRAFT}", craft);
     // The fourth argument only means something to the tap's reply; every other
     // template takes three and ignores it.
-    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft, school), text?.(unsub, name, craft, school), from);
+    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft, school, { wroteNote }), text?.(unsub, name, craft, school, { wroteNote }), from);
     if (!r.ok) {
       console.error(key + " send failed:", r.error);
       return json({ error: r.error }, 500);
