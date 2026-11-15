@@ -451,7 +451,16 @@ serve(async (req) => {
     // second ping (event:'sent') is fired by the "I've sent it" button; it is
     // unauthenticated, so it may only change the wording — every fact below
     // still comes from the row, re-fetched with the service role.
-    const seat = String(row.source ?? "").startsWith("pay:") ? parseSeat(row.interests) : null;
+    // A row whose source is pay: can later absorb a plain Circle signup or a note
+    // (the dedupe folds every later form for the same address into the OLDEST row,
+    // 036/047). That fold must not read as a seat: on 15 Nov 2026 Arnaud's own
+    // /first signup and note landed on his August test-payment row and came back
+    // as "Seat started", with the note itself hidden. So on the trigger path it is
+    // a seat only when the newest item IS the seat-payment; the "I've sent it"
+    // button path is always about a seat.
+    const lastItem = Array.isArray(row.interests) ? (row.interests as Array<Record<string, unknown>>).at(-1) : null;
+    const isSeatPing = body?.event === "sent" || lastItem?.kind === "seat-payment";
+    const seat = String(row.source ?? "").startsWith("pay:") && isSeatPing ? parseSeat(row.interests) : null;
     if (seat) {
       const declaredSent = body?.event === "sent";
       const seatWho = seat.name || String(row.email);
