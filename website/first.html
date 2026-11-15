@@ -114,6 +114,7 @@ input::placeholder{color:var(--faint);font-style:italic}
 input:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0 1px var(--sea)}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
 .consent input{width:18px;height:18px;margin-top:2px;accent-color:var(--sea);flex:none}
+.consent.also{color:var(--ink);font-size:15px;border-left:2px solid var(--sea);background:var(--sea-tint);padding:12px}
 .go{width:100%}
 .go:disabled{opacity:.6;cursor:default}
 .back{background:none;border:0;color:var(--muted);font:400 14px var(--sans);padding:4px 0;justify-self:start;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
@@ -458,6 +459,8 @@ section.week{padding-top:0}
           <label><span class="mono">Your email</span>
             <input id="email" type="email" placeholder="you@wherever.com" autocomplete="email" required>
           </label>
+          <label class="consent also"><input type="checkbox" id="also">
+            <span id="alsot">Also keep me posted on the next collab with Martin.</span></label>
           <label class="consent"><input type="checkbox" id="consent">
             <span>You may write to me at this address.</span></label>
           <div class="err" id="err2" role="alert"></div>
@@ -494,6 +497,9 @@ section.week{padding-top:0}
     $('cardh').textContent = m ? 'The next collab with Martin.' : 'What\'s coming next.';
     $('cardsub').textContent = m ? 'Nothing is set yet. Leave your name and you hear first when there is something real.' : 'Tokyo, and whatever comes next.';
     $('next').firstChild.textContent = m ? 'Count me in ' : 'I want to hear first ';
+    // Whichever door they came in by, offer the other one too (Arnaud, 15 Nov 2026).
+    $('also').checked=false;
+    $('alsot').textContent = m ? "Also tell me what else is coming: Tokyo, and whatever follows." : 'Also keep me posted on the next collab with Martin.';
     $('step2').hidden=true; $('step1').hidden=false; $('s2').classList.remove('on');
     hide('err1'); hide('err2');
     if(dlg.open) closeV();
@@ -542,15 +548,22 @@ section.week{padding-top:0}
 
     var btn=$('go'), label=btn.textContent; btn.disabled=true; btn.textContent='One moment…';
 
-    // Same contract as /circle and join.html: kind:'profile' + kind:'dream'.
+    // The choice decides the email. Martin (by his door, or ticked from the other)
+    // -> source collab-interest:martin-lippo, and circle-welcome sends the Martin
+    // reply. Otherwise the Circle welcome. Same contract as /circle: profile + dream.
+    // The Martin dream line must START with "Interested in the next collab with
+    // Martin": circle-welcome reads that as automatic text, not a note they wrote.
+    var also=$('also').checked;
+    var martin = wantsMartin || also, hear = !wantsMartin || also;
     var payload = {
       email: email,
-      source: SOURCE,
+      source: martin ? 'collab-interest:martin-lippo' : SOURCE,
       interests: [ {kind:'profile', name:name, region:null},
-                   {kind:'dream', text:'Works at: '+where+'\nCame from the WhatsApp note (Barcelona done, Tokyo teased). Wants to hear first.'
-                      + (wantsMartin ? '\nWants the next collab with Martin Lippo.' : '')} ]
+                   {kind:'dream', text:(martin ? 'Interested in the next collab with Martin Lippo.\n' : '')
+                      + 'Works at: '+where+'\nCame from the WhatsApp note on /first (Barcelona done, Tokyo teased).'
+                      + (hear ? ' Wants to hear what is coming next.' : '')} ]
     };
-    if(wantsMartin) payload.interests.push({kind:'collab-interest', teacher:'martin-lippo'});
+    if(martin) payload.interests.push({kind:'collab-interest', teacher:'martin-lippo'});
 
     try{
       var sb=window.supabaseClient; if(!sb) throw new Error('no connection');
@@ -568,7 +581,9 @@ section.week{padding-top:0}
       await sb.auth.signInWithOtp({email:email, options:{emailRedirectTo:location.origin+'/portrait', shouldCreateUser:true}});
     }catch(e){ console.error('[Circle] link failed',e) }
 
-    if(wantsMartin) $('donenews').textContent="Your name is on the list for the next collab with Martin. I'll write to you myself, and you'll hear about Tokyo first too.";
+    if(martin) $('donenews').textContent = hear
+      ? "Your name is on the list for the next collab with Martin. I'll write to you myself, and you'll hear about Tokyo first too."
+      : "Your name is on the list for the next collab with Martin. I'll write to you myself.";
     $('doneemail').textContent=email;
     $('doneh').textContent="You're in the Circle, "+first(name)+".";
     closeJ();
