@@ -139,6 +139,17 @@ footer .sig{font:italic 300 20px/1.3 var(--serif);color:var(--ink);margin:0 0 10
 #done h2{font:300 clamp(32px,8vw,44px)/1.08 var(--serif);letter-spacing:-.018em;margin:0 0 12px}
 #done p{color:var(--muted)}
 #done strong{color:var(--ink);font-weight:500}
+/* right after joining: tell me about you (Arnaud, 15 Nov 2026) */
+#more .sub{margin:6px 0 20px}
+textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line-2);border-radius:0;padding:12px;width:100%;min-height:96px;resize:vertical;transition:border-color .2s}
+textarea::placeholder{color:var(--faint);font-style:italic}
+textarea:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0 1px var(--sea)}
+.lvl{display:flex;flex-wrap:wrap;gap:8px}
+.lvl button{font:400 15px var(--sans);color:var(--ink);background:var(--white);border:1px solid var(--line-2);border-radius:0;padding:10px 14px;min-height:44px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.lvl button[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:#fff}
+.lvl button:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+#tellmore{margin:6px 0 22px}
+#tellmore[hidden]{display:none}
 @media (min-width:700px){.hero{padding:26px 40px 48px}}
 /* the way in to the new collab with Martin, at the top (Arnaud, 11 Nov 2026) */
 .ctas{display:grid;gap:14px;justify-items:start}
@@ -388,6 +399,7 @@ section.week{padding-top:0}
 <div id="done" role="status">
   <h2 id="doneh">You're in the Circle.</h2>
   <p id="donenews">When there is news on Tokyo, you'll hear it first.</p>
+  <button type="button" class="cta go" id="tellmore" hidden>Tell me about you <span aria-hidden="true">&rarr;</span></button>
   <p>While you wait, come and say hello:</p>
   <div class="follow" style="margin:18px 0">
     <p class="mono label" style="margin:0 0 12px"><span>Follow along</span><span>Instagram</span></p>
@@ -478,6 +490,41 @@ section.week{padding-top:0}
           <p class="fine">I read every note myself.</p>
         </div>
       </form>
+  </div>
+</dialog>
+<dialog id="more" aria-labelledby="moreh">
+  <div class="sheet">
+    <div class="sheet-h">
+      <h2 id="moreh">You're in the Circle.</h2>
+      <button type="button" class="x" id="closem" aria-label="Close">&times;</button>
+    </div>
+    <form id="mf" novalidate>
+      <div class="step" id="mstep">
+        <p class="sub">Now tell me about you: where you are, and what you'd love to learn. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.</p>
+        <label><span class="mono">Where are you now?</span>
+          <textarea id="now" maxlength="2000" placeholder="Your work so far, and what you cook today"></textarea>
+        </label>
+        <label><span class="mono">What would you love to learn next?</span>
+          <textarea id="learn" maxlength="2000" placeholder="A craft, a technique, a teacher, a place"></textarea>
+        </label>
+        <div><p class="mono" style="margin:0 0 7px;color:var(--muted)" id="lvlh">Where are you with it?</p>
+          <div class="lvl" role="group" aria-labelledby="lvlh">
+            <button type="button" aria-pressed="false">Never tried it</button>
+            <button type="button" aria-pressed="false">Tried it at home</button>
+            <button type="button" aria-pressed="false">Doing it, going deeper</button>
+          </div>
+        </div>
+        <div class="err" id="err3" role="alert"></div>
+        <button type="submit" class="cta go" id="mgo">Send my note <span aria-hidden="true">&rarr;</span></button>
+        <button type="button" class="back" id="later">Later</button>
+        <p class="fine">This note is the start of your profile in the Circle. I read every one myself.</p>
+      </div>
+      <div class="step" id="mthanks" hidden>
+        <p class="hello" id="mthx">Thank you.</p>
+        <p class="sub" style="margin:0">Your note is with me.</p>
+        <button type="button" class="cta go" id="mclose">Close</button>
+      </div>
+    </form>
   </div>
 </dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -598,6 +645,68 @@ section.week{padding-top:0}
     closeJ();
     $('join').style.display='none'; $('join-hero').style.display='none'; $('done').style.display='block';
     window.scrollTo(0,0);
+    joined={email:email, name:name, source:payload.source};
+    openMore();
+  });
+
+  // Right after joining, one more sheet: tell me about you (Arnaud, 15 Nov 2026).
+  // The note goes in as a second row for the same address; the dedupe trigger (047)
+  // folds it into their row and posts notify-lead, so Arnaud gets the mail with
+  // their words. circle-welcome is not called on a fold: no second welcome.
+  // Their words are a kind:"dream" item, which claim_waitlist_answers() carries
+  // into profiles.dream_letter (the "start of your profile" line), and which
+  // circle-followup reads as a note written, so the day-2 ask is not sent.
+  var joined=null, mb=$('more');
+  function openMore(){
+    $('moreh').textContent="You're in the Circle, "+first(joined.name)+".";
+    hide('err3');
+    if(mb.showModal) mb.showModal(); else mb.setAttribute('open','');
+    setTimeout(function(){$('now').focus()},60);
+    if(window.plausible) window.plausible('FirstMoreOpened');
+  }
+  function closeM(){
+    if(mb.close) mb.close(); else mb.removeAttribute('open');
+    $('tellmore').hidden = !$('mthanks').hidden;
+  }
+  $('closem').addEventListener('click',closeM);
+  $('later').addEventListener('click',closeM);
+  $('mclose').addEventListener('click',closeM);
+  $('tellmore').addEventListener('click',openMore);
+  mb.addEventListener('click',function(e){if(e.target===mb) closeM()});
+  ['now','learn'].forEach(function(i){$(i).addEventListener('input',function(){hide('err3')})});
+  var lv=mb.querySelectorAll('.lvl button');
+  lv.forEach(function(b){b.addEventListener('click',function(){
+    var on=b.getAttribute('aria-pressed')!=='true';
+    lv.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed', on?'true':'false');
+  })});
+
+  $('mf').addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    if(!joined || !$('mthanks').hidden) return;
+    var now=$('now').value.trim(), learn=$('learn').value.trim();
+    var lvb=mb.querySelector('.lvl button[aria-pressed="true"]'), lvl=lvb?lvb.textContent:'';
+    hide('err3');
+    if(!now && !learn){show('err3','A line or two in either box, and it is on its way.');$('now').focus();return}
+    var btn=$('mgo'), label=btn.innerHTML; btn.disabled=true; btn.textContent='One moment…';
+    var text=[ now ? 'Where I am now: '+now : '',
+               learn ? "What I'd love to learn: "+learn : '',
+               lvl ? 'Where I am with it: '+lvl : '' ].filter(Boolean).join('\n');
+    try{
+      var sb=window.supabaseClient; if(!sb) throw new Error('no connection');
+      var r=await sb.from('launch_waitlist').insert({ email:joined.email, source:joined.source,
+        interests:[ {kind:'profile', name:joined.name, region:null}, {kind:'dream', text:text} ] });
+      if(r && r.error) throw r.error;
+      if(window.plausible) window.plausible('FirstNoteSent');
+    }catch(e){
+      console.error('[Circle] note failed',e);
+      btn.disabled=false; btn.innerHTML=label;
+      show('err3','Could not send that just now. Try again, or write to arnaudcallier@pm.me.');
+      return;
+    }
+    $('mthx').textContent='Thank you, '+first(joined.name)+'.';
+    $('mstep').hidden=true; $('mthanks').hidden=false;
+    $('mclose').focus();
   });
 })();
 </script>
