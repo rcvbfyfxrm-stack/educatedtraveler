@@ -139,8 +139,11 @@ footer .sig{font:italic 300 20px/1.3 var(--serif);color:var(--ink);margin:0 0 10
 /* the way in to the new collab with Martin, at the top (Arnaud, 11 Nov 2026) */
 .ctas{display:grid;gap:14px;justify-items:start}
 .ctas .cta{text-align:left;padding:14px 22px}
-.soft{color:rgba(243,237,226,.9);font-size:15px;text-underline-offset:4px}
-.soft:hover{color:#fff}
+/* two ways in, same weight (Arnaud, 15 Nov 2026: "people can choose") */
+.ctas .cta{width:100%;justify-content:space-between}
+.hero .cta.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.85)}
+.hero .cta.ghost:hover{background:#fff;color:var(--ink)}
+.ways .martin b{display:block;font:300 22px/1.2 var(--serif);letter-spacing:-.01em}
 
 /* the chefs' notes, in a sheet over the form so nothing typed is lost */
 dialog{border:0;padding:0;background:var(--white);color:var(--ink);width:min(520px,100vw);max-height:88vh;border-radius:0;margin:auto auto 0;border-top:2px solid var(--sea)}
@@ -261,8 +264,6 @@ section.week{padding-top:0}
 #signup .card h2{font-size:clamp(46px,13.5vw,72px);line-height:.98;letter-spacing:-.03em;margin:8px 0 12px}
 #signup .card h2 em{font-style:italic}
 #signup .sub2{color:#fff;font:300 19px/1.4 var(--serif);margin:0 0 26px}
-#signup #openhear{background:#fff;color:var(--ink)}
-#signup #openhear:hover{background:var(--ink);color:#fff}
 #signup .martin{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
 #signup .martin:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 #signup .martin small{color:rgba(255,255,255,.9)}
@@ -295,8 +296,8 @@ section.week{padding-top:0}
     <h1>More is <em>bubbling.</em></h1>
     <p class="lede">Five days at Martin Lippo's bench, with a room of chefs who care about the craft. Next: <span class="tokyo">Tokyo</span>. Hear it first.</p>
     <div class="ctas">
-      <button type="button" class="cta" id="apply">Apply for the new collab with Martin <span aria-hidden="true">&rarr;</span></button>
-      <a class="soft" href="#signup">Or just hear what comes next <span aria-hidden="true">&darr;</span></a>
+      <button type="button" class="cta" id="apply">Count me in for the next collab with Martin <span aria-hidden="true">&rarr;</span></button>
+      <button type="button" class="cta ghost" id="hearhero">Tell me what's coming next <span aria-hidden="true">&rarr;</span></button>
     </div>
   </div>
 </header>
@@ -355,11 +356,11 @@ section.week{padding-top:0}
   <section id="signup" class="bleed"><div class="in">
     <div class="card">
       <p class="mono" style="margin:0">The Circle</p>
-      <h2 class="rv">Be the first <em style="white-space:nowrap">to hear.</em></h2>
-      <p class="sub2">Tokyo, and whatever comes next.</p>
+      <h2 class="rv">Which one <em style="white-space:nowrap">is you?</em></h2>
+      <p class="sub2">Pick one. You can come back for the other.</p>
       <div class="ways">
-        <button type="button" class="cta go" id="openhear">I want to hear first <span aria-hidden="true">&rarr;</span></button>
-        <button type="button" class="martin" id="martin"><span>I'd come to a new collab with Martin<small>Your name goes on the list.</small></span><span class="arr" aria-hidden="true">&rarr;</span></button>
+        <button type="button" class="martin" id="martin"><span><b>The next collab with Martin</b><small>Nothing is set yet. Put your name down and you hear first when there is something real.</small></span><span class="arr" aria-hidden="true">&rarr;</span></button>
+        <button type="button" class="martin" id="openhear"><span><b>What's coming next</b><small>Tokyo, and whatever follows. You hear it first.</small></span><span class="arr" aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
   </div></section>
@@ -426,8 +427,8 @@ section.week{padding-top:0}
 
         <div class="v"><img src="/images/collab/lab-week-01/alex.jpg" alt="" loading="lazy"><div><q>This was my first time in Barcelona and the class was beyond anything I had expected!</q><span class="who">Alex · World traveling private chef · <a href="https://www.instagram.com/chefalexnaeger/" target="_blank" rel="noopener">@chefalexnaeger</a></span></div></div>
     <div class="v"><img src="/images/collab/lab-week-01/artem.jpg" alt="" loading="lazy"><div><q>The most impressive thing was the team behind and that all the techniques were actually very easy to do though they appeared very special.</q><span class="who">Artem Karpenko · Yacht chef on a 70m charter yacht · <a href="https://www.instagram.com/akaarpenko/" target="_blank" rel="noopener">@akaarpenko</a></span></div></div>
-    <button type="button" class="martin" id="martin2" style="margin:18px 0 0"><span>I'd come to a new collab with Martin</span><span class="arr" aria-hidden="true">&rarr;</span></button>
-    <button type="button" class="cta go back-to" id="backv">I want to hear first</button>
+    <button type="button" class="martin" id="martin2" style="margin:18px 0 0"><span>Count me in for the next collab with Martin</span><span class="arr" aria-hidden="true">&rarr;</span></button>
+    <button type="button" class="cta go back-to" id="backv">Tell me what's coming next</button>
     <a class="more" href="/barcelona" target="_blank" rel="noopener">The whole week, with every note</a>
   </div>
 </dialog>
@@ -490,9 +491,9 @@ section.week{padding-top:0}
   var wantsMartin=false, jb=$('joinbox');
   function openJoin(m){
     wantsMartin=m;
-    $('cardh').textContent = m ? 'The new collab with Martin.' : 'Be the first to hear.';
-    $('cardsub').textContent = m ? 'Leave your name and you are on the list. I read every one myself.' : 'Tokyo, and whatever comes next.';
-    $('next').firstChild.textContent = m ? "I'm interested " : 'I want to hear first ';
+    $('cardh').textContent = m ? 'The next collab with Martin.' : 'What\'s coming next.';
+    $('cardsub').textContent = m ? 'Nothing is set yet. Leave your name and you hear first when there is something real.' : 'Tokyo, and whatever comes next.';
+    $('next').firstChild.textContent = m ? 'Count me in ' : 'I want to hear first ';
     $('step2').hidden=true; $('step1').hidden=false; $('s2').classList.remove('on');
     hide('err1'); hide('err2');
     if(dlg.open) closeV();
@@ -502,7 +503,7 @@ section.week{padding-top:0}
   }
   function closeJ(){ if(jb.close) jb.close(); else jb.removeAttribute('open') }
   $('apply').addEventListener('click',function(){openJoin(true)});
-  document.querySelector('.ctas .soft').addEventListener('click',function(e){e.preventDefault();openJoin(false)});
+  $('hearhero').addEventListener('click',function(){openJoin(false)});
   $('openhear').addEventListener('click',function(){openJoin(false)});
   $('martin').addEventListener('click',function(){openJoin(true)});
   $('martin2').addEventListener('click',function(){openJoin(true)});
@@ -547,7 +548,7 @@ section.week{padding-top:0}
       source: SOURCE,
       interests: [ {kind:'profile', name:name, region:null},
                    {kind:'dream', text:'Works at: '+where+'\nCame from the WhatsApp note (Barcelona done, Tokyo teased). Wants to hear first.'
-                      + (wantsMartin ? '\nApplied for the new collab with Martin Lippo.' : '')} ]
+                      + (wantsMartin ? '\nWants the next collab with Martin Lippo.' : '')} ]
     };
     if(wantsMartin) payload.interests.push({kind:'collab-interest', teacher:'martin-lippo'});
 
@@ -567,7 +568,7 @@ section.week{padding-top:0}
       await sb.auth.signInWithOtp({email:email, options:{emailRedirectTo:location.origin+'/portrait', shouldCreateUser:true}});
     }catch(e){ console.error('[Circle] link failed',e) }
 
-    if(wantsMartin) $('donenews').textContent="Your application for the new collab with Martin is in. I'll write to you myself, and you'll hear about Tokyo first too.";
+    if(wantsMartin) $('donenews').textContent="Your name is on the list for the next collab with Martin. I'll write to you myself, and you'll hear about Tokyo first too.";
     $('doneemail').textContent=email;
     $('doneh').textContent="You're in the Circle, "+first(name)+".";
     closeJ();
