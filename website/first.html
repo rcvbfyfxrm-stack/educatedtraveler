@@ -141,13 +141,14 @@ footer .sig{font:italic 300 20px/1.3 var(--serif);color:var(--ink);margin:0 0 10
 #done strong{color:var(--ink);font-weight:500}
 /* right after joining: tell me about you (Arnaud, 15 Nov 2026) */
 #more .sub{margin:6px 0 20px}
-textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line-2);border-radius:0;padding:12px;width:100%;min-height:96px;resize:vertical;transition:border-color .2s}
-textarea::placeholder{color:var(--faint);font-style:italic}
-textarea:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0 1px var(--sea)}
-.lvl{display:flex;flex-wrap:wrap;gap:8px}
-.lvl button{font:400 15px var(--sans);color:var(--ink);background:var(--white);border:1px solid var(--line-2);border-radius:0;padding:10px 14px;min-height:44px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
-.lvl button[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:#fff}
-.lvl button:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+/* the answer is a note to Arnaud, not a form (Arnaud, 15 Nov 2026: "more authentic") */
+.note{border:1px solid var(--line-2);border-top:2px solid var(--sea);background:var(--white);padding:20px 18px 16px;transition:border-color .2s}
+.note:focus-within{border-color:var(--sea)}
+.note .to,.note .from{font:italic 300 20px/1.3 var(--serif);color:var(--ink);margin:0}
+.note .from{text-align:right;margin-top:6px}
+.note textarea{display:block;width:100%;min-height:190px;margin:10px 0 0;padding:0;border:0;background:transparent;resize:vertical;font:300 18px/1.6 var(--serif);color:var(--ink)}
+.note textarea:focus{outline:none}
+.note textarea::placeholder{color:var(--faint);font-style:italic}
 #tellmore{margin:6px 0 22px}
 #tellmore[hidden]{display:none}
 @media (min-width:700px){.hero{padding:26px 40px 48px}}
@@ -500,19 +501,11 @@ section.week{padding-top:0}
     </div>
     <form id="mf" novalidate>
       <div class="step" id="mstep">
-        <p class="sub">Now tell me about you: where you are, and what you'd love to learn. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.</p>
-        <label><span class="mono">Where are you now?</span>
-          <textarea id="now" maxlength="2000" placeholder="Your work so far, and what you cook today"></textarea>
-        </label>
-        <label><span class="mono">What would you love to learn next?</span>
-          <textarea id="learn" maxlength="2000" placeholder="A craft, a technique, a teacher, a place"></textarea>
-        </label>
-        <div><p class="mono" style="margin:0 0 7px;color:var(--muted)" id="lvlh">Where are you with it?</p>
-          <div class="lvl" role="group" aria-labelledby="lvlh">
-            <button type="button" aria-pressed="false">Never tried it</button>
-            <button type="button" aria-pressed="false">Tried it at home</button>
-            <button type="button" aria-pressed="false">Doing it, going deeper</button>
-          </div>
+        <p class="sub">Now tell me about you. Where you are in your work, what you'd love to learn next, and where you are with it: never tried, at home, or doing it and going deeper. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.</p>
+        <div class="note">
+          <p class="to" aria-hidden="true">Arnaud,</p>
+          <textarea id="nt" maxlength="4000" aria-label="Your note to Arnaud" placeholder="Right now I cook on… and what I'd love to learn next is…"></textarea>
+          <p class="from" id="from" aria-hidden="true"></p>
         </div>
         <div class="err" id="err3" role="alert"></div>
         <button type="submit" class="cta go" id="mgo">Send my note <span aria-hidden="true">&rarr;</span></button>
@@ -661,7 +654,8 @@ section.week{padding-top:0}
     $('moreh').textContent="You're in the Circle, "+first(joined.name)+".";
     hide('err3');
     if(mb.showModal) mb.showModal(); else mb.setAttribute('open','');
-    setTimeout(function(){$('now').focus()},60);
+    $('from').textContent=joined.name;
+    setTimeout(function(){$('nt').focus()},60);
     if(window.plausible) window.plausible('FirstMoreOpened');
   }
   function closeM(){
@@ -673,25 +667,14 @@ section.week{padding-top:0}
   $('mclose').addEventListener('click',closeM);
   $('tellmore').addEventListener('click',openMore);
   mb.addEventListener('click',function(e){if(e.target===mb) closeM()});
-  ['now','learn'].forEach(function(i){$(i).addEventListener('input',function(){hide('err3')})});
-  var lv=mb.querySelectorAll('.lvl button');
-  lv.forEach(function(b){b.addEventListener('click',function(){
-    var on=b.getAttribute('aria-pressed')!=='true';
-    lv.forEach(function(x){x.setAttribute('aria-pressed','false')});
-    b.setAttribute('aria-pressed', on?'true':'false');
-  })});
-
+  $('nt').addEventListener('input',function(){hide('err3')});
   $('mf').addEventListener('submit', async function(ev){
     ev.preventDefault();
     if(!joined || !$('mthanks').hidden) return;
-    var now=$('now').value.trim(), learn=$('learn').value.trim();
-    var lvb=mb.querySelector('.lvl button[aria-pressed="true"]'), lvl=lvb?lvb.textContent:'';
+    var text=$('nt').value.trim();
     hide('err3');
-    if(!now && !learn){show('err3','A line or two in either box, and it is on its way.');$('now').focus();return}
+    if(!text){show('err3','A line or two, and it is on its way.');$('nt').focus();return}
     var btn=$('mgo'), label=btn.innerHTML; btn.disabled=true; btn.textContent='One moment…';
-    var text=[ now ? 'Where I am now: '+now : '',
-               learn ? "What I'd love to learn: "+learn : '',
-               lvl ? 'Where I am with it: '+lvl : '' ].filter(Boolean).join('\n');
     try{
       var sb=window.supabaseClient; if(!sb) throw new Error('no connection');
       var r=await sb.from('launch_waitlist').insert({ email:joined.email, source:joined.source,
