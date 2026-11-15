@@ -132,6 +132,9 @@ input:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0 1px var(--sea)
 .fol:hover .fb{background:var(--sea)}
 footer{text-align:center;padding:48px 16px 8px;color:var(--muted);border-top:1px solid var(--line);margin-top:48px}
 footer .sig{font:italic 300 20px/1.3 var(--serif);color:var(--ink);margin:0 0 10px}
+.more-et{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 24px;margin:20px 0 0}
+.more-et a{font:400 14px var(--sans);color:var(--muted);text-decoration:none;padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
+.more-et a:hover,.more-et a:focus-visible{color:var(--sea);text-decoration:underline;text-underline-offset:3px;outline:none}
 #done{display:none;padding-top:64px}
 #done h2{font:300 clamp(32px,8vw,44px)/1.08 var(--serif);letter-spacing:-.018em;margin:0 0 12px}
 #done p{color:var(--muted)}
@@ -376,15 +379,9 @@ section.week{padding-top:0}
     <a class="fol" href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener"><span class="av">A</span><span><b>@arnaudcallier</b><small>Me, the chef behind it</small></span><span class="fb">Follow</span></a>
   </div></section>
 
-  <section><div class="follow">
-    <p class="mono label" style="margin:0 0 12px"><span>Look around</span><span>EducatedTraveler</span></p>
-    <a class="fol" href="/about"><span class="av">01</span><span><b>The Story</b><small>Who is behind this, and why</small></span><span class="fb">Read</span></a>
-    <a class="fol" href="/collaborations"><span class="av">02</span><span><b>Collaborations</b><small>A course built with a teacher, for professional chefs</small></span><span class="fb">See</span></a>
-    <a class="fol" href="/atlas/"><span class="av">03</span><span><b>Atlas of Skills</b><small>Where skills are still taught at the source</small></span><span class="fb">Browse</span></a>
-  </div></section>
-
   <footer>
     <p class="sig">A skill, a place, a person, your people.</p>
+    <nav class="more-et" aria-label="EducatedTraveler"><a href="/about">The Story</a><a href="/collaborations">Collaborations</a><a href="/atlas/">Atlas of Skills</a></nav>
   </footer>
 </div>
 
