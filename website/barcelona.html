@@ -281,6 +281,7 @@
   #again input[type=text],#again textarea{font:inherit;color:var(--type);background:rgba(14,22,21,.05);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%;resize:vertical}
   #again input[type=email]{font:inherit;color:var(--type);background:rgba(14,22,21,.05);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%}
   #again label.tick{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--soft)}
+  #again label.tick.also{font-size:.95rem;color:var(--type);border-left:2px solid var(--sea,#4e7b78);background:rgba(78,123,120,.08);padding:12px}
   #again fieldset.picks{border:0;margin:0;padding:0;display:grid;gap:10px}
   #again fieldset.picks legend{font:400 .75rem var(--mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:var(--softer);margin-bottom:8px;padding:0}
   #again fieldset.picks label.tick{font-size:.95rem;color:var(--type)}
@@ -463,6 +464,7 @@
     <label class="fl">Your name<input type="text" id="again-name" autocomplete="name" maxlength="80"></label>
     <label class="fl"><span>A note for me <span class="opt">(if you want)</span></span><textarea id="again-note" rows="3" maxlength="2000" placeholder="What you would love to learn, where you are with it today."></textarea></label>
     <label class="fl">Your email<input type="email" id="again-email" placeholder="you@wherever.com" autocomplete="email"></label>
+    <label class="tick also"><input type="checkbox" id="again-also"><span id="again-alsot">Also tell me what else is coming.</span></label>
     <label class="tick"><input type="checkbox" id="again-ok"><span>You may write to me at this address. One click to leave, any time.</span></label>
     <div class="err" id="again-err" role="alert"></div>
     <button type="submit" class="btn btn-primary" id="again-go">Enlarge the Circle &rarr;</button>
@@ -486,7 +488,10 @@
     martin:{h:'The next collab with Martin.', p:'Nothing is set yet. Leave your name and email, and you hear it first.'},
     more:{h:'Keep me posted.', p:'Leave your name and email, and you hear first what comes next.'}
   };
+  // Whichever door they came in by, offer the other one too (Arnaud, 15 Nov 2026).
+  var ALSO={martin:'Also tell me what else is coming.', more:'Also keep me posted on the next collab with Martin.'};
   function open(m){ mode=m; $('again-h').textContent=COPY[m].h; $('again-sub').textContent=COPY[m].p;
+    $('again-also').checked=false; $('again-alsot').textContent=ALSO[m];
     sb().catch(function(){}); d.showModal ? d.showModal() : d.setAttribute('open',''); $('again-name').focus() }
   $('again-open').addEventListener('click',function(){open('martin')});
   $('more-open').addEventListener('click',function(){open('more')});
@@ -500,18 +505,24 @@
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){err('I need a real address to write to.');return}
     if(!$('again-ok').checked){err('Tick the box so I can write to you.');return}
     var b=$('again-go'); b.disabled=true;
+    // The choice decides the email: any Martin choice -> source collab-interest:martin-lippo
+    // -> circle-welcome sends the Martin reply; otherwise the Circle welcome.
+    // "Wants to know more about what is coming" is one of circle-welcome's automatic
+    // lines, so it never passes for a note they wrote.
+    var also=$('again-also').checked, martin=(mode==='martin')||also, hear=(mode==='more')||also;
     var interests=[{kind:'profile', name:name}];
-    if(mode==='martin') interests.push({kind:'collab-interest', teacher:'martin-lippo'});
+    if(martin) interests.push({kind:'collab-interest', teacher:'martin-lippo'});
+    if(martin && hear) interests.push({kind:'dream', text:'Wants to know more about what is coming.'});
     if(note) interests.push({kind:'dream', text:note});
     try{
       await sb(); var c=window.supabaseClient; if(!c) throw new Error('no connection');
       var r=await c.from('launch_waitlist').insert({email:email,
-        source: mode==='martin' ? 'collab-interest:martin-lippo' : 'barcelona-keep-posted', interests:interests});
+        source: martin ? 'collab-interest:martin-lippo' : 'barcelona-keep-posted', interests:interests});
       if(r && r.error) throw r.error;
-      if(window.plausible) window.plausible(mode==='martin' ? 'MartinAgain' : 'BarcelonaKeepPosted');
+      if(window.plausible) window.plausible(martin ? 'MartinAgain' : 'BarcelonaKeepPosted');
     }catch(e){ console.error('[again]',e); b.disabled=false; err('Could not save that just now. Try again, or write to arnaudcallier@pm.me.'); return }
     var first=name.split(/\s+/)[0].replace(/[<>&"']/g,'');
-    f.innerHTML='<h3>Welcome to the Circle, '+first+'.</h3><p>'+(mode==='martin'?'If there is another collab with Martin, you hear it first.':'When the next one is real, you hear it first.')+' A welcome is on its way to your inbox.</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
+    f.innerHTML='<h3>Welcome to the Circle, '+first+'.</h3><p>'+(martin ? (hear ? 'If there is another collab with Martin, you hear it first, and what comes next too.' : 'If there is another collab with Martin, you hear it first.') : 'When the next one is real, you hear it first.')+' A welcome is on its way to your inbox.</p><button type="button" class="x" onclick="this.closest(\'dialog\').close()">Close</button>';
   });
 })();
 </script>
