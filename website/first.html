@@ -305,6 +305,24 @@ section.week{padding-top:0}
   border:1px solid rgba(255,255,255,.6);opacity:0;animation:fizz var(--d) ease-out var(--w) infinite}
 @keyframes fizz{0%{transform:translate(0,0);opacity:0}18%{opacity:.75}100%{transform:translate(var(--sw),-1.25em);opacity:0}}
 @media (prefers-reduced-motion:reduce){.fizz{display:none}}
+/* phones: a sheet docked to the bottom, edge to edge, compact (Arnaud, 15 Nov 2026:
+   "oversized on phone, make sure it fits nicely"). The browser's own dialog
+   max-width left a gap each side; desktop is untouched. */
+@media (max-width:599px){
+  dialog{width:100%;max-width:100%;margin:auto 0 0;max-height:92dvh}
+  .sheet{padding:18px 18px calc(18px + env(safe-area-inset-bottom));max-height:92dvh}
+  .sheet h2{font-size:23px}
+  .sheet .sub{font-size:14px;margin:0 0 14px}
+  #joinbox .steps{margin:0 0 14px}
+  #joinbox form{gap:14px}
+  #joinbox .step,#more .step{gap:12px}
+  dialog label{gap:5px}
+  dialog input{padding:11px 12px}
+  dialog .cta{min-height:48px;padding:12px 20px}
+  dialog .consent.also{padding:10px}
+  #more .note{padding:16px 14px 12px}
+  #more .note textarea{min-height:140px;font-size:17px}
+}
 </style>
 </head>
 <body>
