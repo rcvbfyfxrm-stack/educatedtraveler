@@ -229,6 +229,9 @@ details.days[open] summary::after{content:"\2212"}
 .band .h2{color:#fff;max-width:16ch}
 .band .btn-primary{background:#fff;color:var(--ink);margin-top:clamp(24px,3.6vh,34px)}
 .band .btn-primary:hover{background:var(--ink);color:#fff}
+.band-lock{--lk-type:#fff;width:min(460px,100%);margin:0 0 clamp(26px,4vh,40px)}
+.band-lock svg{width:100%;filter:none}
+@media (max-width:720px){.band .band-lock{display:block;padding:0;background:none}.band .band-lock svg{width:min(320px,calc(100vw - 48px))}}
 .band small{display:block;margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
 
 footer{text-align:center;padding:40px 22px 56px;border-top:1px solid var(--line)}
@@ -565,6 +568,17 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 </div></section>
 
 <section class="band" id="interested"><div class="wrap">
+  <div class="collab-lock band-lock">
+    <svg viewBox="36 18 720 122" role="img" aria-label="Hiroko Ishii × EducatedTraveler, Japan Culinary Masters Academy, Tokyo" focusable="false">
+      <defs><clipPath id="tkL2"><rect x="556.2" y="82.5" width="23.8" height="57.0"/></clipPath><clipPath id="tkR2"><rect x="580" y="82.5" width="23.8" height="57.0"/></clipPath><path id="tk-arc2" d="M 424 96 A 312 312 0 0 1 736 96" fill="none"/></defs>
+      <text x="205" y="46" text-anchor="middle" font-family="var(--f-mono)" font-size="9.5" letter-spacing="3" fill="var(--lk-type)" opacity=".5">JAPAN CULINARY MASTERS ACADEMY</text>
+      <text x="205" y="98" text-anchor="middle" font-family="var(--f-display)" font-size="44" font-weight="500" letter-spacing="-.3" fill="var(--lk-type)">Hiroko Ishii</text>
+      <text x="385" y="96" text-anchor="middle" font-family="var(--f-display)" font-size="34" fill="var(--lk-type)">×</text>
+      <text font-family="var(--f-display)" font-size="21" font-weight="500" letter-spacing="2.6" fill="var(--lk-type)"><textPath href="#tk-arc2" startOffset="48.8%" text-anchor="middle">EDUCATED TRAVELER</textPath></text>
+      <path d="M 461.2 99.4 A 292 292 0 0 1 698.8 99.4" fill="none" stroke="var(--lk-type)" stroke-width="2.1" stroke-linecap="round"/>
+      <circle cx="589.04" cy="108.06" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="585.58" cy="118.69" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="574.42" cy="118.69" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="570.96" cy="108.06" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><g clip-path="url(#tkL2)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/></g><g clip-path="url(#tkR2)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/></g>
+    </svg>
+  </div>
   <h2 class="h2">Three weeks in Tokyo. Then you serve the omakase.</h2>
   <button type="button" class="btn btn-primary" data-open>I am interested</button>
   <small>1 to 19 March 2027</small>
