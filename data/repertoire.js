@@ -18464,7 +18464,7 @@ window.ET_ATLAS = {
             "gold-cred",
             "lineage"
           ],
-          "why": "The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.",
+          "why": "The cradle of Nueva Cocina Vasca — now taught at Basque Culinary Center, the university faculty Arzak and Subijana helped found in 2009.",
           "bestSeason": "May-Oct",
           "level": "Beginner -> Professional",
           "id": "new-basque-cuisine--san-sebasti-n-donostia",
