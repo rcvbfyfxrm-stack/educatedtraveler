@@ -166,7 +166,7 @@ section{padding:clamp(60px,9vh,104px) 0;border-top:1px solid var(--line)}
 /* inside the classroom: the film, and four photographs of a class day */
 .collab-lock{--lk-type:#fff;--lk-sea:var(--sea-dark);margin:0 0 clamp(22px,3.5vh,36px)}
 .collab-lock svg{display:block;width:min(440px,100%);height:auto;filter:drop-shadow(0 1px 8px rgba(0,0,0,.45))}
-@media (max-width:720px){.collab-lock{display:inline-block;padding:10px 14px 6px;background:rgba(14,22,21,.72);margin-bottom:22px}.collab-lock svg{width:min(330px,calc(100vw - 68px));filter:none}}
+@media (max-width:720px){.collab-lock{display:block;margin-bottom:22px}.collab-lock svg{width:min(330px,calc(100vw - 48px));filter:drop-shadow(0 1px 3px rgba(0,0,0,.85)) drop-shadow(0 2px 14px rgba(0,0,0,.6))}}
 .claim .claim-sub{display:block;font-size:clamp(1.15rem,1.9vw,1.55rem);line-height:1.3;letter-spacing:0;font-weight:300;color:rgba(255,255,255,.9);margin-top:.7em;max-width:30ch}
 .gain{list-style:none;margin:clamp(28px,4vh,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,5vw,64px);border-top:1px solid var(--line-2)}
 .gain li{padding:24px 0;border-bottom:1px solid var(--line)}
@@ -268,6 +268,9 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 .beyond .lede b{color:#fff}
 .plus{list-style:none;margin:clamp(30px,4.5vh,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)}
 .plus li{background:var(--ink);padding:26px 24px 24px;display:flex;flex-direction:column}
+.plus li.wide{grid-column:span 2}
+.plus li.wide h3{font-size:clamp(1.6rem,2.8vw,2.3rem)}
+.plus p a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4)}
 .plus .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea-dark)}
 .plus h3{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.15;margin-top:12px;color:#fff}
 .plus p{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.72);margin-top:10px}
@@ -282,7 +285,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 .need p{font-size:15px;line-height:1.6;color:var(--muted);margin-top:6px}
 .bar .not{margin-top:22px;padding:18px 20px;background:var(--sea-tint);border-left:3px solid var(--sea);font-family:var(--f-display);font-weight:300;font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.45}
 @media (max-width:860px){.plus{grid-template-columns:repeat(2,minmax(0,1fr))}.bar{grid-template-columns:1fr}}
-@media (max-width:560px){.plus{grid-template-columns:1fr}}
+@media (max-width:560px){.plus{grid-template-columns:1fr}.plus li.wide{grid-column:auto}}
 @media (max-width:860px){
   .two,.teacher{grid-template-columns:1fr}
   .wall{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -338,7 +341,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <div class="door">
       <p class="via" id="via" hidden></p>
       <button type="button" class="btn btn-primary" data-open>I am interested</button>
-      <small>Nothing is on sale yet. Raise your hand and you hear first.</small>
+      <small>Nothing is on sale yet. Raise your hand and you hear everything in writing first.</small>
     </div>
     <div class="facts">
       <span><b>Mon 1 to Fri 19 March 2027</b></span>
@@ -362,17 +365,17 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   </div>
   <div class="strip" id="sent-strip"></div>
   <p class="cap">Photographs from the five days at Vakuum.</p>
-  <p class="next">Tokyo is the second. Three weeks with Hiroko Ishii, and on the last day you serve. <a href="#counter">Here is how it runs</a></p>
+  <p class="next">Tokyo is the second. <a href="#counter">Here is how it runs</a></p>
 </div></section>
 
 <section id="value"><div class="wrap">
   <h2 class="h2">What you take back to your kitchen.</h2>
-  <p class="lede">Three weeks at Hiroko&rsquo;s bench, every class day. You leave with a sushi service you can put on your own menu.</p>
+  <p class="lede">You leave with a sushi service you can put on your own menu.</p>
   <ul class="gain">
-    <li><span class="k">The service</span><h3>An omakase you can run.</h3><p>The prep, the order, the timing. You watch Hiroko serve one, then you serve two rounds yourself.</p></li>
+    <li><span class="k">The service</span><h3>An omakase you can run.</h3><p>The prep, the order of the pieces, the timing at the counter.</p></li>
     <li><span class="k">The rice</span><h3>Rice you can repeat.</h3><p>Cooked and seasoned until it is steady. It is most of what you taste, so it comes back every day.</p></li>
-    <li><span class="k">The fish</span><h3>Whole fish, broken down by you.</h3><p>Horse mackerel, flounder, salmon, yellowtail. Ikejime on a sea bream at Toyosu, and a bream aged four days tasted against a fresh one.</p></li>
-    <li><span class="k">The kitchen you work in</span><h3>Techniques that come home with you.</h3><p>Your own knives sharpened. The tamago made on the pan you use at work. Kelp and vinegar cures you can prepare ahead.</p></li>
+    <li><span class="k">The fish</span><h3>Whole fish, broken down by you.</h3><p>Horse mackerel, flounder, salmon, yellowtail, from the whole fish to the piece.</p></li>
+    <li><span class="k">The kitchen you work in</span><h3>Techniques that come home with you.</h3><p>The tamago made on the pan you use at work. Kelp and vinegar cures you can prepare ahead.</p></li>
   </ul>
   <p class="lede"><a href="#hands">The twelve techniques, day by day</a></p>
 </div></section>
@@ -382,14 +385,13 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   <h2 class="h2" style="margin-top:14px">What Hiroko adds for a room of chefs.</h2>
   <p class="lede">Hiroko&rsquo;s six-week Sushi Diploma builds from rice and knife to an omakase served at the counter. <b>This room arrives already cooking for a living, so Hiroko built three weeks that reach the omakase sooner, with what her published diploma does not list.</b></p>
   <ul class="plus">
-    <li><span class="k">At the counter</span><h3>Two days of full omakase service.</h3><p>Thu 18, Hiroko serves a full omakase in front of you. Fri 19, you serve yours at the counter, the other chefs as your guests.</p></li>
+    <li class="wide"><span class="k">At the counter</span><h3>Two days of full omakase service.</h3><p>Hiroko serves a full omakase in front of you. The next day, you serve yours. <a href="#counter">The three services</a></p></li>
     <li><span class="k">Hands on</span><h3>The tuna, cut by you.</h3><p>A tuna specialist comes to break it down with the long knife, explaining each cut. Then the chefs cut it themselves.</p></li>
     <li><span class="k">At Toyosu</span><h3>Ikejime, in your own hands.</h3><p>Early morning at the market, Hiroko demonstrates it on a sea bream, then each chef who wants to does it. Breakfast there.</p></li>
     <li><span class="k">Judgement</span><h3>Aged against fresh.</h3><p>A sea bream aged four days, tasted beside a fresh one. What ageing does, on your own tongue.</p></li>
     <li><span class="k">The hot side</span><h3>Not only sushi.</h3><p>Dashi, miso soup, simmered octopus, buri daikon, tempura, tofu made from scratch, gari made by you. What surrounds the pieces on a real menu.</p></li>
-    <li><span class="k">Tools</span><h3>Kappabashi, on foot.</h3><p>A walking tour of the kitchen-tool street for your knives and stones, included.</p></li>
   </ul>
-  <p class="src">Compared with the Sushi Diploma as published on <a href="https://jcma.tokyo/">jcma.tokyo</a>, read 17 Nov 2026. From us: the first table, the last night.</p>
+  <p class="src">Compared with the Sushi Diploma as published on <a href="https://jcma.tokyo/">jcma.tokyo</a>, read 17 Nov 2026.</p>
 </div></section>
 
 <section id="for"><div class="wrap bar">
@@ -402,7 +404,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <ol class="need">
       <li><span class="n">01</span><div><h3>You cook for a living.</h3><p>A private chef, or a chef on a yacht, cooking for guests now.</p></div></li>
       <li><span class="n">02</span><div><h3>You have worked with raw fish and made sushi.</h3><p>You know the basics of Japanese cooking and have served sushi before, even simply. Here it goes further, at Hiroko&rsquo;s bench.</p></div></li>
-      <li><span class="n">03</span><div><h3>You can hold a bench for three weeks.</h3><p>Class 10 to 3, room open to 5, weekdays. One Saturday at Toyosu.</p></div></li>
+      <li><span class="n">03</span><div><h3>You can hold a bench for three weeks.</h3><p>Five days a week at the bench, and one Saturday at the market.</p></div></li>
     </ol>
     <p class="not">Not sure you are there yet? Raise your hand and tell me what you have done. I will tell you honestly.</p>
   </div>
@@ -487,7 +489,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <div class="row"><div class="d">TUE 9</div><div>
       <h4>Flounder, kombu-jime, the cut vegetables</h4>
       <p>Filleting the flounder. Nigiri from it, and kombu-jime, the fish cured between sheets of kelp. Usuzukuri, the thin-sliced sashimi plate. Momiji-oroshi, and cut vegetables for the plate. Mackerel, prepared. Yesterday’s buri daikon, tasted.</p>
-      <p class="ev">Evening · the whole bluefin tuna night, with sake <span class="tag arr">being arranged</span></p></div></div>
+      <p class="ev">Evening · the tuna breakdown <span class="tag arr">agreed</span> <span class="tag">date set by the supplier</span></p></div></div>
     <div class="row"><div class="d">WED 10</div><div>
       <h4>Vinegar, tuna, conger eel</h4>
       <p>Gizzard shad and mackerel, cured in vinegar. A tuna plate: nigiri, zuke nigiri, a mid-thick roll, sashimi, a hand roll. Conger eel, shown by Hiroko. A whole salmon, from the fish to the piece.</p></div></div>
@@ -520,7 +522,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <div class="row"><div class="d">FRI 19</div><div>
       <h4>The final service <span class="tag arr">agreed</span></h4>
       <p>Prep in the morning. Then every chef serves a full omakase at the counter, in two rounds, the others as guests. The afternoon is for repeating any technique the chefs ask for.</p>
-      <p class="ev">Evening · a long dinner for everyone, the last night, on us.</p></div></div>
+      <p class="ev">Evening · the last night, on us.</p></div></div>
   </div>
       <p class="note">Where it says “being arranged” or “idea”, that is what it is.</p>
     </details>
@@ -534,9 +536,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <li><span class="d">The night before<i>on us</i></span><div><h3>The first table</h3><p>One long table the night before day one. A plate and a drink, no speeches.</p></div></li>
     <li><span class="d">A Saturday<i>agreed</i></span><div><h3>Kappabashi, on foot</h3><p>A walking tour of the kitchen-tool street, for your knives and stones. Included in the course.</p></div></li>
     <li><span class="d">An evening<i>being arranged</i></span><div><h3>A sushi counter</h3><p>The class sits on the other side of a counter Hiroko chooses.</p></div></li>
-    <li><span class="d">An evening<i>agreed</i></span><div><h3>The tuna night</h3><p>A tuna specialist breaks down a tuna with the long knife, explaining each cut. Then you cut it yourselves. With sake. Included in the course; the date waits on her supplier.</p></div></li>
     <li><span class="d">An evening<i>idea</i></span><div><h3>Sake night in the classroom</h3><p>The whole class, in Hiroko’s room.</p></div></li>
-    <li><span class="d">A morning<i>agreed</i></span><div><h3>Toyosu at dawn</h3><p>The market, ikejime in your own hands, breakfast there.</p></div></li>
     <li><span class="d">An evening<i>idea</i></span><div><h3>Japanese ingredients, tasted</h3><p>Each product pure, then cooked. Japanese wine, sake, or both.</p></div></li>
     <li><span class="d">A shop<i>idea</i></span><div><h3>The Japanese dry store</h3><p>What a yacht chef keeps aboard, and where to buy it.</p></div></li>
     <li><span class="d">A weekend<i>idea</i></span><div><h3>A wasabi farm in Izu</h3><p>Where wasabi grows in running spring water. Pulled, grated, eaten.</p></div></li>
@@ -552,7 +552,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   <div>
     <h2 class="h2">Hiroko Ishii.</h2>
     <p class="lede">Founder of Japan Culinary Masters Academy in Otsuka, Tokyo, where she teaches sushi in English. A degree in food science, Le Cordon Bleu in Paris, the Tokyo Sushi Academy, then nine years as a sushi chef and instructor in Switzerland.</p>
-    <p class="lede">She set this schedule herself, day by day, and is in the room every class day, with a second instructor, until five for anyone who keeps practising. Check her at <a href="https://jcma.tokyo/">jcma.tokyo</a>, and on Instagram at <a href="https://www.instagram.com/sushiroco/" target="_blank" rel="noopener">@sushiroco</a>.</p>
+    <p class="lede">She set this schedule herself, day by day, and is in the room every class day. Check her at <a href="https://jcma.tokyo/">jcma.tokyo</a>, and on Instagram at <a href="https://www.instagram.com/sushiroco/" target="_blank" rel="noopener">@sushiroco</a>.</p>
   </div>
 </div></section>
 
@@ -564,7 +564,6 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <li><b>Lunch is included</b> on every class day, and so are your uniform and apron, the tuna breakdown, ikejime at Toyosu and the Kappabashi walking tour.</li>
     <li><b>Knives and stones are yours.</b> A yanagiba, a deba, and whetstones #220 and #1000 are required. Bring your own, buy them at JCMA, or buy them in Japan before the course starts.</li>
     <li><b>It runs from six chefs.</b> Below six it does not run, and nobody pays for a programme that does not happen.</li>
-    <li><b>Nothing is on sale.</b> Those who raised a hand hear everything in writing before anything is asked of them.</li>
     <li><b>You can go direct.</b> Her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working chefs, and everything around the lessons.</li>
   </ul>
 </div></section>
@@ -581,9 +580,9 @@ dialog#raise .close:hover{background:var(--sea-tint)}
       <circle cx="589.04" cy="108.06" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="585.58" cy="118.69" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="574.42" cy="118.69" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><circle cx="570.96" cy="108.06" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/><g clip-path="url(#tkL2)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/></g><g clip-path="url(#tkR2)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--lk-type)" stroke-width="2.5"/></g>
     </svg>
   </div>
-  <h2 class="h2">Three weeks in Tokyo. Then you serve the omakase.</h2>
+  <h2 class="h2">A place at Hiroko&rsquo;s bench, March 2027.</h2>
   <button type="button" class="btn btn-primary" data-open>I am interested</button>
-  <small>1 to 19 March 2027</small>
+  <small>Otsuka, Tokyo</small>
   <noscript><p style="margin-top:20px"><a href="/circle" style="color:#fff;text-decoration:underline">Join the Circle to hear first</a></p></noscript>
 </div></section>
 
