@@ -353,7 +353,7 @@ The full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--mau
 ```
 San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
 
-The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.
+The cradle of Nueva Cocina Vasca — now taught at Basque Culinary Center, the university faculty Arzak and Subijana helped found in 2009.
 
 Community strength: Legendary. Season: May-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
