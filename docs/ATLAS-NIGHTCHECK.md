@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-11-18 — 426 published claims re-read against the pages they came from, across 39 open crafts._
+_2026-11-19 — 426 published claims re-read against the pages they came from, across 39 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -12,8 +12,6 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 - **kitesurfing · the IKO Kiteboarder levels** — https://d8.ikointl.com/courses
   - page no longer says: Kiteboarder; Instructor
-- **kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery** — https://d8.ikointl.com/course/kiteboarder/discovery
-  - page no longer says: SEA (Spot, Environment, Activity) assessment; Self-land
 - **kitesurfing · the IKO Kiteboarder levels — Level 2 — Intermediate** — https://d8.ikointl.com/course/kiteboarder/intermediate
   - page no longer says: Body-drag upwind & Board Recovery; Waterstart
 - **kitesurfing · the IKO Kiteboarder levels — Level 3 — Independent** — https://d8.ikointl.com/course/kiteboarder/independent
@@ -39,34 +37,41 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 1 night, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
-  - https://www.pokharayogaschoolandretreatcenter.com/
-- surfing · Canggu Bali Surf Lesson (Odysseys Surf School) — 2 nights — URLError: <urlopen error timed out>
-  - https://surflessoncanggu.com/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 44 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- surfing · Peniche Surf Camp — 1 night — RemoteDisconnected: Remote end closed connection without response
+  - https://www.penichesurfcamp.com/
+- rock-climbing · Kalymnos Climbing Guide — 1 night — RemoteDisconnected: Remote end closed connection without response
+  - https://www.kalymnosclimbingguide.com/
+- perfumery · Grasse Institute of Perfumery (GIP) — 2 nights — TimeoutError: The read operation timed out
+  - https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/
+- perfumery · Fragrance Summer School - Level 1 — 1 night — TimeoutError: The read operation timed out
+  - https://www.grasse-perfumery.com/product/fragrance-summer-school-level-1/
+- perfumery · Scents of Provence (Level 1) — 1 night — TimeoutError: The read operation timed out
+  - https://www.grasse-perfumery.com/product/scents-of-provence-level-1/
+- perfumery · Grasse Institute of Perfumery (GIP) — 2 nights — RemoteDisconnected: Remote end closed connection without response
+  - https://www.grasse-perfumery.com/who-we-are/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 45 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 44 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
+- mixology-and-bartending · Cocktail-making workshop — 45 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
   - https://www.havanaclubmuseum.com/en/experiences/
-- modern-new-technique-cuisine · Category: Literature Member since: 2008 — 2 nights — RemoteDisconnected: Remote end closed connection without response
+- modern-new-technique-cuisine · Category: Literature Member since: 2008 — 3 nights — RemoteDisconnected: Remote end closed connection without response
   - https://www.unesco.org/en/creative-cities/melbourne
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **coffee-and-barista · African Coffee Campus** — 24 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+- **coffee-and-barista · African Coffee Campus** — 25 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
   - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)>
-- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — 11 nights — https://www.ugcb.net/en
+- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — 12 nights — https://www.ugcb.net/en
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.ugcb.net'. (_ssl.c:1011)>
-- **perfumery · Musée International de la Parfumerie** — 65 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 66 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
-- **perfumery · Un conservatoire de plantes à parfum** — 65 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 66 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
 
 ## Back to normal
 
-- french-pastry-and-patisserie · El Món Dolç de Claudia (International Pastry Academy)
-- wine-and-sommellerie · Université de Bordeaux DUAD (oenology)
+- kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery
 
 ## Unreadable, not gone
 
