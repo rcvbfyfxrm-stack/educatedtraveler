@@ -157,7 +157,7 @@ section{padding:clamp(60px,9vh,104px) 0;border-top:1px solid var(--line)}
 /* the wall of tags: what the hands do */
 .plate{width:100%;height:min(62vh,46vw);background:#1a1612}
 .plate img{object-position:50% 55%}
-.wall{list-style:none;margin:clamp(30px,4.5vh,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.wall{list-style:none;margin:clamp(30px,4.5vh,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .wall li{display:flex;flex-direction:column;min-height:196px;padding:18px 18px 16px;border:1px solid var(--line-2);background:var(--white)}
 /* a card carries a photograph only when the school has one of that work; the others stay words */
 .wall .wp{margin:-18px -18px 16px;aspect-ratio:4/3;flex:0 0 auto}
@@ -270,6 +270,8 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 .plus{list-style:none;margin:clamp(30px,4.5vh,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)}
 .plus li{background:var(--ink);padding:26px 24px 24px;display:flex;flex-direction:column}
 .plus li.wide{grid-column:span 2}
+.plus .pp{margin:-26px -24px 18px;aspect-ratio:4/3;overflow:hidden;background:#1a1612}
+.plus .pp img{width:100%;height:100%;object-fit:cover;display:block}
 .plus li.wide h3{font-size:clamp(1.6rem,2.8vw,2.3rem)}
 .plus p a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4)}
 .plus .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea-dark)}
@@ -302,6 +304,8 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 }
 @media (max-width:640px){
   .wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .wall li:last-child:nth-child(odd){grid-column:span 2}
+  .wall li:last-child:nth-child(odd) .wp{aspect-ratio:2/1}
   .wall li{min-height:0;padding:14px 14px 12px}
   .wall .wp{margin:-14px -14px 12px}
   .room-grid{grid-template-columns:1fr 1fr;gap:8px}
@@ -376,73 +380,6 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   <p class="next">Tokyo is the second. <a href="#counter">Here is how it runs</a></p>
 </div></section>
 
-<section id="value"><div class="wrap">
-  <h2 class="h2">What you take back to your kitchen.</h2>
-  <p class="lede">You leave with a sushi service you can put on your own menu.</p>
-  <ul class="gain">
-    <li><span class="k">The service</span><h3>An omakase you can run.</h3><p>The prep, the order of the pieces, the timing at the counter.</p></li>
-    <li><span class="k">The rice</span><h3>Rice you can repeat.</h3><p>Cooked and seasoned until it is steady. It is most of what you taste, so it comes back every day.</p></li>
-    <li><span class="k">The fish</span><h3>Whole fish, broken down by you.</h3><p>Horse mackerel, flounder, salmon, yellowtail, from the whole fish to the piece.</p></li>
-    <li><span class="k">The kitchen you work in</span><h3>Techniques that come home with you.</h3><p>The tamago made on the pan you use at work. Kelp and vinegar cures you can prepare ahead.</p></li>
-  </ul>
-  <p class="lede"><a href="#hands">The twelve techniques, day by day</a></p>
-</div></section>
-
-<section class="beyond" id="beyond"><div class="wrap">
-  <span class="mono" style="color:var(--sea-dark)">Built for this room</span>
-  <h2 class="h2" style="margin-top:14px">Designed for a room of chefs.</h2>
-  <p class="lede"><b>We designed these three weeks with Hiroko: we brought the room and what it should hold, and she set every day.</b> Her six-week Sushi Diploma builds from rice and knife to an omakase at the counter. This room arrives already cooking for a living, so it reaches the omakase sooner, with what her published diploma does not list.</p>
-  <ul class="plus">
-    <li class="wide"><span class="k">At the counter</span><h3>Two days of full omakase service.</h3><p>Hiroko serves a full omakase in front of you. The next day, you serve yours. <a href="#counter">The three services</a></p></li>
-    <li><span class="k">Hands on &middot; a tuna night</span><h3>A whole tuna, cut by you.</h3><p>A tuna specialist comes to break down a whole tuna with the long knife, explaining each cut. Then the chefs cut it themselves. Included in the course.</p></li>
-    <li><span class="k">At Toyosu</span><h3>Ikejime, in your own hands.</h3><p>Early morning at the market, Hiroko demonstrates it on a sea bream, then each chef who wants to does it. Breakfast there.</p></li>
-    <li><span class="k">Judgement</span><h3>Aged against fresh.</h3><p>A sea bream aged four days, tasted beside a fresh one. What ageing does, on your own tongue.</p></li>
-    <li><span class="k">The hot side</span><h3>Not only sushi.</h3><p>Dashi, miso soup, simmered octopus, buri daikon, tempura, tofu made from scratch, gari made by you. What surrounds the pieces on a real menu.</p></li>
-  </ul>
-  <p class="src">Compared with the Sushi Diploma as published on <a href="https://jcma.tokyo/">jcma.tokyo</a>, read 17 Nov 2026.</p>
-</div></section>
-
-<section id="adds"><div class="wrap">
-  <span class="mono" style="color:var(--sea)">What EducatedTraveler adds</span>
-  <h2 class="h2" style="margin-top:14px">Around her bench, we look after the rest.</h2>
-  <p class="lede">Hiroko teaches. We bring the room, find where it sleeps, and look after everything around the lessons.</p>
-  <ol class="ledger adds">
-    <li><span class="d">The room</span><div><h3>A room of experienced private and yacht chefs.</h3><p>The course is for working chefs: three weeks beside people who do your job, at most eight at the bench.</p></div></li>
-    <li><span class="d">Where you stay<i>being arranged</i></span><div><h3>Looking for one place for the whole room.</h3><p>We are looking for somewhere near the school for all the chefs, booked together to bring the price down for each of you. Take it or book your own.</p></div></li>
-    <li><span class="d">Around the lessons<i>your choice</i></span><div><h3>Evenings and weekends together, if you want.</h3><p>Agreed so far: a tool walk in Kappabashi. Ideas: a counter to eat at, sake, a wasabi farm. Each one yours to join or skip. <a href="#around">What is planned</a></p></div></li>
-    <li><span class="d">Day one<i>on us</i></span><div><h3>A first table, and a welcome set.</h3><p>One long table the night before. Something useful from Tokyo waiting for you on the first morning.</p></div></li>
-    <li><span class="d">Before you fly</span><div><h3>Everything in writing.</h3><p>What to bring, the knives and stones, the train card. A one-page glossary of the words you hear every day, checked by Hiroko before it reaches you.</p></div></li>
-    <li><span class="d">The last night<i>on us</i></span><div><h3>A long dinner for everyone.</h3><p>The people you cooked for, and who cooked for you, at one table.</p></div></li>
-  </ol>
-</div></section>
-
-<section id="said"><div class="wrap">
-  <span class="mono" style="color:var(--sea)">Yacht chefs and private chefs who learned at her bench</span>
-  <h2 class="h2" style="margin-top:14px">In their words.</h2>
-  <div class="quotes">
-    <figure class="q"><blockquote>&ldquo;Hiroko is a real good teacher, she knows what she talks about and can show you a way.&rdquo;</blockquote>
-      <figcaption><b>Petri</b>, yacht chef &middot; Tokyo Sushi Academy, 2025<span>Before you go, his advice: &ldquo;Basics of cooking, chef or experienced cook.&rdquo; Written on the Atlas, 14 Nov 2026.</span></figcaption></figure>
-    <figure class="q"><blockquote>&ldquo;It has been a great experience learning from such skilled and dedicated chefs. I have gained valuable knowledge and techniques that I will carry with me throughout my career.&rdquo;</blockquote>
-      <figcaption><b>Robin Sjostrom</b>, yacht chef &middot; sushi course at JCMA &middot; <a href="https://www.instagram.com/chef_robin_sjostrom/" target="_blank" rel="noopener">@chef_robin_sjostrom</a><span>Written to JCMA on Instagram, shared here with his yes.</span></figcaption></figure>
-  </div>
-</div></section>
-
-<section id="for"><div class="wrap bar">
-  <div>
-    <span class="mono">Who this is for</span>
-    <h2 class="h2" style="margin-top:14px">An advanced room. You arrive already a chef.</h2>
-    <p class="lede">Three weeks move fast when everyone at the bench already cooks for a living. That is the standard we hold this room to.</p>
-  </div>
-  <div>
-    <ol class="need">
-      <li><span class="n">01</span><div><h3>You cook for a living.</h3><p>A private chef, or a chef on a yacht, cooking for guests now.</p></div></li>
-      <li><span class="n">02</span><div><h3>You have worked with raw fish and made sushi.</h3><p>You know the basics of Japanese cooking and have served sushi before, even simply. Here it goes further, at Hiroko&rsquo;s bench.</p></div></li>
-      <li><span class="n">03</span><div><h3>You can hold a bench for three weeks.</h3><p>Five days a week at the bench, and one Saturday at the market.</p></div></li>
-    </ol>
-    <p class="not">Not sure you are there yet? Raise your hand and tell me what you have done. I will tell you honestly.</p>
-  </div>
-</div></section>
-
 <section id="classroom"><div class="wrap">
   <h2 class="h2">At her school.</h2>
   <div class="room-grid">
@@ -457,6 +394,20 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <figure><button type="button" class="clip" aria-label="Play the clip: An instructor pouring hot water over a fillet on a bamboo tray"><video muted loop playsinline preload="none" poster="/images/tokyo/clips/yushimo.jpg" width="540" height="960"><source src="/images/tokyo/clips/yushimo.mp4" type="video/mp4"></video></button><figcaption class="cap">Yushimo: hot water on the skin</figcaption></figure>
   </div>
   <p class="cap">Film and photographs &middot; Japan Culinary Masters Academy, Tokyo.</p>
+</div></section>
+
+<section class="beyond" id="beyond"><div class="wrap">
+  <span class="mono" style="color:var(--sea-dark)">Built for this room</span>
+  <h2 class="h2" style="margin-top:14px">Designed for a room of chefs.</h2>
+  <p class="lede"><b>We designed these three weeks with Hiroko: we brought the room and what it should hold, and she set every day.</b> Her six-week Sushi Diploma builds from rice and knife to an omakase at the counter. This room arrives already cooking for a living, so it reaches the omakase sooner, with what her published diploma does not list.</p>
+  <ul class="plus">
+    <li class="wide"><span class="k">At the counter</span><h3>Two days of full omakase service.</h3><p>Hiroko serves hers in front of you. The next day, you serve yours. <a href="#counter">How the counter works</a></p></li>
+    <li><span class="k">Hands on &middot; a tuna night</span><h3>A whole tuna, cut by you.</h3><p>A tuna specialist comes to break down a whole tuna with the long knife, explaining each cut. Then the chefs cut it themselves. Included in the course.</p></li>
+    <li><div class="pp"><img src="/images/tokyo/kitchen/hands-ikejime.jpg" width="800" height="600" alt="A whole sea bream held in two hands at the sink, being scaled under running water" loading="lazy"></div><span class="k">At Toyosu &middot; Sat 13</span><h3>Ikejime, in your own hands.</h3><p>Early morning at the market, Hiroko demonstrates it on a sea bream, then each chef who wants to does it. Breakfast there.</p></li>
+    <li><div class="pp"><img src="/images/tokyo/kitchen/hands-ageing.jpg" width="800" height="600" alt="A sea bream sashimi plate with the head and tail, shiso and a daikon flower, two knives behind" loading="lazy"></div><span class="k">Judgement &middot; Sat 13</span><h3>Aged against fresh.</h3><p>A sea bream aged four days, tasted beside a fresh one. What ageing does, on your own tongue.</p></li>
+    <li><div class="pp"><img src="/images/tokyo/kitchen/hands-tempura.jpg" width="800" height="600" alt="A tray of tempura held up in the classroom" loading="lazy"></div><span class="k">The hot side</span><h3>Not only sushi.</h3><p>Dashi, miso soup, simmered octopus, buri daikon, tempura, tofu made from scratch, gari made by you. What surrounds the pieces on a real menu.</p></li>
+  </ul>
+  <p class="src">Compared with the Sushi Diploma as published on <a href="https://jcma.tokyo/">jcma.tokyo</a>, read 17 Nov 2026.</p>
 </div></section>
 
 <section id="counter"><div class="wrap two">
@@ -478,21 +429,18 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 <section id="hands">
   <div class="ph plate"><img src="/images/review/hiroko/the-plate.jpg" width="1200" height="900" alt="A stone plate of sea bream sashimi and nigiri with shiso, gari and a half sudachi"></div>
   <div class="wrap">
-    <h2 class="h2" style="margin-top:clamp(40px,6vh,64px)">Twelve things you do with your hands.</h2>
+    <h2 class="h2" style="margin-top:clamp(40px,6vh,64px)">What you do with your hands.</h2>
     <p class="lede">Every class day is Hiroko’s, set by her. The room is yours from 9 to 5: morning class 10 to 12, lunch, afternoon class 1 to 3, then practice until 5. Hiroko is always there, with a second instructor.</p>
     <ul class="wall">
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-nigiri.jpg" width="800" height="600" alt="Five pieces of lean tuna nigiri on a long plate" loading="lazy"></div><h3>Nigiri, by hand</h3><p>Rice cooked and seasoned until steady, the cut, the piece in the palm.</p><span class="d">Every day</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-yanagiba.jpg" width="800" height="600" alt="A long knife set against a block of tuna on the board" loading="lazy"></div><h3>The yanagiba</h3><p>Fish for sushi cut in one pull. Your own knives sharpened.</p><span class="d">Mon 1, Tue 2</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-sanmai.jpg" width="800" height="600" alt="Three horse mackerel on a steel tray" loading="lazy"></div><h3>Sanmai-oroshi</h3><p>A whole fish in three pieces, the skin off with the knife.</p><span class="d">Wed 3</span></li>
-      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-ikejime.jpg" width="800" height="600" alt="A whole sea bream held in two hands at the sink, being scaled under running water" loading="lazy"></div><h3>Ikejime</h3><p>At Toyosu, on a sea bream, in your own hands.</p><span class="d">Sat 13, agreed</span></li>
-      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-ageing.jpg" width="800" height="600" alt="A sea bream sashimi plate with the head and tail, shiso and a daikon flower, two knives behind" loading="lazy"></div><h3>Ageing</h3><p>A bream aged four days, tasted against a fresh one.</p><span class="d">Sat 13</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-flounder.jpg" width="800" height="600" alt="A whole flounder on the board beside a knife" loading="lazy"></div><h3>Kombu-jime</h3><p>Flounder cured between sheets of kelp.</p><span class="d">Tue 9</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-vinegar.jpg" width="800" height="600" alt="Three pieces of pressed mackerel sushi with pickled ginger" loading="lazy"></div><h3>Vinegar cures</h3><p>Gizzard shad and mackerel. Bo-zushi, the pressed bar.</p><span class="d">Wed 10, Thu 11</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-salmon.jpg" width="800" height="600" alt="A whole salmon on ice" loading="lazy"></div><h3>Whole fish</h3><p>A whole salmon, a whole yellowtail, aburi with the torch.</p><span class="d">Mon 8, Wed 10, Tue 16</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-tamago.jpg" width="800" height="600" alt="A platter of nigiri with the egg omelette in the middle" loading="lazy"></div><h3>Tamago</h3><p>The omelette, on the pan you use at work. Nigiri from it.</p><span class="d">Thu 4</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-rolls.jpg" width="800" height="600" alt="Futomaki and inari on a patterned plate" loading="lazy"></div><h3>The rolls</h3><p>Hosomaki, futomaki, inside-out, softshell crab.</p><span class="d">Tue 2, Fri 5, Tue 16</span></li>
       <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-shellfish.jpg" width="800" height="600" alt="A geoduck clam opened in the hand over a steel bowl" loading="lazy"></div><h3>Shellfish</h3><p>Ark shell, geoduck, surf clam, abalone, squid.</p><span class="d">Thu 11, Tue 16, Thu 18</span></li>
-      <li><div class="ph wp"><img src="/images/tokyo/kitchen/hands-tempura.jpg" width="800" height="600" alt="A tray of tempura held up in the classroom" loading="lazy"></div><h3>The hot side</h3><p>Dashi, simmered octopus, buri daikon, tempura.</p><span class="d">Wed 3, Mon 8, Thu 11, Fri 12</span></li>
     </ul>
     <details class="days"><summary>Every day, as Hiroko set it</summary>
     <div class="wk">
@@ -562,19 +510,6 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   </div>
 </section>
 
-<section id="around"><div class="wrap">
-  <h2 class="h2">Around the lessons, Tokyo.</h2>
-  <p class="lede">Evenings and weekends to eat, look, taste and buy the tools. Each one is yours to join or skip, and marked for what it is.</p>
-  <ol class="ledger">
-    <li><span class="d">A Saturday<i>agreed</i></span><div><h3>Kappabashi, on foot</h3><p>A walking tour of the kitchen-tool street, for your knives and stones. Included in the course.</p></div></li>
-    <li><span class="d">An evening<i>being arranged</i></span><div><h3>A sushi counter</h3><p>The class sits on the other side of a counter Hiroko chooses.</p></div></li>
-    <li><span class="d">An evening<i>idea</i></span><div><h3>Sake night in the classroom</h3><p>The whole class, in Hiroko’s room.</p></div></li>
-    <li><span class="d">An evening<i>idea</i></span><div><h3>Japanese ingredients, tasted</h3><p>Each product pure, then cooked. Japanese wine, sake, or both.</p></div></li>
-    <li><span class="d">A shop<i>idea</i></span><div><h3>The Japanese dry store</h3><p>What a yacht chef keeps aboard, and where to buy it.</p></div></li>
-    <li><span class="d">A weekend<i>idea</i></span><div><h3>A wasabi farm in Izu</h3><p>Where wasabi grows in running spring water. Pulled, grated, eaten.</p></div></li>
-  </ol>
-</div></section>
-
 <section id="teacher"><div class="wrap teacher">
   <figure style="margin:0">
     <div class="ph portrait"><img src="/images/tokyo/hiroko.jpg" width="900" height="1350" alt="Hiroko Ishii in her whites, standing in the school"></div>
@@ -587,10 +522,54 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   </div>
 </div></section>
 
+<section id="said"><div class="wrap">
+  <span class="mono" style="color:var(--sea)">Yacht chefs and private chefs who learned at her bench</span>
+  <h2 class="h2" style="margin-top:14px">In their words.</h2>
+  <div class="quotes">
+    <figure class="q"><blockquote>&ldquo;Hiroko is a real good teacher, she knows what she talks about and can show you a way.&rdquo;</blockquote>
+      <figcaption><b>Petri</b>, yacht chef &middot; Tokyo Sushi Academy, 2025<span>Before you go, his advice: &ldquo;Basics of cooking, chef or experienced cook.&rdquo; Written on the Atlas, 14 Nov 2026.</span></figcaption></figure>
+    <figure class="q"><blockquote>&ldquo;It has been a great experience learning from such skilled and dedicated chefs. I have gained valuable knowledge and techniques that I will carry with me throughout my career.&rdquo;</blockquote>
+      <figcaption><b>Robin Sjostrom</b>, yacht chef &middot; sushi course at JCMA &middot; <a href="https://www.instagram.com/chef_robin_sjostrom/" target="_blank" rel="noopener">@chef_robin_sjostrom</a><span>Written to JCMA on Instagram, shared here with his yes.</span></figcaption></figure>
+  </div>
+</div></section>
+
+<section id="for"><div class="wrap bar">
+  <div>
+    <span class="mono">Who this is for</span>
+    <h2 class="h2" style="margin-top:14px">An advanced room. You arrive already a chef.</h2>
+    <p class="lede">Three weeks move fast when everyone at the bench already cooks for a living. That is the standard we hold this room to.</p>
+  </div>
+  <div>
+    <ol class="need">
+      <li><span class="n">01</span><div><h3>You cook for a living.</h3><p>A private chef, or a chef on a yacht, cooking for guests now.</p></div></li>
+      <li><span class="n">02</span><div><h3>You have worked with raw fish and made sushi.</h3><p>You know the basics of Japanese cooking and have served sushi before, even simply. Here it goes further, at Hiroko&rsquo;s bench.</p></div></li>
+      <li><span class="n">03</span><div><h3>You can hold a bench for three weeks.</h3><p>Five days a week at the bench, and one Saturday at the market.</p></div></li>
+    </ol>
+    <p class="not">Not sure you are there yet? Raise your hand and tell me what you have done. I will tell you honestly.</p>
+  </div>
+</div></section>
+
+<section id="adds"><div class="wrap">
+  <span class="mono" style="color:var(--sea)">What EducatedTraveler adds</span>
+  <h2 class="h2" style="margin-top:14px">Around her bench, we look after the rest.</h2>
+  <p class="lede">Hiroko teaches. We bring a room of experienced private and yacht chefs, at most eight, and look after everything around the lessons. Evenings and weekends are yours to join or skip.</p>
+  <ol class="ledger adds">
+    <li><span class="d">Where you stay<i>being arranged</i></span><div><h3>Looking for one place for the whole room.</h3><p>We are looking for somewhere near the school for all the chefs, booked together to bring the price down for each of you. Take it or book your own.</p></div></li>
+    <li><span class="d">Day one<i>on us</i></span><div><h3>A first table, and a welcome set.</h3><p>One long table the night before. Something useful from Tokyo waiting for you on the first morning.</p></div></li>
+    <li><span class="d">A Saturday<i>agreed</i></span><div><h3>Kappabashi, on foot</h3><p>A walking tour of the kitchen-tool street, for your knives and stones. Included in the course.</p></div></li>
+    <li><span class="d">An evening<i>being arranged</i></span><div><h3>A sushi counter</h3><p>The class sits on the other side of a counter Hiroko chooses.</p></div></li>
+    <li><span class="d">An evening<i>idea</i></span><div><h3>Sake night in the classroom</h3><p>The whole class, in Hiroko’s room.</p></div></li>
+    <li><span class="d">An evening<i>idea</i></span><div><h3>Japanese ingredients, tasted</h3><p>Each product pure, then cooked. Japanese wine, sake, or both.</p></div></li>
+    <li><span class="d">A shop<i>idea</i></span><div><h3>The Japanese dry store</h3><p>What a yacht chef keeps aboard, and where to buy it.</p></div></li>
+    <li><span class="d">A weekend<i>idea</i></span><div><h3>A wasabi farm in Izu</h3><p>Where wasabi grows in running spring water. Pulled, grated, eaten.</p></div></li>
+    <li><span class="d">Before you fly</span><div><h3>Everything in writing.</h3><p>What to bring, the knives and stones, the train card. A one-page glossary of the words you hear every day.</p></div></li>
+    <li><span class="d">The last night<i>on us</i></span><div><h3>A long dinner for everyone.</h3><p>The people you cooked for, and who cooked for you, at one table.</p></div></li>
+  </ol>
+</div></section>
+
 <section id="terms"><div class="wrap">
   <h2 class="h2">The terms, plainly.</h2>
   <ul class="terms">
-    <li><b>For professional chefs.</b> Yacht and private chefs who already work with raw fish and have made sushi before. <a href="#for">Who this is for</a></li>
     <li><b>Three weeks, as one programme.</b> We do not offer a shorter one.</li>
     <li><b>Lunch is included</b> on every class day, and so are your uniform and apron, the tuna breakdown, ikejime at Toyosu and the Kappabashi walking tour.</li>
     <li><b>Knives and stones are yours.</b> A yanagiba, a deba, and whetstones #220 and #1000 are required. Bring your own, buy them at JCMA, or buy them in Japan before the course starts.</li>
@@ -598,6 +577,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <li><b>You can go direct.</b> Her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working chefs, help finding a place to stay together, and everything around the lessons. <a href="#adds">What we add</a></li>
   </ul>
 </div></section>
+
 
 <section class="band" id="interested"><div class="wrap">
   <div class="collab-lock band-lock">
