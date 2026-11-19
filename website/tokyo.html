@@ -286,6 +286,13 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 .need p{font-size:15px;line-height:1.6;color:var(--muted);margin-top:6px}
 .bar .not{margin-top:22px;padding:18px 20px;background:var(--sea-tint);border-left:3px solid var(--sea);font-family:var(--f-display);font-weight:300;font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.45}
 @media (max-width:860px){.plus{grid-template-columns:repeat(2,minmax(0,1fr))}.bar{grid-template-columns:1fr}}
+.adds p a{color:var(--sea);border-bottom:1px solid currentColor}
+.quotes{display:grid;gap:clamp(20px,3vw,32px);grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));margin-top:clamp(26px,4vh,40px)}
+.q{margin:0;border-left:2px solid var(--sea);padding:4px 0 4px clamp(18px,2.5vw,28px)}
+.q blockquote{margin:0;font-family:var(--f-display);font-weight:300;font-size:clamp(1.25rem,2.1vw,1.6rem);line-height:1.4;color:var(--ink)}
+.q figcaption{margin-top:16px;font-size:14px;line-height:1.6;color:var(--ink)}
+.q figcaption a{color:var(--sea);border-bottom:1px solid currentColor}
+.q figcaption span{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-top:6px}
 @media (max-width:560px){.plus{grid-template-columns:1fr}.plus li.wide{grid-column:auto}}
 @media (max-width:860px){
   .two,.teacher{grid-template-columns:1fr}
@@ -387,12 +394,37 @@ dialog#raise .close:hover{background:var(--sea-tint)}
   <p class="lede"><b>We designed these three weeks with Hiroko: we brought the room and what it should hold, and she set every day.</b> Her six-week Sushi Diploma builds from rice and knife to an omakase at the counter. This room arrives already cooking for a living, so it reaches the omakase sooner, with what her published diploma does not list.</p>
   <ul class="plus">
     <li class="wide"><span class="k">At the counter</span><h3>Two days of full omakase service.</h3><p>Hiroko serves a full omakase in front of you. The next day, you serve yours. <a href="#counter">The three services</a></p></li>
-    <li><span class="k">Hands on</span><h3>The tuna, cut by you.</h3><p>A tuna specialist comes to break it down with the long knife, explaining each cut. Then the chefs cut it themselves.</p></li>
+    <li><span class="k">Hands on &middot; a tuna night</span><h3>A whole tuna, cut by you.</h3><p>A tuna specialist comes to break down a whole tuna with the long knife, explaining each cut. Then the chefs cut it themselves. Included in the course.</p></li>
     <li><span class="k">At Toyosu</span><h3>Ikejime, in your own hands.</h3><p>Early morning at the market, Hiroko demonstrates it on a sea bream, then each chef who wants to does it. Breakfast there.</p></li>
     <li><span class="k">Judgement</span><h3>Aged against fresh.</h3><p>A sea bream aged four days, tasted beside a fresh one. What ageing does, on your own tongue.</p></li>
     <li><span class="k">The hot side</span><h3>Not only sushi.</h3><p>Dashi, miso soup, simmered octopus, buri daikon, tempura, tofu made from scratch, gari made by you. What surrounds the pieces on a real menu.</p></li>
   </ul>
   <p class="src">Compared with the Sushi Diploma as published on <a href="https://jcma.tokyo/">jcma.tokyo</a>, read 17 Nov 2026.</p>
+</div></section>
+
+<section id="adds"><div class="wrap">
+  <span class="mono" style="color:var(--sea)">What EducatedTraveler adds</span>
+  <h2 class="h2" style="margin-top:14px">Around her bench, we look after the rest.</h2>
+  <p class="lede">Hiroko teaches. We bring the room, find where it sleeps, and look after everything around the lessons.</p>
+  <ol class="ledger adds">
+    <li><span class="d">The room</span><div><h3>A room of experienced private and yacht chefs.</h3><p>The course is for working chefs: three weeks beside people who do your job, at most eight at the bench.</p></div></li>
+    <li><span class="d">Where you stay<i>being arranged</i></span><div><h3>Looking for one place for the whole room.</h3><p>We are looking for somewhere near the school for all the chefs, booked together to bring the price down for each of you. Take it or book your own.</p></div></li>
+    <li><span class="d">Around the lessons<i>your choice</i></span><div><h3>Evenings and weekends together, if you want.</h3><p>Agreed so far: a tool walk in Kappabashi. Ideas: a counter to eat at, sake, a wasabi farm. Each one yours to join or skip. <a href="#around">What is planned</a></p></div></li>
+    <li><span class="d">Day one<i>on us</i></span><div><h3>A first table, and a welcome set.</h3><p>One long table the night before. Something useful from Tokyo waiting for you on the first morning.</p></div></li>
+    <li><span class="d">Before you fly</span><div><h3>Everything in writing.</h3><p>What to bring, the knives and stones, the train card. A one-page glossary of the words you hear every day, checked by Hiroko before it reaches you.</p></div></li>
+    <li><span class="d">The last night<i>on us</i></span><div><h3>A long dinner for everyone.</h3><p>The people you cooked for, and who cooked for you, at one table.</p></div></li>
+  </ol>
+</div></section>
+
+<section id="said"><div class="wrap">
+  <span class="mono" style="color:var(--sea)">Yacht chefs and private chefs who learned at her bench</span>
+  <h2 class="h2" style="margin-top:14px">In their words.</h2>
+  <div class="quotes">
+    <figure class="q"><blockquote>&ldquo;Hiroko is a real good teacher, she knows what she talks about and can show you a way.&rdquo;</blockquote>
+      <figcaption><b>Petri</b>, yacht chef &middot; Tokyo Sushi Academy, 2025<span>Before you go, his advice: &ldquo;Basics of cooking, chef or experienced cook.&rdquo; Written on the Atlas, 14 Nov 2026.</span></figcaption></figure>
+    <figure class="q"><blockquote>&ldquo;It has been a great experience learning from such skilled and dedicated chefs. I have gained valuable knowledge and techniques that I will carry with me throughout my career.&rdquo;</blockquote>
+      <figcaption><b>Robin Sjostrom</b>, yacht chef &middot; sushi course at JCMA &middot; <a href="https://www.instagram.com/chef_robin_sjostrom/" target="_blank" rel="noopener">@chef_robin_sjostrom</a><span>Written to JCMA on Instagram, shared here with his yes.</span></figcaption></figure>
+  </div>
 </div></section>
 
 <section id="for"><div class="wrap bar">
@@ -490,7 +522,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <div class="row"><div class="d">TUE 9</div><div>
       <h4>Flounder, kombu-jime, the cut vegetables</h4>
       <p>Filleting the flounder. Nigiri from it, and kombu-jime, the fish cured between sheets of kelp. Usuzukuri, the thin-sliced sashimi plate. Momiji-oroshi, and cut vegetables for the plate. Mackerel, prepared. Yesterday’s buri daikon, tasted.</p>
-      <p class="ev">Evening · the tuna breakdown <span class="tag arr">agreed</span> <span class="tag">date set by the supplier</span></p></div></div>
+      <p class="ev">Evening · the tuna night: a whole tuna, broken down, then cut by the chefs <span class="tag arr">agreed</span> <span class="tag">date set by the supplier</span></p></div></div>
     <div class="row"><div class="d">WED 10</div><div>
       <h4>Vinegar, tuna, conger eel</h4>
       <p>Gizzard shad and mackerel, cured in vinegar. A tuna plate: nigiri, zuke nigiri, a mid-thick roll, sashimi, a hand roll. Conger eel, shown by Hiroko. A whole salmon, from the fish to the piece.</p></div></div>
@@ -532,16 +564,14 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 
 <section id="around"><div class="wrap">
   <h2 class="h2">Around the lessons, Tokyo.</h2>
-  <p class="lede">Evenings and weekends to eat, look, taste and buy the tools. Each one marked for what it is.</p>
+  <p class="lede">Evenings and weekends to eat, look, taste and buy the tools. Each one is yours to join or skip, and marked for what it is.</p>
   <ol class="ledger">
-    <li><span class="d">The night before<i>on us</i></span><div><h3>The first table</h3><p>One long table the night before day one. A plate and a drink, no speeches.</p></div></li>
     <li><span class="d">A Saturday<i>agreed</i></span><div><h3>Kappabashi, on foot</h3><p>A walking tour of the kitchen-tool street, for your knives and stones. Included in the course.</p></div></li>
     <li><span class="d">An evening<i>being arranged</i></span><div><h3>A sushi counter</h3><p>The class sits on the other side of a counter Hiroko chooses.</p></div></li>
     <li><span class="d">An evening<i>idea</i></span><div><h3>Sake night in the classroom</h3><p>The whole class, in Hiroko’s room.</p></div></li>
     <li><span class="d">An evening<i>idea</i></span><div><h3>Japanese ingredients, tasted</h3><p>Each product pure, then cooked. Japanese wine, sake, or both.</p></div></li>
     <li><span class="d">A shop<i>idea</i></span><div><h3>The Japanese dry store</h3><p>What a yacht chef keeps aboard, and where to buy it.</p></div></li>
     <li><span class="d">A weekend<i>idea</i></span><div><h3>A wasabi farm in Izu</h3><p>Where wasabi grows in running spring water. Pulled, grated, eaten.</p></div></li>
-    <li><span class="d">After the service<i>on us</i></span><div><h3>The last night</h3><p>A long dinner for everyone. The people you cooked for, and who cooked for you, at one table.</p></div></li>
   </ol>
 </div></section>
 
@@ -565,7 +595,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <li><b>Lunch is included</b> on every class day, and so are your uniform and apron, the tuna breakdown, ikejime at Toyosu and the Kappabashi walking tour.</li>
     <li><b>Knives and stones are yours.</b> A yanagiba, a deba, and whetstones #220 and #1000 are required. Bring your own, buy them at JCMA, or buy them in Japan before the course starts.</li>
     <li><b>It runs from six chefs.</b> Below six it does not run, and nobody pays for a programme that does not happen.</li>
-    <li><b>You can go direct.</b> Her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working chefs, and everything around the lessons.</li>
+    <li><b>You can go direct.</b> Her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working chefs, help finding a place to stay together, and everything around the lessons. <a href="#adds">What we add</a></li>
   </ul>
 </div></section>
 
