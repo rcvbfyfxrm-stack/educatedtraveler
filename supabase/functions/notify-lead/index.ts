@@ -310,7 +310,7 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
 // it out loud rather than leaving it to be inferred.
 type Seat = {
   name?: string; boat?: string; amount?: number; balance?: number;
-  method?: string; stage?: string;
+  method?: string; stage?: string; week?: string; label?: string; balanceJpy?: number;
 };
 
 function parseSeat(iv: unknown): Seat | null {
@@ -324,6 +324,7 @@ function parseSeat(iv: unknown): Seat | null {
   return {
     name: str(s.name), boat: str(s.boat), method: str(s.method), stage: str(s.stage),
     amount: num(s.amount_eur), balance: num(s.balance_eur),
+    week: str(s.week), label: str(s.label), balanceJpy: num(s.balance_jpy),
   };
 }
 
@@ -349,7 +350,7 @@ function seatHtml(
     : `<p style="margin:0;color:#6b625a;font-size:15px;line-height:1.6;"><strong>They started the hand-off.</strong> Nothing has been sent yet, and plenty of people stop here. Worth a note if it goes quiet.</p>`;
 
   return `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:26px;background:#faf7f2;">
-    <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Lab Week 01 · Barcelona</p>
+    <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-family:'Courier New',monospace;">${s.week === "tokyo-2027" ? "Tokyo · Hiroko Ishii · March 2027" : "Lab Week 01 · Barcelona"}</p>
     <h1 style="margin:0 0 16px 0;font-size:23px;font-weight:normal;color:#2b2621;">${declaredSent ? "Says they've sent it" : "Someone is taking a seat"}</h1>
     <div style="border-left:3px solid ${declaredSent ? "#d28a52" : "#c9c1b6"};background:#f2ede4;padding:12px 16px;margin:0 0 18px 0;">${banner}</div>
     <table style="border-collapse:collapse;width:100%;">
@@ -358,6 +359,7 @@ function seatHtml(
       ${s.boat ? line("Boat", esc(s.boat)) : ""}
       ${line("Sending", `<strong>${esc(eur(s.amount))}</strong> ${esc(method)}`)}
       ${typeof s.balance === "number" && s.balance > 0 ? line("Balance after", esc(eur(s.balance)) + " — due only once the week is confirmed") : ""}
+      ${typeof s.balanceJpy === "number" && s.balanceJpy > 0 ? line("Balance", `¥${s.balanceJpy.toLocaleString("en-GB")} — paid by the chef directly to JCMA, not to you`) : ""}
       ${line("Reference to look for", esc(s.name || email))}
     </table>
     ${alreadyPaid

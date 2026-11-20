@@ -227,7 +227,12 @@ details.days[open] summary::after{content:"\2212"}
 .band{background:var(--sea);color:#fff;border-top:0;text-align:center}
 .band .wrap{display:flex;flex-direction:column;align-items:center}
 .band .h2{color:#fff;max-width:16ch}
-.band .btn-primary{background:#fff;color:var(--ink);margin-top:clamp(24px,3.6vh,34px)}
+.band .btn-primary{background:#fff;color:var(--ink)}
+.band-acts{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:clamp(24px,3.6vh,34px)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--line)}
+.stage .btn-line,.band .btn-line{color:#fff;border-color:rgba(255,255,255,.6)}
+.stage .btn-line:hover,.band .btn-line:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+a.nav-cta,a.btn{text-decoration:none}
 .band .btn-primary:hover{background:var(--ink);color:#fff}
 .hero-lock{margin:clamp(26px,4vh,38px) 0 0}
 @media (max-width:640px){.stage .hero-lock svg{width:100%}}
@@ -332,7 +337,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 
 <nav id="nav"><div class="nav-in">
   <a class="brand et-wordmark on-photo" href="/"><img class="et-mark" src="/images/mark/spark.svg" width="22" height="22" alt="">EDUCATED TRAVELER</a>
-  <button type="button" class="nav-cta" data-open>I am interested</button>
+  <a class="nav-cta" href="/tokyo-book">Take your seat</a>
 </div></nav>
 
 <header class="stage">
@@ -354,12 +359,14 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     </div>
     <div class="door">
       <p class="via" id="via" hidden></p>
-      <button type="button" class="btn btn-primary" data-open>I am interested</button>
-      <small>Nothing is on sale yet. Raise your hand and you hear everything in writing first.</small>
+      <a class="btn btn-primary" href="/tokyo-book">Take your seat</a>
+      <button type="button" class="btn btn-line" data-open>I am interested</button>
+      <small>€4,500 · an €800 deposit saves your seat</small>
     </div>
     <div class="facts">
       <span><b>Mon 1 to Fri 19 March 2027</b></span>
       <span>Otsuka, Tokyo</span>
+      <span><b>€4,500</b></span>
       <span>In English</span>
       <span>Hiroko + a second instructor</span>
       <span><b>2 days of full omakase service</b></span>
@@ -560,6 +567,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 <section id="terms"><div class="wrap">
   <h2 class="h2">The terms, plainly.</h2>
   <ul class="terms">
+    <li><b>€4,500 for the three weeks.</b> An €800 deposit to EducatedTraveler saves your seat. The balance, ¥650,000 (about €3,700 today), you pay directly to the school before the course starts; I send you the school’s payment details. <a href="/tokyo-book">Take your seat</a></li>
     <li><b>Three weeks, as one programme.</b> We do not offer a shorter one.</li>
     <li><b>Lunch is included</b> on every class day, and so are your uniform and apron, the tuna breakdown, ikejime at Toyosu and the Kappabashi walking tour.</li>
     <li><b>Knives and stones are yours.</b> A yanagiba, a deba, and whetstones #220 and #1000 are required. Bring your own, buy them at JCMA, or buy them in Japan before the course starts.</li>
@@ -593,8 +601,11 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     </svg>
   </div>
   <h2 class="h2">A place at Hiroko&rsquo;s bench, March 2027.</h2>
-  <button type="button" class="btn btn-primary" data-open>I am interested</button>
-  <small>Otsuka, Tokyo</small>
+  <div class="band-acts">
+    <a class="btn btn-primary" href="/tokyo-book">Take your seat</a>
+    <button type="button" class="btn btn-line" data-open>I am interested</button>
+  </div>
+  <small>€4,500 · Otsuka, Tokyo</small>
   <noscript><p style="margin-top:20px"><a href="/circle" style="color:#fff;text-decoration:underline">Join the Circle to hear first</a></p></noscript>
 </div></section>
 
@@ -624,7 +635,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <label class="hand-hp" aria-hidden="true">Leave this empty<input name="company" type="text" tabindex="-1" autocomplete="off"></label>
     <button type="submit" class="btn btn-primary hand-go">Send</button>
     <p class="hand-say" role="status" aria-live="polite"></p>
-    <p class="hand-fine">Nothing to sign up for, and nothing is on sale yet. <a href="/privacy">Privacy</a></p>
+    <p class="hand-fine">Nothing to sign up for. Ready now? <a href="/tokyo-book">Take your seat</a> · <a href="/privacy">Privacy</a></p>
   </form>
   <div class="hand-done" hidden><h2 class="hand-h">Thank you<span class="hand-who"></span>.</h2><p class="hand-p">It is with me now. I will write to you myself.</p><p class="hand-sig">Arnaud</p></div>
 </dialog>

@@ -64,6 +64,35 @@ function seatOf(iv: unknown): Record<string, unknown> {
 // Every fact is checkable against the public /barcelona page — which is the
 // point: the refund promise is only worth something if it is said in public
 // and repeated in private in the same words.
+// Tokyo, 20 Nov 2026: the same note, with its own facts. A row carries
+// week:"tokyo-2027"; every other row is the Barcelona week.
+function isTokyo(s: Record<string, unknown>): boolean { return s.week === "tokyo-2027"; }
+function subjectFor(s: Record<string, unknown>, amount: number): string {
+  return isTokyo(s) ? `Your ${eur(amount)} deposit arrived — Tokyo, March 2027` : `Your ${eur(amount)} arrived — Lab Week 01, Barcelona`;
+}
+function tokyoLetterHtml(name: string, paid: number, when: string): string {
+  const P = "color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 18px 0;";
+  const row = (k: string, v: string) =>
+    `<tr><td style="padding:6px 16px 6px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;white-space:nowrap;vertical-align:top;">${esc(k)}</td><td style="padding:6px 0;color:#2b2621;font-size:15px;">${v}</td></tr>`;
+  return `<div style="background:#faf7f2;padding:30px 0;font-family:Georgia,'Times New Roman',serif;">
+  <div style="max-width:540px;margin:0 auto;padding:0 26px;">
+    <p style="font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:#8f5820;margin:0 0 12px 0;font-family:'Courier New',monospace;">Tokyo &nbsp;&middot;&nbsp; Hiroko Ishii &nbsp;&middot;&nbsp; March 2027</p>
+    <h1 style="font-size:25px;font-weight:normal;color:#2b2621;margin:0 0 22px 0;line-height:1.25;">Your ${esc(eur(paid))} deposit arrived.</h1>
+    <p style="${P}">That's the whole message. The rest is so that nothing surprises you later.</p>
+    <table style="border-collapse:collapse;width:100%;margin:0 0 22px 0;background:#f2ede4;border-left:2px solid #b06f33;border-radius:0 8px 8px 0;padding:4px;">
+      ${row("Received", `<strong>${esc(eur(paid))}</strong>, ${esc(when)}`)}
+      ${row("Balance", "&yen;650,000, paid directly to Japan Culinary Masters Academy before the course")}
+      ${row("The course", "Mon 1 to Fri 19 March 2027, at JCMA in Otsuka, Tokyo")}
+    </table>
+    <p style="${P}">Your seat is transferable but not refundable. If you can't come, send a professional chef in your place before the course starts.</p>
+    <p style="${P}">You'll hear from me well before March: how to pay the school, where the room stays, the knives and stones, and what to bring.</p>
+    <p style="${P}">Anything at all, reply to this. It's me at the other end.</p>
+    <p style="${P}margin-bottom:26px;">Arnaud</p>
+    <p style="color:#6b625a;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:0;border-top:1px solid #e2dbd0;padding-top:18px;">A skill, a place, a person, your people.</p>
+  </div>
+</div>`;
+}
+
 function letterHtml(name: string, paid: number, balance: number, when: string): string {
   const P = "color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 18px 0;";
   const row = (k: string, v: string) =>
@@ -126,7 +155,7 @@ serve(async (req) => {
     const s = seatOf(row.interests);
     const name = String(s.name ?? row.email);
     const amount = typeof s.amount_eur === "number" ? s.amount_eur : 0;
-    const balance = typeof s.balance_eur === "number" ? s.balance_eur : Math.max(0, 1500 - amount);
+    const balance = typeof s.balance_eur === "number" ? s.balance_eur : (isTokyo(s) ? 0 : Math.max(0, 1500 - amount));
 
     if (row.seat_paid_at) {
       const on = new Date(String(row.seat_paid_at)).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -174,8 +203,8 @@ serve(async (req) => {
       headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from: FROM, to: [String(row.email)], reply_to: REPLY_TO,
-        subject: `Your ${eur(amount)} arrived — Lab Week 01, Barcelona`,
-        html: letterHtml(name, amount, balance, when),
+        subject: subjectFor(s, amount),
+        html: isTokyo(s) ? tokyoLetterHtml(name, amount, when) : letterHtml(name, amount, balance, when),
       }),
     });
 
