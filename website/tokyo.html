@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="EducatedTraveler">
 <meta property="og:url" content="https://educatedtraveler.app/tokyo">
 <meta property="og:title" content="Learn to serve an omakase. Tokyo, March 2027">
-<meta property="og:description" content="Three weeks in Tokyo with Hiroko Ishii, 1 to 19 March 2027, for yacht and private chefs.">
+<meta property="og:description" content="Three weeks in Tokyo with Hiroko Ishii, 1 to 19 March 2027, for yacht and private chefs. €4,500; an €800 deposit saves your seat.">
 <meta property="og:image" content="https://educatedtraveler.app/images/tokyo/kitchen/share-tuna.jpg">
 <meta property="og:image:width" content="831">
 <meta property="og:image:height" content="623">
@@ -239,9 +239,23 @@ a.nav-cta,a.btn{text-decoration:none}
 .band-lock{--lk-type:#fff;width:min(460px,100%);margin:0 0 clamp(26px,4vh,40px)}
 .band-lock svg{width:100%;filter:none}
 @media (max-width:720px){.band .band-lock{display:block;padding:0;background:none}.band .band-lock svg{width:min(320px,calc(100vw - 48px))}}
+.band .ask{margin:22px 0 0;font-size:15px;color:rgba(255,255,255,.9)}
+.band .ask a{color:#fff;border-bottom:1px solid rgba(255,255,255,.6);text-decoration:none}
+.band .ask a:hover{border-color:#fff}
+.band-sub{margin:14px 0 0;font-family:var(--f-display);font-weight:300;font-size:clamp(1.1rem,1.8vw,1.35rem);color:rgba(255,255,255,.92)}
+.band .ask{max-width:52ch}
+.linkbtn{background:none;border:0;padding:0;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;border-bottom:1px solid currentColor;cursor:pointer}
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px clamp(12px,3vw,28px);padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .3s}
+.stickybar.on{transform:none}
+.stickybar .st-say{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stickybar .st-say b{color:var(--ink);font-weight:500}
+.stickybar .st-acts{display:flex;gap:8px}
+.stickybar .btn{min-height:42px;padding:8px 16px;font-size:14px}
+@media (max-width:560px){nav .nav-cta{display:none!important}.stickybar .st-say{display:none}.stickybar .st-acts{width:100%}.stickybar .btn{flex:1 1 0;padding:8px 6px}}
+@media (prefers-reduced-motion:reduce){.stickybar{transition:none}}
 .band small{display:block;margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
 
-footer{text-align:center;padding:40px 22px 56px;border-top:1px solid var(--line)}
+footer{text-align:center;padding:40px 22px 110px;border-top:1px solid var(--line)}
 .cred{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 .fl{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 11px;line-height:2.2;white-space:nowrap}
 .fl:hover{color:var(--sea)}
@@ -360,13 +374,14 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <div class="door">
       <p class="via" id="via" hidden></p>
       <a class="btn btn-primary" href="/tokyo-book">Take your seat</a>
-      <button type="button" class="btn btn-line" data-open>I am interested</button>
-      <small>€4,500 · an €800 deposit saves your seat</small>
+      <a class="btn btn-line" href="#interested">Talk to me first</a>
+      <small>€4,500 · an €800 deposit saves your seat · <button type="button" class="linkbtn" data-open>I am interested</button></small>
     </div>
     <div class="facts">
       <span><b>Mon 1 to Fri 19 March 2027</b></span>
       <span>Otsuka, Tokyo</span>
       <span><b>€4,500</b></span>
+      <span><b>8 seats</b></span>
       <span>In English</span>
       <span>Hiroko + a second instructor</span>
       <span><b>2 days of full omakase service</b></span>
@@ -567,11 +582,13 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 <section id="terms"><div class="wrap">
   <h2 class="h2">The terms, plainly.</h2>
   <ul class="terms">
-    <li><b>€4,500 for the three weeks.</b> An €800 deposit to EducatedTraveler saves your seat. The balance, ¥650,000 (about €3,700 today), you pay directly to the school before the course starts; I send you the school’s payment details. <a href="/tokyo-book">Take your seat</a></li>
+    <li><b>€4,500 for the three weeks.</b> An €800 deposit to EducatedTraveler saves your seat. The balance, ¥650,000 (about €3,700 at November 2026 rates; it is in yen, so it can move a little), you pay directly to the school before the course starts; I send you the school’s payment details. <a href="/tokyo-book">Take your seat</a></li>
     <li><b>Three weeks, as one programme.</b> We do not offer a shorter one.</li>
-    <li><b>Lunch is included</b> on every class day, and so are your uniform and apron, the tuna breakdown, ikejime at Toyosu and the Kappabashi walking tour.</li>
-    <li><b>Knives and stones are yours.</b> A yanagiba, a deba, and whetstones #220 and #1000 are required. Bring your own, buy them at JCMA, or buy them in Japan before the course starts.</li>
-    <li><b>It runs from six chefs.</b> Below six it does not run, and nobody pays for a programme that does not happen.</li>
+    <li><b>Lunch is included</b> on every class day, and so are your uniform and apron, the tuna breakdown, ikejime at Toyosu and the Kappabashi walking tour. Chefs who complete the course receive a certificate from JCMA. Flights and where you stay are not included.</li>
+    <li><b>Knives and stones are yours.</b> A yanagiba, a deba, and whetstones #220 and #1000 are required. Bring your own, buy them at JCMA, or buy them in Japan before the course starts. After your deposit, I send you the school’s price list.</li>
+    <li><b>8 seats.</b> They go in the order the deposits arrive.</li>
+    <li><b>Your seat is transferable, not refundable.</b> If you can’t come, send a professional chef in your place before the course starts.</li>
+    <li><b>At the school.</b> Coffee and tea all day. The building is non-smoking, balcony included, and there is nowhere to smoke nearby.</li>
     <li><b>You can go direct.</b> Her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is a room of working chefs, help finding a place to stay together, and everything around the lessons. <a href="#adds">What we add</a></li>
   </ul>
 </div></section>
@@ -601,18 +618,28 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     </svg>
   </div>
   <h2 class="h2">A place at Hiroko&rsquo;s bench, March 2027.</h2>
+  <p class="band-sub">Take your seat now, or talk to me first.</p>
   <div class="band-acts">
     <a class="btn btn-primary" href="/tokyo-book">Take your seat</a>
-    <button type="button" class="btn btn-line" data-open>I am interested</button>
+    <a class="btn btn-line cta-wa" href="https://wa.me/33749745254" target="_blank" rel="noopener">WhatsApp me</a>
+    <a class="btn btn-line cta-mail" href="mailto:founder@educatedtraveler.app">Email me</a>
   </div>
-  <small>€4,500 · Otsuka, Tokyo</small>
+  <small>€4,500 · an €800 deposit saves your seat · Otsuka, Tokyo</small>
+  <p class="ask">WhatsApp and email arrive with five questions already written out: your name, boat or freelance, your role, if a chef sent you, and what you want to walk out able to do. A 15-minute call if you want one. Mid-charter? Voice notes work.</p>
+  <p class="ask">Not ready yet? <button type="button" class="linkbtn" data-open>I am interested</button></p>
   <noscript><p style="margin-top:20px"><a href="/circle" style="color:#fff;text-decoration:underline">Join the Circle to hear first</a></p></noscript>
 </div></section>
 
 <footer>
   <p class="cred">Photographs: Japan Culinary Masters Academy.</p>
+  <a href="https://wa.me/33749745254?text=Hi%20Arnaud%2C%20a%20question%20about%20Tokyo%20with%20Hiroko%20(March%202027)." class="fl" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:founder@educatedtraveler.app?subject=Tokyo%2C%20March%202027" class="fl">Email</a><a href="https://www.instagram.com/educatedtraveler.app/" class="fl" target="_blank" rel="noopener">Instagram</a><br>
   <a href="/" class="fl">The Atlas</a><a href="/collaborations" class="fl">Collaborations</a>
 </footer>
+
+<div class="stickybar" id="stickybar" aria-hidden="true">
+  <span class="st-say"><b>€4,500</b> · Tokyo, March 2027</span>
+  <span class="st-acts"><a class="btn btn-line cta-mail" href="mailto:founder@educatedtraveler.app">Email</a><a class="btn btn-line cta-wa" href="https://wa.me/33749745254" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-primary" href="/tokyo-book">Take your seat</a></span>
+</div>
 
 <div class="sendbar" id="sendbar" hidden>
   <p id="send-say"></p>
@@ -736,9 +763,18 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 (function(){
   var n=document.getElementById('nav'),st=document.querySelector('.stage'),band=document.getElementById('interested');
   if(!n||!st) return;
-  function tick(){ n.classList.toggle('solid', window.scrollY > st.offsetHeight-70); }
+  var sb=document.getElementById('stickybar'),send=document.getElementById('sendbar'),atBand=false;
+  function tick(){ var past=window.scrollY > st.offsetHeight-70; n.classList.toggle('solid', past);
+    if(sb){ var on=past&&!atBand&&(!send||send.hidden); sb.classList.toggle('on',on); sb.setAttribute('aria-hidden',on?'false':'true'); } }
   addEventListener('scroll',tick,{passive:true}); tick();
-  if(band&&'IntersectionObserver' in window){ new IntersectionObserver(function(es){ n.classList.toggle('quiet', es[0].isIntersecting); },{threshold:.2}).observe(band); }
+  if(band&&'IntersectionObserver' in window){ new IntersectionObserver(function(es){ atBand=es[0].isIntersecting; n.classList.toggle('quiet', atBand); tick(); },{threshold:.2}).observe(band); }
+  /* Talk to me first, like the Lippo week: WhatsApp and email open with the five questions written out. */
+  var from=new URLSearchParams(location.search).get('from')||'';
+  var msg="Hi Arnaud, I'd like a seat for Tokyo with Hiroko (1-19 March 2027).\nName: \nBoat / freelance: \nRole: \nIf a chef sent me, who: "+(from?from:'')+"\nI want to walk out able to: ";
+  var wa='https://wa.me/33749745254?text='+encodeURIComponent(msg);
+  var mail='mailto:founder@educatedtraveler.app?subject='+encodeURIComponent('Tokyo, March 2027: a seat')+'&body='+encodeURIComponent(msg);
+  document.querySelectorAll('.cta-wa').forEach(function(a){a.href=wa;a.addEventListener('click',function(){if(window.plausible)plausible('Apply Click',{props:{via:'whatsapp'}});});});
+  document.querySelectorAll('.cta-mail').forEach(function(a){a.href=mail;a.addEventListener('click',function(){if(window.plausible)plausible('Apply Click',{props:{via:'email'}});});});
 })();
 </script>
 <script>
