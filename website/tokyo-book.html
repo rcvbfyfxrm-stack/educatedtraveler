@@ -224,7 +224,7 @@
             <p class="lbl">From your Revolut app</p>
             <p class="fine">Opens my Revolut page. Send it the way you’d send a friend.</p>
           </label>
-          <label class="opt-card" for="how-bank" id="card-bank" style="display:none">
+          <label class="opt-card" for="how-bank" id="card-bank">
             <input type="radio" name="how" id="how-bank" value="bank">
             <p class="on">Works from any bank</p>
             <p class="lbl">Bank transfer</p>
@@ -237,7 +237,6 @@
             <p class="fine">Opens with the amount already filled in. Needs a PayPal account.</p>
           </label>
         </div>
-        <p class="whynot" id="bank-offer">No Revolut and no PayPal? <a href="#" id="show-bank">Send it by bank transfer</a>.</p>
         <p class="whynot">Card and Apple&nbsp;Pay can’t carry this amount: Revolut caps card payments into my account below €800, and that cap can’t be lifted. Revolut, PayPal and bank transfer aren’t affected by it.</p>
       </div>
 
@@ -247,7 +246,7 @@
       </label>
 
       <button type="submit" class="btn btn-primary" id="f-go" disabled>Take your seat · €800</button>
-      <p class="paynote">The deposit comes straight to my own account, by Revolut, PayPal or bank transfer.<br>This site never sees your bank or card details.</p>
+      <p class="paynote">The deposit comes straight to my own account, by Revolut, PayPal or bank transfer (IBAN shown on the next step).<br>This site never sees your bank or card details.</p>
       <div class="msg err" id="f-msg" hidden></div>
     </form>
 
@@ -447,14 +446,6 @@
       var was = b.textContent; b.textContent = 'Copied';
       setTimeout(function () { b.textContent = was; }, 1400);
     }).catch(function () { /* clipboard blocked — the value is on screen anyway */ });
-  });
-
-  // Bank transfer is the quiet third route (Arnaud, 20 Nov: Revolut and PayPal first).
-  document.getElementById('show-bank').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('card-bank').style.display = '';
-    document.getElementById('how-bank').checked = true;
-    document.getElementById('bank-offer').style.display = 'none';
   });
 
   form.addEventListener('submit', async function (e) {
