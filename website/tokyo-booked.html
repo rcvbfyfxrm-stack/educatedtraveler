@@ -116,6 +116,17 @@
     </div>
   </div>
 </section>
+<section id="bring" hidden>
+  <div class="wrap">
+    <p class="eyebrow">A chef you’d want beside you</p>
+    <h2>Send them the page.</h2>
+    <p>Your link opens the Tokyo page with your first name at the top. If they leave their email there, it comes to me, and they can join the Circle in the same step. There is no discount and no place in line for either of you: it is an introduction, and I see who made it.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" id="bring-wa" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+      <button type="button" class="btn btn-ghost" id="bring-copy" style="background:transparent;cursor:pointer">Copy your link</button>
+    </div>
+  </div>
+</section>
 <section>
   <div class="wrap">
     <p class="eyebrow">Me, directly</p>
@@ -172,6 +183,25 @@
     'DESCRIPTION:Three weeks of sushi and omakase with Hiroko Ishii\\, in English.',
     'END:VEVENT', 'END:VCALENDAR'
   ].join('\r\n');
+  // Circle members only (21 Nov 2026): /tokyo-book sets et_member_first in this tab
+  // once it has recognised a member. Anyone else never sees this section.
+  var mf = ''; try { mf = sessionStorage.getItem('et_member_first') || ''; } catch (e) {}
+  if (mf) {
+    var first2 = mf === '-' ? '' : mf;
+    var link = 'https://educatedtraveler.app/tokyo' + (first2 ? '?by=' + encodeURIComponent(first2) : '');
+    document.getElementById('bring-wa').href = 'https://wa.me/?text=' + encodeURIComponent(
+      "I've sent my deposit for three weeks in Tokyo in March: sushi and the omakase counter with Hiroko Ishii. Have a look: " + link);
+    document.getElementById('bring-wa').addEventListener('click', function () {
+      if (window.plausible) window.plausible('BringChef', { props: { week: 'tokyo-2027', via: 'whatsapp', page: 'booked' } });
+    });
+    var cp = document.getElementById('bring-copy');
+    cp.addEventListener('click', function () {
+      function ok() { cp.textContent = 'Copied'; setTimeout(function () { cp.textContent = 'Copy your link'; }, 2400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(ok, function () { cp.textContent = link; });
+      if (window.plausible) window.plausible('BringChef', { props: { week: 'tokyo-2027', via: 'copy', page: 'booked' } });
+    });
+    document.getElementById('bring').hidden = false;
+  }
   document.getElementById('ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
 })();
 </script>

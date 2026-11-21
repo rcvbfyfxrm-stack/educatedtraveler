@@ -75,6 +75,11 @@
   form{margin:1.4rem 0 .4rem}
   .field{margin:0 0 1rem}
   .circle-hello{border-left:2px solid var(--sea);padding:.2rem 0 .2rem .9rem;margin:0 0 1.4rem;line-height:1.6}
+  .bring{border:1px solid var(--line);padding:1rem 1.2rem;margin:0 0 1.6rem}
+  .bring .bh{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 .4rem}
+  .bring p{margin:.3rem 0}
+  .bring .row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
+  .bring button{background:transparent;cursor:pointer}
   .circle-hello button{background:none;border:0;padding:0;color:var(--sea);font:inherit;text-decoration:underline;cursor:pointer}
   label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);margin:0 0 .4rem}
   label .opt{text-transform:none;letter-spacing:.02em;color:var(--softer);opacity:.7}
@@ -190,6 +195,18 @@
     </div>
 
     <p id="circle-hello" class="circle-hello" hidden></p>
+
+    <!-- Circle members only (Arnaud, 21 Nov 2026): "the people from the Circle can
+         send it to people that might be interested. Only them. They choose."
+         Shown only once circle-hello or a signed-in session has said who they are. -->
+    <div class="bring" id="bring" hidden>
+      <p class="bh">For someone you know</p>
+      <p>Know a chef who would want this? Send them the page. They see your first name at the top, and they can join the Circle when they leave their email.</p>
+      <div class="row">
+        <a class="btn btn-ghost" id="bring-wa" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+        <button type="button" class="btn btn-ghost" id="bring-copy">Copy your link</button>
+      </div>
+    </div>
 
     <form id="payform" novalidate>
       <div class="field">
@@ -392,9 +409,13 @@
       nameEl.value = ''; mailEl.value = ''; circleKey = '';
       try { sessionStorage.removeItem('et_circle_key'); } catch (e) {}
       hello.hidden = true; nameEl.focus();
+      window.etMemberFirst = undefined;
+      if (window.etMember) window.etMember(null);
     });
     hello.appendChild(nb);
     hello.hidden = false;
+    window.etMemberFirst = first || '';   /* read by the send block below, which may load later */
+    if (window.etMember) window.etMember(first || '');
   }
   function fillIfEmpty(el, v) { if (v && !el.value.trim()) el.value = v; }
   (function () {
@@ -543,7 +564,7 @@
             method: method,
             stage: method === 'bank' ? 'sent-to-bank-transfer' : 'sent-to-paypal',
             circle_key: circleKey || null
-          }]
+          }].concat(form.dataset.byName ? [{ kind: 'brought-by', key: form.dataset.by || 'member', name: form.dataset.byName }] : [])
         });
         await Promise.race([insert, new Promise(function (r) { setTimeout(r, 4000); })]);
       }
@@ -620,6 +641,47 @@
       }
     } catch (err) { /* never block the receipt */ }
     window.location.href = '/tokyo-booked';
+  });
+})();
+</script>
+
+<script>
+/* Members pass the page on (Arnaud, 21 Nov 2026). window.etMember(first) is called
+   by the Circle hello above once a member is recognised (their key, or a signed-in
+   session), and with null on "Not you?". Nobody else ever sees the send buttons.
+   The link is /tokyo?by=<first name>: it shows the name, and unlocks nothing.
+   Also: a chef who came through such a link carries it onto the seat row. */
+(function () {
+  var form = document.getElementById('payform'), box = document.getElementById('bring');
+  var wa = document.getElementById('bring-wa'), cp = document.getElementById('bring-copy');
+  var link = '';
+  try {
+    var f = JSON.parse(localStorage.getItem('et_from_tokyo') || 'null');
+    var b = JSON.parse(localStorage.getItem('et_by_tokyo') || 'null');
+    var fresh = function (x) { return x && Date.now() - x.t < 60 * 864e5; };
+    if (fresh(f) && f.k) { form.dataset.by = f.k; form.dataset.byName = f.k.charAt(0).toUpperCase() + f.k.slice(1); }
+    else if (fresh(b) && b.n) { form.dataset.by = 'member'; form.dataset.byName = b.n; }
+  } catch (e) {}
+  window.etMember = function (who) {
+    if (who === null) {   /* "Not you?" */
+      box.hidden = true; try { sessionStorage.removeItem('et_member_first'); } catch (e) {} return;
+    }
+    var first = String(who || '').replace(/[^\p{L}'-]/gu, '').slice(0, 24);
+    link = 'https://educatedtraveler.app/tokyo' + (first ? '?by=' + encodeURIComponent(first) : '');
+    wa.href = 'https://wa.me/?text=' + encodeURIComponent(
+      'Three weeks in Tokyo in March: sushi and the omakase counter with Hiroko Ishii, at her school. I thought of you: ' + link);
+    try { sessionStorage.setItem('et_member_first', first || '-'); } catch (e) {}
+    box.hidden = false;
+  };
+  // The hello may have recognised the member before this script loaded.
+  if (typeof window.etMemberFirst === 'string') window.etMember(window.etMemberFirst);
+  wa.addEventListener('click', function () {
+    if (window.plausible) window.plausible('BringChef', { props: { week: 'tokyo-2027', via: 'whatsapp', page: 'book' } });
+  });
+  cp.addEventListener('click', function () {
+    function ok() { cp.textContent = 'Copied'; setTimeout(function () { cp.textContent = 'Copy your link'; }, 2400); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(ok, function () { cp.textContent = link; });
+    if (window.plausible) window.plausible('BringChef', { props: { week: 'tokyo-2027', via: 'copy', page: 'book' } });
   });
 })();
 </script>
