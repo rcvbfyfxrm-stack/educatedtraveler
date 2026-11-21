@@ -74,6 +74,8 @@
   /* form */
   form{margin:1.4rem 0 .4rem}
   .field{margin:0 0 1rem}
+  .circle-hello{border-left:2px solid var(--sea);padding:.2rem 0 .2rem .9rem;margin:0 0 1.4rem;line-height:1.6}
+  .circle-hello button{background:none;border:0;padding:0;color:var(--sea);font:inherit;text-decoration:underline;cursor:pointer}
   label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);margin:0 0 .4rem}
   label .opt{text-transform:none;letter-spacing:.02em;color:var(--softer);opacity:.7}
   input[type=text],input[type=email]{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;color:var(--type);font-family:var(--sans);font-size:1rem;padding:.85rem 1rem}
@@ -186,6 +188,8 @@
       <h2>Who’s taking it?</h2>
       <p>So I can put the right name on the room list and the certificate, and find your deposit when it lands.</p>
     </div>
+
+    <p id="circle-hello" class="circle-hello" hidden></p>
 
     <form id="payform" novalidate>
       <div class="field">
@@ -371,6 +375,62 @@
   var boatEl = document.getElementById('f-boat');
   var hand  = document.getElementById('handoff');
 
+  /* Circle members are filled in (Arnaud, 21 Nov 2026). Two ways in:
+     1. ?k=<key> from his note (circle-hello turns it into name + email).
+        /tokyo carries the key here in sessionStorage, so it survives the click.
+     2. Already signed in to their account in this browser: the session's email.
+     Prefill only. Every field stays editable, and "Not you?" empties them. */
+  var hello = document.getElementById('circle-hello');
+  var circleKey = '';
+  function sayHello(first, how) {
+    hello.innerHTML = '';
+    hello.appendChild(document.createTextNode(
+      (first ? 'Hey ' + first + ', ' : '') + 'you’re in the Circle, so ' + how + ' ' ));
+    var nb = document.createElement('button');
+    nb.type = 'button'; nb.textContent = 'Not you?';
+    nb.addEventListener('click', function () {
+      nameEl.value = ''; mailEl.value = ''; circleKey = '';
+      try { sessionStorage.removeItem('et_circle_key'); } catch (e) {}
+      hello.hidden = true; nameEl.focus();
+    });
+    hello.appendChild(nb);
+    hello.hidden = false;
+  }
+  function fillIfEmpty(el, v) { if (v && !el.value.trim()) el.value = v; }
+  (function () {
+    var k = '';
+    try {
+      k = new URLSearchParams(location.search).get('k') || sessionStorage.getItem('et_circle_key') || '';
+      if (k) sessionStorage.setItem('et_circle_key', k);
+    } catch (e) {}
+    var sb = window.supabaseClient;
+    function fromSession() {
+      if (!sb || !sb.auth) return;
+      sb.auth.getSession().then(function (res) {
+        var u = res && res.data && res.data.session && res.data.session.user;
+        if (!u || !u.email) return;
+        var md = u.user_metadata || {};
+        var full = (md.full_name || md.name || '').trim();
+        fillIfEmpty(mailEl, u.email);
+        if (/\s/.test(full)) fillIfEmpty(nameEl, full);
+        sayHello(full.split(/\s+/)[0] || '', 'you’re signed in and your details are filled in.');
+      }).catch(function () {});
+    }
+    if (!k || !window.SUPABASE_URL) { fromSession(); return; }
+    fetch(window.SUPABASE_URL + '/functions/v1/circle-hello', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ k: k })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.ok) { fromSession(); return; }
+      circleKey = k;
+      fillIfEmpty(mailEl, d.email);
+      fillIfEmpty(nameEl, d.full);
+      sayHello(d.first, d.full ? 'your details are filled in. Check the name is how it should read on the certificate.'
+                               : 'your email is filled in. Add your full name as it should read on the certificate.');
+    }).catch(fromSession);
+  })();
+
   /* Tokyo (Arnaud, 20 Nov 2026): €4,500 = €800 deposit to ET, which books the
      seat, + ¥650,000 paid by the chef directly to JCMA. Only the €800 is taken
      here; nothing on the page can select a different figure. */
@@ -481,7 +541,8 @@
             balance_eur: 0,
             balance_jpy: 650000,   /* paid by the chef to JCMA, never to ET */
             method: method,
-            stage: method === 'bank' ? 'sent-to-bank-transfer' : 'sent-to-paypal'
+            stage: method === 'bank' ? 'sent-to-bank-transfer' : 'sent-to-paypal',
+            circle_key: circleKey || null
           }]
         });
         await Promise.race([insert, new Promise(function (r) { setTimeout(r, 4000); })]);
