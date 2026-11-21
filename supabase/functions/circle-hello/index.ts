@@ -3,7 +3,7 @@
 // Arnaud's notes finds /tokyo-book already filled in (Arnaud, 21 Nov 2026).
 //
 // The key is "<launch_waitlist id>.<signature>", where the signature is an HMAC
-// of the id made with the service-role key. Nobody can make a key for a row
+// of the id made with CIRCLE_HELLO_SECRET. Nobody can make a key for a row
 // without that secret, and the email is never in the URL. The key is made
 // offline by the script that writes his notes (circle_key.py).
 //
@@ -16,6 +16,9 @@ import { corsHeaders, handlePreflight } from "../_shared/cors.ts";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const admin = createClient(SUPABASE_URL, SERVICE_KEY);
+// Its own secret, set with `supabase secrets set CIRCLE_HELLO_SECRET=…` and kept in
+// Arnaud's keychain (service et-circle-hello). Without it every key is refused.
+const HELLO_SECRET = Deno.env.get("CIRCLE_HELLO_SECRET") || "";
 
 function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
@@ -32,7 +35,7 @@ function b64url(buf: ArrayBuffer): string {
 
 async function sign(id: string): Promise<string> {
   const key = await crypto.subtle.importKey(
-    "raw", new TextEncoder().encode(SERVICE_KEY),
+    "raw", new TextEncoder().encode(HELLO_SECRET),
     { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   const mac = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode("circle-hello:v1:" + id));
   return b64url(mac).slice(0, 22);
@@ -52,12 +55,12 @@ serve(async (req) => {
   try {
     const body = await req.json().catch(() => ({}));
     const k = typeof body?.k === "string" ? body.k.trim() : "";
-    const m = /^(\d{1,12})\.([A-Za-z0-9_-]{22})$/.exec(k);
-    if (!m) return json({ ok: false });
+    const m = /^([0-9a-f-]{36}|\d{1,12})\.([A-Za-z0-9_-]{22})$/i.exec(k);
+    if (!m || HELLO_SECRET.length < 20) return json({ ok: false });
     if (!same(await sign(m[1]), m[2])) return json({ ok: false });
 
     const { data: row } = await admin.from("launch_waitlist")
-      .select("email").eq("id", Number(m[1])).maybeSingle();
+      .select("email").eq("id", m[1]).maybeSingle();
     const email = (row?.email || "").trim().toLowerCase();
     if (!email) return json({ ok: false });
 

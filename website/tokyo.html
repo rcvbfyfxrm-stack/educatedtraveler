@@ -677,7 +677,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
 <script>
 /* Circle key from Arnaud's note (?k=), kept for /tokyo-book (21 Nov 2026). */
 try { var _k = new URLSearchParams(location.search).get('k');
-      if (_k && /^\d{1,12}\.[A-Za-z0-9_-]{22}$/.test(_k)) sessionStorage.setItem('et_circle_key', _k); } catch (e) {}
+      if (_k && /^([0-9a-f-]{36}|\d{1,12})\.[A-Za-z0-9_-]{22}$/i.test(_k)) sessionStorage.setItem('et_circle_key', _k); } catch (e) {}
 </script>
 <script src="/js/supabase-config.js"></script>
 <script>
