@@ -112,7 +112,7 @@
   .btn-primary:disabled{background:var(--ink-2);color:var(--softer);border:1px solid var(--line);cursor:not-allowed}
   .btn-ghost{border:1px solid var(--line);color:var(--type);background:none}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
-  .paynote{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;line-height:1.9;color:var(--softer);text-align:center;margin:.9rem 0 0}
+  .paynote{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;line-height:1.9;color:var(--softer);text-align:left;margin:.9rem 0 0}
   /* .btn is full-width on this page (it's a form button); the contact pair sits inline */
   .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.3rem 0 .4rem}
   .cta-row .btn{display:inline-block;width:auto;padding:.9rem 1.4rem;font-size:.78rem}
@@ -161,9 +161,9 @@
     <p class="vat">The three weeks · 8 seats</p>
     <dl class="ledger">
       <dt>Today</dt><dd><b>€800</b> to EducatedTraveler, in one payment. This deposit saves your seat</dd>
-      <dt>Before the course</dt><dd><b>¥650,000</b>, paid directly to Japan Culinary Masters Academy (about €3,700 at November 2026 rates). by 15 February 2027, in one payment or in two or three. I send you the invoice</dd>
+      <dt>Before the course</dt><dd><b>¥650,000</b>, paid directly to Japan Culinary Masters Academy by 15 February 2027 (about €3,700 at November 2026 rates). I send you the invoice</dd>
     </dl>
-    <p class="what">Fifteen class days with Hiroko and a second instructor, in English, at the school in Otsuka. Lunch on every class day, your uniform and apron, the tuna night, ikejime at Toyosu, the Kappabashi tour and two days of omakase service are all included. Knives, stones, flights and where you stay are not.</p>
+    <p class="what">Fifteen class days with Hiroko and a second instructor, in English, at the school in Otsuka. Lunch on every class day, your uniform and apron, the tuna night, ikejime at Toyosu, the Kappabashi tour, two days of omakase service and a JCMA certificate when you complete the course are all included. Knives, stones, flights and where you stay are not.</p>
   </div>
 </div>
 
@@ -207,7 +207,7 @@
           <label class="opt-card">
             <p class="on">The deposit</p>
             <div class="num">€800</div>
-            <p class="fine">One payment. It saves your seat. The ¥650,000 balance goes to the school by 15 February 2027, in up to three parts.</p>
+            <p class="fine">One payment. It saves your seat.</p>
           </label>
         </div>
       </div>
@@ -247,7 +247,7 @@
 
       <div id="hand-bank">
         <h2 style="margin-top:1.6rem">The transfer details.</h2>
-        <p>An ordinary transfer from your own bank. No cap, and it usually lands the same day.</p>
+        <p>An ordinary transfer from your own bank. No cap. It usually lands the same or next working day.</p>
         <div class="bank-rows" id="bank-rows">
           <div class="row" id="bank-row-name"><span class="k">Name</span><span class="copyval" id="bank-name"></span><button type="button" class="copybtn" data-copy="bank-name">Copy</button></div>
           <div class="row" id="bank-row-iban"><span class="k">IBAN</span><span class="copyval" id="bank-iban"></span><button type="button" class="copybtn" data-copy="bank-iban">Copy</button></div>
@@ -399,9 +399,9 @@
   // Contact buttons — WhatsApp first, because mid-charter that's the one that
   // gets answered. Both carry the week so I know what they're asking about.
   var qBody = encodeURIComponent(
-    "Hi Arnaud, a question about Tokyo with Hiroko (1-19 March 2027) before I book my seat.\n\n");
+    "Hi Arnaud, a question about Tokyo with Hiroko (1-19 March 2027) before I take my seat.\n\n");
   var mailHref = "mailto:" + MAIL_TO + "?subject=" +
-    encodeURIComponent("Tokyo, March 2027: before I book") + "&body=" + qBody;
+    encodeURIComponent("Tokyo, March 2027: before I take a seat") + "&body=" + qBody;
   document.getElementById('q-mail').href = mailHref;
   var qwa = document.getElementById('q-wa');
   if (WHATSAPP) qwa.href = "https://wa.me/" + WHATSAPP + "?text=" + qBody;
@@ -516,11 +516,11 @@
     document.getElementById('bank-ask').style.display      = haveIban ? 'none' : '';
     document.getElementById('bank-mail').href = "mailto:" + MAIL_TO + "?subject=" +
       encodeURIComponent("Tokyo deposit: transfer details please") + "&body=" +
-      encodeURIComponent("Hi Arnaud, " + name + " here. I'm booking a seat for Tokyo with Hiroko " +
+      encodeURIComponent("Hi Arnaud, " + name + " here. I'm taking a seat for Tokyo with Hiroko " +
         "(1-19 March 2027) and sending the €" + amt + " deposit by bank transfer. Can you send me the account details?\n\n");
     if (WHATSAPP) {
       document.getElementById('bank-wa').href = "https://wa.me/" + WHATSAPP + "?text=" +
-        encodeURIComponent("Hi Arnaud, " + name + " here. Booking a seat for Tokyo, sending the €" +
+        encodeURIComponent("Hi Arnaud, " + name + " here. Taking a seat for Tokyo, sending the €" +
           amt + " deposit by bank transfer. Can you send me the account details?");
     } else {
       document.getElementById('bank-wa').style.display = 'none';
