@@ -765,14 +765,9 @@
       // The note is safe. Now found their place — the link in their inbox is what
       // carries them in. Its failure is never fatal: a note that reached him is
       // worth more than an account.
+      // No sign-in link at joining (Arnaud, 21 Nov 2026): the reply email is the one
+      // thing they get. A profile is offered there, never required.
       var linked = true;
-      try {
-        var otp = await window.supabaseClient.auth.signInWithOtp({
-          email: addr,
-          options: { emailRedirectTo: window.location.origin + '/portrait', shouldCreateUser: true }
-        });
-        if (otp && otp.error) throw otp.error;
-      } catch (e) { linked = false; }
 
       close();
       finish(name, addr, false, linked);
@@ -787,9 +782,8 @@
           ' — I\'ve kept your note and it\'s waiting in your portrait. ' +
           '<a href="/portrait" style="color:var(--sea,#4e7b78)">Open your portrait →</a>';
       } else if (linked) {
-        done.innerHTML = 'Your note\'s with me, ' + nameHtml + '. I\'ve sent a sign-in link to <span>' +
-          addrHtml + '</span> — open it and you\'re in the Circle. Your note is already in front of me. ' +
-          'I read every one myself, so give me a day or two.';
+        done.innerHTML = 'Your note\'s with me, ' + nameHtml + '. You\'re in the Circle, and a short welcome is on its way to <span>' +
+          addrHtml + '</span>. I read every note myself, so give me a day or two.';
       } else {
         done.innerHTML = 'Your note\'s with me, ' + nameHtml + ', and I read every one myself. ' +
           'I couldn\'t send your sign-in link just now — ' +

@@ -298,44 +298,36 @@ ${opts.body}
 }
 
 function welcomePlainHtml(unsub: string): string {
+  // Short on purpose (Arnaud, 21 Nov 2026: "way too long, make it shorter, simple,
+  // clearer, more to the point"). The Compagnons story and the long ask are gone;
+  // the profile is offered, never required, and no sign-in link is sent at joining.
   const body = `
-    <p ${LEDE}>In France, a carpenter or a stonemason who wants to become a Compagnon du Devoir leaves home. For about five years they change city once or twice a year, working beside people better than them. In time they make one piece of work. The compagnons examine it, and if it holds, they are received.</p>
-    <p ${WL}>That is how a craft has always been learned. You go where it lives, and you stand next to someone who knows it.</p>
-    <p ${WL}>The Educated Travelers won't make you a compagnon. That takes years. But it can show you the first door: the place where your craft is still alive, and the person there who will teach a stranger.</p>
-    <p ${WL}>The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:<br><a href="https://educatedtraveler.app/barcelona" ${WLINK}>educatedtraveler.app/barcelona</a></p>
+    <p ${LEDE}>You're in the Circle. Welcome.</p>
+    <p ${WL}>The Educated Travelers finds the places where a craft is still alive, and the person there who teaches it. The first collaboration was five days in Martin Lippo's lab in Barcelona, in October 2026. <a href="https://educatedtraveler.app/barcelona" ${WLINK}>What the chefs said</a>.</p>
     ${photo("https://educatedtraveler.app/images/collab/lab-week-01/week/bench-blender.jpg", "Martin Lippo watching two chefs blend at the bench, the Vakuum sign on the wall behind", "Vakuum, Barcelona, October 2026.")}
-    <div role="separator" style="width:48px;height:0;margin:36px auto 36px auto;border-top:1px solid #d9d2c6;font-size:0;line-height:0;">&nbsp;</div>
-    <p ${WL}>Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.</p>
-    ${askBlock(`<p style="margin:0 0 14px 0;font-size:19px;line-height:1.5;color:${INK};">While you wait, tell me about you.</p>
-      <p style="margin:0 0 14px 0;">What you have done so far in your work, and where you are now. What you would love to learn next, even if it feels far away. And where you are with it today:</p>
-      <p style="margin:0 0 14px 0;color:${INK};">never tried it,<br>played with it at home,<br>or already doing it and wanting to go deeper.</p>
-      <p style="margin:0;">Two lines is fine. A whole page is even better, the more you tell me, the better I aim. It becomes the start of your profile in the Circle, and it stays between us.</p>`)}
-    <p ${WL}>I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.</p>
-    <p ${WL}>Hit reply, or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${WL}>Next is Tokyo, March 2027: three weeks of sushi with Hiroko Ishii, at her school. <a href="https://educatedtraveler.app/tokyo" ${WLINK}>The Tokyo page</a>.</p>
+    ${askBlock(`<p style="margin:0;">If you feel like it, hit reply and tell me what you'd love to learn, and where you are with it today. Two lines is plenty. I read every one myself. What people tell me is how I choose which craft to open next.</p>`)}
+    <p ${WL}>A profile in the Circle is there whenever you want one, at <a href="https://educatedtraveler.app/portrait" ${WLINK}>educatedtraveler.app/portrait</a>. You don't need it to be in.</p>
+    <p ${WL}>I'm Arnaud. I'm not the teacher: I go and find them. Reply here or on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20joined%20the%20Circle." ${WLINK}>WhatsApp</a>, both come straight to me.</p>
     ${signature("Talk soon,<br>Arnaud")}`;
   return welcomeShell({ body, unsub });
 }
 
 function welcomeText(unsub: string): string {
-  return `In France, a carpenter or a stonemason who wants to become a Compagnon du Devoir leaves home. For about five years they change city once or twice a year, working beside people better than them. In time they make one piece of work. The compagnons examine it, and if it holds, they are received.
+  return `You're in the Circle. Welcome.
 
-That is how a craft has always been learned. You go where it lives, and you stand next to someone who knows it.
-
-The Educated Travelers won't make you a compagnon. That takes years. But it can show you the first door: the place where your craft is still alive, and the person there who will teach a stranger.
-
-The first collaboration already happened, five days in Martin Lippo's lab in Barcelona this October. The chefs who were there wrote what they thought:
+The Educated Travelers finds the places where a craft is still alive, and the person there who teaches it. The first collaboration was five days in Martin Lippo's lab in Barcelona, in October 2026. What the chefs said:
 https://educatedtraveler.app/barcelona
 
-—
+Next is Tokyo, March 2027: three weeks of sushi with Hiroko Ishii, at her school.
+https://educatedtraveler.app/tokyo
 
-Your note is here. I read every one myself, and what the Circle asks for decides which craft I open next. Give me a few days.
+If you feel like it, hit reply and tell me what you'd love to learn, and where you are with it today. Two lines is plenty. I read every one myself. What people tell me is how I choose which craft to open next.
 
-While you wait, tell me about you. What you have done so far in your work, and where you are now. What you would love to learn next, even if it feels far away. And where you are with it today: never tried it, played with it at home, or already doing it and wanting to go deeper. Two lines is fine. A whole page is even better, the more you tell me, the better I aim. It becomes the start of your profile in the Circle, and it stays between us.
+A profile in the Circle is there whenever you want one, at educatedtraveler.app/portrait. You don't need it to be in.
 
-I'm Arnaud. Cooking chose me in a dishpit in Darwin, Australia. I started sailing by racing blue-water ocean sailboats, and I have followed both from port to port ever since. I'm not the teacher. I go and find them, so you have what I wish I had when I started fifteen years ago.
-
-Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
+I'm Arnaud. I'm not the teacher: I go and find them. Reply here or on WhatsApp, both come straight to me.
+https://wa.me/33749745254?text=Arnaud%20-%20I%20just%20joined%20the%20Circle.
 
 Talk soon,
 Arnaud
@@ -558,7 +550,7 @@ export const ISSUES: Record<string, {
   // Sender display name for this template; FROM when unset.
   from?: string;
 }> = {
-  "welcome": { subject: "Welcome to The Educated Travelers — the ones who travel to learn", html: welcomePlainHtml, text: welcomeText, audience: "leads", from: FROM_WELCOME },
+  "welcome": { subject: "Welcome to the Circle", html: welcomePlainHtml, text: welcomeText, audience: "leads", from: FROM_WELCOME },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
   "atlas-letter": { subject: "Got your note about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
   "collab-martin": { subject: "The next collab with Martin", html: collabMartinHtml, text: collabMartinText, audience: "leads", from: FROM_WELCOME },
@@ -626,19 +618,19 @@ export function followupEmail(unsub: string, firstName: string, doorLine: string
   const wa = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - a little about me:");
   const paras = [
     doorLine,
-    "Tell me about you. What you have done so far in your work, and where you are now. What you would love to learn next, and where you are with it today: never tried it, played with it at home, or already doing it and wanting to go deeper. And what you feel your calling is. Two lines is fine. A whole page is even better, the more you tell me, the better I aim.",
-    "It's the start of your profile in the Circle. It stays between us, and it's how I find the right place and the right teacher for you.",
+    // Short since 21 Nov 2026 (Arnaud: "shorten the follow up too").
+    "What would you love to learn, and where are you with it today? Two lines is plenty. It stays between us, and it helps me look for the right place and the right teacher.",
   ].filter(Boolean);
   const html = welcomeShell({ unsub, body: `
     <p ${WL}>${esc(hello)}</p>
 ${paras.map((p) => `    <p ${WL}>${esc(p)}</p>`).join("\n")}
-    <p ${WL}>Hit reply, or send it on <a href="${wa}" ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me.</p>
+    <p ${WL}>Hit reply, or <a href="${wa}" ${WLINK}>WhatsApp</a> if that's easier.</p>
     ${signature("Talk soon,<br>Arnaud")}` });
   const text = `${hello}
 
 ${paras.join("\n\n")}
 
-Hit reply, or send it on WhatsApp if that's easier. Both come straight to me.
+Hit reply, or WhatsApp if that's easier.
 ${wa}
 
 Talk soon,

@@ -681,7 +681,7 @@ dialog#raise .close:hover{background:var(--sea-tint)}
     <p class="hand-p">Three weeks in Tokyo with Hiroko Ishii, March 2027. Leave your name and your email: it comes straight to me, and I write back myself.</p>
     <label class="hand-l">Your name<input name="name" type="text" autocomplete="name" maxlength="80" required></label>
     <label class="hand-l">Your email<input name="email" type="email" autocomplete="email" spellcheck="false" maxlength="160" required></label>
-    <label class="hand-c" hidden><input name="circle" type="checkbox"> <span>Put me in the Circle too. A link to open my account comes by email.</span></label>
+    <label class="hand-c" hidden><input name="circle" type="checkbox"> <span>Put me in the Circle too.</span></label>
     <label class="hand-hp" aria-hidden="true">Leave this empty<input name="company" type="text" tabindex="-1" autocomplete="off"></label>
     <button type="submit" class="btn btn-primary hand-go">Send</button>
     <p class="hand-say" role="status" aria-live="polite"></p>
@@ -859,13 +859,10 @@ document.querySelectorAll('.clip').forEach(function(b){var v=b.querySelector('vi
       if(r&&r.error){ throw r.error; }
       if(window.plausible) window.plausible('Interest',{props:{source:'collab:tokyo-2027:interested',from:f.dataset.from?'yes':'no'}});
       done.querySelector('.hand-who').textContent=', '+name.split(/\s+/)[0];
-      if(!circ){ f.hidden=true; done.hidden=false; return; }
-      /* Same door as /circle: the link founds the account and signs them in. */
-      return sb.auth.signInWithOtp({email:email,options:{emailRedirectTo:location.origin+'/portrait',shouldCreateUser:true}}).then(function(r2){
-        var p=done.querySelector('.hand-p');
-        p.textContent=(r2&&r2.error)?'It is with me now. I will write to you myself.':'It is with me now. Your Circle link is on its way by email: one click opens your account.';
-        f.hidden=true; done.hidden=false;
-      },function(){ f.hidden=true; done.hidden=false; });
+      /* No sign-in link at joining (21 Nov 2026): circle-welcome sends the welcome
+         to a raised hand that carries circle-join. */
+      if(circ) done.querySelector('.hand-p').textContent='It is with me now. You are in the Circle too: a short welcome is on its way by email.';
+      f.hidden=true; done.hidden=false;
     }).catch(function(){ go.disabled=false; msg('This did not go through. Please try again in a moment.'); });
   });
 })();

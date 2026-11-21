@@ -425,7 +425,7 @@ section.week{padding-top:0}
     <a class="fol" href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener"><span class="av">ET</span><span><b>@educatedtraveler.app</b><small>The week as it happened, and what comes next</small></span><span class="fb">Follow</span></a>
     <a class="fol" href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener"><span class="av">A</span><span><b>@arnaudcallier</b><small>Me, the chef behind it</small></span><span class="fb">Follow</span></a>
   </div>
-  <p>A sign-in link is on its way to <strong id="doneemail"></strong>. Not there in a few minutes? Check spam.</p>
+  <p>A short welcome is on its way to <strong id="doneemail"></strong>. Not there in a few minutes? Check spam.</p>
 </div>
 
 </main>
@@ -644,9 +644,7 @@ section.week{padding-top:0}
       return;
     }
 
-    try{
-      await sb.auth.signInWithOtp({email:email, options:{emailRedirectTo:location.origin+'/portrait', shouldCreateUser:true}});
-    }catch(e){ console.error('[Circle] link failed',e) }
+    /* No sign-in link at joining (Arnaud, 21 Nov 2026): the welcome is the one email. */
 
     if(martin) $('donenews').textContent = hear
       ? "Your name is on the list for the next collab with Martin. I'll write to you myself, and you'll hear about Tokyo first too."

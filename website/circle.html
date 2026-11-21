@@ -481,10 +481,8 @@
                 <div class="seal">&#9993;</div>
                 <p class="eyebrow" style="margin-top:16px;">You're in</p>
                 <h2 id="sent-h">You've joined the Circle.</h2>
-                <p id="sent-line">Your note is with me, and I've sent a sign-in link to <b id="sent-email"></b>. Open it
-                    and your own place is there, what you wrote already on the wall. No password, ever. There are a few more
-                    questions waiting when you feel like it: the more I know, the better I aim.</p>
-                <p class="ps">I read every note myself, so give me a day or two. Didn't the link arrive? Check spam, or
+                <p id="sent-line">Your note is with me. A short welcome is on its way to <b id="sent-email"></b>.</p>
+                <p class="ps">I read every note myself, so give me a day or two. Nothing arrived? Check spam, or
                     write me directly at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
 
                 <!-- The two accounts first, the catalogue third: the letter is sent, so
@@ -854,18 +852,9 @@
                 return;
             }
 
-            // The letter is safe. Now found their place: the link in their inbox is
-            // what carries them into the account, where the rest of the questions live.
-            var linked=true;
-            try{
-                var res2 = await window.supabaseClient.auth.signInWithOtp({ email: state.email,
-                    options:{ emailRedirectTo: window.location.origin + '/portrait', shouldCreateUser: true } });
-                if(res2 && res2.error) throw res2.error;
-            }catch(e){
-                console.error('[Circle] sign-in link failed:', e);
-                linked=false;
-            }
-            finish(linked);
+            // No sign-in link at joining (Arnaud, 21 Nov 2026): the welcome is the one
+            // email they get. A profile is offered there, never required.
+            finish(true);
         });
 
         function finish(linked){

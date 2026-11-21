@@ -230,7 +230,7 @@
         <div class="card" id="card">
 
             <div class="rail" aria-hidden="true">
-                <i id="r0" class="on"></i><i id="r1"></i><i id="r2"></i><i id="r3"></i><i id="r4"></i><i id="r5"></i>
+                <i id="r0" class="on"></i><i id="r1" hidden></i><i id="r2"></i><i id="r3" hidden></i><i id="r4"></i><i id="r5"></i>
             </div>
 
             <!-- BEAT 0 — the door: who you are -->
@@ -266,9 +266,9 @@
                     setTimeout(toA, READ_B);   // B is already on screen — read it, then begin the cycle
                 })();
                 </script>
-                <p class="sub">I'm Arnaud. Tell me what you'd love to learn, and I'll take you to the place where it's
-                    genuinely alive: a real master who teaches it, and the handful of others chasing the same fire. This
-                    isn't a form — it's how I find the door that's <em>yours</em>. Take your time. I read every word myself.</p>
+                <p class="sub">I'm Arnaud. Tell me what you'd love to learn, and I'll look for the place where it's alive and
+                    the person who teaches it. Three short steps, and none of it is required: answer what you like, skip
+                    the rest. I read every word myself.</p>
 
                 <div class="field" id="nameField">
                     <label class="fld"><span class="lbl">What should I call you</span>
@@ -326,8 +326,8 @@
             </section>
 
             <!-- BEAT 2 — the craft -->
-            <section class="beat" id="beat2" aria-label="Step 3: the craft">
-                <button class="back" data-back="1">&larr; back</button>
+            <section class="beat" id="beat2" aria-label="Step 2: the craft">
+                <button class="back" data-back="0">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">What keeps calling you</p>
                 <h2 class="q">The crafts you'd give a week of your life to learn.</h2>
                 <p class="sub-tight">Open any world and pick freely — as many as you like, from as many worlds as you like.
@@ -356,8 +356,14 @@
                     <div class="chips" id="chosen"></div>
                 </div>
 
+                <div class="field" style="margin-top:22px;">
+                    <span class="lbl">Where are you with it?</span>
+                    <div class="chips" data-single="depth" id="g_depth"></div>
+                    <div class="own"><input type="text" id="f_depth_own" placeholder="…or in your own words"></div>
+                </div>
                 <div class="row">
-                    <button class="cta" id="go2" disabled>Next &rarr;</button>
+                    <button class="cta" id="go2">Next &rarr;</button>
+                    <button class="quiet" data-skip="4">Skip this &rarr;</button>
                 </div>
                 <p class="err" role="alert" aria-live="assertive" id="err2"></p>
             </section>
@@ -369,11 +375,6 @@
                 <h2 class="q">Be honest — it just helps me plan.</h2>
                 <p class="sub-tight">There's no wrong answer, and you can skip the whole thing.</p>
 
-                <div class="field">
-                    <span class="lbl">Where are you with it?</span>
-                    <div class="chips" data-single="depth" id="g_depth"></div>
-                    <div class="own"><input type="text" id="f_depth_own" placeholder="…or in your own words"></div>
-                </div>
                 <div class="field">
                     <span class="lbl">When could you go?</span>
                     <div class="chips" data-single="timing" id="g_timing"></div>
@@ -397,8 +398,8 @@
             </section>
 
             <!-- BEAT 4 — THE LETTER -->
-            <section class="beat" id="beat4" aria-label="Step 5: your note">
-                <button class="back" data-back="3">&larr; back</button>
+            <section class="beat" id="beat4" aria-label="Step 3: your note">
+                <button class="back" data-back="2">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">The note — for me alone</p>
                 <h2 class="q">Now write to me.</h2>
                 <p class="sub-tight">Not to a form — to a person. Tell me the week you'd love to have, and the people you'd
@@ -435,7 +436,7 @@
             </section>
 
             <!-- BEAT 5 — your portrait + save -->
-            <section class="beat" id="beat5" aria-label="Step 6: your portrait">
+            <section class="beat" id="beat5" aria-label="Your portrait">
                 <button class="back" data-back="4">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">Your portrait</p>
                 <h2 class="q">Here's you, in your own words.</h2>
@@ -483,7 +484,7 @@
                 <h2 id="done-h">You have your place, now.</h2>
                 <p>That's it — you're on the inside. I've got your portrait and your note, and I'll take it from here:
                     finding the master, the place, and your people. When there's a real week to tell you about — starting
-                    with Barcelona this autumn — you'll be among the first to hear it. Not a newsletter. A note back.</p>
+                    with Tokyo, March 2027 — you'll be among the first to hear it. Not a newsletter. A note back.</p>
                 <p class="ps" id="done-ps" style="display:none;">And that week you wrote me about? It's on my list now. I mean that.</p>
                 <div class="done-sign">
                     <img class="done-photo" src="/images/arnaud-portrait.jpg" alt="Arnaud" width="66" height="66" loading="lazy">
@@ -665,7 +666,7 @@
             // Asked of a new person only: someone already signed in gave permission when
             // they joined, and asking again every visit is friction that buys nothing.
             if(!session && !$('f_consent').checked){ err.textContent='Tick the box so I am allowed to write to you.'; err.style.display='block'; $('f_consent').focus(); return; }
-            err.style.display='none'; state.name=name; state.email=email; syncSignature(); saveDraft(); show(1);
+            err.style.display='none'; state.name=name; state.email=email; syncSignature(); saveDraft(); show(2);
         });
 
         // ── beat 1: lifestage + profession + region ──
@@ -743,8 +744,8 @@
             afterCraftChange();
         }
         $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo2(); saveDraft(); });
-        function updateGo2(){ $('go2').disabled = !(state.discs.length>0 || state.open); }
-        $('go2').addEventListener('click', function(){ if(!$('go2').disabled){ saveDraft(); show(3); } });
+        function updateGo2(){ $('go2').disabled = false; }   /* optional since 21 Nov 2026 */
+        $('go2').addEventListener('click', function(){ if(!$('go2').disabled){ saveDraft(); show(4); } });
 
         // ── beat 3: gradients ──
         buildSingle('depth', $('g_depth'), GRADIENTS.depth);
@@ -1217,18 +1218,16 @@
                     var nf=$('nameField'); if(nf) nf.style.display='none';
                     var pill=document.querySelector('#beat0 .who');
                     if(pill) pill.innerHTML='<span class="dot"></span>'+esc(state.name)+' · '+esc(state.email);
-                    if(current===0) show(1);
+                    if(current===0) show(2);
                 }
                 // They wrote the letter; these are the questions it didn't cover.
                 // Frame it that way, or a form after a letter reads as a re-ask.
                 if(arrivedThin){
-                    var eb=document.querySelector('#beat1 .eyebrow');
+                    var eb=document.querySelector('#beat2 .eyebrow');
                     if(eb) eb.textContent='Your note is with me';
-                    var q=document.querySelector('#beat1 h2.q');
-                    if(q) q.textContent='Now the part a note can’t hold.';
-                    var sub=document.querySelector('#beat1 .sub-tight');
-                    if(sub) sub.textContent='I’ve read what you sent. These fill in the rest of your portrait — '
-                        + 'none of it is required, and you can stop wherever you like.';
+                    var sub=document.querySelector('#beat2 .sub-tight');
+                    if(sub) sub.textContent='If you like, pick the crafts that call you. None of it is required, '
+                        + 'and you can stop wherever you like.';
                 }
             }
         }

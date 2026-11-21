@@ -83,7 +83,11 @@ serve(async (req) => {
     // hand, not a Circle signup. Arnaud's ruling: no sign-up, he writes back
     // himself. welcomed_at stays null, so if they join the Circle later the
     // letter still reaches them then.
-    if (String(row.source ?? "").endsWith(":interested")) {
+    // Exception (21 Nov 2026): the hand also ticked "Put me in the Circle too"
+    // (kind:"circle-join"). No sign-in link goes out at joining any more, so the
+    // welcome is the only thing that tells them they are in.
+    const joinedCircle = (Array.isArray(row.interests) ? row.interests : []).some((it: any) => it && it.kind === "circle-join");
+    if (String(row.source ?? "").endsWith(":interested") && !joinedCircle) {
       return json({ message: "skip (a raised hand for a collaboration, not a Circle signup)" });
     }
 
