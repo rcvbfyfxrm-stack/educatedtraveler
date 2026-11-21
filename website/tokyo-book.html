@@ -80,6 +80,7 @@
   .bring p{margin:.3rem 0}
   .bring .row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
   .bring button{background:transparent;cursor:pointer}
+  .circle-hello.quiet{border:0;padding:0;margin:0 0 .8rem;text-align:right;font-size:.85rem}
   .circle-hello button{background:none;border:0;padding:0;color:var(--sea);font:inherit;text-decoration:underline;cursor:pointer}
   label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);margin:0 0 .4rem}
   label .opt{text-transform:none;letter-spacing:.02em;color:var(--softer);opacity:.7}
@@ -400,15 +401,19 @@
   var hello = document.getElementById('circle-hello');
   var circleKey = '';
   function sayHello(first, how) {
+    /* Arnaud, 21 Nov: a member needs no intro and no greeting, the form is
+       already theirs. Only a small "Not you?" stays, for a forwarded link. */
     hello.innerHTML = '';
-    hello.appendChild(document.createTextNode(
-      (first ? 'Hey ' + first + ', ' : '') + 'you’re in the Circle, so ' + how + ' ' ));
+    hello.classList.add('quiet');
+    var intro = document.getElementById('seat-intro');
+    if (intro) intro.style.display = 'none';
     var nb = document.createElement('button');
     nb.type = 'button'; nb.textContent = 'Not you?';
     nb.addEventListener('click', function () {
       nameEl.value = ''; mailEl.value = ''; circleKey = '';
       try { sessionStorage.removeItem('et_circle_key'); } catch (e) {}
       hello.hidden = true; nameEl.focus();
+      if (intro) intro.style.display = '';
       window.etMemberFirst = undefined;
       if (window.etMember) window.etMember(null);
     });
