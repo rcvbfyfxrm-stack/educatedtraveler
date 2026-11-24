@@ -17979,8 +17979,8 @@ window.ET_ATLAS = {
     {
       "discipline": "Classical French Cuisine",
       "category": "culinary",
-      "certBody": "Le Cordon Bleu / FERRANDI Paris (CAP Cuisine, French apprenticeship standard)",
-      "goldCredential": "Le Cordon Bleu Grand Diplôme (Diplôme de Cuisine + Pâtisserie) / French CAP Cuisine",
+      "certBody": "Le Cordon Bleu / FERRANDI Paris / École Ducasse",
+      "goldCredential": "Le Cordon Bleu Diplôme de Cuisine / French CAP Cuisine",
       "blurb": "The codified mother grammar of Western cooking — mother sauces, knife discipline and brigade hierarchy drilled until technique becomes instinct.",
       "destinations": [
         {
@@ -17995,11 +17995,8 @@ window.ET_ATLAS = {
             "FERRANDI Paris",
             "École Ducasse"
           ],
-          "masters": [
-            "Alain Ducasse"
-          ],
+          "masters": [],
           "badges": [
-            "source",
             "scene",
             "mecca",
             "school",
@@ -18007,7 +18004,7 @@ window.ET_ATLAS = {
             "heritage",
             "lineage"
           ],
-          "why": "Where Escoffier codified the brigade and the mother sauces — earn the Grand Diplôme at the source and you carry a passport every professional kitchen on earth can read.",
+          "why": "Paris, where three big schools teach the French classical kitchen full-time, in English or with English translation.",
           "bestSeason": "Sep-Jun",
           "level": "Beginner -> Professional",
           "id": "classical-french-cuisine--paris",
@@ -18016,78 +18013,65 @@ window.ET_ATLAS = {
               "name": "Le Cordon Bleu Paris",
               "url": "https://www.cordonbleu.edu/paris/cuisine-diploma/en",
               "course": "Diplôme de Cuisine",
-              "blurb": "The classic three-tier French cuisine diploma — Basic, Intermediate and Superior — taught through chef demonstrations followed by individual hands-on practice.",
-              "confidence": "high"
+              "blurb": "Le Cordon Bleu's Paris school, on the Quai André Citroën, teaches its Diplôme de Cuisine in three levels, Basic, Intermediate and Superior, each built from chef demonstrations followed by supervised practical work at your own station. It runs over nine months, or six on the intensive track, in French with consecutive English translation, with intakes in January, March, June and September 2027.",
+              "confidence": "high",
+              "facts": {
+                "where": "15th arrondissement, Paris",
+                "length": "6 or 9 months, three levels",
+                "format": "Chef demonstrations, then your own practical work",
+                "language": "French, with English translation",
+                "price": "€35,500",
+                "priceNote": "the fee table; the overview says €35,000. Application fee, knife kit and uniform included. Next intakes 5 Jan, 30 Mar, 28 Jun, 27 Sep 2027",
+                "from": [
+                  "https://www.cordonbleu.edu/paris/cuisine-diploma/en"
+                ],
+                "read": "2026-11-24"
+              }
             },
             {
               "name": "FERRANDI Paris",
               "url": "https://www.ferrandi-paris.com/en/french-cuisine-programs/fundamentals-of-french-cooking-professionnal-program",
               "course": "Intensive Professional Program in French Cuisine",
-              "blurb": "Paris culinary school whose 16-week English-taught Intensive Professional Program in French Cuisine teaches classical and regional technique with restaurant service and market excursions before a 3-6 month internship.",
-              "confidence": "high"
+              "blurb": "FERRANDI Paris runs a sixteen-week programme in French cuisine taught in English: knife work, stocks and soups, eggs, fish, poultry and meat, a French region studied through its products, and lunch and dinner service for paying guests in the school's training restaurant. An internship in France can follow for students who qualify.",
+              "confidence": "high",
+              "facts": {
+                "where": "Paris campus",
+                "length": "16 weeks, plus an optional internship",
+                "format": "In the kitchens, with service in the training restaurant",
+                "language": "English",
+                "price": "€24,500",
+                "priceNote": "uniform, tools, materials and excursions included; next session 25 Aug to 17 Dec 2027",
+                "from": [
+                  "https://www.ferrandi-paris.com/en/french-cuisine-programs/fundamentals-of-french-cooking-professionnal-program"
+                ],
+                "read": "2026-11-24"
+              }
             },
             {
               "name": "École Ducasse",
               "url": "https://www.ecoleducasse.com/en/career-changers-culinary-arts",
               "course": "Culinary Arts Diploma",
-              "blurb": "Alain Ducasse's culinary school, with its Paris-area campus in Meudon, running a nine-month intensive Culinary Arts Diploma for career-changers that pairs hands-on French technique with management and entrepreneurial modules.",
-              "confidence": "high"
+              "blurb": "École Ducasse's Paris campus runs a 22-week Culinary Arts Diploma for people changing career, taught in English in capped classes: stocks, sauces and condiments, slow-cooked bistro dishes, the essential pastry doughs and creams, plant-forward cooking and plated desserts, with masterclasses by a Meilleur Ouvrier de France. A 13-week internship can follow.",
+              "confidence": "high",
+              "facts": {
+                "where": "Paris campus",
+                "length": "22 weeks, plus an optional internship",
+                "format": "Hands-on, in capped classes",
+                "language": "English",
+                "price": "€32,900",
+                "priceNote": "non-EU students; €26,900 for EU students. Starts 26 Feb and 3 Sep 2027",
+                "from": [
+                  "https://www.ecoleducasse.com/en/career-changers-culinary-arts"
+                ],
+                "read": "2026-11-24"
+              }
             }
           ],
           "tripTier": 5,
           "tripType": "Mastery track",
-          "tripLength": "months–years",
+          "tripLength": "16 weeks to 9 months",
           "englishTaught": true,
-          "englishBasis": "Le Cordon Bleu Paris Diplome de Cuisine: theory/demos in French consecutively translated into English for international students."
-        },
-        {
-          "place": "Lyon",
-          "country": "France",
-          "region": "Western Europe",
-          "role": "both",
-          "communityRank": 5,
-          "communityLabel": "Legendary",
-          "schools": [
-            "Institut Paul Bocuse (Institut Lyfe)",
-            "Lycée hôtelier François Rabelais (Lyon-Dardilly)"
-          ],
-          "masters": [],
-          "lineage": [
-            "Paul Bocuse lineage",
-            "the Mères Lyonnaises"
-          ],
-          "badges": [
-            "source",
-            "scene",
-            "school",
-            "lineage",
-            "heritage"
-          ],
-          "why": "France's self-declared gastronomic capital and home of the Bocuse d'Or — train in the city of the Mères Lyonnaises, where the chef first became a public figure.",
-          "bestSeason": "Sep-Jun",
-          "level": "Beginner -> Professional",
-          "id": "classical-french-cuisine--lyon",
-          "schoolsInfo": [
-            {
-              "name": "Institut Paul Bocuse (Institut Lyfe)",
-              "url": "https://en.institutlyfe.com/",
-              "course": "Bachelor in International Culinary Arts Management",
-              "blurb": "Lyon hospitality and culinary school founded by Paul Bocuse (renamed Institut Lyfe) offering a three-year state-recognised Bachelor in International Culinary Arts Management combining French culinary technique with management training.",
-              "confidence": "high"
-            },
-            {
-              "name": "Lycée hôtelier François Rabelais (Lyon-Dardilly)",
-              "url": "https://www.lyceecfarabelais-lyondardilly.fr/",
-              "course": "CAP Cuisine",
-              "blurb": "Public hospitality lycée and apprentice training centre near Lyon, founded in 1975, whose CAP Cuisine programme teaches culinary technique, supply management and hygiene across a campus with nine kitchens and public training restaurants.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": true,
-          "englishBasis": "Institut Lyfe (Paul Bocuse) Bachelor in International Culinary Arts Management can be followed 100% in English."
+          "englishBasis": "FERRANDI's and École Ducasse's programmes are taught in English; Le Cordon Bleu Paris in French with consecutive English translation."
         },
         {
           "place": "Hyde Park, New York",
@@ -18099,30 +18083,58 @@ window.ET_ATLAS = {
           "schools": [
             "The Culinary Institute of America (CIA)"
           ],
-          "masters": [],
+          "masters": [
+            "Christopher Muller"
+          ],
           "badges": [
             "scene",
             "school",
-            "gold-cred"
+            "gold-cred",
+            "master"
           ],
-          "why": "America's flagship classical-technique academy on the Hudson, where French foundations are drilled with brigade rigor into a dense, ambitious cohort.",
+          "why": "The Culinary Institute of America's campus on the Hudson, where a four-day boot camp puts the French bistro classics in your hands.",
           "bestSeason": "Year-round",
-          "level": "Beginner -> Professional",
+          "level": "Beginner -> Intermediate",
           "id": "classical-french-cuisine--hyde-park-new-york",
           "schoolsInfo": [
             {
               "name": "The Culinary Institute of America (CIA)",
-              "url": "https://www.ciafoodies.com/boot-camps/",
-              "course": "French Bistro Cuisine Boot Camp",
-              "blurb": "At its Hyde Park campus the CIA runs multi-day, small-group Boot Camps for amateur cooks, including a French bistro session covering soups, stews, omelets and savoury tarts taught by its chef-instructors.",
-              "confidence": "high"
+              "url": "https://www.ciafoodies.com/boot-camps/bistro/",
+              "course": "Bistro Boot Camp (four days)",
+              "blurb": "At its Hyde Park campus on the Hudson, the Culinary Institute of America runs a four-day Bistro Boot Camp rooted in classic French cooking, with about five hours a day hands-on in its kitchens: mise en place and knife work, aromatic soups and stews, rustic omelets, gratins, savoury tarts, breads and pastries. The guest chef is Christopher Muller, former culinary director of Le Bernardin.",
+              "confidence": "high",
+              "facts": {
+                "where": "Hyde Park, New York",
+                "length": "4 days, about 5 hours a day hands-on",
+                "format": "In the CIA's kitchens, a daily meal and a recipe booklet",
+                "language": "English",
+                "price": "$2,155",
+                "priceNote": "jacket, cap, tools and ingredients included; next session 30 Mar to 2 Apr 2027",
+                "from": [
+                  "https://www.ciafoodies.com/boot-camps/bistro/",
+                  "https://register.culinary.edu/courseDisplay.cfm?schID=8071"
+                ],
+                "read": "2026-11-24"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Guest chef",
+                    [
+                      "Christopher Muller"
+                    ]
+                  ]
+                ],
+                "from": "https://www.ciafoodies.com/boot-camps/bistro/",
+                "read": "2026-11-24"
+              }
             }
           ],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "four days",
           "englishTaught": true,
-          "englishBasis": "native-English country"
+          "englishBasis": "The CIA teaches in English."
         }
       ],
       "id": "classical-french-cuisine",
@@ -18134,36 +18146,19 @@ window.ET_ATLAS = {
         "school": "Le Cordon Bleu Paris",
         "url": "https://www.cordonbleu.edu/paris/cuisine-diploma/en",
         "course": "Diplôme de Cuisine",
-        "description": "The classic three-tier French cuisine diploma — Basic, Intermediate and Superior — taught through chef demonstrations followed by individual hands-on practice. Students drill knife skills, the mother sauces, stocks, butchery, fish work and progressively complex classical and contemporary dishes, working up to autonomous plating under the brigade system. Levels must be passed in sequence; the full diploma can be taken intensively over 6 months or at a standard 9-month pace.",
-        "duration": "6 months (intensive) or 9 months (standard), three sequential levels",
-        "format": "Residential city program, full-time, demonstration plus individual practical kitchens",
-        "certification": "Diplôme de Cuisine (Le Cordon Bleu Foundation institutional diploma)",
-        "fitsBecause": "The codified grammar of French cooking, learned full-time and in sequence at the school that defined the brigade-and-mother-sauce canon, ending in a recognized diploma.",
-        "sessions": ["2026-10-05"],
-        "priceNote": "~€35,500",
-        "confidence": "high",
-        "alternatives": [
-          {
-            "course": "Basic Cuisine Certificate (Intensive)",
-            "duration": "6 weeks intensive (or 12 weeks standard)",
-            "format": "In-person, Paris",
-            "priceFrom": "€13,500",
-            "url": "https://www.cordonbleu.edu/paris/basic-cuisine-certificate/en",
-            "fit": "Shorter",
-            "note": "First module only of the same Diplôme at the same school; less depth than the full three-certificate cuisine diploma.",
-            "confidence": "high"
-          },
-          {
-            "course": "Gourmet Short Courses / Workshops",
-            "duration": "2h30 - 4 days",
-            "format": "In-person, Paris",
-            "priceFrom": "€60",
-            "url": "https://www.cordonbleu.edu/paris/pastry-cuisine-wine-workshops-in-paris/en",
-            "fit": "Taster",
-            "note": "Single hands-on sessions for enthusiasts; a taste of technique, not professional training or community.",
-            "confidence": "high"
-          }
-        ]
+        "description": "The three-level French cuisine diploma, Basic, Intermediate and Superior, taught through chef demonstrations followed by supervised practical work at your own station: knife cuts, stocks, sauces and jus, emulsions, meat and fish cooked to exact temperatures, and plating under time pressure.",
+        "duration": "6 months (intensive) or 9 months (standard), three levels",
+        "format": "Full-time, demonstration plus individual practical work",
+        "certification": "Diplôme de Cuisine (Le Cordon Bleu)",
+        "fitsBecause": "The whole classical grammar, learned full-time and in order, with your own hands at every level.",
+        "sessions": [
+          "2027-01-05",
+          "2027-03-30",
+          "2027-06-28",
+          "2027-09-27"
+        ],
+        "priceNote": "€35,500",
+        "confidence": "high"
       }
     },
     {
@@ -19259,7 +19254,7 @@ window.ET_ATLAS = {
       "category": "culinary",
       "certBody": "Thai Ministry of Education (accredited schools) / Le Cordon Bleu Dusit",
       "goldCredential": "Professional Thai Cuisine Certificate / Diploma (Le Cordon Bleu Dusit or accredited Thai culinary college)",
-      "blurb": "The four-pillar balance of sour, sweet, salty, and spicy, pounded from a stone mortar and learned in the markets where the curry pastes are born.",
+      "blurb": "The balance of sour, sweet, salty and spicy, built from pastes pounded in a stone mortar, from the street food to the royal table.",
       "destinations": [
         {
           "place": "Bangkok",
@@ -19269,13 +19264,11 @@ window.ET_ATLAS = {
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "Blue Elephant Cooking School",
-            "Le Cordon Bleu Dusit Culinary School",
-            "Baipai Thai Cooking School",
-            "Silom Thai Cooking School"
+            "Le Cordon Bleu Dusit Culinary School"
           ],
           "masters": [
-            "Nooror Somany Steppe (Blue Elephant)"
+            "Wilairat Kornnoppaklao",
+            "Atikhun Tanstrakool"
           ],
           "badges": [
             "source",
@@ -19285,7 +19278,7 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "Royal Thai cuisine has its grandest stage here, where you tour the morning markets then cook beside legends in colonial mansions and global academies.",
+          "why": "Thailand's capital, where Le Cordon Bleu Dusit teaches the whole Thai repertoire, regional and royal, over nine months in English.",
           "bestSeason": "Nov-Feb",
           "level": "Beginner -> Professional",
           "id": "thai-cuisine--bangkok",
@@ -19293,87 +19286,41 @@ window.ET_ATLAS = {
             {
               "name": "Le Cordon Bleu Dusit Culinary School",
               "url": "https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en",
-              "course": "Professional Thai Cuisine Programme (Diplôme de Cuisine Thaïe)",
-              "blurb": "A long-form professional Thai program of about 540 instruction hours over roughly 30 weeks, teaching more than 200 recipes across traditional, regional and royal Thai cuisine, Thai-Chinese dishes and ",
-              "confidence": "high"
-            },
-            {
-              "name": "Blue Elephant Cooking School",
-              "url": "https://blueelephant.com/cooking-school/cooking-school-bangkok/",
-              "course": "Thai Culinary Masterclass / discovery classes",
-              "blurb": "Cooking school inside the Blue Elephant restaurant in a Sathorn colonial mansion, founded by Chef Nooror Somany Steppe, offering half-day Thai classes with a market visit and a certificate, plus longer masterclass options.",
-              "confidence": "high"
-            },
-            {
-              "name": "Baipai Thai Cooking School",
-              "url": "https://www.baipai.com/",
-              "course": "Thai cooking course (two daily lessons of four dishes)",
-              "blurb": "Bangkok cooking school established in 2002 and accredited by Thailand's Ministry of Education, teaching hands-on Thai classes at individual stations with herb-garden tours and coconut-cream preparation.",
-              "confidence": "high"
-            },
-            {
-              "name": "Silom Thai Cooking School",
-              "url": "https://www.silomthaicooking.com/",
-              "course": "Thai cooking class with fresh-market tour",
-              "blurb": "Small-group Bangkok cooking school on Soi Decho running market-tour Thai classes for around 9-10 students in a traditional open kitchen across morning, afternoon and evening sessions.",
-              "confidence": "high"
+              "course": "Professional Thai Cuisine (Diplôme de Cuisine Thaïe)",
+              "blurb": "Le Cordon Bleu Dusit, now at CentralWorld in Bangkok, teaches Thai cooking over nine months and 540 hours: more than 200 recipes, regional and royal, each one demonstrated and then cooked by every student in the practical kitchen. Taught in English with Thai translation in the demonstrations, by chef instructors Wilairat Kornnoppaklao and Atikhun Tanstrakool. The diploma is accredited by Thailand's Ministry of Education.",
+              "confidence": "high",
+              "facts": {
+                "where": "CentralWorld, Bangkok",
+                "length": "9 months, 540 hours, three terms",
+                "format": "Demonstration, then hands-on for every recipe",
+                "language": "English, Thai translation in demonstrations",
+                "price": "652,000 THB",
+                "priceNote": "international students, all fees included; next start 12 Jan 2027",
+                "from": [
+                  "https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en"
+                ],
+                "read": "2026-11-24"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Thai cuisine chef instructors",
+                    [
+                      "Wilairat Kornnoppaklao",
+                      "Atikhun Tanstrakool"
+                    ]
+                  ]
+                ],
+                "from": "https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en",
+                "read": "2026-11-24"
+              }
             }
           ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "nine months",
           "englishTaught": true,
-          "englishBasis": "Le Cordon Bleu Dusit Professional Thai Cuisine Programme: 'Language: English with Thai translation in Demonstration Sessions.'"
-        },
-        {
-          "place": "Chiang Mai",
-          "country": "Thailand",
-          "region": "Southeast Asia",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Thai Farm Cooking School",
-            "Asia Scenic Thai Cooking School",
-            "Thai Akha Kitchen"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "heritage"
-          ],
-          "why": "Northern Lanna kitchens and organic farm schools give you khao soi and herb-forward cooking from soil to mortar, with a cohort of travellers chasing the same fire.",
-          "bestSeason": "Nov-Feb",
-          "level": "Beginner -> Intermediate",
-          "id": "thai-cuisine--chiang-mai",
-          "schoolsInfo": [
-            {
-              "name": "Thai Farm Cooking School",
-              "url": "https://thaifarmcooking.com/",
-              "course": "Full-day cooking class at the organic farm",
-              "blurb": "Operating since 2001 on an organic farm about 17 km outside Chiang Mai, this school runs a full-day class with a local market visit, farm ingredient-picking and making curry paste, curry, soup, stir-fry, a noodle dish and dessert from scratch.",
-              "confidence": "high"
-            },
-            {
-              "name": "Asia Scenic Thai Cooking School",
-              "url": "https://www.asiascenic.com/",
-              "course": "Full course at the organic farm",
-              "blurb": "Run by Gayle and family since 2007 with both an Old City garden and a countryside organic farm, Asia Scenic's full farm course teaches six dishes amid 20-plus home-grown vegetables and sends students home with a recipe book.",
-              "confidence": "high"
-            },
-            {
-              "name": "Thai Akha Kitchen",
-              "url": "https://www.thaiakhakitchen.com/",
-              "course": "Morning cooking class with market tour (full 11-dish menu)",
-              "blurb": "Run by members of the Akha hill-tribe in an open-air bamboo kitchen south of Chiang Mai's old city, this school's market-tour class has each student cook an 11-dish Thai-Akha menu at their own wok and mortar station.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Thai Farm Cooking School states 'Instruction in English by a Thai cooking teacher'; the Chiang Mai farm schools run English classes for international visitors."
+          "englishBasis": "Le Cordon Bleu Dusit Professional Thai Cuisine: taught in English, with Thai translation in the demonstrations."
         }
       ],
       "id": "thai-cuisine",
@@ -19384,27 +19331,20 @@ window.ET_ATLAS = {
         "country": "Thailand",
         "school": "Le Cordon Bleu Dusit Culinary School",
         "url": "https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en",
-        "course": "Professional Thai Cuisine Programme (Diplôme de Cuisine Thaïe)",
-        "description": "A long-form professional Thai program of about 540 instruction hours over roughly 30 weeks, teaching more than 200 recipes across traditional, regional and royal Thai cuisine, Thai-Chinese dishes and Thai desserts. Students learn curry-paste pounding, the sour-sweet-salty-spicy balance, and classical techniques through demonstration plus hands-on practical kitchens. The diploma is accredited by Thailand's Ministry of Education.",
-        "duration": "540 hours over ~30 weeks",
-        "format": "Full-time professional program, demonstration plus practical kitchens",
+        "course": "Professional Thai Cuisine (Diplôme de Cuisine Thaïe)",
+        "description": "Nine months and 540 hours over three terms: more than 200 Thai recipes, regional and royal, Thai desserts, coconut milk and cream made in their different forms, carving and banana-leaf work. Every recipe is demonstrated, then cooked by each student in the practical kitchen.",
+        "duration": "9 months, 540 hours",
+        "format": "Full-time, demonstration plus practical kitchen",
         "certification": "Diplôme de Cuisine Thaïe (accredited by the Thai Ministry of Education)",
-        "fitsBecause": "An in-depth, ministry-accredited Thai cuisine diploma taught in Bangkok, covering regional and royal Thai cooking from curry pastes up.",
-        "sessions": [],
-        "priceNote": "",
-        "confidence": "high",
-        "alternatives": [
-          {
-            "course": "Thai Cuisine Workshop (Beef Selection)",
-            "duration": "6 hours (1 day)",
-            "format": "Hands-on workshop",
-            "priceFrom": "฿10,900",
-            "url": "https://www.cordonbleu.edu/thailand/short-courses/en",
-            "fit": "Taster",
-            "note": "Single-day workshop on one ingredient; no source-region depth or the 540-hour professional curriculum.",
-            "confidence": "high"
-          }
-        ]
+        "fitsBecause": "The whole of Thai cooking, in order, with every recipe in your own hands, taught in English.",
+        "sessions": [
+          "2027-01-12",
+          "2027-04-20",
+          "2027-07-06",
+          "2027-09-28"
+        ],
+        "priceNote": "652,000 THB",
+        "confidence": "high"
       }
     },
     {
@@ -19903,9 +19843,9 @@ window.ET_ATLAS = {
     {
       "discipline": "Peruvian Cuisine",
       "category": "culinary",
-      "certBody": "Le Cordon Bleu Peru (university-status) / APEGA-affiliated culinary schools",
-      "goldCredential": "Le Cordon Bleu Peru Diploma in Gastronomy (Bachelor/Tecnico) or accredited cocina school certificate",
-      "blurb": "The world's most awarded fusion table, where ceviche cured in tiger's milk, anticuchos, and Andean-Amazonian biodiversity collide at altitude.",
+      "certBody": "Le Cordon Bleu Perú",
+      "goldCredential": "Le Cordon Bleu Perú Diploma en Gastronomía Peruana",
+      "blurb": "Cebiche and tiradito, the ají bases and the aderezos, and the regional kitchens of the coast, the Andes and the Amazon.",
       "destinations": [
         {
           "place": "Lima",
@@ -19915,11 +19855,12 @@ window.ET_ATLAS = {
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "Le Cordon Bleu Peru",
-            "Instituto de Cocina D'Gallia",
-            "Instituto Columbia"
+            "Le Cordon Bleu Perú"
           ],
-          "masters": [],
+          "masters": [
+            "Javier Ampuero",
+            "Gregor Funcke"
+          ],
           "lineage": [
             "Gaston Acurio (Astrid y Gaston lineage)"
           ],
@@ -19931,122 +19872,49 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "The world capital of New Andean cooking, home to the first-ever Le Cordon Bleu university and the chefs who put Peru on the global map.",
+          "why": "Peru's capital, where Le Cordon Bleu Perú runs a year-long diploma in Peruvian gastronomy.",
           "bestSeason": "Dec-Apr (summer); year-round",
           "level": "Beginner -> Professional",
           "id": "peruvian-cuisine--lima",
           "schoolsInfo": [
             {
               "name": "Le Cordon Bleu Perú",
-              "url": "https://www.cordonbleu.edu/peru/home/en",
-              "course": "Diploma in Gastronomy (Diploma en Gastronomía)",
-              "blurb": "At Le Cordon Bleu's university-status campus in Lima, the gastronomy diploma trains cooks in basic and advanced culinary technique and a working recipe repertoire spanning Peruvian and international c",
-              "confidence": "medium"
-            },
-            {
-              "name": "Le Cordon Bleu Peru",
-              "url": "https://www.cordonbleu.edu/peru/home/en",
-              "course": "Diploma in Peruvian Cuisine / Peruvian cuisine short courses",
-              "blurb": "Le Cordon Bleu's Lima (Miraflores) campus is the Peruvian branch of the French culinary network, offering multi-year Gastronomy diplomas alongside hands-on short courses dedicated to traditional, regional and modern Peruvian cooking, including ceviche and native chillies.",
-              "confidence": "high"
-            },
-            {
-              "name": "Instituto de Cocina D'Gallia",
-              "url": "https://dgallia.edu.pe/",
-              "course": "Cocina Peruana Tradicional (modular, 12 sessions, Magdalena campus)",
-              "blurb": "D'Gallia is a Lima culinary institute founded in 1995 with a large campus in Magdalena del Mar that, beyond its multi-year cooking career, runs a 12-session modular workshop in traditional Peruvian cuisine covering criolla, limena and coastal cooking with a digital certificate of completion.",
-              "confidence": "high"
-            },
-            {
-              "name": "Instituto Columbia",
-              "url": "https://www.columbia.edu.pe/altacocina",
-              "course": "Alta Cocina (Peruvian and International Gastronomy), 6 academic cycles",
-              "blurb": "Instituto Columbia is a Lima institution founded in 1983 whose Alta Cocina program (launched 2003) runs six academic cycles of practical kitchen and pastry training and awards a state-recognized professional technical title in Peruvian and International Gastronomy.",
-              "confidence": "high"
+              "url": "https://cursoslibrespec.ilcb.edu.pe/diploma-en-gastronomia-peruana/",
+              "course": "Diploma en Gastronomía Peruana",
+              "blurb": "Le Cordon Bleu Perú, in Miraflores, runs a twelve-month diploma in Peruvian gastronomy: the aderezos, fondos and ají bases, fish cut for cebiche and tiradito, leche de tigre, causa, pachamanca and the regional kitchens, in three levels and an internship. It is taught in Spanish with live English translation, and the school names foreign students among the people it is for. Chef Javier Ampuero leads it.",
+              "confidence": "high",
+              "facts": {
+                "where": "Miraflores, Lima",
+                "length": "12 months, 1,284 hours with the internship",
+                "format": "In person, Monday to Saturday mornings",
+                "language": "Spanish, with live English translation",
+                "price": "USD 12,000",
+                "priceNote": "starts 18 Jan 2027; subject to the exchange rate; the regional trips are optional",
+                "from": [
+                  "https://cursoslibrespec.ilcb.edu.pe/diploma-en-gastronomia-peruana/"
+                ],
+                "read": "2026-11-24"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Chefs",
+                    [
+                      "Javier Ampuero",
+                      "Gregor Funcke"
+                    ]
+                  ]
+                ],
+                "from": "https://cursoslibrespec.ilcb.edu.pe/diploma-en-gastronomia-peruana/",
+                "read": "2026-11-24"
+              }
             }
           ],
           "tripTier": 5,
           "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": null
-        },
-        {
-          "place": "Cusco",
-          "country": "Peru",
-          "region": "Latin America",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Marcelo Batata Cooking Class",
-            "Cusco Culinary (Inkan Life)"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "heritage",
-            "lineage"
-          ],
-          "why": "Andean cuisine at its source altitude, where you cook with native potatoes, quinoa, and ancient Inca techniques in the old imperial capital.",
-          "bestSeason": "Apr-Oct (dry season)",
-          "level": "Beginner -> Intermediate",
-          "id": "peruvian-cuisine--cusco",
-          "schoolsInfo": [
-            {
-              "name": "Marcelo Batata Cooking Class",
-              "url": "https://marcelobatatacookingclass.com/",
-              "course": "Full Immersion Cooking Class",
-              "blurb": "A cooking school in central Cusco with an Andean-ingredient interpretive area called El Mercado, whose four-hour Full Immersion class covers Peruvian food history, pisco sour and chilcano, and preparing ceviche and alpaca lomo saltado.",
-              "confidence": "high"
-            },
-            {
-              "name": "Cusco Culinary (Inkan Life)",
-              "url": "",
-              "course": "",
-              "blurb": "A Cusco-based Peruvian cooking class was referenced under this name, but no official site or specific multi-day program could be verified.",
-              "confidence": "low"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Marcelo Batata offers a dedicated English cooking class (10am English session); reviews confirm English instruction"
-        },
-        {
-          "place": "Arequipa",
-          "country": "Peru",
-          "region": "Latin America",
-          "role": "scene",
-          "communityRank": 3,
-          "communityLabel": "Strong",
-          "schools": [
-            "Peruvian Cooking Experience Arequipa"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "heritage",
-            "lineage"
-          ],
-          "why": "Peru's picanteria heartland, where rocoto relleno and the country's most fiercely regional cooking are guarded and taught at the source.",
-          "bestSeason": "May-Oct",
-          "level": "Beginner -> Intermediate",
-          "id": "peruvian-cuisine--arequipa",
-          "schoolsInfo": [
-            {
-              "name": "Peruvian Cooking Experience Arequipa",
-              "url": "https://www.peruviancookingexperience.com/",
-              "course": "Hands-on Peruvian cooking class with market visit and Pisco Sour",
-              "blurb": "Based at Casa de Avila in Arequipa, this hands-on cooking school teaches regional dishes such as rocoto relleno and solterito alongside a century-old market tour and an optional Pisco Sour session, in sessions of a few hours rather than week-long programs.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Peruvian Cooking Experience site states classes are entirely available in English and Spanish with bilingual guides"
+          "tripLength": "twelve months",
+          "englishTaught": false,
+          "instructionLanguage": "Spanish, with live English translation"
         }
       ],
       "id": "peruvian-cuisine",
@@ -20056,16 +19924,18 @@ window.ET_ATLAS = {
         "place": "Lima",
         "country": "Peru",
         "school": "Le Cordon Bleu Perú",
-        "url": "https://www.cordonbleu.edu/peru/home/en",
-        "course": "Diploma in Gastronomy (Diploma en Gastronomía)",
-        "description": "At Le Cordon Bleu's university-status campus in Lima, the gastronomy diploma trains cooks in basic and advanced culinary technique and a working recipe repertoire spanning Peruvian and international cuisine, alongside running kitchen and bar brigades. Coursework combines demonstrations with practice in professional kitchens; teaching is in Spanish. Iconic Peruvian dishes such as ceviche and lomo saltado feature within the broader curriculum.",
-        "duration": "Diploma program (length set by intake; multi-month)",
-        "format": "Full-time campus program, demonstration plus practical kitchens; taught in Spanish",
-        "certification": "Le Cordon Bleu Perú Certificate/Diploma in Gastronomy",
-        "fitsBecause": "A multi-month, hands-on gastronomy diploma in Lima, the capital of Peru's celebrated cuisine, at the country's leading recognized culinary school.",
-        "sessions": [],
-        "priceNote": "",
-        "confidence": "medium"
+        "url": "https://cursoslibrespec.ilcb.edu.pe/diploma-en-gastronomia-peruana/",
+        "course": "Diploma en Gastronomía Peruana",
+        "description": "Twelve months in three levels and an internship: the aderezos, fondos and ají bases, fish cut for cebiche and tiradito, leche de tigre, causa, chupe, pachamanca and the regional kitchens, cooked in the school's kitchens in Miraflores.",
+        "duration": "12 months, 1,284 hours",
+        "format": "In person, Monday to Saturday mornings",
+        "certification": "Diploma de la Fundación Le Cordon Bleu Internacional",
+        "fitsBecause": "A whole year inside the Peruvian kitchen, in Lima, with the school's own Peruvian-cuisine chef leading it.",
+        "sessions": [
+          "2027-01-18"
+        ],
+        "priceNote": "USD 12,000",
+        "confidence": "high"
       }
     },
     {
@@ -20527,188 +20397,70 @@ window.ET_ATLAS = {
     {
       "discipline": "Sake & Sommellerie of Sake",
       "category": "culinary",
-      "certBody": "SSI (Sake Service Institute) / WSET (Sake program)",
+      "certBody": "WSET (Level 3 Award in Sake) / SSI",
       "goldCredential": "International Kikisake-shi (Sake Sommelier), up to WSET Level 3 Award in Sake",
       "blurb": "The art of reading rice, water and koji in the cup, learning to serve and pair Japan's national brew with a trained tongue.",
       "destinations": [
         {
-          "place": "Nada (Kobe), Hyogo",
-          "country": "Japan",
-          "region": "East Asia",
-          "role": "source",
-          "communityRank": 5,
-          "communityLabel": "Legendary",
-          "schools": [
-            "Nada Gogo brewery district programs",
-            "Nishiyama Shuzojo brewing experience (Tamba)",
-            "SSI partner courses"
-          ],
-          "masters": [],
-          "lineage": [
-            "Tanba Toji lineage"
-          ],
-          "badges": [
-            "source",
-            "mecca",
-            "heritage",
-            "lineage"
-          ],
-          "why": "Japan's number-one sake region by volume and home of the Tanba Toji master-brewer lineage, the Edo-era heartland where the craft was perfected.",
-          "bestSeason": "Oct-Mar",
-          "level": "Beginner -> Brewer apprentice",
-          "id": "sake-and-sommellerie-of-sake--nada-kobe-hyogo",
-          "schoolsInfo": [
-            {
-              "name": "Obata Shuzo - Gakkogura",
-              "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp",
-              "course": "Gakkogura One Week Course (sake brewing)",
-              "blurb": "A residential hands-on brewing course at Obata Shuzo's Gakkogura, a microbrewery built inside a former elementary school on Sado Island.",
-              "confidence": "medium"
-            },
-            {
-              "name": "Nada Gogo brewery district programs",
-              "url": "https://www.feel-kobe.jp/en/stories/japanesesake",
-              "course": "Nada-Gogo five-village brewery tours and tastings (Hakutsuru, Kiku-Masamune, Hamafukutsuru and others)",
-              "blurb": "Nada-Gogo is the cluster of five brewing villages in Kobe that produces the largest share of Japan's sake, where breweries such as Hakutsuru, Kiku-Masamune and Hamafukutsuru run guided tours showing the production process behind glass and structured tastings of multiple labels.",
-              "confidence": "high"
-            },
-            {
-              "name": "Nishiyama Shuzojo brewing experience (Tamba)",
-              "url": "https://www.japan.travel/en/japans-local-treasures/nishiyama-sake-brewery-tasting-tour-2023/",
-              "course": "Brewery tour with sake-tasting class, fermented-foods workshop and head-brewer-led pairing lunch",
-              "blurb": "Nishiyama Shuzojo is a sake brewery founded in 1849 in Tamba, Hyogo, housed in nationally registered Tangible Cultural Property buildings, offering brewery tours plus a tasting class and a head-brewer-led pairing lunch using local fermented foods.",
-              "confidence": "high"
-            },
-            {
-              "name": "SSI partner courses",
-              "url": "https://ssiintl.jp/",
-              "course": "SSI International Kikisake-shi (Sommelier of Sake) three-day certification with exam",
-              "blurb": "The Sake Service Institute is the Japanese body that certifies sake professionals, and its International Kikisake-shi program is a three-day course with self-study, tasting and service training plus a graded exam, delivered in English through authorized partner schools.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 2,
-          "tripType": "Starter",
-          "tripLength": "about a week",
-          "englishTaught": true,
-          "englishBasis": "Obata Shuzo Gakkogura provides English course information and hosts foreign participants; SSI International Kikisake-shi (an alt listed) is delivered in English"
-        },
-        {
           "place": "Niigata",
           "country": "Japan",
           "region": "East Asia",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "Niigata Sake no Jin (Niigata Sake Brewers Association)",
-            "Imayotsukasa Gakkogura brewery school",
-            "SSI (Sake Service Institute) certification partners"
+            "Obata Shuzo — Gakkogura"
           ],
           "masters": [],
           "lineage": [
             "Toji guild lineage (master brewers)"
           ],
           "badges": [
-            "source",
             "scene",
             "heritage",
             "lineage"
           ],
-          "why": "Home to more sake breweries than any other prefecture, where snowmelt water and working toji let you learn the brew at its true source.",
-          "bestSeason": "Nov-Mar",
-          "level": "Beginner -> Kikisake-shi",
+          "why": "On Sado Island in Niigata, a brewery set up in a primary school that closed in 2010 takes a few people at a time to brew sake for a week.",
+          "bestSeason": "May-Aug",
+          "level": "Beginner -> Intermediate",
           "id": "sake-and-sommellerie-of-sake--niigata",
           "schoolsInfo": [
             {
-              "name": "Niigata Sake no Jin (Niigata Sake Brewers Association)",
-              "url": "https://www.niigata-sake.or.jp/en/activity/sakenojin/",
-              "course": "Niigata Sake no Jin annual festival with tastings from around 90 breweries and sake seminars",
-              "blurb": "Niigata Sake no Jin is the annual event the Niigata Sake Brewers Association has run since 2004, gathering roughly 90 prefectural breweries and over 500 sake alongside local food, stage programs and sake seminars.",
-              "confidence": "high"
-            },
-            {
-              "name": "Imayotsukasa Gakkogura brewery school",
-              "url": "https://www.obata-shuzo.com/home/gakkogura/experience2022.asp",
-              "course": "Gakkogura Sake-Making Program: One-Week Course and 20-Day Course",
-              "blurb": "Gakkogura is a converted former school on Sado Island operated by Obata Shuzo (Manotsuru) where residential sake-making courses of one week or 20 days teach koji-making and three-stage brewing hands-on alongside the brewers, with rice-field visits and tasting seminars.",
-              "confidence": "medium"
-            },
-            {
-              "name": "SSI (Sake Service Institute) certification partners",
-              "url": "https://ssiintl.jp/",
-              "course": "SSI International Kikisake-shi (Sommelier of Sake) certification course and exam",
-              "blurb": "The Sake Service Institute certifies sake professionals through its Kikisake-shi qualification, delivered as a multi-day course covering production, tasting and service with a graded exam available in English via authorized partner schools.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "SSI International Kikisake-shi certification is the English-language sake sommelier program studied globally; Imayotsukasa Gakkogura accommodates foreign participants"
-        },
-        {
-          "place": "Tokyo",
-          "country": "Japan",
-          "region": "East Asia",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Sake Service Institute (SSI, HQ Tokyo)",
-            "Sake Sommelier Academy",
-            "Japan Sake and Shochu Makers Association courses"
-          ],
-          "masters": [],
-          "badges": [
-            "scene",
-            "school",
-            "gold-cred"
-          ],
-          "why": "Where the certification itself was born: the SSI was founded here, so the International Kikisake-shi exam is taken at its home alongside the biggest cohort of new sake sommeliers.",
-          "bestSeason": "Year-round",
-          "level": "Beginner -> Master of Sake",
-          "id": "sake-and-sommellerie-of-sake--tokyo",
-          "schoolsInfo": [
-            {
-              "name": "Sake Service Institute (SSI, HQ Tokyo)",
-              "url": "https://ssiintl.jp/",
-              "course": "Sommelier of Sake (International Kikisake-shi) three-day certification",
-              "blurb": "The Tokyo-founded body that created and awards the Kikisake-shi qualification, offering a three-day International Kikisake-shi (Sommelier of Sake) training and three-stage exam covering sake characteristics, production, and blind tasting.",
-              "confidence": "high"
-            },
-            {
-              "name": "Sake Sommelier Academy",
-              "url": "https://sakesommelieracademy.com/",
-              "course": "Certified Sake Sommelier (multi-day in-person course)",
-              "blurb": "A London-headquartered sake educator operating through partner schools worldwide that runs a multi-day Certified Sake Sommelier course covering ingredients, brewing, tasting, and food pairing.",
-              "confidence": "medium"
-            },
-            {
-              "name": "Japan Sake and Shochu Makers Association courses",
-              "url": "https://japansake.or.jp/sake/en/topic/sake-shochu-academy/japan-sake-shochu-academy/",
-              "course": "Japan Sake & Shochu Academy",
-              "blurb": "The national producers' association in Tokyo runs the Japan Sake & Shochu Academy, an intensive course of lectures and tastings of roughly 70 sake and shochu that issues a completion certificate co-signed by the National Research Institute of Brewing.",
-              "confidence": "high"
+              "name": "Obata Shuzo — Gakkogura",
+              "url": "https://www.obata-shuzo.com/home/gakkogura/taiken.asp",
+              "course": "One-week sake-making programme",
+              "blurb": "Obata Shuzo, brewing on Sado since 1892, turned a primary school that closed in 2010 into a working brewery, Gakkogura. Its one-week programme takes about four people at a time through the core of the brew: washing, soaking and steaming the rice, making koji by hand, with one night on site for the night koji work, and the three-stage mash. The 2026 weeks are full; a form takes names for the 2027 notice.",
+              "confidence": "high",
+              "facts": {
+                "where": "Sado Island, Niigata",
+                "length": "7 days",
+                "format": "Hands-on in the brewery, one night on site",
+                "class": "4 or so",
+                "price": "¥120,000",
+                "priceNote": "tax included, 2026 prices; the advanced week is ¥150,000; 2026 full; sign-up for the 2027 notice open",
+                "from": [
+                  "https://www.obata-shuzo.com/home/gakkogura/taiken.asp",
+                  "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp"
+                ],
+                "read": "2026-11-24"
+              }
             }
           ],
           "tripTier": 2,
-          "tripType": "Starter",
-          "tripLength": "about a week",
-          "englishTaught": true,
-          "englishBasis": "Sake Sommelier Academy and SSI International Kikisake-shi are international English-language certification courses based in Tokyo"
+          "tripType": "Immersion",
+          "tripLength": "one week",
+          "englishTaught": null,
+          "instructionLanguage": "Japanese"
         },
         {
           "place": "London",
           "country": "United Kingdom",
           "region": "Western Europe",
-          "role": "scene",
+          "role": "credential",
           "communityRank": 3,
           "communityLabel": "Strong",
           "schools": [
-            "WSET School London (Sake program)",
-            "Sake Sommelier Academy (UK)"
+            "WSET School London (Sake program)"
           ],
           "masters": [],
           "badges": [
@@ -20716,54 +20468,55 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "The Western gateway to sake credentials, where WSET's Award in Sake draws the densest cohort of non-Japanese sommeliers serious about the craft.",
+          "why": "Where WSET teaches its Level 3 Award in Sake in person, at its own school on Bermondsey Street.",
           "bestSeason": "Sep-Jun",
-          "level": "Beginner -> WSET Level 3 Sake",
+          "level": "Intermediate -> Expert",
           "id": "sake-and-sommellerie-of-sake--london",
           "schoolsInfo": [
             {
               "name": "WSET School London (Sake program)",
               "url": "https://www.wsetglobal.com/wset-school-london/wset-courses/wset-level-3-award-in-sake/",
               "course": "WSET Level 3 Award in Sake",
-              "blurb": "The Wine & Spirit Education Trust's flagship London school delivers the WSET Level 3 Award in Sake, an industry-standard qualification combining theory, blind tasting of around forty sakes and a sake-brewery visit, examined on site.",
-              "confidence": "high"
-            },
-            {
-              "name": "Sake Sommelier Academy (UK)",
-              "url": "https://sakesommelieracademy.com/united-kingdom-london/",
-              "course": "SSI International Kikisake-shi (Sake Sommelier) certification",
-              "blurb": "The London-based SSI-accredited sake course (run by Enshu) delivers the three-day International Kikisake-shi Sake Sommelier certification covering sake production, service and tasting in classes capped at fifteen, with a Japan-recognized diploma.",
-              "confidence": "high"
+              "blurb": "WSET School London teaches its Level 3 Award in Sake in person at its school on Bermondsey Street, either over six days in a row or one day a week for six weeks, with about 22 hours of private study. It ends in an exam with a blind tasting of two sakes.",
+              "confidence": "high",
+              "facts": {
+                "where": "Bermondsey Street, London",
+                "length": "6 days, or 1 day a week for 6 weeks",
+                "format": "In the classroom, ending in a blind tasting exam",
+                "language": "English",
+                "price": "£815",
+                "priceNote": "either format; about 22 hours of private study on top",
+                "from": [
+                  "https://www.wsetglobal.com/wset-school-london/wset-courses/wset-level-3-award-in-sake/"
+                ],
+                "read": "2026-11-24"
+              }
             }
           ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
+          "tripTier": 2,
+          "tripType": "Certification",
+          "tripLength": "six days",
           "englishTaught": true,
-          "englishBasis": "native-English country"
+          "englishBasis": "WSET School London teaches in English."
         }
       ],
       "id": "sake-and-sommellerie-of-sake",
       "certShort": "SSI",
       "featured": {
-        "id": "sake-and-sommellerie-of-sake--nada-kobe-hyogo",
-        "place": "Sado Island, Niigata",
+        "id": "sake-and-sommellerie-of-sake--niigata",
+        "place": "Niigata",
         "country": "Japan",
-        "school": "Obata Shuzo - Gakkogura",
-        "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp",
-        "course": "Gakkogura One Week Course (sake brewing)",
-        "description": "A residential hands-on brewing course at Obata Shuzo's Gakkogura, a microbrewery built inside a former elementary school on Sado Island. A handful of participants work through the core of sake production over a week - koji making, steaming and cooling rice, and the three-stage brewing of a single designated tank - with English guidance. The sake the group brews is later bottled and sold under the Gakkogura label. A longer 20-day course is offered for a fuller cycle. Suited to people who want to actually make sake rather than only taste it.",
-        "duration": "1 week (also a 20-day course)",
-        "format": "Residential, small group (a handful of participants per tank/team); requires staying on the island at least a week",
-        "certification": "Completion of the brewing program (group-brewed sake bottled under the Gakkogura label)",
-        "fitsBecause": "True at-the-source residential immersion - you brew a real tank of sake alongside a small team inside a working Sado brewery, not a classroom tasting.",
-        "sessions": [
-          "May 2026",
-          "Jun 2026",
-          "Jul 2026"
-        ],
-        "priceNote": "",
-        "confidence": "medium"
+        "school": "Obata Shuzo — Gakkogura",
+        "url": "https://www.obata-shuzo.com/home/gakkogura/taiken.asp",
+        "course": "One-week sake-making programme",
+        "description": "Seven days at Gakkogura, about four people at a time: washing and soaking the rice, steaming it, making koji by hand with a night on site for the night koji work, the three-stage mash, and tasting practice.",
+        "duration": "7 days",
+        "format": "Residential week, hands-on in the brewery",
+        "certification": "None; you brew on a real run",
+        "fitsBecause": "You do the brewery's work yourself, from the rice to the three-stage mash, inside a working brewery, not only taste it.",
+        "sessions": [],
+        "priceNote": "¥120,000",
+        "confidence": "high"
       }
     },
     {
@@ -21433,134 +21186,133 @@ window.ET_ATLAS = {
           "place": "Poligny, Jura",
           "country": "France",
           "region": "Western Europe",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "ENILBIO de Poligny (cremier-fromager / affineur)",
-            "Mons Formation (Ambierle)",
-            "Maison Mons affinage cellars"
+            "ENILEA Poligny"
           ],
-          "masters": [
-            "Mons family (affineurs)"
-          ],
+          "masters": [],
           "badges": [
-            "source",
             "school",
             "gold-cred",
             "heritage",
             "lineage"
           ],
-          "why": "The capital of Comte in the Jura, where France's national dairy school ENILBIO trains the affineurs who age cheese to perfection, the craft at its true source.",
+          "why": "Poligny, in the Jura, where the ENILEA dairy school teaches adults to make cheese in its own technology hall.",
           "bestSeason": "Year-round",
-          "level": "Beginner -> Affineur",
+          "level": "Beginner -> Intermediate",
           "id": "cheese-and-fermentation--poligny-jura",
           "schoolsInfo": [
             {
-              "name": "Mons Formation (Mons Fromager-Affineur)",
-              "url": "https://www.mons-formation.com/?lang=en",
-              "course": "Affinage course (maturing cheese)",
-              "blurb": "A five-day, full-time residency run by the Mons family's training centre, split roughly half theory and half hands-on work in the Mons maturing caves alongside their staff.",
-              "confidence": "high"
-            },
-            {
-              "name": "ENILBIO de Poligny (cremier-fromager / affineur)",
-              "url": "https://www.enil.fr/metiers/fromage",
-              "course": "Fromager / Cremier-Fromager (1-year work-study, ~16 weeks on campus)",
-              "blurb": "ENILBIO de Poligny is a dairy-trade school in the Jura that trains around 700 people a year in cheese professions, including one-year work-study programs for fromager (cheesemaking, from milk preparation to aging) and cremier-fromager (cheese retail and advice).",
-              "confidence": "high"
-            },
-            {
-              "name": "Mons Formation (Ambierle)",
-              "url": "https://www.cheeseexplorer.com/post/cheese-courses-for-professionals-with-mons-formation",
-              "course": "Affinage and cheese-retail professional courses (4-5 days) in the Ambierle tunnel cellars",
-              "blurb": "Mons Formation is the training centre created in 2005 by the Mons fromager-affineur family in Ambierle, offering multi-day professional courses in affinage and cheese retailing where students work alongside staff in 180-metre former-railway-tunnel maturing cellars.",
-              "confidence": "high"
-            },
-            {
-              "name": "Maison Mons affinage cellars",
-              "url": "https://www.cheeseexplorer.com/post/cheese-courses-for-professionals-with-mons-formation",
-              "course": "Hands-on affinage training in the Mons fromager-affineur cellars (via Mons Formation)",
-              "blurb": "Maison Mons is the Mons family's fromager-affineur business whose Ambierle maturing cellars, converted from a 180-metre railway tunnel, serve as the hands-on affinage classroom for Mons Formation trainees ripening cheeses alongside the maison's affineurs.",
-              "confidence": "medium"
+              "name": "ENILEA Poligny",
+              "url": "https://enilea.fr/formations/technologies-des-fromages-fermers-produits-laitiers-3-semaines/",
+              "course": "Débuter en transformation fromagère fermière (three weeks)",
+              "blurb": "ENILEA, the dairy school on its Poligny campus, teaches adults to make farm cheese in its own technology hall: three one-week blocks, with fifty hours of practice on raw milk, soft, pressed and blue cheeses, yoghurts and dairy desserts, in groups of six to twelve. It is taught in French, and the school asks that students speak and write it. Its one-year Titre Fromager goes further.",
+              "confidence": "high",
+              "facts": {
+                "where": "Poligny, Jura",
+                "length": "3 weeks, in three one-week blocks",
+                "format": "50 hours of practice in the school's technology hall",
+                "language": "French",
+                "class": "6 to 12",
+                "price": "€3,675",
+                "priceNote": "the current session runs in three blocks, 30 Nov to 4 Dec 2026, 4 to 8 Jan and 25 to 29 Jan 2027; applications closed 15 days before the start; no later session published; spoken and written French required",
+                "from": [
+                  "https://enilea.fr/formations/technologies-des-fromages-fermers-produits-laitiers-3-semaines/",
+                  "https://enilea.fr/formations/cs-techlait-titre-fromager/"
+                ],
+                "read": "2026-11-24"
+              }
             }
           ],
           "tripTier": 3,
           "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Mons Formation (formerly Academie MonS) is an English-language professional affinage program for international cheese pros, co-taught by an anglophone instructor"
+          "tripLength": "three weeks",
+          "englishTaught": false,
+          "instructionLanguage": "French"
         },
         {
-          "place": "Vermont",
-          "country": "United States",
-          "region": "North America",
+          "place": "Ambierle (near Roanne)",
+          "country": "France",
+          "region": "Western Europe",
           "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
+          "communityRank": 3,
+          "communityLabel": "Strong",
           "schools": [
-            "University of Vermont Institute for Artisan Cheese",
-            "Cellars at Jasper Hill (Fundamentals of Artisan Cheese)",
-            "Vermont Cheese Council courses"
+            "Mons Formation"
           ],
           "masters": [
-            "Jasper Hill Farm (Kehler brothers)"
+            "Laurent Mons",
+            "Emma Young"
           ],
           "badges": [
             "scene",
             "school",
-            "gold-cred"
+            "master"
           ],
-          "why": "America's artisan-cheese heartland, where the UVM institute and the famed Jasper Hill cellars draw the densest cohort of makers and affineurs in the New World.",
-          "bestSeason": "May-Oct",
-          "level": "Beginner -> Certified Cheese Professional",
-          "id": "cheese-and-fermentation--vermont",
+          "why": "The Tunnel de la Collonge near Roanne, where the Mons affineurs mature their cheeses and teach affinage in the same caves.",
+          "bestSeason": "Year-round",
+          "level": "Intermediate -> Professional",
+          "id": "cheese-and-fermentation--ambierle-loire",
           "schoolsInfo": [
             {
-              "name": "University of Vermont Institute for Artisan Cheese",
-              "url": "https://learn.uvm.edu/program/professional/artisan-cheese-sensory-fundamentals-professional-certificate/",
-              "course": "Artisan Cheese & Sensory Fundamentals Professional Certificate",
-              "blurb": "The University of Vermont's continuing-education arm, successor to its Vermont Institute for Artisan Cheese, runs a four-week Artisan Cheese & Sensory Fundamentals Professional Certificate covering cheesemaking science and sensory evaluation for makers, mongers, and food professionals.",
-              "confidence": "medium"
-            },
-            {
-              "name": "Cellars at Jasper Hill (Fundamentals of Artisan Cheese)",
-              "url": "https://www.jasperhillfarm.com/",
-              "course": "Fundamentals of Artisan Cheese (nine-day intensive with Ivan Larcher, via Sterling College)",
-              "blurb": "Jasper Hill is a Greensboro, Vermont farmstead creamery and aging cellar that co-hosts the nine-day Fundamentals of Artisan Cheese intensive led by cheesemaker Ivan Larcher, combining milk and microbiology theory with hands-on production.",
-              "confidence": "high"
-            },
-            {
-              "name": "Vermont Cheese Council courses",
-              "url": "https://vtcheese.com/learn/",
-              "course": "The Science of Farmstead Cheese (self-paced online, eight modules)",
-              "blurb": "The Vermont Cheese Council is the state's cheesemaker trade body whose education arm offers the self-paced eight-module online course The Science of Farmstead Cheese alongside in-person workshops and an annual conference.",
-              "confidence": "medium"
+              "name": "Mons Formation",
+              "url": "https://www.mons-formation.com/en/affinage-en",
+              "course": "The Art & Science of Maturing Cheese (four days)",
+              "blurb": "Mons Formation, the training house of the Mons cheese affineurs, teaches affinage in the maturing caves of the Tunnel de la Collonge at Ambierle, near Roanne: four days of turning, brushing, rubbing and washing rinds by hand, setting a cave for each kind of cheese and costing a cheese's ripening. The English edition is led by Laurent Mons and Emma Young; it also runs in French, Spanish and Portuguese. No date is open yet, and pre-registration is.",
+              "confidence": "high",
+              "facts": {
+                "where": "Ambierle, near Roanne",
+                "length": "4 days",
+                "format": "Hands-on in the maturing caves",
+                "language": "English, French, Spanish or Portuguese, by session",
+                "price": "€2,800",
+                "priceNote": "per person; no date open, pre-registration only; trade experience recommended",
+                "from": [
+                  "https://www.mons-formation.com/en/affinage-en",
+                  "https://www.mons-formation.com/en/affinage"
+                ],
+                "read": "2026-11-24"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "The English edition",
+                    [
+                      "Laurent Mons",
+                      "Emma Young"
+                    ]
+                  ]
+                ],
+                "from": "https://www.mons-formation.com/en/affinage-en",
+                "read": "2026-11-24"
+              }
             }
           ],
-          "tripTier": 1,
-          "tripType": "Taster",
-          "tripLength": "a weekend",
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "four days",
           "englishTaught": true,
-          "englishBasis": "native-English country"
+          "englishBasis": "Mons Formation runs an English edition of its affinage course, led by Laurent Mons and Emma Young."
         }
       ],
       "id": "cheese-and-fermentation",
       "certShort": "ENIL",
       "featured": {
-        "id": "cheese-and-fermentation--poligny-jura",
+        "id": "cheese-and-fermentation--ambierle-loire",
         "place": "Ambierle (near Roanne)",
         "country": "France",
-        "school": "Mons Formation (Mons Fromager-Affineur)",
-        "url": "https://www.mons-formation.com/?lang=en",
-        "course": "Affinage course (maturing cheese)",
-        "description": "A five-day, full-time residency run by the Mons family's training centre, split roughly half theory and half hands-on work in the Mons maturing caves alongside their staff. Students learn the life cycle of rind flora and how it drives ripening (proteolysis, glycolysis, lipolysis), the tools and techniques French affineurs use across cheese styles, common defects and their fixes, and the economics of affinage. Capped at six students. Lodging, breakfasts, lunches and ground transport during the course are included. Aimed at cheese professionals and serious learners.",
-        "duration": "5 days (one-week residency)",
-        "format": "Residential, full-time; max 6 students; lodging, breakfasts, lunches and local transport included",
-        "certification": "Mons Formation certificate of completion",
-        "fitsBecause": "Week-long residential, tiny-cohort training inside a renowned French affineur's working caves - hands-on at the source of cheese maturing.",
+        "school": "Mons Formation",
+        "url": "https://www.mons-formation.com/en/affinage-en",
+        "course": "The Art & Science of Maturing Cheese (four days)",
+        "description": "Four days in the Mons maturing caves at the Tunnel de la Collonge: turning, brushing, rubbing and washing rinds, flipping cheeses on the boards, setting temperature and humidity for each kind of cheese, tasting, and costing a cheese's affinage. No date is open yet; pre-registration only.",
+        "duration": "4 days",
+        "format": "In person, hands-on in the maturing caves",
+        "certification": "Mons Formation course",
+        "fitsBecause": "Affinage taught where it is done, with your hands in the rinds of a working affineur's caves.",
         "sessions": [],
-        "priceNote": "~EUR 2,800",
+        "priceNote": "€2,800",
         "confidence": "high"
       }
     },

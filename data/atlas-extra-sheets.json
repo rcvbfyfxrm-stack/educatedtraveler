@@ -43,7 +43,14 @@
     "cheese-and-fermentation--copenhagen.html",
     "fermentation--copenhagen.html",
     "bread-and-boulangerie--tokyo.html",
-    "modern-new-technique-cuisine--girona.html"
+    "modern-new-technique-cuisine--girona.html",
+    "classical-french-cuisine--lyon.html",
+    "cheese-and-fermentation--vermont.html",
+    "thai-cuisine--chiang-mai.html",
+    "peruvian-cuisine--cusco.html",
+    "peruvian-cuisine--arequipa.html",
+    "sake-and-sommellerie-of-sake--nada-kobe-hyogo.html",
+    "sake-and-sommellerie-of-sake--tokyo.html"
   ],
   "pinnedOpen": [
     "oaxacan-and-mexican-cuisine",
@@ -62,7 +69,12 @@
     "chocolate-and-confectionery",
     "mixology-and-bartending",
     "fermentation",
-    "bread-and-boulangerie"
+    "bread-and-boulangerie",
+    "classical-french-cuisine",
+    "cheese-and-fermentation",
+    "thai-cuisine",
+    "peruvian-cuisine",
+    "sake-and-sommellerie-of-sake"
   ],
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [],
@@ -1370,7 +1382,15 @@
     "modern-new-technique-cuisine--san-sebasti-n-donostia": "Learn the toolkit as a graded specialisation: five weeks on the Miramón campus, or eight ECTS online with a former elBulli pastry chef.",
     "modern-new-technique-cuisine--paris": "Learn the modernist toolkit inside the classical one, four days in the country where sous-vide was worked out.",
     "modern-new-technique-cuisine--puebla-mexico-city": "Learn techno-emotional cuisine at the academy Miguel Angel Cepeda has run since 2009, the closest thing in the Americas to a European modernist lab.",
-    "modern-new-technique-cuisine--melbourne-lilydale": "Learn sous-vide and low-temperature cooking in chef Dale Prentice's dedicated teaching lab."
+    "modern-new-technique-cuisine--melbourne-lilydale": "Learn sous-vide and low-temperature cooking in chef Dale Prentice's dedicated teaching lab.",
+    "classical-french-cuisine--paris": "Learn the stocks, sauces and knife work every French kitchen is built on, full-time, from sixteen weeks to nine months.",
+    "classical-french-cuisine--hyde-park-new-york": "Learn bistro soups and stews, omelets, gratins and savoury tarts, about five hours a day with your own hands.",
+    "cheese-and-fermentation--poligny-jura": "Learn to make soft, pressed and blue cheeses from raw milk, in groups of six to twelve, in French.",
+    "cheese-and-fermentation--ambierle-loire": "Learn to turn, brush, rub and wash rinds by hand, and to set a cave for each kind of cheese.",
+    "thai-cuisine--bangkok": "Learn more than two hundred Thai recipes, regional and royal, each one cooked with your own hands, taught in English.",
+    "peruvian-cuisine--lima": "Learn the aderezos, the ají bases and the fish work of the Peruvian kitchen, in Spanish with live English translation.",
+    "sake-and-sommellerie-of-sake--niigata": "Learn to steam the rice, make koji by hand and build a three-stage mash, about four people at a time.",
+    "sake-and-sommellerie-of-sake--london": "Learn to taste and describe sake for the Level 3 exam, which ends in a blind tasting of two sakes."
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1388,7 +1408,15 @@
     "wildlife-photography--kuhmo": "Learn to sit a bear hide on the Russian border",
     "wildlife-photography--maasai-mara-conservancies": "Learn to photograph big cats from a camp",
     "wildlife-photography--south-luangwa": "Learn to photograph on foot, four to a group",
-    "wildlife-photography--falmouth": "Learn underwater photography as a degree"
+    "wildlife-photography--falmouth": "Learn underwater photography as a degree",
+    "classical-french-cuisine--paris": "Learn the French classical kitchen from the stocks up, at three of Paris's big schools",
+    "classical-french-cuisine--hyde-park-new-york": "Learn the French bistro classics, four days hands-on at the Culinary Institute of America",
+    "cheese-and-fermentation--poligny-jura": "Learn to make farm cheese from raw milk, three weeks in a dairy school's hall",
+    "cheese-and-fermentation--ambierle-loire": "Learn to mature cheese, four days in an affineur's caves",
+    "thai-cuisine--bangkok": "Learn the whole Thai repertoire, regional and royal, nine months at Le Cordon Bleu Dusit",
+    "peruvian-cuisine--lima": "Learn Peruvian cooking from cebiche to pachamanca, in a twelve-month diploma",
+    "sake-and-sommellerie-of-sake--niigata": "Learn to brew sake, a week with the brewers in a former school on Sado",
+    "sake-and-sommellerie-of-sake--london": "Learn to judge sake for the WSET Level 3 Award, in six days of class"
   },
   "_craftImages_comment": "A licensed picture OF THE CRAFT, for a craft no school has photographed. Keyed by craft id, but TAKEN AT ONE PLACE: Arnaud, 27 September 2026, 'make sure the photo on the skill card of the Atlas matches the location of the card'. It used to say the picture belonged nowhere and could ride any card, and 16 of 22 were of somewhere else (yoga in Bali under Mysore, a Namibian farm under Greater Kruger, a Californian surfer under Waikiki). Every entry ships six things: src, alt, credit, licence, sourceUrl and takenAt, the destination id the picture was taken at (plus an optional focal). The build refuses one whose takenAt is not the place the card rests on, and the browse page drops it when a filter moves the card to another town. takenAt is only as good as the Commons page: read the description, categories or coordinates, never the title alone. A licence with no source is not checkable, and being checkable is this map's whole claim. THE TWO CLASSES MAY NEVER BE CONFUSED: a craft image is drawn by .craftshot/--illus, never .cardshot/--shot; its credit names its maker and its LICENCE and stops, and may never start with 'Photo:', which is reserved for a picture a school sent us; and the build REFUSES a craft image on a craft that already has a school photograph, because the school's own room always wins. IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE — a spherified pearl is what modernist technique looks like anywhere; a school's front door under another town's name is the same lie as composing a place sentence. AND NO IMAGE IS BETTER THAN A GENERIC ONE: a craft with no truthful picture keeps the typographic card, and that is a finished state, not a gap to fill with stock. Lifestyle Medicine is the case that proves it — its own sheet says it is a credential, not a place. 10 crafts carry one after the 27 September re-hunt (8 replaced, sushi and ski touring kept). Modernist Spanish Cuisine lost its licensed picture the same day to the photographs Vakuum sent us: a school's own room comes first. Eleven lost theirs because Commons holds nothing honest taken at the card's place: ashtanga-yoga (Mysore), cold-exposure-wim-hof-method (Karkonosze), jewelry-and-goldsmithing (Florence: shop windows only), organic-farm-to-table-cooking (Ballymaloe: empty gardens), pottery-and-ceramics (Mashiko: kilns, no potter), sound-healing (Nepal: bowls on market stalls), spearfishing (Cote d'Azur), vipassana-and-meditation (Dhamma Giri: the pagoda only, a landmark), wildlife-photography (Pusztaszer), windsurfing-and-wing-foil (Karpathos), yacht-crew-and-stcw (Antibes: yacht portraits, no crew). A school's photograph, or a Flickr CC BY find, is the way back for each. FIVE ARE DELIBERATELY EMPTY and should stay that way until something honest exists: japanese-knife-making (Commons holds museum record shots of finished blades and European smiths at European forges — a German smith under the word Shimanto is the lie this class guards against), perfumery (liquor distilling, 18th-century engravings and a petroleum refinery; no perfumer at the organ exists free), lymphatic-drainage (generic massage, none of it the clinical technique), new-basque-cuisine (finished plates and bar pintxos, nothing of the Arzak/Subijana movement — and pintxos would blur the very distinction the Atlas just drew), and lifestyle-medicine (never searched: its own sheet says it is a credential, not a place). self-sufficiency was searched and left empty too — a pool of six, none of it honest. See CRAFT_IMAGES in scripts/build-atlas-pages.py. 24 November 2026: sushi-and-washoku gave its licensed picture up to the JCMA bench photographed by the school itself, and new-basque-cuisine, chocolate-and-confectionery, mixology-and-bartending and organic-farm-to-table-cooking gained one each, each taken in the card's own town (Arnaud: make the photo iconic, and when there is material from the school, choose that). Bread wears a baker shaping baguettes at the Salon de l'Agriculture in Paris (Commons files it under Bakeries in Paris and Men at work in Paris).",
   "craftImages": {
@@ -1519,8 +1547,8 @@
       "takenAt": "bread-and-boulangerie--paris"
     }
   },
-  "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet. 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; no school on either has sent a photograph.",
-  "schoolShotDebtFloor": 32,
+  "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet. 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; no school on either has sent a photograph. 2026-11-24: raised by 5 when the five culinary crafts opened; the photo request goes to every school kept the same day.",
+  "schoolShotDebtFloor": 37,
   "schoolShotDebtKnown": [
     "chocolate-and-confectionery",
     "mixology-and-bartending",
@@ -1553,7 +1581,12 @@
     "yacht-crew-and-stcw",
     "chef-at-sea",
     "bread-and-boulangerie",
-    "fermentation"
+    "fermentation",
+    "classical-french-cuisine",
+    "cheese-and-fermentation",
+    "thai-cuisine",
+    "peruvian-cuisine",
+    "sake-and-sommellerie-of-sake"
   ],
   "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five questions on the five dots, asked in the same words and the same order on every craft, because a legend a reader has to relearn is not a legend (the build refuses any other wording — see MEASURE_QUESTIONS in scripts/atlas_hub.py). The instrument's own shorthand — the room, the door, the bench, the ground, the stretch — stays in THE-MEASURE-META-PROMPT.md and never reaches a reader: on the page we ask the question rather than name it. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — whether a craft is alive in its place, and whether there is enough there to keep you going, are exactly what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
@@ -3141,9 +3174,15 @@
     "stood in it": 4,
     "twoOrReturn": 5
   },
-  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1. 7 October 2026: chef-at-sea signed by Arnaud Callier (2 of 5); floor back 2 -> 1. ⚠ 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; their grades are drafted and wait for his signature. Lower it by one each time one is signed.",
-  "measureDebtFloor": 2,
-  "measureDebtKnown": [],
+  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1. 7 October 2026: chef-at-sea signed by Arnaud Callier (2 of 5); floor back 2 -> 1. ⚠ 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; their grades are drafted and wait for his signature. Lower it by one each time one is signed. ⚠ 2026-11-24: raised by 5 when Arnaud opened classical French, cheese and affinage, Thai, Peruvian and sake by hand with only the schools that passed the check; their grades are not drafted yet. Lower it by one as each is signed.",
+  "measureDebtFloor": 7,
+  "measureDebtKnown": [
+    "classical-french-cuisine",
+    "cheese-and-fermentation",
+    "thai-cuisine",
+    "peruvian-cuisine",
+    "sake-and-sommellerie-of-sake"
+  ],
   "_skillLadders_comment": "The ladder a craft is climbed by — ALWAYS somebody else's published standard, adopted and cited, never ours. 112 of 113 crafts carry a certBody and a goldCredential, so the ladder usually exists in public; where no body publishes one, the craft goes in laddersNotPublished and shows no ladder, because an invented rung is this map awarding itself an authority it does not have. A rung is the unit a course is ticked against, and the body's own skills are printed under it as what the rung means: IKO lists 46 skills across four levels and a kite school's page says 'we take you to Level 2', so ticking skills would have measured what a school writes on its website. url + read + verify on the ladder and on every rung, because night-check.py re-reads all of them.",
   "skillLadders": {
     "kitesurfing": {
@@ -3379,8 +3418,8 @@
     "fermentation": "Its own certifying line on this map reads 'No formal body. A school certifies its own course; nobody certifies fermentation as a trade.' There is no ladder to adopt, and writing rungs for it would be this map awarding itself a standard nobody asked it to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
-  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand. 7 Oct 2026: raised 33 -> 34 for the same reason as 15 Sept — chef-at-sea moved from hubCards into disciplines (Arnaud: 'make sure all the skills card look like the new update… chef at sea its still the old version'), so the census caught up with a debt it already had. No body publishes a ladder for cooking at sea that we have read; the MCA's Ship's Cook Certificate is a ticket, not a ladder. 4 Nov 2026: raised by one when Arnaud opened bread-and-boulangerie by hand; the CAP Boulanger référentiel is the ladder to adopt.",
-  "ladderDebtFloor": 35,
+  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand. 7 Oct 2026: raised 33 -> 34 for the same reason as 15 Sept — chef-at-sea moved from hubCards into disciplines (Arnaud: 'make sure all the skills card look like the new update… chef at sea its still the old version'), so the census caught up with a debt it already had. No body publishes a ladder for cooking at sea that we have read; the MCA's Ship's Cook Certificate is a ticket, not a ladder. 4 Nov 2026: raised by one when Arnaud opened bread-and-boulangerie by hand; the CAP Boulanger référentiel is the ladder to adopt. 2026-11-24: raised by 5 when the five culinary crafts opened by hand.",
+  "ladderDebtFloor": 40,
   "ladderDebtKnown": [
     "mixology-and-bartending",
     "coffee-and-barista",
@@ -3415,7 +3454,12 @@
     "wine-and-sommellerie",
     "yacht-crew-and-stcw",
     "chef-at-sea",
-    "bread-and-boulangerie"
+    "bread-and-boulangerie",
+    "classical-french-cuisine",
+    "cheese-and-fermentation",
+    "thai-cuisine",
+    "peruvian-cuisine",
+    "sake-and-sommellerie-of-sake"
   ],
   "_communityLines_comment": "The paragraph under the five community dots on a place card. Arnaud, 10 September 2026: 'I would like to have a small paragraph for each school explaining is the community their is strong.' The dots and the one-word label have sat on every card since the beginning with NOTHING UNDER THEM, and the `why` beside them is a reason to go rather than an account of who is already there. ⛔ THESE DESCRIBE, THEY DO NOT GRADE — they say what the record already holds about the town and what it rests on, and where the record holds nothing they say so out loud. A second verdict in different words would be a grade nobody signed, and the Measure is where a judgement with a name on it lives. Keyed by destination id. A place with no line simply shows none: an absence is honest, a filler sentence is not. ⭐⭐ AND IT MAY NOT RESTATE THE `why`. The two sit four lines apart on the card and they answer different questions: the `why` is the reason to GO, this is HOW WE KNOW who is already there and how far that knowledge goes. The first draft of these repeated the `why` almost sentence for sentence — Ericeira's reserve twice, Bali's ladder twice — which is the redite the house voice cuts on sight. Say the thing the `why` does not: who designated it, when, whether they sell anything, how many rooms are running, and what nobody has established. The build refuses a line sharing a long verbatim run with its `why`.",
   "communityLines": {
@@ -3886,8 +3930,8 @@
       "date": "9 October 2026"
     }
   },
-  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign. 4 Nov 2026: raised by six when Arnaud opened fermentation and bread-and-boulangerie by hand (eight places, no intro yet) and three places left the map.",
-  "placeIntroDebtFloor": 119,
+  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign. 4 Nov 2026: raised by six when Arnaud opened fermentation and bread-and-boulangerie by hand (eight places, no intro yet) and three places left the map. 2026-11-24: raised by six when five culinary crafts opened by hand (eight places, no town intro yet) and seven places with no school that passed left the map.",
+  "placeIntroDebtFloor": 125,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
@@ -4159,346 +4203,967 @@
   },
   "_removedFromMap_comment": "Taken off the map by Arnaud's ruling, in his words, with the day. Nothing here is read by the build. Kept word for word so a reader or an auditor can see what was listed and why it went.",
   "removedFromMap": {
-    "ruling": "can roca intership and elbulli are not educatedtraveler way to learn!",
-    "by": "Arnaud",
-    "on": "2026-11-04",
-    "schools": [
-      {
-        "craft": "modernist-spanish-cuisine",
-        "place": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
-        "record": {
-          "name": "elBulli1846 (elBullifoundation museum & creativity lab)",
-          "url": "https://elbullifoundation.com/en/proyecto/elbulli1846/",
-          "course": "A museum visit — not a course",
-          "blurb": "Built on the site of elBulli, which closed in 2011, elBulli1846 is the elBullifoundation's museum and exhibition lab at Cala Montjoi: a visit of about two and a half hours, on a ticket, with a multimedia guide or a small-group guided tour. The 2026 season runs 1 May to 12 October. Their own pages sell a visit and help you plan one — there is no enrolment, no kitchen you cook in and no teacher. Checked on elbullifoundation.com, 31 August 2026.",
-          "confidence": "high",
-          "verify": [
-            "museum of the restaurant"
-          ],
-          "facts": {
-            "where": "Cala Montjoi, Roses (Girona)",
-            "length": "2.5 hours",
-            "format": "Museum visit with free multimedia guide; or small-group guided tour",
-            "language": "Spanish, Catalan and English",
-            "price": "€27.50",
-            "priceNote": "General visit ticket, 2026 season; guided tour €47.50; parking +€8.50",
-            "from": [
-              "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
-              "https://elbullifoundation.com/elbulli1846/en/faqs/",
-              "https://elbullifoundation.com/elbulli1846/en/where-we-are/"
+    "2026-11-04": {
+      "ruling": "can roca intership and elbulli are not educatedtraveler way to learn!",
+      "by": "Arnaud",
+      "on": "2026-11-04",
+      "schools": [
+        {
+          "craft": "modernist-spanish-cuisine",
+          "place": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
+          "record": {
+            "name": "elBulli1846 (elBullifoundation museum & creativity lab)",
+            "url": "https://elbullifoundation.com/en/proyecto/elbulli1846/",
+            "course": "A museum visit — not a course",
+            "blurb": "Built on the site of elBulli, which closed in 2011, elBulli1846 is the elBullifoundation's museum and exhibition lab at Cala Montjoi: a visit of about two and a half hours, on a ticket, with a multimedia guide or a small-group guided tour. The 2026 season runs 1 May to 12 October. Their own pages sell a visit and help you plan one — there is no enrolment, no kitchen you cook in and no teacher. Checked on elbullifoundation.com, 31 August 2026.",
+            "confidence": "high",
+            "verify": [
+              "museum of the restaurant"
             ],
-            "read": "2026-10-07"
+            "facts": {
+              "where": "Cala Montjoi, Roses (Girona)",
+              "length": "2.5 hours",
+              "format": "Museum visit with free multimedia guide; or small-group guided tour",
+              "language": "Spanish, Catalan and English",
+              "price": "€27.50",
+              "priceNote": "General visit ticket, 2026 season; guided tour €47.50; parking +€8.50",
+              "from": [
+                "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
+                "https://elbullifoundation.com/elbulli1846/en/faqs/",
+                "https://elbullifoundation.com/elbulli1846/en/where-we-are/"
+              ],
+              "read": "2026-10-07"
+            }
+          }
+        },
+        {
+          "craft": "modernist-spanish-cuisine",
+          "place": "modernist-spanish-cuisine--girona",
+          "record": {
+            "name": "El Celler de Can Roca (stage program)",
+            "url": "https://cellercanroca.com/en/",
+            "course": "Internship / stage at El Celler de Can Roca (incl. BBVA scholarship intake)",
+            "blurb": "The Roca brothers' three-Michelin-star restaurant in Girona hosts paid stages, including a BBVA scholarship cohort that adds accommodation, meals and University of Barcelona-backed coursework on chocolate, caviar and team management. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
+            "confidence": "high",
+            "facts": {
+              "where": "Carrer de Can Sunyer, Girona",
+              "format": "Internships by application, for institutions or individuals",
+              "from": [
+                "https://cellercanroca.com/en/practices-internships/"
+              ],
+              "read": "2026-09-17"
+            }
+          }
+        },
+        {
+          "craft": "new-basque-cuisine",
+          "place": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
+          "record": {
+            "name": "Mugaritz (creativity stage)",
+            "url": "https://www.mugaritz.com/en/",
+            "course": "Kitchen stage / culinary internship at Mugaritz (Errenteria)",
+            "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
+            "confidence": "high",
+            "standing": {
+              "state": "course-gone",
+              "what": "Mugaritz's own site lists no kitchen stage or internship; its only programme is the Mugaritz Creativity Program, 'A 6-month program at Madrid Culinary Campus (MACC), including a one-week residency at Mugaritz'.",
+              "from": "https://www.mugaritz.com/en/programa-creatividad-mugaritz/",
+              "read": "2026-10-07"
+            }
+          }
+        },
+        {
+          "craft": "new-basque-cuisine",
+          "place": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
+          "record": {
+            "name": "Martín Berasategui (restaurant stage)",
+            "url": "https://www.martinberasategui.com/en/inicio",
+            "course": "Restaurant stage / práctica at the Lasarte-Oria flagship ('Work with us')",
+            "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
+            "confidence": "high",
+            "standing": {
+              "state": "course-gone",
+              "what": "The 'Work with us' page is a plain job application form (areas: FHO, Kitchen, Sommelier; attach CV) and never mentions a stage or práctica.",
+              "from": "https://www.martinberasategui.com/en/trabaja-con-nosotros",
+              "read": "2026-10-07"
+            }
           }
         }
-      },
-      {
-        "craft": "modernist-spanish-cuisine",
-        "place": "modernist-spanish-cuisine--girona",
-        "record": {
-          "name": "El Celler de Can Roca (stage program)",
-          "url": "https://cellercanroca.com/en/",
-          "course": "Internship / stage at El Celler de Can Roca (incl. BBVA scholarship intake)",
-          "blurb": "The Roca brothers' three-Michelin-star restaurant in Girona hosts paid stages, including a BBVA scholarship cohort that adds accommodation, meals and University of Barcelona-backed coursework on chocolate, caviar and team management. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-          "confidence": "high",
-          "facts": {
-            "where": "Carrer de Can Sunyer, Girona",
-            "format": "Internships by application, for institutions or individuals",
-            "from": [
-              "https://cellercanroca.com/en/practices-internships/"
+      ],
+      "places": {
+        "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": {
+          "craft": "modernist-spanish-cuisine",
+          "redirectsTo": "modern-new-technique-cuisine",
+          "record": {
+            "place": "Roses / Cala Montjoi (Costa Brava)",
+            "country": "Spain",
+            "region": "Mediterranean",
+            "role": "source",
+            "communityRank": 1,
+            "communityLabel": "Gone",
+            "closedToLearners": true,
+            "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the cuisine itself, go to Barcelona. For the technique on its own, the Basque Culinary Center's avant-garde course is on New culinary techniques & technologies, not on this craft.",
+            "schools": [],
+            "masters": [],
+            "lineage": [
+              "Ferran Adrià",
+              "Albert Adrià"
             ],
-            "read": "2026-09-17"
-          }
-        }
-      },
-      {
-        "craft": "new-basque-cuisine",
-        "place": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
-        "record": {
-          "name": "Mugaritz (creativity stage)",
-          "url": "https://www.mugaritz.com/en/",
-          "course": "Kitchen stage / culinary internship at Mugaritz (Errenteria)",
-          "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-          "confidence": "high",
-          "standing": {
-            "state": "course-gone",
-            "what": "Mugaritz's own site lists no kitchen stage or internship; its only programme is the Mugaritz Creativity Program, 'A 6-month program at Madrid Culinary Campus (MACC), including a one-week residency at Mugaritz'.",
-            "from": "https://www.mugaritz.com/en/programa-creatividad-mugaritz/",
-            "read": "2026-10-07"
-          }
-        }
-      },
-      {
-        "craft": "new-basque-cuisine",
-        "place": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
-        "record": {
-          "name": "Martín Berasategui (restaurant stage)",
-          "url": "https://www.martinberasategui.com/en/inicio",
-          "course": "Restaurant stage / práctica at the Lasarte-Oria flagship ('Work with us')",
-          "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-          "confidence": "high",
-          "standing": {
-            "state": "course-gone",
-            "what": "The 'Work with us' page is a plain job application form (areas: FHO, Kitchen, Sommelier; attach CV) and never mentions a stage or práctica.",
-            "from": "https://www.martinberasategui.com/en/trabaja-con-nosotros",
-            "read": "2026-10-07"
-          }
-        }
-      }
-    ],
-    "places": {
-      "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava": {
-        "craft": "modernist-spanish-cuisine",
-        "redirectsTo": "modern-new-technique-cuisine",
-        "record": {
-          "place": "Roses / Cala Montjoi (Costa Brava)",
-          "country": "Spain",
-          "region": "Mediterranean",
-          "role": "source",
-          "communityRank": 1,
-          "communityLabel": "Gone",
-          "closedToLearners": true,
-          "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the cuisine itself, go to Barcelona. For the technique on its own, the Basque Culinary Center's avant-garde course is on New culinary techniques & technologies, not on this craft.",
-          "schools": [],
-          "masters": [],
-          "lineage": [
-            "Ferran Adrià",
-            "Albert Adrià"
-          ],
-          "badges": [
-            "source",
-            "mecca",
-            "heritage"
-          ],
-          "why": "The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world's best restaurant, until it closed in 2011 — a pilgrimage to the origin point of the avant-garde, and nothing more than that.",
-          "bestSeason": "May-Oct",
-          "level": "Nothing is taught here",
-          "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
-          "schoolsInfo": [],
-          "tripTier": 0,
-          "tripType": "Visit",
-          "tripLength": "a couple of hours",
-          "englishTaught": false,
-          "englishBasis": "Nothing is taught here in any language — elBulli1846 sells a museum visit, not a course.",
-          "instructionLanguage": ""
+            "badges": [
+              "source",
+              "mecca",
+              "heritage"
+            ],
+            "why": "The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world's best restaurant, until it closed in 2011 — a pilgrimage to the origin point of the avant-garde, and nothing more than that.",
+            "bestSeason": "May-Oct",
+            "level": "Nothing is taught here",
+            "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
+            "schoolsInfo": [],
+            "tripTier": 0,
+            "tripType": "Visit",
+            "tripLength": "a couple of hours",
+            "englishTaught": false,
+            "englishBasis": "Nothing is taught here in any language — elBulli1846 sells a museum visit, not a course.",
+            "instructionLanguage": ""
+          },
+          "lines": {}
         },
-        "lines": {}
-      },
-      "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa": {
-        "craft": "new-basque-cuisine",
-        "redirectsTo": "new-basque-cuisine",
-        "record": {
-          "place": "Errenteria / Lasarte-Oria (Gipuzkoa)",
-          "country": "Spain",
-          "region": "Western Europe",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [],
-          "masters": [],
-          "lineage": [
-            "Andoni Luis Aduriz (Mugaritz)",
-            "Martín Berasategui"
-          ],
-          "badges": [
-            "scene",
-            "master",
-            "mecca"
-          ],
-          "why": "Martín Berasategui's three-starred kitchen and Mugaritz's laboratory ring San Sebastián — stage here and you stand inside the kitchens where the avant-garde keeps reinventing itself.",
-          "bestSeason": "Apr-Oct",
-          "level": "Intermediate -> Professional",
-          "id": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
-          "schoolsInfo": [],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
-          "englishTaught": null
-        },
-        "lines": {
-          "learnLines": "Learn on a stage inside the kitchens where the avant-garde keeps reinventing itself.",
-          "communityLines": "Two kitchens rather than two schools, and the difference matters: a stage is a job you apply for, not a course you book, so the people around you would be staff. Both are named for the chefs who own them. Nothing here establishes a room you can join on a date."
+        "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa": {
+          "craft": "new-basque-cuisine",
+          "redirectsTo": "new-basque-cuisine",
+          "record": {
+            "place": "Errenteria / Lasarte-Oria (Gipuzkoa)",
+            "country": "Spain",
+            "region": "Western Europe",
+            "role": "scene",
+            "communityRank": 4,
+            "communityLabel": "Thriving",
+            "schools": [],
+            "masters": [],
+            "lineage": [
+              "Andoni Luis Aduriz (Mugaritz)",
+              "Martín Berasategui"
+            ],
+            "badges": [
+              "scene",
+              "master",
+              "mecca"
+            ],
+            "why": "Martín Berasategui's three-starred kitchen and Mugaritz's laboratory ring San Sebastián — stage here and you stand inside the kitchens where the avant-garde keeps reinventing itself.",
+            "bestSeason": "Apr-Oct",
+            "level": "Intermediate -> Professional",
+            "id": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
+            "schoolsInfo": [],
+            "tripTier": 4,
+            "tripType": "Immersion",
+            "tripLength": "a month+",
+            "englishTaught": null
+          },
+          "lines": {
+            "learnLines": "Learn on a stage inside the kitchens where the avant-garde keeps reinventing itself.",
+            "communityLines": "Two kitchens rather than two schools, and the difference matters: a stage is a job you apply for, not a course you book, so the people around you would be staff. Both are named for the chefs who own them. Nothing here establishes a room you can join on a date."
+          }
         }
-      }
+      },
+      "gironaLines": {},
+      "later": [
+        {
+          "ruling": "yes fix all",
+          "by": "Arnaud",
+          "on": "2026-11-06",
+          "places": {
+            "fermentation--copenhagen": {
+              "craft": "fermentation",
+              "redirectsTo": "fermentation",
+              "why": "noma Projects' own page, read 6 November 2026, is 'reserved for our Taste Buds members': its one summer day of workshops is sold only with a yearly membership, so it is not a course a stranger can book. Empirical, the other line here, had already moved to Brooklyn and runs no course. Nothing is left that a stranger can enrol in.",
+              "record": {
+                "place": "Copenhagen",
+                "country": "Denmark",
+                "region": "Nordic & Baltic",
+                "role": "scene",
+                "communityRank": 4,
+                "communityLabel": "Thriving",
+                "schools": [
+                  "Noma Projects / fermentation workshops",
+                  "Empirical / Nordic Food Lab alumni courses"
+                ],
+                "masters": [],
+                "lineage": [
+                  "Rene Redzepi & David Zilber (Noma fermentation lineage)"
+                ],
+                "badges": [
+                  "scene",
+                  "school"
+                ],
+                "why": "Ground zero of the modern fermentation movement, where Noma's lab rewrote the rules and a thriving cohort pushes koji, garum and lacto-ferments forward.",
+                "bestSeason": "Apr-Oct",
+                "level": "Beginner -> Enthusiast",
+                "id": "fermentation--copenhagen",
+                "schoolsInfo": [
+                  {
+                    "name": "Noma Projects / fermentation workshops",
+                    "url": "https://nomaprojects.com/products/taste-buds-membership",
+                    "course": "Taste Buds membership — one summer day of hands-on workshops with the noma team in Copenhagen, 13 or 14 August 2027, for members",
+                    "blurb": "Noma Projects is the shop and fermentation lab that grew out of the restaurant. It runs no public course: the in-person teaching is a single summer day of workshops and tastings in Copenhagen, sold as an add-on to its annual Taste Buds membership, alongside fermentation kits posted to your home. A day, not a course.",
+                    "confidence": "high",
+                    "verify": [
+                      "2027 Summer Event",
+                      "hands-on workshops"
+                    ]
+                  },
+                  {
+                    "name": "Empirical / Nordic Food Lab alumni courses",
+                    "url": "https://empiricalspirits.co/",
+                    "course": "No public fermentation course on its site",
+                    "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
+                    "confidence": "low",
+                    "standing": {
+                      "state": "not-here",
+                      "what": "The address we linked now redirects away, and Empirical's own shop gives its address as Brooklyn, New York, with no course listed.",
+                      "from": "https://us.empirical.co/",
+                      "read": "2026-11-04"
+                    }
+                  }
+                ],
+                "tripTier": 1,
+                "tripType": "Taster",
+                "tripLength": "a day",
+                "englishTaught": true,
+                "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
+              },
+              "lines": {}
+            },
+            "bread-and-boulangerie--tokyo": {
+              "craft": "bread-and-boulangerie",
+              "redirectsTo": "bread-and-boulangerie",
+              "why": "Its only school, Le Cordon Bleu Tokyo, has closed its Daikanyama campus and gives no date for a new one (its own page, read 4 November 2026). Nothing is left that a stranger can enrol in.",
+              "record": {
+                "place": "Tokyo",
+                "country": "Japan",
+                "region": "East Asia",
+                "role": "scene",
+                "communityRank": 4,
+                "communityLabel": "Thriving",
+                "schools": [
+                  "Le Cordon Bleu Tokyo"
+                ],
+                "masters": [],
+                "badges": [
+                  "scene",
+                  "record"
+                ],
+                "why": "Tokyo's croissant obsession rivals Paris — a thriving cohort of laminating fanatics chasing the perfect honeycomb crumb.",
+                "bestSeason": "Year-round",
+                "level": "Intermediate -> Professional",
+                "id": "bread-and-boulangerie--tokyo",
+                "schoolsInfo": [
+                  {
+                    "name": "Le Cordon Bleu Tokyo",
+                    "url": "https://www.cordonbleu.edu/tokyo/home/en",
+                    "course": "Diplôme de Boulangerie (bakery diploma covering viennoiserie and bread)",
+                    "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
+                    "confidence": "medium",
+                    "standing": {
+                      "state": "paused",
+                      "what": "Le Cordon Bleu Japan says it has closed its Daikanyama campus in Tokyo and will eventually move into a new campus; it gives no date, and points students to its other schools in the meantime.",
+                      "from": "https://www.cordonbleu.edu/tokyo/home/en",
+                      "read": "2026-11-04"
+                    }
+                  }
+                ],
+                "tripTier": 5,
+                "tripType": "Mastery track",
+                "tripLength": "months–years",
+                "englishTaught": true,
+                "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
+              },
+              "lines": {}
+            },
+            "modern-new-technique-cuisine--girona": {
+              "craft": "modern-new-technique-cuisine",
+              "redirectsTo": "modern-new-technique-cuisine",
+              "why": "Once the Can Roca stage came off on 4 November 2026, what was left is the Escola d'Hostaleria i Turisme de Girona: a good two-year general cooking school, not a course in modern technique.",
+              "record": {
+                "place": "Girona",
+                "country": "Spain",
+                "region": "Mediterranean",
+                "role": "scene",
+                "communityRank": 4,
+                "communityLabel": "Thriving",
+                "schools": [
+                  "Escola d'Hostaleria i Turisme de Girona"
+                ],
+                "masters": [],
+                "lineage": [
+                  "Joan Roca",
+                  "Jordi Roca"
+                ],
+                "badges": [
+                  "scene",
+                  "mecca",
+                  "lineage"
+                ],
+                "why": "Home of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique.",
+                "bestSeason": "Apr-Oct",
+                "level": "Beginner -> Professional",
+                "id": "modern-new-technique-cuisine--girona",
+                "schoolsInfo": [
+                  {
+                    "name": "Escola d'Hostaleria i Turisme de Girona",
+                    "url": "https://agora.xtec.cat/ehtg/",
+                    "course": "FP Cuina i Gastronomia / professional cooking certificates",
+                    "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
+                    "confidence": "high",
+                    "facts": {
+                      "where": "C. Josep Viader i Moliner, Girona",
+                      "length": "2,000 hours over two academic years",
+                      "credential": "Official technician (tècnic) title in cooking and gastronomy",
+                      "from": [
+                        "https://agora.xtec.cat/ehtg/",
+                        "https://agora.xtec.cat/ehtg/cfgm/"
+                      ],
+                      "read": "2026-09-17"
+                    }
+                  }
+                ],
+                "tripTier": 5,
+                "tripType": "Mastery track",
+                "tripLength": "two years",
+                "englishTaught": false,
+                "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
+                "instructionLanguage": "Spanish"
+              },
+              "lines": {}
+            }
+          },
+          "rejectedEntryDropped": {
+            "name": "elBulli1846",
+            "place": "Roses / Cala Montjoi, Spain",
+            "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
+            "why": "A museum, and it keeps its place on this craft as exactly that. A ticket and a two-and-a-half-hour visit; no enrolment, no kitchen, no teacher."
+          }
+        }
+      ]
     },
-    "gironaLines": {},
-    "later": [
-      {
-        "ruling": "yes fix all",
-        "by": "Arnaud",
-        "on": "2026-11-06",
-        "places": {
-          "fermentation--copenhagen": {
-            "craft": "fermentation",
-            "redirectsTo": "fermentation",
-            "why": "noma Projects' own page, read 6 November 2026, is 'reserved for our Taste Buds members': its one summer day of workshops is sold only with a yearly membership, so it is not a course a stranger can book. Empirical, the other line here, had already moved to Brooklyn and runs no course. Nothing is left that a stranger can enrol in.",
-            "record": {
-              "place": "Copenhagen",
-              "country": "Denmark",
-              "region": "Nordic & Baltic",
-              "role": "scene",
-              "communityRank": 4,
-              "communityLabel": "Thriving",
-              "schools": [
-                "Noma Projects / fermentation workshops",
-                "Empirical / Nordic Food Lab alumni courses"
-              ],
-              "masters": [],
-              "lineage": [
-                "Rene Redzepi & David Zilber (Noma fermentation lineage)"
-              ],
-              "badges": [
-                "scene",
-                "school"
-              ],
-              "why": "Ground zero of the modern fermentation movement, where Noma's lab rewrote the rules and a thriving cohort pushes koji, garum and lacto-ferments forward.",
-              "bestSeason": "Apr-Oct",
-              "level": "Beginner -> Enthusiast",
-              "id": "fermentation--copenhagen",
-              "schoolsInfo": [
-                {
-                  "name": "Noma Projects / fermentation workshops",
-                  "url": "https://nomaprojects.com/products/taste-buds-membership",
-                  "course": "Taste Buds membership — one summer day of hands-on workshops with the noma team in Copenhagen, 13 or 14 August 2027, for members",
-                  "blurb": "Noma Projects is the shop and fermentation lab that grew out of the restaurant. It runs no public course: the in-person teaching is a single summer day of workshops and tastings in Copenhagen, sold as an add-on to its annual Taste Buds membership, alongside fermentation kits posted to your home. A day, not a course.",
-                  "confidence": "high",
-                  "verify": [
-                    "2027 Summer Event",
-                    "hands-on workshops"
-                  ]
-                },
-                {
-                  "name": "Empirical / Nordic Food Lab alumni courses",
-                  "url": "https://empiricalspirits.co/",
-                  "course": "No public fermentation course on its site",
-                  "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
-                  "confidence": "low",
-                  "standing": {
-                    "state": "not-here",
-                    "what": "The address we linked now redirects away, and Empirical's own shop gives its address as Brooklyn, New York, with no course listed.",
-                    "from": "https://us.empirical.co/",
-                    "read": "2026-11-04"
-                  }
-                }
-              ],
-              "tripTier": 1,
-              "tripType": "Taster",
-              "tripLength": "a day",
-              "englishTaught": true,
-              "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
-            },
-            "lines": {}
-          },
-          "bread-and-boulangerie--tokyo": {
-            "craft": "bread-and-boulangerie",
-            "redirectsTo": "bread-and-boulangerie",
-            "why": "Its only school, Le Cordon Bleu Tokyo, has closed its Daikanyama campus and gives no date for a new one (its own page, read 4 November 2026). Nothing is left that a stranger can enrol in.",
-            "record": {
-              "place": "Tokyo",
-              "country": "Japan",
-              "region": "East Asia",
-              "role": "scene",
-              "communityRank": 4,
-              "communityLabel": "Thriving",
-              "schools": [
-                "Le Cordon Bleu Tokyo"
-              ],
-              "masters": [],
-              "badges": [
-                "scene",
-                "record"
-              ],
-              "why": "Tokyo's croissant obsession rivals Paris — a thriving cohort of laminating fanatics chasing the perfect honeycomb crumb.",
-              "bestSeason": "Year-round",
-              "level": "Intermediate -> Professional",
-              "id": "bread-and-boulangerie--tokyo",
-              "schoolsInfo": [
-                {
-                  "name": "Le Cordon Bleu Tokyo",
-                  "url": "https://www.cordonbleu.edu/tokyo/home/en",
-                  "course": "Diplôme de Boulangerie (bakery diploma covering viennoiserie and bread)",
-                  "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
-                  "confidence": "medium",
-                  "standing": {
-                    "state": "paused",
-                    "what": "Le Cordon Bleu Japan says it has closed its Daikanyama campus in Tokyo and will eventually move into a new campus; it gives no date, and points students to its other schools in the meantime.",
-                    "from": "https://www.cordonbleu.edu/tokyo/home/en",
-                    "read": "2026-11-04"
-                  }
-                }
-              ],
-              "tripTier": 5,
-              "tripType": "Mastery track",
-              "tripLength": "months–years",
-              "englishTaught": true,
-              "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
-            },
-            "lines": {}
-          },
-          "modern-new-technique-cuisine--girona": {
-            "craft": "modern-new-technique-cuisine",
-            "redirectsTo": "modern-new-technique-cuisine",
-            "why": "Once the Can Roca stage came off on 4 November 2026, what was left is the Escola d'Hostaleria i Turisme de Girona: a good two-year general cooking school, not a course in modern technique.",
-            "record": {
-              "place": "Girona",
-              "country": "Spain",
-              "region": "Mediterranean",
-              "role": "scene",
-              "communityRank": 4,
-              "communityLabel": "Thriving",
-              "schools": [
-                "Escola d'Hostaleria i Turisme de Girona"
-              ],
-              "masters": [],
-              "lineage": [
-                "Joan Roca",
-                "Jordi Roca"
-              ],
-              "badges": [
-                "scene",
-                "mecca",
-                "lineage"
-              ],
-              "why": "Home of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique.",
-              "bestSeason": "Apr-Oct",
-              "level": "Beginner -> Professional",
-              "id": "modern-new-technique-cuisine--girona",
-              "schoolsInfo": [
-                {
-                  "name": "Escola d'Hostaleria i Turisme de Girona",
-                  "url": "https://agora.xtec.cat/ehtg/",
-                  "course": "FP Cuina i Gastronomia / professional cooking certificates",
-                  "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
-                  "confidence": "high",
-                  "facts": {
-                    "where": "C. Josep Viader i Moliner, Girona",
-                    "length": "2,000 hours over two academic years",
-                    "credential": "Official technician (tècnic) title in cooking and gastronomy",
-                    "from": [
-                      "https://agora.xtec.cat/ehtg/",
-                      "https://agora.xtec.cat/ehtg/cfgm/"
-                    ],
-                    "read": "2026-09-17"
-                  }
-                }
-              ],
-              "tripTier": 5,
-              "tripType": "Mastery track",
-              "tripLength": "two years",
-              "englishTaught": false,
-              "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
-              "instructionLanguage": "Spanish"
-            },
-            "lines": {}
+    "2026-11-24": {
+      "ruling": "check all those school ... make sure all a fit for educatedtraveler",
+      "by": "Arnaud",
+      "on": "2026-11-24",
+      "why": "Opened by hand with only the schools that passed a check on their own pages: an in-person, hands-on course a visiting cook can enrol in. Tourist half-day classes, agency, review and encyclopedia URLs, dead sites, online-only courses and duplicates came off. Vetting notes: reviews/2026-11-24-locked-crafts-school-vetting/.",
+      "schools": [
+        {
+          "craft": "classical-french-cuisine",
+          "place": "classical-french-cuisine--paris",
+          "record": {
+            "name": "Le Cordon Bleu Paris",
+            "url": "https://www.cordonbleu.edu/paris/cuisine-diploma/en",
+            "course": "Diplôme de Cuisine",
+            "blurb": "The classic three-tier French cuisine diploma — Basic, Intermediate and Superior — taught through chef demonstrations followed by individual hands-on practice.",
+            "confidence": "high"
           }
         },
-        "rejectedEntryDropped": {
-          "name": "elBulli1846",
-          "place": "Roses / Cala Montjoi, Spain",
-          "url": "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
-          "why": "A museum, and it keeps its place on this craft as exactly that. A ticket and a two-and-a-half-hour visit; no enrolment, no kitchen, no teacher."
+        {
+          "craft": "classical-french-cuisine",
+          "place": "classical-french-cuisine--paris",
+          "record": {
+            "name": "FERRANDI Paris",
+            "url": "https://www.ferrandi-paris.com/en/french-cuisine-programs/fundamentals-of-french-cooking-professionnal-program",
+            "course": "Intensive Professional Program in French Cuisine",
+            "blurb": "Paris culinary school whose 16-week English-taught Intensive Professional Program in French Cuisine teaches classical and regional technique with restaurant service and market excursions before a 3-6 month internship.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "classical-french-cuisine",
+          "place": "classical-french-cuisine--paris",
+          "record": {
+            "name": "École Ducasse",
+            "url": "https://www.ecoleducasse.com/en/career-changers-culinary-arts",
+            "course": "Culinary Arts Diploma",
+            "blurb": "Alain Ducasse's culinary school, with its Paris-area campus in Meudon, running a nine-month intensive Culinary Arts Diploma for career-changers that pairs hands-on French technique with management and entrepreneurial modules.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "classical-french-cuisine",
+          "place": "classical-french-cuisine--hyde-park-new-york",
+          "record": {
+            "name": "The Culinary Institute of America (CIA)",
+            "url": "https://www.ciafoodies.com/boot-camps/",
+            "course": "French Bistro Cuisine Boot Camp",
+            "blurb": "At its Hyde Park campus the CIA runs multi-day, small-group Boot Camps for amateur cooks, including a French bistro session covering soups, stews, omelets and savoury tarts taught by its chef-instructors.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "cheese-and-fermentation",
+          "place": "cheese-and-fermentation--poligny-jura",
+          "record": {
+            "name": "Mons Formation (Mons Fromager-Affineur)",
+            "url": "https://www.mons-formation.com/?lang=en",
+            "course": "Affinage course (maturing cheese)",
+            "blurb": "A five-day, full-time residency run by the Mons family's training centre, split roughly half theory and half hands-on work in the Mons maturing caves alongside their staff.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "cheese-and-fermentation",
+          "place": "cheese-and-fermentation--poligny-jura",
+          "record": {
+            "name": "ENILBIO de Poligny (cremier-fromager / affineur)",
+            "url": "https://www.enil.fr/metiers/fromage",
+            "course": "Fromager / Cremier-Fromager (1-year work-study, ~16 weeks on campus)",
+            "blurb": "ENILBIO de Poligny is a dairy-trade school in the Jura that trains around 700 people a year in cheese professions, including one-year work-study programs for fromager (cheesemaking, from milk preparation to aging) and cremier-fromager (cheese retail and advice).",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "cheese-and-fermentation",
+          "place": "cheese-and-fermentation--poligny-jura",
+          "record": {
+            "name": "Mons Formation (Ambierle)",
+            "url": "https://www.cheeseexplorer.com/post/cheese-courses-for-professionals-with-mons-formation",
+            "course": "Affinage and cheese-retail professional courses (4-5 days) in the Ambierle tunnel cellars",
+            "blurb": "Mons Formation is the training centre created in 2005 by the Mons fromager-affineur family in Ambierle, offering multi-day professional courses in affinage and cheese retailing where students work alongside staff in 180-metre former-railway-tunnel maturing cellars.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "cheese-and-fermentation",
+          "place": "cheese-and-fermentation--poligny-jura",
+          "record": {
+            "name": "Maison Mons affinage cellars",
+            "url": "https://www.cheeseexplorer.com/post/cheese-courses-for-professionals-with-mons-formation",
+            "course": "Hands-on affinage training in the Mons fromager-affineur cellars (via Mons Formation)",
+            "blurb": "Maison Mons is the Mons family's fromager-affineur business whose Ambierle maturing cellars, converted from a 180-metre railway tunnel, serve as the hands-on affinage classroom for Mons Formation trainees ripening cheeses alongside the maison's affineurs.",
+            "confidence": "medium"
+          }
+        },
+        {
+          "craft": "thai-cuisine",
+          "place": "thai-cuisine--bangkok",
+          "record": {
+            "name": "Le Cordon Bleu Dusit Culinary School",
+            "url": "https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en",
+            "course": "Professional Thai Cuisine Programme (Diplôme de Cuisine Thaïe)",
+            "blurb": "A long-form professional Thai program of about 540 instruction hours over roughly 30 weeks, teaching more than 200 recipes across traditional, regional and royal Thai cuisine, Thai-Chinese dishes and ",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "thai-cuisine",
+          "place": "thai-cuisine--bangkok",
+          "record": {
+            "name": "Blue Elephant Cooking School",
+            "url": "https://blueelephant.com/cooking-school/cooking-school-bangkok/",
+            "course": "Thai Culinary Masterclass / discovery classes",
+            "blurb": "Cooking school inside the Blue Elephant restaurant in a Sathorn colonial mansion, founded by Chef Nooror Somany Steppe, offering half-day Thai classes with a market visit and a certificate, plus longer masterclass options.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "thai-cuisine",
+          "place": "thai-cuisine--bangkok",
+          "record": {
+            "name": "Baipai Thai Cooking School",
+            "url": "https://www.baipai.com/",
+            "course": "Thai cooking course (two daily lessons of four dishes)",
+            "blurb": "Bangkok cooking school established in 2002 and accredited by Thailand's Ministry of Education, teaching hands-on Thai classes at individual stations with herb-garden tours and coconut-cream preparation.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "thai-cuisine",
+          "place": "thai-cuisine--bangkok",
+          "record": {
+            "name": "Silom Thai Cooking School",
+            "url": "https://www.silomthaicooking.com/",
+            "course": "Thai cooking class with fresh-market tour",
+            "blurb": "Small-group Bangkok cooking school on Soi Decho running market-tour Thai classes for around 9-10 students in a traditional open kitchen across morning, afternoon and evening sessions.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "peruvian-cuisine",
+          "place": "peruvian-cuisine--lima",
+          "record": {
+            "name": "Le Cordon Bleu Perú",
+            "url": "https://www.cordonbleu.edu/peru/home/en",
+            "course": "Diploma in Gastronomy (Diploma en Gastronomía)",
+            "blurb": "At Le Cordon Bleu's university-status campus in Lima, the gastronomy diploma trains cooks in basic and advanced culinary technique and a working recipe repertoire spanning Peruvian and international c",
+            "confidence": "medium"
+          }
+        },
+        {
+          "craft": "peruvian-cuisine",
+          "place": "peruvian-cuisine--lima",
+          "record": {
+            "name": "Le Cordon Bleu Peru",
+            "url": "https://www.cordonbleu.edu/peru/home/en",
+            "course": "Diploma in Peruvian Cuisine / Peruvian cuisine short courses",
+            "blurb": "Le Cordon Bleu's Lima (Miraflores) campus is the Peruvian branch of the French culinary network, offering multi-year Gastronomy diplomas alongside hands-on short courses dedicated to traditional, regional and modern Peruvian cooking, including ceviche and native chillies.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "peruvian-cuisine",
+          "place": "peruvian-cuisine--lima",
+          "record": {
+            "name": "Instituto de Cocina D'Gallia",
+            "url": "https://dgallia.edu.pe/",
+            "course": "Cocina Peruana Tradicional (modular, 12 sessions, Magdalena campus)",
+            "blurb": "D'Gallia is a Lima culinary institute founded in 1995 with a large campus in Magdalena del Mar that, beyond its multi-year cooking career, runs a 12-session modular workshop in traditional Peruvian cuisine covering criolla, limena and coastal cooking with a digital certificate of completion.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "peruvian-cuisine",
+          "place": "peruvian-cuisine--lima",
+          "record": {
+            "name": "Instituto Columbia",
+            "url": "https://www.columbia.edu.pe/altacocina",
+            "course": "Alta Cocina (Peruvian and International Gastronomy), 6 academic cycles",
+            "blurb": "Instituto Columbia is a Lima institution founded in 1983 whose Alta Cocina program (launched 2003) runs six academic cycles of practical kitchen and pastry training and awards a state-recognized professional technical title in Peruvian and International Gastronomy.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "sake-and-sommellerie-of-sake",
+          "place": "sake-and-sommellerie-of-sake--niigata",
+          "record": {
+            "name": "Niigata Sake no Jin (Niigata Sake Brewers Association)",
+            "url": "https://www.niigata-sake.or.jp/en/activity/sakenojin/",
+            "course": "Niigata Sake no Jin annual festival with tastings from around 90 breweries and sake seminars",
+            "blurb": "Niigata Sake no Jin is the annual event the Niigata Sake Brewers Association has run since 2004, gathering roughly 90 prefectural breweries and over 500 sake alongside local food, stage programs and sake seminars.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "sake-and-sommellerie-of-sake",
+          "place": "sake-and-sommellerie-of-sake--niigata",
+          "record": {
+            "name": "Imayotsukasa Gakkogura brewery school",
+            "url": "https://www.obata-shuzo.com/home/gakkogura/experience2022.asp",
+            "course": "Gakkogura Sake-Making Program: One-Week Course and 20-Day Course",
+            "blurb": "Gakkogura is a converted former school on Sado Island operated by Obata Shuzo (Manotsuru) where residential sake-making courses of one week or 20 days teach koji-making and three-stage brewing hands-on alongside the brewers, with rice-field visits and tasting seminars.",
+            "confidence": "medium"
+          }
+        },
+        {
+          "craft": "sake-and-sommellerie-of-sake",
+          "place": "sake-and-sommellerie-of-sake--niigata",
+          "record": {
+            "name": "SSI (Sake Service Institute) certification partners",
+            "url": "https://ssiintl.jp/",
+            "course": "SSI International Kikisake-shi (Sommelier of Sake) certification course and exam",
+            "blurb": "The Sake Service Institute certifies sake professionals through its Kikisake-shi qualification, delivered as a multi-day course covering production, tasting and service with a graded exam available in English via authorized partner schools.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "sake-and-sommellerie-of-sake",
+          "place": "sake-and-sommellerie-of-sake--london",
+          "record": {
+            "name": "WSET School London (Sake program)",
+            "url": "https://www.wsetglobal.com/wset-school-london/wset-courses/wset-level-3-award-in-sake/",
+            "course": "WSET Level 3 Award in Sake",
+            "blurb": "The Wine & Spirit Education Trust's flagship London school delivers the WSET Level 3 Award in Sake, an industry-standard qualification combining theory, blind tasting of around forty sakes and a sake-brewery visit, examined on site.",
+            "confidence": "high"
+          }
+        },
+        {
+          "craft": "sake-and-sommellerie-of-sake",
+          "place": "sake-and-sommellerie-of-sake--london",
+          "record": {
+            "name": "Sake Sommelier Academy (UK)",
+            "url": "https://sakesommelieracademy.com/united-kingdom-london/",
+            "course": "SSI International Kikisake-shi (Sake Sommelier) certification",
+            "blurb": "The London-based SSI-accredited sake course (run by Enshu) delivers the three-day International Kikisake-shi Sake Sommelier certification covering sake production, service and tasting in classes capped at fifteen, with a Japan-recognized diploma.",
+            "confidence": "high"
+          }
+        }
+      ],
+      "places": {
+        "classical-french-cuisine--lyon": {
+          "craft": "classical-french-cuisine",
+          "redirectsTo": "classical-french-cuisine",
+          "record": {
+            "place": "Lyon",
+            "country": "France",
+            "region": "Western Europe",
+            "role": "both",
+            "communityRank": 5,
+            "communityLabel": "Legendary",
+            "schools": [
+              "Institut Paul Bocuse (Institut Lyfe)",
+              "Lycée hôtelier François Rabelais (Lyon-Dardilly)"
+            ],
+            "masters": [],
+            "lineage": [
+              "Paul Bocuse lineage",
+              "the Mères Lyonnaises"
+            ],
+            "badges": [
+              "source",
+              "scene",
+              "school",
+              "lineage",
+              "heritage"
+            ],
+            "why": "France's self-declared gastronomic capital and home of the Bocuse d'Or — train in the city of the Mères Lyonnaises, where the chef first became a public figure.",
+            "bestSeason": "Sep-Jun",
+            "level": "Beginner -> Professional",
+            "id": "classical-french-cuisine--lyon",
+            "schoolsInfo": [
+              {
+                "name": "Institut Paul Bocuse (Institut Lyfe)",
+                "url": "https://en.institutlyfe.com/",
+                "course": "Bachelor in International Culinary Arts Management",
+                "blurb": "Lyon hospitality and culinary school founded by Paul Bocuse (renamed Institut Lyfe) offering a three-year state-recognised Bachelor in International Culinary Arts Management combining French culinary technique with management training.",
+                "confidence": "high"
+              },
+              {
+                "name": "Lycée hôtelier François Rabelais (Lyon-Dardilly)",
+                "url": "https://www.lyceecfarabelais-lyondardilly.fr/",
+                "course": "CAP Cuisine",
+                "blurb": "Public hospitality lycée and apprentice training centre near Lyon, founded in 1975, whose CAP Cuisine programme teaches culinary technique, supply management and hygiene across a campus with nine kitchens and public training restaurants.",
+                "confidence": "high"
+              }
+            ],
+            "tripTier": 5,
+            "tripType": "Mastery track",
+            "tripLength": "months–years",
+            "englishTaught": true,
+            "englishBasis": "Institut Lyfe (Paul Bocuse) Bachelor in International Culinary Arts Management can be followed 100% in English."
+          },
+          "lines": {}
+        },
+        "cheese-and-fermentation--vermont": {
+          "craft": "cheese-and-fermentation",
+          "redirectsTo": "cheese-and-fermentation",
+          "record": {
+            "place": "Vermont",
+            "country": "United States",
+            "region": "North America",
+            "role": "scene",
+            "communityRank": 4,
+            "communityLabel": "Thriving",
+            "schools": [
+              "University of Vermont Institute for Artisan Cheese",
+              "Cellars at Jasper Hill (Fundamentals of Artisan Cheese)",
+              "Vermont Cheese Council courses"
+            ],
+            "masters": [
+              "Jasper Hill Farm (Kehler brothers)"
+            ],
+            "badges": [
+              "scene",
+              "school",
+              "gold-cred"
+            ],
+            "why": "America's artisan-cheese heartland, where the UVM institute and the famed Jasper Hill cellars draw the densest cohort of makers and affineurs in the New World.",
+            "bestSeason": "May-Oct",
+            "level": "Beginner -> Certified Cheese Professional",
+            "id": "cheese-and-fermentation--vermont",
+            "schoolsInfo": [
+              {
+                "name": "University of Vermont Institute for Artisan Cheese",
+                "url": "https://learn.uvm.edu/program/professional/artisan-cheese-sensory-fundamentals-professional-certificate/",
+                "course": "Artisan Cheese & Sensory Fundamentals Professional Certificate",
+                "blurb": "The University of Vermont's continuing-education arm, successor to its Vermont Institute for Artisan Cheese, runs a four-week Artisan Cheese & Sensory Fundamentals Professional Certificate covering cheesemaking science and sensory evaluation for makers, mongers, and food professionals.",
+                "confidence": "medium"
+              },
+              {
+                "name": "Cellars at Jasper Hill (Fundamentals of Artisan Cheese)",
+                "url": "https://www.jasperhillfarm.com/",
+                "course": "Fundamentals of Artisan Cheese (nine-day intensive with Ivan Larcher, via Sterling College)",
+                "blurb": "Jasper Hill is a Greensboro, Vermont farmstead creamery and aging cellar that co-hosts the nine-day Fundamentals of Artisan Cheese intensive led by cheesemaker Ivan Larcher, combining milk and microbiology theory with hands-on production.",
+                "confidence": "high"
+              },
+              {
+                "name": "Vermont Cheese Council courses",
+                "url": "https://vtcheese.com/learn/",
+                "course": "The Science of Farmstead Cheese (self-paced online, eight modules)",
+                "blurb": "The Vermont Cheese Council is the state's cheesemaker trade body whose education arm offers the self-paced eight-module online course The Science of Farmstead Cheese alongside in-person workshops and an annual conference.",
+                "confidence": "medium"
+              }
+            ],
+            "tripTier": 1,
+            "tripType": "Taster",
+            "tripLength": "a weekend",
+            "englishTaught": true,
+            "englishBasis": "native-English country"
+          },
+          "lines": {}
+        },
+        "thai-cuisine--chiang-mai": {
+          "craft": "thai-cuisine",
+          "redirectsTo": "thai-cuisine",
+          "record": {
+            "place": "Chiang Mai",
+            "country": "Thailand",
+            "region": "Southeast Asia",
+            "role": "scene",
+            "communityRank": 4,
+            "communityLabel": "Thriving",
+            "schools": [
+              "Thai Farm Cooking School",
+              "Asia Scenic Thai Cooking School",
+              "Thai Akha Kitchen"
+            ],
+            "masters": [],
+            "badges": [
+              "scene",
+              "heritage"
+            ],
+            "why": "Northern Lanna kitchens and organic farm schools give you khao soi and herb-forward cooking from soil to mortar, with a cohort of travellers chasing the same fire.",
+            "bestSeason": "Nov-Feb",
+            "level": "Beginner -> Intermediate",
+            "id": "thai-cuisine--chiang-mai",
+            "schoolsInfo": [
+              {
+                "name": "Thai Farm Cooking School",
+                "url": "https://thaifarmcooking.com/",
+                "course": "Full-day cooking class at the organic farm",
+                "blurb": "Operating since 2001 on an organic farm about 17 km outside Chiang Mai, this school runs a full-day class with a local market visit, farm ingredient-picking and making curry paste, curry, soup, stir-fry, a noodle dish and dessert from scratch.",
+                "confidence": "high"
+              },
+              {
+                "name": "Asia Scenic Thai Cooking School",
+                "url": "https://www.asiascenic.com/",
+                "course": "Full course at the organic farm",
+                "blurb": "Run by Gayle and family since 2007 with both an Old City garden and a countryside organic farm, Asia Scenic's full farm course teaches six dishes amid 20-plus home-grown vegetables and sends students home with a recipe book.",
+                "confidence": "high"
+              },
+              {
+                "name": "Thai Akha Kitchen",
+                "url": "https://www.thaiakhakitchen.com/",
+                "course": "Morning cooking class with market tour (full 11-dish menu)",
+                "blurb": "Run by members of the Akha hill-tribe in an open-air bamboo kitchen south of Chiang Mai's old city, this school's market-tour class has each student cook an 11-dish Thai-Akha menu at their own wok and mortar station.",
+                "confidence": "high"
+              }
+            ],
+            "tripTier": 3,
+            "tripType": "Deep-dive",
+            "tripLength": "2–4 weeks",
+            "englishTaught": true,
+            "englishBasis": "Thai Farm Cooking School states 'Instruction in English by a Thai cooking teacher'; the Chiang Mai farm schools run English classes for international visitors."
+          },
+          "lines": {}
+        },
+        "peruvian-cuisine--cusco": {
+          "craft": "peruvian-cuisine",
+          "redirectsTo": "peruvian-cuisine",
+          "record": {
+            "place": "Cusco",
+            "country": "Peru",
+            "region": "Latin America",
+            "role": "scene",
+            "communityRank": 4,
+            "communityLabel": "Thriving",
+            "schools": [
+              "Marcelo Batata Cooking Class",
+              "Cusco Culinary (Inkan Life)"
+            ],
+            "masters": [],
+            "badges": [
+              "scene",
+              "heritage",
+              "lineage"
+            ],
+            "why": "Andean cuisine at its source altitude, where you cook with native potatoes, quinoa, and ancient Inca techniques in the old imperial capital.",
+            "bestSeason": "Apr-Oct (dry season)",
+            "level": "Beginner -> Intermediate",
+            "id": "peruvian-cuisine--cusco",
+            "schoolsInfo": [
+              {
+                "name": "Marcelo Batata Cooking Class",
+                "url": "https://marcelobatatacookingclass.com/",
+                "course": "Full Immersion Cooking Class",
+                "blurb": "A cooking school in central Cusco with an Andean-ingredient interpretive area called El Mercado, whose four-hour Full Immersion class covers Peruvian food history, pisco sour and chilcano, and preparing ceviche and alpaca lomo saltado.",
+                "confidence": "high"
+              },
+              {
+                "name": "Cusco Culinary (Inkan Life)",
+                "url": "",
+                "course": "",
+                "blurb": "A Cusco-based Peruvian cooking class was referenced under this name, but no official site or specific multi-day program could be verified.",
+                "confidence": "low"
+              }
+            ],
+            "tripTier": 3,
+            "tripType": "Deep-dive",
+            "tripLength": "2–4 weeks",
+            "englishTaught": true,
+            "englishBasis": "Marcelo Batata offers a dedicated English cooking class (10am English session); reviews confirm English instruction"
+          },
+          "lines": {}
+        },
+        "peruvian-cuisine--arequipa": {
+          "craft": "peruvian-cuisine",
+          "redirectsTo": "peruvian-cuisine",
+          "record": {
+            "place": "Arequipa",
+            "country": "Peru",
+            "region": "Latin America",
+            "role": "scene",
+            "communityRank": 3,
+            "communityLabel": "Strong",
+            "schools": [
+              "Peruvian Cooking Experience Arequipa"
+            ],
+            "masters": [],
+            "badges": [
+              "scene",
+              "heritage",
+              "lineage"
+            ],
+            "why": "Peru's picanteria heartland, where rocoto relleno and the country's most fiercely regional cooking are guarded and taught at the source.",
+            "bestSeason": "May-Oct",
+            "level": "Beginner -> Intermediate",
+            "id": "peruvian-cuisine--arequipa",
+            "schoolsInfo": [
+              {
+                "name": "Peruvian Cooking Experience Arequipa",
+                "url": "https://www.peruviancookingexperience.com/",
+                "course": "Hands-on Peruvian cooking class with market visit and Pisco Sour",
+                "blurb": "Based at Casa de Avila in Arequipa, this hands-on cooking school teaches regional dishes such as rocoto relleno and solterito alongside a century-old market tour and an optional Pisco Sour session, in sessions of a few hours rather than week-long programs.",
+                "confidence": "high"
+              }
+            ],
+            "tripTier": 3,
+            "tripType": "Deep-dive",
+            "tripLength": "2–4 weeks",
+            "englishTaught": true,
+            "englishBasis": "Peruvian Cooking Experience site states classes are entirely available in English and Spanish with bilingual guides"
+          },
+          "lines": {}
+        },
+        "sake-and-sommellerie-of-sake--nada-kobe-hyogo": {
+          "craft": "sake-and-sommellerie-of-sake",
+          "redirectsTo": "sake-and-sommellerie-of-sake",
+          "record": {
+            "place": "Nada (Kobe), Hyogo",
+            "country": "Japan",
+            "region": "East Asia",
+            "role": "source",
+            "communityRank": 5,
+            "communityLabel": "Legendary",
+            "schools": [
+              "Nada Gogo brewery district programs",
+              "Nishiyama Shuzojo brewing experience (Tamba)",
+              "SSI partner courses"
+            ],
+            "masters": [],
+            "lineage": [
+              "Tanba Toji lineage"
+            ],
+            "badges": [
+              "source",
+              "mecca",
+              "heritage",
+              "lineage"
+            ],
+            "why": "Japan's number-one sake region by volume and home of the Tanba Toji master-brewer lineage, the Edo-era heartland where the craft was perfected.",
+            "bestSeason": "Oct-Mar",
+            "level": "Beginner -> Brewer apprentice",
+            "id": "sake-and-sommellerie-of-sake--nada-kobe-hyogo",
+            "schoolsInfo": [
+              {
+                "name": "Obata Shuzo - Gakkogura",
+                "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp",
+                "course": "Gakkogura One Week Course (sake brewing)",
+                "blurb": "A residential hands-on brewing course at Obata Shuzo's Gakkogura, a microbrewery built inside a former elementary school on Sado Island.",
+                "confidence": "medium"
+              },
+              {
+                "name": "Nada Gogo brewery district programs",
+                "url": "https://www.feel-kobe.jp/en/stories/japanesesake",
+                "course": "Nada-Gogo five-village brewery tours and tastings (Hakutsuru, Kiku-Masamune, Hamafukutsuru and others)",
+                "blurb": "Nada-Gogo is the cluster of five brewing villages in Kobe that produces the largest share of Japan's sake, where breweries such as Hakutsuru, Kiku-Masamune and Hamafukutsuru run guided tours showing the production process behind glass and structured tastings of multiple labels.",
+                "confidence": "high"
+              },
+              {
+                "name": "Nishiyama Shuzojo brewing experience (Tamba)",
+                "url": "https://www.japan.travel/en/japans-local-treasures/nishiyama-sake-brewery-tasting-tour-2023/",
+                "course": "Brewery tour with sake-tasting class, fermented-foods workshop and head-brewer-led pairing lunch",
+                "blurb": "Nishiyama Shuzojo is a sake brewery founded in 1849 in Tamba, Hyogo, housed in nationally registered Tangible Cultural Property buildings, offering brewery tours plus a tasting class and a head-brewer-led pairing lunch using local fermented foods.",
+                "confidence": "high"
+              },
+              {
+                "name": "SSI partner courses",
+                "url": "https://ssiintl.jp/",
+                "course": "SSI International Kikisake-shi (Sommelier of Sake) three-day certification with exam",
+                "blurb": "The Sake Service Institute is the Japanese body that certifies sake professionals, and its International Kikisake-shi program is a three-day course with self-study, tasting and service training plus a graded exam, delivered in English through authorized partner schools.",
+                "confidence": "high"
+              }
+            ],
+            "tripTier": 2,
+            "tripType": "Starter",
+            "tripLength": "about a week",
+            "englishTaught": true,
+            "englishBasis": "Obata Shuzo Gakkogura provides English course information and hosts foreign participants; SSI International Kikisake-shi (an alt listed) is delivered in English"
+          },
+          "lines": {}
+        },
+        "sake-and-sommellerie-of-sake--tokyo": {
+          "craft": "sake-and-sommellerie-of-sake",
+          "redirectsTo": "sake-and-sommellerie-of-sake",
+          "record": {
+            "place": "Tokyo",
+            "country": "Japan",
+            "region": "East Asia",
+            "role": "scene",
+            "communityRank": 4,
+            "communityLabel": "Thriving",
+            "schools": [
+              "Sake Service Institute (SSI, HQ Tokyo)",
+              "Sake Sommelier Academy",
+              "Japan Sake and Shochu Makers Association courses"
+            ],
+            "masters": [],
+            "badges": [
+              "scene",
+              "school",
+              "gold-cred"
+            ],
+            "why": "Where the certification itself was born: the SSI was founded here, so the International Kikisake-shi exam is taken at its home alongside the biggest cohort of new sake sommeliers.",
+            "bestSeason": "Year-round",
+            "level": "Beginner -> Master of Sake",
+            "id": "sake-and-sommellerie-of-sake--tokyo",
+            "schoolsInfo": [
+              {
+                "name": "Sake Service Institute (SSI, HQ Tokyo)",
+                "url": "https://ssiintl.jp/",
+                "course": "Sommelier of Sake (International Kikisake-shi) three-day certification",
+                "blurb": "The Tokyo-founded body that created and awards the Kikisake-shi qualification, offering a three-day International Kikisake-shi (Sommelier of Sake) training and three-stage exam covering sake characteristics, production, and blind tasting.",
+                "confidence": "high"
+              },
+              {
+                "name": "Sake Sommelier Academy",
+                "url": "https://sakesommelieracademy.com/",
+                "course": "Certified Sake Sommelier (multi-day in-person course)",
+                "blurb": "A London-headquartered sake educator operating through partner schools worldwide that runs a multi-day Certified Sake Sommelier course covering ingredients, brewing, tasting, and food pairing.",
+                "confidence": "medium"
+              },
+              {
+                "name": "Japan Sake and Shochu Makers Association courses",
+                "url": "https://japansake.or.jp/sake/en/topic/sake-shochu-academy/japan-sake-shochu-academy/",
+                "course": "Japan Sake & Shochu Academy",
+                "blurb": "The national producers' association in Tokyo runs the Japan Sake & Shochu Academy, an intensive course of lectures and tastings of roughly 70 sake and shochu that issues a completion certificate co-signed by the National Research Institute of Brewing.",
+                "confidence": "high"
+              }
+            ],
+            "tripTier": 2,
+            "tripType": "Starter",
+            "tripLength": "about a week",
+            "englishTaught": true,
+            "englishBasis": "Sake Sommelier Academy and SSI International Kikisake-shi are international English-language certification courses based in Tokyo"
+          },
+          "lines": {}
         }
       }
-    ]
+    }
   },
   "_retiredCrafts_comment": "Crafts folded into another by Arnaud's ruling. Nothing here is read by the build. A name is moved, never deleted: what each one carried — a signed Measure, a craft intro, the lines on a place that did not move — is kept here word for word, with the day and the reason, so the record of what was said and signed survives the page that said it.",
   "retiredCrafts": {
