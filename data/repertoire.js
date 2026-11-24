@@ -17328,10 +17328,27 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "École Internationale de Boulangerie (EIDB)",
-              "url": "https://www.ecoleinternationaledeboulangerie.fr/en",
-              "course": "Boulanger niveau 4 diploma (582-hour organic & sourdough course)",
-              "blurb": "Founded by Thomas Teffri-Chambelland and based in the Jabron valley near Aix-en-Provence, EIDB runs a residential 582-hour, roughly 15-week course in organic sourdough breadmaking leading to a state-registered Boulanger level-4 diploma.",
-              "confidence": "high"
+              "url": "https://www.ecoleinternationaledeboulangerie.fr/en/formations/formation-perfectionnement",
+              "course": "Panettone, viennoiserie and sourdough bread, Advanced (one week), beside the 15-week diploma",
+              "blurb": "Founded in 2005 and still directed by Thomas Teffri-Chambelland, EIDB, in the Jabron valley, specialises in natural sourdough and organic baking. Beside its 15-week Boulanger level-4 diploma, taught in French, it runs one-week courses of 40 hours: an Advanced week of panettone, viennoiserie and sourdough for bakers with at least two years' professional sourdough experience, and a week on heirloom grain varieties, 14 hours of it spent milling. On 24 November 2026 both 2027 Advanced weeks, 17 to 21 May in French and 24 to 28 May in English, were full, with a waiting list.",
+              "confidence": "high",
+              "verify": [
+                "2 459.00",
+                "40 hours"
+              ],
+              "facts": {
+                "where": "Noyers-sur-Jabron",
+                "length": "1 week, 40 hours",
+                "format": "In person, 32 hours of it at the bench",
+                "language": "French or English, by session",
+                "price": "€2,459",
+                "priceNote": "including VAT, 2027; the two May 2027 Advanced weeks are full, waiting list",
+                "from": [
+                  "https://www.ecoleinternationaledeboulangerie.fr/en/formations/formation-perfectionnement",
+                  "https://www.ecoleinternationaledeboulangerie.fr/en/formations/formation-varietes-paysannes"
+                ],
+                "read": "2026-11-24"
+              }
             }
           ],
           "tripTier": 5,
@@ -17482,6 +17499,76 @@ window.ET_ATLAS = {
           "tripType": "Taster",
           "tripLength": "a few hours",
           "englishTaught": null
+        },
+        {
+          "place": "Rouen",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Institut National de la Boulangerie Pâtisserie (INBP)"
+          ],
+          "masters": [
+            "Olivier Magne",
+            "Aurélien Le Mouillour"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "France's national bakery and pastry institute since 1974: three-day courses, each led by a named baker, many of them Meilleurs Ouvriers de France, for twelve people at most.",
+          "bestSeason": "Feb-Dec",
+          "level": "Intermediate -> Expert",
+          "id": "bread-and-boulangerie--rouen",
+          "schoolsInfo": [
+            {
+              "name": "Institut National de la Boulangerie Pâtisserie (INBP)",
+              "url": "https://www.inbp.com/stages-courts-boulangerie/",
+              "course": "Short courses in bread and viennoiserie (three days, 21 hours each)",
+              "blurb": "France's national bakery and pastry institute, in Rouen and running since 1974, offers three-day courses for bakers who already know the basics, each led by a named baker. Its 2026 courses listed Olivier Magne, Meilleur Ouvrier de France, for viennoiserie (16 to 18 November) and Aurélien Le Mouillour, MOF 2023, for new trends in levain (2 to 4 November). The course pages are in French and do not say which language is taught in, and no 2027 dates are published yet.",
+              "confidence": "high",
+              "verify": [
+                "Un des Meilleurs Ouvriers de France",
+                "10 participants, au maximum 12",
+                "3 jours / 21 heures"
+              ],
+              "facts": {
+                "where": "Rouen",
+                "length": "3 days, 21 hours",
+                "format": "At the bench, lunch included",
+                "class": "10, at most 12",
+                "price": "€1,338",
+                "priceNote": "including VAT (€1,115 before VAT); 2026 price, 2027 dates not yet published",
+                "from": [
+                  "https://www.inbp.com/stages-courts-boulangerie/",
+                  "https://www.inbp.com/fiche/mes-viennoiseries-2026/",
+                  "https://www.inbp.com/fiche/les-nouvelles-tendances-du-levain-2026/"
+                ],
+                "read": "2026-11-24"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Meilleurs Ouvriers de France",
+                    [
+                      "Olivier Magne",
+                      "Aurélien Le Mouillour"
+                    ]
+                  ]
+                ],
+                "from": "https://www.inbp.com/fiche/mes-viennoiseries-2026/",
+                "read": "2026-11-24"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "three days",
+          "englishTaught": null,
+          "instructionLanguage": "French"
         }
       ],
       "id": "bread-and-boulangerie",
