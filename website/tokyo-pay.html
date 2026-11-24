@@ -60,6 +60,9 @@
 
   .btn{display:inline-block;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.9rem 1.4rem}
   .btn-ghost{border:1px solid var(--line);color:var(--type)}
+  .btn-pay{background:var(--sea);border:1px solid var(--sea);color:#fff}
+  .btn-pay:hover,.btn-pay:focus-visible{background:var(--type);border-color:var(--type);outline:none}
+  h3.alt{font-family:var(--serif);font-weight:400;font-size:1.15rem;margin:2rem 0 .3rem}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
   .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.4rem 0 .4rem}
 
@@ -91,7 +94,7 @@
   <div class="wrap">
     <p class="seal">Your seat is taken</p>
     <h1 id="head">The rest of the payment for <em>Tokyo</em>.</h1>
-    <p class="sub">Your €800 deposit took your seat. The balance goes straight to the school, Japan Culinary Masters Academy, by bank transfer.</p>
+    <p class="sub">Your €800 deposit took your seat. The balance goes straight to the school, Japan Culinary Masters Academy, through its Wise payment link or by bank transfer.</p>
     <div class="card">
       <dl>
         <dt>Balance</dt><dd><b>¥650,000</b> · paid to Japan Culinary Masters Academy</dd>
@@ -118,7 +121,13 @@
   <div class="wrap">
     <p class="eyebrow">Step 2</p>
     <h2>Send it to the school.</h2>
-    <p>An international transfer, in Japanese yen.</p>
+    <p>The easiest way is the school's Wise link. You don't need a Wise account: it shows you the school's bank details in your own currency, and you pay from your usual banking app.</p>
+    <div class="cta-row">
+      <a class="btn btn-pay" href="https://wise.com/pay/business/sh122" target="_blank" rel="noopener">Pay the school with Wise</a>
+    </div>
+    <p>If it asks for a reference, put <strong>Course Fee · your full name</strong>, so the school knows the payment is yours. If your bank blocks it at sea, because of an SMS code or a weak connection, tell me and we find another way.</p>
+    <h3 class="alt">Or a bank transfer in yen.</h3>
+    <p>If you'd rather send it straight to the school's bank account in Japan:</p>
     <dl class="bank">
       <dt>Account name</dt><dd id="b-holder">SH Food Planning Co., Ltd</dd><button type="button" class="copybtn" data-copy="b-holder">Copy</button>
       <dt>Account number</dt><dd id="b-acct">0745571</dd><button type="button" class="copybtn" data-copy="b-acct">Copy</button>
@@ -155,7 +164,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
 <script>
-/* The balance page (Arnaud, 22 Nov 2026). Bank details from Natsumi (JCMA admissions),
+/* The balance page (Arnaud, 22 Nov 2026). Wise pay link from Natsumi, 24 Nov 2026. Bank details from Natsumi (JCMA admissions),
    22 Nov 2026. READ ONLY: no form, nothing is saved. The name in the reference comes
    from the chef's Circle key (?k=, via circle-hello), else from their seat on this
    device, else stays "your full name". */
