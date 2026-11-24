@@ -21421,6 +21421,75 @@ window.ET_ATLAS = {
           "englishTaught": false,
           "englishBasis": "&LAB TOKYO's own course page: 'Lessons are taught in Japanese; English support is available on request', at ¥15,000 a day.",
           "instructionLanguage": "Japanese, with English support on request"
+        },
+        {
+          "place": "Alentejo",
+          "country": "Portugal",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Ferment Academia"
+          ],
+          "masters": [],
+          "badges": [
+            "school"
+          ],
+          "why": "Six days at a family-run eco-retreat in the South Alentejo with nine contributors: koji, miso, natto, vinegar, drinks and seaweed, with meals and group transport to and from Lisbon included.",
+          "bestSeason": "May-Jun",
+          "level": "Beginner -> Advanced",
+          "id": "fermentation--alentejo",
+          "schoolsInfo": [
+            {
+              "name": "Ferment Academia",
+              "url": "https://www.fermentacademia.com/",
+              "course": "Ferment Academia Residencia, six days residential, 29 May to 3 June 2027",
+              "blurb": "A residency hosted by Paula Neubauer of Get Pickled Somerset at Monte da Orada, a family-run eco-retreat in 70 hectares of forest in the South Alentejo. The site lists nine contributors, among them Kirsten Shockey, Katsu Lask and Payal Shah of Kōbo Fermentary, and teaching in koji making, miso and fermented condiments, natto and axone, an introduction to vinegar, fermented drinks, kefir and non-rennet cheeses, wild yeast, foraging and seaweed, with two visits to Portuguese producers. It is open to curious beginners and experienced practitioners alike, and the site does not say how many people come or which language it is taught in.",
+              "confidence": "high",
+              "verify": [
+                "29 May-3 June 2027",
+                "Nine contributors",
+                "Monte da Orada"
+              ],
+              "facts": {
+                "where": "Monte da Orada, Alentejo",
+                "length": "6 days, 5 nights",
+                "format": "Residential; meals and the Lisbon transfer included",
+                "price": "From €2,850",
+                "priceNote": "shared room; twin ensuite €3,350, single €3,850; 10% off when paid in full",
+                "from": [
+                  "https://www.fermentacademia.com/",
+                  "https://www.fermentacademia.com/ferment-academia-2027-booking"
+                ],
+                "read": "2026-11-25"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Contributors",
+                    [
+                      "Payal Shah",
+                      "Katsu Lask",
+                      "Paula Neubauer",
+                      "Kirsten Shockey",
+                      "Mara King",
+                      "Pratap Chahal",
+                      "Sole Saburido Álvarez",
+                      "Melanie McIntosh",
+                      "Stephanie Sacco"
+                    ]
+                  ]
+                ],
+                "from": "https://www.fermentacademia.com/",
+                "read": "2026-11-25"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "about a week",
+          "englishTaught": null
         }
       ],
       "id": "fermentation",

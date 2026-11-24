@@ -289,8 +289,8 @@ function welcomeShell(opts: { body: string; unsub: string }): string {
   <div style="max-width:560px;margin:0 auto;padding:36px 24px 28px;background:#ffffff;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.7;color:#262624;">
     ${NAMELINE}
 ${opts.body}
-    <div style="margin:44px 0 0 0;padding-top:16px;border-top:1px solid #e6e1d8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#8a8279;">
-      The Educated Travelers · <a href="https://educatedtraveler.app" style="color:#8a8279;">educatedtraveler.app</a> · <a href="${opts.unsub}" style="color:#8a8279;">Leave the Circle</a>
+    <div style="margin:44px 0 0 0;padding-top:16px;border-top:1px solid #e6e1d8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#756e65;">
+      The Educated Travelers · <a href="https://educatedtraveler.app" style="color:#756e65;">educatedtraveler.app</a> · <a href="${opts.unsub}" style="color:#756e65;">Leave the Circle</a>
     </div>
   </div>
   </td></tr></table>
