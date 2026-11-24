@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- EducatedTraveler favicon — bold ET monogram, warm-dark brand -->
-  <rect width="32" height="32" rx="7" fill="#0d0b09"/>
-  <text x="16" y="24" text-anchor="middle" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="23" font-weight="700" letter-spacing="-1">
-    <tspan fill="#f3ede2">E</tspan><tspan fill="#7fa8a5">T</tspan>
-  </text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080"><!-- The Educated Travelers favicon: the spark, white on ink, as on Instagram --><circle cx="540" cy="540" r="540" fill="#0e1615"/><g fill="none" stroke="#ffffff" stroke-width="56" transform="translate(540 540) scale(.78) translate(-540 -520)"><circle cx="540" cy="334" r="228"/><circle cx="735.92" cy="476.34" r="228"/><circle cx="661.08" cy="706.66" r="228"/><circle cx="418.92" cy="706.66" r="228"/><circle cx="344.08" cy="476.34" r="228"/></g></svg>
