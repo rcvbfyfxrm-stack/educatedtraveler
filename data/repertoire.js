@@ -18152,7 +18152,7 @@ window.ET_ATLAS = {
                 "by": "Roberto",
                 "source": "site",
                 "thumb": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
-                "card": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
+                "card": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-08-spisni-at-the-board.jpg",
                 "items": [
                   {
                     "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-08-spisni-at-the-board.jpg",
@@ -18722,6 +18722,45 @@ window.ET_ATLAS = {
             {
               "name": "Japan Culinary Masters Academy (JCMA)",
               "url": "https://jcma.tokyo",
+              "photos": {
+                "given": "2026-11-08",
+                "by": "Hiroko Ishii",
+                "source": "sent",
+                "thumb": "/images/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu/jcma-03-nigiri.jpg",
+                "card": "/images/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu/jcma-01-the-tuna.jpg",
+                "focal": "50% 40%",
+                "items": [
+                  {
+                    "src": "/images/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu/jcma-01-the-tuna.jpg",
+                    "w": 779,
+                    "h": 1039,
+                    "alt": "A sushi chef in white, a tall white cap and the school's jacket bends over a steel bench, one hand flat on a deep-red block of tuna laid on a cloth, a window behind her.",
+                    "caption": "A block of tuna at the bench, at the school in Otsuka."
+                  },
+                  {
+                    "src": "/images/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu/jcma-02-the-rice.jpg",
+                    "w": 900,
+                    "h": 1200,
+                    "alt": "A student in whites and a tall cap mixes rice in a wooden hangiri with a paddle while a teacher in the same whites folds it beside him, rice cookers and a window behind.",
+                    "caption": "Seasoning the rice in the hangiri, a student and a teacher side by side."
+                  },
+                  {
+                    "src": "/images/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu/jcma-03-nigiri.jpg",
+                    "w": 800,
+                    "h": 600,
+                    "wide": true,
+                    "alt": "Six pieces of tuna nigiri laid in a row on a long cream plate, pickled ginger at one end.",
+                    "caption": "Tuna nigiri, made in class."
+                  },
+                  {
+                    "src": "/images/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu/jcma-04-the-room.jpg",
+                    "w": 900,
+                    "h": 1201,
+                    "alt": "An empty teaching kitchen: a long steel bench with sinks, a pale wooden counter, ceiling lights and a wall of windows.",
+                    "caption": "The teaching kitchen, before the class comes in."
+                  }
+                ]
+              },
               "risingStar": {
                 "since": "2026-06",
                 "why": "Too new to have a record, and worth watching for exactly that reason: the teacher who carried Tokyo Sushi Academy's English course has opened her own room, for eight people at a time. Her first students have finished the diploma, so there are now people to ask. Go now and you are early — and you are one of the people the next reader gets to ask."
@@ -19359,7 +19398,7 @@ window.ET_ATLAS = {
                 "by": "Alix Verrips",
                 "source": "student",
                 "thumb": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg",
-                "card": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg",
+                "card": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-03-mole-negro.jpg",
                 "items": [
                   {
                     "src": "/images/atlas/oaxacan-and-mexican-cuisine--oaxaca/casa-crespo-01-oscar-teaching.jpg",
@@ -20991,7 +21030,7 @@ window.ET_ATLAS = {
                 "given": "2026-10-01",
                 "by": "Valerian",
                 "thumb": "/images/atlas/coffee-and-barista--san-rafael/boot-01-the-cupping-counter.jpg",
-                "card": "/images/atlas/coffee-and-barista--san-rafael/boot-01-the-cupping-counter.jpg",
+                "card": "/images/atlas/coffee-and-barista--san-rafael/boot-02-head-down-over-the-bowls.jpg",
                 "items": [
                   {
                     "src": "/images/atlas/coffee-and-barista--san-rafael/boot-01-the-cupping-counter.jpg",
@@ -21470,6 +21509,48 @@ window.ET_ATLAS = {
             {
               "name": "&LAB TOKYO",
               "url": "https://www.andlabtokyo.com/en/fermentation",
+              "photos": {
+                "given": "2026-11-09",
+                "by": "Chie Ando",
+                "source": "sent",
+                "thumb": "/images/atlas/fermentation--tokyo/andlab-01-koji-in-the-cloth.jpg",
+                "card": "/images/atlas/fermentation--tokyo/andlab-01-koji-in-the-cloth.jpg",
+                "focal": "35% 50%",
+                "items": [
+                  {
+                    "src": "/images/atlas/fermentation--tokyo/andlab-01-koji-in-the-cloth.jpg",
+                    "w": 1600,
+                    "h": 1205,
+                    "wide": true,
+                    "alt": "Two hands break apart a cake of freshly grown rice koji, white and matted, in a linen cloth; a second tray of loose koji sits in front.",
+                    "caption": "Koji out of the cloth, the day it is grown."
+                  },
+                  {
+                    "src": "/images/atlas/fermentation--tokyo/andlab-02-the-class.jpg",
+                    "w": 1600,
+                    "h": 1067,
+                    "wide": true,
+                    "alt": "Three people stand talking around a wooden table in a bright studio, a teacher in a dark apron on the right, a wooden tub on the table.",
+                    "caption": "A class at the studio table."
+                  },
+                  {
+                    "src": "/images/atlas/fermentation--tokyo/andlab-03-the-studio.jpg",
+                    "w": 1206,
+                    "h": 861,
+                    "wide": true,
+                    "alt": "A teacher in a dark apron works at a long wooden table laid with a wooden tub, boards and glass jars of grains, a world map on the white wall behind.",
+                    "caption": "The studio in Jingumae."
+                  },
+                  {
+                    "src": "/images/atlas/fermentation--tokyo/andlab-04-the-table.jpg",
+                    "w": 1600,
+                    "h": 1067,
+                    "wide": true,
+                    "alt": "A man at a wooden table gestures over plates of food made with koji seasonings, a bottle of sake and glasses beside them.",
+                    "caption": "Lunch at the end of the day, cooked with what was made."
+                  }
+                ]
+              },
               "course": "The Fermentation Alchemist Course — Basic (one day) and Intermediate (growing your own koji), or both back to back as a three-day intensive; Advance is a further three-day step, with other kinds of koji",
               "blurb": "Chie Ando's fermentation studio in Jingumae, Shibuya, where you make koji seasonings — shio-koji, ama-koji, shoyu-koji — and then grow koji yourself over three days. Chie Ando teaches every day of it herself. Groups of one to four, tools provided, two textbooks included. It is taught in Japanese: English support is a paid extra, cheaper if you ask three months ahead, and it closes a month before the course. Every step is also sold online, so ask yourself what the room adds before you fly for it.",
               "confidence": "high",
@@ -30305,7 +30386,7 @@ window.ET_ATLAS = {
                 "by": "Amber",
                 "source": "sent",
                 "thumb": "/images/atlas/chef-at-sea--mallorca/aa-06-a-plate-over-the-water.jpg",
-                "card": "/images/atlas/chef-at-sea--mallorca/aa-15-the-work-in-three-frames.jpg",
+                "card": "/images/atlas/chef-at-sea--mallorca/aa-01-plating-in-the-galley.jpg",
                 "focal": "50% 50%",
                 "items": [
                   {

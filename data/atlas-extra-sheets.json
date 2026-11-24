@@ -1390,7 +1390,7 @@
     "wildlife-photography--south-luangwa": "Learn to photograph on foot, four to a group",
     "wildlife-photography--falmouth": "Learn underwater photography as a degree"
   },
-  "_craftImages_comment": "A licensed picture OF THE CRAFT, for a craft no school has photographed. Keyed by craft id, but TAKEN AT ONE PLACE: Arnaud, 27 September 2026, 'make sure the photo on the skill card of the Atlas matches the location of the card'. It used to say the picture belonged nowhere and could ride any card, and 16 of 22 were of somewhere else (yoga in Bali under Mysore, a Namibian farm under Greater Kruger, a Californian surfer under Waikiki). Every entry ships six things: src, alt, credit, licence, sourceUrl and takenAt, the destination id the picture was taken at (plus an optional focal). The build refuses one whose takenAt is not the place the card rests on, and the browse page drops it when a filter moves the card to another town. takenAt is only as good as the Commons page: read the description, categories or coordinates, never the title alone. A licence with no source is not checkable, and being checkable is this map's whole claim. THE TWO CLASSES MAY NEVER BE CONFUSED: a craft image is drawn by .craftshot/--illus, never .cardshot/--shot; its credit names its maker and its LICENCE and stops, and may never start with 'Photo:', which is reserved for a picture a school sent us; and the build REFUSES a craft image on a craft that already has a school photograph, because the school's own room always wins. IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE — a spherified pearl is what modernist technique looks like anywhere; a school's front door under another town's name is the same lie as composing a place sentence. AND NO IMAGE IS BETTER THAN A GENERIC ONE: a craft with no truthful picture keeps the typographic card, and that is a finished state, not a gap to fill with stock. Lifestyle Medicine is the case that proves it — its own sheet says it is a credential, not a place. 10 crafts carry one after the 27 September re-hunt (8 replaced, sushi and ski touring kept). Modernist Spanish Cuisine lost its licensed picture the same day to the photographs Vakuum sent us: a school's own room comes first. Eleven lost theirs because Commons holds nothing honest taken at the card's place: ashtanga-yoga (Mysore), cold-exposure-wim-hof-method (Karkonosze), jewelry-and-goldsmithing (Florence: shop windows only), organic-farm-to-table-cooking (Ballymaloe: empty gardens), pottery-and-ceramics (Mashiko: kilns, no potter), sound-healing (Nepal: bowls on market stalls), spearfishing (Cote d'Azur), vipassana-and-meditation (Dhamma Giri: the pagoda only, a landmark), wildlife-photography (Pusztaszer), windsurfing-and-wing-foil (Karpathos), yacht-crew-and-stcw (Antibes: yacht portraits, no crew). A school's photograph, or a Flickr CC BY find, is the way back for each. FIVE ARE DELIBERATELY EMPTY and should stay that way until something honest exists: japanese-knife-making (Commons holds museum record shots of finished blades and European smiths at European forges — a German smith under the word Shimanto is the lie this class guards against), perfumery (liquor distilling, 18th-century engravings and a petroleum refinery; no perfumer at the organ exists free), lymphatic-drainage (generic massage, none of it the clinical technique), new-basque-cuisine (finished plates and bar pintxos, nothing of the Arzak/Subijana movement — and pintxos would blur the very distinction the Atlas just drew), and lifestyle-medicine (never searched: its own sheet says it is a credential, not a place). self-sufficiency was searched and left empty too — a pool of six, none of it honest. See CRAFT_IMAGES in scripts/build-atlas-pages.py.",
+  "_craftImages_comment": "A licensed picture OF THE CRAFT, for a craft no school has photographed. Keyed by craft id, but TAKEN AT ONE PLACE: Arnaud, 27 September 2026, 'make sure the photo on the skill card of the Atlas matches the location of the card'. It used to say the picture belonged nowhere and could ride any card, and 16 of 22 were of somewhere else (yoga in Bali under Mysore, a Namibian farm under Greater Kruger, a Californian surfer under Waikiki). Every entry ships six things: src, alt, credit, licence, sourceUrl and takenAt, the destination id the picture was taken at (plus an optional focal). The build refuses one whose takenAt is not the place the card rests on, and the browse page drops it when a filter moves the card to another town. takenAt is only as good as the Commons page: read the description, categories or coordinates, never the title alone. A licence with no source is not checkable, and being checkable is this map's whole claim. THE TWO CLASSES MAY NEVER BE CONFUSED: a craft image is drawn by .craftshot/--illus, never .cardshot/--shot; its credit names its maker and its LICENCE and stops, and may never start with 'Photo:', which is reserved for a picture a school sent us; and the build REFUSES a craft image on a craft that already has a school photograph, because the school's own room always wins. IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE — a spherified pearl is what modernist technique looks like anywhere; a school's front door under another town's name is the same lie as composing a place sentence. AND NO IMAGE IS BETTER THAN A GENERIC ONE: a craft with no truthful picture keeps the typographic card, and that is a finished state, not a gap to fill with stock. Lifestyle Medicine is the case that proves it — its own sheet says it is a credential, not a place. 10 crafts carry one after the 27 September re-hunt (8 replaced, sushi and ski touring kept). Modernist Spanish Cuisine lost its licensed picture the same day to the photographs Vakuum sent us: a school's own room comes first. Eleven lost theirs because Commons holds nothing honest taken at the card's place: ashtanga-yoga (Mysore), cold-exposure-wim-hof-method (Karkonosze), jewelry-and-goldsmithing (Florence: shop windows only), organic-farm-to-table-cooking (Ballymaloe: empty gardens), pottery-and-ceramics (Mashiko: kilns, no potter), sound-healing (Nepal: bowls on market stalls), spearfishing (Cote d'Azur), vipassana-and-meditation (Dhamma Giri: the pagoda only, a landmark), wildlife-photography (Pusztaszer), windsurfing-and-wing-foil (Karpathos), yacht-crew-and-stcw (Antibes: yacht portraits, no crew). A school's photograph, or a Flickr CC BY find, is the way back for each. FIVE ARE DELIBERATELY EMPTY and should stay that way until something honest exists: japanese-knife-making (Commons holds museum record shots of finished blades and European smiths at European forges — a German smith under the word Shimanto is the lie this class guards against), perfumery (liquor distilling, 18th-century engravings and a petroleum refinery; no perfumer at the organ exists free), lymphatic-drainage (generic massage, none of it the clinical technique), new-basque-cuisine (finished plates and bar pintxos, nothing of the Arzak/Subijana movement — and pintxos would blur the very distinction the Atlas just drew), and lifestyle-medicine (never searched: its own sheet says it is a credential, not a place). self-sufficiency was searched and left empty too — a pool of six, none of it honest. See CRAFT_IMAGES in scripts/build-atlas-pages.py. 24 November 2026: sushi-and-washoku gave its licensed picture up to the JCMA bench photographed by the school itself, and new-basque-cuisine, chocolate-and-confectionery, mixology-and-bartending and organic-farm-to-table-cooking gained one each, each taken in the card's own town (Arnaud: make the photo iconic, and when there is material from the school, choose that). Bread wears a baker shaping baguettes at the Salon de l'Agriculture in Paris (Commons files it under Bakeries in Paris and Men at work in Paris).",
   "craftImages": {
     "freediving": {
       "src": "/images/crafts/freediving--dahab.jpg",
@@ -1464,15 +1464,6 @@
       "focal": "62% 55%",
       "takenAt": "surfing--waikiki-oahu"
     },
-    "sushi-and-washoku": {
-      "src": "/images/crafts/sushi-and-washoku.jpg",
-      "alt": "A sushi chef cutting fish behind a hinoki counter",
-      "credit": "City Foodsters · CC BY 2.0",
-      "licence": "CC BY 2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chef_Ishikawa_Cutting_Fish_(12007739074).jpg",
-      "focal": "50% 45%",
-      "takenAt": "sushi-and-washoku--tokyo-tsukiji-toyosu"
-    },
     "wine-and-sommellerie": {
       "src": "/images/crafts/wine-and-sommellerie--margaux.jpg",
       "alt": "Red wine poured from the bottle into a tasting glass at Château Kirwan, Margaux",
@@ -1481,6 +1472,51 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chateau_Kirwan_tasting.jpg",
       "focal": "58% 50%",
       "takenAt": "wine-and-sommellerie--bordeaux"
+    },
+    "new-basque-cuisine": {
+      "src": "/images/crafts/new-basque-cuisine--san-sebastian.jpg",
+      "alt": "Plates of pintxos fill a long wooden bar in a San Sebastián old-town bar while two barmen work behind the counter",
+      "credit": "Gordito1869 · CC BY 3.0",
+      "licence": "CC BY 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pintxos_Donostia_2014_2.JPG",
+      "focal": "50% 55%",
+      "takenAt": "new-basque-cuisine--san-sebasti-n-donostia"
+    },
+    "chocolate-and-confectionery": {
+      "src": "/images/crafts/chocolate-and-confectionery--brussels.jpg",
+      "alt": "A chocolatier in an olive chef's jacket pipes filling into a chocolate mould held over a bath of melted chocolate, in Brussels",
+      "credit": "Miguel Discart · CC BY-SA 2.0",
+      "licence": "CC BY-SA 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2017-11-09_18-25-35_ILCE-6500_DSC09509_(37584506594).jpg",
+      "focal": "50% 45%",
+      "takenAt": "chocolate-and-confectionery--brussels-wieze"
+    },
+    "mixology-and-bartending": {
+      "src": "/images/crafts/mixology-and-bartending--london.jpg",
+      "alt": "A bartender in a dark suit pours a martini from a raised mixing glass into a coupe on a trolley of bitters at the Connaught Bar, London",
+      "credit": "Bex Walton · CC BY 4.0",
+      "licence": "CC BY 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_signature_martini_at_the_Connaught_Bar,_London_2026-03-28.jpg",
+      "focal": "45% 40%",
+      "takenAt": "mixology-and-bartending--london"
+    },
+    "organic-farm-to-table-cooking": {
+      "src": "/images/crafts/organic-farm-to-table-cooking--shanagarry.jpg",
+      "alt": "Darina Allen, founder of Ballymaloe Cookery School, laughing in orange glasses, holds up a freshly pulled dock plant in a green East Cork field",
+      "credit": "Christopher Michel · CC BY 2.0",
+      "licence": "CC BY 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Darina_Allen,_Balleymaloe_Cookery_School_(28180839787).jpg",
+      "focal": "62% 50%",
+      "takenAt": "organic-farm-to-table-cooking--shanagarry-east-cork"
+    },
+    "bread-and-boulangerie": {
+      "src": "/images/crafts/bread-and-boulangerie--paris.jpg",
+      "alt": "A baker in a white cap rolls a baguette out by hand at a floured steel bench in Paris, rows of shaped baguettes in front of him and more bakers working behind",
+      "credit": "KoS · CC BY-SA 3.0",
+      "licence": "CC BY-SA 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salon_Agriculture_2009-Boulanger3.jpg",
+      "focal": "62% 50%",
+      "takenAt": "bread-and-boulangerie--paris"
     }
   },
   "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet. 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; no school on either has sent a photograph.",
