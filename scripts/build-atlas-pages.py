@@ -1477,7 +1477,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
 <meta property="og:url" content="{SITE}{canonical_path}">
 <meta property="og:image" content="{SITE}/images/logo-et-full.png">
 <meta property="og:site_name" content="EducatedTraveler">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{fonts}" rel="stylesheet">
