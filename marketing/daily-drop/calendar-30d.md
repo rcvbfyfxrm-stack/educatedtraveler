@@ -272,22 +272,22 @@ The full page: https://educatedtraveler.app/atlas/kitesurfing--tarifa
 #adventuretravel #skillsnotsouvenirs #learnbydoing #tarifa #kitesurfing
 ```
 
-## Day 16 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
-- **Footage:** La Vecchia Scuola Bolognese (Alessandra Spisni) — https://www.vsb-bologna.it/en/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 16 — Classical French Cuisine · Paris, France  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/classical-french-cuisine--paris
+- **Footage:** Le Cordon Bleu Paris — https://www.cordonbleu.edu/paris/cuisine-diploma/en (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Classical French Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.
+Paris is both the birthplace of Classical French Cuisine and its living capital.
 
-The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.
+Paris, where three big schools teach the French classical kitchen full-time, in English or with English translation.
 
-Community strength: Legendary. Season: Year-round.
+Community strength: Legendary. Season: Sep-Jun.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
+The full page: https://educatedtraveler.app/atlas/classical-french-cuisine--paris
 
-#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
+#foodtok #cookingclass #learnbydoing #paris #classicalfrenchcuisine
 ```
 
 ## Day 17 — Wildlife Photography · Pusztaszer, Hungary  `[creative]`
@@ -344,22 +344,22 @@ The full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--mau
 #adventuretravel #skillsnotsouvenirs #learnbydoing #mauihookipakanaha #windsurfingwingfoil
 ```
 
-## Day 20 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
-- **Footage:** Basque Culinary Center — https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 20 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
+- **Footage:** La Vecchia Scuola Bolognese (Alessandra Spisni) — https://www.vsb-bologna.it/en/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
+The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.
 
-The cradle of Nueva Cocina Vasca — now taught at Basque Culinary Center, the university faculty Arzak and Subijana helped found in 2009.
+The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.
 
-Community strength: Legendary. Season: May-Oct.
+Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
+The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
 
-#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
+#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
 ```
 
 ## Day 21 — Japanese Knife-Making · Shimanto, Japan  `[creative]`
@@ -416,22 +416,22 @@ The full page: https://educatedtraveler.app/atlas/rock-climbing--yosemite-valley
 #adventuretravel #skillsnotsouvenirs #learnbydoing #yosemitevalley #rockclimbing
 ```
 
-## Day 24 — Sushi & Washoku · Tokyo (Tsukiji / Toyosu), Japan  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu
-- **Footage:** Tokyo Sushi Academy — https://www.sushischool.jp/instrutorsandstaff (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Sushi & Washoku, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 24 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
+- **Footage:** Basque Culinary Center — https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-This is where Sushi & Washoku was born.
+San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
 
-This is edomae sushi at its birthplace, where you train beside the world's most demanding fish market and earn your skills the way the masters did.
+The cradle of Nueva Cocina Vasca — now taught at Basque Culinary Center, the university faculty Arzak and Subijana helped found in 2009.
 
-Community strength: Legendary. Season: Year-round (peak Mar-May, Sep-Nov).
+Community strength: Legendary. Season: May-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu
+The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
 
-#foodtok #cookingclass #learnbydoing #tokyotsukijitoyosu #sushiwashoku
+#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
 ```
 
 ## Day 25 — Self-Sufficiency & Food Preservation · Almería, Spain  `[creative]`
@@ -488,22 +488,22 @@ The full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--ch
 #adventuretravel #skillsnotsouvenirs #learnbydoing #chamonixverbierhauteroute #skitouringsplitboard
 ```
 
-## Day 28 — Oaxacan & Mexican Cuisine · Oaxaca, Mexico  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/oaxacan-and-mexican-cuisine--oaxaca
-- **Footage:** Seasons of My Heart (Susana Trilling) — https://www.seasonsofmyheart.com/food-tours/mexico/oaxaca/chefs-intensive (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Oaxacan & Mexican Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 28 — Sushi & Washoku · Tokyo (Tsukiji / Toyosu), Japan  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu
+- **Footage:** Tokyo Sushi Academy — https://www.sushischool.jp/instrutorsandstaff (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Sushi & Washoku, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-This is where Oaxacan & Mexican Cuisine was born.
+This is where Sushi & Washoku was born.
 
-Land of the seven moles, where you grind your own masa on a metate and learn Zapotec kitchen wisdom passed down unbroken for generations.
+This is edomae sushi at its birthplace, where you train beside the world's most demanding fish market and earn your skills the way the masters did.
 
-Community strength: Legendary. Season: Oct-Nov (Dia de Muertos), Mar-May.
+Community strength: Legendary. Season: Year-round (peak Mar-May, Sep-Nov).
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/oaxacan-and-mexican-cuisine--oaxaca
+The full page: https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu
 
-#foodtok #cookingclass #learnbydoing #oaxaca #oaxacanmexicancuisine
+#foodtok #cookingclass #learnbydoing #tokyotsukijitoyosu #sushiwashoku
 ```
 
 ## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
@@ -524,20 +524,20 @@ The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--g
 #adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
 ```
 
-## Day 30 — Wine & Sommellerie · London, United Kingdom  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/wine-and-sommellerie--london
-- **Footage:** WSET School London — https://www.wsetglobal.com/wset-school-london (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 30 — Thai Cuisine · Bangkok, Thailand  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/thai-cuisine--bangkok
+- **Footage:** Le Cordon Bleu Dusit Culinary School — https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Thai Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-London is both the birthplace of Wine & Sommellerie and its living capital.
+This is where Thai Cuisine was born.
 
-The examined craft was born in Britain, and London is where it is still set: the Institute of Masters of Wine works from here, and WSET runs its flagship school in Bermondsey, so this is where wine credentials are earned, not bought.
+Thailand's capital, where Le Cordon Bleu Dusit teaches the whole Thai repertoire, regional and royal, over nine months in English.
 
-Community strength: Legendary. Season: Sep-Jun.
+Community strength: Legendary. Season: Nov-Feb.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--london
+The full page: https://educatedtraveler.app/atlas/thai-cuisine--bangkok
 
-#foodtok #cookingclass #learnbydoing #london #winesommellerie
+#foodtok #cookingclass #learnbydoing #bangkok #thaicuisine
 ```
