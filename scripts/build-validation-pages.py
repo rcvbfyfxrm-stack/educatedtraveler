@@ -252,7 +252,7 @@ def page(c, amend=None):
                       '<p class="mono">Changed since you last saw this</p>'
                       f'<p style="margin:8px 0 0">{e(amend.get("what"))}'
                       f'<br><span class="src">Amended {e(amend.get("on"))}.</span></p></div>')
-    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=2"><link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>{e(name)} — what EducatedTraveler would publish</title>
