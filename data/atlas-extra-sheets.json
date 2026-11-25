@@ -3128,14 +3128,14 @@
       "date": "6 November 2026"
     },
     "bread-and-boulangerie": {
-      "dots": 2,
-      "verdict": "Real doors, in English and in French, with dates and prices on them — and not one teacher we have yet named from a page we read",
+      "dots": 3,
+      "verdict": "Real doors, in English and in French, with dates and prices on them — and in Rouen, teachers named on the school's own pages",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
-          "on": false,
-          "t": "Not yet, on our own reading. The École Internationale de Boulangerie names its founder, Thomas Teffri-Chambelland, but a founder is not a teacher. FERRANDI Paris and the École de Boulangerie et de Pâtisserie de Paris name nobody on the course pages we read on 4 November 2026. Ask who will be in the bakery with you."
+          "on": true,
+          "t": "Yes in Rouen. The Institut National de la Boulangerie Pâtisserie names who leads each short course: its 2026 courses listed Olivier Magne, Meilleur Ouvrier de France, for viennoiserie, and Aurélien Le Mouillour, MOF 2023, for levain. Elsewhere, not yet: the École Internationale de Boulangerie names its founder, Thomas Teffri-Chambelland, but a founder is not a teacher, and FERRANDI Paris and the École de Boulangerie et de Pâtisserie de Paris name nobody on the course pages we read on 4 November 2026."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -3158,10 +3158,10 @@
           "t": "Nobody of ours has been. The ladder exists in public — the CAP Boulanger is a state diploma with a published référentiel — and we have not adopted it on this page yet."
         }
       ],
-      "check": "Graded from the school pages read on 4 November 2026, not from a visit. Nobody from EducatedTraveler has stood in any of these bakeries. Viennoiserie was folded into this craft on 4 November 2026; its places are graded here with the rest. Re-drafted 6 November 2026 when Tokyo (its only school, Le Cordon Bleu Tokyo, is closed) came off the map; no dot moves.",
-      "ceilingNote": "Four is within reach from a desk: one named teacher and one source outside the schools.",
+      "check": "Graded from the school pages read on 4 November 2026, not from a visit. Nobody from EducatedTraveler has stood in any of these bakeries. Viennoiserie was folded into this craft on 4 November 2026; its places are graded here with the rest. Re-drafted 6 November 2026 when Tokyo (its only school, Le Cordon Bleu Tokyo, is closed) came off the map; no dot moves. Re-drafted 25 November 2026 when Rouen was added: the INBP course pages, read 24 November 2026, name who leads each course, so the first condition turns on and two dots become three.",
+      "ceilingNote": "Four is within reach from a desk: one source outside the schools that says the craft is alive around them.",
       "checker": "Arnaud Callier",
-      "date": "6 November 2026"
+      "date": "25 November 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
