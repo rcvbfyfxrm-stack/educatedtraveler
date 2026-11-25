@@ -3928,10 +3928,496 @@
       ],
       "checker": "Arnaud Callier",
       "date": "9 October 2026"
+    },
+    "classical-french-cuisine--paris": {
+      "text": "At the bistrot counter Paris serves œufs-mayo, steak tartare, bavette, blanquette de veau, then an île flottante or a crème brûlée. In the industrial revolution the Auvergnats, the bougnats, left the poor land of the Massif central for Paris, and little by little, to widen their custom, began to serve small meals. The counter is called the zinc even when it was made of pewter or plain wood; in 1930 Marcel Nectoux opened a counter-maker's workshop on rue de Charonne, and the skill has passed through three generations since. The city has given its Médaille de la Ville de Paris to 62 bistrots and lists them arrondissement by arrondissement. Between class days, find the one nearest where you sleep, stand at the zinc, and order the blanquette if it is on.",
+      "sources": [
+        {
+          "url": "https://www.paris.fr/pages/les-bistrots-sont-les-vraies-lumieres-de-paris-ou-l-on-peut-venir-sans-distinction-de-classe-26598",
+          "what": "comme les œufs-mayo, le steak tartare, la bavette de bœuf, la blanquette de veau ou le croque-monsieur. Et finir par une île flottante ou une crème brûlée",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.paris.fr/pages/les-bistrots-sont-les-vraies-lumieres-de-paris-ou-l-on-peut-venir-sans-distinction-de-classe-26598",
+          "what": "Lors de la Révolution industrielle, les Auvergnats - les fameux bougnats - quittent leurs terres pauvres du Massif central et montent à Paris.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.paris.fr/pages/les-bistrots-sont-les-vraies-lumieres-de-paris-ou-l-on-peut-venir-sans-distinction-de-classe-26598",
+          "what": "Voulant élargir leur clientèle, ils proposent peu à peu une petite restauration.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.paris.fr/pages/les-bistrots-sont-les-vraies-lumieres-de-paris-ou-l-on-peut-venir-sans-distinction-de-classe-26598",
+          "what": "Même s'il n’a jamais été fait de zinc, mais d’étain ou simplement de bois",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.paris.fr/pages/les-bistrots-sont-les-vraies-lumieres-de-paris-ou-l-on-peut-venir-sans-distinction-de-classe-26598",
+          "what": "En 1930, Marcel Nectoux ouvre un atelier de comptoir, rue de Charonne à Paris. Depuis, ce savoir-faire s'est transmis sur trois générations.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.paris.fr/pages/paris-celebre-ses-bistrots-et-honore-62-d-entre-eux-26606",
+          "what": "62 bistrots ont reçu la Médaille de la Ville de Paris à l'Hôtel de Ville. Découvrez-les dans votre arrondissement.",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "classical-french-cuisine--hyde-park-new-york": {
+      "text": "Hyde Park holds the homes of Franklin and Eleanor Roosevelt, among them Springwood, his birthplace, along with the nation's first Presidential Library and over a thousand acres of gardens and trails. The Vanderbilt estate, one of the region's oldest Hudson River estates, spreads over 400 acres of buildings and gardens, its formal gardens laid in tiers over a hillside. In the Fall, thousands of visitors come to the Hudson Valley to watch the leaves change colour. Between days at the bistro stove, walk out to the Overlook at Vanderbilt Mansion and look out over the Hudson River.",
+      "sources": [
+        {
+          "url": "https://www.nps.gov/hofr/index.htm",
+          "what": "Home to the 32nd and longest-serving president of the United States, Franklin D. Roosevelt returned to Hyde Park often, drawing on this place to renew his spirit during times of personal and political crisis.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/hofr/index.htm",
+          "what": "Explore the Roosevelt saga in the homes of Franklin and Eleanor Roosevelt",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/hofr/index.htm",
+          "what": "first Presidential Library, and over a thousand acres of gardens and trails.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/hofr/index.htm",
+          "what": "Springwood, birthplace and home of Franklin D. Roosevelt.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/elro/index.htm",
+          "what": "Franklin and Eleanor entertained friends, the press, activists, and official state visitors in the relaxed atmosphere of Val-Kill.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/vama/learn/historyculture/index.htm",
+          "what": "is one of the region's oldest Hudson River estates.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/vama/learn/historyculture/index.htm",
+          "what": "Explore over 400 acres of buildings and gardens at Hyde Park.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/vama/index.htm",
+          "what": "The formal gardens of the Vanderbilt Estate consist of multiple tiers defined over a hillside",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/vama/index.htm",
+          "what": "Thousands of visitors flock to the Hudson Valley in the Fall to see the leaves change colors.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.nps.gov/vama/index.htm",
+          "what": "The inspiring historic view of the Hudson River from the Overlook at Vanderbilt Mansion.",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "cheese-and-fermentation--ambierle-loire": {
+      "text": "The Mons house turned the old Tunnel de la Collonge into its ripening cave; the tacot once ran through it, the little train that linked the villages of the Côte roannaise in the early twentieth century. Vines have shaped the land around Ambierle since medieval times, the Côte roannaise wine won an AOC in 1994, and the commune counts five estates that carry it on, farmed organically or in conversion. The village sits on a promontory at 400 m, north of the Monts de la Madeleine, and depended on the abbey of Cluny for more than 850 years; its fifteenth-century priory church of Saint-Martin has been a listed monument since 1840. The Musée Alice Taverne keeps the rural life of this countryside from 1840 to 1940. Between days in the caves, walk up to la Madone above the village, then take a path back down through the vines.",
+      "sources": [
+        {
+          "url": "https://www.ambierle.fr/un-village-a-decouvrir.html",
+          "what": "La maison Mons, fromager et affineur, a reconverti en cave d'affinage l'ancien tunnel de la Collonge dans lequel circulait le tacot (train reliant les villages de la Côte roannaise au début du XXe siècle).",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/un-village-a-decouvrir.html",
+          "what": "Le vignoble façonne le paysage ambierlois et ce depuis le Moyen Age. Le vin de la Côte roannaise a obtenu en 1994 un AOC.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-naturel.html",
+          "what": "Actuellement cinq domaines viticoles perpétuent cette tradition, en agriculture biologique (ou en conversion).",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-naturel.html",
+          "what": "Au nord du massif des Monts de la Madeleine, entre plaine et relief",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-naturel.html",
+          "what": "Le village lui-même se situe sur un promontoire à 400 m",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-historique.html",
+          "what": "directement liée à sa dépendance à l'abbaye de Cluny durant plus de 850 ans",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-historique.html",
+          "what": "L'église priorale Saint-Martin",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-historique.html",
+          "what": "fut édifiée durant la seconde moitié du XVe siècle, sous le priorat d'Antoine de Balzac d'Entragues. Elle est classée monument historique depuis 1840.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/musee.html",
+          "what": "propose sur plus de 1000 m² des collections représentant la vie des campagnes roannaises et foréziennes entre 1840 et 1940.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/musee.html",
+          "what": "Musée Alice Taverne",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-naturel.html",
+          "what": "le lieu-dit de la Madone, surplombant le bourg, offre un point de vue exceptionnel sur la plaine",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ambierle.fr/patrimoine-naturel.html",
+          "what": "De nombreux sentiers à travers vignes, forêts et prairies sillonnent la commune",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "cheese-and-fermentation--poligny-jura": {
+      "text": "Poligny calls itself the capital of Comté, and the cheese's interprofession, the Comité Interprofessionnel de Gestion du Comté, has its address here. The Maison du Comté stands here too, three separate buildings at 1, rue de la Maison du Comté. The town's second food is its wine: in the heart of the Revermont it grows Chardonnay, Savagnin, Poulsard and Trousseau, and in 1997 it hosted the first Percée du Vin Jaune, for the savagnin wine aged six years and three months in cask. Between days in the school's hall, walk the Parcours de la Tour, ten stops through the historic centre.",
+      "sources": [
+        {
+          "url": "https://www.ville-poligny.fr/patrimoine.htm",
+          "what": "Poligny compte un peu plus de 5000 habitants. Capitale du Comté",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.comte.com/",
+          "what": "Comité Interprofessionnel de Gestion du Comté 39800 POLIGNY",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.comte.com/la-maison-du-comte/",
+          "what": "constituée de trois bâtiments distincts",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.comte.com/la-maison-du-comte/",
+          "what": "Maison du Comté 1, rue de la Maison du Comté 39800 POLIGNY",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/pole-agroalimentaire-et-scientifique.htm",
+          "what": "De la prairie à la cave d’affinage Maquette animée, vidéo, outils de la vie quotidienne de la ferme et de la fruitière",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/pole-agroalimentaire-et-scientifique.htm",
+          "what": "Au terme de la visite, une dégustation de plusieurs Comtés",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/pole-agroalimentaire-et-scientifique.htm",
+          "what": "La deuxième perle alimentaire polinoise est le vignoble.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/pole-agroalimentaire-et-scientifique.htm",
+          "what": "En plein cœur du Revermont, Poligny produit des vins de qualité en Chardonnay, Savagnin, Poulsard et Trousseau.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/pole-agroalimentaire-et-scientifique.htm",
+          "what": "En février 1997, Poligny accueillait la première Percée du Vin Jaune",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/pole-agroalimentaire-et-scientifique.htm",
+          "what": "est un cépage savagnin vieilli en fût durant six ans et trois mois.",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.ville-poligny.fr/patrimoine.htm",
+          "what": "Découvrez le PARCOURS DE LA TOUR, une promenade dans le centre historique de POLIGNY en 10 étapes.",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "thai-cuisine--bangkok": {
+      "text": "Since 2024, Thai cooking has had a dish on the Representative List of the Intangible Cultural Heritage of Humanity: Tomyum Kung, prawns boiled with herbs including lemongrass, kaffir lime leaves, galangal root and shallots, a soup that began among the Buddhist riverside communities in the Central Plains of Thailand. In the Ratchaprasong shopping district, at the Erawan Shrine, built in 1958, people circle for luck and leave incense and candles, and in front of CentralWorld devotees bring Ganesh fruit, garlands, sesame cakes and milk in the early hours of the morning. Keep a free afternoon for Chinatown. Take the MRT Blue Line to Wat Mangkon station, in the heart of Chinatown, and stay on Yaowarat Road into the evening, when its street-side food, dim sum, noodles and omelettes, is on offer.",
+      "sources": [
+        {
+          "url": "https://ich.unesco.org/en/RL/tomyum-kung-01879",
+          "what": "Inscribed in 2024",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/tomyum-kung-01879",
+          "what": "on the Representative List of the Intangible Cultural Heritage of Humanity",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/tomyum-kung-01879",
+          "what": "Tomyum Kung is a traditional prawn soup from Thailand. The prawns are boiled with herbs, including lemongrass, kaffir lime leaves, galangal root and shallots",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/tomyum-kung-01879",
+          "what": "The dish originated among the Buddhist riverside communities in the Central Plains of Thailand",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2017/06/visitors-bangkok-invited-take-shrine-culture-walk-ratchaprasong/",
+          "what": "Ratchaprasong shopping district",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2017/06/visitors-bangkok-invited-take-shrine-culture-walk-ratchaprasong/",
+          "what": "discover eight revered Hindu shrines",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2017/06/visitors-bangkok-invited-take-shrine-culture-walk-ratchaprasong/",
+          "what": "The Erawan Shrine, built in 1958",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2017/06/visitors-bangkok-invited-take-shrine-culture-walk-ratchaprasong/",
+          "what": "people circle the shrine for luck and leave offerings of incense and candles",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2014/11/eat-shop-love-pray-at-bangkoks-ratchaprasong/",
+          "what": "Enjoying pride of place in front of the CentralWorld shopping complex, the much-loved elephant-headed god Ganesh is visited in the early hours of the morning by revellers and devotees who bring huge amounts of fruit, garlands, sesame cakes and milk",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2024/06/exploring-bangkoks-old-city-and-yaowarat-is-super-easy-with-mrt-blue-line/",
+          "what": "take the MRT Blue Line",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2024/06/exploring-bangkoks-old-city-and-yaowarat-is-super-easy-with-mrt-blue-line/",
+          "what": "the Wat Mangkon MRT Station on Charoen Krung Road is in the heart of Chinatown",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2024/06/exploring-bangkoks-old-city-and-yaowarat-is-super-easy-with-mrt-blue-line/",
+          "what": "street-side food including dim sum, noodles, omelettes and much more",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.tatnews.org/2024/06/exploring-bangkoks-old-city-and-yaowarat-is-super-easy-with-mrt-blue-line/",
+          "what": "on offer during the evening. Yaowarat Road",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "peruvian-cuisine--lima": {
+      "text": "The practices around cebiche have been on the Representative List of the Intangible Cultural Heritage of Humanity since 2023: raw fish marinated in lemon, seasoned with chili pepper and salt, eaten every day and during festivities, and bound up with the festivity of Saint Peter, patron saint of the fishers. It is sold in traditional spaces such as cevicherías, where the work of traditional female cooks stands out. Lima's history runs back long before its foundation by the Spanish in 1535. In the heart of Miraflores, Huaca Pucllana, a truncated pyramid of small adobe bricks and straw, was raised by the ancient Lima culture as a ceremonial and funerary centre. Among Lima's desserts are suspiro a la limeña, mazamorra morada, picarones and turrón de Doña Pepa. Give a free afternoon to the huaca.",
+      "sources": [
+        {
+          "url": "https://ich.unesco.org/en/RL/practices-and-meanings-associated-with-the-preparation-and-consumption-of-ceviche-an-expression-of-peruvian-traditional-cuisine-01952",
+          "what": "Inscribed in 2023",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/practices-and-meanings-associated-with-the-preparation-and-consumption-of-ceviche-an-expression-of-peruvian-traditional-cuisine-01952",
+          "what": "on the Representative List of the Intangible Cultural Heritage of Humanity",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/practices-and-meanings-associated-with-the-preparation-and-consumption-of-ceviche-an-expression-of-peruvian-traditional-cuisine-01952",
+          "what": "prepared with raw fish marinated in lemon, seasoned with chili pepper and salt",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/practices-and-meanings-associated-with-the-preparation-and-consumption-of-ceviche-an-expression-of-peruvian-traditional-cuisine-01952",
+          "what": "The dish is consumed both on a daily basis and during festivities",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/practices-and-meanings-associated-with-the-preparation-and-consumption-of-ceviche-an-expression-of-peruvian-traditional-cuisine-01952",
+          "what": "the festivity of Saint Peter, patron saint of artisanal fishers",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/practices-and-meanings-associated-with-the-preparation-and-consumption-of-ceviche-an-expression-of-peruvian-traditional-cuisine-01952",
+          "what": "sold in traditional spaces such as cevicherías, where the work of traditional female cooks stands out",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/huaca-pucllana-and-huaca-huallamarca",
+          "what": "The history of Lima can be traced back to long before its foundation by the Spanish in 1535",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/huaca-pucllana-and-huaca-huallamarca",
+          "what": "truncated mud brick pyramids",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/huaca-pucllana-and-huaca-huallamarca",
+          "what": "Right in the heart of Miraflores and San Isidro, respectively, stand the imposing Huaca Pucllana and Huaca Huallamarca, which were built to serve as ceremonial and funerary centers by the ancient Lima culture",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/huaca-pucllana-and-huaca-huallamarca",
+          "what": "They were constructed from small adobe bricks and straw",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/culinary-lima",
+          "what": "Lima’s desserts are worthy of special mention",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/culinary-lima",
+          "what": "suspiro a la limeña",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/culinary-lima",
+          "what": "mazamorra morada",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/culinary-lima",
+          "what": "picarones",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.peru.travel/en/attractions/culinary-lima",
+          "what": "turrón de Doña Pepa",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "sake-and-sommellerie-of-sake--niigata": {
+      "text": "Sado is the sixth-largest island in Japan, off the coast of Niigata Prefecture, with a 280km coastline. Sake-making in Japan went onto the Representative List of the Intangible Cultural Heritage of Humanity in 2024; its chief sake makers are called toji, and it is transmitted through apprenticeships. About 10 minutes by car from Ogi Port, Shukunegi keeps over 100 houses walled with ship planks, and its boats, made only of cedar and bamboo, go out with a boatman who speaks the Ogi dialect. Between brewing days, spend a free afternoon on the water, then walk the village.",
+      "sources": [
+        {
+          "url": "https://www.visitsado.com/en/",
+          "what": "Sado is the sixth-largest island in Japan",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.visitsado.com/en/",
+          "what": "off the coast of Niigata Prefecture",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.visitsado.com/en/",
+          "what": "its 280km coastline",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/traditional-knowledge-and-skills-of-sake-making-with-koji-mold-in-japan-01977",
+          "what": "Inscribed in 2024",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/traditional-knowledge-and-skills-of-sake-making-with-koji-mold-in-japan-01977",
+          "what": "on the Representative List of the Intangible Cultural Heritage of Humanity",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/traditional-knowledge-and-skills-of-sake-making-with-koji-mold-in-japan-01977",
+          "what": "Chief sake makers, called",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/traditional-knowledge-and-skills-of-sake-making-with-koji-mold-in-japan-01977",
+          "what": "Sake-making is transmitted through apprenticeships",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.visitsado.com/en/spot/detail0121/",
+          "what": "Ogi Port Approx 10 minutes by car",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.visitsado.com/en/spot/detail0121/",
+          "what": "Shukunegi is characterised by the crowded rows of over 100 houses built with plate walls made from ship planks",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.visitsado.com/en/spot/detail0866/",
+          "what": "Each boat is handcrafted using only cedar and bamboo",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.visitsado.com/en/spot/detail0866/",
+          "what": "guided by a local boatman who speaks the Ogi dialect",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
+    },
+    "sake-and-sommellerie-of-sake--london": {
+      "text": "Sake brewers use koji mould to help convert rice starch into sugar, and the mould also breaks rice protein into amino acids, which gives sake a high umami factor. JFOODO, the organisation that promotes Japanese food products, has made that case for sake beside London food, from oysters to fish & chips. In Kensington, Japan House London, part of a global initiative led by the Japanese Ministry of Foreign Affairs, is free and open to everyone, and its library holds hard-to-find Japanese books. Between classes, give a free afternoon to that library.",
+      "sources": [
+        {
+          "url": "https://japan-food.jetro.go.jp/sake/uk/restaurants-2022/",
+          "what": "Sake brewers use koji mould to help convert the rice starch into sugar",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://japan-food.jetro.go.jp/sake/uk/restaurants-2022/",
+          "what": "The koji mould also breaks down the rice protein into amino acids, creating a high umami factor in the Sake",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://japan-food.jetro.go.jp/sake/uk/restaurants-2022/",
+          "what": "Brought to you by JFOODO - the organisation responsible for promoting Japanese agricultural, forestry, fishery and food products",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://japan-food.jetro.go.jp/sake/uk/restaurants-2022/",
+          "what": "from oysters to fish & chips",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.japanhouselondon.uk/about/",
+          "what": "101-111 Kensington High Street",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.japanhouselondon.uk/about/",
+          "what": "Japan House London is part of a global initiative led by the Japanese Ministry of Foreign Affairs",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.japanhouselondon.uk/about/",
+          "what": "Japan House London is free and open to everyone",
+          "read": "25 November 2026"
+        },
+        {
+          "url": "https://www.japanhouselondon.uk/about/",
+          "what": "The Library hosts a permanent collection of hard-to-find Japanese books",
+          "read": "25 November 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "25 November 2026"
     }
   },
-  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign. 4 Nov 2026: raised by six when Arnaud opened fermentation and bread-and-boulangerie by hand (eight places, no intro yet) and three places left the map. 2026-11-24: raised by six when five culinary crafts opened by hand (eight places, no town intro yet) and seven places with no school that passed left the map.",
-  "placeIntroDebtFloor": 125,
+  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign. 4 Nov 2026: raised by six when Arnaud opened fermentation and bread-and-boulangerie by hand (eight places, no intro yet) and three places left the map. 2026-11-24: raised by six when five culinary crafts opened by hand (eight places, no town intro yet) and seven places with no school that passed left the map. 2026-11-25: lowered 125 -> 121 when Arnaud signed the eight town intros for those places (debt 117 + headroom 4, the number the build printed).",
+  "placeIntroDebtFloor": 121,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
