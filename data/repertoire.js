@@ -18021,7 +18021,7 @@ window.ET_ATLAS = {
                 "format": "Chef demonstrations, then your own practical work",
                 "language": "French, with English translation",
                 "price": "€35,500",
-                "priceNote": "the fee table; the overview says €35,000. Application fee, knife kit and uniform included. Next intakes 5 Jan, 30 Mar, 28 Jun, 27 Sep 2027",
+                "priceNote": "confirmed by the school on 25 Nov 2026. Application fee, knife kit and uniform included. Next intakes 5 Jan, 30 Mar, 28 Jun, 27 Sep 2027",
                 "from": [
                   "https://www.cordonbleu.edu/paris/cuisine-diploma/en"
                 ],
@@ -19838,6 +19838,21 @@ window.ET_ATLAS = {
         "priceNote": "",
         "confidence": "medium",
         "priceFrom": "₹30,900"
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "South & Southeast Asia"
+        ],
+        "rejected": [
+          {
+            "name": "International Institute of Culinary Arts (IICA)",
+            "place": "New Delhi",
+            "url": "https://www.chefiica.com/",
+            "why": "A hands-on culinary school, but it teaches international cuisine; the only Indian sessions we found are single 3½-hour classes inside a mixed hobby programme, on its own pages, read on 24 November 2026."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {
@@ -19936,6 +19951,27 @@ window.ET_ATLAS = {
         ],
         "priceNote": "USD 12,000",
         "confidence": "high"
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "Latin America & Caribbean"
+        ],
+        "rejected": [
+          {
+            "name": "Instituto de Cocina D'Gallia",
+            "place": "Lima",
+            "url": "https://dgallia.edu.pe/",
+            "why": "Its site would not open for us on 24 November 2026. Its archived pages (2024) show a two-year cooking career for school-leavers; a Peruvian diploma for foreigners last appears in 2016, and we could not confirm a current Peruvian short course."
+          },
+          {
+            "name": "Instituto Columbia, Alta Cocina",
+            "place": "Lima",
+            "url": "https://www.columbia.edu.pe/altacocina",
+            "why": "A technical career in cooking for school-leavers; we found no short course, and its next start was given only as \"coming soon\", on its own pages, read on 24 November 2026."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {
@@ -20498,6 +20534,53 @@ window.ET_ATLAS = {
           "tripLength": "six days",
           "englishTaught": true,
           "englishBasis": "WSET School London teaches in English."
+        },
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "region": "East Asia",
+          "role": "credential",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Japan Sake and Shochu Makers Association (JSS)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "Where the Japan Sake and Shochu Makers Association runs its own five-day course in English, with about 90 sake and shochu to taste.",
+          "bestSeason": "One week a year (2027: 22-26 Feb)",
+          "level": "Intermediate -> Expert",
+          "id": "sake-and-sommellerie-of-sake--tokyo",
+          "schoolsInfo": [
+            {
+              "name": "Japan Sake and Shochu Makers Association (JSS)",
+              "url": "https://japansake.or.jp/sake/en/academy2027/",
+              "course": "Japan Sake & Shochu Academy 2027",
+              "blurb": "The Japan Sake and Shochu Makers Association runs a five-day course in English at the Nihonshuzo Toranomon Building in Tokyo, 9:00 to 17:00, for up to about 14 students: lectures on history, culture and how sake and shochu are made, tasting of about 90 samples, and a visit to a sake brewery and the Brewing Society of Japan. The certificate is issued by the National Research Institute of Brewing and the association. Applicants send a short essay. It teaches tasting and knowledge; you do not brew.",
+              "confidence": "high",
+              "facts": {
+                "from": [
+                  "https://japansake.or.jp/sake/en/academy2027/"
+                ],
+                "read": "2026-11-25",
+                "where": "Nishi-Shimbashi, Minato-ku, Tokyo",
+                "length": "5 days, 9:00 to 17:00",
+                "format": "Lectures and tasting, with a brewery visit",
+                "language": "English",
+                "class": "14 at most, about",
+                "price": "¥140,000",
+                "priceNote": "accommodation arranged and paid by the academy; 2027 course 22 to 26 Feb; places by short essay; 2027 applications close 30 Nov 2026, answers by 10 Dec"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Certification",
+          "tripLength": "five days",
+          "englishTaught": true,
+          "englishBasis": "The Japan Sake & Shochu Academy is taught in English."
         }
       ],
       "id": "sake-and-sommellerie-of-sake",
@@ -20517,6 +20600,21 @@ window.ET_ATLAS = {
         "sessions": [],
         "priceNote": "¥120,000",
         "confidence": "high"
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "Western Europe"
+        ],
+        "rejected": [
+          {
+            "name": "Sake Sommelier Academy",
+            "place": "London",
+            "url": "https://sakesommelieracademy.com/united-kingdom-london/",
+            "why": "A multi-day Certified Sake Sommelier course, but the booking page of its London partner, Kizuna Japanese Sake (Omysake), would not open for us on 24 November 2026, so we could not check its dates or price."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {
@@ -21664,6 +21762,21 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "East Asia"
+        ],
+        "rejected": [
+          {
+            "name": "Tea Drunk, Wu Yi Shan Educational Tea Tour",
+            "place": "Wuyishan, Fujian",
+            "url": "https://www.teadrunk.com/products/educational-tea-tour-wu-yi-shan",
+            "why": "A six- or ten-day group tour from 2 November, with one afternoon workshop of hand processing and tea-evaluation workshops, on its own page read on 25 November 2026; its 2026 tour has already run."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {
@@ -24404,6 +24517,27 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "East Asia"
+        ],
+        "rejected": [
+          {
+            "name": "Sichuan Tourism University (formerly Sichuan Higher Institute of Cuisine)",
+            "place": "Chengdu",
+            "url": "http://www.sctu.edu.cn/en/",
+            "why": "Its English site lists four-year degrees for international students; we found no short Sichuan course for a visiting cook, on its own pages, read on 24 November 2026."
+          },
+          {
+            "name": "Chinese Culinary Institute (VTC)",
+            "place": "Hong Kong",
+            "url": "https://cpe.vtc.edu.hk/en/member_institutions/cci.html",
+            "why": "Its certificates and diplomas, the diplomas two years, are aimed at local students and taught in Chinese; VTC mentions interest courses, but we found none listed, on its own pages, read on 24 November 2026."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {
@@ -24592,6 +24726,27 @@ window.ET_ATLAS = {
             "confidence": "low"
           }
         ]
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "East Asia"
+        ],
+        "rejected": [
+          {
+            "name": "Institute of Traditional Korean Food (한국전통음식연구소)",
+            "place": "Seoul",
+            "url": "https://kfr.or.kr/",
+            "why": "Twelve-week courses with full syllabi in its own kitchens, but they meet once a week on Saturdays and are taught in Korean, so they suit someone living in or near Seoul for three months, on its own pages, read on 24 November 2026."
+          },
+          {
+            "name": "Korean Temple Food Center",
+            "place": "Seoul",
+            "url": "https://www.koreatemplefood.com/",
+            "why": "What a visitor can book is two- and three-hour hands-on classes taught by monks; the regular courses are in Korean, on its own pages, read on 24 November 2026."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {
@@ -24806,6 +24961,21 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
+      },
+      "sweep": {
+        "date": "2026-11-24",
+        "regions": [
+          "South & Southeast Asia"
+        ],
+        "rejected": [
+          {
+            "name": "Green Bamboo Cooking School",
+            "place": "Hoi An",
+            "url": "https://greenbamboo-hoian.com/",
+            "why": "A full-day course, 8 am to 3 pm, with a market visit, for 2 to 12 people, on its own pages, read on 24 November 2026."
+          }
+        ],
+        "bounded": "These schools were on our record for this craft and were the hardest calls. Each was checked on 24 November 2026, on its own site where it would open; this was not a worldwide search."
       }
     },
     {

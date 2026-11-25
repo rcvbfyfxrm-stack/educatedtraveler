@@ -49,8 +49,7 @@
     "thai-cuisine--chiang-mai.html",
     "peruvian-cuisine--cusco.html",
     "peruvian-cuisine--arequipa.html",
-    "sake-and-sommellerie-of-sake--nada-kobe-hyogo.html",
-    "sake-and-sommellerie-of-sake--tokyo.html"
+    "sake-and-sommellerie-of-sake--nada-kobe-hyogo.html"
   ],
   "pinnedOpen": [
     "oaxacan-and-mexican-cuisine",
@@ -1390,7 +1389,8 @@
     "thai-cuisine--bangkok": "Learn more than two hundred Thai recipes, regional and royal, each one cooked with your own hands, taught in English.",
     "peruvian-cuisine--lima": "Learn the aderezos, the ají bases and the fish work of the Peruvian kitchen, in Spanish with live English translation.",
     "sake-and-sommellerie-of-sake--niigata": "Learn to steam the rice, make koji by hand and build a three-stage mash, about four people at a time.",
-    "sake-and-sommellerie-of-sake--london": "Learn to taste and describe sake for the Level 3 exam, which ends in a blind tasting of two sakes."
+    "sake-and-sommellerie-of-sake--london": "Learn to taste and describe sake for the Level 3 exam, which ends in a blind tasting of two sakes.",
+    "sake-and-sommellerie-of-sake--tokyo": "Learn to describe what is in the glass and where the flavour comes from, across about 90 sake and shochu."
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1416,7 +1416,8 @@
     "thai-cuisine--bangkok": "Learn the whole Thai repertoire, regional and royal, nine months at Le Cordon Bleu Dusit",
     "peruvian-cuisine--lima": "Learn Peruvian cooking from cebiche to pachamanca, in a twelve-month diploma",
     "sake-and-sommellerie-of-sake--niigata": "Learn to brew sake, a week with the brewers in a former school on Sado",
-    "sake-and-sommellerie-of-sake--london": "Learn to judge sake for the WSET Level 3 Award, in six days of class"
+    "sake-and-sommellerie-of-sake--london": "Learn to judge sake for the WSET Level 3 Award, in six days of class",
+    "sake-and-sommellerie-of-sake--tokyo": "Learn to taste sake and shochu, five days in English with the makers' association"
   },
   "_craftImages_comment": "A licensed picture OF THE CRAFT, for a craft no school has photographed. Keyed by craft id, but TAKEN AT ONE PLACE: Arnaud, 27 September 2026, 'make sure the photo on the skill card of the Atlas matches the location of the card'. It used to say the picture belonged nowhere and could ride any card, and 16 of 22 were of somewhere else (yoga in Bali under Mysore, a Namibian farm under Greater Kruger, a Californian surfer under Waikiki). Every entry ships six things: src, alt, credit, licence, sourceUrl and takenAt, the destination id the picture was taken at (plus an optional focal). The build refuses one whose takenAt is not the place the card rests on, and the browse page drops it when a filter moves the card to another town. takenAt is only as good as the Commons page: read the description, categories or coordinates, never the title alone. A licence with no source is not checkable, and being checkable is this map's whole claim. THE TWO CLASSES MAY NEVER BE CONFUSED: a craft image is drawn by .craftshot/--illus, never .cardshot/--shot; its credit names its maker and its LICENCE and stops, and may never start with 'Photo:', which is reserved for a picture a school sent us; and the build REFUSES a craft image on a craft that already has a school photograph, because the school's own room always wins. IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE — a spherified pearl is what modernist technique looks like anywhere; a school's front door under another town's name is the same lie as composing a place sentence. AND NO IMAGE IS BETTER THAN A GENERIC ONE: a craft with no truthful picture keeps the typographic card, and that is a finished state, not a gap to fill with stock. Lifestyle Medicine is the case that proves it — its own sheet says it is a credential, not a place. 10 crafts carry one after the 27 September re-hunt (8 replaced, sushi and ski touring kept). Modernist Spanish Cuisine lost its licensed picture the same day to the photographs Vakuum sent us: a school's own room comes first. Eleven lost theirs because Commons holds nothing honest taken at the card's place: ashtanga-yoga (Mysore), cold-exposure-wim-hof-method (Karkonosze), jewelry-and-goldsmithing (Florence: shop windows only), organic-farm-to-table-cooking (Ballymaloe: empty gardens), pottery-and-ceramics (Mashiko: kilns, no potter), sound-healing (Nepal: bowls on market stalls), spearfishing (Cote d'Azur), vipassana-and-meditation (Dhamma Giri: the pagoda only, a landmark), wildlife-photography (Pusztaszer), windsurfing-and-wing-foil (Karpathos), yacht-crew-and-stcw (Antibes: yacht portraits, no crew). A school's photograph, or a Flickr CC BY find, is the way back for each. FIVE ARE DELIBERATELY EMPTY and should stay that way until something honest exists: japanese-knife-making (Commons holds museum record shots of finished blades and European smiths at European forges — a German smith under the word Shimanto is the lie this class guards against), perfumery (liquor distilling, 18th-century engravings and a petroleum refinery; no perfumer at the organ exists free), lymphatic-drainage (generic massage, none of it the clinical technique), new-basque-cuisine (finished plates and bar pintxos, nothing of the Arzak/Subijana movement — and pintxos would blur the very distinction the Atlas just drew), and lifestyle-medicine (never searched: its own sheet says it is a credential, not a place). self-sufficiency was searched and left empty too — a pool of six, none of it honest. See CRAFT_IMAGES in scripts/build-atlas-pages.py. 24 November 2026: sushi-and-washoku gave its licensed picture up to the JCMA bench photographed by the school itself, and new-basque-cuisine, chocolate-and-confectionery, mixology-and-bartending and organic-farm-to-table-cooking gained one each, each taken in the card's own town (Arnaud: make the photo iconic, and when there is material from the school, choose that). Bread wears a baker shaping baguettes at the Salon de l'Agriculture in Paris (Commons files it under Bakeries in Paris and Men at work in Paris).",
   "craftImages": {
@@ -5646,7 +5647,8 @@
             "englishTaught": true,
             "englishBasis": "Sake Sommelier Academy and SSI International Kikisake-shi are international English-language certification courses based in Tokyo"
           },
-          "lines": {}
+          "lines": {},
+          "returned": "2026-11-25: back on the map with the Japan Sake & Shochu Academy only, on Arnaud's ruling \"List it\" (a tasting course in English; no brewing by hand)."
         }
       }
     }
