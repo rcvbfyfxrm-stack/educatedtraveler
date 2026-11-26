@@ -1,4 +1,4 @@
-// Circle follow-up: two days after the welcome, to people who joined WITHOUT a note,
+// Circle follow-up: three days after the welcome (two until 26 Nov 2026), to people who joined WITHOUT a note,
 // ask who they are and what they would like to learn (Arnaud, 12 Nov 2026). Called once a day by
 // pg_cron (job "circle-followup-daily"). Idempotent: a row is sent once
 // (followed_up_at), a person once (email match), so a forged call can at most
@@ -13,9 +13,14 @@ const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const admin = createClient(SUPABASE_URL, SERVICE_KEY);
 // Only people who join from the day this shipped. Older members never get it.
 const START = "2026-11-12T00:00:00Z";
-const DELAY_DAYS = 2;
+// 3 days since 26 Nov 2026 (Arnaud: "a few days after"). Was 2.
+const DELAY_DAYS = 3;
+// "I'm interested" taps on the Atlas get it too, but only those tapped from this day:
+// the older tap reply promised "the next one won't be [automatic]", and Ondine
+// (25 Nov) gets the same questions as a personal note from Arnaud instead.
+const TAP_START = "2026-11-27T00:00:00Z";
 // Doors that already got their own reply (or paid, or only tapped "interested").
-const SKIP = [/^pay:/, /:interested$/, /^atlas-letter/, /^atlas-interest/, /^teach-offer$/];
+const SKIP = [/^pay:/, /:interested$/, /^atlas-letter/, /^teach-offer$/];
 
 const json = (b: unknown, status = 200) =>
   new Response(JSON.stringify(b), { status, headers: { "Content-Type": "application/json" } });
@@ -26,7 +31,7 @@ function craftFromSlug(slug: string) {
     w === "stcw" ? "STCW" : (i > 0 && SMALL.has(w)) ? w : w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
-type Row = { id: string; email: string; source: string | null; interests: unknown; letter: string | null; unsubscribe_token: string };
+type Row = { id: string; email: string; source: string | null; interests: unknown; letter: string | null; unsubscribe_token: string; created_at?: string };
 
 export function doorLine(row: Pick<Row, "source" | "interests">): string {
   const s = String(row.source ?? "");
@@ -35,6 +40,13 @@ export function doorLine(row: Pick<Row, "source" | "interests">): string {
   let craft = "";
   for (const i of items) if (i?.kind === "discipline" && !craft) craft = String(i.label ?? i.discipline ?? "").trim();
   let line = "";
+  if (s.startsWith("atlas-interest")) {
+    let what = "", where = "";
+    for (const i of items) if (i?.kind === "school-interest" && !what) { what = String(i.craft ?? "").trim(); where = String(i.place ?? "").trim(); }
+    if (!what) what = craft.split(" · ")[0] || craftFromSlug(s.split(":")[1] ?? "");
+    what = what.replace(/ & /g, " and ");
+    return `You tapped "I'm interested" on ${what || "a craft on the Atlas"}${where ? " in " + where : ""}. A tap tells me what, but not who, and the who is what I need to point you at the right place.`;
+  }
   if (s === "circle-whatsapp-first") line = "You came in through the note I sent on WhatsApp";
   else if (s === "circle-questionnaire") line = "You joined through the Circle page on the site";
   else if (s === "homepage-circle") line = "You joined from the front page of the site";
@@ -82,7 +94,7 @@ serve(async (req) => {
 
     const cutoff = new Date(Date.now() - DELAY_DAYS * 86400e3).toISOString();
     const { data, error } = await admin.from("launch_waitlist")
-      .select("id,email,source,interests,letter,unsubscribe_token")
+      .select("id,email,source,interests,letter,unsubscribe_token,created_at")
       .gte("created_at", START).lte("welcomed_at", cutoff)
       .is("followed_up_at", null).eq("unsubscribed", false)
       .neq("last_issue", "welcome-skipped-duplicate");
@@ -93,6 +105,7 @@ serve(async (req) => {
     for (const r of (data ?? []) as Row[]) {
       const key = r.email.trim().toLowerCase();
       if (seen.has(key) || SKIP.some((re) => re.test(String(r.source ?? "")))) continue;
+      if (String(r.source ?? "").startsWith("atlas-interest") && String(r.created_at ?? "") < TAP_START) continue;
       if (wroteANote(r)) continue; // only people who joined without a note
       const { count } = await admin.from("launch_waitlist").select("id", { count: "exact", head: true })
         .ilike("email", key).not("followed_up_at", "is", null);

@@ -407,8 +407,8 @@ function atlasInterestHtml(unsub: string, name?: string, craft?: string, school?
   const wa = encodeURIComponent((school || craft || "that craft").trim());
   const body = `
     <p ${WL}>${who ? who + "," : "Hello,"}</p>
-    <p ${LEDE}>You tapped <em>I'm interested</em> on ${what}, and it is noted. <strong>This reply is automatic; the next one won't be.</strong></p>
-    <p ${WL}>Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.</p>
+    <p ${LEDE}>You tapped <em>I'm interested</em> on ${what}, and it is noted. <strong>This reply is automatic.</strong></p>
+    <p ${WL}>Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. In a few days I'll send you three quick questions. After that, I write only when there is something real about ${c}, and you can leave from any note.</p>
     <p ${WL}>If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.</p>
     <p ${WL}>Or message me on <a href="https://wa.me/33749745254?text=Arnaud%20-%20I%20tapped%20I%27m%20interested%20on%20${wa}." ${WLINK}>WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     ${signature("Talk soon,<br>Arnaud")}`;
@@ -423,9 +423,9 @@ function atlasInterestText(unsub: string, name?: string, craft?: string, school?
   const wa = encodeURIComponent(s || c);
   return `${who ? who + "," : "Hello,"}
 
-You tapped "I'm interested" on ${what}, and it is noted. This reply is automatic; the next one won't be.
+You tapped "I'm interested" on ${what}, and it is noted. This reply is automatic.
 
-Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. I write once, when there is something real about ${c}, nothing else, and you can leave from any note.
+Here is what that tap means. You're in the Circle — the people who have told me which craft they want to learn. What the Circle asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. In a few days I'll send you three quick questions. After that, I write only when there is something real about ${c}, and you can leave from any note.
 
 If you want to tell me more — how you'd love to learn it, and where — hit reply. I read every one myself.
 
@@ -612,23 +612,35 @@ export async function sendCircleEmail(
 // NOT in ISSUES on purpose: circle-broadcast must never be able to send it to
 // the whole Circle. Only circle-followup calls this.
 export function followupEmail(unsub: string, firstName: string, doorLine: string) {
-  const n = firstName.trim();
-  const subject = n ? `Tell me about you, ${n}` : "Tell me about you";
+  // "Three quick ones", Arnaud's yes 26 Nov 2026 ("oui pour tout"): three easy
+  // questions, any one is enough, in an email, never a form. Day 3, not day 2.
+  const raw = firstName.trim();
+  const n = raw ? raw.charAt(0).toUpperCase() + raw.slice(1) : "";
+  const subject = n ? `Three quick ones, ${n}` : "Three quick ones";
   const hello = n ? `Hey ${n},` : "Hey,";
   const wa = "https://wa.me/33749745254?text=" + encodeURIComponent("Arnaud - a little about me:");
-  const paras = [
-    doorLine,
-    // Short since 21 Nov 2026 (Arnaud: "shorten the follow up too").
-    "What would you love to learn, and where are you with it today? Two lines is plenty. It stays between us, and it helps me look for the right place and the right teacher.",
-  ].filter(Boolean);
+  const qs = [
+    "What do you do today, and where?",
+    "What would you love to learn next?",
+    "If it went perfectly: where, with whom, and for how long?",
+  ];
+  const close = "A line each is plenty. Your answers become the start of your profile in the Circle, and I read every one myself.";
   const html = welcomeShell({ unsub, body: `
     <p ${WL}>${esc(hello)}</p>
-${paras.map((p) => `    <p ${WL}>${esc(p)}</p>`).join("\n")}
+${doorLine ? `    <p ${WL}>${esc(doorLine)}</p>\n` : ""}    <p ${WL}>Three quick ones. Answer one, or all three:</p>
+    <ol style="margin:0 0 22px 0;padding-left:22px;">
+${qs.map((q) => `      <li style="margin:0 0 8px 0;">${esc(q)}</li>`).join("\n")}
+    </ol>
+    <p ${WL}>${esc(close)}</p>
     <p ${WL}>Hit reply, or <a href="${wa}" ${WLINK}>WhatsApp</a> if that's easier.</p>
     ${signature("Talk soon,<br>Arnaud")}` });
   const text = `${hello}
 
-${paras.join("\n\n")}
+${doorLine ? doorLine + "\n\n" : ""}Three quick ones. Answer one, or all three:
+
+${qs.map((q, i) => `${i + 1}. ${q}`).join("\n")}
+
+${close}
 
 Hit reply, or WhatsApp if that's easier.
 ${wa}
