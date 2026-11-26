@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-11-25 — 438 published claims re-read against the pages they came from, across 44 open crafts._
+_2026-11-26 — 528 published claims re-read against the pages they came from, across 44 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -31,34 +31,31 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- pottery-and-ceramics · Hamada Shoji Memorial Mashiko Sankokan — 1 night — URLError: <urlopen error timed out>
-  - https://mashiko-sankokan.net/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 51 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 52 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 51 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
+- mixology-and-bartending · Cocktail-making workshop — 52 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>
   - https://www.havanaclubmuseum.com/en/experiences/
-- thai-massage · UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho — 2 nights — RemoteDisconnected: Remote end closed connection without response
-  - https://www.unesco.org/en/memory-world/epigraphic-archives-wat-pho
-- modern-new-technique-cuisine · As a Creative City of Literature, Melbourne — 1 night — RemoteDisconnected: Remote end closed connection without response
+- modern-new-technique-cuisine · Category: Literature Member since: 2008 — 1 night — RemoteDisconnected: Remote end closed connection without response
   - https://www.unesco.org/en/creative-cities/melbourne
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **coffee-and-barista · African Coffee Campus** — 31 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
-  - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)>
-- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — 18 nights — https://www.ugcb.net/en
-  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.ugcb.net'. (_ssl.c:1011)>
-- **perfumery · Musée International de la Parfumerie** — 72 nights — https://www.museesdegrasse.com/mip/presentation
+- **peruvian-cuisine · Le Cordon Bleu Perú** — 1 night — https://cursoslibrespec.ilcb.edu.pe/diploma-en-gastronomia-peruana/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
-- **perfumery · Un conservatoire de plantes à parfum** — 72 nights — https://www.museesdegrasse.com/mip/presentation
+- **coffee-and-barista · African Coffee Campus** — 32 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+  - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1011)>
+- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — 19 nights — https://www.ugcb.net/en
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.ugcb.net'. (_ssl.c:1011)>
+- **perfumery · Musée International de la Parfumerie** — 73 nights — https://www.museesdegrasse.com/mip/presentation
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
+- **perfumery · Un conservatoire de plantes à parfum** — 73 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>
 
 ## Back to normal
 
-- kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery
-- kitesurfing · the IKO Kiteboarder levels — Level 4 — Advanced
+- kitesurfing · the IKO Kiteboarder levels
 
 ## Unreadable, not gone
 
@@ -92,6 +89,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - mixology-and-bartending · European Bartender School London — HTTP 403
+- mixology-and-bartending · The Spirit Lab — HTTP 403
 - wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
 - surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
@@ -104,7 +102,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
-- pottery-and-ceramics · Bizen / Seto / Tokoname (Six Ancient Kilns), as a place on this page — URLError: <urlopen error timed out>
 - coffee-and-barista · Yirgacheffe / Addis Ababa, as a place on this page — HTTP 403
 - coffee-and-barista · Coffee Craft Academy — URLError: <urlopen error [Errno -2] Name or service not known>
 - mixology-and-bartending · Havana, as a place on this page — URLError: <urlopen error [Errno 111] Connection refused>
