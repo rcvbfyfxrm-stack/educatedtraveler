@@ -2645,7 +2645,10 @@ _PLACE_LABEL_RULES = [
     ("A gold credential",        lambda s: "gold-cred" in s.get("badges", []),  lambda s: s["communityRank"]),
     ("Record holder",            lambda s: "record" in s.get("badges", []),     lambda s: s["communityRank"]),
     ("Most schools listed here", lambda s: len(s.get("schoolsInfo") or []) >= 2, lambda s: len(s.get("schoolsInfo") or [])),
-    ("Year-round",               lambda s: "year" in (s.get("bestSeason") or "").lower(), lambda s: s["communityRank"]),
+    # ⚠ 27 Nov 2026: was `"year" in bestSeason`, which printed "Year-round" on "Once a year",
+    # "One week a year" and "academic year" (six places, Tokyo sake live for a day).
+    ("Year-round",               lambda s: bool(re.search(r"year[- ]?round|all[- ]year|all the year",
+                                                          s.get("bestSeason") or "", re.I)), lambda s: s["communityRank"]),
     ("Heritage",                 lambda s: "heritage" in s.get("badges", []),   lambda s: s["communityRank"]),
     ("__trip",                   lambda s: s.get("tripType") in _TRIP_LABEL,    lambda s: s["communityRank"]),
     ("__season",                 lambda s: bool((s.get("bestSeason") or "").strip()), lambda s: s["communityRank"]),

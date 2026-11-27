@@ -32652,6 +32652,267 @@ window.ET_ATLAS = {
         "priceNote": "₹75,953 for one cook, private double room, valid until 31 May 2027",
         "confidence": "high"
       }
+    },
+    {
+      "discipline": "Foraging & Wild Food",
+      "category": "culinary",
+      "certBody": "No formal body. A school prints its own certificate, where it gives one at all.",
+      "goldCredential": "None that we found: no outside body sets an exam for these courses.",
+      "blurb": "Finding, naming and cooking what grows wild: shore plants and seaweeds, shellfish, wild herbs and mushrooms, and knowing which ones to leave alone.",
+      "id": "foraging-and-wild-food",
+      "certShort": "No formal credential",
+      "featured": {
+        "id": "foraging-and-wild-food--west-coast-of-scotland",
+        "place": "West Coast of Scotland",
+        "country": "Scotland",
+        "school": "Galloway Wild Foods with Sail Britain",
+        "url": "https://gallowaywildfoods.com/product/spring-sailing-and-foraging-week/",
+        "course": "Sailing and Foraging Week",
+        "description": "Seven days on a sailing yacht with six guests: ashore to forage the islands and sea lochs with Mark Williams, then back on board to preserve and cook the finds in the galley, with some fishing and your turn at the helm.",
+        "duration": "7 days, 6 nights on board",
+        "format": "Foraging ashore, cooking in the galley",
+        "certification": "None",
+        "fitsBecause": "What you pick in the morning is what you cook that night, in a boat's galley.",
+        "sessions": [
+          "2027-05-15",
+          "2027-08-07"
+        ],
+        "priceNote": "£1,395",
+        "confidence": "high"
+      },
+      "sweep": {
+        "date": "2026-11-26",
+        "regions": [
+          "Western Europe",
+          "Nordic & Baltic",
+          "North America"
+        ],
+        "rejected": [
+          {
+            "name": "Sami Tallberg, Supernatural",
+            "place": "Ruissalo, Turku",
+            "url": "https://samitallberg.com/course/supernatural",
+            "why": "Two single days, one in May and one in September, not a run of days; on its own page, read on 26 November 2026."
+          },
+          {
+            "name": "Maine Primitive, 5-Day Foraging Intensive",
+            "place": "Maine",
+            "url": "https://www.maineprimitive.com/experiences-in-person/p/maine-primitive-foraging-courses-foods-medicinals-and-utilities",
+            "why": "Five days, but its page names no teacher and mixes wild food with remedy-making; read on 26 November 2026."
+          },
+          {
+            "name": "Forest To Plate, 8-Day Wild Food Sweden",
+            "place": "Västervik",
+            "url": "https://www.foresttoplate.com/wild-food-sweden-2026-eng",
+            "why": "A hiking and canoe trip with a guide its page does not name, and the meals are catered; read on 26 November 2026."
+          }
+        ],
+        "bounded": "These were the closest calls in a search for week-long foraging courses a cook from abroad can book, on 26 November 2026. It was not a worldwide search: most foraging is taught as single days and weekends, and those were not listed."
+      },
+      "destinations": [
+        {
+          "place": "West Coast of Scotland",
+          "country": "Scotland",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Galloway Wild Foods with Sail Britain"
+          ],
+          "masters": [
+            "Mark Williams"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "Scotland's west coast, where Mark Williams of Galloway Wild Foods spends a week on a sailing yacht with six guests, foraging ashore and cooking the finds in the galley.",
+          "bestSeason": "Twice a year (2027: 15-21 May, from 7 Aug)",
+          "level": "Beginner -> Intermediate",
+          "id": "foraging-and-wild-food--west-coast-of-scotland",
+          "schoolsInfo": [
+            {
+              "name": "Galloway Wild Foods with Sail Britain",
+              "url": "https://gallowaywildfoods.com/product/spring-sailing-and-foraging-week/",
+              "course": "Sailing and Foraging Week",
+              "blurb": "Mark Williams of Galloway Wild Foods, who taught his first fungi workshop more than 35 years ago, leads seven days on Sail Britain's 42 ft expedition yacht Merlin, skippered by Oliver Beardon, who founded Sail Britain in 2015, with six guests at most. You go ashore to forage, then preserve and cook what you found in the galley, try some fishing, and sail as crew. The spring week, ending in Oban, is timed for seaweeds and coastal plants; the August week, around Skye and the small isles, for mushrooms. It is open to beginners. In Scotland, picking wild fungi and berries for your own use is not affected by the access law; taking anything away to sell or for profit needs the landowner's permission. The access code says nothing about shellfish: ask the school what you may take.",
+              "confidence": "high",
+              "facts": {
+                "where": "Islands and sea lochs, west Scotland",
+                "length": "7 days, 6 nights on board",
+                "format": "Foraging ashore, then cooking the finds in the galley",
+                "language": "English",
+                "class": "6 guests at most",
+                "price": "£1,395",
+                "priceNote": "6 nights on board and all meals included; 2027 weeks 15 to 21 May and from 7 Aug",
+                "from": [
+                  "https://gallowaywildfoods.com/product/spring-sailing-and-foraging-week/",
+                  "https://gallowaywildfoods.com/product/august-sailing-and-foraging-week/",
+                  "https://gallowaywildfoods.com/about-galloway-wild-foods-and-mark-williams/",
+                  "https://outdooraccess-scotland.scot/practical-guide-all/out-and-about/collecting-wild-food"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "one week",
+          "englishTaught": true,
+          "englishBasis": "The course pages are in English."
+        },
+        {
+          "place": "Galloway (near Portpatrick)",
+          "country": "Scotland",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Galloway Wild Foods with The Wilderness Folk School"
+          ],
+          "masters": [
+            "Mark Williams",
+            "Steven Hanton"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "The Galloway coast, where Mark Williams teaches seaweeds, shore plants and shellfish for three days from a camp in the woods, two minutes from the sea.",
+          "bestSeason": "Once a year (2027: 6-9 May)",
+          "level": "Beginner -> Intermediate",
+          "id": "foraging-and-wild-food--galloway",
+          "schoolsInfo": [
+            {
+              "name": "Galloway Wild Foods with The Wilderness Folk School",
+              "url": "https://gallowaywildfoods.com/?p=13137",
+              "course": "Coastal Foraging and Wild Cookery Camp",
+              "blurb": "Three days at a camp in woodland two minutes' walk from the sea, on the Dunskey Estate near Portpatrick, with Mark Williams of Galloway Wild Foods and Steven Hanton of The Wilderness Folk School: walks and forays on sand, shingle and cliff, the coastal vegetables and seaweeds of May, fish and shellfish preparation, and hands-on cookery over open fires. Tuition, camping and food are included. It is open to foraging novices. In Scotland, picking wild fungi and berries for your own use is not affected by the access law; taking anything away to sell or for profit needs the landowner's permission. The access code says nothing about shellfish: ask the school what you may take.",
+              "confidence": "high",
+              "facts": {
+                "where": "Dunskey Estate, near Portpatrick",
+                "length": "3 days",
+                "format": "Shore forays, then cooking over the fire",
+                "language": "English",
+                "price": "£595",
+                "priceNote": "with camping, tuition and food; a room or a campervan costs more; 2027 camp 6 to 9 May",
+                "from": [
+                  "https://gallowaywildfoods.com/?p=13137",
+                  "https://outdooraccess-scotland.scot/practical-guide-all/out-and-about/collecting-wild-food"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "three days",
+          "englishTaught": true,
+          "englishBasis": "The course pages are in English."
+        },
+        {
+          "place": "Perthshire (near Aberfeldy)",
+          "country": "Scotland",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Galloway Wild Foods with The Wilderness Folk School"
+          ],
+          "masters": [
+            "Mark Williams",
+            "Steven Hanton"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "The Perthshire woods in October, where Mark Williams and Steven Hanton spend three days on wild mushrooms, from the forest floor to the fire.",
+          "bestSeason": "Once a year (2027: 8-10 Oct)",
+          "level": "Beginner -> Intermediate",
+          "id": "foraging-and-wild-food--perthshire",
+          "schoolsInfo": [
+            {
+              "name": "Galloway Wild Foods with The Wilderness Folk School",
+              "url": "https://gallowaywildfoods.com/product/wild-mushroom-bushcraft-camp-perthshire-copy/",
+              "course": "Wild Mushroom & Bushcraft Camp",
+              "blurb": "Three days in a riverside oak woodland near Aberfeldy with Mark Williams, who has taught wild mushroom identification for more than 30 years, and Steven Hanton of The Wilderness Folk School: forays, mycology and identification, then hands-on cookery over the fire, with plants too. Tuition, camping and food are included. It is open to fungi novices. In Scotland, picking wild fungi and berries for your own use is not affected by the access law; taking anything away to sell or for profit needs the landowner's permission.",
+              "confidence": "high",
+              "facts": {
+                "where": "Near Aberfeldy, Perthshire",
+                "length": "3 days",
+                "format": "Mushroom forays and identification, then fire cookery",
+                "language": "English",
+                "price": "£595",
+                "priceNote": "with camping, tuition and food; 2027 camp 8 to 10 Oct, booked through The Wilderness Folk School",
+                "from": [
+                  "https://gallowaywildfoods.com/product/wild-mushroom-bushcraft-camp-perthshire-copy/",
+                  "https://outdooraccess-scotland.scot/practical-guide-all/out-and-about/collecting-wild-food"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "three days",
+          "englishTaught": true,
+          "englishBasis": "The course pages are in English."
+        },
+        {
+          "place": "Brianza, Lombardy",
+          "country": "Italy",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Wood*ing Wild Food Lab"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "Lombardy, where Wood*ing, a wild food lab whose foraging courses meet in Brianza, runs an academy made for chefs and mixologists.",
+          "bestSeason": "Dates given on request each year",
+          "level": "Beginner -> Professional",
+          "id": "foraging-and-wild-food--brianza-lombardy",
+          "schoolsInfo": [
+            {
+              "name": "Wood*ing Wild Food Lab",
+              "url": "https://wood-ing.org/prodotto/foraging-academy/",
+              "course": "Foraging Academy",
+              "blurb": "Wood*ing, the wild food lab Valeria Margherita Mosca founded in 2010, runs a foraging academy made for chefs and mixologists, and open to keen amateurs: four consecutive full days, 9:00 to 18:00, then five one-day modules over the following months, set by the season. Several teachers from the lab's team cover identification of plants and roots and the places they grow, the rules that protect them, ethnobotany, and preserving and fermenting what you pick. It ends with a theory and practical exam and a certificate of attendance. Dates and price are given on request, and the site does not say which language it is taught in.",
+              "confidence": "medium",
+              "facts": {
+                "where": "Not stated; base courses meet in Brianza",
+                "length": "4 days full time, then 5 single days",
+                "format": "Identification in the field, preserving and fermentation",
+                "credential": "Exam and certificate of attendance",
+                "priceNote": "dates and price on request (shop@wood-ing.org)",
+                "from": [
+                  "https://wood-ing.org/prodotto/foraging-academy/",
+                  "https://wood-ing.org/academy/",
+                  "https://wood-ing.org/",
+                  "https://wood-ing.org/prodotto/corso-foraging-16gen2027/"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "four days, then five single days",
+          "englishTaught": false
+        }
+      ]
     }
   ],
   "enrichedAt": "2026-06-11",
