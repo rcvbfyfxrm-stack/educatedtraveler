@@ -32913,6 +32913,310 @@ window.ET_ATLAS = {
           "englishTaught": false
         }
       ]
+    },
+    {
+      "discipline": "Fish & Seafood",
+      "category": "culinary",
+      "certBody": "No outside body for these courses. Each school prints its own certificate of attendance.",
+      "goldCredential": "None that we found: no outside body sets an exam for these courses.",
+      "blurb": "Knowing, butchering, ageing and cooking fish and shellfish, and using every part of the animal.",
+      "id": "fish-and-seafood",
+      "certShort": "No formal credential",
+      "featured": {
+        "id": "fish-and-seafood--san-sebastian",
+        "place": "San Sebastián",
+        "country": "Spain",
+        "school": "Basque Culinary Center",
+        "url": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/pescados-tipologia-tecnicas-maduracion-y-coccion-innovadora",
+        "course": "Fish and shellfish: types, techniques, ageing and cooking",
+        "description": "Five days, five hours a day, on fish and shellfish for working cooks: cleaning and filleting different species, stocks and sauces from bones and heads, dry and wet ageing, and cooking to the point. The hands-on sessions are run by the school's own teaching staff; Diego Schattenhofer of Taste 1973 gives a special session on ageing on the first day.",
+        "duration": "25 hours over 5 days",
+        "format": "Demonstrations and hands-on work",
+        "certification": "Certificate of attendance",
+        "fitsBecause": "Twenty-five hours on fish alone, hands-on across several species, for people who already cook, with a first-day session from a chef who has researched how fish ages.",
+        "sessions": [
+          "2027-02-01"
+        ],
+        "priceNote": "€1,080",
+        "confidence": "high"
+      },
+      "sweep": {
+        "date": "2026-11-27",
+        "regions": [
+          "Western Europe",
+          "Southern Europe & Mediterranean",
+          "Nordic & Baltic",
+          "North America",
+          "Latin America & Caribbean",
+          "East Asia",
+          "South & Southeast Asia",
+          "Oceania"
+        ],
+        "rejected": [
+          {
+            "name": "Aponiente (Ángel León)",
+            "place": "El Puerto de Santa María",
+            "url": "https://www.aponiente.com/restaurante/tripulacion/",
+            "why": "Its crew page offers an internship ('APRENDE CON NOSOTROS', practicas@aponiente.com), not a course; read on 27 November 2026."
+          },
+          {
+            "name": "Basque Culinary Center, fish ageing with Diego Schattenhofer",
+            "place": "San Sebastián",
+            "url": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/maduracion-de-pescados-tecnica-control-y-aplicacion-gastronomica-con-diego-schattenhofer",
+            "why": "A five-hour seminar, billed on its own page as a demonstration ('formación demostrativa'): the chef cooks, participants watch and ask questions; read on 27 November 2026."
+          }
+        ],
+        "bounded": "These were the closest calls in a search on 27 November 2026 for short, hands-on fish courses with 2027 dates that a cook from abroad can join. Aitor Arregi's course at the Basque Culinary Center was not listed: its page returned an error when we read it that day."
+      },
+      "destinations": [
+        {
+          "place": "San Sebastián",
+          "country": "Spain",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Basque Culinary Center"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "San Sebastián, where the Basque Culinary Center gives working cooks five days on fish and shellfish: breaking down different species, ageing them, using every part, and cooking them to the point.",
+          "bestSeason": "Once a year (2027: 1-5 Feb)",
+          "level": "Intermediate -> Professional",
+          "id": "fish-and-seafood--san-sebastian",
+          "schoolsInfo": [
+            {
+              "name": "Basque Culinary Center",
+              "url": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/pescados-tipologia-tecnicas-maduracion-y-coccion-innovadora",
+              "course": "Pescados: tipologías, técnicas, maduración y cocción innovadora (fish: types, techniques, ageing and innovative cooking)",
+              "blurb": "Five days at the Basque Culinary Center for working cooks: knowing and keeping fish and shellfish, cleaning, breaking down and filleting different species, using bones, skins and heads for stocks, sauces and oils, dry and wet ageing, and cooking each cut to the point. It is taught learning by doing, demonstrations alongside practical work, five hours a day. On the first day Diego Schattenhofer, executive chef of Taste 1973, gives a special session on how he ages fish; the practical sessions are run by the school's own teaching staff, who are not named. The page is in Spanish and does not say which language the course is taught in.",
+              "confidence": "high",
+              "verify": [
+                "Del 1 al 5 de febrero, 2027",
+                "Diego Schattenhofer",
+                "25 horas"
+              ],
+              "facts": {
+                "where": "Basque Culinary Center, San Sebastián",
+                "length": "25 hours over 5 days",
+                "format": "Demonstrations alongside hands-on work on different species",
+                "class": "18",
+                "price": "€1,080",
+                "priceNote": "1 to 5 February 2027, five hours a day, times to be confirmed; certificate of attendance",
+                "from": [
+                  "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/pescados-tipologia-tecnicas-maduracion-y-coccion-innovadora"
+                ],
+                "read": "2026-11-27"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "First-day session",
+                    [
+                      "Diego Schattenhofer"
+                    ]
+                  ],
+                  [
+                    "Practical sessions",
+                    [
+                      "Basque Culinary Center teaching staff (not named on the page)"
+                    ]
+                  ]
+                ],
+                "from": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/pescados-tipologia-tecnicas-maduracion-y-coccion-innovadora",
+                "read": "2026-11-27"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "five days",
+          "englishTaught": null
+        }
+      ]
+    },
+    {
+      "discipline": "Butchery & Charcuterie",
+      "category": "culinary",
+      "certBody": "No formal body for these courses. A school prints its own certificate, where it gives one at all.",
+      "goldCredential": "None that we found for a short course.",
+      "blurb": "Breaking whole animals down into their cuts, and turning meat into the forcemeats, terrines and pâtés of charcuterie.",
+      "id": "butchery-and-charcuterie",
+      "certShort": "No formal credential",
+      "featured": {
+        "id": "butchery-and-charcuterie--welbeck",
+        "place": "Welbeck, Nottinghamshire",
+        "country": "England",
+        "school": "The School of Artisan Food",
+        "url": "https://www.schoolofartisanfood.org/courses/short-courses/butchery-charcuterie/butchery-fundamentals",
+        "course": "Butchery Fundamentals",
+        "description": "Six days of whole-animal butchery with Andrew Sharp, a butcher who specialises in native breeds: demonstrations and hands-on sessions on beef, lamb and mutton, and pork, the cuts and their names, traditional and modern styles, and a closing farm visit.",
+        "duration": "6 days",
+        "format": "Demonstrations and hands-on practical sessions",
+        "certification": "None stated",
+        "fitsBecause": "Six days on whole carcasses of beef, lamb and mutton, and pork, led by one named butcher, with a farm visit at the end.",
+        "sessions": [
+          "2027-01-18",
+          "2027-06-13"
+        ],
+        "priceNote": "£1,625",
+        "confidence": "high"
+      },
+      "sweep": {
+        "date": "2026-11-27",
+        "regions": [
+          "Western Europe",
+          "Southern Europe & Mediterranean",
+          "North America",
+          "Oceania"
+        ],
+        "rejected": [
+          {
+            "name": "Basque Culinary Center, game cookery with Luis Lera",
+            "place": "San Sebastián",
+            "url": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/cocina-de-caza-y-territorio-con-luis-lera",
+            "why": "A five-hour seminar, billed on its own page as a demonstration ('formación demostrativa'): the chef cooks, participants watch and ask questions; read on 27 November 2026."
+          }
+        ],
+        "bounded": "These were the closest calls in a search on 27 November 2026 for hands-on butchery and charcuterie courses led by a named butcher or charcutier that a cook from abroad can join. Short evening classes and courses whose pages name no teacher were not listed."
+      },
+      "destinations": [
+        {
+          "place": "Welbeck, Nottinghamshire",
+          "country": "England",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "The School of Artisan Food"
+          ],
+          "masters": [
+            "Andrew Sharp"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "The Welbeck Estate, where butcher Andrew Sharp spends six days teaching whole-animal butchery of beef, lamb and mutton, and pork, ending with a farm visit.",
+          "bestSeason": "Twice a year (2027: 18-23 Jan, 13-18 Jun)",
+          "level": "Intermediate -> Professional",
+          "id": "butchery-and-charcuterie--welbeck",
+          "schoolsInfo": [
+            {
+              "name": "The School of Artisan Food",
+              "url": "https://www.schoolofartisanfood.org/courses/short-courses/butchery-charcuterie/butchery-fundamentals",
+              "course": "Butchery Fundamentals",
+              "blurb": "Six days at The School of Artisan Food on the Welbeck Estate, led by Andrew Sharp, a butcher who specialises in native breeds, sustainably reared meat and traditional butchery methods. Through demonstrations and hands-on practical sessions you work whole carcasses of beef, lamb and mutton, and pork, learn the cuts and their names, traditional and modern styles, charcuterie and sausage-making, and end with a farm visit. It is designed for existing butchers, chefs, business start-ups, smallholders and ambitious home cooks.",
+              "confidence": "high",
+              "verify": [
+                "Butchery Fundamentals",
+                "Andrew Sharp",
+                "13 Jun 2027"
+              ],
+              "facts": {
+                "where": "Welbeck Estate, Nottinghamshire",
+                "length": "6 days",
+                "format": "Demonstrations and hands-on practical sessions",
+                "language": "English",
+                "price": "£1,625",
+                "priceNote": "without accommodation, which can be added; 2027 starts 18 January and 13 June; 25% deposit",
+                "from": [
+                  "https://www.schoolofartisanfood.org/courses/short-courses/butchery-charcuterie/butchery-fundamentals"
+                ],
+                "read": "2026-11-27"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Leads the course",
+                    [
+                      "Andrew Sharp"
+                    ]
+                  ]
+                ],
+                "from": "https://www.schoolofartisanfood.org/courses/short-courses/butchery-charcuterie/butchery-fundamentals",
+                "read": "2026-11-27"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "six days",
+          "englishTaught": true,
+          "englishBasis": "The course page is in English."
+        },
+        {
+          "place": "San Sebastián",
+          "country": "Spain",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Basque Culinary Center"
+          ],
+          "masters": [
+            "Sébastien Zozaya"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "San Sebastián, where charcutier Sébastien Zozaya spends three days at the Basque Culinary Center on French charcuterie: pâté en croûte, terrines and pithiviers.",
+          "bestSeason": "Once a year (2027: 8-10 Mar)",
+          "level": "Intermediate -> Professional",
+          "id": "butchery-and-charcuterie--san-sebastian",
+          "schoolsInfo": [
+            {
+              "name": "Basque Culinary Center",
+              "url": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/charcuteria-francesa",
+              "course": "Charcutería francesa y masas saladas con Sébastien Zozaya (French charcuterie and savoury pastry)",
+              "blurb": "Three days at the Basque Culinary Center with Sébastien Zozaya, a charcutier who specialises in charcuterie pâtissière and trained at the CFA in Tarbes and CEPROC in Paris: forcemeats, fillings, pâtés and mousses, savoury doughs and puff pastry, pâté en croûte, pithiviers and terrines, through to cutting and finishing for service. It is taught learning by doing, for working cooks. The page is in Spanish and does not say which language the course is taught in.",
+              "confidence": "high",
+              "verify": [
+                "Del 8 al 10 de marzo, 2027",
+                "Sébastien Zozaya",
+                "pâté en croûte"
+              ],
+              "facts": {
+                "where": "Basque Culinary Center, San Sebastián",
+                "length": "15 hours over 3 days",
+                "format": "Live demonstrations by Sébastien Zozaya, then supervised practice at every stage",
+                "class": "18",
+                "price": "€650",
+                "priceNote": "8 to 10 March 2027, times to be confirmed; certificate of attendance",
+                "from": [
+                  "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/charcuteria-francesa"
+                ],
+                "read": "2026-11-27"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches the course",
+                    [
+                      "Sébastien Zozaya"
+                    ]
+                  ]
+                ],
+                "from": "https://www.bculinary.com/es/cursos-profesionales/cocina-producto-y-tecnica/charcuteria-francesa",
+                "read": "2026-11-27"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Taster",
+          "tripLength": "three days",
+          "englishTaught": null
+        }
+      ]
     }
   ],
   "enrichedAt": "2026-06-11",
