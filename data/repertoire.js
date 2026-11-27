@@ -17105,6 +17105,83 @@ window.ET_ATLAS = {
           "tripLength": "2–4 weeks",
           "englishTaught": true,
           "englishBasis": "El Món Dolç de Claudia's ten-day Modern Pastry Intensive is taught in English — its own course page says 'In English', read 17 September 2026."
+        },
+        {
+          "place": "Alsace",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Chef Jacquy Pfeiffer"
+          ],
+          "masters": [
+            "Jacquy Pfeiffer"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "Five days of hands-on pastry and baking with Jacquy Pfeiffer, co-founder of The French Pastry School in Chicago, in an Alsatian village before Christmas, eight guests at most.",
+          "bestSeason": "Nov-Dec",
+          "level": "Beginner -> Advanced",
+          "id": "french-pastry-and-patisserie--alsace",
+          "schoolsInfo": [
+            {
+              "name": "Chef Jacquy Pfeiffer",
+              "url": "https://wetravel.com/trips/terroir-technique-culinary-retreat-alsace-france-winter-2027-terroir-technique-5243952582",
+              "course": "Terroir & Technique Culinary Retreat, Alsace, 30 November to 8 December 2027",
+              "blurb": "Jacquy Pfeiffer co-founded The French Pastry School in Chicago in 1995 and wrote The Art of French Pastry, which won a James Beard Foundation Award in 2014. His winter retreat is based in Furdenheim, near Strasbourg: five days of hands-on pastry and baking classes, lodging in an Alsatian cottage and all meals. The day-by-day programme leaves the afternoon after lunch free on each of the five class days, with a whirlpool and sauna at the cottage; the same page's summary and his FAQ describe afternoons back in the kitchen, so ask him which holds. At most eight students, taught in English, with two assistants. A Southwest France week is scheduled for 19 to 26 September 2027.",
+              "confidence": "high",
+              "verify": [
+                "Nov 30 - Dec 8, 2027",
+                "Furdenheim",
+                "Alsatian cottage"
+              ],
+              "facts": {
+                "where": "Furdenheim, near Strasbourg",
+                "length": "5 days of classes, 30 Nov to 8 Dec",
+                "format": "Residential; cottage lodging, all meals and excursions included",
+                "language": "English",
+                "class": "8 at most",
+                "price": "US$9,950",
+                "priceNote": "per person, 2027; US$1,990 deposit",
+                "from": [
+                  "https://wetravel.com/trips/terroir-technique-culinary-retreat-alsace-france-winter-2027-terroir-technique-5243952582",
+                  "https://chefjacquypfeiffer.com/experiences/frequently-asked-questions/"
+                ],
+                "read": "2026-11-27"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Lead teacher, with two assistants",
+                    [
+                      "Jacquy Pfeiffer"
+                    ]
+                  ]
+                ],
+                "from": "https://chefjacquypfeiffer.com/experiences/frequently-asked-questions/",
+                "read": "2026-11-27"
+              }
+            }
+          ],
+          "retreat": {
+            "line": "Five days of pastry with Jacquy Pfeiffer in an Alsatian village before Christmas; the day-by-day plan leaves each class-day afternoon free at the cottage. At most eight guests, every meal included.",
+            "stay": "Luxurious lodging in an Alsatian cottage, each room having a private bathroom",
+            "meals": "All meals during the retreat will be included.",
+            "rest": "The afternoon is yours to enjoy at your own pace.",
+            "from": [
+              "https://wetravel.com/trips/terroir-technique-culinary-retreat-alsace-france-winter-2027-terroir-technique-5243952582",
+              "https://chefjacquypfeiffer.com/experiences/frequently-asked-questions/"
+            ],
+            "read": "2026-11-27"
+          },
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "about a week",
+          "englishTaught": true
         }
       ],
       "id": "french-pastry-and-patisserie",
@@ -18518,10 +18595,83 @@ window.ET_ATLAS = {
               }
             }
           ],
+          "retreat": {
+            "line": "Four nights in a farmhouse on a working Sicilian wine estate, April to October 2027: hands-on cooking, a free afternoon, and every meal included.",
+            "stay": "Our signature four-night stay at Case Vecchie is an invitation to slow down and settle into the rhythms of rural Sicily.",
+            "meals": "All meals are included.",
+            "rest": "But it’s also a time to rest. To breathe deeply.",
+            "from": [
+              "https://annatascalanza.com/signature-stays/"
+            ],
+            "read": "2026-11-27"
+          },
           "tripTier": 2,
           "tripType": "Immersion",
           "tripLength": "under a week",
           "englishTaught": null
+        },
+        {
+          "place": "Valpolicella",
+          "country": "Italy",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Giuliano Hazan's Veneto Cooking School"
+          ],
+          "masters": [
+            "Giuliano Hazan"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "Six nights in a restored sixteenth-century villa in Valpolicella: four 5-hour hands-on classes with Giuliano Hazan, each ending in a full dinner, and one free evening in the sample week.",
+          "bestSeason": "May-Oct",
+          "level": "Beginner -> Advanced",
+          "id": "italian-cuisine-and-pasta--valpolicella",
+          "schoolsInfo": [
+            {
+              "name": "Giuliano Hazan's Veneto Cooking School",
+              "url": "https://giulianohazan.com/veneto-cooking-school/",
+              "course": "Veneto Cooking School at Villa della Torre, six nights, 23 May or 10 October 2027",
+              "blurb": "Giuliano Hazan teaches four intensive 5-hour hands-on classes at Villa della Torre in Fumane, in Valpolicella: homemade pasta, risotto, meats, local fish, vegetables and desserts, each class ending in a full dinner, with wines presented by Marilisa Allegrini. Field trips go to a Parmigiano-Reggiano dairy and to Verona. Breakfast, the class dinners and five restaurant meals are included; in the sample itinerary Wednesday's lunch is on your own and Thursday evening is free.",
+              "confidence": "high",
+              "verify": [
+                "Villa della Torre",
+                "Oct 10, 2027",
+                "Each class concludes with a full dinner"
+              ],
+              "facts": {
+                "where": "Villa della Torre, Fumane",
+                "length": "6 nights, 4 classes of 5 hours",
+                "format": "Residential; breakfast, class dinners and five restaurant meals",
+                "price": "US$6,745",
+                "priceNote": "per person in a double room, 2027",
+                "from": [
+                  "https://giulianohazan.com/veneto-cooking-school/"
+                ],
+                "read": "2026-11-27"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches every class",
+                    [
+                      "Giuliano Hazan"
+                    ]
+                  ]
+                ],
+                "from": "https://giulianohazan.com/veneto-cooking-school/",
+                "read": "2026-11-27"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "about a week",
+          "englishTaught": true
         }
       ],
       "id": "italian-cuisine-and-pasta",
@@ -21748,6 +21898,17 @@ window.ET_ATLAS = {
               }
             }
           ],
+          "retreat": {
+            "line": "Koji, miso and natto, 29 May to 3 June, at an eco-retreat in 70 hectares of Alentejo forest with a natural pool. Five nights and every meal included.",
+            "stay": "Your place includes five nights' accommodation, the complete teaching programme, all meals, producer visits and round-trip group transport from Lisbon.",
+            "meals": "Breakfast, lunch and dinner throughout the residency",
+            "rest": "Monte da Orada is a family-run eco-retreat set within 70 hectares of private forest in the South Alentejo.",
+            "from": [
+              "https://www.fermentacademia.com/ferment-academia-2027-booking",
+              "https://www.fermentacademia.com/"
+            ],
+            "read": "2026-11-26"
+          },
           "tripTier": 2,
           "tripType": "Immersion",
           "tripLength": "about a week",

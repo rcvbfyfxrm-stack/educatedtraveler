@@ -1110,8 +1110,42 @@ def opened_band(items):
         '</div></section>')
 
 
+def retreat_row(items):
+    """The learning retreats, as a row under the band (Arnaud, 26 Nov 2026: "i think
+    that retreat learning would be great for chef after a busy season").
+
+    Places, not crafts: each card opens the place's own sheet, where the school, the
+    dates and the price are. Same .crail cards and gestures as the neighbours rail on a
+    craft page, so this is not a third card behaviour to keep in step. The line on each
+    card is the place's `retreat.line`, which the build only accepts beside a quote for
+    stay, meals and rest from the school's own page.
+
+    items: [{href, craft, place, line, length}] in display order."""
+    if not items:
+        return ""
+    cards = rail_cards([(it["href"], e(it["craft"]), e(it["place"]), e(it["line"]),
+                         e(it["length"])) for it in items])
+    nav = ('<div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button>'
+           '<button data-cr="next" aria-label="Next">&#8250;</button></div>') if len(items) > 2 else ""
+    return ('<section class="retreats" id="retreats" aria-labelledby="retreats-h"><div class="wrap">'
+            '<div class="crail-wrap"><div class="crail-head"><div class="rhead">'
+            '<div class="eyebrow">Learning retreats</div>'
+            '<h2 class="serif" id="retreats-h">Learn a culinary craft for several days, while someone else cooks for you.</h2>'
+            '<p class="rsub">Your bed and every meal are in the price, at a place made for rest as well as work. '
+            'Each place says so on its own page.</p>'
+            f'</div>{nav}</div><div class="crail">{cards}</div></div></div></section>')
+
+
+RETREAT_CSS = (RAIL_CSS + """
+.retreats{padding:30px 0 10px}
+.retreats .rhead{max-width:62ch}
+.retreats h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:11px 0 10px}
+.retreats .rsub{font-size:15px;color:var(--muted);margin:0 0 16px}
+""")
+
+
 def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
-          n_asked=0):
+          n_asked=0, retreats=()):
     """Turn the live /browse file into /atlas/index.html.
 
     Everything that makes the page what it is comes from the template. Only the
@@ -1212,5 +1246,19 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
             raise SystemExit("atlas_hub: no </body> in scripts/atlas-hub-template.html — "
                              "the band's rail script has nowhere to go.")
         t = t.replace("</body>", "<script>" + HUB_EXTRA_JS + "</script>\n</body>", 1)
+
+    # 9. the learning retreats, under the band. Asserted on the same anchor: the band
+    #    sits right after </main>, so the row goes after the band (or after </main>
+    #    when there is no band).
+    row = retreat_row(list(retreats))
+    if row:
+        if band:
+            t = t.replace(band, band + "\n\n" + row, 1)
+        else:
+            if t.count(anchor) != 1:
+                raise SystemExit("atlas_hub: expected exactly one </main> — the retreat row has nowhere to go.")
+            t = t.replace(anchor, anchor + "\n\n" + row, 1)
+        t = t.replace("</style>\n</head>", RETREAT_CSS + "</style>\n</head>", 1)
+        t = t.replace("</body>", "<script>" + RAIL_JS + "</script>\n</body>", 1)
 
     return t

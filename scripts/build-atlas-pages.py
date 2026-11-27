@@ -96,6 +96,39 @@ PINNED_OPEN = set(MANIFEST.get("pinnedOpen", []))
 # bring it back: it is gone from DISC before anything reads OPEN.
 RETIRED = MANIFEST.get("retired", {})
 DISC[:] = [d for d in DISC if d["id"] not in RETIRED]
+
+# ── learning retreats (Arnaud, 26 Nov 2026) ─────────────────────────────────
+# "i think that retreat learning would be great for chef after a busy season."
+# A place is a LEARNING RETREAT when its own page says three things: you sleep there,
+# you eat there, and the week has room to rest (the setting or the programme says so).
+# Several days, culinary only, for now. The proof lives on the place as `retreat`:
+#   line  — the one sentence the Atlas home prints on the retreat's card
+#   stay / meals / rest — a short verbatim quote from the school's own page for each
+#   from  — the page(s) those quotes are on · read — the day we read them (YYYY-MM-DD)
+# The badge is DERIVED from that record, never typed into `badges` by hand, so a place
+# cannot wear "Learning retreat" without its three quotes, and loses it with them.
+RETREAT_KEYS = ("line", "stay", "meals", "rest", "from", "read")
+RETREATS = []
+for _d in DISC:
+    for _x in _d.get("destinations", []):
+        _r = _x.get("retreat")
+        if not _r:
+            if "retreat" in (_x.get("badges") or []):
+                raise SystemExit(f'build-atlas-pages: {_x["id"]} wears the retreat badge with no '
+                                 '`retreat` record. The badge comes from the record; take it off.')
+            continue
+        _miss = [k for k in RETREAT_KEYS if not _r.get(k)]
+        if _miss:
+            raise SystemExit(f'build-atlas-pages: {_x["id"]} retreat record lacks {", ".join(_miss)}. '
+                             'A learning retreat needs a quote for stay, meals and rest, the page and the day.')
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(_r["read"])):
+            raise SystemExit(f'build-atlas-pages: {_x["id"]} retreat `read` must be YYYY-MM-DD.')
+        if _d.get("category") != "culinary":
+            raise SystemExit(f'build-atlas-pages: {_x["id"]} is a retreat on a non-culinary craft. '
+                             'Learning retreats are culinary only (Arnaud, 26 Nov 2026).')
+        if "retreat" not in _x.setdefault("badges", []):
+            _x["badges"].append("retreat")
+        RETREATS.append((_d, _x))
 HUB_CARDS = MANIFEST.get("hubCards", [])
 
 UNLOCK_PATH = ROOT / "data/atlas-unlocked.json"
@@ -1290,6 +1323,8 @@ BADGE_LABELS = {
     # card; the slugs had sat unrendered since the craft was added.
     "evidence-based": "Evidence-based", "board-recognised": "Board-recognised",
     "movement": "A movement, not a place",
+    # derived from a place's `retreat` record (see RETREATS), never typed by hand
+    "retreat": "Learning retreat",
 }
 ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living community",
                "both": "Birthplace & living capital",
@@ -4229,6 +4264,15 @@ def band_item(s):
 
 OPENED_BAND = [band_item(s) for s in _band_slugs]
 
+# The learning retreats, for the row on the Atlas home. Open crafts only — a locked
+# craft publishes no places — and never a place where nothing is taught.
+RETREAT_ROW = [
+    {"href": f"/atlas/{x['id']}", "craft": d["discipline"],
+     "place": f"{x['place']}, {x['country']}", "line": x["retreat"]["line"],
+     "length": next((si.get("facts", {}).get("length", "") for si in (x.get("schoolsInfo") or [])
+                     if si.get("facts", {}).get("length")), "")}
+    for d, x in RETREATS if is_open(d["id"]) and not is_closed(x)]
+
 # ---------- a locked craft publishes a description, and nothing else ----------
 # Arnaud, 1 Sep 2026. Locking the PAGE was never enough: the browse card reads this
 # file, so all 82 closed crafts were still printing "in <town>" and a "N places →"
@@ -4280,7 +4324,7 @@ CRAFT_NAV = (
 (OUT / "index.html").write_text(atlas_hub.build(
     analytics=ANALYTICS, site=SITE, total=len(CARDS), n_open=N_OPEN,
     generated_at=UNLOCK_DATE, craft_nav=CRAFT_NAV,
-    opened=OPENED_BAND, n_asked=N_ASKED))
+    opened=OPENED_BAND, n_asked=N_ASKED, retreats=RETREAT_ROW))
 
 # A hand-written sheet that is not a craft record — the long read behind a craft, say —
 # has no row in DISC, so neither loop above put it in the sitemap. It was published,
