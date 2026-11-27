@@ -73,7 +73,14 @@
     "cheese-and-fermentation",
     "thai-cuisine",
     "peruvian-cuisine",
-    "sake-and-sommellerie-of-sake"
+    "sake-and-sommellerie-of-sake",
+    "american-barbecue-and-smoking",
+    "ayurvedic-cooking",
+    "greek-cuisine",
+    "levantine-and-middle-eastern-cuisine",
+    "nicoise-and-provencal-cuisine",
+    "plant-based-and-raw-cuisine",
+    "south-indian-cuisine"
   ],
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [],
@@ -109,7 +116,14 @@
       "sichuan-and-chinese-cuisine",
       "thai-cuisine",
       "vietnamese-cuisine",
-      "sushi-and-washoku"
+      "sushi-and-washoku",
+      "american-barbecue-and-smoking",
+      "ayurvedic-cooking",
+      "greek-cuisine",
+      "levantine-and-middle-eastern-cuisine",
+      "nicoise-and-provencal-cuisine",
+      "plant-based-and-raw-cuisine",
+      "south-indian-cuisine"
     ],
     "What's in the glass": [
       "wine-and-sommellerie",
@@ -1268,6 +1282,59 @@
           "read": "6 October 2026"
         }
       ]
+    },
+    "american-barbecue-and-smoking": {
+      "p": "One of the earliest recorded mentions of barbecue in America dates from 1672, and George Washington wrote of going to a barbecue in Alexandria, Virginia, in 1769. Four regional styles are commonly named: North Carolina and Memphis, the oldest, built on pork, and Kansas City and Texas, which added beef. In the Carolinas barbecue means pork alone, the whole hog or the shoulder, most often served with a vinegar-based sauce; in Central Texas the meat-market style began in the butcher shops of German and Czech immigrants.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Barbecue_in_the_United_States"
+      ]
+    },
+    "ayurvedic-cooking": {
+      "p": "Ayurvedic cooking is the kitchen side of Ayurveda, India's classical medical tradition, whose three surviving early texts are the Charaka, Sushruta and Bhela Samhitas, and whose therapies include special diets. India gave its food a legal definition in 2022: the Ayurveda Aahara Regulations, notified on 5 May 2022 by the Food Safety and Standards Authority of India with the Ministry of Ayush, define it as food made to the recipes, ingredients or processes of the authoritative Ayurvedic books listed in the rules. The science does not back the system's theory, which Wikipedia's article calls pseudoscientific, so what these rooms teach is a way of cooking and eating, not a cure.",
+      "sources": [
+        "https://pib.gov.in/PressReleasePage.aspx?PRID=1846185",
+        "https://en.wikipedia.org/wiki/Ayurveda"
+      ]
+    },
+    "greek-cuisine": {
+      "p": "Greek cooking is built on wheat, olive oil and wine, and olive oil is its most characteristic and ancient ingredient, used in most dishes. A whole family of dishes, ladera, are vegetables cooked slowly in oil. It changes from island to island and from the mainland to Crete. Greece was among the first four countries whose Mediterranean diet UNESCO inscribed in 2010, a listing widened to seven countries in 2013, as a living practice of farming, fishing, cooking and above all eating together.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Greek_cuisine",
+        "https://ich.unesco.org/en/RL/mediterranean-diet-00884"
+      ]
+    },
+    "levantine-and-middle-eastern-cuisine": {
+      "p": "Across the Levant and Turkey, much of this cooking is kept at home and passed on by hand, as two UNESCO inscriptions record. UNESCO inscribed Lebanon's man'ouché in 2023: a flatbread whose dough is dented with the fingertips, topped with thyme, sumac, sesame and olive oil, and taught informally from parents to children. In Turkey, UNESCO inscribed ceremonial keşkek in 2011: wheat hulled in a stone mortar and cooked all night with meat in cauldrons for weddings and holidays, a tradition handed from master cooks to apprentices. The rooms on this page are mostly home kitchens, and a single session is the usual length.",
+      "sources": [
+        "https://ich.unesco.org/en/RL/al-man-ouche-an-emblematic-culinary-practice-in-lebanon-02000",
+        "https://ich.unesco.org/en/RL/ceremonial-keskek-tradition-00388"
+      ]
+    },
+    "nicoise-and-provencal-cuisine": {
+      "p": "Provençal cooking rests on garlic, olive oil, tomatoes, fish and vegetables, with meat in second place. Nice has its own branch of it, and in 2019 France's Ministry of Culture entered the culinary practices of the Nice country in the national inventory of intangible cultural heritage; its best-known dishes are socca, pissaladière and the stuffed vegetables called petits farcis. Along the coast at Marseille, bouillabaisse began as the fish that fishermen kept back for their families while they sorted the catch for sale. Today a restaurants' charter, drawn up in 1980, lists the fish it may contain and asks for at least four of them.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Proven%C3%A7al_cuisine",
+        "https://fr.wikipedia.org/wiki/Cuisine_ni%C3%A7oise",
+        "https://www.france.fr/en/article/cuisine-nicoise/",
+        "https://www.explorenicecotedazur.com/explorer/art-de-vivre/gastronomie-et-terroir/",
+        "https://lemiramar.fr/la-bouillabaisse/"
+      ]
+    },
+    "plant-based-and-raw-cuisine": {
+      "p": "Plant-based cooking puts vegetables, grains, legumes, nuts and seeds at the centre of the plate, and its raw branch works with plant food not heated above about 40 to 49 °C. Raw veganism has rarely been practised in history and became a fad in the 21st century, so there is no old town to go back to: the craft is taught in kitchens. Le Cordon Bleu now runs a three-month plant-based cuisine diploma in both Paris and London, and École Ducasse a four-week plant-forward programme in Paris that says itself it is not vegan or vegetarian.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Raw_veganism",
+        "https://www.cordonbleu.edu/paris/plant-based-gastronomy-cuisine-diploma/en",
+        "https://www.cordonbleu.edu/london/diploma-in-plant-based-cuisine/en",
+        "https://www.ecoleducasse.com/en/programs/essentials-of-naturalite"
+      ]
+    },
+    "south-indian-cuisine": {
+      "p": "South India cooks on rice. Kerala's sadya is a vegetarian meal of some two dozen dishes served on a banana leaf for Onam and Vishu, at weddings and birthdays. Chettinad cooking belongs to the Nagarathars of the Chettinad region in Tamil Nadu: masalas ground fresh, sun-dried meats and salted vegetables for a dry country, and a sticky black rice pudding, kavuni, that the merchants are said to have brought back from Burma.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Sadya",
+        "https://en.wikipedia.org/wiki/Chettinad_cuisine"
+      ]
     }
   },
   "_learnLines_comment": "The immersive line under the place name on every craft page's place card, keyed by DESTINATION id. Hand-written, for the same reason craftFamilies is hand-grouped: every attempt to compose one from the craft blurb plus the destination's `why` read as a machine talking. And compressing a researched sentence is exactly where a claim quietly changes — 'the most photographed big-cat ground on earth' is NOT 'where the most big cats are', and only one of those is true. RULE: a line here may say nothing its own `why` does not already say. Where a destination is a heritage source with no vouched school, or is an experts-only spot, the line must NOT begin 'Learn to' — it would promise teaching that is not there. A missing line is fine: the card simply shows none. See LEARN_LINES in build-atlas-pages.py.",
@@ -1289,6 +1356,8 @@
     "hatha-and-vinyasa-yoga--encinitas-california": "Learn to teach on the cliffs above the Pacific, where Yogananda first planted yoga in the West.",
     "italian-cuisine-and-pasta--bologna": "Learn to roll tortellini by hand from the sfogline who guard the tradition, in the city that gave them to the world.",
     "italian-cuisine-and-pasta--colorno-parma": "Learn the pasta of the Food Valley inside a ducal palace, between the Parmigiano and the prosciutto.",
+    "italian-cuisine-and-pasta--costigliole-d-asti-piedmont": "Learn Italian cooking and its wines in four weeks at the Italian Culinary Institute for Foreigners, living in its guesthouse in Costigliole d'Asti.",
+    "italian-cuisine-and-pasta--case-vecchie-sicily": "Learn the farm table of Sicily on a family wine estate: a short stay, two cooking lessons, and the producers who feed it.",
     "jewelry-and-goldsmithing--florence": "Learn to saw, solder and set stones at the first Italian school for the craft, by the goldsmiths' bridge.",
     "jewelry-and-goldsmithing--carlsbad-new-york": "Learn to grade a diamond where the global standard is set, for a diploma every bench on earth knows.",
     "jewelry-and-goldsmithing--pforzheim": "Learn German bench technique in the Goldstadt, which has been turning out jewellers since 1767.",
@@ -1390,7 +1459,26 @@
     "peruvian-cuisine--lima": "Learn the aderezos, the ají bases and the fish work of the Peruvian kitchen, in Spanish with live English translation.",
     "sake-and-sommellerie-of-sake--niigata": "Learn to steam the rice, make koji by hand and build a three-stage mash, about four people at a time.",
     "sake-and-sommellerie-of-sake--london": "Learn to taste and describe sake for the Level 3 exam, which ends in a blind tasting of two sakes.",
-    "sake-and-sommellerie-of-sake--tokyo": "Learn to describe what is in the glass and where the flavour comes from, across about 90 sake and shochu."
+    "sake-and-sommellerie-of-sake--tokyo": "Learn to describe what is in the glass and where the flavour comes from, across about 90 sake and shochu.",
+    "american-barbecue-and-smoking--unadilla": "Learn whole hog, brisket and seven other meats beside Myron Mixon, or open-pit cooking on a replica of his family's pits.",
+    "ayurvedic-cooking--mysore": "Learn to cook Ayurvedic meals for other people, ten days in Mysore led by Kate O'Donnell, with a local cook and her mother teaching the ingredients.",
+    "ayurvedic-cooking--rishikesh-and-haridwar": "Learn to cook simple vegetarian meals to the doshas, in ashram kitchens along the Ganga.",
+    "ayurvedic-cooking--birstein": "Learn to cook dal, rice, chutneys and Panchakarma food, adapted to constitution and season, five days in German.",
+    "greek-cuisine--ikaria": "Learn island cooking in Diane Kochilas's own kitchen, three to four hours a day for a week.",
+    "greek-cuisine--poros": "Learn Katerina Sakelliou's family cooking, from the Poros fish market to her own olive grove.",
+    "greek-cuisine--crete": "Learn Cretan cooking in a week hosted by Irini Tzortzoglou: four classes, with her, at a taverna and on a farm.",
+    "greek-cuisine--nafplio": "Learn to cook a whole Greek meal from scratch in Ivy Liacopoulou's home near Nafplio.",
+    "levantine-and-middle-eastern-cuisine--amman": "Learn to cook an Arabic meal, mezza to dessert, with a named home cook in an old Amman house.",
+    "levantine-and-middle-eastern-cuisine--galilee": "Learn a village's dishes in a Druze, Christian, Muslim or Bedouin family's kitchen, over two to four hours.",
+    "nicoise-and-provencal-cuisine--nice": "Five days in Vieux-Nice with Rosa Jackson: the markets, socca and pissaladière, a farm in the hills, Menton.",
+    "nicoise-and-provencal-cuisine--avignon": "A day at a nineteenth-century wood stove with a visiting chef from Provence, in La Mirande's old kitchens.",
+    "nicoise-and-provencal-cuisine--seguret": "A week cooking Provençal and Mediterranean food with Suzanne Kay among the vineyards, with wine estates between the classes.",
+    "nicoise-and-provencal-cuisine--cadenet-luberon": "A Sunday in Nadia Sammut's Luberon kitchen, cooking gluten-free and dairy-free from her garden.",
+    "plant-based-and-raw-cuisine--forest-of-dean": "Learn raw plant-based cooking, four days at your own workstation, taught by Deborah Durrant herself.",
+    "plant-based-and-raw-cuisine--paris": "Learn plant-based cuisine in three months at Le Cordon Bleu, or four plant-forward weeks at École Ducasse if you already cook for a living.",
+    "plant-based-and-raw-cuisine--london": "Learn to cook solely from plants over three months, for a diploma credit-rated at SCQF level 8.",
+    "south-indian-cuisine--kadalikad-kerala": "Learn Kerala's vegetarian kitchen at the stove, sadya, sambars and fermented batters, on a midlands spice farm.",
+    "south-indian-cuisine--karaikudi-chettinad": "Learn Chettinad's sambars, rasams, palakarams and rice dishes over three or seven days, down to the grinding stones."
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1417,7 +1505,26 @@
     "peruvian-cuisine--lima": "Learn Peruvian cooking from cebiche to pachamanca, in a twelve-month diploma",
     "sake-and-sommellerie-of-sake--niigata": "Learn to brew sake, a week with the brewers in a former school on Sado",
     "sake-and-sommellerie-of-sake--london": "Learn to judge sake for the WSET Level 3 Award, in six days of class",
-    "sake-and-sommellerie-of-sake--tokyo": "Learn to taste sake and shochu, five days in English with the makers' association"
+    "sake-and-sommellerie-of-sake--tokyo": "Learn to taste sake and shochu, five days in English with the makers' association",
+    "american-barbecue-and-smoking--unadilla": "Learn to cook a whole hog, a weekend at a pitmaster's own compound in Georgia",
+    "ayurvedic-cooking--mysore": "Learn to cook Ayurvedic meals for others, ten days outside Mysore",
+    "ayurvedic-cooking--rishikesh-and-haridwar": "Learn Ayurvedic vegetarian cooking in an ashram kitchen",
+    "ayurvedic-cooking--birstein": "Learn Ayurvedic cooking in a training kitchen, five days in German",
+    "greek-cuisine--ikaria": "Learn to cook the island's food, a week in Diane Kochilas's country kitchen",
+    "greek-cuisine--poros": "Learn Greek island cooking, half a day or a week at a Poros cook's table",
+    "greek-cuisine--crete": "Learn Cretan cooking, a week with a cook born on the island",
+    "greek-cuisine--nafplio": "Learn to cook a Greek meal, one day in a home among citrus trees",
+    "levantine-and-middle-eastern-cuisine--amman": "Learn to cook an Arabic meal in a grandmother's house",
+    "levantine-and-middle-eastern-cuisine--galilee": "Learn home cooking in a host family's kitchen, two to four hours at the stove",
+    "nicoise-and-provencal-cuisine--nice": "Learn to cook like a Niçoise, five days from market to table",
+    "nicoise-and-provencal-cuisine--avignon": "Learn from a visiting chef, a day at a nineteenth-century wood stove",
+    "nicoise-and-provencal-cuisine--seguret": "Learn to cook Provençal in a week among the vines",
+    "nicoise-and-provencal-cuisine--cadenet-luberon": "Cook gluten-free on a Sunday, in a Luberon inn's kitchen",
+    "plant-based-and-raw-cuisine--forest-of-dean": "Learn raw cuisine, four days in a kitchen in the woods",
+    "plant-based-and-raw-cuisine--paris": "Learn plant-based cuisine, three months or four weeks in a school kitchen",
+    "plant-based-and-raw-cuisine--london": "Learn to cook from plants only, three months for a diploma",
+    "south-indian-cuisine--kadalikad-kerala": "Learn to cook Kerala vegetarian, five days on a family spice farm",
+    "south-indian-cuisine--karaikudi-chettinad": "Learn Chettinad cooking, three or seven days in a family bungalow in Karaikudi"
   },
   "_craftImages_comment": "A licensed picture OF THE CRAFT, for a craft no school has photographed. Keyed by craft id, but TAKEN AT ONE PLACE: Arnaud, 27 September 2026, 'make sure the photo on the skill card of the Atlas matches the location of the card'. It used to say the picture belonged nowhere and could ride any card, and 16 of 22 were of somewhere else (yoga in Bali under Mysore, a Namibian farm under Greater Kruger, a Californian surfer under Waikiki). Every entry ships six things: src, alt, credit, licence, sourceUrl and takenAt, the destination id the picture was taken at (plus an optional focal). The build refuses one whose takenAt is not the place the card rests on, and the browse page drops it when a filter moves the card to another town. takenAt is only as good as the Commons page: read the description, categories or coordinates, never the title alone. A licence with no source is not checkable, and being checkable is this map's whole claim. THE TWO CLASSES MAY NEVER BE CONFUSED: a craft image is drawn by .craftshot/--illus, never .cardshot/--shot; its credit names its maker and its LICENCE and stops, and may never start with 'Photo:', which is reserved for a picture a school sent us; and the build REFUSES a craft image on a craft that already has a school photograph, because the school's own room always wins. IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE — a spherified pearl is what modernist technique looks like anywhere; a school's front door under another town's name is the same lie as composing a place sentence. AND NO IMAGE IS BETTER THAN A GENERIC ONE: a craft with no truthful picture keeps the typographic card, and that is a finished state, not a gap to fill with stock. Lifestyle Medicine is the case that proves it — its own sheet says it is a credential, not a place. 10 crafts carry one after the 27 September re-hunt (8 replaced, sushi and ski touring kept). Modernist Spanish Cuisine lost its licensed picture the same day to the photographs Vakuum sent us: a school's own room comes first. Eleven lost theirs because Commons holds nothing honest taken at the card's place: ashtanga-yoga (Mysore), cold-exposure-wim-hof-method (Karkonosze), jewelry-and-goldsmithing (Florence: shop windows only), organic-farm-to-table-cooking (Ballymaloe: empty gardens), pottery-and-ceramics (Mashiko: kilns, no potter), sound-healing (Nepal: bowls on market stalls), spearfishing (Cote d'Azur), vipassana-and-meditation (Dhamma Giri: the pagoda only, a landmark), wildlife-photography (Pusztaszer), windsurfing-and-wing-foil (Karpathos), yacht-crew-and-stcw (Antibes: yacht portraits, no crew). A school's photograph, or a Flickr CC BY find, is the way back for each. FIVE ARE DELIBERATELY EMPTY and should stay that way until something honest exists: japanese-knife-making (Commons holds museum record shots of finished blades and European smiths at European forges — a German smith under the word Shimanto is the lie this class guards against), perfumery (liquor distilling, 18th-century engravings and a petroleum refinery; no perfumer at the organ exists free), lymphatic-drainage (generic massage, none of it the clinical technique), new-basque-cuisine (finished plates and bar pintxos, nothing of the Arzak/Subijana movement — and pintxos would blur the very distinction the Atlas just drew), and lifestyle-medicine (never searched: its own sheet says it is a credential, not a place). self-sufficiency was searched and left empty too — a pool of six, none of it honest. See CRAFT_IMAGES in scripts/build-atlas-pages.py. 24 November 2026: sushi-and-washoku gave its licensed picture up to the JCMA bench photographed by the school itself, and new-basque-cuisine, chocolate-and-confectionery, mixology-and-bartending and organic-farm-to-table-cooking gained one each, each taken in the card's own town (Arnaud: make the photo iconic, and when there is material from the school, choose that). Bread wears a baker shaping baguettes at the Salon de l'Agriculture in Paris (Commons files it under Bakeries in Paris and Men at work in Paris).",
   "craftImages": {
@@ -1549,7 +1656,7 @@
     }
   },
   "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet. 4 Nov 2026: raised by two when Arnaud opened fermentation and bread-and-boulangerie by hand; no school on either has sent a photograph. 2026-11-24: raised by 5 when the five culinary crafts opened; the photo request goes to every school kept the same day.",
-  "schoolShotDebtFloor": 37,
+  "schoolShotDebtFloor": 44,
   "schoolShotDebtKnown": [
     "chocolate-and-confectionery",
     "mixology-and-bartending",
@@ -1587,7 +1694,14 @@
     "cheese-and-fermentation",
     "thai-cuisine",
     "peruvian-cuisine",
-    "sake-and-sommellerie-of-sake"
+    "sake-and-sommellerie-of-sake",
+    "american-barbecue-and-smoking",
+    "ayurvedic-cooking",
+    "greek-cuisine",
+    "levantine-and-middle-eastern-cuisine",
+    "nicoise-and-provencal-cuisine",
+    "plant-based-and-raw-cuisine",
+    "south-indian-cuisine"
   ],
   "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five questions on the five dots, asked in the same words and the same order on every craft, because a legend a reader has to relearn is not a legend (the build refuses any other wording — see MEASURE_QUESTIONS in scripts/atlas_hub.py). The instrument's own shorthand — the room, the door, the bench, the ground, the stretch — stays in THE-MEASURE-META-PROMPT.md and never reaches a reader: on the page we ask the question rather than name it. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — whether a craft is alive in its place, and whether there is enough there to keep you going, are exactly what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
@@ -3163,6 +3277,265 @@
       "ceilingNote": "Four is within reach from a desk: one source outside the schools that says the craft is alive around them.",
       "checker": "Arnaud Callier",
       "date": "25 November 2026"
+    },
+    "american-barbecue-and-smoking": {
+      "dots": 3,
+      "verdict": "One teacher you can name, at his own pits, on two dates this winter. One place is thin, and the Texas camps are held back because their door is a lottery",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes. The school's own page says Myron Mixon teaches every class himself, hands-on. He also owns the school; the page names him as the teacher, so he counts as one."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. Seats are sold on the school's page: the Cooking School on 22-24 January 2027 at $895, the Memories Class on 5-7 February 2027 at $1,500. There are no refunds; a seat can only move to the next class."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes for the Memories Class, which is capped at twenty guests. The Cooking School page sells up to twelve seats at a time but prints no class size."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. Everything we have about Unadilla comes from the school selling the course, and that cannot tell you whether barbecue lives in the town around it."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No ladder that we found. Nobody outside the school certifies a barbecue cook, and the school names no certificate of its own."
+        }
+      ],
+      "check": "Graded from the school's own pages, read 26 November 2026. Nobody from EducatedTraveler has been.",
+      "ceilingNote": "One place is too few. A second place with a named teacher and a bookable date, in Texas or the Carolinas, would change this grade before any visit would.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
+    },
+    "ayurvedic-cooking": {
+      "dots": 3,
+      "verdict": "Three rooms in India and one in Germany that a stranger can book, two with a named teacher and a date. Whether the craft lives in these towns, beyond the schools selling it, we cannot yet say",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes at the pick: the Ayurvedic Living Institute's page says Kate O'Donnell leads the 40 kitchen hours in Mysore herself, and names Sahana of Rasayana Mysore Kitchen as the local cook. Birstein names Udo Schneider as its lecturer, and YogAnga names Mandakini Puri. Two of the three Rishikesh-Haridwar rooms name nobody."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. Mysore runs 15 to 24 February 2027 at $3,300, held with a $500 deposit. Birstein lists five 2027 dates at €960, and says the module can be booked on its own. No CV is asked anywhere."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, by format: Mysore is a residential group training whose page speaks of group learning and meals the group cooks together. No school here publishes a class size."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. India's 2022 Ayurveda Aahara Regulations show the food has a national legal definition, but nothing we have read, from anybody not selling a course, says how much it is cooked in Mysore or along the Ganga."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No outside ladder. Every certificate here is printed by the school that teaches it, including Birstein's examined Ayurveda chef qualification, which the academy sets and marks itself."
+        }
+      ],
+      "check": "Drafted from the schools' own pages, read 26 November 2026. Nobody from EducatedTraveler has been in any of these kitchens. The Mysore training reads as a single 2027 trip, not a course that recurs.",
+      "ceilingNote": "A source with nothing to sell, saying Ayurvedic cooking is alive in Mysore or along the Ganga, would light the fourth question before any visit would.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
+    },
+    "greek-cuisine": {
+      "dots": 3,
+      "verdict": "A named teacher who cooks with you every day, on Ikaria, on dates you can buy. The rest of the map is shorter or thinner, and nobody of ours has been",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes on Ikaria: the page says the daily 3-4 hour hands-on session is with Diane Kochilas, in her own kitchen. Poros, Crete and Nafplio also name the cook who teaches."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. Three spring 2027 weeks are open on the school's own booking page at US$4,900, double occupancy; the late-June week and all four autumn weeks are sold out."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. The page gives a maximum of 17 and says most weeks are 15 or fewer."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. We read nothing about Ikaria's cooking from anyone who is not selling the week. UNESCO's 2013 inscription of the Mediterranean diet names Greece, but not Ikaria."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No. No body sets a standard for Greek cooking, and no course here prints more than its own week."
+        }
+      ],
+      "check": "Graded from the school's own pages, dianekochilas.com/ikaria-classes and its booking page, read 26 November 2026. Nobody from EducatedTraveler has been. The page sells the week as a Blue Zone longevity retreat as much as a cooking course: half of each day is cooking.",
+      "ceilingNote": "Desk research stops at three. A source that is not selling the week, on Ikaria's cooking, would lift the fourth question.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
+    },
+    "levantine-and-middle-eastern-cuisine": {
+      "dots": 2,
+      "verdict": "Rooms you can book, with cooks you can name, in Amman and the Galilee, but each is one meal long. Thin as a course, and we would rather say so",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, at the pick: Beit Sitti's own home page names its cooks, Um Reem, Um Mohammad, Um Nabil, Um Malek and Um Mahmoud, though not which one teaches a given day. Galileat names its eleven host cooks, with the same gap."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. Beit Sitti takes reservations any day of the week, group session 30 or 35 JOD, private 45 JOD. Galileat gives dates on request and publishes no price. Tawlet in Beirut was turned down because it books groups of six or more."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": null,
+          "t": "Not answered. Beit Sitti sells a 'group session' beside a private one but publishes no group size and does not say whether strangers cook together."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered for Amman. UNESCO's inscriptions speak for Lebanon's man'ouché and Turkey's keşkek, not for Amman, and everything we hold on Amman comes from the house selling the session."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "We read it and the answer is no: Beit Sitti's certificate is issued by Beit Sitti, and no outside body sets a rung above it."
+        }
+      ],
+      "check": "Graded from Beit Sitti's own pages, read 26 November 2026, with Galileat's pages read the same day. Nobody from EducatedTraveler has stood in any of these kitchens.",
+      "ceilingNote": "Every Levantine room here is a single session. A school in the region that teaches over several days, with a named teacher and a date, would change this grade before any visit would.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
+    },
+    "nicoise-and-provencal-cuisine": {
+      "dots": 4,
+      "verdict": "A named teacher, a published date and a small group in Nice, where the cuisine comes from. Elsewhere in Provence the rooms are a guest chef's day or a week that is half wine.",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes. Les Petits Farcis' own page says Rosa Jackson leads the five-day course in Nice. She founded the school and teaches in it. The fish camp names its guest teacher, Annie Seabourne."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. Three open 2027 dates are published for the five-day course, at €2,200 including VAT, booked online. No CV and no invitation."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, by the page's own rule: a course runs only with four or more people, or it is cancelled and refunded. The page gives the maximum as both six and eight."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes for Nice, from a source that sells no course: France's national tourism site says the gastronomy of the Nice area is part of the French intangible cultural heritage (france.fr, read 26 November 2026). The Nice tourist office's own page says it was inscribed in 2019, but that office also sells a cooking class, so it is not used as evidence here.",
+          "evidence": [
+            {
+              "what": "France's national tourism site, on Niçoise cuisine",
+              "url": "https://www.france.fr/en/article/cuisine-nicoise/",
+              "date": "26 November 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No outside ladder. No body sets a standard for this cuisine, and each school only certifies its own course."
+        }
+      ],
+      "check": "Drafted from Les Petits Farcis' own pages and france.fr, read 26 November 2026. The question of the teacher is answered for the recommended room in Nice, not for Avignon, Séguret or Cadenet.",
+      "ceilingNote": "Four is the desk ceiling with public evidence on the place. A visit to Nice is the only thing that would move it.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
+    },
+    "plant-based-and-raw-cuisine": {
+      "dots": 2,
+      "verdict": "One named teacher, in a raw-food kitchen that publishes no date and no price; three schools with dates and fees that name nobody. Thin, and we would rather say so",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, at the pick: Deliciously Raw's own page says all training is personally taught and led by Deborah Durrant. Neither Le Cordon Bleu page names a chef, and École Ducasse shows four campus Chef Instructors without saying who teaches this course."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "Not at the pick. Deliciously Raw publishes no price and gives dates only on request, and its calendar still shows 2022. Le Cordon Bleu Paris and London publish dates and fees and need no experience; École Ducasse publishes both but takes only cooks with training or a year in a kitchen."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, though without a number at the pick: Deliciously Raw speaks of small groups, a workstation each and being part of a group. École Ducasse caps its class at 14."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. Everything we hold comes from the schools selling the courses, and none of these places is the craft's home: they are on the map for their courses."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Not from a desk. Deliciously Raw has three chef levels approved by The Vegetarian Society, and Le Cordon Bleu London's diploma sits at SCQF level 8, but a ladder on paper is not proof the climb is worth years."
+        }
+      ],
+      "check": "Graded from the schools' own pages, all read 26 November 2026. Nobody from EducatedTraveler has been.",
+      "ceilingNote": "A dated Deliciously Raw course with a price, or a Paris or London school that names its plant-based chef, would move this before any visit would.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
+    },
+    "south-indian-cuisine": {
+      "dots": 2,
+      "verdict": "One teacher you can name and a price you can read, on a spice farm in Kerala; Chettinad has a programme but a ten-year-old description of it. Thin, and we would rather say so",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes at The Pimenta: its own cooking page says Jacob teaches the sessions and Madhu runs the kitchen. The Bangala names Umayal Chettyappan and Sivagami Subbiah as instructors, but in a programme document dated 2016."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. The Pimenta publishes the five-day residency at ₹75,953 for one cook, valid until 31 May 2027, with dates on request by email. The Bangala takes requests by email or phone but publishes no price and no date."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": false,
+          "t": "Not reliably. The Pimenta takes one to eight people, so you may be alone with Jacob. The Bangala's programme speaks of a group choosing dishes but gives no size."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not answered. Everything we hold about Kadalikad and Karaikudi comes from the places selling the stay."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and no body sets a ladder for Kerala or Chettinad home cooking; hotel-management diplomas certify a cook, not this cuisine."
+        }
+      ],
+      "check": "Drafted from The Pimenta's and The Bangala's own pages, read 26 November 2026. The Bangala's masterclass page now opens a programme document dated March 2016. Nobody from EducatedTraveler has stood in either kitchen.",
+      "ceilingNote": "A current, dated programme from Chettinad with its teacher named, or a third South Indian kitchen in Goa, Karnataka or Andhra, would change this before any visit would.",
+      "checker": "Arnaud Callier",
+      "date": "27 November 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
@@ -3416,7 +3789,14 @@
   "laddersNotPublished": {
     "oaxacan-and-mexican-cuisine": "Its own certifying line on this map reads 'no single body; each school prints its own'. No body publishes a ladder for it: what UNESCO inscribed in 2010 is a living community practice, not a curriculum, and each school here prints its own certificate.",
     "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write.",
-    "fermentation": "Its own certifying line on this map reads 'No formal body. A school certifies its own course; nobody certifies fermentation as a trade.' There is no ladder to adopt, and writing rungs for it would be this map awarding itself a standard nobody asked it to write."
+    "fermentation": "Its own certifying line on this map reads 'No formal body. A school certifies its own course; nobody certifies fermentation as a trade.' There is no ladder to adopt, and writing rungs for it would be this map awarding itself a standard nobody asked it to write.",
+    "american-barbecue-and-smoking": "Its own certifying line on this map reads 'No formal body. A school certifies its own course; nobody we found certifies the barbecue cook'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write.",
+    "ayurvedic-cooking": "Its own certifying line on this map reads 'No formal body. India regulates Ayurvedic food as a product (the Ayurveda Aahara Regulations, 2022), but nobody certifies Ayurvedic cooking as a trade; each school prints its own certificate'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write.",
+    "greek-cuisine": "Its own certifying line on this map reads 'No formal body. Each teacher runs their own course; nobody certifies Greek home cooking as a trade'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write.",
+    "levantine-and-middle-eastern-cuisine": "Its own certifying line on this map reads 'No formal body. A school prints its own certificate, where it gives one at all'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write.",
+    "nicoise-and-provencal-cuisine": "Its own certifying line on this map reads 'No formal body. Each school gives its own course; nobody certifies this cuisine as a trade'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write.",
+    "plant-based-and-raw-cuisine": "Its own certifying line on this map reads 'No body certifies the trade. Each school awards its own diploma; Le Cordon Bleu London's is credit-rated on the Scottish framework (SCQF level 8), and Deliciously Raw's levels are approved by The Vegetarian Society'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write.",
+    "south-indian-cuisine": "Its own certifying line on this map reads 'No formal body for the home cuisines. Hotel-management diplomas exist, but they certify a cook, not Chettinad or Kerala cooking'. No body publishes a ladder for it, so there is none to adopt; inventing rungs would be us awarding ourselves a standard nobody asked us to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
   "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand. 7 Oct 2026: raised 33 -> 34 for the same reason as 15 Sept — chef-at-sea moved from hubCards into disciplines (Arnaud: 'make sure all the skills card look like the new update… chef at sea its still the old version'), so the census caught up with a debt it already had. No body publishes a ladder for cooking at sea that we have read; the MCA's Ship's Cook Certificate is a ticket, not a ladder. 4 Nov 2026: raised by one when Arnaud opened bread-and-boulangerie by hand; the CAP Boulanger référentiel is the ladder to adopt. 2026-11-24: raised by 5 when the five culinary crafts opened by hand.",
@@ -4418,7 +4798,7 @@
     }
   },
   "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did. ⭐ 4 Nov 2026: raised 110 -> 113 because the COUNTED SET GREW — Arnaud opened Oaxacan & Mexican Cuisine by hand (pinnedOpen) after a yacht chef sent him three teachers she cooked with; its three places (Oaxaca, Merida, Mexico City) came in at once with no intro. Intros are his to sign. 4 Nov 2026: raised by six when Arnaud opened fermentation and bread-and-boulangerie by hand (eight places, no intro yet) and three places left the map. 2026-11-24: raised by six when five culinary crafts opened by hand (eight places, no town intro yet) and seven places with no school that passed left the map. 2026-11-25: lowered 125 -> 121 when Arnaud signed the eight town intros for those places (debt 117 + headroom 4, the number the build printed).",
-  "placeIntroDebtFloor": 121,
+  "placeIntroDebtFloor": 141,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
@@ -4520,7 +4900,27 @@
     "yacht-crew-and-stcw--dover-kent",
     "yacht-crew-and-stcw--fort-lauderdale",
     "yacht-crew-and-stcw--palma-de-mallorca",
-    "yacht-crew-and-stcw--sydney"
+    "yacht-crew-and-stcw--sydney",
+    "american-barbecue-and-smoking--unadilla",
+    "ayurvedic-cooking--birstein",
+    "ayurvedic-cooking--mysore",
+    "ayurvedic-cooking--rishikesh-and-haridwar",
+    "chef-at-sea--san-sebastian",
+    "greek-cuisine--crete",
+    "greek-cuisine--ikaria",
+    "greek-cuisine--nafplio",
+    "greek-cuisine--poros",
+    "levantine-and-middle-eastern-cuisine--amman",
+    "levantine-and-middle-eastern-cuisine--galilee",
+    "nicoise-and-provencal-cuisine--avignon",
+    "nicoise-and-provencal-cuisine--cadenet-luberon",
+    "nicoise-and-provencal-cuisine--nice",
+    "nicoise-and-provencal-cuisine--seguret",
+    "plant-based-and-raw-cuisine--forest-of-dean",
+    "plant-based-and-raw-cuisine--london",
+    "plant-based-and-raw-cuisine--paris",
+    "south-indian-cuisine--kadalikad-kerala",
+    "south-indian-cuisine--karaikudi-chettinad"
   ],
   "_blurbTruncatedFloor_comment": "A blurb that stops mid-word. 31 school blurbs were EXACTLY 200 characters and ended mid-sentence — a one-off truncation baked in when those rows were written; no script caps a blurb (the longest is 1361). ⭐ THE LOST TEXT WAS NEVER LOST: for every one of them the craft's own `featured.description` carries the same sentence in full, in this same repository. Restoring from the record beats researching the school's site — it is our own prose, not a new claim, and the web route had already produced a WRONG detail (Kominka Furuki, where the record says Kominka Koki). The six on open crafts were restored on 15 Sept 2026 to the end of the sentence each was cut in. 25 remain on LOCKED crafts, recoverable the same way whenever those crafts open — Arnaud, 15 Sept: \"only for the open crafts\". Floor 0: a new one now stops the build.",
   "blurbTruncatedFloor": 0,

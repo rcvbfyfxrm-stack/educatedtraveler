@@ -17993,7 +17993,8 @@ window.ET_ATLAS = {
           "schools": [
             "Le Cordon Bleu Paris",
             "FERRANDI Paris",
-            "École Ducasse"
+            "École Ducasse",
+            "École Lenôtre"
           ],
           "masters": [],
           "badges": [
@@ -18064,6 +18065,29 @@ window.ET_ATLAS = {
                   "https://www.ecoleducasse.com/en/career-changers-culinary-arts"
                 ],
                 "read": "2026-11-24"
+              }
+            },
+            {
+              "name": "École Lenôtre",
+              "url": "https://www.ecole-lenotre.com/ateliers/cuisine-marine-et-vegetale-avec-alexandre-couillon-chef-du-restaurant-la-marine-marine-and-plant-based-cuisine-with-alexandre-couillon-chef-of-restaurant-la-marine/",
+              "course": "Cuisine marine et végétale with Alexandre Couillon — two days",
+              "blurb": "A short professional course taught by Alexandre Couillon himself, chef of La Marine: two days on a cooking built around the sea and the vegetable garden — fish, shellfish and seaweed as they come in, gentle cooking and embers, jus, broths and extractions, plates that read simply. He demonstrates, then every participant cooks every recipe, alone and in teams; a level test opens the course and you leave with the technical sheets. Lenôtre runs other guest-chef courses through the year, among them Paul Marcon on competition technique (2 to 4 February 2027).",
+              "confidence": "high",
+              "verify": [
+                "2 jours - 16 heures",
+                "1 280,00 HT / 1 536,00 TTC"
+              ],
+              "facts": {
+                "where": "Rungis, near Paris",
+                "length": "2 days, 16 hours",
+                "format": "Chef demonstrates, then you cook every recipe",
+                "price": "€1,536",
+                "priceNote": "including VAT (€1,280 before tax); 12 and 13 April 2027",
+                "from": [
+                  "https://www.ecole-lenotre.com/ateliers/cuisine-marine-et-vegetale-avec-alexandre-couillon-chef-du-restaurant-la-marine-marine-and-plant-based-cuisine-with-alexandre-couillon-chef-of-restaurant-la-marine/",
+                  "https://www.ecole-lenotre.com/"
+                ],
+                "read": "2026-11-26"
               }
             }
           ],
@@ -18395,6 +18419,109 @@ window.ET_ATLAS = {
           "tripLength": "a month+",
           "englishTaught": true,
           "englishBasis": "ALMA Italian Pasta Program is a 3-week certificate course taught in English for international students."
+        },
+        {
+          "place": "Costigliole d'Asti (Piedmont)",
+          "country": "Italy",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "ICIF — Italian Culinary Institute for Foreigners"
+          ],
+          "masters": [],
+          "badges": [
+            "school"
+          ],
+          "why": "A school in the Asti wine country, the Italian Culinary Institute for Foreigners: four weeks of Italian cooking and wine, living on site.",
+          "bestSeason": "Jan-Apr",
+          "level": "Working cooks -> Professional",
+          "id": "italian-cuisine-and-pasta--costigliole-d-asti-piedmont",
+          "schoolsInfo": [
+            {
+              "name": "ICIF — Italian Culinary Institute for Foreigners",
+              "url": "https://icif.com/en/professional-courses/i-level-master-in-italian-cuisine-and-oenology",
+              "course": "I Level Master in Italian Cuisine and Oenology — four weeks at the school",
+              "blurb": "Four weeks of lessons, part theory and part practice, at the Institute in Costigliole d'Asti, for professionals or students who want a faster training in traditional and modern-creative Italian cooking: olive oils, balsamic vinegars, herbs and spices, fresh and filled pasta, risotto, fish and meat, cheeses, pastry and wine, with visits to a dairy and a winery. Open to hospitality-school graduates, Italian and foreign food professionals, and anyone with a documented year in hospitality; 24 people at most. Board and lodging in the school's guesthouse are in the price. Eight weeks in a restaurant can follow; that part is optional, not in the price, and not what this card is about. The page does not say who teaches or in which language.",
+              "confidence": "high",
+              "verify": [
+                "Maximum number of participants: 24",
+                "Complete course: 5.950"
+              ],
+              "facts": {
+                "where": "Costigliole d'Asti, Piedmont",
+                "length": "4 weeks at the school",
+                "format": "Theory and practice; lodging on site, meals Monday to Friday",
+                "class": "24 at most",
+                "price": "€5,950",
+                "priceNote": "board and lodging for the four weeks included; next starts 11 January and 8 March 2027",
+                "from": [
+                  "https://icif.com/en/professional-courses/i-level-master-in-italian-cuisine-and-oenology",
+                  "https://icif.com/"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Immersion",
+          "tripLength": "a month",
+          "englishTaught": null
+        },
+        {
+          "place": "Case Vecchie (Sicily)",
+          "country": "Italy",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Anna Tasca Lanza Cooking School"
+          ],
+          "masters": [],
+          "lineage": [
+            "Anna Tasca Lanza, who started the school in 1987"
+          ],
+          "badges": [
+            "school",
+            "heritage"
+          ],
+          "why": "A farmhouse school on a working wine estate in the middle of Sicily, where the cooking is the island's own — ricotta at the shepherd's, and in a themed week, tomatoes dried in the sun for estratto — and you sleep where you cook.",
+          "bestSeason": "Apr-Jun, Sep-Oct",
+          "level": "Beginner -> Intermediate",
+          "id": "italian-cuisine-and-pasta--case-vecchie-sicily",
+          "schoolsInfo": [
+            {
+              "name": "Anna Tasca Lanza Cooking School",
+              "url": "https://annatascalanza.com/signature-stays/",
+              "course": "Signature Stay — four nights, Monday to Friday, April to October",
+              "blurb": "Fabrizia Lanza runs the school her mother Anna started in 1987 on the family estate at Case Vecchie, among the Tasca d'Almerita vineyards. A Signature Stay is four nights: cooking lessons with chef Leah, a garden tour, a winery visit, a morning with Filippo the cheesemaker and a beekeeping class, 14 people at most. Be clear what it is: a culinary stay with two cooking lessons in the sample programme, not a professional course. The themed workshops go further on one subject — Tomato Paste, 23 to 27 August 2027, is five days of estratto and sun-dried preserves, from €4,100 in a single room.",
+              "confidence": "high",
+              "verify": [
+                "Maximum participants: 14",
+                "Single Room: €3,100"
+              ],
+              "facts": {
+                "where": "Case Vecchie, Vallelunga Pratameno",
+                "length": "4 nights",
+                "format": "Residential; cooking lessons, producer visits, all meals",
+                "class": "14 at most",
+                "price": "€3,100",
+                "priceNote": "single room; double room €5,800; 2027 stays from 19 April to 22 October",
+                "from": [
+                  "https://annatascalanza.com/signature-stays/",
+                  "https://annatascalanza.com/tomato-paste-2027/",
+                  "https://annatascalanza.com/the-food-of-sicily/"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "under a week",
+          "englishTaught": null
         }
       ],
       "id": "italian-cuisine-and-pasta",
@@ -19386,7 +19513,8 @@ window.ET_ATLAS = {
             "Seasons of My Heart (Susana Trilling)",
             "Casa Crespo Cooking Classes",
             "El Sabor Zapoteco (Teotitlan del Valle)",
-            "La Casa de los Sabores (Pilar Cabrera)"
+            "La Casa de los Sabores (Pilar Cabrera)",
+            "Mezcouting"
           ],
           "masters": [
             "Kaelin Trilling (Seasons of My Heart)"
@@ -19496,6 +19624,42 @@ window.ET_ATLAS = {
               "course": "Oaxacan cooking class with market tour",
               "blurb": "Oaxaca City cooking school led by chef Pilar Cabrera of restaurant La Olla, teaching hands-on Oaxacan menus including moles for groups of 2-8 with a market tour, mezcal tasting and a five-course meal.",
               "confidence": "medium"
+            },
+            {
+              "name": "Mezcouting",
+              "url": "https://andrea-hagan-fyc5.squarespace.com/chefs",
+              "course": "Maíz Criollo & Nixtamalization Workshop — five days, four nights",
+              "blurb": "A workshop written for chefs and serious cooks, in two communities. In Teotitlán del Valle, the quick nixtamalization for tostadas, ground by hand on the metate, with four heirloom corns grown on site by the teacher, Aurora — traditional cook, natural dyer and weaver. In Miahuatlán, on a mezcal farm with a team of cocineras tradicionales, the long overnight nixtamal, tortillas and the region's atoles. Three days of classes in the five, with a guide who translates between Spanish and English. The same people run a six-day mole workshop and a three-day earth-oven barbacoa. The page gives no dates: you ask.",
+              "confidence": "medium",
+              "verify": [
+                "geared towards chefs and serious cooks",
+                "5 days/4 nights"
+              ],
+              "facts": {
+                "where": "Teotitlán del Valle and Miahuatlán",
+                "length": "5 days, 4 nights, 3 of them classes",
+                "format": "Two communities; an open group of 5 to 8",
+                "class": "5 to 8",
+                "language": "Spanish, with English translation",
+                "price": "US$1,265",
+                "priceNote": "per person (22,800 MXN); dates on request",
+                "from": [
+                  "https://andrea-hagan-fyc5.squarespace.com/chefs"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teacher",
+                    [
+                      "Aurora"
+                    ]
+                  ]
+                ],
+                "from": "https://andrea-hagan-fyc5.squarespace.com/chefs",
+                "read": "2026-11-26"
+              }
             }
           ],
           "tripTier": 2,
@@ -24888,7 +25052,6 @@ window.ET_ATLAS = {
           "communityRank": 3,
           "communityLabel": "Strong",
           "schools": [
-            "Hanoi Cooking Centre",
             "Apron Up Cooking Class",
             "Old Hanoi street-food and pho workshops"
           ],
@@ -24902,13 +25065,6 @@ window.ET_ATLAS = {
           "level": "Beginner -> Intermediate",
           "id": "vietnamese-cuisine--hanoi",
           "schoolsInfo": [
-            {
-              "name": "Hanoi Cooking Centre",
-              "url": "https://www.hanoicookingcentre.com/",
-              "course": "Hands-on Vietnamese cooking classes and short courses",
-              "blurb": "The Hanoi Cooking Centre is a purpose-built cooking school, cafe and shop on the edge of the Old Quarter founded by chef Tracey Lister, offering hands-on Vietnamese cooking classes and short courses for small groups.",
-              "confidence": "medium"
-            },
             {
               "name": "Apron Up Cooking Class",
               "url": "https://www.apronupcookingclass.com/",
@@ -24927,8 +25083,7 @@ window.ET_ATLAS = {
           "tripTier": 3,
           "tripType": "Deep-dive",
           "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Hanoi Cooking Centre (founder Tracey Lister, Melbourne chef) classes conducted in English"
+          "englishTaught": null
         }
       ],
       "id": "vietnamese-cuisine",
@@ -30655,6 +30810,57 @@ window.ET_ATLAS = {
           "tripLength": "three days",
           "englishTaught": true,
           "englishBasis": "Leiths requires competent spoken and written English to sit the assessment."
+        },
+        {
+          "place": "San Sebastián (Donostia)",
+          "country": "Spain",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Basque Culinary Center"
+          ],
+          "masters": [],
+          "badges": [
+            "school"
+          ],
+          "why": "Not a cooking course: three mornings at the Basque Culinary Center on how private-chef work runs in private houses, on boats, at events and with sports teams, for cooks weighing a move into it.",
+          "bestSeason": "Apr",
+          "level": "Working cooks",
+          "id": "chef-at-sea--san-sebastian",
+          "schoolsInfo": [
+            {
+              "name": "Basque Culinary Center",
+              "url": "https://www.bculinary.com/es/cursos-profesionales/cuisine-product-and-technique/chef-privado-entornos-y-claves-profesionales",
+              "course": "Chef privado: entornos y claves profesionales — three mornings, 19 to 21 April 2027",
+              "blurb": "An introductory course for kitchen professionals on how a private chef's work runs: menu planning, buying, logistics, provisioning, protocol, discretion and the client, with a session on the particular demands of boats and large residences, and one on presenting your own track record. It is taught through cases and real situations, with exercises in planning and logistics; the page says plainly that no cooking is done during the course. In Spanish, on campus, 18 places; you leave with a certificate of attendance.",
+              "confidence": "high",
+              "verify": [
+                "no se realizarán elaboraciones ni prácticas de cocina",
+                "15 horas de formación"
+              ],
+              "facts": {
+                "where": "Basque Culinary Center, Donostia",
+                "length": "3 mornings, 15 hours",
+                "format": "Cases and planning exercises; no cooking",
+                "language": "Spanish",
+                "class": "18 at most",
+                "credential": "Certificate of attendance",
+                "price": "€650",
+                "priceNote": "paid in full on enrolment; 19 to 21 April 2027, 9:00 to 14:00",
+                "from": [
+                  "https://www.bculinary.com/es/cursos-profesionales/cuisine-product-and-technique/chef-privado-entornos-y-claves-profesionales"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "three mornings",
+          "englishTaught": false,
+          "englishBasis": "The course page says it is taught in Spanish."
         }
       ],
       "alsoHere": [
@@ -30669,6 +30875,1622 @@ window.ET_ATLAS = {
           "note": "Where the trade gathers from autumn, when the fleet crosses to the Caribbean."
         }
       ]
+    },
+    {
+      "discipline": "American Barbecue & Smoking",
+      "category": "culinary",
+      "certBody": "No formal body. A school certifies its own course; nobody we found certifies the barbecue cook.",
+      "goldCredential": "None. Myron Mixon's pages name no certificate at all.",
+      "blurb": "Whole hog, brisket and ribs cooked slowly over wood smoke, the barbecue of the American South, taught at the pits of the people who cook it.",
+      "destinations": [
+        {
+          "place": "Unadilla, Georgia",
+          "country": "United States",
+          "region": "North America",
+          "role": "both",
+          "roleWhy": "Source for South Georgia open-pit whole hog: the Memories Class cooks on a replica of the Mixon family's masonry pits, the method his father Jack Mixon taught him. Scene for competition barbecue, which is what the Cooking School teaches.",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Jack's Old South Cooking School (Myron Mixon)"
+          ],
+          "masters": [
+            "Myron Mixon"
+          ],
+          "lineage": [
+            "Jack Mixon, Myron's father, who first taught him open-pit barbecue"
+          ],
+          "badges": [
+            "school",
+            "master",
+            "lineage"
+          ],
+          "why": "A weekend at Myron Mixon's compound in South Georgia: nine meats from whole hog to brisket, hands-on beside him, or a separate open-pit weekend on a replica of his family's pits, with a heritage hog.",
+          "bestSeason": "January-February (the two 2027 dates)",
+          "level": "Beginner -> Advanced",
+          "id": "american-barbecue-and-smoking--unadilla",
+          "schoolsInfo": [
+            {
+              "name": "Jack's Old South Cooking School (Myron Mixon)",
+              "url": "https://myronmixon.com/products/bbq-cooking-school-january-22-24-2027",
+              "course": "BBQ Cooking School, 22-24 January 2027, Friday evening to Sunday 3 pm; BBQ Memories Class, open-pit whole hog, 5-7 February 2027",
+              "blurb": "Myron Mixon's school at his compound in Unadilla, Georgia, 120 miles south of Atlanta. His page says he teaches every class himself. The Cooking School is hands-on and covers nine meats: whole hog, pork ribs, beef ribs, tri-tip, pork loin, chicken, turkey, pork butts and brisket, for the backyard cook, the trained chef and the competitor alike. The Memories Class is a different weekend: open-pit cooking on a replica of his family's masonry pits, a heritage hog chosen at Morgan Farms, South Georgia sides from scratch, twenty guests at most. Its page describes the work but does not use the word hands-on. The Cooking School page gives no class size. Lodging is not included, and there are no refunds: a seat can only be moved to the next class.",
+              "confidence": "high",
+              "verify": [
+                "Taught hands-on by 5x World BBQ Champion Myron Mixon",
+                "One seat is $895",
+                "Nine meats, from whole hog to brisket"
+              ],
+              "facts": {
+                "where": "Jack's Old South, Unadilla, Georgia",
+                "length": "3 days, Friday 6 pm to Sunday 3 pm",
+                "format": "In person, hands-on; lodging not included; no refunds, a seat rolls to the next class",
+                "language": "English",
+                "price": "$895",
+                "priceNote": "a seat, Cooking School; the Memories Class takes 20 guests at most; BBQ Memories Class, 5-7 February 2027, $1,500 a seat",
+                "from": [
+                  "https://myronmixon.com/products/bbq-cooking-school-january-22-24-2027",
+                  "https://myronmixon.com/products/bbq-memories-class-feb-5-7-2027",
+                  "https://myronmixon.com/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches every class",
+                    [
+                      "Myron Mixon"
+                    ]
+                  ]
+                ],
+                "from": "https://myronmixon.com/products/bbq-cooking-school-january-22-24-2027",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "A school in Georgia whose pages are in English and name no other language."
+        }
+      ],
+      "id": "american-barbecue-and-smoking",
+      "certShort": "No formal body",
+      "featured": {
+        "id": "american-barbecue-and-smoking--unadilla",
+        "place": "Unadilla, Georgia",
+        "country": "United States",
+        "school": "Jack's Old South Cooking School (Myron Mixon)",
+        "url": "https://myronmixon.com/products/bbq-cooking-school-january-22-24-2027",
+        "course": "BBQ Cooking School, 22-24 January 2027",
+        "description": "Friday evening to Sunday afternoon at Myron Mixon's compound in Unadilla: a meet and greet dinner, then two days cooking nine meats hands-on beside him, starting with the whole hog and ending with brisket. Lodging not included; the nearest airport is Atlanta, 120 miles north.",
+        "duration": "Friday evening to Sunday 3 pm",
+        "format": "In person, hands-on",
+        "certification": "None published",
+        "fitsBecause": "The one room on this craft where a stranger can buy a dated seat and cook a whole hog beside a named pitmaster.",
+        "priceNote": "$895 a seat; no refunds",
+        "confidence": "high"
+      }
+    },
+    {
+      "discipline": "Ayurvedic Cooking",
+      "category": "culinary",
+      "certBody": "No formal body. India regulates Ayurvedic food as a product (the Ayurveda Aahara Regulations, 2022), but nobody certifies Ayurvedic cooking as a trade; each school prints its own certificate.",
+      "goldCredential": "None outside the schools. The European Academy of Ayurveda's own examined Ayurveda chef qualification is the most structured one found.",
+      "certShort": "No formal body",
+      "blurb": "Cooking by Ayurveda's rules: spices, food combinations and the season matched to the doshas, taught hands-on in Indian ashram and home kitchens and in one German academy.",
+      "destinations": [
+        {
+          "place": "Mysore",
+          "country": "India",
+          "region": "South Asia",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Ayurvedic Living Institute"
+          ],
+          "masters": [
+            "Kate O'Donnell",
+            "Sahana of Rasayana Mysore Kitchen"
+          ],
+          "badges": [
+            "source",
+            "school"
+          ],
+          "why": "Ten days in Mysore in February 2027, about forty hours of study and kitchen work led by Kate O'Donnell, with Sahana of Rasayana Mysore Kitchen and her mother teaching the local ingredients.",
+          "bestSeason": "Feb (one dated run, 2027)",
+          "level": "Beginner -> Professional",
+          "id": "ayurvedic-cooking--mysore",
+          "schoolsInfo": [
+            {
+              "name": "Ayurvedic Living Institute",
+              "url": "https://ayurvedicliving.institute/ayurvedic-culinary-nutrition-training",
+              "course": "Ayurvedic Culinary & Nutrition Training, ten days residential, 15 to 24 February 2027",
+              "blurb": "A ten-day residential training at Chitravana Resorts outside Mysore, run by the Ayurvedic Living Institute and led by Kate O'Donnell, who the page says leads the 40 kitchen hours and the group learning herself. Sahana of Rasayana Mysore Kitchen and her mother welcome the group into their kitchen to teach traditional ingredients. You learn to classify food by taste, potency and post-digestive effect, to plan menus for people with specific needs, and to cook in bulk for retreats; some meals the group cooks itself. The price covers nine nights in a private cottage, three meals a day and visits to an organic farm, a temple and Mysore Palace. It ends in the institute's own certificate of completion. It reads as a single 2027 trip, not a course that recurs, and the page does not give a group size or a teaching language.",
+              "confidence": "high",
+              "verify": [
+                "February 15–24, 2027",
+                "Pay In FULL $3300",
+                "Sahana of Rasayana Mysore Kitchen"
+              ],
+              "facts": {
+                "where": "Chitravana Resorts, Mysore",
+                "length": "10 days, 9 nights; about 40 hours",
+                "format": "Residential; private cottage, three meals a day and excursions included",
+                "price": "$3,300",
+                "priceNote": "$500 non-refundable deposit, balance due 15 January 2027; the page gives the card fee as both 3% and a flat $150",
+                "from": [
+                  "https://ayurvedicliving.institute/ayurvedic-culinary-nutrition-training"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Leads the training",
+                    [
+                      "Kate O'Donnell"
+                    ]
+                  ],
+                  [
+                    "Local kitchen",
+                    [
+                      "Sahana of Rasayana Mysore Kitchen, with her mother"
+                    ]
+                  ]
+                ],
+                "from": "https://ayurvedicliving.institute/ayurvedic-culinary-nutrition-training",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "ten days",
+          "englishTaught": null,
+          "englishBasis": "The page does not state a teaching language. It is written in English for an American-run institute, which suggests English but does not say it."
+        },
+        {
+          "place": "Rishikesh & Haridwar",
+          "country": "India",
+          "region": "South Asia",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "YogAnga Retreat at Śri Santosh Puri Ashram",
+            "Swami Amlanand Yoga Ashram",
+            "Ayuskama Rishikesh"
+          ],
+          "masters": [
+            "Mandakini Puri"
+          ],
+          "badges": [
+            "source",
+            "school"
+          ],
+          "why": "Two ashram kitchens and one school along the Ganga between Rishikesh and Haridwar, teaching Ayurvedic vegetarian cooking from five days to two weeks; in the ashrams it sits inside the daily routine.",
+          "bestSeason": "Oct-Mar",
+          "level": "Beginner",
+          "id": "ayurvedic-cooking--rishikesh-and-haridwar",
+          "schoolsInfo": [
+            {
+              "name": "YogAnga Retreat at Śri Santosh Puri Ashram",
+              "url": "https://www.yoganga.org/schedule-dates/two-week-hatha-yoga-ayurvedic-cooking-residential-course",
+              "course": "Two Week Hatha Yoga & Ayurvedic Cooking Residential Course, 22 January to 4 February 2027",
+              "blurb": "An ashram 7 km from Haridwar and 18 km from Rishikesh, where the kitchen is the classroom. Mornings are yoga, prāṇāyāma and meditation; the cooking class is in the afternoon, from four o'clock, and the rest of the day follows the ashram's routine. Mandakini Puri, born on the banks of the Ganga and teaching at the ashram since 2004, guides it. You learn to cook simple vegetarian meals and how spices, food combinations and the season bear on the doṣas, often with vegetables and milk from the ashram's own garden and dairy. The fee is not published and is given on enquiry; a small extra may be asked for ingredients. A certificate of participation is given only on request. Cooking is one part of each day here, not the whole of it.",
+              "confidence": "high",
+              "verify": [
+                "Mandakini Puri",
+                "Friday 22 January, 2027",
+                "With the kitchen as your classroom"
+              ],
+              "facts": {
+                "where": "Between Haridwar and Rishikesh",
+                "length": "2 weeks",
+                "format": "Residential, in the ashram's daily routine; cooking class each afternoon",
+                "price": null,
+                "priceNote": "Not published: the fee is given on enquiry or registration",
+                "from": [
+                  "https://www.yoganga.org/schedule-dates/two-week-hatha-yoga-ayurvedic-cooking-residential-course",
+                  "https://yoganga.org/ashram-programs/ayurvedic-indian-cooking/",
+                  "https://www.yoganga.org/visit-us"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches the course",
+                    [
+                      "Mandakini Puri"
+                    ]
+                  ]
+                ],
+                "from": "https://yoganga.org/ashram-programs/ayurvedic-indian-cooking/",
+                "read": "2026-11-26"
+              }
+            },
+            {
+              "name": "Swami Amlanand Yoga Ashram",
+              "url": "https://swamiamlanandyoga.com/shop/yoga-retreats-courses/5-days-ayurvedic-cooking-course/",
+              "course": "5 Days Ayurvedic Cooking Course, four nights, from the 24th to the 28th of most months in 2026 and 2027",
+              "blurb": "A five-day, four-night course at an ashram in Kankhal, Haridwar, where the kitchen is the classroom and you learn classic vegetarian dishes cooked to Ayurvedic principles, with a morning yoga class, sessions on the doshas, gunas and five elements, kirtan, and visits to temples and the evening Ganga Arti. A shared room is included. The page names no cooking teacher, and it gives a certificate of participation.",
+              "confidence": "medium",
+              "verify": [
+                "It is a 4 night and 5 days Course",
+                "INR 13,600",
+                "24 January to 28 January"
+              ],
+              "facts": {
+                "where": "Kankhal, Haridwar",
+                "length": "5 days, 4 nights",
+                "format": "Residential, shared room; cooking classes, yoga and excursions included",
+                "price": "INR 13,600",
+                "priceNote": "twin shared room; booking deposit INR 6,800, or $85 for international guests",
+                "from": [
+                  "https://swamiamlanandyoga.com/shop/yoga-retreats-courses/5-days-ayurvedic-cooking-course/"
+                ],
+                "read": "2026-11-26"
+              }
+            },
+            {
+              "name": "Ayuskama Rishikesh",
+              "url": "https://ayuskamarishikesh.com/product/ayurveda-nutrition-cooking-course-1-week-rishikesh-india/",
+              "course": "Ayurveda Nutrition & Cooking Course, one week, Monday to Saturday",
+              "blurb": "A beginner's week in Upper Tapovan, Rishikesh: two hours a day for six days, theory and hands-on cooking of sattvic vegetarian meals, with spices, herbs and recipes for common imbalances. Open to anyone, no background needed. That is about twelve hours of teaching in all, which is thin. The page names no teacher and publishes no dates; you reserve a seat with a deposit.",
+              "confidence": "medium",
+              "verify": [
+                "6 Days (Monday to Saturday)",
+                "12,000 INR",
+                "Hands-on Ayurvedic cooking with herbs, spices, vegetables"
+              ],
+              "facts": {
+                "where": "Upper Tapovan, Rishikesh",
+                "length": "6 days, 2 hours a day",
+                "format": "In person, non-residential; a room and meals can be added",
+                "price": "INR 12,000",
+                "priceNote": "without food and room; 24,000 INR with meals and a private non-AC room; seat held with a 2,500 INR deposit",
+                "from": [
+                  "https://ayuskamarishikesh.com/product/ayurveda-nutrition-cooking-course-1-week-rishikesh-india/"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "five days to two weeks",
+          "englishTaught": null,
+          "englishBasis": "None of the three pages states a teaching language."
+        },
+        {
+          "place": "Birstein",
+          "country": "Germany",
+          "region": "Western Europe",
+          "role": "credential",
+          "roleNote": "Not the craft's home. It is here because it is the one place found with a staged, examined Ayurveda chef qualification above the course, though the academy sets and marks that exam itself.",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "European Academy of Ayurveda (Rosenberg)"
+          ],
+          "masters": [
+            "Udo Schneider"
+          ],
+          "lineage": [
+            "Kerstin Rosenberg (runs the European Academy of Ayurveda with her husband)"
+          ],
+          "badges": [
+            "school"
+          ],
+          "why": "Five days in a training kitchen near Birstein, taught in German by the chef Udo Schneider, with the academy's own Ayurveda chef qualification above it.",
+          "bestSeason": "Mar, Jul-Aug, Nov",
+          "level": "Beginner -> Professional",
+          "id": "ayurvedic-cooking--birstein",
+          "schoolsInfo": [
+            {
+              "name": "European Academy of Ayurveda (Rosenberg)",
+              "url": "https://ayurveda-akademie.org/en/programs/courses/seminar/show/aki/0/The-great-Ayurveda-cooking-school",
+              "course": "The Great Ayurveda Cooking School, five days; 2027 dates 14–19 March, 20–25 March, 25–30 July, 30 July–4 August, 9–14 November",
+              "blurb": "A five-day module of the academy's Ayurveda chef training that can be booked on its own, with no prior knowledge asked. It is taught in a village hall kitchen at Freiensteinau-Radmühl, about 12 km from the academy's campus in Birstein, and the page names Udo Schneider, a Küchenmeister and DGE-trained diet cook, as its lecturer. You cook dal, rice, vegetables, soups, chutneys and spreads, adapt them to constitution and season, cook for Panchakarma and special diets, and learn menus, buffets and quantities for spa and seminar catering. It is 37.5 hours in the room. It is taught in German. Rooms and full board on campus are extra. Above it sits the full training, which ends in a practical exam where you cook a lunch for guests; the academy sets that exam itself.",
+              "confidence": "high",
+              "verify": [
+                "The great Ayurveda cooking school",
+                "Küchenmeister und diätetisch geschulter Koch DGE",
+                "Seminar fee from € 960"
+              ],
+              "facts": {
+                "where": "Freiensteinau-Radmühl, near Birstein",
+                "length": "5 days; 37.5 hours in the room",
+                "format": "In person, in a training kitchen; rooms and full board on campus extra",
+                "language": "German",
+                "price": "€960",
+                "priceNote": "the module alone; the full Ayurveda chef training is from €3,090 plus a €100 exam fee",
+                "from": [
+                  "https://ayurveda-akademie.org/en/programs/courses/seminar/show/aki/0/The-great-Ayurveda-cooking-school",
+                  "https://ayurveda-akademie.org/en/programs/courses/all-about-nutrition/cooking-courses",
+                  "https://ayurveda-akademie.org/en/programs/certified-trainings/ayurveda-nutrition/ayurveda-cook"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Lecturer",
+                    [
+                      "Udo Schneider"
+                    ]
+                  ]
+                ],
+                "from": "https://ayurveda-akademie.org/en/programs/courses/seminar/show/aki/0/The-great-Ayurveda-cooking-school",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "five days",
+          "englishTaught": false,
+          "englishBasis": "Every 2027 date of the cooking school on the academy's own page is listed as 'de', and the training page says 'Language: DE'.",
+          "instructionLanguage": "German"
+        }
+      ],
+      "id": "ayurvedic-cooking",
+      "featured": {
+        "id": "ayurvedic-cooking--mysore",
+        "place": "Mysore",
+        "country": "India",
+        "school": "Ayurvedic Living Institute",
+        "url": "https://ayurvedicliving.institute/ayurvedic-culinary-nutrition-training",
+        "course": "Ayurvedic Culinary & Nutrition Training, 15 to 24 February 2027",
+        "description": "Ten days residential outside Mysore, about forty hours of classroom study and kitchen work led by Kate O'Donnell, with Sahana of Rasayana Mysore Kitchen and her mother teaching local ingredients. Some meals the group cooks itself. $3,300 with nine nights and three meals a day.",
+        "duration": "10 days",
+        "format": "Residential group training",
+        "certification": "Ayurvedic Living Institute's own certificate of completion",
+        "fitsBecause": "In India, a published date, a published price, and a teacher the page names as leading the kitchen hours herself.",
+        "priceNote": "$3,300; $500 non-refundable deposit",
+        "confidence": "high"
+      }
+    },
+    {
+      "discipline": "Greek Cuisine",
+      "category": "culinary",
+      "certBody": "No formal body. Each teacher runs their own course; nobody certifies Greek home cooking as a trade.",
+      "goldCredential": "None. No course here prints more than its own week or day.",
+      "blurb": "Greek island and village cooking — olive oil, wild greens, pies and filo, slow-cooked meat and fish — taught on Ikaria, Poros, Crete and near Nafplio, mostly in the cooks' own kitchens.",
+      "destinations": [
+        {
+          "place": "Ikaria",
+          "country": "Greece",
+          "region": "Mediterranean",
+          "role": "both",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Diane Kochilas, Ikaria Longevity Cooking & Life Retreats"
+          ],
+          "masters": [
+            "Diane Kochilas"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "A week in Diane Kochilas's family country home in Aghios Dimitris, on her home island: a 3-4 hour hands-on cooking session with her every day, then goatherds, beekeepers, an herbalist's walk, and a village feast if one falls that week.",
+          "bestSeason": "May-Jun, Sep",
+          "level": "Beginner -> Intermediate",
+          "id": "greek-cuisine--ikaria",
+          "schoolsInfo": [
+            {
+              "name": "Diane Kochilas, Ikaria Longevity Cooking & Life Retreats",
+              "url": "https://www.dianekochilas.com/ikaria-classes/",
+              "course": "Ikaria Longevity Cooking & Life Retreat, one week; spring 2027 weeks 30 May-5 June, 6-12 June and 13-19 June open, 20-26 June and all four autumn weeks sold out",
+              "blurb": "Diane Kochilas, cookbook author and host of PBS's My Greek Table, opens her family's country home and garden in Aghios Dimitris, Ikaria, to a small group for a week. Every day there is a 3-4 hour hands-on cooking session and meal with her in her own kitchen. The rest of the week is visits to goatherds, beekeepers and winemakers, herb walks with a local herbalist, a naturopathy talk, tastings, and a village feast when one falls in the week. Guests stay at a hotel in Armenistis. The group is at most 17 and usually 15 or fewer. The page sells it as a Blue Zone longevity retreat as much as a cooking course: half of each day is cooking, the other half is the island. It does not say what language it is taught in; everything on it is in English.",
+              "confidence": "high",
+              "verify": [
+                "Daily 3-4 hour hands-on cooking session and meal",
+                "2027 Ikaria Retreat Dates",
+                "Aghios Dimitris"
+              ],
+              "facts": {
+                "where": "Aghios Dimitris, Ikaria",
+                "length": "1 week (7 days)",
+                "format": "Residential week; hotel, most meals and island transport included",
+                "class": "17 at most",
+                "price": "US$4,900",
+                "priceNote": "most weeks 15 or fewer; double occupancy; single +US$300; a non-cooking companion US$2,450 less; Ikaria hotel tax €5 a night on top",
+                "from": [
+                  "https://www.dianekochilas.com/ikaria-classes/",
+                  "https://www.dianekochilas.com/product/ikaria-cooking-classes-2026/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches the daily cooking session",
+                    [
+                      "Diane Kochilas"
+                    ]
+                  ]
+                ],
+                "from": "https://www.dianekochilas.com/ikaria-classes/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "one week",
+          "englishTaught": null,
+          "englishBasis": "The course page is written in English for English-speaking guests, but it does not state the teaching language."
+        },
+        {
+          "place": "Poros",
+          "country": "Greece",
+          "region": "Mediterranean",
+          "role": "source",
+          "communityRank": 2,
+          "communityLabel": "Growing",
+          "schools": [
+            "Katerina's Kouzina (Odyssey, Poros)"
+          ],
+          "masters": [
+            "Katerina Sakelliou"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "Katerina Sakelliou, born on Poros, teaches her family's cooking at the Odyssey: a half-day workshop, or a week with four classes, the Poros fish market, her olive farm across the strait and a day on Hydra.",
+          "bestSeason": "Apr-Oct",
+          "level": "Beginner",
+          "id": "greek-cuisine--poros",
+          "schoolsInfo": [
+            {
+              "name": "Katerina's Kouzina (Odyssey, Poros)",
+              "url": "https://katerinaskouzina.com/katerinas-kouzina-odyssey-poros-greek-cooking-workshop.html",
+              "course": "Greek Cooking Workshop, half a day; or the Greek Cooking Week, 7 nights with four cooking classes and two excursions, dates on request",
+              "blurb": "Katerina Sakelliou was born on Poros and teaches what she calls her family's traditional cooking tricks at the Odyssey, by Askeli beach. A half-day workshop makes several starters, mains and desserts; she teaches privately or in groups of up to ten. The week adds the fish market in Poros town, her olive farm on the Peloponnese side, foraging for seasonal greens and a guided trip to Hydra, with four cooking classes followed by dinner. Fish is grilled, baked or fried in oil from her own grove. The week's dates and price are given only by email, and the page does not say what language it is taught in. Only four of the seven days are cooking days.",
+              "confidence": "medium",
+              "verify": [
+                "Our rates start at 65 euro per person",
+                "teaches groups of up to ten people",
+                "4 Greek cooking workshops, followed by dinner"
+              ],
+              "facts": {
+                "where": "Odyssey, Askeli, Poros",
+                "length": "1 week, 7 nights, 4 classes",
+                "format": "Half-day workshop, private or group; or a residential week with meals and transfer",
+                "class": "10 at most",
+                "price": "€65",
+                "priceNote": "from, a person, for the half-day workshop; the week's price is by email; private classes too; ingredients and drinks included; the week's price and dates by email only",
+                "from": [
+                  "https://katerinaskouzina.com/katerinas-kouzina-odyssey-poros-greek-cooking-workshop.html",
+                  "https://katerinaskouzina.com/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Hostess and chef",
+                    [
+                      "Katerina Sakelliou"
+                    ]
+                  ]
+                ],
+                "from": "https://katerinaskouzina.com/katerinas-kouzina-odyssey-poros-greek-cooking-workshop.html",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "half a day, or a week",
+          "englishTaught": null,
+          "englishBasis": "The workshop page is in English and its reviews are from English-speaking guests, but it does not state the teaching language."
+        },
+        {
+          "place": "Crete",
+          "country": "Greece",
+          "region": "Mediterranean",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Irini Tzortzoglou, Crete Food & Culture Journey"
+          ],
+          "masters": [
+            "Irini Tzortzoglou"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "A week near Hersonissos with Irini Tzortzoglou, who was born and raised in a Cretan village: four cooking classes, olive oil and honey tastings with her, a farm and a winery.",
+          "bestSeason": "May",
+          "level": "Beginner",
+          "id": "greek-cuisine--crete",
+          "schoolsInfo": [
+            {
+              "name": "Irini Tzortzoglou, Crete Food & Culture Journey",
+              "url": "https://irinicooks.com/portfolio/crete-food-culture-journey/",
+              "course": "Crete Food & Culture Journey, 7 nights, 11-18 May 2027",
+              "blurb": "Irini Tzortzoglou grew up in a village on Crete, won MasterChef UK in 2019 and now lives in the Lake District. Once a year she hosts a week at Villa Iokasti, a family-run hotel in Koutouloufari above Hersonissos. There are four cooking classes in all: with her, at a taverna, and at an organic farm, where the page says you watch food cooked on a wood fire before lunch. Her family recipes sit beside dishes from the rest of the island. She leads the olive oil and honey tastings herself, as a trained sommelier of both, and there is a pottery session, a winery and a church and museum visit. The page calls it a food and culture week, not a cooking course, and that is fair: four classes in seven days. It does not say who leads the taverna and farm classes. Places are confirmed one by one, and her journeys page caps the group at 14.",
+              "confidence": "medium",
+              "verify": [
+                "11–18 May 2027",
+                "Four cooking classes in total",
+                "Villa Iokasti, Koutouloufari, Crete"
+              ],
+              "facts": {
+                "where": "Koutouloufari, Crete",
+                "length": "7 nights",
+                "format": "Hosted residential week; four cooking classes, tastings, visits",
+                "class": "14 at most",
+                "price": "From £2,350",
+                "priceNote": "shared one-bed flat; two sharing a two-bed flat £2,450; studio alone £2,500; one-bed alone £2,750; 25% deposit",
+                "from": [
+                  "https://irinicooks.com/portfolio/crete-food-culture-journey/",
+                  "https://irinicooks.com/portfolio/greece-culinary-wellness-retreat-crete/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Host, cook and tastings",
+                    [
+                      "Irini Tzortzoglou"
+                    ]
+                  ]
+                ],
+                "from": "https://irinicooks.com/portfolio/crete-food-culture-journey/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "one week",
+          "englishTaught": true,
+          "englishBasis": "The page is in English, written by a UK-based host for guests paying in pounds; it does not state the teaching language in words."
+        },
+        {
+          "place": "Nafplio",
+          "country": "Greece",
+          "region": "Mediterranean",
+          "role": "source",
+          "communityRank": 2,
+          "communityLabel": "Growing",
+          "schools": [
+            "Kopiaste (Ivy Liacopoulou)"
+          ],
+          "masters": [
+            "Ivy Liacopoulou"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "A day in Ivy Liacopoulou's home among citrus trees 7 km from Nafplio, cooking a whole Greek meal from scratch, with the farmers' market first on Wednesdays and Saturdays.",
+          "bestSeason": "Year-round",
+          "level": "Beginner",
+          "id": "greek-cuisine--nafplio",
+          "schoolsInfo": [
+            {
+              "name": "Kopiaste (Ivy Liacopoulou)",
+              "url": "https://www.kopiaste.org/cooking-classes/",
+              "course": "Hands-on cooking class, one day (4-6 hours), private or small group, on request",
+              "blurb": "Ivy Liacopoulou grew up in Limassol, Cyprus, married into Greece and writes the recipe site Kopiaste. She teaches in her own home 7 km from Nafplio, among citrus trees: one day, four to six hours, cooking a main dish, an appetizer, a dip, a salad and a dessert from scratch, then eating it together. On Wednesdays and Saturdays a group of up to four can go to the farmers' market with her first. Classes are private or small groups, in English, and she builds a custom programme for groups over eight. The page publishes no price and no dates: you write to her. It is one day, so it is a taster, not a course you could grow inside.",
+              "confidence": "medium",
+              "verify": [
+                "Sessions typically last 4 to 6 hours",
+                "Held in my home, just 7 km from Nafplio",
+                "Private or small group hands-on cooking classes in English"
+              ],
+              "facts": {
+                "where": "Her home, 7 km from Nafplio",
+                "length": "1 day, 4 to 6 hours",
+                "format": "In person, in her home kitchen; private or small group, on request",
+                "language": "English",
+                "from": [
+                  "https://www.kopiaste.org/cooking-classes/",
+                  "https://www.kopiaste.org/about/"
+                ],
+                "read": "2026-11-26",
+                "priceNote": "private or a small group; the market visit takes 4 at most"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches the class",
+                    [
+                      "Ivy Liacopoulou"
+                    ]
+                  ]
+                ],
+                "from": "https://www.kopiaste.org/about/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "one day",
+          "englishTaught": true,
+          "englishBasis": "Kopiaste's own class page: 'Private or small group hands-on cooking classes in English'."
+        }
+      ],
+      "id": "greek-cuisine",
+      "certShort": "No formal body",
+      "featured": {
+        "id": "greek-cuisine--ikaria",
+        "place": "Ikaria",
+        "country": "Greece",
+        "school": "Diane Kochilas, Ikaria Longevity Cooking & Life Retreats",
+        "url": "https://www.dianekochilas.com/ikaria-classes/",
+        "course": "Ikaria Longevity Cooking & Life Retreat, one week",
+        "description": "A week in Diane Kochilas's own country kitchen in Aghios Dimitris, with a 3-4 hour hands-on cooking session and meal with her every day, and the rest of the day spent with the island's goatherds, beekeepers, winemakers and an herbalist. At most 17 people, usually 15 or fewer, staying at a hotel in Armenistis.",
+        "duration": "1 week",
+        "format": "Residential week, at most 17 people, daily hands-on session with the teacher",
+        "certification": "None",
+        "fitsBecause": "The one week on this craft where the named teacher cooks with you every day, in her own kitchen, on dates you can buy today.",
+        "priceNote": "US$4,900, double occupancy; single +US$300",
+        "confidence": "high"
+      }
+    },
+    {
+      "discipline": "Levantine & Middle Eastern Cuisine",
+      "category": "culinary",
+      "certBody": "No formal body. A school prints its own certificate, where it gives one at all.",
+      "goldCredential": "None. Beit Sitti's certificate of the session is the most any school here gives.",
+      "certShort": "No formal body",
+      "blurb": "Mezze, stuffed leaves, freekeh, flatbreads: the home cooking of the Levant and Turkey, taught at the stove by home cooks, in a single session.",
+      "destinations": [
+        {
+          "place": "Amman",
+          "country": "Jordan",
+          "region": "Middle East",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Beit Sitti"
+          ],
+          "masters": [
+            "Um Reem",
+            "Um Mohammad",
+            "Um Nabil",
+            "Um Malek",
+            "Um Mahmoud"
+          ],
+          "lineage": [
+            "Maria Haddad, with her sisters Dina and Tania, who founded Beit Sitti in 2010"
+          ],
+          "badges": [
+            "source",
+            "school"
+          ],
+          "why": "In a grandmother's house in Jabal Al Lweibdeh, one of Amman's oldest neighbourhoods, home cooks teach an Arabic meal from mezza to dessert, any day of the week.",
+          "bestSeason": "Year-round",
+          "level": "Beginner",
+          "id": "levantine-and-middle-eastern-cuisine--amman",
+          "schoolsInfo": [
+            {
+              "name": "Beit Sitti",
+              "url": "https://beitsitti.com/cook-and-dine/",
+              "course": "Cook and Dine: a breakfast, afternoon or private cooking session, then the meal",
+              "blurb": "Beit Sitti was founded in 2010 by Maria Haddad and her sisters in their grandmother's house in Jabal Al Lweibdeh. You cook a seasonal Arabic menu, mezza, salad, main course and dessert, under one of the house cooks, whom the site names: Um Reem, Um Mohammad, Um Nabil, Um Malek and Um Mahmoud. Then you sit down to eat it. The page sells group and private sessions and gives each participant a Beit Sitti certificate. It does not say how long a session lasts or how many share it, and it lists two afternoon group prices without saying what separates them. It is one meal, not a course of study.",
+              "confidence": "medium",
+              "verify": [
+                "Group Session: 35 JOD",
+                "Private Session: 45 JOD",
+                "Beit Sitti Certificate with the name of each participant"
+              ],
+              "facts": {
+                "where": "Jabal Al Lweibdeh, Amman",
+                "length": null,
+                "format": "Hands-on, then the four-course meal; group or private",
+                "language": null,
+                "price": "JOD 30",
+                "priceNote": "group session 30 or 35 JOD as the page lists both; private 45 JOD; Breakfast group session 15 JOD. The page lists two afternoon group prices and does not say what separates them",
+                "from": [
+                  "https://beitsitti.com/cook-and-dine/",
+                  "https://beitsitti.com/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Cooks",
+                    [
+                      "Um Reem",
+                      "Um Mohammad",
+                      "Um Nabil",
+                      "Um Malek",
+                      "Um Mahmoud"
+                    ]
+                  ]
+                ],
+                "note": "Named on the home page as Beit Sitti's cooks; which one teaches a given session is not said.",
+                "from": "https://beitsitti.com/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a morning or an afternoon",
+          "englishTaught": null
+        },
+        {
+          "place": "Galilee",
+          "country": "Israel",
+          "region": "Middle East",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Galileat"
+          ],
+          "masters": [],
+          "lineage": [],
+          "badges": [
+            "source",
+            "heritage"
+          ],
+          "why": "Druze, Christian, Muslim and Bedouin home cooks, from the Carmel through the Galilee to the Golan Heights, teach the dishes of their own villages in their own kitchens: stuffed vine leaves, freekeh, majadara, shish barak.",
+          "bestSeason": "Dates on request",
+          "level": "Beginner",
+          "id": "levantine-and-middle-eastern-cuisine--galilee",
+          "schoolsInfo": [
+            {
+              "name": "Galileat",
+              "url": "https://galileat.com/our-experiences/cooking-workshops/",
+              "course": "Cooking workshop in a host family's home, on request",
+              "blurb": "Galileat places you in the kitchen of one of its host families, from Daliyat al-Karmel near Haifa to Majdal Shams in the Golan Heights, to cook traditional dishes with them over two to four hours. Its site names eleven hosts, Druze, Christian, Muslim and Bedouin, among them Pnina in Maghar, Amira in Daliat al-Carmel and Roudena in Deir Hana, but which host you cook with depends on where and when you ask. The dishes depend on the host and the season. A kosher kitchen is available on request. No price is published and you request a date by form. It is a short session, thin as a course.",
+              "confidence": "medium",
+              "verify": [
+                "Learn, cook, and connect",
+                "Druze, Christian, Muslim, Bedouin",
+                "Up to 40 people"
+              ],
+              "facts": {
+                "where": "Host homes, Haifa to Golan Heights",
+                "length": "2-4 hours",
+                "format": "Hands-on, in a host family's kitchen; dates on request",
+                "language": "Hebrew, English, Arabic",
+                "class": "40 at most",
+                "price": null,
+                "priceNote": "No price published; ask by the request form",
+                "from": [
+                  "https://galileat.com/our-experiences/cooking-workshops/",
+                  "https://galileat.com/",
+                  "https://galileat.com/terms-conditions/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Hosts",
+                    [
+                      "Pnina",
+                      "Miad",
+                      "Saada",
+                      "Amira",
+                      "Gusun",
+                      "Rina",
+                      "Roudena",
+                      "Nohad",
+                      "Ibtisam",
+                      "Zada",
+                      "Salaam Abudola"
+                    ]
+                  ]
+                ],
+                "note": "The site names its hosts; it does not say which host teaches a given workshop.",
+                "from": "https://galileat.com/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "an afternoon",
+          "englishTaught": true,
+          "englishBasis": "Galileat's workshop page lists Hebrew, English and Arabic."
+        }
+      ],
+      "id": "levantine-and-middle-eastern-cuisine",
+      "featured": {
+        "id": "levantine-and-middle-eastern-cuisine--amman",
+        "place": "Amman",
+        "country": "Jordan",
+        "school": "Beit Sitti",
+        "url": "https://beitsitti.com/cook-and-dine/",
+        "course": "Cook and Dine",
+        "description": "A seasonal Arabic menu of mezza, salad, main course and dessert, cooked under one of the house cooks in a grandmother's house in Jabal Al Lweibdeh, then eaten together. Any day of the week, in a group or privately.",
+        "duration": null,
+        "format": "In person; group or private session",
+        "certification": "Beit Sitti's own certificate",
+        "fitsBecause": "In the Levant itself, it names its cooks, publishes its prices and takes a stranger any day of the week.",
+        "priceNote": "Group session 30 or 35 JOD; private 45 JOD",
+        "confidence": "medium"
+      }
+    },
+    {
+      "discipline": "Niçoise & Provençal Cuisine",
+      "category": "culinary",
+      "beforeAboard": {
+        "heading": "What you learn at the source",
+        "items": [
+          [
+            "Socca, pissaladière, pan bagnat",
+            "Nice's street food: a chickpea pancake, an onion flatbread and the sandwich that holds a salade niçoise."
+          ],
+          [
+            "Petits farcis",
+            "Small vegetables stuffed and baked, the dish the Nice school is named after."
+          ],
+          [
+            "Shopping the market",
+            "Building a meal from what the Cours Saleya and Libération stalls have that day."
+          ],
+          [
+            "Mediterranean fish",
+            "Choosing it fresh at the market or the port, then scaling, filleting and cleaning it."
+          ]
+        ]
+      },
+      "certBody": "No formal body. Each school gives its own course; nobody certifies this cuisine as a trade.",
+      "goldCredential": "None. A school's own course is the most there is.",
+      "certShort": "No formal body",
+      "blurb": "The cooking of Nice and Provence: socca, pissaladière, farcis, the morning market and the day's fish. Taught in Nice, and in a few kitchens elsewhere in Provence.",
+      "destinations": [
+        {
+          "place": "Nice",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "source",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Les Petits Farcis",
+            "L'Atelier de cuisine niçoise"
+          ],
+          "masters": [
+            "Rosa Jackson (Les Petits Farcis)",
+            "Annie Seabourne (guest teacher, Les Petits Farcis fish camp)"
+          ],
+          "lineage": [
+            "Rosa Jackson, who founded Les Petits Farcis in Nice in 2003 and still runs it"
+          ],
+          "badges": [
+            "source",
+            "scene",
+            "master",
+            "heritage",
+            "school"
+          ],
+          "why": "The city whose cooking France put on its national list of intangible heritage in 2019: socca, pissaladière, pan bagnat and the stuffed vegetables called petits farcis, learned a few minutes' walk from the Cours Saleya market.",
+          "bestSeason": "Year-round; the five-day course runs in winter, summer and autumn",
+          "level": "Beginner -> Intermediate",
+          "id": "nicoise-and-provencal-cuisine--nice",
+          "schoolsInfo": [
+            {
+              "name": "Les Petits Farcis",
+              "url": "https://www.petitsfarcis.com/product/cook-like-a-nicoise-with-rosa-a-seasonal-five-day-immersion/",
+              "course": "Cook Like a Niçoise with Rosa: a seasonal five-day immersion. Also a three-day Mediterranean fish camp, 18 to 20 March 2027",
+              "blurb": "Rosa Jackson's cooking studio at 12 rue Saint-Joseph in Vieux-Nice. Over five days you shop the Cours Saleya and Libération markets with her and cook from them: pan bagnat, socca and pissaladière, a seasonal lunch spread, then a farm day in the hills, a Provence wine tasting with the school's sommelier Viktorija Todorovska, a day in Menton and a pastry class with one of the school's pastry chefs. Rosa leads the market and cooking days herself. Minimum four people, so a date can be cancelled and refunded. The page says both 'a maximum of eight' and, at booking, 'Maximum 6 people'. Accommodation is not included. The school also runs a three-day fish camp, 18 to 20 March 2027, €1,080, in which Annie Seabourne, a fisherman's daughter who runs My Fish Kitchen in Cornwall, teaches scaling, filleting and cleaning Mediterranean fish alongside Rosa.",
+              "confidence": "high",
+              "verify": [
+                "Winter, February 1 to 5",
+                "2200 euros per person",
+                "Fall, October 11 to 15"
+              ],
+              "facts": {
+                "where": "12 rue Saint-Joseph, Vieux-Nice",
+                "length": "5 days",
+                "format": "In person: market tours, cooking classes, a farm day, Menton",
+                "language": "English",
+                "class": "4 minimum",
+                "price": "€2,200",
+                "priceNote": "VAT included; the page gives 6 and 8 as the maximum group; 2027: 1-5 Feb, 14-18 Jun, 11-15 Oct open; 29 Mar-2 Apr and 27 Sep-1 Oct sold out. Accommodation not included. Fish camp 18-20 Mar 2027, €1,080 incl. VAT, 4 to 8 people",
+                "from": [
+                  "https://www.petitsfarcis.com/product/cook-like-a-nicoise-with-rosa-a-seasonal-five-day-immersion/",
+                  "https://www.petitsfarcis.com/product/fish-camp/",
+                  "https://www.petitsfarcis.com/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Five-day immersion",
+                    [
+                      "Rosa Jackson",
+                      "Viktorija Todorovska (wine tasting)",
+                      "a Petits Farcis pastry chef (pastry class)"
+                    ]
+                  ],
+                  [
+                    "Fish camp",
+                    [
+                      "Annie Seabourne (guest teacher)",
+                      "Rosa Jackson"
+                    ]
+                  ]
+                ],
+                "from": "https://www.petitsfarcis.com/product/cook-like-a-nicoise-with-rosa-a-seasonal-five-day-immersion/",
+                "read": "2026-11-26"
+              }
+            },
+            {
+              "name": "L'Atelier de cuisine niçoise",
+              "url": "https://www.explorenicecotedazur.com/sortir/activites-loisirs/atelier-cuisine-nicoise/",
+              "course": "Cours classique, about 2 h 30: two Niçoise recipes cooked side by side",
+              "blurb": "A teaching kitchen run by the Nice Côte d'Azur tourist office on the ground floor of the Palais du Sénat, beside the Cours Saleya. Each person cooks at their own station, one of twelve, while the chef's station is filmed onto a screen so you can follow and copy it. A class covers two dishes, such as pissaladière, farcis, gnocchi, capouns or tourte de blettes, and the November 2026 programme is printed on the page. It is short, the ingredients are prepared in advance, and the page does not name the chefs. Taught in French, with explanations in English.",
+              "confidence": "high",
+              "verify": [
+                "Cours classique de 2h30",
+                "douze postes équipés",
+                "Palais du Sénat"
+              ],
+              "facts": {
+                "where": "Palais du Sénat, Vieux-Nice",
+                "length": "2.5 hours, from 9:30",
+                "format": "In person, one station each; the chef's station is shown on a screen",
+                "language": "French; the chef can explain in English",
+                "class": "12 at most",
+                "price": "€60",
+                "priceNote": "a person; €100 for two. Dates are published month by month",
+                "from": [
+                  "https://www.explorenicecotedazur.com/sortir/activites-loisirs/atelier-cuisine-nicoise/"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "five days",
+          "englishTaught": true,
+          "englishBasis": "Les Petits Farcis' own home page: 'Rosa Jackson and her friendly team of English-speaking local experts'.",
+          "instructionLanguage": "English at Les Petits Farcis; French with English explanations at the Atelier"
+        },
+        {
+          "place": "Avignon",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Le Marmiton, La Mirande"
+          ],
+          "masters": [
+            "Thomas Longuesserre (resident chef, La Table Haute)"
+          ],
+          "lineage": [],
+          "badges": [
+            "scene",
+            "school",
+            "heritage"
+          ],
+          "why": "A cooking school in the old kitchens of an Avignon hôtel particulier, where chefs from around Provence take turns at a nineteenth-century wood stove. A scene, not a source: each class is the visiting chef's own menu, and many are not Provençal.",
+          "bestSeason": "Year-round, Tuesday to Saturday",
+          "level": "Beginner -> Intermediate",
+          "id": "nicoise-and-provencal-cuisine--avignon",
+          "schoolsInfo": [
+            {
+              "name": "Le Marmiton, La Mirande",
+              "url": "https://www.la-mirande.fr/fr/cours-de-cuisine/",
+              "course": "One-day cooking class with a named guest chef, on a published date",
+              "blurb": "La Mirande has run Le Marmiton since 1994 in the old kitchens of its hôtel particulier in Avignon. A different chef from the region takes each class, and the agenda names who and what: in November 2026, Jean-Jacques Prévôt's 'Du vert à la mer' and Pascal Barnouin's truffle and foie gras, among others. The school's programme calls it hands-on, at most twelve people around one table, and the class ends with a meal and wine. A class is cancelled below eight people. The resident chef, Thomas Longuesserre, cooks Provençal food at La Table Haute. Only some of the guest chefs' menus are Provençal, so read the agenda before you choose a day.",
+              "confidence": "high",
+              "verify": [
+                "Depuis 1994, La Mirande invite les plus grands chefs de Provence",
+                "Le Chef Thomas Longuesserre"
+              ],
+              "facts": {
+                "where": "4 place de l'Amirande, Avignon",
+                "length": "1 day, usually 9:30 to 15:00",
+                "format": "In person, hands-on around one table, ends with a meal",
+                "class": "8 to 12",
+                "price": "€155",
+                "priceNote": "Truffle, lobster and foie gras classes and the class with a Michelin-starred chef are €180. A guest at the meal is €105. From the school's own programme (PDF)",
+                "from": [
+                  "https://www.la-mirande.fr/fr/cours-de-cuisine/",
+                  "https://www.la-mirande.fr/public/images/galerie/2026/07/programme-cours-cuisine-la-mirande.pdf",
+                  "https://www.la-mirande.fr/fr/agenda-des-cours-de-cuisine-a-avignon-la-mirande/?categorie=cuisine"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Resident chef",
+                    [
+                      "Thomas Longuesserre"
+                    ]
+                  ],
+                  [
+                    "Guest chefs named on the course page",
+                    [
+                      "Pascal Barnouin",
+                      "Michel Meissonnier",
+                      "Jean-Claude Altmayer",
+                      "Jeff Mouroux"
+                    ]
+                  ]
+                ],
+                "from": "https://www.la-mirande.fr/fr/cours-de-cuisine/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a day",
+          "englishTaught": null,
+          "englishBasis": "The site and programme are in French and English, but neither says in which language a class is taught."
+        },
+        {
+          "place": "Séguret (Vaucluse)",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Plate Full of Dreams (Suzanne Kay)"
+          ],
+          "masters": [
+            "Suzanne Kay"
+          ],
+          "lineage": [
+            "Patricia Wells, whose Provence classes have ended, names Suzanne Kay on her own site as the teacher she passed them to in Provence"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "lineage"
+          ],
+          "why": "A week in the vineyards under Mont Ventoux, cooking Provençal and Mediterranean food with Suzanne Kay at the Mas de Mourchon, with the Vaison-la-Romaine market and Rhône wine estates between classes.",
+          "bestSeason": "Late April, mid-October",
+          "level": "Beginner -> Intermediate",
+          "id": "nicoise-and-provencal-cuisine--seguret",
+          "schoolsInfo": [
+            {
+              "name": "Plate Full of Dreams (Suzanne Kay)",
+              "url": "https://platefullofdreams.com/caveau-kitchen-class/",
+              "course": "Caveau & Kitchen Class: six nights at the Mas de Mourchon, cooking classes and guided wine tastings",
+              "blurb": "Suzanne Kay teaches the cooking at the Mas de Mourchon, outside Séguret, in a week she runs with Philip Reddaway of Follow The Vin, who leads the wine. The classes are hands-on and cover Provençal and Mediterranean cooking: choosing ingredients, building flavour, preparing ahead, plating, and a four-course meal cooked by the group. There is also a morning at the Vaison-la-Romaine market. Be clear what you are paying for: much of the week is wine visits in Châteauneuf-du-Pape, Rasteau, Gigondas and Vacqueyras, and the price includes six nights' lodging, all meals and a driver. At most eight students. She also teaches private classes from €200 to €500 a person.",
+              "confidence": "high",
+              "verify": [
+                "April 25th to May 1st",
+                "The cost for the 6 night package is 5000€",
+                "class sizes are restricted to 8"
+              ],
+              "facts": {
+                "where": "Mas de Mourchon, Séguret",
+                "length": "6 nights, Sunday 4 pm to Saturday 10 am",
+                "format": "Residential: cooking classes, a market morning, wine estate visits",
+                "class": "8 at most",
+                "price": "€5,000",
+                "priceNote": "a person; Includes 6 nights, all meals, wine tours with a driver. 2027: 25 Apr-1 May and 10-16 Oct open; 18-24 Apr and 3-9 Oct full. 25% deposit, non-refundable",
+                "from": [
+                  "https://platefullofdreams.com/caveau-kitchen-class/",
+                  "https://platefullofdreams.com/about-me/",
+                  "https://platefullofdreams.com/private-classes/"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Cooking",
+                    [
+                      "Suzanne Kay"
+                    ]
+                  ],
+                  [
+                    "Wine",
+                    [
+                      "Philip Reddaway (Follow The Vin)"
+                    ]
+                  ]
+                ],
+                "from": "https://platefullofdreams.com/caveau-kitchen-class/",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "a week",
+          "englishTaught": null,
+          "englishBasis": "The site is written in English only, but it does not say in which language the classes are taught."
+        },
+        {
+          "place": "Cadenet (Luberon)",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 2,
+          "communityLabel": "Growing",
+          "schools": [
+            "La Fenière (Nadia Sammut)"
+          ],
+          "masters": [
+            "Nadia Sammut"
+          ],
+          "lineage": [
+            "Nadia Sammut grew up in La Fenière, daughter and granddaughter of cooks"
+          ],
+          "badges": [
+            "scene",
+            "master"
+          ],
+          "why": "A Sunday in Nadia Sammut's kitchen in the Luberon, cooking with Provençal olive oil and pistachio from named growers. A scene, not a source: what she teaches is her own gluten-free, dairy-free Cuisine Libre, not the regional repertoire.",
+          "bestSeason": "When dates are announced; none are published now",
+          "level": "Beginner",
+          "id": "nicoise-and-provencal-cuisine--cadenet-luberon",
+          "schoolsInfo": [
+            {
+              "name": "La Fenière (Nadia Sammut)",
+              "url": "https://www.aubergelafeniere.com/",
+              "course": "Atelier dominical: a Sunday workshop, 10:00 to 15:30, on gluten-free bread, desserts without milk, or Cuisine Libre",
+              "blurb": "Nadia Sammut cooks at La Fenière in Cadenet, the house where she grew up. On Sundays she teaches in her kitchen: you knead, cook and plate with her, eat lunch together, and leave with the recipes and a loaf. There are three subjects: gluten-free bread from rice, buckwheat, chickpea and chestnut flour; desserts without milk; and her Cuisine Libre, cooking from the garden with oils and herbs. Thin for this craft: every class is gluten-free and dairy-free, and the calendar is empty at the moment. The page says the August and September 2026 season is over and that new dates will follow. You can also ask for a class 48 hours ahead. The page says up to 12 people; the booking panel caps the option at 6.",
+              "confidence": "medium",
+              "verify": [
+                "165 € par personne",
+                "à La Fenière, avec Nadia Sammut"
+              ],
+              "facts": {
+                "where": "La Fenière, Cadenet, Luberon",
+                "length": "1 day, 10:00 to 15:30, on Sundays",
+                "format": "In person, cooking with Nadia, then lunch together",
+                "class": "12 at most",
+                "price": "€165",
+                "priceNote": "a person; the booking panel says 6 places; Includes the workshop, lunch and recipes. Booked on request, 48 hours ahead. No dates published on 26 Nov 2026",
+                "from": [
+                  "https://www.aubergelafeniere.com/"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a day",
+          "englishTaught": null,
+          "englishBasis": "The site is in French and does not say if a class can be taught in English."
+        }
+      ],
+      "id": "nicoise-and-provencal-cuisine",
+      "featured": {
+        "id": "nicoise-and-provencal-cuisine--nice",
+        "place": "Nice",
+        "country": "France",
+        "school": "Les Petits Farcis",
+        "url": "https://www.petitsfarcis.com/product/cook-like-a-nicoise-with-rosa-a-seasonal-five-day-immersion/",
+        "course": "Cook Like a Niçoise with Rosa: a seasonal five-day immersion",
+        "description": "Five days with Rosa Jackson in Vieux-Nice: two market mornings with a class and lunch after each, Niçoise street food, a farm day in the hills, Menton, and a pastry class. Each season has its own vegetables. In 2027 it runs 1 to 5 February, 14 to 18 June and 11 to 15 October. Accommodation is not included.",
+        "duration": "5 days",
+        "format": "In person, 4 people minimum",
+        "certification": "None; the school's own course",
+        "fitsBecause": "In Nice, where the cuisine comes from: a published date you can book, and the teacher named.",
+        "priceNote": "€2,200, VAT included",
+        "confidence": "high"
+      }
+    },
+    {
+      "discipline": "Plant-Based & Raw Cuisine",
+      "category": "culinary",
+      "certBody": "No body certifies the trade. Each school awards its own diploma; Le Cordon Bleu London's is credit-rated on the Scottish framework (SCQF level 8), and Deliciously Raw's levels are approved by The Vegetarian Society.",
+      "goldCredential": "None across the craft. The nearest thing is a school diploma placed on a national framework: Le Cordon Bleu London's Diploma in Plant-Based Culinary Arts, SCQF level 8, credit-rated by the Scottish Qualifications Authority.",
+      "certShort": "No formal body",
+      "blurb": "Cooking where vegetables, grains, legumes, nuts and seeds carry the plate, and raw food made without heat. It is taught in culinary schools and in one raw-food studio, not in a town that owns it.",
+      "id": "plant-based-and-raw-cuisine",
+      "destinations": [
+        {
+          "place": "Forest of Dean",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "credential",
+          "roleNote": "Raw cuisine has no home town. This is one teacher's studio in a wood in Gloucestershire, on the map for the course and its Vegetarian Society approval, not because the craft lives in the forest.",
+          "communityRank": 2,
+          "communityLabel": "Growing",
+          "schools": [
+            "Deliciously Raw Kitchen"
+          ],
+          "masters": [
+            "Deborah Durrant"
+          ],
+          "badges": [
+            "school",
+            "master"
+          ],
+          "why": "A raw-food kitchen in the Forest of Dean where, by its own page, Deborah Durrant teaches every course herself, hands-on, each student at their own workstation; Level One is four days, dates on request.",
+          "bestSeason": "On request",
+          "level": "Beginner -> Professional",
+          "id": "plant-based-and-raw-cuisine--forest-of-dean",
+          "schoolsInfo": [
+            {
+              "name": "Deliciously Raw Kitchen",
+              "url": "https://www.deliciouslyraw.kitchen/onsite-experiences",
+              "course": "Raw Chef Level One: Raw Chef Practitioner Certification (previously 'Feast'), four days; Levels Two and Three, two raw pastry levels and a raw deli level follow",
+              "blurb": "Deborah Durrant's raw plant-based kitchen at Lower Soudley in the Forest of Dean. The page says all training is personally taught and led by her, with small groups and a workstation each. Level One is four days, 30 hours: knife skills, nut milks and tree-nut cheeses, sprouting, fermentation, dehydration, raw soups, mains and desserts, and plating. The levels are approved by The Vegetarian Society. No price and no date are published: dates come with the prospectus when you write in, and the 'Upcoming Training' calendar on the same site still shows 2022. Thin, and worth an email before anyone plans round it.",
+              "confidence": "medium",
+              "verify": [
+                "All training is personally taught and led by Deborah",
+                "Duration: 4 days (30 hours)",
+                "approved by The Vegetarian Society"
+              ],
+              "facts": {
+                "where": "Lower Soudley, Forest of Dean",
+                "length": "4 days, 30 hours (Level One)",
+                "format": "In person, hands-on, own workstation; dates on request",
+                "credential": "Raw Chef Practitioner Certification Level One, approved by The Vegetarian Society",
+                "from": [
+                  "https://www.deliciouslyraw.kitchen/onsite-experiences",
+                  "https://www.deliciouslyraw.kitchen/raw-chef-level-one",
+                  "https://www.deliciouslyraw.kitchen/faqs",
+                  "https://www.deliciouslyraw.kitchen/upcoming-training"
+                ],
+                "read": "2026-11-26",
+                "priceNote": "small groups; no number published"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches every course",
+                    [
+                      "Deborah Durrant"
+                    ]
+                  ]
+                ],
+                "from": "https://www.deliciouslyraw.kitchen/onsite-experiences",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Deep-dive",
+          "tripLength": "four days",
+          "englishTaught": null,
+          "englishBasis": "The site is in English and the kitchen is in England, but no page read says which language the course is taught in."
+        },
+        {
+          "place": "Paris",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "credential",
+          "roleNote": "Paris is not where plant-based cooking comes from. It is here for two culinary schools that run a dedicated plant-based programme with published dates and fees.",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Le Cordon Bleu Paris",
+            "École Ducasse Paris Campus"
+          ],
+          "masters": [],
+          "lineage": [
+            "Alain Ducasse"
+          ],
+          "badges": [
+            "school"
+          ],
+          "why": "Two published routes: Le Cordon Bleu Paris's three-month plant-based cuisine diploma, open without experience, and École Ducasse's four-week Naturalité programme for cooks with kitchen experience, which says itself it is not vegan or vegetarian.",
+          "bestSeason": "Spring or autumn intakes",
+          "level": "Beginner -> Professional",
+          "id": "plant-based-and-raw-cuisine--paris",
+          "schoolsInfo": [
+            {
+              "name": "Le Cordon Bleu Paris",
+              "url": "https://www.cordonbleu.edu/paris/plant-based-gastronomy-cuisine-diploma/en",
+              "course": "Plant-Based Gastronomy: Cuisine Diploma (Diplôme de Gastronomie Végétale: Cuisine), three months",
+              "blurb": "Le Cordon Bleu's Paris institute on Quai André Citroën. Three months, about 22 hours a week, on vegetables, cereals, pulses, nuts, seeds, seaweed and soy products such as tofu and tempeh, cooked from plants only. Teaching mixes chef demonstrations with practical classes, and ends in a supervised practical exam. Demonstrations and theory are in French, translated consecutively into English. No experience is needed, but a statement of motivation and a baccalaureate or equivalent are. €13,000 with kit and uniform; the next intake runs 30 March to 18 June 2027. The page names no chef.",
+              "confidence": "high",
+              "verify": [
+                "Plant-Based Gastronomy: Cuisine Diploma",
+                "Demonstrations and theory classes are taught in French and consecutively translated into English.",
+                "Mar 30, 2027"
+              ],
+              "facts": {
+                "where": "Quai André Citroën, Paris 15e",
+                "length": "3 months, about 22 hours a week",
+                "format": "In person; demonstrations, then practical classes; final practical exam",
+                "language": "French, translated consecutively into English",
+                "price": "€13,000",
+                "priceNote": "includes the €500 application fee, knife kit and uniform; €11,210 for Le Cordon Bleu Paris alumni, without the kit; 30 Mar-18 Jun 2027; 27 Sep-17 Dec 2027",
+                "credential": "Diplôme de Gastronomie Végétale: Cuisine (Le Cordon Bleu)",
+                "from": [
+                  "https://www.cordonbleu.edu/paris/plant-based-gastronomy-cuisine-diploma/en"
+                ],
+                "read": "2026-11-26"
+              }
+            },
+            {
+              "name": "École Ducasse Paris Campus",
+              "url": "https://www.ecoleducasse.com/en/programs/plant-based-culinary-essentials",
+              "course": "Plant-Based Culinary Essentials: The Naturalité Approach, four weeks",
+              "blurb": "A four-week, 130-hour programme at École Ducasse's Paris Campus, 95% of it hands-on in the kitchens, in classes of up to 14, taught in English. It is plant-forward, not plant-only: the page says 'This is not a vegan or vegetarian program', and animal products stay in a supporting role. Five modules run from vegetables through grains, legumes and plant proteins to a final R&D menu built on Alain Ducasse's Naturalité approach. It is for cooks: a CAP Cuisine or equivalent, prior culinary training or a year in a professional kitchen, and a pre-enrolment interview. €5,600 for EU nationals, €6,900 for others; next intake 9 April 2027. The page shows four campus Chef Instructors but does not say who teaches this course.",
+              "confidence": "high",
+              "verify": [
+                "This is not a vegan or vegetarian program",
+                "Limited to 14 students per class.",
+                "130 hours over 4 weeks"
+              ],
+              "facts": {
+                "where": "École Ducasse Paris Campus",
+                "length": "4 weeks, 130 hours",
+                "format": "In person, 95% hands-on; plant-forward, not vegan; for cooks with experience",
+                "language": "English",
+                "class": "14 at most",
+                "price": "€5,600",
+                "priceNote": "EU nationals; €6,900 for non-EU nationals; Next intake 9 April 2027; entry: CAP Cuisine or equivalent, prior culinary training, or one year in a professional kitchen; interview",
+                "from": [
+                  "https://www.ecoleducasse.com/en/programs/essentials-of-naturalite"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "four weeks to three months",
+          "englishTaught": true,
+          "englishBasis": "École Ducasse's page gives 'Instruction Language: English'; Le Cordon Bleu Paris teaches in French with consecutive English translation."
+        },
+        {
+          "place": "London",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "credential",
+          "roleNote": "London is here for one school's diploma, the only plant-based cooking qualification on this craft placed on a national framework, not because the cuisine comes from London.",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Le Cordon Bleu London"
+          ],
+          "masters": [],
+          "badges": [
+            "school",
+            "gold-cred"
+          ],
+          "why": "Le Cordon Bleu London's three-month Diploma in Plant-Based Culinary Arts: Cuisine, open without experience, taught in English and credit-rated at SCQF level 8.",
+          "bestSeason": "Spring or autumn intakes",
+          "level": "Beginner -> Professional",
+          "id": "plant-based-and-raw-cuisine--london",
+          "schoolsInfo": [
+            {
+              "name": "Le Cordon Bleu London",
+              "url": "https://www.cordonbleu.edu/london/diploma-in-plant-based-cuisine/en",
+              "course": "Diploma in Plant-Based Culinary Arts: Cuisine, three months (a Pâtisserie diploma can be taken before or after)",
+              "blurb": "Le Cordon Bleu's London school in Bloomsbury Square. 370 hours over three months, cooked solely from plants: a typical week is four chef demonstrations and four practical classes, on stocks, sauces, fermentation, dehydration, tofu-making and sprouting, then vegetables by family and legumes, nuts, seeds and grains. No prior culinary experience is required. The diploma sits at SCQF level 8, credit-rated by the Scottish Qualifications Authority. £10,474 with materials, uniform and knife kit, as read on 26 November 2026; the page says certificate and diploma prices rise from 1 December 2026. Next term 2 April to 25 June 2027, in English. The page names no chef.",
+              "confidence": "high",
+              "verify": [
+                "370 hours over 3 months",
+                "SCQF level: 8",
+                "No prior culinary experience is required."
+              ],
+              "facts": {
+                "where": "Bloomsbury Square, London",
+                "length": "3 months, 370 hours",
+                "format": "In person; four demonstrations and four practical classes a week",
+                "language": "English",
+                "price": "£10,474",
+                "priceNote": "includes learning materials, uniform and knife kit; the page says prices rise from 1 December; 2 Apr-25 Jun 2027; 1 Oct-17 Dec 2027",
+                "credential": "Diploma in Plant-Based Culinary Arts - Cuisine, SCQF level 8, 37 credits",
+                "from": [
+                  "https://www.cordonbleu.edu/london/diploma-in-plant-based-cuisine/en"
+                ],
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "three months",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu London's term dates list each 2027 intake as 'Standard, in English'."
+        }
+      ],
+      "featured": {
+        "id": "plant-based-and-raw-cuisine--forest-of-dean",
+        "place": "Forest of Dean",
+        "country": "United Kingdom",
+        "school": "Deliciously Raw Kitchen",
+        "url": "https://www.deliciouslyraw.kitchen/onsite-experiences",
+        "course": "Raw Chef Level One: Raw Chef Practitioner Certification",
+        "description": "Four days, 30 hours, in Deborah Durrant's raw-food kitchen in the Forest of Dean, every student at their own workstation and every course taught by her. Dates come on request; no price is published.",
+        "duration": "4 days",
+        "format": "In person, small groups, dates on request",
+        "certification": "Raw Chef Practitioner Certification Level One, approved by The Vegetarian Society",
+        "fitsBecause": "The one room on this craft where the page names who teaches you, and the one built around raw food.",
+        "priceNote": "Not published; ask the school",
+        "confidence": "medium"
+      }
+    },
+    {
+      "discipline": "South Indian Cuisine",
+      "category": "culinary",
+      "certBody": "No formal body for the home cuisines. Hotel-management diplomas exist, but they certify a cook, not Chettinad or Kerala cooking.",
+      "goldCredential": "None for this craft. A school's own programme is the most there is.",
+      "blurb": "Rice and lentil batters left to ferment, coconut, tamarind and curry leaf, masalas ground on stone, and meals served on a banana leaf, from Chettinad to the Kerala midlands.",
+      "destinations": [
+        {
+          "place": "Kadalikad (Kerala midlands)",
+          "country": "India",
+          "region": "South Asia",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "The Pimenta (Haritha Farms)"
+          ],
+          "masters": [
+            "Jacob"
+          ],
+          "badges": [
+            "source",
+            "school"
+          ],
+          "why": "A family spice farm in Kerala's midlands, cooking for travellers since 1992, where you stand at the stove for Kerala's vegetarian kitchen: sadya, sambars, dosa, idli and appam.",
+          "bestSeason": "Oct-Mar",
+          "level": "Beginner -> Intermediate",
+          "id": "south-indian-cuisine--kadalikad-kerala",
+          "schoolsInfo": [
+            {
+              "name": "The Pimenta (Haritha Farms)",
+              "url": "https://www.thepimenta.com/cooking",
+              "course": "Kerala Cooking Residency, five days and four nights; the farm also lists programmes from three to eleven days",
+              "blurb": "A family-run homestay on 6.5 acres of spice gardens at Kadalikad, between Thodupuzha and Muvattupuzha, about 90 minutes from Kochi airport. The page says you are at the stove, not watching from a stool, with Jacob beside you; Madhu, who has run the kitchen for twenty-one years, does the prep so the time goes to technique. The residency gives at least four hands-on sessions of about two hours, with market, river and tea-country outings between them, for at most eight people. The kitchen is vegetarian only, so Kerala's fish and meat cooking is not taught here. Dates are on request.",
+              "confidence": "high",
+              "verify": [
+                "Capacity is limited to eight guests",
+                "with Jacob right beside you",
+                "A 5-Day Immersive Cooking Residency"
+              ],
+              "facts": {
+                "where": "Kadalikad, Ernakulam District, Kerala",
+                "length": "5 days, 4 nights",
+                "format": "Residential; 4+ hands-on sessions of about 2 hours; meals and outings included",
+                "class": "1 to 8 people",
+                "price": "₹75,953",
+                "priceNote": "for one cook in a private double room; one cook plus a non-cooking guest ₹88,011; two cooks ₹109,009; valid until 31 May 2027; dates on request; a driver from Kochi airport is arranged at cost, about ₹3,500",
+                "from": [
+                  "https://www.thepimenta.com/cooking",
+                  "https://www.thepimenta.com/plan-your-visit",
+                  "https://www.thepimenta.com/farm"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches the sessions",
+                    [
+                      "Jacob"
+                    ]
+                  ],
+                  [
+                    "Runs the kitchen and the prep",
+                    [
+                      "Madhu"
+                    ]
+                  ]
+                ],
+                "from": "https://www.thepimenta.com/cooking",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "about a week",
+          "englishTaught": null,
+          "englishBasis": "The Pimenta's pages are in English and written for foreign guests, but no page states the teaching language."
+        },
+        {
+          "place": "Karaikudi (Chettinad)",
+          "country": "India",
+          "region": "South Asia",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "The Bangala"
+          ],
+          "masters": [
+            "Umayal Chettyappan",
+            "Sivagami Subbiah"
+          ],
+          "lineage": [
+            "Meenakshi Meyyappan, who opened The Bangala in 1999 and co-wrote The Bangala Table"
+          ],
+          "badges": [
+            "source",
+            "heritage",
+            "lineage"
+          ],
+          "why": "Chettinad is the home of the Nagarathar merchants' cooking, and in Karaikudi The Bangala, a family-run heritage hotel, lists a three- or seven-day programme, down to the grinding stones. Its only description is dated 2016.",
+          "bestSeason": "Oct-Mar",
+          "level": "Home cook -> Professional",
+          "id": "south-indian-cuisine--karaikudi-chettinad",
+          "schoolsInfo": [
+            {
+              "name": "The Bangala",
+              "url": "https://www.thebangala.com/",
+              "course": "Chettinad Cuisine Masterclasses, a 3-day or 7-day residential programme for professional and home chefs",
+              "blurb": "A heritage hotel in a family bungalow in Karaikudi. Its programme, a printed document dated 2016 that the masterclass page now opens directly, runs full days of history, ingredients, demonstrations and cooking classes: sambars, rasams and curries, meat, fish, palakarams, rice and pickles, with market visits, the ammi kal and aatu kal grinding stones, and a wedding feast on the seven-day version if one is on. It names family members Umayal Chettyappan and Sivagami Subbiah among the instructors. It mixes demonstration with hands-on work and does not say how much of each. No price, date or group size is published; you write to the hotel. Thin, because the only description is ten years old.",
+              "confidence": "medium",
+              "verify": [
+                "Chettinad Cuisine Masterclasses",
+                "cooking demos and Master Chef Courses",
+                "renowned chefs at the Bangala"
+              ],
+              "facts": {
+                "where": "The Bangala, Karaikudi, Tamil Nadu",
+                "length": "3 days, or 7 days",
+                "format": "Residential; full days of classes and demonstrations; room and meals included",
+                "priceNote": "No price or dates published; reservations by email or phone to the hotel. The programme document is dated March 2016.",
+                "from": [
+                  "https://www.thebangala.com/",
+                  "https://www.thebangala.com/chettinad-cuisine-masterclasses/",
+                  "https://www.thebangala.com/wp-content/uploads/2016/11/cooking-course-layout.pdf"
+                ],
+                "read": "2026-11-26"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Instructors named in the 2016 programme",
+                    [
+                      "Umayal Chettyappan",
+                      "Sivagami Subbiah",
+                      "Sumeet Nair"
+                    ]
+                  ]
+                ],
+                "from": "https://www.thebangala.com/wp-content/uploads/2016/11/cooking-course-layout.pdf",
+                "read": "2026-11-26"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "three days to a week",
+          "englishTaught": null,
+          "englishBasis": "The programme document is in English and aimed at visiting chefs, but it does not state the teaching language."
+        }
+      ],
+      "id": "south-indian-cuisine",
+      "certShort": "No formal body",
+      "featured": {
+        "id": "south-indian-cuisine--kadalikad-kerala",
+        "place": "Kadalikad (Kerala midlands)",
+        "country": "India",
+        "school": "The Pimenta (Haritha Farms)",
+        "url": "https://www.thepimenta.com/cooking",
+        "course": "Kerala Cooking Residency",
+        "description": "Five days and four nights on a family spice farm in Kerala's midlands: at least four hands-on sessions of about two hours with Jacob, at most eight people, with markets, a river and tea country between them. Vegetarian and vegan Kerala cooking only.",
+        "duration": "5 days, 4 nights",
+        "format": "Residential, 1 to 8 people, hands-on sessions",
+        "certification": "None",
+        "fitsBecause": "The one South Indian room we found that publishes its teacher, its group cap and its price, with dates on request.",
+        "priceNote": "₹75,953 for one cook, private double room, valid until 31 May 2027",
+        "confidence": "high"
+      }
     }
   ],
   "enrichedAt": "2026-06-11",
