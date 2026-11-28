@@ -3436,11 +3436,16 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     # address dialog and reads the school, the craft and the place off this card's own
     # li; with no script it is a jump to the note. Not on a room nobody can book: a
     # school with a standing says so in its own line and asks for nothing.
-    interest = ("" if stand else
+    # A school that asked us for no relationship (Taiwa Gakuen, 12 Nov 2026): the facts
+    # stay, read on its own pages, but no lead is collected under its name and the card
+    # says plainly that we have no link with it.
+    indep = (s_.get("independent") or "").strip()
+    interest = ("" if (stand or indep) else
                 '<a class="school-url sinterest" href="#letter" data-interest>'
                 "I&rsquo;m interested in this school &rarr;</a>")
-    foot = (f'<div class="sfoot">{visit}{rating_html}{interest}</div>'
-            if (visit or rating_html or interest) else "")
+    indep_html = f'<p class="snote">{e(indep)}</p>' if indep else ""
+    foot = (f'<div class="sfoot">{visit}{rating_html}{interest}</div>{indep_html}'
+            if (visit or rating_html or interest) else indep_html)
     read = (f'<p class="sread">Facts read on the school\'s own pages, {e(pretty_date(own["read"]))}.</p>'
             if own.get("read") else "")
 
@@ -3449,7 +3454,7 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     fold_body = rest_html + teachers + blurb + more + _rate + read
     fold = (f'<details class="smore sall"><summary>More about this school</summary>{fold_body}</details>'
             if fold_body else "")
-    foot = (f'<div class="sfoot">{visit}{interest}</div>' if (visit or interest) else "")
+    foot = (f'<div class="sfoot">{visit}{interest}</div>{indep_html}' if (visit or interest) else indep_html)
     head = ((f'<div class="stags">{chips}</div>' if chips else "")
             + f'<h3 class="sname">{e(s_["name"])}</h3>'
             + (f'<div class="scourse">{e(s_["course"])}</div>' if s_.get("course") else ""))

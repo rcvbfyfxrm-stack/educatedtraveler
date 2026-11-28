@@ -19324,6 +19324,7 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Kyoto Culinary Art College (Taiwa Gakuen)",
+              "independent": "EducatedTraveler has no link or partnership with Taiwa Gakuen. Everything on this card was read on the school's own public pages.",
               "url": "https://www.taiwa.ac.jp/global/en/kyocho.php",
               "course": "Advanced Japanese Cuisine Program (2 years), Japanese Cuisine Major or Sushi Major",
               "blurb": "Kyoto's dedicated culinary vocational college runs a two-year Advanced Japanese Cuisine Program taking students from basic dashi through sashimi and kaiseki using Kyoto vegetables and seasonal ingredients.",
@@ -19342,6 +19343,7 @@ window.ET_ATLAS = {
             },
             {
               "name": "La Carriere Cooking School (since 1931)",
+              "independent": "EducatedTraveler has no link or partnership with Taiwa Gakuen. Everything on this card was read on the school's own public pages.",
               "url": "https://www.taiwa.ac.jp/lacarriere/en/course/",
               "course": "International programme — six short courses, sushi among them",
               "blurb": "Founded in 1931 and, in their own words, the oldest cooking school in Kyoto. What they run for visitors is not a washoku course as we had it listed but a six-course international programme, each a single 2.5-hour session at 11,000 JPY a head with a minimum of three people — one of them nigiri sushi with red miso soup, others ramen and gyoza. Short, real, and a taste rather than a training: it belongs on this page as a first step, not as a route into the craft. The washoku course page we linked until now is gone. Checked on taiwa.ac.jp, 3 September 2026.",
